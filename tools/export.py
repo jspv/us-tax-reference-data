@@ -37,7 +37,7 @@ ALL = ("AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN 
 
 README = """# {name} {version}
 
-Cited state income tax data for tax year {year}, for long-range retirement projections.
+Cited state income tax data for tax year {year}, for testing retirement-projection software.
 Status: **{status}**. {status_note}
 
 **Made by AI, for testing only.** This data was produced and checked by large language models; no
