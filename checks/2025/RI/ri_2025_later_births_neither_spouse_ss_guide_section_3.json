@@ -1,0 +1,68 @@
+{
+  "id": "ri_2025_later_births_neither_spouse_ss_guide_section_3",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_social_security_modification_later_births"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Guide PDF p.16, Section 3 Example #2; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      },
+      {
+        "age": 65,
+        "born": "1960-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "56500.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        },
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "82000.00",
+    "federal_taxable_income": "48900.00"
+  },
+  "expected": {
+    "state_agi": "82000.00",
+    "state_taxable_income": "50000.00",
+    "state_tax_before_credits": "1875.00",
+    "credits": "0.00",
+    "state_income_tax": "1875.00",
+    "relief_amounts": {
+      "ri_social_security_modification_later_births": "0.00"
+    }
+  },
+  "worked": "Federal AGI = wages 56,500.00 + taxable Social Security 25,500.00 = 82,000.00. Federal taxable income = 82,000.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 48,900.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 82,000.00. Line 1s, Social Security worksheet: person 0 born 1962-06-15 (age 63), person 1 born 1960-06-15 (age 65). Line 3 federal AGI 82,000.00; line 4 Married filing jointly; line 5 born on or before 03/01/1959: no; line 6 133,750.00; line 7 82,000.00 less than 133,750.00: yes. STOP: not eligible; modification 0.00. Later-births branch: born on or after 1959-03-02 and age 67 at year end; nobody can meet both in 2025, so 0.00. Line 1y total decreasing modifications = 0.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 0.00 = 0.00; RI-1040 line 2 = 0.00. Line 3 modified federal AGI = 82,000.00 + (0.00) = 82,000.00. Standard Deduction and Exemption Worksheets: line 3 82,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 21,800.00 (Married filing jointly). Line 5 = 82,000.00 - 21,800.00 = 60,200.00. Line 6 exemptions: 2 x 5,100.00 = 10,200.00. Line 7 taxable income = 60,200.00 - 10,200.00 = 50,000.00. Line 8 tax on 50,000.00 by the schedule as numbers: 50,000.00 x 0.0375 = 1875.000000 = 1,875.00. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 1,875.00. Note: Guide Section 3 Example #2 (Justin 63, Mark 65, federal AGI 82,000): neither has reached full retirement age, so worksheet line 5 stops.",
+  "accepted_approximations": [
+    "The forms state the age test for 2025 as born on or before March 1, 1959; the law is full retirement age, so that date moves each year. So that later years are not cut off, each relief has a second branch for anyone born after that date: age 67 at year end. Nobody born after the date qualifies in 2025, so 2025 is exact. People born March 2 to December 31, 1959 have a full retirement age of 66 and ten months and reach 67 in the same tax year, 2026; everyone born in 1960 or later has 67 (born January 1, 1960 uses the 1959 row and reaches both ages in 2026)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

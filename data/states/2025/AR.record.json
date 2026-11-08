@@ -1,0 +1,671 @@
+{
+ "layer": "record",
+ "state": "AR",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Brackets: the booklet prints no bracket schedule. It prints the 2025 Regular Income Tax Table (PDF pages 30-34, rows 100 wide, read by net taxable income, AR1000F line 28), the sentence 'Marginal Income Tax rates for 2025 are 3.9%, as amended in 2024' (PDF page 6), and 'For $100,001 and over, your tax is $3,809 + 3.9% of the excess over $100,000' (PDF page 34). Every bracket figure is DERIVED from the table: 0% to 5,600; 2% from 5,600; 3% from 11,200; 3.4% from 15,990; 3.9% from 26,400. Only 3.9% is printed as a rate.",
+  "How the brackets were derived: 771 of the table's 897 rows from 0 up to the 94,601 to 94,701 row were parsed from the converted texts (no row differs between pypdf and Docling where both have it; the other 126 rows, 22,000 to 25,900, 42,000 to 45,900, 62,000 to 65,900, 74,000 to 74,900 and three single rows, all inside bands, could not be split from the layout). With tax figured at the row midpoint and rounded half up, the schedule above reproduces every parsed row exactly. Sixteen rows across all five bands are in brackets.derivation. The table fixes the starts only up to a trade-off: the constant subtracted in the 3.9% band (0.02 x 5,600 + 0.01 x 11,200 + 0.004 x 15,990 + 0.005 x 26,400 = 419.96) must lie between 419.96 and 419.98, and 150 combinations on round tens meet that; 5,600 / 11,200 / 15,990 / 26,400 is the one closest to round hundreds.",
+  "Settlement 2026-11-07: brackets 2% start (5,600) and 3.9% start (26,400): A and B agree; kept.",
+  "Settlement 2026-11-07: brackets 3% start: A said 11,150, B said 11,200; the PDF page 30 table rows reproduce exactly with 11,200 (and also with 11,150 when the 3.4% start moves to 16,120); 11,200 is kept with B.",
+  "Settlement 2026-11-07: brackets 3.4% start: A said 16,100, B said 16,000; neither reproduces the whole table. With A's starts the 3.9% band constant is 419.90 and 40 rows (26,500 to 26,600 printed 615, and every 1,000 after) come out 1 dollar high; with B's it is 420.00 and 20 rows from 75,501 to 75,601 (printed 2,527, PDF page 33) and every 1,000 after come out 1 dollar low. 15,990 (with 11,200) reproduces all 771 rows; settled on 15,990. Both readers' schedules are within 1 dollar of every row, so the difference is at most 1 dollar of tax.",
+  "Settlement 2026-11-07: brackets.derivation rows: A listed 8 rows, B 11; both sets reproduce; replaced with 16 rows chosen to sit on both sides of each start (PDF pages 30-34).",
+  "One table is printed for every filing status ('Married couples must use the same filing status and tax table', PDF page 30); married_joint uses it on joint net taxable income. Filing status 4 (married filing separately on the same return) figures each spouse's tax separately from the same table on their own column and adds them (PDF page 11, Method A). married_separate and head_of_household are left out because no separate schedule is printed.",
+  "Recapture: rows above 94,601 depart from the schedule. From the 94,701 row (tax 3,296, against 3,271 on the 94,601 row) to the 97,801 row (3,727) each row adds 13 or 14 dollars, 3.9% plus 10 cents a dollar; from the 97,901 row (3,731) each row adds 3 or 4 again and the rows equal 3.9% of income less about 89, and the printed formula ($3,809 + 3.9% over 100,000) equals 3.9% of income less 91. Below 94,601 the tax is 3.9% of income less 419.96. So about 330 of the 420 benefit of the lower bands is taken back between roughly 94,550 and 97,850 of net taxable income: a partial recapture of the lower brackets, recorded in recapture with effect phase_out_lower_brackets. The booklet prints no sentence about it; the evidence is the table and the formula.",
+  "Settlement 2026-11-07: recapture starts_over: A said 94,001, B said 94,701; the PDF page 34 rows 94,001 to 94,601 (3,248 to 3,271) are on the schedule, and the 94,701 row (3,296) is the first above it; 94,701 kept.",
+  "Settlement 2026-11-07: recapture full_over 100,000 and full_rate 0.039: B only; dropped. Above 100,000 the printed formula is 3.9% of the excess plus 3,809, which is not one rate on all taxable income (3.9% of 100,000 is 3,900), and the take-back ends near 97,850, not 100,000. The formula is quoted in as_printed. No phase_in_width either: the benefit is not taken back in full, and no width is printed.",
+  "Tax above 100,000: the table stops at the 99,901 to 100,001 row; the formula above applies from 100,001. brackets.derivation carries no formula because the derived five-band schedule does not include the recapture (the formula and the rows from 94,701 on are evidence for the recapture entry instead).",
+  "Low Income Tax Tables (PDF pages 28-29) are an alternative for low adjusted gross income (line 25), with the standard deduction built in and cut-offs such as 'Above $17,500' (filing status 1) and 'Above $29,000'; not usable by a filer who takes the 6,000 retirement exclusion, a military exemption, or itemizes (PDF page 28 qualifications 3 and 4; PDF page 14, line 26). Recorded only here.",
+  "Settlement 2026-11-07: B's 'Low Income Tax Tables' relief entry: dropped. It is an alternative tax table, not a subtraction from income, and its rows are not recorded; this note holds it.",
+  "Settlement 2026-11-07: B's 'Additional Tax Credit for Qualified Individuals' (60 stepped down to 0 by net taxable income up to 27,600, PDF page 25): dropped as out of scope, a low-income credit that is not relief for retirement income or Social Security (docs/design.md non-goals).",
+  "Starting point: Arkansas builds its own total income from lines 8 to 22 and adjusted gross income on line 25 (AR1000F page 2; PDF pages 12 to 14); no line starts from federal AGI, so base.starts_from is state_own. Net taxable income, line 28 = line 25 less line 27 (the standard deduction or Form AR3 itemized deductions, whichever is larger).",
+  "Standard deduction (PDF page 14 table): single 2,470; married filing joint 4,940; head of household 2,470; married filing separately on the same return 2,470 each; married filing separately on different returns 2,470; surviving spouse 2,470. 'The $2,470 Standard Deduction does not apply to taxpayer's dependent(s).' The booklet prints no personal or dependent exemption and no age-65 or blind deduction; those are 29-dollar tax credits (line 7A/7B), recorded as credit reliefs.",
+  "Social Security: exempt. PDF page 11, 'Exempt from income tax' item 8: 'Social Security benefits, VA benefits, Workers' Compensation, Railroad Retirement benefits and related supplemental benefits are exempt from tax.' Second check: the AR1000F income lines 8 to 22 have no line for Social Security, and gross income for filing is 'all income ... other than income specifically described as exempt on pages 10 and 11' (PDF page 10).",
+  "Government pensions of another state, New York State included: no rule names them, and none limits the 6,000 exclusion to Arkansas plans. PDF page 13 (line 18B): 'You might be eligible for the $6,000 exemption for retirement or disability benefits provided the distribution was from public or private employment-related retirement systems, plans, or programs. (The recipient does not have to be retired.) The method of funding is irrelevant.' The test is the kind of plan (employment-related, public or private), not which government pays, so public_pension_other_state is in covers of the employer-plan entry, with Arkansas and federal pensions.",
+  "Settlement 2026-11-07: employer-plan exclusion public_pension_other_state: A and B both put it in covers_unclear; PDF page 13 line 18B ('public or private employment-related retirement systems, plans, or programs', no state named) and PDF page 11 item 12 ('income from an employer-sponsored retirement plan') settle it into covers. No paying-state entries: no state is named.",
+  "Arkansas's own and federal government pensions: no separate rule; they take the same 6,000 exclusion as private employer plans ('public or private', PDF page 13). No contributory-plan test is printed; after-tax contributions are recovered first under IRC section 72 (PDF page 11 item 12).",
+  "Settlement 2026-11-07: age test on the employer-plan exclusion: Subject 206 (revised 2/24/2023) lists 'You are under 59 1/2' among the cases that cannot qualify for the $6,000 exemption, and opens 'If you are retired and receiving retirement benefits from an employer-sponsored pension plan'; the 2025 instructions give no age for employer plans: PDF page 11 item 12 'the first $6,000 is exempt from tax', and PDF page 13 line 18B '(The recipient does not have to be retired.)', with the 59 1/2 test written only for traditional IRA distributions (item 13; line 18B). Settled on the 2025 instructions: no age test on the employer-plan entry, 59.5 on the IRA entry. Reasons: they are for tax year 2025 and print the rule twice; Subject 206's list follows its IRA sentence; and the same Subject 206 list also contradicts the 2025 instructions on military retirees (below). Subject 206's condition is kept in the entry's other_conditions as a note, not as a test.",
+  "Settlement 2026-11-07: military retirees and the 6,000 exclusion: three printed versions. PDF page 8 and PDF page 13 (line 18B): 'Military retirees cannot claim the $6,000 exemption for traditional or employer-sponsored distributions if their military retirement exemption exceeds $6,000. If the military retirement exemption is less than $6,000, the remaining amount of the exemption may be taken for traditional or employer-sponsored distributions.' PDF page 13 (line 17): 'Retirees cannot claim both the military retirement exemption and the $6,000 exemption for traditional IRA distributions (A.C.A 26-51-307(f)).' Subject 206: cannot qualify if 'You take the Military Pension exemption and also have an employer sponsored pension.' Settled on the PDF page 8 and 18B wording, printed twice and the most detailed: the military exemption uses up the 6,000 first. B's cannot_combine_with military_retirement_exempt on the 6,000 entries is dropped; the rule is in cap_rule.",
+  "The 6,000 limit is per taxpayer and shared: 'Total exemptions from all plans described under 12 and 13 cannot exceed $6,000 per taxpayer, not including recovery of cost' (PDF page 11). A spouse gets a separate 6,000 (Subject 206). 'A surviving spouse qualifies for the exemption; however he/she is limited to a single $6,000 exemption' (PDF page 11). The exclusion is limited to the pension income when that is less (Subject 206).",
+  "Settlement 2026-11-07: best_of_group on the two 6,000 entries (A only): dropped. The entries are not alternatives; they share one cap per taxpayer, which cap_rule says.",
+  "Settlement 2026-11-07: traditional IRA exclusion: A wrote one entry (age 59.5, death or disability in other_conditions), B two (age 59.5; premature distribution on account of death or disability, no age); B's split kept, one entry per branch (PDF page 11 item 13: 'Premature distributions made on account of the participant's death or disability also qualify for the exemption').",
+  "Roth conversions: the booklet does not mention them; roth_conversion is in covers_unclear on the IRA and employer-plan entries. 'Rollovers on distributions are tax exempt' (PDF page 13, line 16) does not say whether a conversion is a rollover. The IRA exclusion names traditional IRAs only.",
+  "Settlement 2026-11-07: roth_conversion in covers_unclear on the employer-plan entry: B only; kept, the booklet is silent on conversions from employer plans as well.",
+  "Annuities: annuity is in covers_unclear on the employer-plan entry. Subject 206 speaks of 'pension or annuity payments' from an employer-sponsored plan; line 16 reports 'taxable annuities' with no exemption (PDF page 13); a private annuity contract gets cost recovery only (PDF page 10 item 3).",
+  "Early withdrawals: 'Enter ten percent (10%) of the federal amount from Part I of federal Form 5329' as additional tax on line 32 (PDF page 14). No field holds it.",
+  "Personal tax credits (PDF page 12, line 7A/7B; AR1000F lines 7A and 7B 'X $29 ='): one 29 credit each for taxpayer and spouse; additional 29 credits for head of household or surviving spouse status, age 65 or over on January 1, 2026, deaf, blind (not for children or dependents), and '65 Special'; 29 per dependent. Each is a credit relief with credit_amount 29.",
+  "Settlement 2026-11-07: age-65 credits: A recorded only the '65 Special' credit, B recorded it and the separate 'age 65 or over' credit; both kept (PDF page 12 lists 'On January 1, 2026, were you age 65 or over?' as its own box, and the 65 Special as an additional 29 for a taxpayer 65 or over not claiming a line 18 exemption; the form prints both boxes for each spouse).",
+  "Settlement 2026-11-07: credits for head of household or surviving spouse, blind, deaf and each dependent: B only; kept (PDF page 12, line 7A and 7B), as the dispatch asked for the 29 credits.",
+  "Settlement 2026-11-07: cap_per on the 65 Special credit: A said person, B left it out; left out, the credit has no cap (it is 29 per taxpayer, credit_amount).",
+  "Settlement 2026-11-07: Social Security and Railroad Retirement: A wrote one entry for both, B one each; one entry kept, as item 8 is one sentence with one rule (PDF page 11), with B's railroad conditions and not_covered.",
+  "Settlement 2026-11-07: U.S. active-duty military pay exemption: B only; kept (PDF page 11 item 11; PDF page 12 line 9).",
+  "Municipal interest: interest from 'direct United States obligations, its possessions, the State of Arkansas, or any political subdivision of the State of Arkansas is exempt from tax' (PDF page 10 item 7). Nothing is printed on other states' obligations (not found in the booklet), so treatment is 'other'.",
+  "Capital gains: line 14 sends the filer to Form AR1000D for the taxable amount (PDF page 13); AR1000D is not among the sources, so no rate or deduction share is recorded (not found in the booklet). Printed: the capital loss deduction limit of 3,000 (1,500 per taxpayer for filing status 4 or 5), and the exempt gain on a principal residence (capital_gains entry).",
+  "Settlement 2026-11-07: principal residence gain exclusion: B only; kept (PDF page 13).",
+  "Indexing: 'Current year indexed tax brackets are available on our website' (PDF page 30) says the brackets are indexed; the index is not stated. Nothing is said about the standard deduction, the 6,000 exclusion or the credits.",
+  "Settlement 2026-11-07: indexing entries for standard_deduction and the employer-plan exclusion (not_stated): B only; kept.",
+  "Teacher and retired teacher lump-sum death benefits from the Arkansas Teacher Retirement System are exempt (PDF page 6); not recorded as a relief (a death benefit, not retirement income).",
+  "Subject 206 is dated 'Revised 2/24/2023' and is not specific to tax year 2025.",
+  "The booklet states 'THESE INSTRUCTIONS ARE FOR GUIDANCE ONLY AND DO NOT STATE THE COMPLETE LAW' (PDF page 10)."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.02",
+    "start": "5600"
+   },
+   {
+    "rate": "0.03",
+    "start": "11200"
+   },
+   {
+    "rate": "0.034",
+    "start": "15990"
+   },
+   {
+    "rate": "0.039",
+    "start": "26400"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.02",
+    "start": "5600"
+   },
+   {
+    "rate": "0.03",
+    "start": "11200"
+   },
+   {
+    "rate": "0.034",
+    "start": "15990"
+   },
+   {
+    "rate": "0.039",
+    "start": "26400"
+   }
+  ],
+  "cite": {
+   "publication": "2025 AR1000F and AR1000NR Instructions",
+   "section": "PDF pages 30-34 (booklet pages 26-30), 2025 Regular Income Tax Table, read by line 28 net taxable income; PDF page 6, Individual Income Tax Rate Reduction 'Marginal Income Tax rates for 2025 are 3.9%'",
+   "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+   "accessed": "2026-11-07"
+  },
+  "derivation": {
+   "method": "tax_table",
+   "table_rows": [
+    {
+     "status": "all",
+     "income": "5550",
+     "tax": "0"
+    },
+    {
+     "status": "all",
+     "income": "5750",
+     "tax": "3"
+    },
+    {
+     "status": "all",
+     "income": "9050",
+     "tax": "69"
+    },
+    {
+     "status": "all",
+     "income": "11150",
+     "tax": "111"
+    },
+    {
+     "status": "all",
+     "income": "11350",
+     "tax": "117"
+    },
+    {
+     "status": "all",
+     "income": "13150",
+     "tax": "171"
+    },
+    {
+     "status": "all",
+     "income": "15950",
+     "tax": "255"
+    },
+    {
+     "status": "all",
+     "income": "16150",
+     "tax": "261"
+    },
+    {
+     "status": "all",
+     "income": "20050",
+     "tax": "394"
+    },
+    {
+     "status": "all",
+     "income": "26350",
+     "tax": "608"
+    },
+    {
+     "status": "all",
+     "income": "26550",
+     "tax": "615"
+    },
+    {
+     "status": "all",
+     "income": "30050",
+     "tax": "752"
+    },
+    {
+     "status": "all",
+     "income": "50050",
+     "tax": "1532"
+    },
+    {
+     "status": "all",
+     "income": "75551",
+     "tax": "2527"
+    },
+    {
+     "status": "all",
+     "income": "90051",
+     "tax": "3092"
+    },
+    {
+     "status": "all",
+     "income": "94651",
+     "tax": "3271"
+    }
+   ],
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF pages 30-34, 2025 Regular Income Tax Table; income is the midpoint of each row's 'As Much As' / 'But Less Than' bounds: rows 5,500-5,600 (0), 5,700-5,800 (3), 9,000-9,100 (69), 11,100-11,200 (111), 11,300-11,400 (117), 13,100-13,200 (171), 15,900-16,000 (255), 16,100-16,200 (261), 20,000-20,100 (394), 26,300-26,400 (608), 26,500-26,600 (615), 30,000-30,100 (752), 50,000-50,100 (1,532), 75,501-75,601 (2,527), 90,001-90,101 (3,092), 94,601-94,701 (3,271)",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "state_own",
+  "deductions": [
+   {
+    "id": "ar_standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "2470",
+     "married_joint": "4940",
+     "married_separate": "2470",
+     "head_of_household": "2470",
+     "qualifying_surviving_spouse": "2470"
+    },
+    "per": "return",
+    "condition": "With the Regular Income Tax Table; the larger of this and Form AR3 itemized deductions. Filing status 4 (married filing separately on the same return): 2,470 each. Does not apply to dependents. If line 25 is less, enter line 25. Built into the Low Income Tax Tables (enter 0 there).",
+    "cite": {
+     "publication": "2025 AR1000F and AR1000NR Instructions",
+     "section": "PDF page 14, Standard Deduction table and LINE 26 to 28",
+     "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 AR1000F and AR1000NR Instructions",
+   "section": "PDF page 14, LINE 23 to 28; AR1000F page 2, lines 23 to 28",
+   "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 AR1000F and AR1000NR Instructions",
+   "section": "PDF page 11, Exempt from Income Tax item 8; AR1000F lines 8 to 22 (no Social Security line)",
+   "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "ar_employer_plan_exclusion",
+   "label": "$6,000 retirement income exemption, employer-sponsored or employment-related retirement plan (lines 18A/18B)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "annuity",
+    "roth_conversion"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "other_conditions": [
+     "Income from an employer-sponsored, public or private employment-related retirement system, plan or program, including disability retirement not exempt under IRC 104",
+     "The recipient does not have to be retired; method of funding is irrelevant; lump-sum or installment payments",
+     "Not with a Low Income Tax Table",
+     "Not with the '65 Special' credit",
+     "Subject 206 (revised 2/24/2023) also says 'You are under 59 1/2' cannot qualify; the 2025 instructions print no age for employer plans and were followed (see notes)"
+    ]
+   },
+   "cap": {
+    "all": "6000"
+   },
+   "cap_per": "person",
+   "cap_rule": "The first 6,000 of the taxable amount per taxpayer, after recovery of cost under IRC 72; only up to the pension income when less. One 6,000 per taxpayer shared with the traditional IRA entries (items 12 and 13 together at most 6,000, not counting recovery of cost); a spouse has a separate 6,000; a surviving spouse is limited to a single 6,000. Military retirees: none if the military retirement exemption exceeds 6,000; only the remainder of the 6,000 if it is less.",
+   "cannot_combine_with": [
+    "ar_65_special_credit"
+   ],
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 11, Exempt from Income Tax item 12 and the NOTE after item 13; PDF page 13, LINE 18A and 18B; PDF page 8, Military Retirement Exemption; Subject 206 page 1",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_traditional_ira_exclusion_59_5",
+   "label": "$6,000 exemption for traditional IRA distributions received after age 59 1/2",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "All other premature distributions or early withdrawals (including, but not limited to, those taken for medical expenses, higher education expenses or a first-time home purchase)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 59.5,
+    "max_age": null,
+    "other_conditions": [
+     "Traditional IRA only; adjusted for nondeductible contributions with federal Form 8606",
+     "Not with a Low Income Tax Table",
+     "Not with the '65 Special' credit"
+    ]
+   },
+   "cap": {
+    "all": "6000"
+   },
+   "cap_per": "person",
+   "cap_rule": "The first 6,000 per taxpayer, shared with the employer-plan entry and the death-or-disability entry (together at most 6,000 per taxpayer, not counting recovery of cost); a surviving spouse is limited to a single 6,000. Military retirees: none if the military retirement exemption exceeds 6,000; only the remainder if it is less (PDF pages 8 and 13, line 18B; line 17 says both cannot be claimed, see notes).",
+   "cannot_combine_with": [
+    "ar_65_special_credit"
+   ],
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 11, Exempt from Income Tax item 13 and NOTE; PDF page 13, LINE 18B; Subject 206 page 1",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_traditional_ira_exclusion_death_disability",
+   "label": "$6,000 exemption for premature traditional IRA distributions made on account of the participant's death or disability",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "All other premature distributions or early withdrawals (including, but not limited to, those taken for medical expenses, higher education expenses or a first-time home purchase)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "other_conditions": [
+     "Premature distribution (before age 59 1/2) made on account of the participant's death or disability",
+     "Not with a Low Income Tax Table",
+     "Not with the '65 Special' credit"
+    ]
+   },
+   "cap": {
+    "all": "6000"
+   },
+   "cap_per": "person",
+   "cap_rule": "The same 6,000 per taxpayer shared with the employer-plan entry and the age 59 1/2 IRA entry.",
+   "cannot_combine_with": [
+    "ar_65_special_credit"
+   ],
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 11, Exempt from Income Tax item 13; PDF page 13, LINE 18B",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_military_retirement_exempt",
+   "label": "Military Retirement Exemption (Act 141 of 2017), line 17",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "other_conditions": [
+     "Retirement benefits received by a member of the uniformed services as defined in the Act"
+    ]
+   },
+   "cap_rule": "No cap. It uses up the 6,000 exclusion first: none of the 6,000 if the military retirement exemption exceeds 6,000; the remainder if it is less.",
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 8, Military Retirement Exemption; PDF page 10, Exempt from Income Tax item 1; PDF page 13, LINE 17 and LINE 18B",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_social_security_railroad_exempt",
+   "label": "Social Security, VA, Workers' Compensation and Railroad Retirement benefits exempt",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security",
+    "railroad_retirement"
+   ],
+   "not_covered": [
+    "Private pensions reported on Form 1099-R from railroad companies are not considered exempt Railroad Retirement Benefits"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Railroad Retirement: tier I, tier II, vested dual benefits and supplemental annuity payments reported on RRB-1099-R and/or RRB-1099"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 11, Exempt from Income Tax item 8 and the paragraph after it",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_active_duty_military_pay_exempt",
+   "label": "U.S. active-duty military compensation exempt (line 9)",
+   "form": "exempt_in_full",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "U.S. active-duty military compensation; a return must be filed reporting all income to claim it"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 11, Exempt from Income Tax item 11; PDF page 12, LINE 9",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_us_and_arkansas_obligation_interest_exempt",
+   "label": "Interest from direct U.S. obligations, its possessions, the State of Arkansas or its political subdivisions",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest"
+   ],
+   "not_covered": [
+    "Interest received on tax refunds"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Interest from government securities paid through a mutual fund is also exempt"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 10, Exempt from Income Tax item 7",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_personal_credit",
+   "label": "Personal tax credit (line 7A), yourself and spouse",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Each taxpayer and spouse is entitled to one personal tax credit"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A; AR1000F line 7A 'X $29 ='",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_head_of_household_credit",
+   "label": "Additional personal tax credit, Head of Household or Surviving Spouse (line 7A)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Filing status Head of Household (3) or Surviving Spouse (6)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_age_65_credit",
+   "label": "Additional personal tax credit, age 65 or over (line 7A)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "max_age": null,
+    "other_conditions": [
+     "Age 65 or over on January 1, 2026",
+     "Not for children or dependents"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A; AR1000F line 7A '65 or over' boxes",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_65_special_credit",
+   "label": "'65 Special' additional tax credit (age 65 or over, not claiming a retirement income exemption on line 18)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "max_age": null,
+    "other_conditions": [
+     "Not claiming a retirement income exemption on line 18"
+    ]
+   },
+   "cannot_combine_with": [
+    "ar_employer_plan_exclusion",
+    "ar_traditional_ira_exclusion_59_5",
+    "ar_traditional_ira_exclusion_death_disability"
+   ],
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A 'Any taxpayer age 65 or over not claiming a retirement income exemption on line 18 is eligible for an additional $29 (per taxpayer) tax credit'; Subject 206 page 1 'You check the 65 Special box on your return'",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_blind_credit",
+   "label": "Additional personal tax credit, blind (line 7A)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Blind on December 31, 2025: unable to tell light from darkness, eyesight in the better eye not exceeding 20/200 with corrective lens, or field of vision limited to 20 degrees",
+     "Not for children or dependents"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_deaf_credit",
+   "label": "Additional personal tax credit, deaf (line 7A)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Deaf on December 31, 2025: average loss in speech frequencies (500 to 2000 Hertz) in the better ear of 86 decibels, I.S.O., or worse",
+     "Not for children or dependents"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7A",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ar_dependent_credit",
+   "label": "Personal tax credit for each dependent (line 7B)",
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "29 for each dependent listed on line 7B (not yourself or spouse)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 12, LINE 7B; AR1000F line 7B 'X $29 ='",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other",
+  "note": "Interest from direct U.S. obligations, its possessions, the State of Arkansas or any Arkansas political subdivision is exempt; the booklet does not say how other states' municipal interest is treated (not found in the booklet).",
+  "cite": {
+   "publication": "2025 AR1000F and AR1000NR Instructions",
+   "section": "PDF page 10, Exempt from Income Tax item 7",
+   "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "ar_principal_residence_gain",
+   "applies_to": "other",
+   "treatment": "exempt",
+   "value": "0",
+   "condition": "Gain on the sale of a personal residence is exempt up to 250,000 per taxpayer (500,000 for married couples filing on the same return), if owned and used as the principal residence for two years or more of the five years ending on the day of sale.",
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 13, LINE 14 text before LINE 15",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": "yes",
+   "index": "Not stated; the table page says 'Current year indexed tax brackets are available on our website'",
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 30, Regular Income Tax Table instructions",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ar_standard_deduction",
+   "indexed": "not_stated"
+  },
+  {
+   "figure": "ar_employer_plan_exclusion",
+   "indexed": "not_stated"
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": [
+  {
+   "measure": {
+    "base": "state_taxable_income",
+    "as_printed": "Net taxable income, AR1000F line 28 (line 25 less line 27), the figure the Regular Income Tax Table is read by"
+   },
+   "starts_over": {
+    "all": "94701"
+   },
+   "effect": "phase_out_lower_brackets",
+   "as_printed": "No sentence; read from the printed table and its note. Rows 94,001 to 94,601 follow the schedule (3,248 to 3,271). From the 94,701 row (3,296) to the 97,801 row (3,727) each 100-dollar row adds 13 or 14 dollars (3.9% plus about 10%). From the 97,901 row (3,731) to the 99,901 row (3,809) each row adds 3 or 4 again. 'PLEASE NOTE: For $100,001 and over, your tax is $3,809 + 3.9% of the excess over $100,000.' Below 94,601 the tax is 3.9% of income less about 420; above about 97,900 it is 3.9% of income less about 89 to 91: about 330 of the lower bands' benefit is taken back, not all of it. Same table for every filing status.",
+   "cite": {
+    "publication": "2025 AR1000F and AR1000NR Instructions",
+    "section": "PDF page 34 (booklet page 30), 2025 Regular Income Tax Table rows 94,001 to 100,001 and PLEASE NOTE",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ]
+}

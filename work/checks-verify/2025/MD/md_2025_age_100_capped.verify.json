@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "age_100_income": "100000.00"
+    },
+    "state_agi": "40050.00",
+    "state_income_tax": "1605.25",
+    "state_tax_before_credits": "1605.25",
+    "state_taxable_income": "34900.00"
+  },
+  "worked": "Filing status single. Line 1 federal AGI 140050.00 (given; federal taxable income 122300.00 given, federal senior deduction ignored). Income items sum to 140050.00 = federal AGI. Code ya person 0 (age 101): own income in federal AGI 140050.00, cap 100,000.00, subtract 100000.00. Line 16 Maryland AGI = 140050.00 + additions 0.00 - subtractions 100000.00 = 40050.00. Line 17 standard deduction (flat, single) 3350.00. Chart 10A: federal AGI 140050.00 -> 800.00 per exemption x 1 = 800.00. Age 65 exemption (not reduced by AGI): 1 x 1,000.00 = 1000.00. Line 19 total exemptions 1800.00. Line 20 taxable net income = 40050.00 - 3350.00 - 1800.00 = 34900.00. Line 21 tax by schedule (single): 0.02 x (1000.00 - 0) = 20.00; 0.03 x (2000.00 - 1000) = 30.00; 0.04 x (3000.00 - 2000) = 40.00; 0.0475 x (34900.00 - 3000) = 1515.25; total 1605.25. State tax before credits 1605.25; credits 0.00; state income tax 1605.25. (County local tax not part of the projection.)"
+}

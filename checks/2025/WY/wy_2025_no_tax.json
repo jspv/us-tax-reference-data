@@ -1,0 +1,45 @@
+{
+  "id": "wy_2025_no_tax",
+  "state": "WY",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+    "section": "economy paragraph, second sentence: Wyoming has no personal income tax (no state return or form lines exist)",
+    "url": "https://www.wyo.gov/about-wyoming"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ],
+      "interest": "1500.00"
+    },
+    "federal_agi": "71500.00",
+    "federal_taxable_income": "55750.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 70,000.00 + interest 1,500.00 = 71,500.00. Federal taxable income = 71,500.00 - 15,750.00 single standard deduction = 55,750.00 (given, not tested). Wyoming imposes no personal income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00 regardless of income.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

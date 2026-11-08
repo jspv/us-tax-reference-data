@@ -1,0 +1,19 @@
+{
+  "id": "US-2026-rmd-born-1960-start-age-75",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "rmd",
+  "boundary": "below",
+  "tests": [
+    "rmd.start_age"
+  ],
+  "description": "IRA owner born in 1960: start age 75, first required year 2035; nothing required in 2026.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1960-02-14",
+    "rmd_prior_year_end_balance": "600000"
+  },
+  "asked": [
+    "rmd_amount"
+  ]
+}

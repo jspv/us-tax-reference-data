@@ -1,0 +1,54 @@
+{
+  "id": "nm_2025_gains_short_term_only",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "net_capital_gains_cap"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 5, line 16; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "6000.00"
+    },
+    "federal_agi": "56000.00",
+    "federal_taxable_income": "40250.00"
+  },
+  "expected": {
+    "state_agi": "37750.00",
+    "state_taxable_income": "37750.00",
+    "state_tax_before_credits": "1365.25",
+    "credits": "0.00",
+    "state_income_tax": "1365.25",
+    "relief_amounts": {
+      "net_capital_gains_cap": "2500.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 50,000.00 + short-term gains 6,000.00 = 56,000.00. Federal taxable income = 56,000.00 - standard deduction 15,750.00 = 40,250.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, single. Line 9 federal AGI 56,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 15,750.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 56,000.00 is over the worksheet's printed ceiling 36,667.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 16 net capital gains: smaller of 6,000.00 and the cap 2,500.00 = 2,500.00; PIT-ADJ line 28 total 2,500.00. Line 17 = 56,000.00 + 0.00 - 15,750.00 - 0.00 - 2,500.00 = 37,750.00. By the projection: state_agi = federal taxable income 40,250.00 - 2,500.00 = 37,750.00; less base deductions 0.00 gives 37,750.00. Line 18 tax, schedule as numbers: 1.5% x 5,500.00 = 82.5 + 3.2% x 11,000.00 = 352 + 4.3% x 17,000.00 = 731 + 4.7% x 4,250.00 = 199.75; total 1,365.25, to the cent 1,365.25. The table row over 37,700 to 37,800 gives 1,365; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 1,365.25. The booklet's net capital gains exclude short-term gains ('Net capital gains' do not include short-term capital gains), so its line 16 would be 0.00. Line 17 would be 40,250.00 and the tax by the schedule 1,482.75; expected follows the projection.",
+  "accepted_approximations": [
+    "The cap of 2,500 applies to all gains; the booklet's net capital gains exclude short-term gains."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

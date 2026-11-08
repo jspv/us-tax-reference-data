@@ -1,0 +1,38 @@
+{
+  "id": "co_2025_base",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104 lines 1, 10-13 (PDF p.8 Line 1; p.10 Lines 10-13); tax rate 4.4% (PDF p.10 Line 13); tax table (PDF p.34-35) and over-50,000 worksheet (PDF p.35); record brackets cite",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

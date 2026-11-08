@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "2025.00",
+    "state_tax_before_credits": "2025.00",
+    "state_taxable_income": "40500.00"
+  },
+  "worked": "Start: federal AGI 50000.00. Private pension 50000.00 (person 0): taxed in full. State income = 50000.00 - 0.00 = 50000.00. Personal exemption (married_joint) 8800.00. Age 65 exemption 700 x 1 = 700.00. Taxable income = max(50000.00 - 9500.00, 0) = 40500.00. Tax = 5% x 40500.00 = 2025.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

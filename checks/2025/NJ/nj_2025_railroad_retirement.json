@@ -1,0 +1,76 @@
+{
+  "id": "nj_2025_railroad_retirement",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_railroad_retirement_exempt",
+    "nj_pension_exclusion",
+    "nj_senior_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.10 exempt income ('Railroad Retirement (Tier 1 and Tier 2)'), PDF p.15 line 20a nontaxable list, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart, PDF p.22 line 29; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-07-17"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ]
+    },
+    "federal_agi": "94000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "647.50",
+    "credits": "0.00",
+    "state_income_tax": "647.50",
+    "relief_amounts": {
+      "nj_pension_exclusion": "30000.00",
+      "nj_railroad_retirement_exempt": "24000.00",
+      "nj_senior_exemption": "1000.00"
+    }
+  },
+  "worked": "Federal AGI 94,000.00 (wages 40,000.00 + Railroad Retirement Tier 2 (taxed federally as a pension) 24,000.00 + private pension 30,000.00); federal taxable income = 94,000.00 - 17,750.00 federal standard deduction (15,750 single + 2,000 for age 65 or older) = 76,250.00 (given, not tested; the federal senior deduction is ignored). Railroad Retirement (Tier 1 and Tier 2) is exempt and not reported. Line 15 wages 40,000.00 + line 20a private pension 30,000.00 = line 27 total income 70,000.00. The projection's income test measure is federal AGI less taxable Social Security = 94,000.00 (it still holds the 24,000 Railroad Retirement, which line 27 does not); both are in the 0-100,000 band (keep share 1). Line 28a: age 67; Line A 30,000.00 (Railroad Retirement is not on line 20a), Line B 75,000.00; lesser = 30,000.00. Line 28b: wages 40,000 over 3,000, so none; projection 0.00 (no covered interest, dividends or gains). Line 29 New Jersey gross income = 70,000.00 - 30,000.00 - 0.00 = 40,000.00. Line 30 exemptions (line 13): regular 1,000 x 1 + senior 65+ 1,000 x 1 = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 40,000.00 - 2,000.00 = 38,000.00. Line 43 tax, rate schedule Table A (single/separate) as bands: 20,000.00 x 0.014 = 280.00 + 15,000.00 x 0.0175 = 262.50 + 3,000.00 x 0.035 = 105.00 = 647.50. The booklet's Tax Table (taxable income under 100,000) gives 648 for the 38,000-38,050 row (schedule at the midpoint 38,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 647.50. The pension is noncontributory, so the New Jersey taxable amount (line 20a) equals the federal taxable amount and line 20b is empty.",
+  "accepted_approximations": [
+    "Income test measure: line 27 total income is mapped to federal AGI less taxable Social Security plus tax-exempt interest (other states' bonds are taxable in New Jersey and count in line 27; New Jersey bonds and Treasury interest do not count, which the projection can't tell apart).",
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "nd_2025_dividends_and_long_term_gain_joint",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "qualified_dividend_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Line 13 and the Worksheet For Net Long-Term Capital Gain Exclusion lines 1-8; PDF p.14 Line 6; PDF p.16 Line 22; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-02-02"
+      },
+      {
+        "age": 64,
+        "born": "1961-05-05"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "20000.00",
+      "long_term_gains": "30000.00"
+    },
+    "federal_agi": "250000.00",
+    "federal_taxable_income": "216900.00"
+  },
+  "expected": {
+    "state_taxable_income": "196900.00",
+    "state_tax_before_credits": "2260.54",
+    "credits": "0.00",
+    "state_income_tax": "2260.54",
+    "relief_amounts": {
+      "qualified_dividend_exclusion": "8000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 200,000.00 + dividends 20,000.00 + long-term gain 30,000.00 = 250,000.00. Federal taxable income = 250,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 age 65 additional = 216,900.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 216,900.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 216,900.00. Subtractions: line 6 net long-term capital gain exclusion, 40% x 30,000.00 = 12,000.00; line 13 qualified dividend exclusion, 40% x 20,000.00 = 8,000.00. Line 17 total subtractions = 20,000.00. Line 18 North Dakota taxable income = 216,900.00 - 20,000.00 = 196,900.00. Line 19 = 196,900.00. Line 20 tax: 1.95% x (196,900.00 - 80,975.00) = 1.95% x 115,925.00 = 2,260.5375, to the cent 2,260.54; taxable income is 100,000 or more, so the form itself uses the schedule (PDF p.29). Lines 21-23 credits: line 22 marriage penalty credit: qualified income after lines 8 and 15 is 200,000.00 and 0.00; the lower is not more than 47,550.00, so none. Expected credits 0.00. Line 25 net tax = 2,260.54. Both exclusions are taken: nothing in the booklet stops a filer using lines 6 and 13 together. Only one spouse is 65, so one federal additional amount. All dividends are qualified; Schedule D lines 15 and 16 are both 30,000.00.",
+  "accepted_approximations": [
+    "The dividend exclusion is applied to all dividends; the booklet allows it only on qualified dividends (Form 1040 line 3a).",
+    "The long-term gain exclusion is applied to long-term gains; the worksheet uses the smaller of net long-term gain and overall net gain, so a net short-term loss reduces it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

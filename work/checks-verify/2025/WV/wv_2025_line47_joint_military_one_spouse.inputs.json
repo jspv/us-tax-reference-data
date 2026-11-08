@@ -1,0 +1,61 @@
+{
+  "id": "wv_2025_line47_joint_military_one_spouse",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_military_retirement",
+    "wv_senior_citizen_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 47 Senior Citizen Deduction columns (a)-(d) (PDF p.6; instructions PDF p.29; example PDF p.30; PDF p.23 'Taxpayers over age 65 or disabled'; Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'); Schedule M line 32 Military Retirement Modification (PDF p.5; instructions PDF p.28; PDF p.22 'Certain State and Federal Retirement Systems'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-10-10"
+      },
+      {
+        "age": 66,
+        "born": "1959-12-12"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "25300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.wv_military_retirement",
+    "relief_amounts.wv_senior_citizen_deduction"
+  ]
+}

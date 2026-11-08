@@ -1,0 +1,46 @@
+{
+  "id": "US-2025-surviving-spouse-retiree",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.senior_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Qualifying surviving spouse age 66 with a pension, dividends and Social Security: joint brackets and standard deduction, but the 25,000 Social Security base and the 75,000 senior-deduction threshold.",
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "born": "1959-03-03",
+        "age": 66
+      }
+    ],
+    "taxable_pensions": "60000",
+    "ordinary_dividends": "5000",
+    "qualified_dividends": "4000",
+    "social_security_benefits": "30000"
+  },
+  "expected": {
+    "agi": "90500.00",
+    "taxable_social_security": "25500.00",
+    "standard_deduction": "33100.00",
+    "senior_deduction": "5070.00",
+    "taxable_income": "52330.00",
+    "regular_tax": "5322.60",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "5322.60"
+  },
+  "worked": "Filing status: qualifying surviving spouse.\nTaxpayer: born 1959-03-03, age 66 at the end of 2025.\nForm 1040: line 3a qualified dividends 4,000; line 3b ordinary dividends 5,000; lines 4b + 5b taxable pensions and IRA distributions 60,000; line 6a Social Security benefits 30,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 30,000; line 2 = 50% x 30,000 = 15,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 65,000; line 4 (line 2a) = 0\n  line 5 = 15,000 + 65,000 + 0 = 80,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 80,000\n  line 8 (base amount, qualifying surviving spouse) = 25,000\n  line 9 = 80,000 - 25,000 = 55,000; line 10 = 9,000 (34,000 adjusted base amount - 25,000); line 11 = 46,000\n  line 12 = smaller of 55,000 and 9,000 = 9,000; line 13 = 4,500; line 14 = smaller of 15,000 and 4,500 = 4,500\n  line 15 = 85% x 46,000 = 39,100; line 16 = 4,500 + 39,100 = 43,600\n  line 17 = 85% x 30,000 = 25,500; line 18 = smaller of 43,600 and 25,500 = 25,500 -> Form 1040 line 6b\nForm 1040 line 9 total income = 5,000 + 60,000 + 25,500 = 90,500; line 10 adjustments 0; line 11a/11b adjusted gross income = 90,500.\nLine 12e standard deduction = 31,500 basic (married filing jointly amount, used by a qualifying surviving spouse) + 1 x 1,600 additional (married or surviving spouse amount, one per box checked on line 12d for age 65 or older / blind) = 33,100.\nSchedule 1-A: line 1 = line 11b 90,500; line 3 MAGI = 90,500 (no excluded income).\n  Part V: line 31 = 90,500; line 32 = 75,000; line 33 = 15,500; line 34 = 6% x 15,500 = 930; line 35 = 6,000 - 930 = 5,070\n  line 36a (born before January 2, 1961) = 5,070; line 37 = 5,070 -> line 38 -> Form 1040 line 13b\nLine 14 = 33,100 + 5,070 = 38,170; line 15 taxable income = 90,500 - 38,170 = 52,330.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 52,330; line 2 = 4,000; line 3 = 0 (no Schedule D; Form 1040 line 7a is 0); line 4 = 4,000; line 5 = 52,330 - 4,000 = 48,330\n  line 6 = 96,700; line 7 = smaller of 52,330 and 96,700 = 52,330; line 8 = smaller of 48,330 and 52,330 = 48,330; line 9 = 4,000 taxed at 0%\n  line 10 = smaller of 52,330 and 4,000 = 4,000; line 11 = 4,000; line 12 = 0\n  line 13 = 600,050; line 14 = smaller of 52,330 and 600,050 = 52,330; line 15 = 48,330 + 4,000 = 52,330; line 16 = 0; line 17 = smaller of 0 and 0 = 0\n  line 18 = 15% x 0 = 0; line 19 = 4,000; line 20 = 4,000 - 4,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 48,330: 10% x 23,850 = 2,385; 12% x (48,330 - 23,850) = 2,937.60; total 5,322.60\n  line 23 = 0 + 0 + 5,322.60 = 5,322.60\n  line 24 (tax on line 1): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 52,330: 10% x 23,850 = 2,385; 12% x (52,330 - 23,850) = 3,417.60; total 5,802.60\n  line 25 = smaller of 5,322.60 and 5,802.60 = 5,322.60 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 8 and 12 net investment income = 5,000; line 13 MAGI = 90,500; line 14 threshold = 250,000; line 15 = 90,500 - 250,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 5,322.60 regular + 0 net investment income tax + 0 additional Medicare tax = 5,322.60.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

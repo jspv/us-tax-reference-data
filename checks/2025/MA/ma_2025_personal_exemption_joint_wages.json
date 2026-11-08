@@ -1,0 +1,57 @@
+{
+  "id": "ma_2025_personal_exemption_joint_wages",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "Form 1 lines 2a (married filing jointly 8,800, PDF p10 Line 2a), 3, 10, 11a-11b (PDF p11), 16-22 (PDF p12)",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      },
+      {
+        "age": 43,
+        "born": "1982-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "88500.00"
+  },
+  "expected": {
+    "state_taxable_income": "111200.00",
+    "state_tax_before_credits": "5560.00",
+    "credits": "0.00",
+    "state_income_tax": "5560.00"
+  },
+  "worked": "Federal AGI = wages 90,000.00 (person 0) + wages 30,000.00 (person 1) = 120,000.00 (given). Federal taxable income = 120,000.00 - 31,500.00 standard deduction (31,500.00) = 88,500.00 (given, not tested; the federal senior deduction is ignored). Massachusetts Form 1 (the projection starts from federal AGI and takes out the exempt items): Line 3 wages = 120,000.00. Line 10 total 5.0% income = 120,000.00. Line 11a/11b: the form allows up to 2,000 a person for Social Security and Medicare paid (FICA withheld 6,885.00 and 2,295.00, so the form would enter 2,000.00 on each of 11a and 11b, line 16 4,000.00, line 21 107,200.00 and tax 5,360.00); the projection does not apply it (accepted approximation), so 0.00 here. Line 16 total deductions = 0.00. Line 17 = 120,000.00 - 0.00 = 120,000.00. Line 2a personal exemption (married_joint) = 8,800.00; line 2c age 65 or over before 2026: 0 x 700.00 = 0.00; line 2g = line 18 = 8,800.00. Line 19 = 120,000.00 - 8,800.00 = 111,200.00. Line 20 interest and dividends = 0.00. Line 21 = 111,200.00. Line 22 = 111,200.00 x 0.05 = 5,560.00. No 8.5%/12% income or long-term gains (lines 23-24 = 0.00); 4% surtax 0.00 (line 21 is under 1,083,150). Line 28 total tax = 5,560.00; no credits (No Tax Status and the Limited Income Credit do not apply: Massachusetts AGI 120,000.00 is over their limits). State income tax = 5,560.00.",
+  "accepted_approximations": [
+    "The wage deduction for Social Security and Medicare paid is not applied."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

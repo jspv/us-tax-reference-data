@@ -1,0 +1,856 @@
+{
+  "layer": "record",
+  "state": "AL",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "The booklet prints no rate schedule, only a Tax Table for taxable income under 100,000 (PDF pages 25 to 30) and an 'Over $100,000.00' worksheet (PDF page 30). The brackets are DERIVED, not printed: 2% from 0, 4% from 500, 5% from 3,000 (Single, Married filing separately, Head of family); 2% from 0, 4% from 1,000, 5% from 6,000 (Married filing jointly). Every one of the 1,006 printed table rows (0-50 to 99,900-100,000) is reproduced by the tax at the row's midpoint, rounded to the dollar (the first two rows, 0-50 and 50-100, round a half down: 0.50 printed 0, 1.50 printed 1). Ten rows across the bands are recorded in brackets.derivation.",
+    "The Tax Table prints one column for 'Single, Married filing separately and Head of family' (marked with an asterisk) and one for 'Married filing jointly' (PDF page 25 header); the worksheet on PDF page 30 groups the statuses the same way. So no own schedule is printed for married_separate or head_of_household and, by the schema, they are left out (they use the single schedule).",
+    "Over 100,000 the worksheet (PDF page 30) is: taxable income, less 100,000.00, multiplied by .05, plus 4,958.00 (Single, Married filing separately, Head of family) or plus 4,918.00 (Married filing jointly). This is not the schema's 'rate x income minus constant' form, so no derivation.formula is recorded. It can be rewritten as 0.05 x income - (5,000 - 4,958) = 0.05 x income - 42 (single) and 0.05 x income - 82 (joint). The derived brackets give 0.05 x income - 40 and 0.05 x income - 80, because the worksheet's constants are the printed tax of the last table row (99,900-100,000, midpoint 99,950) rather than the bracket tax at exactly 100,000 (4,960 single, 4,920 joint). So above 100,000 the derived brackets give 2 dollars more tax than the worksheet, for both columns. The validator's formula check would also fail by 2 dollars against its 1-dollar tolerance, so a formula with minus 42 or 82 would not pass either (and 42 and 82 are not printed).",
+    "Taxable income per Form 40 (25f40blk.pdf page 1): line 10 Alabama adjusted gross income, less the itemized or standard deduction (line 11), the federal income tax deduction (line 12), the personal exemption (line 13) and the dependent exemption (line 14); line 15 is the total of lines 11 to 14 and line 16 'Taxable income. Subtract line 15 from line 10'.",
+    "Federal income tax deduction (Form 40 line 12; booklet PDF page 8 and the worksheet on PDF page 31): the tax on 2025 Form 1040 line 22 plus the Net Investment Income Tax from Form 8960 line 17, less refundable credits. It has no fixed amount, so the schema's base.deductions cannot hold it; recorded here only. A married couple filing a joint federal return and separate Alabama returns divide the federal liability in the ratio of each spouse's federal AGI (PDF page 8).",
+    "Base starts_from is state_own: Form 40 builds its own total income and Alabama AGI (line 10), which can differ from federal AGI (for example, contributions to the Alabama State Retirement System are deferred on the federal return but not on the Alabama return, PDF page 8; Alabama's IRA basis can differ, PDF page 14).",
+    "Standard deduction chart (PDF page 9): the third row of the Married Filing Joint column prints '$25,500 - $26,999' in both converted texts (docling and pypdf). The rows above and below (26,000-26,499 and 27,000-27,499) and the other three columns (26,500-26,999; the Married Filing Separate column in 250 steps) show the band is 26,500-26,999, so the step is read as AL AGI over 26,499. Amounts at the top of the chart: single 3,000; married joint 8,500; married separate 4,250; head of family 5,200. Floor (last row): joint 5,000 at $35,500 and above; separate 2,500 at $17,750 and above; head of family 2,500 and single 2,500 at $35,500 and above.",
+    "Stepped bands (standard deduction and dependent exemption) are printed in whole dollars ('$26,000 - $26,499', '50,001 - 100,000'), and the booklet rounds every return amount to whole dollars (PDF page 7, 'Rounding Off to Whole Dollars'). So each step's 'over' is the printed upper end of the band below (over 25,999 is 26,000 or more), and each threshold is where the amount first falls.",
+    "Personal exemption: the booklet instructions print 1,500 (box 1, single), 3,000 (box 2, married joint) and 1,500 (box 3, married separate) on PDF page 6; the Head of Family amount (3,000) is printed only beside box 4 on Form 40 (25f40blk.pdf page 1), which also prints the other three. It is fixed by the filing status on the last day of the tax year, and is one amount per return.",
+    "No age-65 or blindness exemption or additional standard deduction found in the booklet (the only 'age 65' text is a medical-deduction note on Medicare A premiums, PDF page 19).",
+    "Inflation indexing of the brackets, the standard deduction, the exemptions or any other figure: not found in the booklet; recorded as not_stated.",
+    "Social Security: exempt. PDF page 7 'Examples of Income You DO NOT Report' lists 'Federal Social Security benefits'; PDF page 14 (Schedule RS instructions) says 'Amounts you received from the following retirement systems are not taxable and should not be reported', listing 'Retirement Systems created by the Federal Social Security Acts'. The agency web page 'Income Exempt from Alabama Income Taxation' repeats 'Federal Social Security benefits'. Form 40 prints no subtraction line: the benefits are simply not reported.",
+    "Alabama's own and federal government pensions: exempt in full, no cap or age test. PDF page 7 lists 'United States Retirement System benefits', 'State of Alabama Teachers' Retirement System benefits', '... Employees' Retirement System benefits', '... Judicial Retirement System benefits', 'Military retirement pay', 'Tennessee Valley Authority Pension System benefits' and 'United States Government Retirement Fund benefits'; PDF page 14 adds 'Civil Service Retirement System' and 'U.S. Foreign Service Retirement and Disability Fund Annuities'. Retirement compensation of an eligible fire fighter 'from any Alabama firefighting agency' and of an eligible peace officer 'from any Alabama police retirement system' are exempt (PDF page 7). Alabama city and county plans other than fire and police are not named; such a plan would be exempt only through the IRC 414(j) line.",
+    "Pensions from other states' governments, a New York State pension included: no line names another state's system or New York. The general line on PDF page 7 (and PDF page 14) applies: 'Payments from a \"Defined Benefit Retirement Plan\" in accordance with IRC 414(j). Contact your retirement plan administrator to determine if your plan qualifies.' The line names a kind of plan, not a payer; unlike the fire fighter and peace officer lines it is not limited to Alabama. So another state's government pension paid by a plan that qualifies under IRC 414(j) is exempt in full, in the same entry as private defined benefit pensions (public_pension_other_state in covers); whether a given plan qualifies is left to the plan administrator (who.other_conditions). If the plan does not qualify, the pension is taxable: 'Pensions and annuities other than those listed in \"Examples of Income You DO NOT Report\"' must be reported (PDF page 7). No reciprocity or paying-state rule is printed.",
+    "Private pensions: exempt in full when paid by a defined benefit plan under IRC 414(j) (PDF pages 7 and 14), with no cap or age test. Otherwise 'Generally, unless specifically excluded by law, your pension payments are fully taxable if you did not contribute to the cost of your pension annuity or you have recovered your cost' (PDF page 14), reported on Schedule RS.",
+    "IRA, SEP, Keogh, 401(k)(2), 403(b) and profit-sharing distributions are taxable, reported on Schedule RS with the partially-taxable worksheet for basis (PDF pages 13 to 15: 'use these lines to report distributions from SEP, Keogh, 401(k)(2), 403(b), and profit sharing plans'); no exclusion, cap or age test is printed for them. Alabama basis can be larger than federal: IRA, SEP and Keogh contributions before January 1, 1982 and 401(k)(2) and 403(b) contributions before January 1, 1985 count as nondeductible contributions (PDF page 14). Lump-sum distributions are included in income in the year received with no forward averaging; qualifying rollovers are excluded (Regulation 810-3-25-.05(5), PDF page 14).",
+    "Roth conversions: taxable. PDF page 14: 'WHEN CONVERTING FROM A TRADITIONAL IRA TO A ROTH IRA, the taxable portion of the distribution (to be reported on Schedule RS, Part II or Part III) is the amount that you would have to include in income if you had taken a distribution and not converted or rolled over the traditional IRA into a Roth IRA.' No relief.",
+    "Pension beneficiaries: a pension exempt to the former employee is also exempt to the beneficiary; a pension fully taxed after cost recovery is fully taxable to the beneficiary (PDF page 15).",
+    "Interest: 'All interest you received in 2025 is taxable for Alabama purposes except interest on obligations of the United States or its possessions, and interest on obligations of the State of Alabama or any county, municipality, or other political subdivision of Alabama' (PDF page 21). Other states' bond interest is therefore taxed: other_states_taxed_own_exempt, with a separate exempt entry for U.S. obligations. A regulated investment company dividend is exempt only in the percentage derived from U.S. or Alabama municipal obligations (PDF pages 21 to 22).",
+    "Capital gains: 'Under Alabama law the entire gain is taxable, and the entire loss is deductible in the year in which it occurs' (PDF page 23); no own rate or deduction share. New for 2025: net capital gain on the exchange of precious metal bullion is exempt (PDF pages 2 and 7).",
+    "Surtaxes and recapture: none found in the booklet.",
+    "Also printed, not recorded as reliefs (outside the record's scope or not retirement income): combat-zone and deployed Guard and Reserve compensation; severance up to 50,000 after administrative downsizing; 529 and ABLE contribution deductions; the vehicle loan interest deduction (PDF pages 2, 7, 16, 17 and 20); the credit for taxes paid to another state (PDF page 10).",
+    "Catastrophe savings account withdrawals not used for qualified expenses carry an additional 2.5% tax (Schedule ATP, PDF page 11); this is a tax on one kind of withdrawal, not a bracket surtax, so it is not in surtaxes.",
+    "The web page 'Income Exempt from Alabama Income Taxation' (fetched 2026-11-07) repeats the booklet's exempt-income list and adds nothing on other states' pensions.",
+    "Settlement 2026-11-07: base.deductions standard_deduction phase_out threshold and steps[].over (84 fields): A said 26,000 / 13,000 and each step at the bottom of its band (26,000, 26,500 ...), B said 25,999 / 12,999 and each step at the top of the band below (25,999, 26,499 ...); PDF page 9 prints whole-dollar bands '$0 - $25,999', '$26,000 - $26,499' and the schema keeps a step's amount for income over 'over', so 'over 25,999' is the band that starts at 26,000 (B). A's 'over 26,000' would leave AGI of exactly 26,000 at the full amount. Amounts were the same in both and match the chart.",
+    "Settlement 2026-11-07: dependent_exemption phase_out threshold: A said 50,000, B said 0; PDF page 10 chart prints '0 - 50,000 1,000; 50,001 - 100,000 500; Over 100,000 300', so the amount first falls for AL AGI over 50,000 (A). Both readers' steps (over 0: 1,000; over 50,000: 500; over 100,000: 300) are kept.",
+    "Settlement 2026-11-07: brackets.derivation.table_rows: A recorded 14 rows, B 8, all printed and all reproduced by the agreed schedule; recorded 10 rows spread across every band of both columns, each read on PDF pages 25, 26, 27 and 30: single 400-500 tax 9, 1,700-1,800 tax 60, 3,000-3,100 tax 113, 36,000-36,100 tax 1,763, 99,900-100,000 tax 4,958; joint 900-1,000 tax 19, 2,000-2,100 tax 62, 6,000-6,100 tax 223, 36,000-36,100 tax 1,723, 99,900-100,000 tax 4,918.",
+    "Settlement 2026-11-07: IRC 414(j) defined benefit entry covers: A said private_pension with public_pension_other_state unclear, B said employer_plan_distribution with private_pension and public_pension_other_state unclear; PDF pages 7 and 14 say 'Payments from a \"Defined Benefit Retirement Plan\" in accordance with IRC 414(j)' with no payer named and no Alabama limit, while 401(k)(2), 403(b), SEP, Keogh and profit-sharing distributions are reported on Schedule RS (PDF page 14). So covers is private_pension and public_pension_other_state (the pension payments of a qualifying plan, whoever the employer), and employer_plan_distribution is not covered. Plan qualification stays in who.other_conditions.",
+    "Settlement 2026-11-07: fire fighter and peace officer retirement: A wrote two entries, B one; PDF page 7 prints them as two lines with different conditions ('from any Alabama firefighting agency'; 'from any Alabama police retirement system'), so two entries (A).",
+    "Settlement 2026-11-07: indexing: B listed standard_deduction, personal_exemption and dependent_exemption as not_stated, A only brackets and all_other; the booklet says nothing about indexing any figure, so by extraction-brief rule 8 the per-figure entries are dropped and all_other (not_stated) covers them.",
+    "Settlement 2026-11-07: brackets.married_separate and head_of_household: both readers gave them the single schedule; the schema gives these statuses only when the booklet prints their own schedule, and PDF page 25 prints one shared column, so they are left out (they default to single)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.04",
+        "start": "500"
+      },
+      {
+        "rate": "0.05",
+        "start": "3000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.04",
+        "start": "1000"
+      },
+      {
+        "rate": "0.05",
+        "start": "6000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 40 Instruction Booklet",
+      "section": "PDF pages 25 to 30, 'Tax Table (Form 40) Based on Taxable Income' (line 16), one column for Single / Married filing separately / Head of family and one for Married filing jointly; PDF page 30 'Over $100,000.00' worksheet (less 100,000.00, x .05, plus 4,958.00 or 4,918.00). Bracket starts and rates derived, see derivation",
+      "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+      "accessed": "2026-11-07"
+    },
+    "derivation": {
+      "method": "tax_table",
+      "table_rows": [
+        {
+          "status": "single",
+          "income": "450",
+          "tax": "9"
+        },
+        {
+          "status": "single",
+          "income": "1750",
+          "tax": "60"
+        },
+        {
+          "status": "single",
+          "income": "3050",
+          "tax": "113"
+        },
+        {
+          "status": "single",
+          "income": "36050",
+          "tax": "1763"
+        },
+        {
+          "status": "single",
+          "income": "99950",
+          "tax": "4958"
+        },
+        {
+          "status": "married_joint",
+          "income": "950",
+          "tax": "19"
+        },
+        {
+          "status": "married_joint",
+          "income": "2050",
+          "tax": "62"
+        },
+        {
+          "status": "married_joint",
+          "income": "6050",
+          "tax": "223"
+        },
+        {
+          "status": "married_joint",
+          "income": "36050",
+          "tax": "1723"
+        },
+        {
+          "status": "married_joint",
+          "income": "99950",
+          "tax": "4918"
+        }
+      ],
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 25 rows 400-500, 900-1,000, 1,700-1,800, 2,000-2,100, 3,000-3,100, 6,000-6,100; PDF page 27 row 36,000-36,100; PDF page 30 row 99,900-100,000 (income is each row's midpoint)",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "state_own",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "3000",
+          "married_joint": "8500",
+          "married_separate": "4250",
+          "head_of_household": "5200"
+        },
+        "per": "return",
+        "condition": "Optional, instead of itemizing (Form 40 line 11 box b, Schedule A for itemizers); spouses filing separate returns must both claim the same kind of deduction unless they lived apart the whole year; a dependent or student may take it even if claimed as a dependent by someone else (PDF page 8). The amount falls in steps as AL adjusted gross income rises (chart, PDF page 9).",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "AL Adjusted Gross Income (AL Line 10)"
+          },
+          "threshold": {
+            "single": "25999",
+            "married_joint": "25999",
+            "married_separate": "12999",
+            "head_of_household": "25999"
+          },
+          "effect": "stepped",
+          "as_printed": "Standard Deduction chart, PDF page 9, columns 'AL Adjusted Gross Income (AL Line 10)' / 'Standard Deduction': full amount at $0 - $25,999 ($0 - $12,999 married filing separate), then one amount for each $500 band ($250 for married filing separate), down to 5,000 (joint) or 2,500 (the others) at $35,500 and above ($17,750 and above separate). Steps: amount is the standard deduction for AL AGI over 'over'.",
+          "steps": [
+            {
+              "status": "married_joint",
+              "over": "0",
+              "amount": "8500"
+            },
+            {
+              "status": "married_joint",
+              "over": "25999",
+              "amount": "8325"
+            },
+            {
+              "status": "married_joint",
+              "over": "26499",
+              "amount": "8150"
+            },
+            {
+              "status": "married_joint",
+              "over": "26999",
+              "amount": "7975"
+            },
+            {
+              "status": "married_joint",
+              "over": "27499",
+              "amount": "7800"
+            },
+            {
+              "status": "married_joint",
+              "over": "27999",
+              "amount": "7625"
+            },
+            {
+              "status": "married_joint",
+              "over": "28499",
+              "amount": "7450"
+            },
+            {
+              "status": "married_joint",
+              "over": "28999",
+              "amount": "7275"
+            },
+            {
+              "status": "married_joint",
+              "over": "29499",
+              "amount": "7100"
+            },
+            {
+              "status": "married_joint",
+              "over": "29999",
+              "amount": "6925"
+            },
+            {
+              "status": "married_joint",
+              "over": "30499",
+              "amount": "6750"
+            },
+            {
+              "status": "married_joint",
+              "over": "30999",
+              "amount": "6575"
+            },
+            {
+              "status": "married_joint",
+              "over": "31499",
+              "amount": "6400"
+            },
+            {
+              "status": "married_joint",
+              "over": "31999",
+              "amount": "6225"
+            },
+            {
+              "status": "married_joint",
+              "over": "32499",
+              "amount": "6050"
+            },
+            {
+              "status": "married_joint",
+              "over": "32999",
+              "amount": "5875"
+            },
+            {
+              "status": "married_joint",
+              "over": "33499",
+              "amount": "5700"
+            },
+            {
+              "status": "married_joint",
+              "over": "33999",
+              "amount": "5525"
+            },
+            {
+              "status": "married_joint",
+              "over": "34499",
+              "amount": "5350"
+            },
+            {
+              "status": "married_joint",
+              "over": "34999",
+              "amount": "5175"
+            },
+            {
+              "status": "married_joint",
+              "over": "35499",
+              "amount": "5000"
+            },
+            {
+              "status": "married_separate",
+              "over": "0",
+              "amount": "4250"
+            },
+            {
+              "status": "married_separate",
+              "over": "12999",
+              "amount": "4162"
+            },
+            {
+              "status": "married_separate",
+              "over": "13249",
+              "amount": "4074"
+            },
+            {
+              "status": "married_separate",
+              "over": "13499",
+              "amount": "3986"
+            },
+            {
+              "status": "married_separate",
+              "over": "13749",
+              "amount": "3898"
+            },
+            {
+              "status": "married_separate",
+              "over": "13999",
+              "amount": "3810"
+            },
+            {
+              "status": "married_separate",
+              "over": "14249",
+              "amount": "3722"
+            },
+            {
+              "status": "married_separate",
+              "over": "14499",
+              "amount": "3634"
+            },
+            {
+              "status": "married_separate",
+              "over": "14749",
+              "amount": "3546"
+            },
+            {
+              "status": "married_separate",
+              "over": "14999",
+              "amount": "3458"
+            },
+            {
+              "status": "married_separate",
+              "over": "15249",
+              "amount": "3370"
+            },
+            {
+              "status": "married_separate",
+              "over": "15499",
+              "amount": "3282"
+            },
+            {
+              "status": "married_separate",
+              "over": "15749",
+              "amount": "3194"
+            },
+            {
+              "status": "married_separate",
+              "over": "15999",
+              "amount": "3106"
+            },
+            {
+              "status": "married_separate",
+              "over": "16249",
+              "amount": "3018"
+            },
+            {
+              "status": "married_separate",
+              "over": "16499",
+              "amount": "2930"
+            },
+            {
+              "status": "married_separate",
+              "over": "16749",
+              "amount": "2842"
+            },
+            {
+              "status": "married_separate",
+              "over": "16999",
+              "amount": "2754"
+            },
+            {
+              "status": "married_separate",
+              "over": "17249",
+              "amount": "2666"
+            },
+            {
+              "status": "married_separate",
+              "over": "17499",
+              "amount": "2578"
+            },
+            {
+              "status": "married_separate",
+              "over": "17749",
+              "amount": "2500"
+            },
+            {
+              "status": "head_of_household",
+              "over": "0",
+              "amount": "5200"
+            },
+            {
+              "status": "head_of_household",
+              "over": "25999",
+              "amount": "5065"
+            },
+            {
+              "status": "head_of_household",
+              "over": "26499",
+              "amount": "4930"
+            },
+            {
+              "status": "head_of_household",
+              "over": "26999",
+              "amount": "4795"
+            },
+            {
+              "status": "head_of_household",
+              "over": "27499",
+              "amount": "4660"
+            },
+            {
+              "status": "head_of_household",
+              "over": "27999",
+              "amount": "4525"
+            },
+            {
+              "status": "head_of_household",
+              "over": "28499",
+              "amount": "4390"
+            },
+            {
+              "status": "head_of_household",
+              "over": "28999",
+              "amount": "4255"
+            },
+            {
+              "status": "head_of_household",
+              "over": "29499",
+              "amount": "4120"
+            },
+            {
+              "status": "head_of_household",
+              "over": "29999",
+              "amount": "3985"
+            },
+            {
+              "status": "head_of_household",
+              "over": "30499",
+              "amount": "3850"
+            },
+            {
+              "status": "head_of_household",
+              "over": "30999",
+              "amount": "3715"
+            },
+            {
+              "status": "head_of_household",
+              "over": "31499",
+              "amount": "3580"
+            },
+            {
+              "status": "head_of_household",
+              "over": "31999",
+              "amount": "3445"
+            },
+            {
+              "status": "head_of_household",
+              "over": "32499",
+              "amount": "3310"
+            },
+            {
+              "status": "head_of_household",
+              "over": "32999",
+              "amount": "3175"
+            },
+            {
+              "status": "head_of_household",
+              "over": "33499",
+              "amount": "3040"
+            },
+            {
+              "status": "head_of_household",
+              "over": "33999",
+              "amount": "2905"
+            },
+            {
+              "status": "head_of_household",
+              "over": "34499",
+              "amount": "2770"
+            },
+            {
+              "status": "head_of_household",
+              "over": "34999",
+              "amount": "2635"
+            },
+            {
+              "status": "head_of_household",
+              "over": "35499",
+              "amount": "2500"
+            },
+            {
+              "status": "single",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "single",
+              "over": "25999",
+              "amount": "2975"
+            },
+            {
+              "status": "single",
+              "over": "26499",
+              "amount": "2950"
+            },
+            {
+              "status": "single",
+              "over": "26999",
+              "amount": "2925"
+            },
+            {
+              "status": "single",
+              "over": "27499",
+              "amount": "2900"
+            },
+            {
+              "status": "single",
+              "over": "27999",
+              "amount": "2875"
+            },
+            {
+              "status": "single",
+              "over": "28499",
+              "amount": "2850"
+            },
+            {
+              "status": "single",
+              "over": "28999",
+              "amount": "2825"
+            },
+            {
+              "status": "single",
+              "over": "29499",
+              "amount": "2800"
+            },
+            {
+              "status": "single",
+              "over": "29999",
+              "amount": "2775"
+            },
+            {
+              "status": "single",
+              "over": "30499",
+              "amount": "2750"
+            },
+            {
+              "status": "single",
+              "over": "30999",
+              "amount": "2725"
+            },
+            {
+              "status": "single",
+              "over": "31499",
+              "amount": "2700"
+            },
+            {
+              "status": "single",
+              "over": "31999",
+              "amount": "2675"
+            },
+            {
+              "status": "single",
+              "over": "32499",
+              "amount": "2650"
+            },
+            {
+              "status": "single",
+              "over": "32999",
+              "amount": "2625"
+            },
+            {
+              "status": "single",
+              "over": "33499",
+              "amount": "2600"
+            },
+            {
+              "status": "single",
+              "over": "33999",
+              "amount": "2575"
+            },
+            {
+              "status": "single",
+              "over": "34499",
+              "amount": "2550"
+            },
+            {
+              "status": "single",
+              "over": "34999",
+              "amount": "2525"
+            },
+            {
+              "status": "single",
+              "over": "35499",
+              "amount": "2500"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Form 40 Instruction Booklet",
+          "section": "PDF page 9, Standard Deduction chart (Form 40 line 11 instructions on PDF page 8)",
+          "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "single": "1500",
+          "married_joint": "3000",
+          "married_separate": "1500",
+          "head_of_household": "3000"
+        },
+        "per": "return",
+        "condition": "Set by the filing status on the last day of the tax year; part-year residents get the full amount; a dependent or student may take it even if claimed as a dependent by someone else (PDF pages 6 and 8).",
+        "cite": {
+          "publication": "2025 Form 40 Individual Income Tax Return (print only)",
+          "section": "Form 40 page 1, filing status boxes 1 to 4 ('$1,500 Single', '$3,000 Married filing joint', '$1,500 Married filing separate', '$3,000 Head of Family'), line 13; also booklet PDF page 6 'Filing Status and Personal Exemption Lines 1 through 4' (boxes 1 to 3)",
+          "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40blk.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "dependent",
+        "condition": "Per dependent; the amount depends on Alabama AGI (Form 40 line 10): 1,000 for 0 - 50,000; 500 for 50,001 - 100,000; 300 over 100,000. A dependent is a listed relative who received over 50% of support from the taxpayer (PDF pages 8 and 10).",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Amount on Page 1, Line 10"
+          },
+          "threshold": {
+            "all": "50000"
+          },
+          "effect": "stepped",
+          "as_printed": "Amount on Page 1, Line 10 / Dependent Exemption: 0 - 50,000 1,000; 50,001 - 100,000 500; Over 100,000 300",
+          "steps": [
+            {
+              "status": "all",
+              "over": "0",
+              "amount": "1000"
+            },
+            {
+              "status": "all",
+              "over": "50000",
+              "amount": "500"
+            },
+            {
+              "status": "all",
+              "over": "100000",
+              "amount": "300"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Form 40 Instruction Booklet",
+          "section": "PDF page 10, chart under 'Line 14 Dependent Exemption' (dependent defined on PDF pages 8 and 10)",
+          "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 40 Instruction Booklet",
+      "section": "Form 40 page 1 lines 10 to 16 (25f40blk.pdf); booklet PDF pages 8 to 10, line 10 to 14 instructions",
+      "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form 40 Instruction Booklet",
+      "section": "PDF page 7 'Examples of Income You DO NOT Report': 'Federal Social Security benefits'; PDF page 14, Schedule RS instructions: 'not taxable and should not be reported': 'Retirement Systems created by the Federal Social Security Acts'",
+      "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "al_public_pension_exempt",
+      "label": "United States, State of Alabama, TVA and U.S. Government retirement system benefits (Examples of Income You DO NOT Report)",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report'; PDF page 14 Schedule RS instructions, list of retirement systems 'not taxable and should not be reported'",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_firefighter_retirement_exempt",
+      "label": "Retirement compensation of an eligible Alabama fire fighter",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "eligible fire fighter or designated beneficiary; retirement compensation from any Alabama firefighting agency"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('All retirement compensation received by an eligible fire fighter or a designated beneficiary from any Alabama firefighting agency'); PDF page 14 list",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_peace_officer_retirement_exempt",
+      "label": "Retirement compensation of an eligible Alabama peace officer",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "eligible peace officer or designated beneficiary; retirement compensation from any Alabama police retirement system"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('All retirement compensation received by an eligible peace officer or a designated beneficiary from any Alabama police retirement system'); PDF page 14 list",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_military_retirement_exempt",
+      "label": "Military retirement pay",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('Military retirement pay'); PDF page 14 list ('Military Retirement Pay')",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_railroad_retirement_exempt",
+      "label": "Federal Railroad Retirement benefits",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('Federal Railroad Retirement benefits'); PDF page 14 list (Federal Railroad Retirement Acts of 1935 and 1937)",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_defined_benefit_414j_exempt",
+      "label": "Payments from a Defined Benefit Retirement Plan in accordance with IRC 414(j)",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "paid by a plan that qualifies as a 'Defined Benefit Retirement Plan' in accordance with IRC 414(j); the booklet says to contact the retirement plan administrator to determine if the plan qualifies"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('Payments from a \"Defined Benefit Retirement Plan\" in accordance with IRC 414(j). Contact your retirement plan administrator to determine if your plan qualifies.'); PDF page 14 list ('Any \"defined benefit\" retirement plan in accordance with IRC 414(j)')",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_social_security_exempt",
+      "label": "Federal Social Security benefits",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report' ('Federal Social Security benefits'); PDF page 14 list ('Retirement Systems created by the Federal Social Security Acts')",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "al_us_obligation_interest_exempt",
+      "label": "Interest on obligations of the United States or any of its possessions",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 7 'Examples of Income You DO NOT Report'; PDF page 21 Schedule B 'Interest Income'; PDF page 22 'Examples of EXEMPT Interest'",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Exempt: interest on obligations of the State of Alabama or any county, municipality or other political subdivision of Alabama, and of the United States or its possessions. All other interest, other states' obligations included, is taxable.",
+    "cite": {
+      "publication": "2025 Form 40 Instruction Booklet",
+      "section": "PDF page 7 'Examples of Income You DO NOT Report'; PDF page 21 Schedule B instructions, 'Interest Income'",
+      "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "al_precious_metal_bullion_gain",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "net capital gain on the exchange of precious metal bullion (coins, bars or rounds containing primarily refined gold, silver, platinum or palladium, marked and valued primarily by weight, purity and content), beginning January 1, 2025",
+      "cite": {
+        "publication": "2025 Form 40 Instruction Booklet",
+        "section": "PDF page 2 'Sound Money Tax Neutrality Act'; PDF page 7 'Examples of Income You DO NOT Report'; PDF page 23 Schedule D ('the entire gain is taxable')",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

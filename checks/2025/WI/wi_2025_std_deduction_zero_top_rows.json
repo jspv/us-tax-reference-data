@@ -1,0 +1,51 @@
+{
+  "id": "wi_2025_std_deduction_zero_top_rows",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37 (last row 155,169 or more: 0)",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "160000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "144250.00"
+  },
+  "expected": {
+    "state_agi": "160000.00",
+    "state_taxable_income": "159300.00",
+    "state_tax_before_credits": "7856.46",
+    "credits": "0.00",
+    "state_income_tax": "7856.46"
+  },
+  "worked": "Single, 50, wages 160,000: Wisconsin income at or over 155,169, so the table gives 0 standard deduction. Taxable income is 100,000 or more, so the form uses the Tax Computation Worksheet (PDF page 44, Section A: x 5.3% less 586.44). Federal (given, not tested): federal AGI = wages (you) 160,000.00 = 160,000.00. Federal taxable income = 160,000.00 - standard deduction 15,750.00 = 144,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 160,000.00; line 2 Schedule I adjustments 0.00; line 3 160,000.00; line 4 additions 0.00; line 5 160,000.00. Schedule SB: no subtraction applies; line 50 0.00. Form 1 line 6 0.00; line 7 Wisconsin income = 160,000.00 - 0.00 = 160,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 37), row 155,169 or more, column Single: 0.00 (printed row, at least / less than / single / joint / separate / head of household: 155,169 or more / 0 / 0 / 0 / 0). Line 9 = 160,000.00 - 0.00 = 160,000.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 160,000.00 - 700.00 = 159,300.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 35,800.00 = 1,575.20 + 5.3% x 108,820.00 = 5,767.46; total 7,856.46, rounded once to 7,856.46. The Tax Computation Worksheet (PDF page 44) gives the same before its whole-dollar entry. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 7,856.46.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "vt_2025_railroad_single",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_railroad_retirement",
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule IN-112 Instructions",
+    "section": "Schedule IN-112 Part I Line 14, Railroad Retirement (IN-112 Instructions PDF p.4 Line 14; booklet PDF p.23); Form IN-111 Lines 1-8 (booklet PDF pp.10-11), rate schedules (booklet PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30020.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "54020.00",
+    "federal_taxable_income": "36270.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.vt_railroad_retirement"
+  ]
+}

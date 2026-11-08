@@ -1,0 +1,53 @@
+{
+  "id": "nd_2025_short_term_loss_reduces_form_exclusion",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Worksheet lines 1-3 (smaller of Schedule D lines 15 and 16); Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-08-18"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "-2000.00",
+      "long_term_gains": "10000.00"
+    },
+    "federal_agi": "108000.00",
+    "federal_taxable_income": "92250.00"
+  },
+  "expected": {
+    "state_taxable_income": "88250.00",
+    "state_tax_before_credits": "775.61",
+    "credits": "0.00",
+    "state_income_tax": "775.61"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 100,000.00 + short-term gain -2,000.00 + long-term gain 10,000.00 = 108,000.00. Federal taxable income = 108,000.00 - standard deduction 15,750.00 = 92,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 92,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 92,250.00. Subtractions: line 6 net long-term capital gain exclusion, 40% x 10,000.00 = 4,000.00. Line 17 total subtractions = 4,000.00. Line 18 North Dakota taxable income = 92,250.00 - 4,000.00 = 88,250.00. Line 19 = 88,250.00. Line 20 tax: 1.95% x (88,250.00 - 48,475.00) = 1.95% x 39,775.00 = 775.6125, to the cent 775.61; the Tax Table row 88,250 to 88,300 gives 776; expected uses the bracket formula on the exact income. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 775.61. The form differs: worksheet line 1 is 10,000.00, line 2 is 8,000.00, line 3 is 8,000.00 and line 8 = 3,200.00, so line 18 would be 89,050.00 and the exact tax 791.2125; the projection's 40% of long-term gains understates tax by 15.60, as the approximation says.",
+  "accepted_approximations": [
+    "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars.",
+    "The long-term gain exclusion is applied to long-term gains; the worksheet uses the smaller of net long-term gain and overall net gain, so a net short-term loss reduces it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "ut_2025_social_security_better_than_retirement",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_credit",
+    "social_security_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (18) Retirement Credit and Retirement Credit Worksheet lines 1 to 10 (PDF p.21); (AH) Social Security Benefits Credit and Social Security Credit Worksheet lines 1 to 13 (PDF p.23)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 75,
+        "born": "1950-04-12"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "9600.00"
+    },
+    "federal_agi": "39600.00",
+    "federal_taxable_income": "21850.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.social_security_credit"
+  ]
+}

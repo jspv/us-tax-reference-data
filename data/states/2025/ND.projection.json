@@ -1,0 +1,252 @@
+{
+ "layer": "projection",
+ "state": "ND",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/ND.record.json",
+  "sha256": "26960d87e9a4a6f9ba71f503d40c950b3faa3379d5da3cd21f614d8fd97f6874"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "48475"
+   },
+   {
+    "rate": "0.025",
+    "start": "244825"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "80975"
+   },
+   {
+    "rate": "0.025",
+    "start": "298075"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "40475"
+   },
+   {
+    "rate": "0.025",
+    "start": "149025"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "64950"
+   },
+   {
+    "rate": "0.025",
+    "start": "271450"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": "follows",
+  "deductions": []
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "railroad_retirement_exclusion",
+   "from_record": [
+    "railroad_retirement_exclusion"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return"
+   }
+  },
+  {
+   "id": "military_retirement_exclusion",
+   "from_record": [
+    "military_retirement_exclusion"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "qualified_dividend_exclusion",
+   "from_record": [
+    "qualified_dividend_exclusion"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "dividends"
+   ],
+   "share": "0.4",
+   "who": {
+    "basis": "return"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "all_exempt"
+ },
+ "capital_gains": [
+  {
+   "id": "long_term_gain_exclusion",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "0.4"
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "marriage_penalty_credit",
+   "from_record": [
+    "marriage_penalty_credit"
+   ],
+   "what": "Marriage penalty credit (line 22): joint filers with North Dakota taxable income over 81,036 and a lower qualified income over 47,550 get a worksheet credit of up to 312, figured as a difference of schedule taxes.",
+   "warn_when": "always"
+  },
+  {
+   "id": "peace_officer_retirement_exclusion",
+   "from_record": [
+    "peace_officer_retirement_exclusion"
+   ],
+   "what": "Licensed peace officer retirement benefits are excluded in full (line 9) for a retired officer with 20 years of service or retired disabled.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "us_obligation_interest",
+   "from_record": [
+    "us_obligation_interest"
+   ],
+   "what": "Interest on U.S. obligations (savings bonds, Treasury bills and notes) is subtracted (line 5); a projection does not hold this share of interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "military_pay_exclusion",
+   "from_record": [
+    "military_pay_exclusion"
+   ],
+   "what": "Military pay on active or reserve duty or in the national guard is subtracted (line 11).",
+   "warn_when": "never"
+  },
+  {
+   "id": "native_american_exempt_income",
+   "from_record": [
+    "native_american_exempt_income"
+   ],
+   "what": "Income of an enrolled tribal member living on a North Dakota reservation, from reservation sources, is subtracted (line 7).",
+   "warn_when": "never"
+  },
+  {
+   "id": "college_save_deduction",
+   "from_record": [
+    "college_save_deduction"
+   ],
+   "what": "College SAVE contributions are deductible up to 5,000, or 10,000 if married filing jointly (line 12).",
+   "warn_when": "never"
+  },
+  {
+   "id": "organ_donor_deduction",
+   "from_record": [
+    "organ_donor_deduction",
+    "stillborn_child_deduction"
+   ],
+   "what": "Human organ donor expenses up to 10,000 and the 5,241 stillborn child deduction (Schedule ND-1SA lines 6 and 8).",
+   "warn_when": "never"
+  },
+  {
+   "id": "nd_lump_sum_distribution_addback",
+   "from_record": [],
+   "what": "A lump-sum retirement distribution elected onto federal Form 4972 is added back (Schedule ND-1SA line 1).",
+   "warn_when": "never"
+  },
+  {
+   "id": "nd_other_state_tax_credit",
+   "from_record": [],
+   "what": "Credit for income tax paid to another state (line 21, Schedule ND-1CR); the schedule is not in the sources.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "The marriage penalty credit is left out.",
+   "direction": "overstates_tax",
+   "size": "At most 312 a year, joint returns only. Example: joint taxable income 200,000 and each spouse's qualified income 100,000 gives a credit of 311.51."
+  },
+  {
+   "what": "The dividend exclusion is applied to all dividends; the booklet allows it only on qualified dividends (Form 1040 line 3a).",
+   "direction": "understates_tax",
+   "size": "At most 1% of non-qualified dividends (40% of them at the 2.5% top rate)."
+  },
+  {
+   "what": "Municipal bond interest is treated as exempt. The booklet prints no rule; this follows the form, which starts from federal taxable income and has no addition line for it.",
+   "direction": "understates_tax",
+   "size": "If North Dakota does tax it, at most 2.5% of the interest."
+  },
+  {
+   "what": "The long-term gain exclusion is applied to long-term gains; the worksheet uses the smaller of net long-term gain and overall net gain, so a net short-term loss reduces it.",
+   "direction": "understates_tax",
+   "size": "At most 1% of the short-term loss (40% of it at the 2.5% top rate)."
+  },
+  {
+   "what": "Interest on U.S. obligations is not subtracted (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "At most 2.5% of that interest."
+  },
+  {
+   "what": "The Schedule ND-1SA addition for a Form 4972 lump-sum distribution is not made (not_modelled).",
+   "direction": "understates_tax",
+   "size": "Only for a filer who elects Form 4972; at most 2.5% of the amount added."
+  },
+  {
+   "what": "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars.",
+   "direction": "either",
+   "size": "About 1 dollar a year at most."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

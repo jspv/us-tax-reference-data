@@ -1,0 +1,37 @@
+{
+  "layer": "projection",
+  "state": "SD",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/SD.record.json",
+    "sha256": "f899cb404117d34e2259c4c081253508f664da1cc8aa567a6f3b0fb9624098b5"
+  },
+  "has_income_tax": false,
+  "brackets": {
+    "single": [],
+    "married_joint": []
+  },
+  "base": {
+    "starts_from": "none",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "all_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [],
+  "not_modelled": [],
+  "recapture": [],
+  "derived_figures": [],
+  "approximations": [
+    {
+      "what": "No personal income tax (Taxes (individuals), South Dakota Department of Revenue). Social Security and municipal interest are shown as exempt because nothing is taxed.",
+      "direction": "either",
+      "size": "None: there is no state income tax to estimate."
+    }
+  ]
+}

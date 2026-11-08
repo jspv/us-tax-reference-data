@@ -1,0 +1,330 @@
+{
+ "layer": "projection",
+ "state": "ID",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/ID.record.json",
+  "sha256": "1ae8bd539d5dd670e30a0e7d17221a18788c21de2e4efe2317dc45c5ec1cc52b"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "4811"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "9622"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "4811"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "9622"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "amount": {
+     "single": "15750",
+     "married_separate": "15750",
+     "head_of_household": "23625",
+     "married_joint": "31500",
+     "qualifying_surviving_spouse": "31500"
+    },
+    "per": "return"
+   },
+   {
+    "id": "age_65_addition",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1600",
+     "married_separate": "1600",
+     "qualifying_surviving_spouse": "1600"
+    },
+    "per": "person",
+    "min_age": 65
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "railroad_retirement",
+   "from_record": [
+    "ss_rrb_subtraction"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ret_service_member",
+   "from_record": [
+    "ret_service_member_62_plus"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_reduced_by": [
+    "social_security",
+    "railroad_retirement"
+   ],
+   "social_security_basis": "gross"
+  },
+  {
+   "id": "food_tax_credit",
+   "from_record": [
+    "food_tax_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "155",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "refundable": true
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "credits",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.credit_amount"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "ret_csrs_fsrds",
+   "from_record": [
+    "ret_csrs_fsrds",
+    "ret_disabled_62_to_64"
+   ],
+   "what": "Retirement benefits deduction for a CSRS or Foreign Service annuity where the employee established eligibility before 1984, from age 65 (62 if disabled), up to 48,216 single or 72,324 joint less Social Security and railroad benefits received. The deduction turns on the plan and the 1984 date, which a pension's source and paying government do not show: a FERS annuity is also a federal pension and does not qualify.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "ret_idaho_firefighters",
+   "from_record": [
+    "ret_idaho_firefighters",
+    "ret_idaho_police",
+    "ret_disabled_62_to_64"
+   ],
+   "what": "Retirement benefits deduction for the PERSI Firefighters Retirement Fund and for closed Idaho city police funds, from age 65 (62 if disabled), same maximum. The deduction turns on the fund: a PERSI Base Plan pension is also an Idaho public pension and does not qualify.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "ret_service_member_under_62",
+   "from_record": [
+    "ret_service_member_under_62"
+   ],
+   "what": "Retired service member deduction under age 62, for a person classified as disabled, or employed during the year with enough income from that job to have to file a federal return. A projection knows neither test.",
+   "warn_when": "has_military_pension"
+  },
+  {
+   "id": "qbi_and_schedule_1a_deduction",
+   "from_record": [
+    "qbi_and_schedule_1a_deduction"
+   ],
+   "what": "Form 40 line 18 subtracts federal Form 1040 lines 13a and 13b (the qualified business income deduction and the federal Schedule 1-A deductions) from Idaho income. The booklet prints no amounts for them, and a projection that starts from federal AGI does not have them.",
+   "warn_when": "always"
+  },
+  {
+   "id": "health_insurance_premiums",
+   "from_record": [
+    "health_insurance_premiums"
+   ],
+   "what": "Health insurance premiums not otherwise deducted are subtracted (Form 39R Part B line 18), including Medicare B and D premiums of anyone voluntarily enrolled.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    65,
+    120
+   ]
+  },
+  {
+   "id": "blind_addition",
+   "from_record": [
+    "blind_addition"
+   ],
+   "what": "Additional 1,600 (2,000 single or head of household) of standard deduction for each blind person. A projection does not know blindness.",
+   "warn_when": "never"
+  },
+  {
+   "id": "dependent_filer_standard_deduction",
+   "from_record": [
+    "dependent_filer_standard_deduction"
+   ],
+   "what": "Smaller standard deduction for a filer someone else can claim as a dependent.",
+   "warn_when": "never"
+  },
+  {
+   "id": "food_tax_credit",
+   "from_record": [
+    "food_tax_credit",
+    "idaho_child_tax_credit"
+   ],
+   "what": "The 155 Food Tax Credit for each dependent and the 205 Idaho Child Tax Credit for each qualifying child age 16 or under.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "us_government_interest_subtraction",
+   "from_record": [
+    "us_government_interest_subtraction"
+   ],
+   "what": "Interest on U.S. government obligations is subtracted (not FNMA or GNMA). A projection cannot tell it from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "idaho_property_gain_deduction",
+   "from_record": [
+    "idaho_property_gain_deduction"
+   ],
+   "what": "60% of the gain on qualified Idaho property (real property held 12 months, some business property, livestock, timber) is deducted. A projection cannot tell these gains from others; stocks do not qualify.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "A pension from CSRS (eligibility before 1984), FSRDS, the PERSI Firefighters Retirement Fund or a closed Idaho city police fund is taxed in full; the deduction is left out because the same inputs describe FERS and PERSI Base Plan pensions, which do not qualify.",
+   "direction": "overstates_tax",
+   "size": "5.3% of the deduction: at most 3,833 a year on a joint return with no Social Security (72,324 x 5.3%). Nothing for FERS, PERSI Base Plan or another state's pension, which are taxed in full by Idaho too."
+  },
+  {
+   "what": "A retired service member under 62 gets no deduction, though one who is disabled, or employed with enough income to file, qualifies.",
+   "direction": "overstates_tax",
+   "size": "5.3% of the pension up to the maximum: a 30,000 pension is overstated by 1,590 a year until age 62."
+  },
+  {
+   "what": "The retirement maximum prints for single and joint only. A head of household, qualifying surviving spouse or married filing separately return has no printed figure; the projection gives only the two printed amounts, so such a return needs the fallback a status not given takes for brackets (single; joint for a qualifying surviving spouse).",
+   "direction": "either",
+   "size": "Only for a military pension on those statuses: 24,108 of maximum, about 1,278 a year at 5.3%, is the gap between the two printed amounts."
+  },
+  {
+   "what": "The maximum is reduced by Social Security and railroad benefits received, which means gross benefits of both spouses, not the taxable part. Canadian Social Security included in federal income also reduces it, and the projection does not count that.",
+   "direction": "understates_tax",
+   "size": "5.3% of any Canadian benefits, and only if the pension reaches the maximum."
+  },
+  {
+   "what": "The standard deduction is always taken; a household whose itemized deductions (less state and local income or sales taxes) are larger would use those.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "5.3% of the Treasury interest."
+  },
+  {
+   "what": "A projection that cannot tell Idaho bonds from other states' bonds treats all tax-exempt interest as other states' and adds it back.",
+   "direction": "overstates_tax",
+   "size": "5.3% of the Idaho bond interest."
+  },
+  {
+   "what": "Gains on qualified Idaho property are taxed in full; 60% is deductible.",
+   "direction": "overstates_tax",
+   "size": "3.18% of the gain: 3,180 on a 100,000 gain on an Idaho rental property."
+  },
+  {
+   "what": "The federal Schedule 1-A and qualified business income deductions are not subtracted (Form 40 line 18).",
+   "direction": "overstates_tax",
+   "size": "5.3% of Form 1040 lines 13a and 13b."
+  },
+  {
+   "what": "Health insurance premiums, Medicare B and D among them, are not subtracted (Form 39R Part B line 18).",
+   "direction": "overstates_tax",
+   "size": "5.3% of the premiums: 212 a year on 4,000 of premiums."
+  },
+  {
+   "what": "The Food Tax Credit is 155 for each filer in every year: the choice of actual food sales tax up to 250 each, and the months excluded for food stamps, are ignored.",
+   "direction": "either",
+   "size": "At most 95 a person for the actual-tax choice: a couple with receipts for 250 of food sales tax each gets 500, 190 more than the projection's 310. Up to 155 a person for food stamp months: a person on food stamps all year gets nothing, 155 less than the projection gives."
+  },
+  {
+   "what": "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged.",
+   "direction": "understates_tax",
+   "size": "10 a year."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

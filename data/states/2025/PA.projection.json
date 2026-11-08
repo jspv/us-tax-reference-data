@@ -1,0 +1,291 @@
+{
+  "layer": "projection",
+  "state": "PA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/PA.record.json",
+    "sha256": "0624f54a8f7ce9517728a8405d57c35b431c681b247323add8d7cb468b0704f2"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0307",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0307",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "pa_public_pension",
+      "from_record": [
+        "public_pension_pa_federal_plans",
+        "employer_plan_after_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pa_military_pension",
+      "from_record": [
+        "military_retired_pay_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pa_employer_plans",
+      "from_record": [
+        "employer_plan_after_retirement",
+        "united_mine_workers_pension"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "public_pension_other_state",
+        "employer_plan_distribution"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pa_ira_from_59_5",
+      "from_record": [
+        "ira_distribution_age_59_5"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5
+      }
+    },
+    {
+      "id": "pa_roth_conversion",
+      "from_record": [
+        "roth_conversion_full_rollover"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pa_railroad_retirement",
+      "from_record": [
+        "railroad_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "tax_forgiveness",
+      "from_record": [
+        "tax_forgiveness"
+      ],
+      "what": "Tax Forgiveness Credit (Schedule SP): up to all of the PA tax for a return whose Eligibility Income is at or under the table. No age test, but it reaches retirees above all, because their Social Security, eligible pensions and IRA withdrawals are neither PA-taxed nor counted in Eligibility Income. See approximations for direction and size.",
+      "warn_when": "person_in_age_range",
+      "age_range": [
+        60,
+        120
+      ]
+    },
+    {
+      "id": "disability_distribution",
+      "from_record": [
+        "disability_distribution"
+      ],
+      "what": "A distribution due to disability is generally not taxable. A projection does not know disability, so an IRA withdrawal before 59 1/2 by a disabled person is taxed.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ira_distribution_death",
+      "from_record": [
+        "ira_distribution_death",
+        "employer_plan_death"
+      ],
+      "what": "Payments to an estate or designated beneficiary because of the owner's death are not taxable. A projection treats an inherited account like the person's own, so a beneficiary under 59 1/2 taking from an inherited IRA is taxed.",
+      "warn_when": "never"
+    },
+    {
+      "id": "employer_plan_annuity",
+      "from_record": [
+        "employer_plan_annuity"
+      ],
+      "what": "An annuity from an eligible employer plan after retirement is exempt. A projection cannot tell it from a commercial annuity, which is taxed as interest, so all annuities are taxed.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_obligation_interest",
+      "from_record": [
+        "us_obligation_interest"
+      ],
+      "what": "Interest on direct U.S. obligations (Treasury bonds, notes, bills and savings bonds) is not taxable; a projection cannot tell it from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "section_529_contribution_deduction",
+      "from_record": [
+        "section_529_contribution_deduction"
+      ],
+      "what": "Line 10 deduction for Section 529 contributions actually made, up to 19,000 per beneficiary per taxpayer. A projection does not hold these contributions.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "student_loan_interest_deduction",
+      "from_record": [
+        "student_loan_interest_deduction"
+      ],
+      "what": "Line 10 deduction for student loan interest up to 2,500. Federal AGI is already net of any federal student loan interest deduction, and a projection holds no other figure for it.",
+      "warn_when": "never"
+    },
+    {
+      "id": "pre_1994_exempt_obligation_gains",
+      "from_record": [
+        "pre_1994_exempt_obligation_gains",
+        "principal_residence_gain"
+      ],
+      "what": "Exempt gains: on U.S. and Pennsylvania obligations issued before Feb. 1, 1994, and the 100 percent exclusion on a principal residence. A projection uses gains as federal AGI holds them.",
+      "warn_when": "never"
+    },
+    {
+      "id": "pa_other_credits",
+      "from_record": [],
+      "what": "Credits outside the record: Resident Credit for tax paid to another state (Line 22), restricted credits on Schedule OC and the Schedule DC child and dependent care credit (Line 23).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Pennsylvania has no federal starting point: it adds the positive amounts of eight classes (compensation, interest, dividends, business, gains, rents, estates and trusts, gambling). The mapping runs from federal AGI to those classes: start from federal AGI, then take out what the reliefs below exempt. Wages, interest, dividends, gains, business income and rents are taken as federal AGI holds them, in one sum. The differences that remain are listed one by one in the next four entries.",
+      "direction": "either",
+      "size": "Small for a retiree whose income is pensions, IRA withdrawals, Social Security, interest and dividends, as AGI less the exempt kinds is then close to Line 9. Larger for a worker saving in a pre-tax plan (next entry, tax too low)."
+    },
+    {
+      "what": "Contributions to an employer retirement plan are PA-taxable compensation though federal wages leave them out, so federal AGI is short by them.",
+      "direction": "understates_tax",
+      "size": "3.07% of the employee's pre-tax contributions: 614 a year on 20,000. Nothing for a retiree or for Roth contributions."
+    },
+    {
+      "what": "Federal adjustments Pennsylvania does not allow (IRA contributions, the deduction for half of self-employment tax, self-employed health insurance) lower federal AGI but not PA income. HSA, Medical Savings Account and student loan interest amounts are allowed by both.",
+      "direction": "understates_tax",
+      "size": "3.07% of the adjustment: 214.90 a year on a 7,000 IRA deduction."
+    },
+    {
+      "what": "Losses: Pennsylvania ignores a loss in one class against any other class, has no carryover, and does not let one spouse's loss offset the other's income. Federal AGI nets capital losses against other income, up to 3,000 a year with carryover, and business and rental losses in full.",
+      "direction": "understates_tax",
+      "size": "3.07% of the loss used: 92.10 a year on a 3,000 capital loss; 307 on a 10,000 business loss set against wages."
+    },
+    {
+      "what": "Income in federal AGI that Pennsylvania does not tax, other than the kinds with reliefs here: unemployment compensation, and a principal residence gain above the federal exclusion.",
+      "direction": "overstates_tax",
+      "size": "3.07% of that income."
+    },
+    {
+      "what": "Interest on direct U.S. obligations is taxed here (not_modelled entry).",
+      "direction": "overstates_tax",
+      "size": "3.07% of that interest: 614 a year on 20,000. The largest common gap for a retiree holding Treasuries directly."
+    },
+    {
+      "what": "All tax-exempt municipal interest is treated as other-state and taxed. Pennsylvania and Pennsylvania-subdivision bonds are exempt.",
+      "direction": "overstates_tax",
+      "size": "3.07% of the interest on Pennsylvania bonds."
+    },
+    {
+      "what": "A New York State pension or any other state's government pension is exempted as an eligible employer-sponsored plan. This is a reading: 'Pennsylvania does not impose income tax on payments you receive that are commonly recognized retirement benefits distributed from eligible employer-sponsored retirement plans' (PDF page 11), and the plan test has no term on the payer, but no sentence names another state's pension. If such a plan were not eligible, it would be taxed above the employee's contributions.",
+      "direction": "understates_tax",
+      "size": "Only if the reading fails: 3.07% of the pension above contributions, 1,842 a year on 60,000."
+    },
+    {
+      "what": "Every private pension and employer plan distribution is exempt at any age. The law needs an eligible plan and that the person retired after meeting the plan's age or years of service conditions, which a projection cannot test. A withdrawal while still working or before the plan's retirement age, or from a non-eligible plan (ESOP, a profit-sharing plan with no annuity option, nonqualified deferred compensation), is taxable above contributions by cost recovery.",
+      "direction": "understates_tax",
+      "size": "3.07% of the distribution above contributions: 614 on a 30,000 in-service 401(k) withdrawal with 10,000 of contributions unrecovered. Nothing for a retiree who met the plan's conditions."
+    },
+    {
+      "what": "IRA withdrawals before 59 1/2 are taxed at the federal taxable amount. Pennsylvania taxes only what exceeds previous contributions (cost recovery), and it never allowed a deduction for them, so its amount can be lower. Age is the year's: the withdrawal is exempt from the date the person reaches 59 1/2. The Guide also says a penalty-free withdrawal is exempt; the booklet says no, and the booklet is followed.",
+      "direction": "overstates_tax",
+      "size": "3.07% of the contributions recovered: 921 a year on a 30,000 withdrawal at 55 fully covered by contributions. If the Guide's reading holds, also 3.07% of penalty-free withdrawals above contributions."
+    },
+    {
+      "what": "Roth conversions are exempt in full. The law needs the entire withdrawal in the Roth IRA, directly or within 60 days, with any federal tax withheld put back. It bites only before 59 1/2: from then on what is kept is an exempt IRA distribution. A conversion from an employer plan before retiring is also not covered by the rollover rule.",
+      "direction": "understates_tax",
+      "size": "Before 59 1/2 only, 3.07% of the amount kept above basis: 307 on a conversion with 10,000 withheld for federal tax and not put back."
+    },
+    {
+      "what": "All annuities are taxed; one from an eligible employer plan after retirement is exempt (not_modelled entry). A commercial annuity is taxed as the projection does.",
+      "direction": "overstates_tax",
+      "size": "3.07% of the employer-plan annuity income."
+    },
+    {
+      "what": "Tax Forgiveness is not applied. For a low-income or retired household the projection shows PA tax that the household does not owe. Line 9 income for a retiree is mostly interest, dividends and gains, because Social Security, eligible pensions and IRA withdrawals are not PA-taxed, and those three are also left out of Eligibility Income. So the credit depends on that small taxable income and not on total cash income. Eligibility Income also counts things a projection does not see: Treasury and Pennsylvania bond interest, gifts, inheritances, insurance proceeds, survivor annuities and an excluded home-sale gain, which can remove the credit.",
+      "direction": "overstates_tax",
+      "size": "All of the PA tax at or under 6,500 single or 13,000 married: at most 199.55 single and 399.10 married a year, every year it applies. Then 90% down to 10% in 250 steps to 8,750 or 15,250, none above. Example: a couple with 90,000 of exempt pension, IRA and Social Security income and 12,000 of interest and dividends is shown 368.40; they owe 0. With a dependent child each column is 9,500 higher."
+    },
+    {
+      "what": "Section 529 contributions are not deducted (not_modelled entry).",
+      "direction": "overstates_tax",
+      "size": "3.07% of the contribution: at most 583.30 per taxpayer per beneficiary."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

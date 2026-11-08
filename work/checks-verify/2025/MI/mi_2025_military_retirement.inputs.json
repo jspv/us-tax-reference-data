@@ -1,0 +1,50 @@
+{
+  "id": "mi_2025_military_retirement",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 11 (PDF page 14: military retirement benefits due to service in the U.S. Armed Forces or Michigan National Guard); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-09-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.military_retirement"
+  ]
+}

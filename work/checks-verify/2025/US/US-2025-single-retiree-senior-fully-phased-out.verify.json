@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "184000.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "32747.00",
+    "senior_deduction": "0.00",
+    "standard_deduction": "17750.00",
+    "taxable_income": "166250.00",
+    "taxable_social_security": "34000.00",
+    "total_tax": "32747.00"
+  },
+  "worked": "Form 1040: 1z wages 0; 2a tax-exempt interest 0; 2b taxable interest 0; 3a qualified dividends 0; 3b ordinary dividends 0; 4b+5b pensions/IRA 150000; 7a capital gain 0 (LT 0, ST 0); 8 other income 0. SS Worksheet: L1 40000; L2 50% 20000.00; L3 (1z+2b+3b+4b+5b+7a+8) 150000; L4 (2a) 0; L5 170000.00; L6 0; L7 170000.00; L8 25000; L9 145000.00; L10 9000; L11 136000.00; L12 9000.00; L13 4500.00; L14 4500.00; L15 115600.00; L16 120100.00; L17 34000.00; L18 smaller = 34000.00. Form 1040 line 6b = 34000.00. Form 1040 line 9 total income = line 11 AGI = 184000.00 (no adjustments). Line 12e standard deduction: basic 15750 (single) + 1 box(es) x 2000 = 17750. Schedule 1-A Part V: L31 MAGI 184000.00; L32 75000; L33 109000.00; L34 6540.00; L35 0.00; 1 qualifying person(s) on L36a/b; L37 = 0.00. Line 14 = 17750.00; line 15 taxable income = max(0, 184000.00 - 17750.00) = 166250.00. Line 16 tax on 166250.00 by the single Tax Rate Schedule = 32747.00. Form 8960: L8 NII 0.00 (interest + ordinary dividends + net gain); L13 MAGI 184000.00; L14 threshold 200000; L15 excess 0.00; L16 smaller 0.00; L17 x 3.8% = 0.00. Form 8959 Part I: L1 wages 0; L5 threshold 200000; L6 excess 0.00; L7 x 0.9% = 0.00. total_tax = 32747.00 + 0.00 + 0.00 = 32747.00."
+}

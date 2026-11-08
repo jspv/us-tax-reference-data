@@ -1,0 +1,55 @@
+{
+  "id": "nm_2025_gains_joint_over_cap",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "net_capital_gains_cap"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 5, line 16; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      },
+      {
+        "age": 48,
+        "born": "1977-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "68500.00"
+  },
+  "expected": {
+    "state_agi": "66000.00",
+    "state_taxable_income": "66000.00",
+    "state_tax_before_credits": "2491.00",
+    "credits": "0.00",
+    "state_income_tax": "2491.00",
+    "relief_amounts": {
+      "net_capital_gains_cap": "2500.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 80,000.00 + long-term gains 20,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 31,500.00 = 68,500.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, married filing jointly. Line 9 federal AGI 100,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 31,500.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 100,000.00 is over the worksheet's printed ceiling 55,000.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 16 net capital gains: smaller of 20,000.00 and the cap 2,500.00 = 2,500.00; PIT-ADJ line 28 total 2,500.00. Line 17 = 100,000.00 + 0.00 - 31,500.00 - 0.00 - 2,500.00 = 66,000.00. By the projection: state_agi = federal taxable income 68,500.00 - 2,500.00 = 66,000.00; less base deductions 0.00 gives 66,000.00. Line 18 tax, schedule as numbers: 1.5% x 8,000.00 = 120 + 3.2% x 17,000.00 = 544 + 4.3% x 25,000.00 = 1,075 + 4.7% x 16,000.00 = 752; total 2,491, to the cent 2,491.00. The table row over 65,900 to 66,000 gives 2,489; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 2,491.00. The cap is one per return on a joint return.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

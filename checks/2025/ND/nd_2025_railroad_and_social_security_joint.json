@@ -1,0 +1,76 @@
+{
+  "id": "nd_2025_railroad_and_social_security_joint",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14 Line 8; PDF p.15 Line 15 (Tier 1 benefits on line 8, Social Security on line 15, both subtracted); PDF p.16 Line 22 and PDF p.17 qualified income; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-01"
+      },
+      {
+        "age": 68,
+        "born": "1957-10-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "150000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "27200.00"
+    },
+    "federal_agi": "195200.00",
+    "federal_taxable_income": "160500.00"
+  },
+  "expected": {
+    "state_taxable_income": "115300.00",
+    "state_tax_before_credits": "669.34",
+    "credits": "0.00",
+    "state_income_tax": "669.34",
+    "relief_amounts": {
+      "railroad_retirement_exclusion": "18000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 1) 150,000.00 + railroad retirement (Tier 2, taxed federally as a pension) (person 0) 18,000.00 + taxable Social Security 27,200.00 = 195,200.00. Taxable Social Security 27,200.00 is the federal amount given (gross 32,000.00). Federal taxable income = 195,200.00 - standard deduction 31,500.00 - 2 x 1,600.00 age 65 additional = 160,500.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 160,500.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 160,500.00. Subtractions: line 8 U.S. Railroad Retirement Board benefits 18,000.00; line 15 Social Security benefit exclusion, the taxable amount on Form 1040 line 6b, 27,200.00. Line 17 total subtractions = 45,200.00. Line 18 North Dakota taxable income = 160,500.00 - 45,200.00 = 115,300.00. Line 19 = 115,300.00. Line 20 tax: 1.95% x (115,300.00 - 80,975.00) = 1.95% x 34,325.00 = 669.3375, to the cent 669.34; taxable income is 100,000 or more, so the form itself uses the schedule (PDF p.29). Lines 21-23 credits: line 22 marriage penalty credit: qualified income after lines 8 and 15 is 0.00 and 150,000.00; the lower is not more than 47,550.00, so none. Expected credits 0.00. Line 25 net tax = 669.34. All the Social Security here is SSA-1099 benefit, so all of it goes on line 15; were part of it Tier 1, the line 8 and line 15 split by gross benefits would change the two lines and not their total.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit",
+    "state_rule_not_modelled:peace_officer_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

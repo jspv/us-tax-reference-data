@@ -1,0 +1,401 @@
+{
+ "layer": "projection",
+ "state": "AR",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/AR.record.json",
+  "sha256": "2103deefe41a4d854cbb49d5a59f5c66f759a7c39cb95408f7d26096f0790b74"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.02",
+    "start": "5600"
+   },
+   {
+    "rate": "0.03",
+    "start": "11200"
+   },
+   {
+    "rate": "0.034",
+    "start": "15990"
+   },
+   {
+    "rate": "0.039",
+    "start": "26400"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.02",
+    "start": "5600"
+   },
+   {
+    "rate": "0.03",
+    "start": "11200"
+   },
+   {
+    "rate": "0.034",
+    "start": "15990"
+   },
+   {
+    "rate": "0.039",
+    "start": "26400"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "ar_standard_deduction",
+    "amount": {
+     "single": "2470",
+     "married_joint": "4940",
+     "married_separate": "2470",
+     "head_of_household": "2470",
+     "qualifying_surviving_spouse": "2470"
+    },
+    "per": "return"
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "ar_retirement_exclusion_59_5_plus",
+   "from_record": [
+    "ar_employer_plan_exclusion",
+    "ar_traditional_ira_exclusion_59_5"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "employer_plan_distribution",
+    "ira_distribution"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 59.5
+   },
+   "cap": {
+    "all": "6000"
+   },
+   "cap_per": "person",
+   "cap_reduced_by": [
+    "military_pension"
+   ],
+   "best_of_group": "ar_retirement_or_65_special"
+  },
+  {
+   "id": "ar_retirement_exclusion_employer_plan",
+   "from_record": [
+    "ar_employer_plan_exclusion"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "employer_plan_distribution"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap": {
+    "all": "6000"
+   },
+   "cap_per": "person",
+   "cap_reduced_by": [
+    "military_pension"
+   ],
+   "best_of_group": "ar_retirement_or_65_special"
+  },
+  {
+   "id": "ar_65_special_credit",
+   "from_record": [
+    "ar_65_special_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65
+   },
+   "best_of_group": "ar_retirement_or_65_special"
+  },
+  {
+   "id": "ar_military_retirement_exempt",
+   "from_record": [
+    "ar_military_retirement_exempt"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ar_railroad_retirement_exempt",
+   "from_record": [
+    "ar_social_security_railroad_exempt"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ar_personal_credit",
+   "from_record": [
+    "ar_personal_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ar_age_65_credit",
+   "from_record": [
+    "ar_age_65_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "29",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "credits",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.credit_amount"
+   ]
+  },
+  {
+   "figure": "recapture_threshold",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "recapture"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "ar_traditional_ira_exclusion_death_disability",
+   "from_record": [
+    "ar_traditional_ira_exclusion_death_disability"
+   ],
+   "what": "The 6,000 exemption for a traditional IRA distribution before 59 1/2 made on account of the participant's death or disability. A projection does not know about disability or inherited IRAs; it applies the IRA exemption only from 59.5.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ar_head_of_household_credit",
+   "from_record": [
+    "ar_head_of_household_credit"
+   ],
+   "what": "The additional 29 credit for filing status head of household or surviving spouse; a relief here cannot test filing status. Leaves the tax 29 too high for those filers.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ar_blind_credit",
+   "from_record": [
+    "ar_blind_credit",
+    "ar_deaf_credit"
+   ],
+   "what": "The additional 29 credits for a taxpayer or spouse who is blind or deaf on December 31; a projection does not know this.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ar_dependent_credit",
+   "from_record": [
+    "ar_dependent_credit"
+   ],
+   "what": "The 29 credit for each dependent (line 7B).",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "ar_active_duty_military_pay_exempt",
+   "from_record": [
+    "ar_active_duty_military_pay_exempt"
+   ],
+   "what": "U.S. active-duty military pay is exempt (line 9); a projection does not tell military pay from other wages.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ar_us_and_arkansas_obligation_interest_exempt",
+   "from_record": [
+    "ar_us_and_arkansas_obligation_interest_exempt"
+   ],
+   "what": "Interest on direct U.S. obligations and on Arkansas and Arkansas local government obligations is exempt; a projection cannot tell Treasury or Arkansas bond interest from other interest, so it taxes it (approximations).",
+   "warn_when": "never"
+  },
+  {
+   "id": "ar_principal_residence_gain",
+   "from_record": [
+    "ar_principal_residence_gain"
+   ],
+   "what": "Gain on the sale of a principal residence exempt up to 250,000 per taxpayer (500,000 married on the same return); a projection does not model home sales.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+   "direction": "either",
+   "size": "Small for a typical retired household; differences come from items such as depreciation and the capital-gain computation on Form AR1000D."
+  },
+  {
+   "what": "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+   "direction": "either",
+   "size": "Under 1 dollar against the table at a row midpoint; up to about 2 dollars at a row's edge (100-dollar rows at 3.9%)."
+  },
+  {
+   "what": "Recapture not computed: the record's recapture entry says only where it starts (net taxable income 94,701, every filing status). From there to about 97,850 the table adds about 10 cents of tax per dollar on top of 3.9%; above that the tax is about 330 higher than this schedule gives ('$3,809 + 3.9% of the excess over $100,000').",
+   "direction": "understates_tax",
+   "size": "Up to about 330 a year once net taxable income is above about 97,850. Example: joint net taxable income 120,000: the schedule gives 4,260, the printed formula 4,589, so 329 too little."
+  },
+  {
+   "what": "Married couples are taxed on the one table using joint net taxable income (filing status 2). Arkansas also lets them file separately on the same return (status 4, each spouse's tax from the same table on their own income, added), which is lower whenever both have income, because each spouse gets the lower bands.",
+   "direction": "overstates_tax",
+   "size": "Up to about 420 a year for a couple with similar incomes. Example: each spouse with net taxable income 40,000: joint 2,700, separate 2 x 1,140 = 2,280, so 420 too much."
+  },
+  {
+   "what": "Only the standard deduction is applied; filers whose Form AR3 itemized deductions are larger may use them.",
+   "direction": "overstates_tax",
+   "size": "3.9% of the itemized deductions above the standard deduction, for itemizers."
+  },
+  {
+   "what": "The employer-plan exclusion is given at any age, following the 2025 instructions ('The recipient does not have to be retired'). Subject 206 (revised 2/24/2023) says a person under 59 1/2 cannot qualify for the 6,000 exemption; if that applies to employer plans, people under 59.5 get no exclusion.",
+   "direction": "understates_tax",
+   "size": "Up to 6,000 x 3.9% = 234 a year per person under 59.5 with pension or employer-plan income."
+  },
+  {
+   "what": "Military retirement uses up the 6,000 first and the rest may go to other distributions (instructions PDF pages 8 and 13, line 18B). Line 17's text says a retiree cannot claim both the military exemption and the 6,000 exemption for traditional IRA distributions; if that applies, a military retiree gets no IRA exclusion.",
+   "direction": "understates_tax",
+   "size": "Up to 234 a year per military retiree with under 6,000 of military retirement and traditional IRA distributions."
+  },
+  {
+   "what": "Roth conversions are left out of the 6,000 exclusions (the booklet does not say whether they qualify; covers_unclear in the record). If they do, the projection taxes up to 6,000 of a conversion that is exempt.",
+   "direction": "overstates_tax",
+   "size": "Up to 234 a year per person, only where the person's 6,000 is not already used by pensions or IRA distributions."
+  },
+  {
+   "what": "Annuity income is left out of the employer-plan exclusion (covers_unclear in the record). If an annuity is paid from an employer plan it qualifies.",
+   "direction": "overstates_tax",
+   "size": "Up to 234 a year per person with such an annuity and room left under the 6,000."
+  },
+  {
+   "what": "All municipal bond interest is treated as from other states and taxed; Arkansas and Arkansas local government bond interest is exempt, and the booklet does not say how other states' bond interest is treated.",
+   "direction": "overstates_tax",
+   "size": "3.9% of the interest on Arkansas bonds held; of other states' bonds too if Arkansas does not tax them."
+  },
+  {
+   "what": "Interest on direct U.S. obligations (Treasury bills, notes, bonds) is exempt but taxed here, because a projection cannot tell it from other interest.",
+   "direction": "overstates_tax",
+   "size": "3.9% of the Treasury interest."
+  },
+  {
+   "what": "The Low Income Tax Tables (lower tax, standard deduction built in, for adjusted gross income under cut-offs such as 17,500 single and 29,000 joint with one or no dependents) and the Additional Tax Credit for Qualified Individuals (up to 60 per person at net taxable income up to 27,600) are not applied. The low income tables are not open to anyone taking the 6,000 exclusion or the military exemptions.",
+   "direction": "overstates_tax",
+   "size": "Low-income households only: up to 60 (120 joint) for the credit, plus the table difference."
+  },
+  {
+   "what": "Gains are taxed in full as in federal AGI; Form AR1000D, which sets the Arkansas taxable amount of a capital gain, is not in the sources.",
+   "direction": "either",
+   "size": "Unknown from the sources; the share of a gain taxed by Arkansas may differ from federal."
+  },
+  {
+   "what": "The additional tax on early distributions (10% of the federal Form 5329 additional tax, line 32) is not added.",
+   "direction": "understates_tax",
+   "size": "1% of an early IRA or employer-plan distribution before 59 1/2 without an exception."
+  },
+  {
+   "what": "The 65 Special credit and the 6,000 exclusions are one per-person choice (best_of_group). The booklet says a taxpayer claiming a line 18 exemption cannot take the 65 Special credit; the projection gives each person the better of the two, which is what a filer would choose.",
+   "direction": "either",
+   "size": "None in practice."
+  }
+ ],
+ "recapture": [
+  {
+   "measure": {
+    "base": "state_taxable_income"
+   },
+   "starts_over": {
+    "all": "94701"
+   },
+   "effect": "phase_out_lower_brackets"
+  }
+ ],
+ "derived_figures": []
+}

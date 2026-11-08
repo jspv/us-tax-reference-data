@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "30000.00"
+    },
+    "state_agi": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Start: federal AGI 30000.00 (projection base.starts_from federal_agi; MS Form 80-105 builds its own income, lines 38-66, approximation). ira_distribution 30000.00 person 0: exempt in full (ms_retirement_income_exempt; Reg rules 101/102), at every age in the projection. State AGI = 30000.00 + 0.00 - 30000.00 = 0.00. Standard deduction (single) 2300.00; personal exemption 6000.00; age 65 exemption 1500.00 x 0 person(s) aged 65+ (ages [50]) = 0.00. Taxable income = 0.00 - 2300.00 - 6000.00 - 0.00 = -8300.00, floored at 0. Tax = 0% on first 10,000 (one band on the return total) + 4.4% x 0.00 = 0.00. No credits. Federal figures given; federal senior deduction ignored."
+}

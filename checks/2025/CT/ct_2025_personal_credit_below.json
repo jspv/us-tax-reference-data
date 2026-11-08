@@ -1,0 +1,53 @@
+{
+  "id": "ct_2025_personal_credit_below",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_tax_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 23, Table E (Single, more than 15,000 to 18,800: .75) and Tax Calculation Schedule Lines 7-10; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "18000.00",
+    "federal_taxable_income": "2250.00"
+  },
+  "expected": {
+    "state_agi": "18000.00",
+    "state_taxable_income": "3000.00",
+    "state_tax_before_credits": "60.00",
+    "credits": "45.00",
+    "state_income_tax": "15.00",
+    "relief_amounts": {
+      "personal_tax_credit": "45.00"
+    }
+  },
+  "worked": "Federal AGI = wages 18,000.00 = 18,000.00. Federal taxable income = 18,000.00 - 15,750.00 standard deduction = 2,250.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 18,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 18,000.00. Schedule 1 Line 50 total subtractions = 0.00; CT-1040 Line 4 = 0.00. CT-1040 Line 5 Connecticut AGI = 18,000.00 - 0.00 = 18,000.00. Tax Calculation Schedule Line 1 = 18,000.00; Line 2 Table A: Connecticut AGI 18,000.00 is not more than 30,000.00, exemption 15,000.00; Line 3 taxable income = 18,000.00 - 15,000.00 = 3,000.00. Line 4 Table B (Single or Married Filing Separately schedule) on 3,000.00: 3,000.00 x 0.02 = 60.00 = 60.00. Line 5 Table C 0.00 (Connecticut AGI 18,000.00 is not more than 56,500.00); Line 6 Table D 0.00 (not more than 105,000.00); Line 7 = 60.00. Line 8 Table E decimal 0.75 (Connecticut AGI 18,000.00 is in the band more than 15,000.00); Line 9 = 60.00 x 0.75 = 45.00. Line 10 Connecticut income tax = 60.00 - 45.00 = 15.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Connecticut AGI 18,000 is under 18,800, where the Table E decimal first drops below .75.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

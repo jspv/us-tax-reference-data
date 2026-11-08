@@ -1,0 +1,41 @@
+[
+  {
+    "state": "SC",
+    "title": "2025 SC1040 Individual Income Tax Instructions",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+    "retrieved": "2026-11-06T22:18:09.014750+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+    "file": "SC1040Instr_2025.pdf",
+    "bytes": 404082,
+    "sha256": "e75216d42f37f96c21cb8ca284b13a64b314958d2096c62970212cff94a2b931",
+    "archived_url": "https://web.archive.org/web/20260117053347id_/https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  {
+    "state": "SC",
+    "title": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+    "retrieved": "2026-11-06T22:18:14.127216+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+    "file": "IITPacket_2025.pdf",
+    "bytes": 1483495,
+    "sha256": "045a4e2babcf62690716f871b60dce72c44e1b78115a2465c2a63ad8244cb80d",
+    "archived_url": "https://web.archive.org/web/20260317111409id_/https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf"
+  },
+  {
+    "state": "SC",
+    "title": "SCDOR Information Letter #26-4 (Revised), Jan 30 2026: 2025 federal changes South Carolina does not adopt",
+    "url": "https://dor.sc.gov/sites/dor/files/policies/IL26-4(revised).pdf",
+    "retrieved": "2026-11-08T01:09:48.743342+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.sc.gov/sites/dor/files/policies/IL26-4(revised).pdf",
+    "method": "browser",
+    "file": "IL26-4_revised_.pdf",
+    "bytes": 216653,
+    "sha256": "de7ddc52e0fb00851726f289cad08eab12ff46d433ba8955f4ec23d54427f9c3"
+  }
+]

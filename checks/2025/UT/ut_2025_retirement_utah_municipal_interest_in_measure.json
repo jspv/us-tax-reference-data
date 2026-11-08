@@ -1,0 +1,58 @@
+{
+  "id": "ut_2025_retirement_utah_municipal_interest_in_measure",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (18) Retirement Credit and Retirement Credit Worksheet lines 1 to 10 (PDF p.21); (57) Municipal Bond Interest (PDF p.18); (71) Utah Municipal Bonds (PDF p.19)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 75,
+        "born": "1950-04-12"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "municipal_interest_own_state": "10000.00"
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "12250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "30000.00",
+    "state_tax_before_credits": "1350.00",
+    "credits": "866.77",
+    "state_income_tax": "483.23",
+    "relief_amounts": {
+      "retirement_credit": "75.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 15,750.00 - 1 x 2,000 age 65 additional = 12,250.00 (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (single): line 4 federal AGI 30,000.00. Line 5 additions: none, 0.00. Line 6 = 30,000.00 + 0.00 = 30,000.00. Line 7 state tax refund 0.00. Utah municipal interest 10,000.00 is not in federal AGI, so nothing is subtracted for it (code 71). Line 8 subtractions 0.00. Line 9 Utah taxable income = 30,000.00 - 0.00 - 0.00 = 30,000.00. Line 10 = 30,000.00 x 0.045 = 1,350.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 15,750.00; initial credit = 0.06 x min(line 9 30,000.00, cap 15,750.00) = 0.06 x 15,750.00 = 945.00. The form's line 12 takes federal line 12e, 17,750.00 with the age 65 additional, so its line 16 is 1,065.00, line 20 911.77; the expected figures follow the projection's cap. Line 17 base phase-out amount 18,213.00. Line 18 = max(0, 30,000.00 - 18,213.00) = 11,787.00. Line 19 = 11,787.00 x 0.013 = 153.231. Line 20 = max(0, 945.00 - 153.231) = 791.769. Line 21 worksheet: line 1 federal AGI 30,000.00; line 2 standard deduction 15,750.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 15,750.00; line 5 = max(0, 30,000.00 - 15,750.00) = 14,250.00. Line 5 is above zero, so not exempt; line 21 blank. TC-40A Part 3: Retirement Credit Worksheet: line 1 = 1 x 450 = 450.00 (1 of the persons born on or before Dec. 31, 1952); line 2 line 6 total income 30,000.00; line 3 code 57 0.00; line 4 30,000.00; line 5 tax-exempt interest 10,000.00; line 6 modified AGI 40,000.00; line 7 25,000.00; line 8 15,000.00; line 9 = 15,000.00 x 0.025 = 375.00; line 10 = max(0, 450.00 - 375.00) = 75.00, one reduction on the return. Line 22 and TC-40A Part 3: line 20 791.769 + code 18 75.000 = 866.769; credits 866.77. Tax = 1,350.00 - 866.77 = 483.23. The form, with line 12 at federal 12e, gives tax 363.23; expected follows the projection. Line 5 adds the Utah interest to modified AGI although it is never in line 9. Expected lines are the formula results rounded to the cent at the end (half up); the three-decimal figures above are unrounded.",
+  "accepted_approximations": [
+    "Utah has no deduction from income, so base.deductions is empty on purpose. The taxpayer tax credit stands in for it: 6% of the capped income, cap = the federal standard deduction for the status, so the credit is 945 single, 1,417.50 head of household, 1,890 joint or qualifying surviving spouse, once income reaches the cap. Below the cap the credit is smaller than the form's, but 6% of income exceeds 4.5% tax either way, so tax is 0 on both. The phase-out (line 19) comes off the credit, after the 6%, as it does after the 4.5% on the Social Security credit. The cap leaves out the federal age 65 and blindness extras, which line 12 includes because it takes federal line 12e; the Utah sources print no amount for them."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:utah_previously_taxed_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

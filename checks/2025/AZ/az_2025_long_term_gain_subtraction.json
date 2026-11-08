@@ -1,0 +1,51 @@
+{
+  "id": "az_2025_long_term_gain_subtraction",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 18 Lines 23 and 24 (25% of net long-term capital gain from assets acquired after December 31, 2011); PDF page 37 worksheet; PDF page 39 Form 140 lines 20-24; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "2000.00",
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "67000.00",
+    "federal_taxable_income": "51250.00"
+  },
+  "expected": {
+    "state_taxable_income": "46250.00",
+    "state_tax_before_credits": "1156.25",
+    "credits": "0.00",
+    "state_income_tax": "1156.25"
+  },
+  "worked": "Federal AGI = wages (person 0) 45,000.00 + short-term gain 2,000.00 + long-term gain 20,000.00 = 67,000.00. Federal taxable income = 67,000.00 - 15,750.00 federal standard deduction = 51,250.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 67,000.00; line 13 small business income 0.00; line 14 = 67,000.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 67,000.00 + 0.00 = 67,000.00. Subtractions: line 23 net long-term gain from assets acquired after 2011 20,000.00; line 24 = 20,000.00 x 25% = 5,000.00. Line 35 = 67,000.00 - 5,000.00 = 62,000.00; line 36 other subtractions 0.00; line 37 = 62,000.00. Line 38 age 65 or over: box 8 = 0 x 2,100.00 = 0.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 62,000.00 - 0.00 = 62,000.00. Line 43 standard deduction (single) 15,750.00; line 44 0.00. Line 45 Arizona taxable income = 62,000.00 - 15,750.00 = 46,250.00. Line 46 tax = 46,250.00 x 2.5% = 1,156.25. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 62,000.00, over the maximum for the status). Line 52 balance of tax 1,156.25. The long-term gain is from stock bought in 2015 with a verifiable date, so the booklet's line 23 equals the projection's whole long-term gain; the short-term gain gets no subtraction.",
+  "accepted_approximations": [
+    "The 25% subtraction is applied to all net long-term gains, but Arizona allows it only for gains on assets acquired after December 31, 2011 whose acquisition date can be verified (fund distributions without acquisition dates do not qualify)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

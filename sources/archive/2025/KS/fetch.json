@@ -1,0 +1,83 @@
+[
+  {
+    "state": "KS",
+    "title": "2025 Complete Income Tax Instruction Booklet (ip25)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+    "retrieved": "2026-11-07T01:07:09.597510+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+    "file": "ip25.pdf",
+    "bytes": 3004102,
+    "sha256": "8cbc2ea8d4f877a0d57e1e008c203ec06aa087fb3d4ab7319d91c157ee628871",
+    "archived_url": "https://web.archive.org/web/20260106153011id_/https://ksrevenue.gov/pdf/ip25.pdf"
+  },
+  {
+    "state": "KS",
+    "title": "2025 Form K-40",
+    "url": "https://www.ksrevenue.gov/pdf/k-4025.pdf",
+    "retrieved": "2026-11-07T01:07:16.502370+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/pdf/k-4025.pdf",
+    "file": "k-4025.pdf",
+    "bytes": 3696904,
+    "sha256": "dfff7caae33d2527ae9655f562a3469835556cc6ec6ab40297641caf10379fdb",
+    "archived_url": "https://web.archive.org/web/20260105145749id_/https://ksrevenue.gov/pdf/k-4025.pdf"
+  },
+  {
+    "state": "KS",
+    "title": "2025 Schedule S Supplemental Schedule (Part A subtractions incl. Social Security, KPERS)",
+    "url": "https://www.ksrevenue.gov/pdf/schs25.pdf",
+    "retrieved": "2026-11-07T01:07:23.134071+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/pdf/schs25.pdf",
+    "file": "schs25.pdf",
+    "bytes": 1376869,
+    "sha256": "743a39941df894175e9f9f7d68f0d889262b0124d43ef97cea136925f50e01cb",
+    "archived_url": "https://web.archive.org/web/20261108001335id_/https://www.ksrevenue.gov/pdf/schs25.pdf"
+  },
+  {
+    "state": "KS",
+    "title": "2025 Income Tax Booklet (HTML version)",
+    "url": "https://www.ksrevenue.gov/incomebook25.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:07:28.830099+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/incomebook25.html",
+    "file": "incomebook25.html",
+    "bytes": 277943,
+    "sha256": "68eaf45b5a4765976949e7f0e3a1b7df9898490953735c45bef7bb437e7de94d",
+    "text_file": "incomebook25.page.txt"
+  },
+  {
+    "state": "KS",
+    "title": "WebFile: Schedule S Part A Instructions (retirement/Social Security subtractions)",
+    "url": "https://www.ksrevenue.gov/webfile/help/scheduleS_A.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:07:35.681773+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/webfile/help/scheduleS_A.html",
+    "file": "scheduleS_A.html",
+    "bytes": 18757,
+    "sha256": "e20168f92e36516ad40d951c3111564d0e21105666e379bc518da96d5facc93d",
+    "text_file": "scheduleS_A.page.txt"
+  },
+  {
+    "state": "KS",
+    "title": "Frequently Asked Questions About Individual Income Tax (Social Security and pensions)",
+    "url": "https://www.ksrevenue.gov/faqs-taxii.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:07:41.444464+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ksrevenue.gov/faqs-taxii.html",
+    "file": "faqs-taxii.html",
+    "bytes": 72096,
+    "sha256": "ec1ceb19909ea2c57c87885389e88eb0f58b20b5034bd19e06146c01d424f027",
+    "text_file": "faqs-taxii.page.txt"
+  }
+]

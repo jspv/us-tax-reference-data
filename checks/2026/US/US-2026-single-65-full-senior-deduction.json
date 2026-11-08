@@ -1,0 +1,41 @@
+{
+  "id": "US-2026-single-65-full-senior-deduction",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Single filer age 66 with a pension and interest, no Social Security: MAGI under 75,000, full senior deduction.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1960-07-07",
+        "age": 66
+      }
+    ],
+    "taxable_pensions": "60000",
+    "taxable_interest": "4000"
+  },
+  "expected": {
+    "agi": "64000.00",
+    "standard_deduction": "18150.00",
+    "senior_deduction": "6000.00",
+    "taxable_income": "39850.00",
+    "regular_tax": "4534.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "4534.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: single.\nTaxpayer: born 1960-07-07, age 66 at the end of 2026.\nForm 1040: line 2b taxable interest 4,000; lines 4b + 5b taxable pensions and IRA distributions 60,000.\nForm 1040 line 9 total income = 4,000 + 60,000 = 64,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 64,000.\nLine 12e standard deduction = 16,100 basic (single) + 1 x 2,050 additional (unmarried amount, one per box checked on line 12d for age 65 or older / blind) = 18,150.\nSchedule 1-A: line 1 = line 11b 64,000; line 3 MAGI = 64,000 (no excluded income).\n  Part V: line 31 = 64,000; line 32 = 75,000; line 33: 64,000 - 75,000 is zero or less, so line 35 = 6,000\n  line 36a (born before January 2, 1962) = 6,000; line 37 = 6,000 -> line 38 -> Form 1040 line 13b\nLine 14 = 18,150 + 6,000 = 24,150; line 15 taxable income = 64,000 - 24,150 = 39,850.\nForm 1040 line 16 (regular tax): Tax Rate Schedule X (single) on 39,850: 10% x 12,400 = 1,240; 12% x (39,850 - 12,400) = 3,294; total 4,534\nForm 8960: lines 8 and 12 net investment income = 4,000; line 13 MAGI = 64,000; line 14 threshold = 200,000; line 15 = 64,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 4,534 regular + 0 net investment income tax + 0 additional Medicare tax = 4,534.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

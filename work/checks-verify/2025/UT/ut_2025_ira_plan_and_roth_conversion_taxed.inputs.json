@@ -1,0 +1,59 @@
+{
+  "id": "ut_2025_ira_plan_and_roth_conversion_taxed",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "taxpayer_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); Line 8 subtractions, a closed list (PDF p.10)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-10"
+      },
+      {
+        "age": 61,
+        "born": "1964-08-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "roth_conversion": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.taxpayer_tax_credit"
+  ]
+}

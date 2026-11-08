@@ -1,0 +1,78 @@
+{
+  "id": "la_2025_gov_pension_joint_line3_below_cap",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "la_government_pension",
+    "la_retirement_income_exemption_65"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "instructions PDF page 7, code 02E; instructions PDF page 7, code 06E and Worksheet for Code 06E, Lines 1 to 6; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-05-08"
+      },
+      {
+        "age": 64,
+        "born": "1961-09-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "LA"
+        },
+        {
+          "amount": "5000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "8000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "93000.00",
+    "federal_taxable_income": "59900.00"
+  },
+  "expected": {
+    "state_agi": "58000.00",
+    "state_taxable_income": "33000.00",
+    "state_tax_before_credits": "990.00",
+    "credits": "0.00",
+    "state_income_tax": "990.00",
+    "relief_amounts": {
+      "la_government_pension": "30000.00",
+      "la_retirement_income_exemption_65": "5000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 1) 50,000.00 + Louisiana State Employees' Retirement System pension (person 0) 30,000.00 + private pension (person 0) 5,000.00 + private pension (person 1) 8,000.00 = 93,000.00. Federal taxable income = 93,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 59,900.00 (given, not tested; the federal senior deduction is ignored). Filing status 2 on Form IT-540. Louisiana starts from federal AGI. Worksheet for Code 06E (both columns): Line 1(a) 35,000.00 (person 0, age 66); Line 2(a) 30,000.00; Line 3(a) = 5,000.00; Line 4 12,000.00; Line 5(a) lesser of Lines 3 and 4 = 5,000.00. Line 1(b) 8,000.00 (person 1, age 64); Line 2(b) 0.00; Line 3(b) = 8,000.00; Line 4 12,000.00; Line 5(b) nothing, because person 1 is under 65. Line 6 adds Lines 5(a) and 5(b) = 5,000.00, code 06E. Schedule E: Line 1 federal AGI 93,000.00. Line 3 total = 93,000.00. Exempt income: code 02E Louisiana State Employees' Retirement System pension 30,000.00; code 06E 5,000.00. Line 4H = 35,000.00. Line 5 Louisiana AGI = 93,000.00 - 35,000.00 = 58,000.00. IT-540 Line 7 (from Schedule E Line 5) 58,000.00. Line 8 standard deduction (filing status 2) 25,000.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 58,000.00 - 25,000.00 = 33,000.00. Line 11 = 33,000.00 x .03 = 990.00. Line 12 credits 0.00. Line 13 = 990.00. Person 0's Line 3 is 5,000.00 after the exempt pension, under the 12,000. Person 1 is under 65, so the 8,000.00 private pension gets no exemption.",
+  "accepted_approximations": [
+    "Every public_pension is treated as exempt. Louisiana exempts only its listed systems (codes 02E, 03E, 05E) and federal retirement systems (code 04E); a Louisiana government pension from a system not on the list would fall in the 12,000 exemption instead.",
+    "On a joint return with one spouse 65 or older, that spouse gets the exemption on his or her own retirement income, following Worksheet Line 5 ('For each taxpayer 65 or older'). If the code 06E paragraph's 'both you and your spouse are age 65 years or older' were applied literally, that return would get none."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "dc_2025_railroad_retirement_tier2",
+  "state": "DC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_tier1"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "section": "D-40 Lines 4-7, 15-20; booklet PDF page 19 Line 4; PDF page 20 Lines 16-17 and Calculation I/Tax Rate Schedule; Schedule S Calculation G-1 lines a-h (PDF page 51); standard deduction PDF pages 4 and 13 (record base.deductions cite); Line 10 taxable Social Security and tier 1 railroad retirement (PDF page 20 Line 10; D-40 form page 2 Line 10; record social_security_tier1_subtraction cite)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-01-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "39250.00"
+  },
+  "expected": {
+    "state_agi": "25000.00",
+    "state_taxable_income": "10000.00",
+    "state_tax_before_credits": "400.00",
+    "credits": "0.00",
+    "state_income_tax": "400.00",
+    "relief_amounts": {
+      "railroad_retirement_tier1": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 25,000.00 + railroad retirement (you) 30,000.00 = 55,000.00. The railroad retirement is tier 2 benefits, 30,000.00 in federal AGI (given). Federal taxable income = 55,000.00 - standard deduction 15,750.00 = 39,250.00 (federal senior deduction ignored). D-40 (single): Line 4 federal AGI 55,000.00. Line 5 franchise tax 0.00. Line 6 other additions 0.00 (no other-state municipal interest). Line 7 = 55,000.00 + 0.00 + 0.00 = 55,000.00. Line 10 taxable Social Security and tier 1 railroad retirement: railroad retirement 30,000.00 = 30,000.00. The projection exempts all railroad retirement (accepted approximation); the booklet's Line 10 names tier 1 only, so on the form the 30,000.00 tier 2 amount would stay taxed: Line 16 55,000.00, Line 19 40,000.00, tax 2,200.00 (table row 40,000-40,049 gives 2,202). Lines 8, 9, 11, 12, 13 0.00. Line 14 Schedule I Calculation B Line 16 0.00. Line 15 total subtractions = 30,000.00. Line 16 DC AGI = 55,000.00 - 30,000.00 = 25,000.00. Line 17 standard (same as federal). Line 18 from Schedule S Calculation G-1: line a basic 15,000.00; lines b and d age 65 (born before January 2, 1961): you age 63 (born 1962-01-20) does not count; line f 0; line g 2,000.00 x 0 = 0.00; line h 15,000.00 + 0.00 = 15,000.00. Line 19 DC taxable income = 25,000.00 - 15,000.00 = 10,000.00. Line 20 tax, Calculation I rate schedule as numbers: 4% x 10,000.00 = 400.00; total 400.00. (Taxable income is 100,000 or less, so the form reads the tax table: row 10,000-10,049, PDF page 95, gives 402; expected keeps the formula figure.) Lines 21-23 credits 0.00; Line 24 = 400.00.",
+  "accepted_approximations": [
+    "Railroad retirement is exempted in full; the booklet's Line 10 names only tier 1, so tier 2 railroad retirement (taxed in DC) is exempted as well.",
+    "Tax on taxable income of 100,000 or less comes from the tax tables (50-dollar rows); the projection uses the rate schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:government_survivor_benefits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

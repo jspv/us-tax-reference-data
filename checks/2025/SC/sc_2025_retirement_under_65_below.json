@@ -1,0 +1,64 @@
+{
+  "id": "sc_2025_retirement_under_65_below",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "sc_retirement_under_65"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF pp.10-11 'Line p-1 through line p-3: Retirement deduction', qualified retirement income definition and Worksheet for taxpayer (line p-1) lines 1-5; SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-05-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "2000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "52000.00",
+    "federal_taxable_income": "36250.00"
+  },
+  "expected": {
+    "state_taxable_income": "34250.00",
+    "state_tax_before_credits": "1413.00",
+    "credits": "0.00",
+    "state_income_tax": "1413.00",
+    "relief_amounts": {
+      "sc_retirement_under_65": "2000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 50,000.00 + private pension 2,000.00 = 52,000.00. Federal taxable income = 52,000.00 - standard deduction 15,750.00 (15,750.00 single) = 36,250.00 (federal senior deduction ignored, federal figures given, not tested). SC1040 line 1 federal taxable income 36,250.00; additions lines a-e none, line 2 = 0.00; line 3 = 36,250.00. Line p-1 worksheet (taxpayer, age 60, under 65): line 1 maximum 3,000.00; line 2 military retirement deduction 0.00; line 3 = 3,000.00; line 4 qualified retirement income (private pension) 2,000.00; line 5 lesser = 2,000.00, entered on p-1 (income below the cap). Age 60, so no premature-withdrawal question for a pension; no line q (under 65). Line 4 total subtractions = p-1 2,000.00 = 2,000.00. Line 5 South Carolina income subject to tax = 36,250.00 - 2,000.00 = 34,250.00. Line 6 tax = 3% x (17,840.00 - 3,560.00) + 6% x (34,250.00 - 17,840.00) = 428.40 + 984.60 = 1,413.00 (same as 6% x 34,250.00 - 642 = 2,055.00 - 642.00 = 1,413.00); the printed table (row 34,200 to 34,300, figured at the row midpoint) gives 1,413; expected uses the bracket formula on the exact income. Line 12 Two Wage Earner Credit: not modelled (warning), 0.00; it is for joint filers only, so 0 anyway. Line 14 credits 0.00; line 15 state income tax = 1,413.00.",
+  "accepted_approximations": [
+    "The bracket starts 3,560 and 17,840 are derived from the printed tax table and the 6%-minus-642 formula; the table fixes them only to 3,559-3,566 and 17,818-17,857. Tax below 100,000 is figured on the exact income, where the booklet uses the table row's midpoint."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:sc_disability_retirement",
+    "state_rule_not_modelled:sc_retirement_surviving_under_65",
+    "state_rule_not_modelled:sc_two_wage_earner_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

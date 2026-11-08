@@ -1,0 +1,70 @@
+{
+  "layer": "record",
+  "state": "FL",
+  "tax_year": 2025,
+  "has_income_tax": false,
+  "notes": [
+    "The booklet says Florida does not impose personal income tax (PDF page 3, 'Other Taxes and Fees'); the brackets, surtaxes, deductions and reliefs are therefore empty.",
+    "The booklet prints no standard deduction, personal or dependent exemption, or other income-tax deduction (it has no income tax section).",
+    "Social Security treatment: not stated in the booklet; not found in the booklet.",
+    "Municipal bond interest treatment: not stated in the booklet; not found in the booklet.",
+    "Capital gains: the booklet prints no rate or treatment for gains; not found in the booklet. Page 3 also says Florida does not tax 'intangible personal property'.",
+    "Page 3 says most businesses are subject to corporate income tax; this is a business tax and is outside the personal-income record.",
+    "The booklet carries no tax year; it is the current brochure retrieved 2026-11-06 and is recorded as tax year 2025 as dispatched.",
+    "Settlement 2026-11-07: readings A and B had no structured differences; reading A taken, with base.starts_from set to 'none' (the format gained that value after both readings; no income tax, so no starting point)."
+  ],
+  "brackets": {
+    "single": [],
+    "married_joint": [],
+    "cite": {
+      "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+      "section": "PDF page 3, section 'Other Taxes and Fees', first sentence: \"Florida does not impose personal income tax, inheritance tax, gift taxes, or tax on intangible personal property.\"",
+      "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "none",
+    "deductions": [],
+    "cite": {
+      "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+      "section": "PDF page 3, section 'Other Taxes and Fees', first sentence: \"Florida does not impose personal income tax, inheritance tax, gift taxes, or tax on intangible personal property.\"",
+      "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+      "section": "PDF pages 1-3: no statement on this topic",
+      "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+      "section": "PDF pages 1-3: no statement on this topic",
+      "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+        "section": "PDF pages 1-3: no statement on this topic",
+        "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "recapture": []
+}

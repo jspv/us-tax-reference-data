@@ -1,0 +1,61 @@
+{
+  "id": "ri_2025_mfj_each_spouse_own_cap_guide_example_4",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_pension_annuity_modification"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Guide PDF p.20, Section 5 Example #4; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      },
+      {
+        "age": 67,
+        "born": "1958-02-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "55000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal"
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "125000.00",
+    "federal_taxable_income": "90300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_pension_annuity_modification"
+  ]
+}

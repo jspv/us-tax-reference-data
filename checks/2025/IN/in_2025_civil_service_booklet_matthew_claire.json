@@ -1,0 +1,81 @@
+{
+  "id": "in_2025_civil_service_booklet_matthew_claire",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "civil_service_annuity",
+    "age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Schedule 2 line 11 code 601 and PDF pages 19-20 Civil Service Annuity Deduction (PDF page 19: 'The lesser of the amount of taxable civil service annuity income ... or $16,000, Less all amounts of Social Security income and tier 1 and tier 2 Railroad Retirement income ... received by the civil service annuitant'), with its examples (PDF page 20 Matthew and Claire example); Schedule 2 line 5 (PDF page 17 Lines 5 and 6); Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000), line 4 (PDF page 25: 1,000 age 65 or older), line 5 (PDF page 25: 500 age 65 or older and IT-40 line 1 under 40,000, or under 20,000 married filing separately); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-02-20"
+      },
+      {
+        "age": 68,
+        "born": "1957-10-11"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "13700.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        },
+        {
+          "amount": "21900.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "17500.00",
+          "person": 0
+        },
+        {
+          "amount": "6300.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "8975.00"
+    },
+    "federal_agi": "44575.00",
+    "federal_taxable_income": "9875.00"
+  },
+  "expected": {
+    "state_agi": "25900.00",
+    "state_taxable_income": "21900.00",
+    "state_tax_before_credits": "657.00",
+    "credits": "0.00",
+    "state_income_tax": "657.00",
+    "relief_amounts": {
+      "civil_service_annuity": "9700.00"
+    }
+  },
+  "worked": "Federal AGI = federal civil service annuity person 0 13,700.00 + federal civil service annuity person 1 21,900.00 + taxable Social Security 8,975.00 = 44,575.00. Social Security received: person 0 17,500.00, person 1 6,300.00; the federal taxable amount from the federal worksheet is 8,975.00. Federal taxable income = 44,575.00 - standard deduction 31,500.00 - 2 x 1,600.00 age 65 additional = 9,875.00 (given, not tested; the federal senior deduction is ignored; Indiana starts from federal AGI). Form IT-40 line 1 federal AGI 44,575.00. Line 2 add-backs 0.00; line 3 = 44,575.00 + 0.00 = 44,575.00. Civil service annuity person 0, Matthew (age 68): lesser of the taxable annuity 13,700.00 and 16,000.00 = 13,700.00; less his own Social Security received 17,500.00 and railroad retirement 0.00 = -3,800.00, so 0.00 (the booklet: no deduction). Civil service annuity person 1, Claire (age 68): lesser of the taxable annuity 21,900.00 and 16,000.00 = 16,000.00; less her own Social Security received 6,300.00 and railroad retirement 0.00 = 9,700.00 (the booklet: 9,700). Each annuitant's own Social Security is used, the gross amount received. Total 0.00 + 9,700.00 = 9,700.00. Schedule 2: line 5 taxable Social Security 8,975.00; line 11 code 601 civil service annuity 9,700.00; line 12 total = 18,675.00. IT-40 line 4 = 18,675.00. Line 5 = 44,575.00 - 18,675.00 = 25,900.00. Schedule 3: line 1 2,000.00; line 4 2 x 1,000.00 = 2,000.00; line 5 IT-40 line 1 44,575.00 is not less than 40,000.00: none; line 7 total = 4,000.00. IT-40 line 6 = 4,000.00. Line 7 = 25,900.00 - 4,000.00 = 21,900.00. Line 8 = 21,900.00 x 0.03 = 657.00. No credits; county tax (line 9) is local and out of scope. State income tax 657.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:civil_service_annuity_surviving_spouse",
+    "state_rule_not_modelled:disability_retirement_602",
+    "state_rule_not_modelled:renters_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

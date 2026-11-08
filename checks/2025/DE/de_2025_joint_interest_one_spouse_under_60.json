@@ -1,0 +1,59 @@
+{
+  "id": "de_2025_joint_interest_one_spouse_under_60",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "de_pension_excl_60_plus",
+    "de_additional_standard_65",
+    "de_additional_personal_credit_60"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. §1102(a)(14)",
+    "section": "Instructions PDF p.6 Line 6 Pension Exclusion (under-60 rules: 'IF YOU WERE UNDER 60 ... and you receive a non-military pension, your exclusion equals $2,000 or the amount of your pension, whichever is less'; 60-or-over worksheet lines 1-4; eligible retirement income; example: joint account income 'split equally between the two taxpayers', a taxpayer with no pension still gets an exclusion); Instructions PDF p.5 Filing Status 3 or 4 and Line 1 (one-half of income from bank accounts titled in joint names); 30 Del. C. §1106(b)(3)f.1.B; Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.8 Line 20a standard deduction table, Line 21 Additional Standard Deduction, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. §1102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      },
+      {
+        "age": 57,
+        "born": "1968-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "interest": "4000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "20900.00"
+  },
+  "expected": {
+    "state_agi": "52000.00",
+    "state_taxable_income": "43000.00",
+    "state_tax_before_credits": "2000.00",
+    "credits": "330.00",
+    "state_income_tax": "1670.00",
+    "relief_amounts": {
+      "de_pension_excl_60_plus": "2000.00",
+      "de_additional_personal_credit_60": "110.00"
+    }
+  },
+  "worked": "Joint bank account interest 4,000.00, split half to each spouse (PDF p.5, p.6 example; §1106(b)(3)f.1.B). The under-60 spouse's 50,000.00 of wages are the base income; no pension or other retirement income. Federal (given, not tested): federal AGI = wages (spouse) 50,000.00 + interest 4,000.00 = 54,000.00. Federal taxable income = 54,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 additional for age 65 or older = 20,900.00 (federal senior deduction ignored). Form PIT-RES (filing status 2 joint, Column B): Line 1 federal AGI 54,000.00; Line 2 other states' obligations interest 0.00; Line 3 0.00; Line 4 total 54,000.00. Line 5 U.S. obligations interest 0.00. Line 6 pension exclusion, you (age 66), 60-or-over worksheet: line 1 pension 0.00 (no pension needed: the PDF p.6 example's secondary taxpayer has none); line 2 eligible retirement income = half the interest 2,000.00; line 3 = 2,000.00; line 4 lesser of 2,000.00 and 12,500.00 = 2,000.00. Line 6 pension exclusion, spouse (age 57): under 60 only a pension counts (non-military: lesser of 2,000.00 and the pension); the spouse has no pension, and the spouse's 2,000.00 half of the interest is not a pension, so 0.00. Line 6 total = 2,000.00 + 0.00 = 2,000.00. (All 4,000.00 to the 66-year-old would give 4,000.00; all to the 57-year-old, 0.00; the booklet's equal split gives 2,000.00.) Line 7 0.00; Line 8a 0.00; Line 8b 0.00. Line 9 (Lines 5-8b) = 2,000.00. Line 10 = 54,000.00 - 2,000.00 = 52,000.00. Line 11 0.00 (Line 11 worksheet: both spouses must be 60 or disabled, so no). Line 12 Delaware AGI = 52,000.00. Line 20a standard deduction (filing status 2) 6,500.00; Line 21 additional standard deduction 1 box for 65 or over x 2,500.00 = 2,500.00; Line 22 = 9,000.00. Line 23 taxable income = 52,000.00 - 9,000.00 = 43,000.00. Line 24 tax, §1102(a)(14) schedule as numbers: 2.2% x 3,000.00 = 66.00 + 3.9% x 5,000.00 = 195.00 + 4.8% x 10,000.00 = 480.00 + 5.2% x 5,000.00 = 260.00 + 5.55% x 18,000.00 = 999.00; total 2,000.00 (the Division's tax table, not in the sources, would give a row figure; expected keeps the formula). Line 25 0.00; Line 26 = 2,000.00. Line 27a personal credits 2 x 110.00 = 220.00; Line 27b additional credits 1 box for 60 or over x 110.00 = 110.00; Line 32 total non-refundable credits 330.00. Line 33 balance = 2,000.00 - 330.00 = 1,670.00. Boundary below: the 66-year-old's 2,000.00 is under the 12,500 cap.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

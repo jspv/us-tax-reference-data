@@ -1,0 +1,40 @@
+{
+  "id": "nc_2025_std_deduction_exceeds_income",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nc_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?'; PDF page 14, Line 14 (negative NC taxable income is entered as negative) and Line 15 (zero tax when taxable income is zero or less)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "10000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

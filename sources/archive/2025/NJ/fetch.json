@@ -1,0 +1,69 @@
+[
+  {
+    "state": "NJ",
+    "title": "2025 NJ-1040 Instructions",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "retrieved": "2026-11-07T01:02:43.573862+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "file": "1040i.pdf",
+    "bytes": 1528376,
+    "sha256": "fe7977419b70d0c3dcc392c328adc5f58f3b99937e0d2f79aecf6ac368872c31",
+    "archived_url": "https://web.archive.org/web/20251213090246id_/https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  {
+    "state": "NJ",
+    "title": "2025 Form NJ-1040 Resident Income Tax Return",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040.pdf",
+    "retrieved": "2026-11-07T01:02:49.600802+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.nj.gov/treasury/taxation/pdf/current/1040.pdf",
+    "file": "1040.pdf",
+    "bytes": 830686,
+    "sha256": "3d15ad99f3ced62a38eb53c25bd53830a0b9e3927abcb75030ef06ec4c7eb6a3",
+    "archived_url": "https://web.archive.org/web/20260116223511id_/https://www.nj.gov/treasury/taxation/pdf/current/1040.pdf"
+  },
+  {
+    "state": "NJ",
+    "title": "Retirement Income Exclusions",
+    "url": "https://www.nj.gov/treasury/taxation/njit7.shtml",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:02:55.204804+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.nj.gov/treasury/taxation/njit7.shtml",
+    "file": "njit7.html",
+    "bytes": 87131,
+    "sha256": "5d86b309da750bef576ed9b1e84147e2ad7fb984ef79e659041f4b53285ff954",
+    "text_file": "njit7.page.txt"
+  },
+  {
+    "state": "NJ",
+    "title": "GIT-1 & 2 Tax Topic Bulletin (pensions and annuities), January 2026",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/pubs/tgi-ee/git1&2.pdf",
+    "retrieved": "2026-11-07T01:03:02.787215+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.nj.gov/treasury/taxation/pdf/pubs/tgi-ee/git1&2.pdf",
+    "file": "git1_2.pdf",
+    "bytes": 2262520,
+    "sha256": "5a14720ac59c11ba38d8edfa5dd5082e63d712475940564297bba466370a4feb",
+    "archived_url": "https://web.archive.org/web/20260611033026id_/https://www.nj.gov/treasury/taxation/pdf/pubs/tgi-ee/git1&2.pdf"
+  },
+  {
+    "state": "NJ",
+    "title": "Division of Taxation: NJ Income Tax, Retirement Income",
+    "url": "https://www.nj.gov/treasury/taxation/njit6.shtml",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:03:09.440183+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.nj.gov/treasury/taxation/njit6.shtml",
+    "file": "njit6.html",
+    "bytes": 84741,
+    "sha256": "db0dda027214555894e7669451b53f92e1d34d149edc6c300e0ab239f9196c60",
+    "text_file": "njit6.page.txt"
+  }
+]

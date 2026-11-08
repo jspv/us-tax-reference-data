@@ -1,0 +1,74 @@
+{
+  "id": "vt_2025_ss_joint_at_70000",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_social_security_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet, Sections I and II (booklet PDF p.16; IN-112 Instructions PDF p.2); Schedule IN-112 Part I Line 12 (booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-05-05"
+      },
+      {
+        "age": 66,
+        "born": "1959-07-07"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "11600.00",
+          "person": 0
+        },
+        {
+          "amount": "8000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "53340.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "taxable_social_security": "16660.00"
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "35300.00"
+  },
+  "expected": {
+    "state_agi": "53340.00",
+    "state_taxable_income": "24940.00",
+    "state_tax_before_credits": "835.49",
+    "credits": "0.00",
+    "state_income_tax": "835.49",
+    "relief_amounts": {
+      "vt_social_security_exemption": "16660.00"
+    }
+  },
+  "worked": "Federal taxable Social Security: provisional income = other income 53,340.00 + half of benefits 9,800.00 = 63,140.00; 85% x (63,140.00 - 44,000.00) + 6,000.00 = 22,269.00, limited to 85% x 19,600.00 = 16,660.00; taxable 16,660.00. Federal (given, not tested): federal AGI = private pension (person 0) 53,340.00 + taxable Social Security 16,660.00 = 70,000.00. Federal taxable income = 70,000.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age 65 additional = 35,300.00 (federal senior deduction ignored). Form IN-111, Married Filing Jointly: Line 1 federal AGI 70,000.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Retirement Income Exemption Worksheet (Social Security elected): question 3, AGI 70,000.00 is not less than 70,000.00, so Section II: Line 4 80,000.00; Line 5 70,000.00; Line 6 = 10,000.00; Line 7 10,000.00 / 10,000 = 1.00; Line 8 lesser of Line 7 or 1 = 1.00; Line 9 16,660.00; Line 10 = 16,660.00. Line 12 16,660.00. Subtractions: Line 12 retirement benefits (Social Security) 16,660.00; Line 18 total subtractions 16,660.00. Line 19 net modifications = 0.00 - 16,660.00 = -16,660.00. Form IN-111 Line 2 -16,660.00; Line 3 = 70,000.00 + (-16,660.00) = 53,340.00. Line 4 standard deduction 15,300.00 + 2 x 1,250.00 age box(es) = 17,800.00 [person 0 born 1958-05-05 (65 or older: box checked), person 1 born 1959-07-07 (65 or older: box checked)]. Line 5a-5d personal exemptions 2; Line 5e 2 x 5,300.00 = 10,600.00. Line 6 = 17,800.00 + 10,600.00 = 28,400.00. Line 7 Vermont taxable income = 53,340.00 - 28,400.00 = 24,940.00. Line 8: schedule tax on 24,940.00 (Schedule Y-1, booklet p.46, merged continuous schedule): 3.35% x (24,940.00 - 0.00) = 835.49; the tax table (pp.47-51) gives 836. Federal AGI 70,000.00 is not greater than 150,000.00, so no minimum tax: Line 8 835.49. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 835.49; Lines 11-13 0.00; Line 14 Vermont income tax 835.49.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_csrs_exemption",
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

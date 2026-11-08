@@ -1,0 +1,22 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "45000.00",
+    "state_income_tax": "1669.20",
+    "state_tax_before_credits": "1669.20",
+    "state_taxable_income": "41730.00"
+  },
+  "worked": [
+    "Form 740 line 5 federal AGI 45000.00",
+    "Schedule M additions: other-state municipal interest 0 (Kentucky muni 0 exempt)",
+    "Schedule M line 10: taxable Social Security subtracted 0 (social_security exempt)",
+    "Kentucky AGI (line 9) = 45000.00 + 0 - 0 - 0 - 0 = 45000.00",
+    "line 10 standard deduction 3270 (one per return); line 11 taxable income = max(0, 45000.00 - 3270) = 41730.00",
+    "line 12 tax = 41730.00 x 0.04 = 1669.2000",
+    "line 17 personal tax credits: 0 person(s) 65+ x 40 = 0, limited to tax -> 0",
+    "line 18/19 tax after personal credits = 1669.2000",
+    "Family Size Tax Credit: MGI = federal AGI + tax-exempt interest = 45000.00 + 0 = 45000.00; family size one (single column); keep share 0; credit = 1669.2000 x 0 = 0.0000",
+    "credits = 0 + 0.00 = 0.00; line 22 tax = 1669.2000 - 0.00 = 1669.20",
+    "Federal figures given; federal senior deduction ignored per brief."
+  ]
+}

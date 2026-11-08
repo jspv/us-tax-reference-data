@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "110.00",
+    "relief_amounts": {
+      "de_pension_excl_under60_nonmilitary": "1500.00"
+    },
+    "state_agi": "40050.00",
+    "state_income_tax": "1545.90",
+    "state_tax_before_credits": "1655.90",
+    "state_taxable_income": "36800.00"
+  },
+  "worked": "Line 1 federal AGI 41550.00. Person 0 (age 55) under 60: non-military pension 1500.00 -> exclusion lesser of pension and 2,000 = 1500.00. Line 6 pension exclusions total 1500.00. Line 12 Delaware AGI = 41550.00 - 1500.00 = 40050.00 (no additions; Line 11 not modelled). Line 20a standard deduction 3250.00; Line 22 total 3250.00. Line 23 taxable income = 40050.00 - 3250.00 = 36800.00 -> 36800.00. Line 24 tax from the 30 Del. C. 1102(a)(14) schedule (0% to 2,000): 0.022 x (5000-2000) = 66.000; 0.039 x (10000-5000) = 195.000; 0.048 x (20000-10000) = 480.000; 0.052 x (25000-20000) = 260.000; 0.0555 x (36800.00-25000) = 654.900000; total 1655.90. Line 27a personal credits 110 x 1 = 110.00; Line 27b 110 x 0 (60 or over on 12/31/2025) = 0.00; total 110.00; non-refundable, limited to tax 1655.90: credits used 110.00. Line 33 balance due = 1655.90 - 110.00 = 1545.90. Federal figures given; federal senior deduction ignored per brief."
+}

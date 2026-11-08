@@ -1,0 +1,61 @@
+{
+  "id": "il_2025_ny_state_pension",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_government_pension",
+    "il_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Publication 120 Retirement Income (December 2025), with the 2025 IL-1040 Instructions and Form IL-1040",
+    "section": "Pub 120 PDF page 2 'What retirement income may I subtract', PDF page 3 'What federally taxed income may I not subtract'; Form IL-1040 Line 5; Instructions PDF page 7, Line 5; Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-09-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "32850.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "48000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "80850.00",
+    "federal_taxable_income": "65100.00"
+  },
+  "expected": {
+    "state_agi": "32850.00",
+    "state_taxable_income": "30000.00",
+    "state_tax_before_credits": "1485.00",
+    "credits": "0.00",
+    "state_income_tax": "1485.00",
+    "relief_amounts": {
+      "il_government_pension": "48000.00",
+      "il_personal_exemption": "2850.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 32,850.00 + NY government pension (person 0) 48,000.00 = 80,850.00. Federal taxable income = 80,850.00 - standard deduction 15,750.00 = 65,100.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 80,850.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 = 80,850.00. Line 5 NY government pension 48,000.00 = 48,000.00. Lines 6 and 7 0.00. Line 8 = 48,000.00. Line 9 base income = 80,850.00 - 48,000.00 = 32,850.00. Income Exceptions: federal AGI 80,850.00 is not greater than 250,000.00, so the allowance stands. Line 10a 2,850.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 2,850.00. Line 11 net income = 32,850.00 - 2,850.00 = 30,000.00. Line 12 tax = 30,000.00 x 4.95% = 1,485.0000. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 1,485.00. Pub 120 limits the subtraction to 'a government retirement' plan, with no limit to Illinois; no sentence names another state, so this rests on that wording (settlement note 1).",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

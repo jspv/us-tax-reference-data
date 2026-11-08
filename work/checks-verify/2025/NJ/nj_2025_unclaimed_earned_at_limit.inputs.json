@@ -1,0 +1,54 @@
+{
+  "id": "nj_2025_unclaimed_earned_at_limit",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 16a, 20a, 27, 28a, 28b, 29: Instr PDF p.21 line 27, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 (lines 4-8: lines 15, 18, 21 and 22 added; 'Is the amount on line 8 MORE than $3,000?') with the Maximum Exclusion chart, PDF p.22 line 29; GIT-1 & 2 p.23 condition 3 (earned income 'combined if filing jointly' must be $3,000 or less); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-03-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "3000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "interest": "70000.00"
+    },
+    "federal_agi": "93000.00",
+    "federal_taxable_income": "77250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_pension_exclusion",
+    "relief_amounts.nj_unclaimed_exclusion"
+  ]
+}

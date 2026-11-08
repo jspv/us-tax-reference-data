@@ -1,0 +1,263 @@
+{
+  "layer": "projection",
+  "state": "MS",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/MS.record.json",
+    "sha256": "b44d5f28ef2530edd49ae6f2af14aac0cf02e016e3233f422719aae7cfa9997b"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.044",
+        "start": "10000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.044",
+        "start": "10000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ms_standard_deduction",
+        "amount": {
+          "single": "2300",
+          "married_joint": "4600",
+          "married_separate": "2300",
+          "head_of_household": "3400"
+        },
+        "per": "return"
+      },
+      {
+        "id": "ms_personal_exemption",
+        "amount": {
+          "single": "6000",
+          "married_joint": "12000",
+          "married_separate": "6000",
+          "head_of_household": "8000"
+        },
+        "per": "return"
+      },
+      {
+        "id": "ms_age_65_exemption",
+        "amount": {
+          "single": "1500",
+          "married_joint": "1500",
+          "married_separate": "750",
+          "head_of_household": "1500"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "ms_railroad_retirement_exempt",
+      "from_record": [
+        "ms_railroad_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "ms_retirement_income_exempt",
+      "from_record": [
+        "ms_retirement_income_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "annuity",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "ms_nonqualifying_retirement_income",
+      "from_record": [
+        "ms_retirement_income_exempt"
+      ],
+      "what": "Retirement income that does not qualify is exempted here anyway: early or excess distributions under federal law (Form 5329), separation pay, and deferred compensation distributions before retirement age or service requirements; the same holds for IRA, 401(k), 403(b) and 457 payouts taken early (regulation rule 104: early distributions from retirement plans do not qualify; rule 102: deferred compensation only once the person qualifies for other retirement income by minimum age, years of service or other criteria). Neither the booklet nor the regulation prints an age, so a projection cannot test 'met the retirement plan requirements'. Early means before 59 1/2 under federal law, unless a federal exception applies (Form 5329); whether a Roth conversion before 59 1/2 counts as early is not said, and it is exempted too.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "ms_early_account_distribution",
+      "from_record": [
+        "ms_retirement_income_exempt"
+      ],
+      "what": "IRA, 401(k), 403(b) and 457 payouts and Roth conversions taken before 59 1/2 are exempted here, though regulation rule 104 taxes early distributions (unless a federal exception applies, Form 5329; a 401(k), 403(b) or 457 payout qualifies only once the person meets the plan's age or service test, rule 102).",
+      "warn_when": "has_retirement_account_distribution",
+      "age_range": [
+        0,
+        59
+      ]
+    },
+    {
+      "id": "ms_dependent_exemption",
+      "from_record": [
+        "ms_dependent_exemption"
+      ],
+      "what": "Dependent exemption of 1,500 each. A head of family always has one (8,000 plus 1,500 for the required dependent), so that status is 66 a year too high here.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "ms_blind_exemption",
+      "from_record": [
+        "ms_blind_exemption"
+      ],
+      "what": "Exemption of 1,500 for a taxpayer or spouse who is blind; a projection does not know this.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ms_national_guard_reserve_pay",
+      "from_record": [
+        "ms_national_guard_reserve_pay",
+        "ms_combat_zone_pay_exempt"
+      ],
+      "what": "Wage exclusions: National Guard or Reserve pay up to 15,000 per taxpayer (line 55), and hazardous duty pay in a combat zone; a projection does not tell these from other wages.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ms_ownership_interest_gain_exempt",
+      "from_record": [
+        "ms_ownership_interest_gain_exempt"
+      ],
+      "what": "Gains exempted on shares in financial institutions domiciled in Mississippi and on domestic corporation or partnership interests held more than one year; a projection cannot tell these from other gains, which are taxable.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The 0% band applies to each spouse's taxable income separately on a combined return (Schedule of Tax Computation line 1; FAQ: 'the first $10,000 of each taxpayer's taxable income is exempt'). A projection's schedule runs on the return's total, so married_joint has one 10,000 band. That is exact for a couple with one spouse's income on the return, and too much tax for a couple where both have income. A 20,000 band was not used because it would understate tax for one-income couples, who get one band.",
+      "direction": "overstates_tax",
+      "size": "4.4% of the second spouse's taxable income up to 10,000: at most 440 a year. Each spouse with wages 40,000: projection 63,400 taxable, tax 2,349.60; return 31,700 in each column, tax 1,909.60; 440 too much. None when only one spouse has income Mississippi taxes (a spouse with only Social Security or exempt pension income)."
+    },
+    {
+      "what": "IRA, 401(k), 403(b) and 457 payouts and Roth conversions are exempted at every age. Mississippi exempts them only when they are not early distributions (regulation rule 104), and a deferred compensation payout only once the person qualifies for other retirement income by minimum age, years of service or other criteria (rule 102). A projection cannot test either, so an early payout is exempted here; the warning names it for anyone under 60.",
+      "direction": "understates_tax",
+      "size": "4.4% of an early payout above the deductions and the 0% band. Single, age 50, only income a 30,000 IRA distribution taken before 59 1/2: Mississippi taxable 30,000 - 6,000 - 2,300 = 21,700, tax 4.4% of 11,700 = 514.80; 0 here. None for payouts at 59 1/2 or later, or for a 401(k) payout after the person has met the plan's retirement age or service."
+    },
+    {
+      "what": "Roth conversions are exempted on the regulation's rule 101, 'all income from ... Individual Retirement Accounts': the taxable amount of a conversion is income from the traditional IRA. No Mississippi source names conversions. If the Department treats a conversion as not a retirement allowance, this understates tax in a conversion year.",
+      "direction": "understates_tax",
+      "size": "4.4% of the conversion above the deductions and the 0% band: 1,394.80 on a 50,000 conversion for a single person under 65 with no other income."
+    },
+    {
+      "what": "Military retirement pay is taxed: 'federal ... retirement systems' does not name it and the FAQ's military questions cover pay only (covers_unclear in the record). If Mississippi exempts it, this overstates tax.",
+      "direction": "overstates_tax",
+      "size": "4.4% of the pension above the deductions and the 0% band: 954.80 a year on 40,000 for a single person under 65 with no other income."
+    },
+    {
+      "what": "Another state's government pension is exempted on the wording 'federal, state, and private retirement systems', which is not limited to Mississippi; no sentence names another state or New York. If Mississippi reads 'state' as its own system only, this understates tax.",
+      "direction": "understates_tax",
+      "size": "4.4% of the pension above the deductions and the 0% band: 954.80 a year on 40,000 for a single person under 65 with no other income."
+    },
+    {
+      "what": "Every annuity is exempted. The FAQ names annuities under 'the retirement plan requirements', and neither source says how an annuity bought outside a retirement plan is treated.",
+      "direction": "understates_tax",
+      "size": "4.4% of the taxable part of such an annuity, above the deductions and the 0% band."
+    },
+    {
+      "what": "The rate is held at 4.4% every year. The booklet prints cuts on income over 10,000 (3.75% for 2027, 3.5% for 2028, 3.25% for 2029, 3% for 2030 and later; no 2026 rate). Scheduled changes are a pending feature (tax-reference-data issue #2).",
+      "direction": "overstates_tax",
+      "size": "From 2030: 1.4 points of taxable income over 10,000, 700 a year on 50,000 of it."
+    },
+    {
+      "what": "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+      "direction": "either",
+      "size": "Small for a typical retired household."
+    },
+    {
+      "what": "The standard deduction is always taken; Mississippi itemized deductions (Schedule A) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "4.4% of the amount by which itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "The standard deduction is applied to a married person filing separately whose spouse itemizes, who must itemize.",
+      "direction": "either",
+      "size": "4.4% of the difference between 2,300 and that person's itemized deductions."
+    },
+    {
+      "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "4.4% of the Treasury interest: 440 a year on 10,000."
+    },
+    {
+      "what": "All municipal bond interest is treated as from other states and taxed; interest on Mississippi and Mississippi local government bonds is exempt.",
+      "direction": "overstates_tax",
+      "size": "4.4% of the Mississippi bond interest."
+    },
+    {
+      "what": "A federal qualifying surviving spouse uses the married_joint amounts. The booklet's only such status is 'Married - Spouse Died 2025', for the year of death; it prints none for later years, when the survivor would have the single or head of family amounts.",
+      "direction": "understates_tax",
+      "size": "At most 4.4% of 8,300 = 365.20 a year, in the years after the year of death."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "750",
+      "how": "half",
+      "of": [
+        "1500"
+      ],
+      "what": "Age 65 exemption per qualifying person on a married separate return: Form 80-105 halves the whole of line 12 (Line 3, p.5; Line 15, p.7), the age exemption included. Both spouses count, whoever files."
+    }
+  ]
+}

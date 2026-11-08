@@ -1,0 +1,53 @@
+{
+  "id": "mt_2025_age65_qualifying_surviving_spouse",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p13 Line 6, $5,660 subtraction for taxpayers 65 and older; Form 2 PDF p1 line 6; record base.deductions age_65_subtraction",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 69,
+        "born": "1956-06-15"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "26900.00"
+  },
+  "expected": {
+    "state_agi": "26900.00",
+    "state_taxable_income": "21240.00",
+    "state_tax_before_credits": "998.28",
+    "credits": "0.00",
+    "state_income_tax": "998.28",
+    "relief_amounts": {
+      "age_65_subtraction": "5660.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 60,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 33,100.00 (31,500.00 + 1 x 1,600.00 for 65 or older) = 26,900.00 (federal senior deduction ignored, although Montana's line 2 would take it). Filing status qualifying surviving spouse, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 60,000.00; line 2 Form 1040 lines 12e and 13b 33,100.00; line 3 26,900.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 1 x 5,660.00 = 5,660.00; line 7 Montana taxable income 26,900.00 + 0.00 - 0.00 - 5,660.00 = 21,240.00. Page 2 worksheet: line 1 taxable income 21,240.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 4.7% x 21,240.00 = 998.28; line 13 = 998.28, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 21,240.00 = 998.28. Line 9 nonrefundable credits 0.00; line 10 tax after credits 998.28. Above the single start of 21,100 but under the 42,200 used for this status, so all of it pays 4.7%.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mt_elderly_homeowner_renter_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

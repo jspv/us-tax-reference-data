@@ -1,0 +1,52 @@
+{
+  "id": "in_2025_civil_service_age_61",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "civil_service_annuity"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Schedule 2 line 11 code 601 and PDF pages 19-20 Civil Service Annuity Deduction, with its examples ('at least 62 years of age by the end of the tax year'); Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 61,
+        "born": "1964-01-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "38000.00",
+    "federal_taxable_income": "22250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.civil_service_annuity"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "vt_2025_military_partial_joint",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_military_retirement_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Military Retirement Income Exemption Worksheet questions 1-3 and Lines 4-10 (booklet PDF p.17; IN-112 Instructions PDF pp.3-4 Line 13); Schedule IN-112 Part I Line 13 (booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-10-10"
+      },
+      {
+        "age": 61,
+        "born": "1964-12-12"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "80020.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "140020.00",
+    "federal_taxable_income": "108520.00"
+  },
+  "expected": {
+    "state_agi": "98020.00",
+    "state_taxable_income": "72120.00",
+    "state_tax_before_credits": "2416.02",
+    "credits": "0.00",
+    "state_income_tax": "2416.02",
+    "relief_amounts": {
+      "vt_military_retirement_exemption": "42000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 1) 80,020.00 + military retirement pay (DFAS 1099-R) (person 0) 60,000.00 = 140,020.00. Federal taxable income = 140,020.00 - 31,500.00 federal standard deduction = 108,520.00 (federal senior deduction ignored). Form IN-111, Married Filing Jointly: Line 1 federal AGI 140,020.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Military Retirement Income Exemption Worksheet: question 2, AGI 140,020.00 is less than 175,000.00; question 3, not less than or equal to 125,000.00, so Section II: Line 4 140,020.00; Line 5 175,000.00; Line 6 = 34,980.00; Line 7 34,980.00 / 50,000 = 0.6996, rounded to 0.70; Line 8 0.70; Line 9 60,000.00; Line 10 = 60,000.00 x 0.70 = 42,000.00. The projection's share_phase_out gives the same: 1 - (140,020.00 - 125,000.00) / 50,000 = 0.6996, to two decimals 0.70. Line 13 42,000.00. Subtractions: Line 13 military retirement 42,000.00; Line 18 total subtractions 42,000.00. Line 19 net modifications = 0.00 - 42,000.00 = -42,000.00. Form IN-111 Line 2 -42,000.00; Line 3 = 140,020.00 + (-42,000.00) = 98,020.00. Line 4 standard deduction 15,300.00 (no age box) [person 0 born 1963-10-10 (not born before Jan. 2, 1961: no box), person 1 born 1964-12-12 (not born before Jan. 2, 1961: no box)]. Line 5a-5d personal exemptions 2; Line 5e 2 x 5,300.00 = 10,600.00. Line 6 = 15,300.00 + 10,600.00 = 25,900.00. Line 7 Vermont taxable income = 98,020.00 - 25,900.00 = 72,120.00. Line 8: schedule tax on 72,120.00 (Schedule Y-1, booklet p.46, merged continuous schedule): 3.35% x (72,120.00 - 0.00) = 2,416.02; the tax table (pp.47-51) gives 2417. Federal AGI 140,020.00 is not greater than 150,000.00, so no minimum tax: Line 8 2,416.02. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 2,416.02; Lines 11-13 0.00; Line 14 Vermont income tax 2,416.02.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_csrs_exemption",
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

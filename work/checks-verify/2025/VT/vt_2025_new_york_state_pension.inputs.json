@@ -1,0 +1,53 @@
+{
+  "id": "vt_2025_new_york_state_pension",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet question 1 (booklet PDF p.16); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-10-01",
+        "not_covered_by_social_security": false
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20040.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50040.00",
+    "federal_taxable_income": "32290.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

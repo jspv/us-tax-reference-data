@@ -1,0 +1,43 @@
+{
+  "id": "ut_2025_taxpayer_credit_cap_decides_tax_single",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "taxpayer_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "21000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "21000.00",
+    "federal_taxable_income": "5250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.taxpayer_tax_credit"
+  ]
+}

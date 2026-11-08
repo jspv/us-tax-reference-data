@@ -1,0 +1,989 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tax-reference-data/schema/projection.schema.json",
+  "title": "Layer 2, the projection model: what a long-range planner evaluates for one jurisdiction and tax year",
+  "description": "Derived from one layer-1 record. Holds only rules a projection can compute from a household's yearly facts (filing status, each person's birth date, wages, pensions, account withdrawals, Roth conversions, Social Security, interest, dividends, gains), plus markers for rules it cannot, and the approximations made. Every relief names the record entries it comes from. See docs/design.md, 'Two layers'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "layer",
+    "state",
+    "tax_year",
+    "record",
+    "has_income_tax",
+    "brackets",
+    "base",
+    "social_security",
+    "reliefs",
+    "muni_interest",
+    "capital_gains",
+    "indexing",
+    "not_modelled",
+    "approximations",
+    "recapture",
+    "derived_figures"
+  ],
+  "properties": {
+    "layer": {
+      "const": "projection"
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "tax_year": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "description": "The layer-1 file this was derived from; a changed record makes this file stale."
+    },
+    "has_income_tax": {
+      "type": "boolean"
+    },
+    "brackets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "single",
+        "married_joint"
+      ],
+      "properties": {
+        "single": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/bracket_list"
+        }
+      },
+      "description": "A status not given uses single (married_separate, head_of_household) or married_joint (qualifying_surviving_spouse). A surtax on taxable income is folded in as one more band (Massachusetts: 5% from 0, 9% from 1,083,150); a surtax on any other measure can't be, and goes in approximations."
+    },
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "starts_from",
+        "deductions"
+      ],
+      "properties": {
+        "starts_from": {
+          "enum": [
+            "federal_agi",
+            "federal_taxable_income",
+            "none"
+          ],
+          "description": "none only when has_income_tax is false."
+        },
+        "deductions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "amount",
+              "per"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "amount": {
+                "$ref": "#/$defs/by_status"
+              },
+              "per": {
+                "enum": [
+                  "return",
+                  "person"
+                ]
+              },
+              "min_age": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "For an age-65 exemption: only persons of this age or older count."
+              },
+              "phase_out": {
+                "$ref": "#/$defs/income_test"
+              }
+            }
+          },
+          "description": "Deductions and exemptions a projection can apply. Per-dependent amounts are not modelled (not_modelled)."
+        },
+        "federal_senior_deduction": {
+          "enum": [
+            "follows",
+            "added_back",
+            "not_stated"
+          ],
+          "description": "For a state that starts from federal taxable income: whether the federal senior deduction (26 U.S.C. 151(d)(5)(C), added by P.L. 119-21 for 2025-2028) stays in. follows: state income starts from federal taxable income as computed with it. added_back: the state adds it back, so state income starts from federal taxable income plus the senior deduction. not_stated: the booklet and statute read say neither (the run warns). Every federal_taxable_income state has it (tools/validate.py)."
+        }
+      }
+    },
+    "social_security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "treatment"
+      ],
+      "properties": {
+        "treatment": {
+          "enum": [
+            "exempt",
+            "taxed",
+            "relief"
+          ],
+          "description": "relief: the reliefs covering social_security say how much."
+        }
+      },
+      "description": "Ignored when has_income_tax is false."
+    },
+    "reliefs": {
+      "type": "array",
+      "description": "Evaluated per person (or per return), each year: sum the covered income of the qualifying person, apply sub-limits and the cap, then the income test; a subtraction lowers state taxable income, a credit lowers state tax. Within a best_of_group the engine computes every entry and keeps the one that lowers tax most. A relief whose covers is ['all_income'] is an amount, not a share of one kind of income: who.basis decides who qualifies and how many caps there are (each_person: one cap per qualifying person), and the amount offsets the return's whole state income, any person's (South Carolina's 15,000 age 65 deduction on a joint return offsets the other spouse's wages), up to that income, unless all_income_scope is 'person' (then only the qualifying person's own income: Maryland's age-100 subtraction). best_of_group is chosen per person: for each qualifying person the engine keeps the entry that lowers that person's tax most (a couple may use different entries: Missouri, Arkansas, South Carolina). A credit's amount is its worksheet figure; credits together stop at the tax unless refundable. Covered income is the net amount of each kind, floored at 0: a net capital loss covers nothing and is not added back.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from_record",
+          "form",
+          "covers",
+          "who"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "from_record": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "form": {
+            "enum": [
+              "subtraction",
+              "credit",
+              "exempt_in_full"
+            ]
+          },
+          "credit_rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "credit_amount": {
+            "$ref": "#/$defs/amount"
+          },
+          "covers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/income_type"
+            },
+            "description": "Income kinds the relief applies to. For a pension item, its source (public, private, military) decides before its kind: a Survivor Benefit Plan annuity is public."
+          },
+          "needs_input": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "pension_source",
+                "pension_contributory"
+              ]
+            },
+            "description": "Facts about the household a projection may not hold yet, which this relief turns on (whether a pension is public, private or military; whether a public pension is contributory). A consumer asks for them only for a household in this state."
+          },
+          "who": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "basis"
+            ],
+            "properties": {
+              "basis": {
+                "enum": [
+                  "each_person",
+                  "older_spouse",
+                  "return"
+                ]
+              },
+              "min_age": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Lowest age that qualifies, in years, inclusive; 59.5 for 59 and a half."
+              },
+              "max_age": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Highest age that qualifies, inclusive: 'under 65' is 64, Georgia's 62 to 64 tier is min 62, max 64."
+              },
+              "born_on_or_after": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "born_on_or_before": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              }
+            }
+          },
+          "cap": {
+            "$ref": "#/$defs/by_status"
+          },
+          "cap_per": {
+            "enum": [
+              "person",
+              "return"
+            ]
+          },
+          "cap_reduced_by": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/income_type"
+            },
+            "description": "Income that uses up the cap before this relief (Michigan: military and railroad retirement)."
+          },
+          "sub_limits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "income",
+                "amount"
+              ],
+              "properties": {
+                "income": {
+                  "$ref": "#/$defs/income_type"
+                },
+                "amount": {
+                  "$ref": "#/$defs/by_status"
+                }
+              }
+            }
+          },
+          "income_test": {
+            "$ref": "#/$defs/income_test"
+          },
+          "cannot_combine_with": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "best_of_group": {
+            "$ref": "#/$defs/id"
+          },
+          "credit_basis": {
+            "enum": [
+              "covered_income",
+              "tax"
+            ],
+            "description": "What credit_rate is a share of: the covered income (Utah 4.5% of benefits) or the state tax itself (Connecticut's personal tax credit)."
+          },
+          "paying_states": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^([A-Z]{2}|federal)$"
+            },
+            "description": "For a relief covering public_pension_other_state that depends on which government pays the pension (Massachusetts mirrors what the paying state does for Massachusetts pensions; TIR 95-9): the two-letter codes it applies to. Left out: any other state. ['federal'] alone limits a public_pension relief to pensions the federal government pays (Indiana)."
+          },
+          "share": {
+            "$ref": "#/$defs/amount",
+            "description": "The share of the covered income the relief applies to, before any cap or income test (Connecticut: 0.75 of IRA distributions; 0.5 of Teachers' Retirement System income). Left out: all of it."
+          },
+          "all_income_scope": {
+            "enum": [
+              "return",
+              "person"
+            ],
+            "description": "For covers ['all_income']: what income the amount offsets. 'return' (the default): the return's whole state income, any person's (South Carolina's age 65 deduction). 'person': only the qualifying person's own income (Maryland's subtraction for people 100 or older)."
+          },
+          "assumption": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "what",
+              "warn_when"
+            ],
+            "properties": {
+              "what": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The assumption, in plain words, and what it costs when it is wrong."
+              },
+              "warn_when": {
+                "$ref": "#/$defs/warning_trigger"
+              },
+              "age_range": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer"
+                },
+                "description": "Inclusive ages for person_in_age_range and has_retirement_account_distribution."
+              },
+              "income_over": {
+                "$ref": "#/$defs/income_over"
+              }
+            },
+            "description": "The relief is applied on an assumption about a fact the projection does not hold (North Carolina: every military pension meets the 20-year or medical test). The run warns with code state_assumption:<relief id>. The same text is also an approximations entry."
+          },
+          "refundable": {
+            "type": "boolean",
+            "description": "For form credit: the part of the credit above the tax is paid out, so state income tax can be below 0. Default false (the credit stops at the tax)."
+          },
+          "cap_reduction": {
+            "enum": [
+              "from_cap",
+              "from_lesser_of_income_and_cap"
+            ],
+            "description": "For cap_reduced_by: from_cap (default) takes the reducing income off the cap; from_lesser_of_income_and_cap takes it off the lesser of the covered income and the cap (Indiana's civil service annuity: the lesser of the annuity or 16,000, less Social Security)."
+          },
+          "social_security_basis": {
+            "enum": [
+              "gross",
+              "taxable",
+              "nontaxable"
+            ],
+            "description": "Required when cap_reduced_by lists social_security: which Social Security amount uses up the cap. gross: all benefits received (Indiana, Idaho, Maine, Maryland, Oregon); taxable: the federally taxable part (Colorado, Michigan); nontaxable: gross less taxable (Minnesota)."
+          },
+          "requires": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "applies_over",
+                "keeps_taxable",
+                "earned_income_limit"
+              ]
+            },
+            "description": "Fields on this relief that were added within format 1 after the tag and change its meaning. A reader that does not implement every listed field must skip the relief and warn, as if it were not_modelled (code state_rule_not_modelled:<relief id>), rather than apply it without them."
+          },
+          "applies_over": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "measure",
+              "threshold"
+            ],
+            "properties": {
+              "measure": {
+                "$ref": "#/$defs/measure"
+              },
+              "threshold": {
+                "$ref": "#/$defs/by_status"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ]
+              }
+            },
+            "description": "The relief applies only when the measure is over the threshold (Connecticut's partial Social Security subtraction at 75,000 or more). List it in requires."
+          },
+          "keeps_taxable": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "share",
+              "of_lesser_of"
+            ],
+            "properties": {
+              "share": {
+                "$ref": "#/$defs/amount"
+              },
+              "of_lesser_of": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "enum": [
+                    "social_security_gross",
+                    "federal_ss_worksheet_line_9"
+                  ]
+                }
+              }
+            },
+            "description": "For a subtraction covering social_security: the subtraction is the covered taxable amount less share times the lesser of the listed amounts, not below 0, so that much stays taxed (Connecticut: taxable benefits less 25% of the lesser of gross benefits, federal worksheet Line 1, and federal worksheet Line 9, the provisional income over the base amount). For a married separate filer living with the spouse, Line 9 is the federal worksheet's Line 7. List it in requires."
+          },
+          "earned_income_limit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "amount",
+              "per"
+            ],
+            "properties": {
+              "amount": {
+                "$ref": "#/$defs/by_status"
+              },
+              "per": {
+                "enum": [
+                  "return",
+                  "person"
+                ]
+              }
+            },
+            "description": "The relief applies only when earned income (wages plus self-employment) is at or under amount: the return's total (per return; New Jersey's unclaimed exclusion, 3,000 combined on a joint return) or each qualifying person's own (per person). List it in requires."
+          }
+        }
+      }
+    },
+    "muni_interest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "treatment"
+      ],
+      "properties": {
+        "treatment": {
+          "enum": [
+            "other_states_taxed_own_exempt",
+            "all_exempt",
+            "all_taxed"
+          ]
+        }
+      },
+      "description": "A projection that cannot tell own-state from other-state bonds treats all as other-state (approximations). Ignored when has_income_tax is false."
+    },
+    "capital_gains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "applies_to",
+          "treatment",
+          "value"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "applies_to": {
+            "enum": [
+              "short_term",
+              "long_term",
+              "all_gains"
+            ]
+          },
+          "treatment": {
+            "enum": [
+              "extra_rate",
+              "deduction_share",
+              "exempt"
+            ]
+          },
+          "value": {
+            "$ref": "#/$defs/amount"
+          },
+          "applies_over": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "measure",
+              "threshold"
+            ],
+            "properties": {
+              "measure": {
+                "$ref": "#/$defs/measure"
+              },
+              "threshold": {
+                "$ref": "#/$defs/by_status"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ]
+              }
+            },
+            "description": "The entry applies only when the measure is over the threshold (Maryland's 2% on net capital gain when federal AGI is over 350,000)."
+          }
+        }
+      },
+      "description": "Gains run through the brackets like other income. extra_rate: these gains pay value on top of the bracket rate (Massachusetts short-term gains: 8.5% own rate minus the 5% bracket = 0.035). deduction_share: that share of the gains is subtracted first. extra_rate may be negative (Montana: -0.018); limit the gains to state taxable income before applying it. deduction_share applies to a net gain only: a net loss gets no share subtracted or added back."
+    },
+    "indexing": {
+      "type": "array",
+      "description": "A yes or no for every figure family the projection grows. 'assumed' marks a no taken because neither the booklet nor the statute read so far says (the run's assumptions say so).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "figure",
+          "indexed"
+        ],
+        "properties": {
+          "figure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "assumed": {
+            "type": "boolean"
+          },
+          "covers": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^(brackets|surtaxes|capital_gains|recapture|deductions|reliefs)(:[a-z0-9_]+)?(\\.(amount|phase_out|cap|income_test|credit_amount|applies_over|earned_income_limit))?$"
+            },
+            "description": "The figures this entry grows, as selectors: 'brackets' (every band start), 'surtaxes', 'capital_gains' (an entry's applies_over threshold), 'recapture' (its thresholds); 'deductions' or 'deductions:<id>' (a base deduction's amount and phase-out figures; '.amount' or '.phase_out' for one part); 'reliefs.cap', 'reliefs.income_test', 'reliefs.credit_amount', 'reliefs.applies_over', 'reliefs.earned_income_limit' (that figure of every relief), or 'reliefs:<id>' / 'reliefs:<id>.cap' for one relief. A selector naming an id beats a general one. Every amount a projection would grow is covered by exactly one entry once the most specific selector is taken (tools/validate.py)."
+          }
+        }
+      }
+    },
+    "not_modelled": {
+      "type": "array",
+      "description": "Rules from the record the projection leaves out, and when a run should say so. A rule the record holds with no printed amount stays here, not as a relief. The warning code is state_rule_not_modelled:<id> (a reader that predates `id` used the first from_record id).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from_record",
+          "what",
+          "warn_when"
+        ],
+        "properties": {
+          "from_record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "what": {
+            "type": "string",
+            "minLength": 1
+          },
+          "warn_when": {
+            "$ref": "#/$defs/warning_trigger"
+          },
+          "age_range": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "integer"
+            },
+            "description": "Inclusive ages for person_in_age_range and has_retirement_account_distribution."
+          },
+          "income_over": {
+            "$ref": "#/$defs/income_over"
+          },
+          "id": {
+            "$ref": "#/$defs/id",
+            "description": "Unique among this projection's markers; names the warning code. Every marker in the data has one (tools/validate.py)."
+          }
+        }
+      }
+    },
+    "approximations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "what",
+          "direction"
+        ],
+        "properties": {
+          "what": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "overstates_tax",
+              "understates_tax",
+              "either"
+            ]
+          },
+          "size": {
+            "type": "string",
+            "description": "Plain words, with an example where possible."
+          }
+        }
+      }
+    },
+    "recapture": {
+      "type": "array",
+      "description": "A rule that takes back the benefit of the lower brackets above an income level, so the schedule's own arithmetic is not the final tax (New York's tax computation worksheets). Its measure picks the income that selects the worksheet (New York: taxable income).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "measure",
+          "starts_over",
+          "effect"
+        ],
+        "properties": {
+          "measure": {
+            "$ref": "#/$defs/measure"
+          },
+          "starts_over": {
+            "$ref": "#/$defs/by_status"
+          },
+          "phase_in_width": {
+            "$ref": "#/$defs/amount",
+            "description": "Income over which the benefit is taken back in full (0 for all at once)."
+          },
+          "full_over": {
+            "$ref": "#/$defs/by_status",
+            "description": "Income above which all taxable income is taxed at one rate."
+          },
+          "full_rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "effect": {
+            "enum": [
+              "flat_top_rate_on_all_income",
+              "phase_out_lower_brackets",
+              "other"
+            ],
+            "description": "flat_top_rate_on_all_income and phase_out_lower_brackets: New York-style worksheets. other: a rule neither describes; other_rule says which (a reader that does not know other_rule skips the rule and warns)."
+          },
+          "other_rule": {
+            "enum": [
+              "minimum_tax_on_measure"
+            ],
+            "description": "With effect other. minimum_tax_on_measure: when the measure is over starts_over, the tax before credits is the greater of the schedule tax and full_rate x the measure (Vermont's minimum tax, 3% of federal AGI over 150,000)."
+          }
+        }
+      }
+    },
+    "derived_figures": {
+      "type": "array",
+      "description": "Figures this file computes from record figures (a folded surtax band, an extra rate). The validator re-does the arithmetic; every other figure must be printed in the record.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "value",
+          "how"
+        ],
+        "properties": {
+          "value": {
+            "$ref": "#/$defs/amount"
+          },
+          "how": {
+            "enum": [
+              "sum",
+              "difference",
+              "half"
+            ]
+          },
+          "of": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/amount"
+            },
+            "description": "Record figures; difference is the first minus the rest."
+          },
+          "what": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "joint_income": {
+      "enum": [
+        "half_each",
+        "by_ownership",
+        "not_stated"
+      ],
+      "description": "How a married couple's income from accounts or property held jointly (interest, dividends, capital gains, rents) is divided between the spouses for rules figured per person (an age test or a cap per spouse). half_each: each spouse counts half (Delaware, Georgia, New Jersey). by_ownership: it follows who owns or contributed. not_stated: the sources say neither. Income in one spouse's name (an IRA, a pension, an individual account) stays with that spouse. In the hand-worked checks, interest, dividends and gains are given for the return and are treated as jointly held. Required when a per-person relief covers investment income (tools/validate.py)."
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "amount": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+    },
+    "bracket_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rate",
+          "start"
+        ],
+        "properties": {
+          "rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "start": {
+            "$ref": "#/$defs/amount"
+          },
+          "base": {
+            "$ref": "#/$defs/amount",
+            "description": "Printed tax on income up to this band's start. When present it replaces the sum of the lower bands: tax on income above start is base + rate x (income - start). Income exactly at start stays in the band below. Used where a state's table steps up at a threshold (Ohio)."
+          }
+        }
+      }
+    },
+    "by_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "all": {
+          "$ref": "#/$defs/amount"
+        },
+        "single": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/amount"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/amount"
+        },
+        "qualifying_surviving_spouse": {
+          "$ref": "#/$defs/amount"
+        }
+      }
+    },
+    "income_type": {
+      "enum": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "railroad_retirement",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion",
+        "annuity",
+        "social_security",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income",
+        "all_income"
+      ],
+      "description": "ira_distribution and employer_plan_distribution include required minimum distributions. public_pension is a government pension of this state or the federal government; public_pension_other_state is another state's or its localities'. all_income: the relief applies against any income (an age deduction), not to one kind."
+    },
+    "measure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "base"
+      ],
+      "properties": {
+        "base": {
+          "enum": [
+            "federal_agi",
+            "federal_taxable_income",
+            "state_agi",
+            "state_taxable_income"
+          ]
+        },
+        "plus_tax_exempt_interest": {
+          "type": "boolean"
+        },
+        "minus_own_state_muni_interest": {
+          "type": "boolean"
+        },
+        "minus_taxable_social_security": {
+          "type": "boolean"
+        },
+        "minus_reliefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "description": "Relief ids whose amounts are taken off the base before comparing; evaluate those reliefs first (Missouri: the private pension test uses Form MO-1040 Line 6, after the military, railroad, business income and gains subtractions but before the public pension, Social Security and private pension subtractions)."
+        }
+      },
+      "description": "Only measures a projection can compute. A record measure outside this list maps to the nearest, with an approximation."
+    },
+    "income_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measure",
+        "threshold",
+        "effect"
+      ],
+      "properties": {
+        "measure": {
+          "$ref": "#/$defs/measure"
+        },
+        "threshold": {
+          "$ref": "#/$defs/by_status"
+        },
+        "effect": {
+          "enum": [
+            "dollar_for_dollar",
+            "phase_out_rate",
+            "removes",
+            "share_phase_out",
+            "stepped"
+          ]
+        },
+        "rate": {
+          "$ref": "#/$defs/amount"
+        },
+        "steps": {
+          "type": "array",
+          "description": "For effect 'stepped': the bands, lowest first. Each says how much of the relief is kept for income over 'over' (up to the next band): keep_share (a decimal, 0.85 keeps 85%) or amount (the relief's amount there).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "over"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "single",
+                  "married_joint",
+                  "married_separate",
+                  "head_of_household",
+                  "qualifying_surviving_spouse",
+                  "all"
+                ]
+              },
+              "over": {
+                "$ref": "#/$defs/amount"
+              },
+              "keep_share": {
+                "$ref": "#/$defs/amount"
+              },
+              "amount": {
+                "$ref": "#/$defs/amount"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ],
+                "description": "For this band's lower edge; default over."
+              },
+              "rate": {
+                "$ref": "#/$defs/amount",
+                "description": "A decimal rate for this band where the relief is a share of tax (Connecticut Table E: 0.75), so it is not read as dollars."
+              }
+            }
+          }
+        },
+        "applies_when": {
+          "enum": [
+            "over",
+            "at_or_over"
+          ],
+          "description": "Default over: income exactly at the threshold keeps the full relief (California's military exclusion: AGI 'must not exceed' 125,000). at_or_over: the rule cuts in at the threshold itself ('75,000 or more')."
+        },
+        "width": {
+          "$ref": "#/$defs/by_status",
+          "description": "For effect share_phase_out: the income band over which the relief falls in a straight line to nothing. The share kept is 1 - (measure - threshold) / width, not below 0 (Maine's pension deduction: 100,000, 50,000 married filing separately)."
+        },
+        "share_decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "For effect share_phase_out: the form rounds the share to this many decimals, half up unless the record says otherwise (Maine: 4; Vermont: 2). Left out: the exact share."
+        },
+        "reduce_each_person": {
+          "type": "boolean",
+          "description": "For a relief with who.basis each_person: true when the booklet reduces each person's amount by the full excess. Default false: a dollar_for_dollar or phase_out_rate reduction on a return-level measure comes off the return's total of the relief once (Virginia's age deduction: one 75,000 test against the couple's combined 24,000; Utah's retirement credit)."
+        }
+      },
+      "description": "Applies when the measure is over (strictly greater than) the threshold, unless applies_when says at_or_over. Record the statute's own figure; never shift it (a consumer compares income to the cent). share_phase_out: the relief is multiplied by the share kept, 1 - (measure - threshold) / width, floored at 0 and rounded to share_decimals if given."
+    },
+    "warning_trigger": {
+      "enum": [
+        "always",
+        "has_pension",
+        "has_military_pension",
+        "has_dependents",
+        "person_in_age_range",
+        "has_retirement_account_distribution",
+        "has_long_term_gains",
+        "has_other_state_public_pension",
+        "income_over",
+        "never"
+      ],
+      "description": "When a run shows the warning. has_pension: any pension item, any source or kind. has_military_pension: a pension whose source is military. has_dependents: the household has dependents. person_in_age_range: any person's age within age_range. has_retirement_account_distribution: an IRA distribution, employer plan (401(k), 403(b), 457) distribution or Roth conversion; with age_range, only one taken by a person in that range. has_long_term_gains: long-term capital gains above 0. has_other_state_public_pension: a public pension paid by another state. income_over: income_over's measure is over its threshold. always / never."
+    },
+    "income_over": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measure",
+        "threshold"
+      ],
+      "properties": {
+        "measure": {
+          "$ref": "#/$defs/measure"
+        },
+        "threshold": {
+          "$ref": "#/$defs/by_status"
+        },
+        "applies_when": {
+          "enum": [
+            "over",
+            "at_or_over"
+          ],
+          "description": "Default over (strictly greater); at_or_over when the rule starts at the threshold itself (Connecticut: 75,000 or more)."
+        }
+      },
+      "description": "For warn_when income_over: the measure and the threshold it must be over (Maryland's capital gains rule: federal AGI over 350,000)."
+    }
+  }
+}

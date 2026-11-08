@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "45000.00",
+    "state_income_tax": "1290.00",
+    "state_tax_before_credits": "1290.00",
+    "state_taxable_income": "43000.00",
+    "relief_amounts": {
+      "civil_service_annuity": "0.00"
+    }
+  },
+  "worked": "IT-40 line 1 federal AGI 45,000.00 (given; federal senior deduction ignored in the federal figures). Person 0: public pension 45,000.00 paid by IN: not a federal civil service annuity (paying_states ['federal']); no deduction, taxed. State AGI (IT-40 line 5) = 45,000.00 + 0.00 - 0.00 = 45,000.00. Schedule 3 line 1 personal exemptions: 1 x 1,000 = 1,000.00. Schedule 3 line 4 age 65 exemption: 1 x 1,000 = 1,000.00. Schedule 3 line 5: federal AGI 45,000.00 is not less than 40,000.00 (one threshold per return, not doubled): no additional exemption. Exemptions total 2,000.00. Taxable income (line 7) = max(0, 45,000.00 - 2,000.00) = 43,000.00. Line 8: 3% x 43,000.00 = 1,290.00. No credits modelled: credits 0.00; state income tax 1,290.00."
+}

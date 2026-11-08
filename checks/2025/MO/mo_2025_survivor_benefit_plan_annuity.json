@@ -1,0 +1,66 @@
+{
+  "id": "mo_2025_survivor_benefit_plan_annuity",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "public_pension_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section A Lines 1-5; instructions PDF p17; Reference Guide PDF p9 (47,633 per taxpayer); record public_pension_subtraction; Pension FAQ 'How is my annuity from the Survivor Benefit Plan (SBP) taxed?'",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "annuity"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "42250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "12250.00",
+    "state_tax_before_credits": "399.81",
+    "credits": "0.00",
+    "state_income_tax": "399.81",
+    "relief_amounts": {
+      "public_pension_subtraction": "30000.00"
+    }
+  },
+  "worked": "Single, age 70. A Survivor Benefit Plan annuity from the U.S. government: an annuity, but public. The FAQ says it qualifies for the public pension exemption and not the military subtraction, so it is not private annuity income. Federal (given, not tested): federal AGI = wages 30,000.00 + pensions 30,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 17,750.00 (including the additional amount for age 65) = 42,250.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 60,000.00. Line 2 additions 0.00. Line 3 total income 60,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 60,000.00 - 0.00 = 60,000.00. Section A (Y): Line 1 30,000.00; Line 2 lesser of that or 47,633.00 = 30,000.00; Line 3 0.00; Line 4 30,000.00. Section A Line 5 total 30,000.00. Form MO-1040 Line 8 pension and Social Security exemption 30,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00 + 1 x 2,000.00 for age 65 or older = 17,750.00. Line 26 subtotal 60,000.00 - 30,000.00 - 17,750.00 = 12,250.00. Line 29 taxable income 12,250.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 1,313.00 = 59.085 + 4.7% x 3,059.00 = 143.773; total 399.808 = 399.81. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 400; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 60,000.00 - Line 8 30,000.00 = 30,000.00; the form's Missouri AGI is Line 6, 60,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

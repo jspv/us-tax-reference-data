@@ -1,0 +1,39 @@
+{
+  "id": "nm_2025_base_surviving_spouse",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

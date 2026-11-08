@@ -1,0 +1,628 @@
+{
+  "layer": "record",
+  "state": "PA",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Flat rate: 'The state income tax rate for 2025 is 3.07 percent (0.0307)' (PDF page 1); PA-40 line 12: 'Multiply Line 11 by 3.07 percent (0.0307)'. One rate for every filing status. The form prints Single, Married Filing Jointly and Married Filing Separately; the booklet has no head of household status, and a surviving spouse filing separately uses Single (PDF page 8). No separate schedule is printed, so only single and married_joint lists are given.",
+    "Standard deduction and exemptions: the booklet says there are none: 'PA law does not allow standard deductions, deductions for personal exemptions, itemized deductions, or deductions for personal expenses' (PDF page 9). No age-65 or blindness amount is printed. Only Line 10 Other Deductions exist.",
+    "Line 10 Other Deductions (PDF page 20): student loan interest up to 2,500 and Section 529 contributions up to 19,000 per beneficiary per taxpayer are recorded. Medical Savings Account and Health Savings Account contributions follow federal rules and limits and ABLE contributions are deductible (PDF pages 9, 20); no amount is printed for these three. The page says 'five deductions', names four in its sentence and lists six codes (M, H, S, T, A, C), one of them 'Combined'. Schedule O is not among the sources.",
+    "Base: PA has no federal starting point. Line 9 adds 'only the positive income amounts' from Lines 1c, 2, 3, 4, 5, 6, 7 and 8 (form; PDF page 20), and 'You cannot use a loss that you report in one income class on your tax return to reduce income in any other class' (PDF page 20). 'Federal income classifications are disregarded to the extent they are inconsistent with PA classifications' (PDF page 8). Spouses cannot offset each other's income and losses, even on a joint return (PDF page 15), and gains and losses do not carry to other years (PDF page 15).",
+    "Social Security and Railroad Retirement: 'INCOME NOT TAXABLE FOR PA PIT PURPOSES' lists 'Social Security benefits and/or Railroad Retirement benefits' (PDF page 8). Second source: Guide, Gross Compensation: 'Retirement income, such as: distributions from eligible Pennsylvania retirement plans* after retirement age; Social Security payments; railroad retirement benefits'. The PA-40 has no Social Security line (form). Social Security is held in social_security.treatment only.",
+    "Pensions from other states' governments, New York State's included: no source names one; 'New York' is printed in none of the three documents. Settled as a reading, in the covers of employer_plan_after_retirement, because the rule is written by kind of plan, not by payer: 'Pennsylvania does not impose income tax on payments you receive that are commonly recognized retirement benefits distributed from eligible employer-sponsored retirement plans' (PDF page 11); 'Commonly recognized pension, old age, or retirement benefits paid after becoming eligible to retire, and retiring' are not taxable (PDF page 8); and the eligibility test is four characteristics of the plan, none about the employer or place (PDF page 13 Filing Tip 2; Guide, 'Criteria for A Plan to Qualify as an Eligible Pennsylvania Retirement Plan'). The Guide's name 'eligible Pennsylvania retirement plan' means eligible for PA tax, as the same Guide's 'eligible plan for PA PIT purposes' shows; it is not a plan run by Pennsylvania. Another state's pension is not in the named list on PDF page 12 item 5, so it needs the plan test and retirement, unlike the named systems, and is not in public_pension_pa_federal_plans. A private plan stands in the same position: exempt only if the plan passes.",
+    "No paying_states: the reciprocal agreements with Indiana, Maryland, New Jersey, Ohio, Virginia and West Virginia cover compensation (PDF page 11), and 'These agreements apply to employee compensation only' (Guide). New York is not one of them. When such a distribution is taxable, the Guide says 'Residents who contributed to a retirement plan while a nonresident are subject to tax only on the amount received over and above their contributions, regardless of whether tax was paid to another state on the retirement income.'",
+    "The four systems named on PDF page 12 item 5, in the booklet's words: 'the State Employees' Retirement System, the Pennsylvania School Employees' Retirement System, the Pennsylvania Municipal Employees' Retirement System, and the U.S. Civil Service Commission Retirement Disability Plan'. The entry's label shortens the last name so the cross-state report does not file the entry as a narrow disability case; it is the general rule for those systems.",
+    "Pennsylvania local and county government plans other than the Pennsylvania Municipal Employees' Retirement System are not named; they fall under the plan test, so public_pension is also in the covers of employer_plan_after_retirement.",
+    "IRA, booklet against Guide: the booklet says 'Distributions you receive after retiring but before age 59 1/2 are taxable even if you receive substantially equal payments, and you do not pay the federal penalty for an early withdrawal. PA law does not have any exceptions similar to the federal exceptions for withdrawal before age 59 1/2' (PDF page 12). The Guide says the department treats an IRA distribution as exempt 'so long as the taxpayer is not required to pay a penalty for early withdrawal', giving 'retirement, death, disability, separation from service unforeseeable emergency or attaining the age of 59 1/2'. They disagree for a penalty-free withdrawal before 59 1/2 by someone neither dead nor disabled. The 2025 booklet is the year's own document and is the more specific, so min_age 59.5 stands; the disability case has its own entry from PDF page 13.",
+    "Roth conversions: exempt when the entire withdrawal goes trustee to trustee, or 'within 60 days invested the entire (100 percent) amount you received into a Roth IRA' (PDF page 12), with any federal tax withheld also put in (PDF page 12 CAUTION; PDF page 13 Filing Tip 4). What is not rolled over is taxable to the extent it exceeds the adjusted basis (Filing Tip 4). 'Entire' means the whole withdrawal, not the whole IRA. On or after 59 1/2 the part kept is still an IRA distribution exempt under ira_distribution_age_59_5. The rule printed is traditional IRA to Roth IRA only. A rollover from an employer plan counts as exempt under PDF page 12 item 2 'only when the transferred amounts are not taxable income for federal purposes', so a Roth rollover from a 401(k) rests on item 1 (qualified and retired).",
+    "Annuities: a commercial insurance or mutual company annuity, an annuity outside an employer-sponsored program, an endowment contract and a charitable gift annuity are interest income to the extent federally reported (PDF pages 13, 15), so they have no relief. An annuity from an eligible employer plan after retirement is employer_plan_annuity (PDF page 13 Box 8).",
+    "Municipal interest: taxable interest includes 'obligations of other states (not Pennsylvania)' (PDF page 14) and 'Obligations of other states or countries' (PDF page 31); direct obligations of the Commonwealth and its political subdivisions are not taxable (PDF pages 14, 31; Schedule A line 6).",
+    "Capital gains: 'PA law does not distinguish between long-term and short term gains (losses)' (PDF page 17) and no rate or deduction differs. Mutual fund capital gains distributions are dividends on Line 3 (PDF pages 15, 18), at the same rate.",
+    "Tax Forgiveness (PA Schedule SP, PA-40 lines 19a to 21; PDF pages 36-39) is recorded as tax_forgiveness with income_test.effect stepped. The fields hold the no-dependent columns of Tables 1 and 2. Each dependent child adds 9,500 to every column (6,500 becomes 16,000; the tables print nine children), which no step field holds; it is in who.other_conditions. Eligibility Income has no equivalent in the schema's measures: it is Line 9 PA taxable income plus listed nontaxable income, and it leaves out Social Security, Railroad Retirement, eligible retirement benefits, military pensions and Civil Service annuities (PDF pages 38-39).",
+    "Other credits are not recorded: Resident Credit for tax paid to other states (Line 22, PA Schedule G-L, not in the booklet), PA Schedule OC restricted credits, and the Schedule DC child and dependent care credit (Line 23; PDF pages 22-23).",
+    "Surtaxes and recapture: none printed. Inflation: the booklet and the Guide say nothing of adjusting the rate or any other figure; not found in the sources.",
+    "Settlement 2026-11-07: base.deductions student_loan_interest_deduction: A recorded it, B did not; PDF page 20 says 'Student Loan Interest, up to $2,500, may be claimed as a deduction' and PDF page 1 repeats it. Kept with what 'other'. per is return as A had it; the page does not say whether the limit is per return or per person.",
+    "Settlement 2026-11-07: base.deductions section_529_contribution_deduction: A recorded it, B did not; PDF page 20 says 'a maximum deduction of $19,000 per beneficiary, per taxpayer'. Kept with per person; the amount is also per beneficiary.",
+    "Settlement 2026-11-07: employer_plan_after_retirement public_pension_other_state: A left it out and B put it in covers_unclear; PDF pages 8, 11 and 13 write the exemption by plan with no term on the payer. In covers, as a reading (see the note on other states' governments).",
+    "Settlement 2026-11-07: public_pension_pa_federal_plans public_pension_other_state: A left it out and B put it in covers_unclear; PDF page 12 item 5 is a closed list of four named systems, so another state's system is not in this entry. Dropped from it.",
+    "Settlement 2026-11-07: reliefs Social Security and Railroad Retirement: A wrote two entries with basis return, B one entry with basis each_person; PDF page 8 lists them as one bullet. Social Security stays in social_security.treatment; railroad_retirement_exempt holds Railroad Retirement, each_person because it is each person's own benefit.",
+    "Settlement 2026-11-07: reliefs ira_distribution_death: A wrote its own entry, B put the case in the conditions of the age 59 1/2 entry; PDF page 12 item 2 has no age test, so it is its own branch. Kept.",
+    "Settlement 2026-11-07: reliefs us_obligation_interest: A recorded it, B did not; PDF page 31 and Schedule A line 7 (PDF page 32) print it. Kept.",
+    "Settlement 2026-11-07: reliefs pa_obligation_interest: A recorded it, B did not; PDF page 31 prints it, but muni_interest already holds the same fact. Dropped, the note on muni_interest keeps it.",
+    "Settlement 2026-11-07: added, neither reader had an entry: united_mine_workers_pension (PDF page 8), employer_plan_death (PDF page 12 item 4), disability_distribution (PDF page 13 Code 3 or 4), employer_plan_annuity (PDF page 13 Box 8), capital_gains pre_1994_exempt_obligation_gains and principal_residence_gain (PDF page 18), tax_forgiveness (PDF pages 36-39)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0307",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0307",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+      "section": "PDF page 1, 'TAX RATE': 'The state income tax rate for 2025 is 3.07 percent (0.0307)'; PA-40 form page 2 line 12 'Multiply Line 11 by 3.07 percent (0.0307)'",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "state_own",
+    "deductions": [
+      {
+        "id": "student_loan_interest_deduction",
+        "what": "other",
+        "amount": {
+          "all": "2500"
+        },
+        "per": "return",
+        "condition": "Line 10 code S: interest paid on a qualified student loan, up to 2,500. The booklet does not say whether the limit is per return or per person. Reported on PA Schedule O.",
+        "cite": {
+          "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+          "section": "PDF page 20, Line 10 'Student Loan Interest'; PDF page 1 '2025 State Tax Change'",
+          "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "section_529_contribution_deduction",
+        "what": "other",
+        "amount": {
+          "all": "19000"
+        },
+        "per": "person",
+        "condition": "Line 10 code T: IRC Section 529 Qualified Tuition Program contributions actually made, up to 19,000 per beneficiary, per taxpayer; a taxpayer and spouse each may deduct 19,000 per beneficiary.",
+        "cite": {
+          "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+          "section": "PDF page 20, Line 10 'IRC Section 529 Qualified Tuition Program Contributions'",
+          "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+      "section": "PDF page 9 'Deductions': 'PA law does not allow standard deductions, deductions for personal exemptions, itemized deductions, or deductions for personal expenses'; PDF page 8 'PA Income Classes'; PDF page 20 Lines 9 and 10; PA-40 form page 1 lines 1a to 11",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+      "section": "PDF page 8, 'INCOME NOT TAXABLE FOR PA PIT PURPOSES': 'Social Security benefits and/or Railroad Retirement benefits'; also the Guide, Gross Compensation, income not included in compensation",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "railroad_retirement_exempt",
+      "label": "Railroad Retirement benefits (income not taxable for PA PIT purposes)",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 8, 'INCOME NOT TAXABLE FOR PA PIT PURPOSES', first bullet; also the Guide, Gross Compensation",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "public_pension_pa_federal_plans",
+      "label": "All distributions from the State Employees', Pennsylvania School Employees' and Pennsylvania Municipal Employees' Retirement Systems and the U.S. Civil Service Commission plan; Civil Service Annuity",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the distribution is from one of the four named systems, or is a Civil Service Annuity (PDF pages 8, 12, 38). Exempt 'regardless of the distribution code reported in Box 7 of the 1099-R', so no retirement test applies"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 12, 'Distributions from Eligible Employer-Sponsored Retirement or Deferred Compensation Programs' item 5; PDF page 13, 1099-R Filing Tip 3; PDF page 8 list ('Civil Service Annuity'); Guide, Gross Compensation, paragraph naming the four systems",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_retired_pay_exempt",
+      "label": "Military pension benefits; retired or retainer pay of a member or former member of a uniform service computed under Chapter 71 of Title 10, U.S. Code",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 8 list ('Military pension benefits'); PDF page 12, 'Distributions from Eligible Employer-Sponsored Retirement or Deferred Compensation Programs' item 6",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "employer_plan_after_retirement",
+      "label": "Commonly recognized retirement benefits from eligible employer-sponsored retirement plans, received after qualifying for retirement and retiring",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "employer_plan_distribution",
+        "public_pension",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the plan is an eligible employer-sponsored retirement plan for PA tax purposes: in writing; provisions for separation of service, old age or infirmity, and long-continued service; payments at regularly recurring intervals after separation from service until death, or an option for a lump sum; no distribution of program benefits until termination of employment, apart from the two small exceptions printed there (PDF page 13, Filing Tip 2; the Guide lists the same four characteristics). The test has no term about who the employer is or where it is. 'Ask your employer or plan administrator' (PDF page 11)",
+          "the person retired after meeting the plan's age conditions or years of service conditions. The booklet prints no age of its own (PDF pages 12-13)"
+        ]
+      },
+      "not_covered": [
+        "A distribution from a plan that is not an eligible employer-sponsored retirement plan, or taken before reaching the plan's retirement age or years of service: taxable to the extent it exceeds contributions, by the cost recovery method",
+        "Contributions you make to your employer's sponsored retirement plan are PA-taxable compensation, even if not taxable for federal purposes",
+        "Payments you receive as an inducement to retire early are taxable compensation",
+        "Distributions from a commercial insurance or mutual company annuity purchased as a retirement annuity (Code 7D) are not distributions from an eligible employer-sponsored plan; taxable as interest income to the extent included in federal gross taxable income",
+        "Employee Stock Ownership Plans are not eligible retirement plans for PA PIT tax purposes (Guide); a non-allocated stock dividend is compensation, an allocated one is dividend income (PDF page 14 Filing Tip 6)",
+        "Distributions from nonqualified deferred compensation plans attributable to an elective deferral of income, whether paid during employment or retirement",
+        "A profit-sharing plan providing no option to receive an annuity is not an eligible plan (Guide)",
+        "A rollover from an employer plan is outside the exception unless the transferred amounts are not taxable income for federal purposes (PDF page 12 item 2)"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 11 'Eligible Employer-Sponsored Retirement Plans'; PDF page 12 'Distributions' item 1 and the list after 'Early Retirement Incentive Plans'; PDF pages 12-13 Code 1 & 2 and Code 7; PDF page 13 Filing Tip 2; PDF page 8 list; Guide, Gross Compensation, 'Exempt Distributions from an Employer Provided Retirement Plan' and 'Criteria for A Plan to Qualify as an Eligible Pennsylvania Retirement Plan'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "united_mine_workers_pension",
+      "label": "United Mine Workers Pension",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the pension is a United Mine Workers pension"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 8, 'INCOME NOT TAXABLE FOR PA PIT PURPOSES'; PDF page 38, list for Schedule SP Line 10",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "employer_plan_annuity",
+      "label": "Insurance policy or annuity from an eligible employer-sponsored retirement plan (Form 1099-R Box 8)",
+      "form": "exempt_in_full",
+      "covers": [
+        "annuity"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the policy or annuity was from an eligible employer-sponsored retirement plan for PA tax purposes, and the person retired after meeting the age or years of service conditions of that plan"
+        ]
+      },
+      "not_covered": [
+        "If you invested in an annuity, including a retirement annuity that is not part of an employer-sponsored retirement program, amounts reported for federal income tax purposes are interest income on PA Schedule A Line 11",
+        "Charitable gift annuities are interest income on PA Schedule A Line 12"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 13 'Box 8' and the Code 7 CAUTION; PDF page 15 'Annuities, Life Insurance, or Endowment Contracts'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "employer_plan_death",
+      "label": "Employer plan payments to the estate or designated beneficiary upon an employee's death",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "employer_plan_distribution"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "paid to the estate or designated beneficiary upon the employee's death"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 12, 'Distributions from Eligible Employer-Sponsored Retirement or Deferred Compensation Programs' item 4; Guide, Gross Compensation, 'Distributions to Beneficiaries and Rollovers'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ira_distribution_age_59_5",
+      "label": "IRA distributions, including a federal Roth IRA, received on or after reaching age 59 1/2",
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5
+      },
+      "not_covered": [
+        "Distributions before age 59 1/2 are taxable to the extent the distribution exceeds your previous contributions, even after retiring and even with substantially equal payments and no federal penalty; PA law does not have any exceptions similar to the federal exceptions for withdrawal before age 59 1/2"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 12, 'Individual Retirement Accounts', Withdrawals, item 1; PDF page 14 'IRA Distributions (60-day rollover rule)' IMPORTANT; Guide, Gross Compensation, Form 1099-R table code T ('not taxable if you are at least 59 1/2')",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ira_distribution_death",
+      "label": "IRA distributions paid to the estate or designated beneficiary because of the participant's death",
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "paid to the estate or designated beneficiary of the participant because of the participant's death"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 12, 'Individual Retirement Accounts', Withdrawals, item 2",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "disability_distribution",
+      "label": "Distributions due to disability (Form 1099-R Code 3)",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "employer_plan_distribution",
+        "ira_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the distribution is due to disability: 'generally not taxable for PA purposes' (Code 3 or 4)"
+        ]
+      },
+      "not_covered": [
+        "Code 3D or Code 4D: taxable to the extent taxable for federal income tax purposes, as interest income on Line 11 of PA Schedule A"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 13 'Code 3 or 4 Death/Disability Distribution'; PDF page 14 Filing Tip 11; Guide, Gross Compensation, 'Plan other than Employer Provided Retirement Plan'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "roth_conversion_full_rollover",
+      "label": "Traditional IRA to Roth IRA rollover or conversion of the entire withdrawal",
+      "form": "exempt_in_full",
+      "covers": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the entire withdrawal is rolled over directly (trustee to trustee) into the Roth IRA, or within 60 days the entire (100 percent) amount received is invested in a Roth IRA, including any federal tax withheld, which must be put back"
+        ]
+      },
+      "not_covered": [
+        "If the distribution is not a direct transfer or the entire distribution is not paid into the new IRA, it is taxable to the extent the amount not transferred exceeds the adjusted basis (contributions less any previous distributions) of the original IRA"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 12 'Roth IRA Rollover' and CAUTION; PDF page 13, 1099-R Filing Tip 4; PDF page 14 'IRA Distributions (60-day rollover rule)'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "us_obligation_interest",
+      "label": "Interest from direct obligations of the U.S. government (PA Schedule A Line 7)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "not_covered": [
+        "GNMA and FNMA certificates and other obligations that are guaranteed by the U.S. government, but not direct obligations of the U.S. government"
+      ],
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 14, Line 2; PDF page 31, 'PA-taxable income does not include interest from'; PDF page 32, Schedule A Line 7",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "tax_forgiveness",
+      "label": "Tax Forgiveness Credit (PA Schedule SP; PA-40 Line 21)",
+      "form": "credit",
+      "credit_rate": "1",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "you are subject to PA tax and are not a dependent on another person's federal tax return; there is no age test. Married claimants use joint Eligibility Income and Table 2 even if filing separately",
+          "the credit is the percentage times PA tax less the Resident Credit (Schedule SP lines 12 to 16)",
+          "each dependent child raises every column of the table by 9,500: Table 1 runs 6,500, then 16,000 with one child, 25,500 with two; Table 2 runs 13,000, then 22,500, 32,000; tables print up to nine children"
+        ]
+      },
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Eligibility Income, Schedule SP Line 11: PA-40 Line 9 PA taxable income plus nontaxable interest, dividends and gains, alimony, insurance proceeds and inheritances (with 1099-R Code 4 amounts and Code 7 survivor annuity benefits), gifts, awards and prizes, non-PA income, nontaxable military income, gain excluded from the sale of a residence, nontaxable educational assistance, and cash received for personal use from outside the home. It does not include Social Security and Railroad Retirement Benefits; Retirement benefits from Pennsylvania eligible retirement plans after becoming eligible to retire and retiring; United Mineworkers pensions; Military pension benefits; Civil Service annuity payments."
+        },
+        "threshold": {
+          "single": "6500",
+          "married_joint": "13000",
+          "married_separate": "13000"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "single",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "single",
+            "over": "6500",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "single",
+            "over": "6750",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "single",
+            "over": "7000",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "single",
+            "over": "7250",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "single",
+            "over": "7500",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "single",
+            "over": "7750",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "single",
+            "over": "8000",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "single",
+            "over": "8250",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "single",
+            "over": "8500",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "single",
+            "over": "8750",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "married_joint",
+            "over": "13000",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "married_joint",
+            "over": "13250",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "married_joint",
+            "over": "13500",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "married_joint",
+            "over": "13750",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "married_joint",
+            "over": "14000",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "married_joint",
+            "over": "14250",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "married_joint",
+            "over": "14500",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "married_joint",
+            "over": "14750",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "married_joint",
+            "over": "15000",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "married_joint",
+            "over": "15250",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_separate",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "married_separate",
+            "over": "13000",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "married_separate",
+            "over": "13250",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "married_separate",
+            "over": "13500",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "married_separate",
+            "over": "13750",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "married_separate",
+            "over": "14000",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "married_separate",
+            "over": "14250",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "married_separate",
+            "over": "14500",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "married_separate",
+            "over": "14750",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "married_separate",
+            "over": "15000",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "married_separate",
+            "over": "15250",
+            "keep_share": "0"
+          }
+        ],
+        "as_printed": "If your Eligibility Income from PA Schedule SP, Line 11, does not exceed: Table 1, Unmarried, Separated and Deceased Claimants, 6,500 is 100%, then 10 points less for each 250 up to 8,750 at 10%; Table 2, Married Claimants, even if filing separately, 13,000 is 100%, then the same steps up to 15,250 at 10%. Above the last column there is no credit."
+      },
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF pages 36-39, PA Schedule SP instructions, Sections III and IV and Eligibility Income Tables 1 and 2; PA-40 form page 2 lines 19a to 21; PDF page 22",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Obligations of other states (not Pennsylvania) are taxable. Interest from direct obligations of the Commonwealth of Pennsylvania and political subdivisions of Pennsylvania is tax exempt, including a public authority, commission, board or other agency created by them (Schedule A Line 6). Direct U.S. obligations are also exempt: us_obligation_interest.",
+    "cite": {
+      "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+      "section": "PDF page 14, Line 2; PDF page 31, 'PA-taxable income includes interest from' and 'does not include interest from'; PDF pages 31-32, Schedule A Line 6",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "pre_1994_exempt_obligation_gains",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "Gain (loss) on direct obligations of the U.S. government, obligations of certain U.S. agencies and territories, and direct obligations of the Commonwealth and its subdivisions, if originally issued before Feb. 1, 1994. Those issued on or after that date are reported.",
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 18, 'Exempt Obligations Originally Issued before Feb. 1, 1994' and '... on or after Feb. 1, 1994'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "principal_residence_gain",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "100 percent gain exclusion on the sale of a principal residence owned for at least two years and used as the principal residence for at least two years in the five years before the sale. 'This exclusion is not identical to the federal exclusion.'",
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 18, 'Sale of Your Principal Residence'",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+        "section": "PDF page 1 'TAX RATE': the rate is printed for 2025 only",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

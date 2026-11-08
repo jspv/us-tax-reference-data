@@ -1,0 +1,1020 @@
+{
+  "layer": "record",
+  "state": "MD",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Local income tax: Maryland county and Baltimore City income taxes (Form 502 lines 28-33; booklet PDF page 25, Instruction 19, 2025 Local Tax Rate Chart, .0225 to .0330 by county; Anne Arundel and Frederick counties use their own brackets, PDF pages 4-5) are local taxes, out of scope for now (tax-reference-data issue #1); not recorded as state brackets or surtaxes.",
+    "Brackets: Tax Rate Schedule I (single, married filing separately, dependent taxpayer, fiduciaries) is recorded under single and married_separate; Schedule II (joint, head of household, qualifying surviving spouse) under married_joint and head_of_household. The booklet says use the tax tables below 100,000 and the Worksheet Schedules (17A) at 100,000 or more, both based on these schedules. The schedule prints 'at least $1'; the first band is recorded from 0.",
+    "Brackets check: the schedules on PDF page 22 are printed again on PDF page 54 (estimated tax) with the same figures; the cumulative amounts (4,697.50; 5,947.50; 7,260.00; 12,760.00; 27,135.00; 58,385.00 and 7,072.50; 8,322.50; 10,947.50; 15,072.50; 32,322.50; 69,822.50) re-compute from the rates; tax table rows 20,000-20,050 = 899, 49,950-50,000 = 2,321 and 99,950-100,000 = 4,696 match the schedule at the row midpoint.",
+    "Printed typo: the Schedule I worksheet (17A) on PDF page 41 has a row 'At least $250,001 but not over $1,000,000' with subtraction amount 500,000.00, x .0625 and addition 27,135.00; the subtraction and addition amounts and Schedule I on PDF pages 22 and 54 show this is the 500,001 to 1,000,000 row. Recorded as 6.25% from 500,000.",
+    "Additional 2% tax on net capital gain income (new for 2025): federal AGI over 350,000 (one figure for every filing status) and capital gain income on Line 1c; 'certain' net capital gain income is taxed at .02 on Line 21b, on top of the rate schedule. Which gains are excluded ('net capital gain from the sale of certain assets is excluded', PDF page 53) is in Form 502CG and Technical Bulletin 58, not in these sources. Recorded under capital_gains, not surtaxes, because it applies to gains only.",
+    "Standard deduction: a flat amount by filing status (3,350 single, dependent and married filing separately; 6,700 joint, head of household, qualifying surviving spouse); the booklet prints no percentage, minimum or maximum. The dependent taxpayer status has no schema key; it shares the single amount.",
+    "Itemized deductions: allowed only if itemized on the federal return (FAQ 3, PDF page 7); state and local income taxes come out on Line 17b (that line is capped at 40,000, 20,000 married filing separately); itemized deductions are reduced by 7.5% of federal AGI over 200,000 (100,000 married filing separately), Instruction 14 and Worksheet 14A (PDF pages 20-21). The worksheet prints the two threshold blocks before their filing-status labels; the pairing follows the Instruction 14 sentence. No fixed amount, so recorded here only.",
+    "Exemptions: 3,200 per exemption for the filer and spouse and for each dependent, stepped down by federal AGI (Exemption Amount Chart 10A, recorded as a stepped phase_out); 1,000 each for the filer or spouse 65 or older or blind on the last day of the year, not reduced; a dependent taxpayer gets no personal exemption. Code hh (Worksheet 13C) lets filers with U.S. obligation interest recompute the exemption from federal AGI less that interest.",
+    "Dependent 65 or over: an additional exemption of 'up to $3,200' (Instruction 10); PDF page 53 says the dependent amount 'is doubled for allowable dependents age 65 or over'. The chart's reduction 'applies to the additional dependency exemptions as well', so the same stepped phase_out is recorded on both dependent entries.",
+    "Pension exclusion (Line 10a, Worksheet 13A): recorded as two entries, age 65 or older and totally disabled (self, or a spouse totally disabled), because the booklet's test is '65 or over or totally disabled, or your spouse was totally disabled'; one exclusion per individual (FAQ 1), so the two cannot combine. Whether 41,200 ('maximum allowable exclusion', on Worksheet 13E 'maximum Social Security benefit') is indexed is not stated.",
+    "Pension exclusion covers: qualified 401(a), 403 and 457(b) employee retirement systems; the booklet does not split public from private employers and does not limit public plans to Maryland, so public_pension, public_pension_other_state and private_pension are all listed (only the public safety subtraction, code v, excludes other states' personnel). Employer-plan distributions (401(k), 403(b), 457(b), Thrift Savings, SIMPLE 401(k)) qualify per the Form 502R chart. IRAs of every kind do not. Roth conversions are not addressed by name: covers_unclear. Whether military retirement above the code u amount can count is not stated; military_pension is not listed.",
+    "Retirement and age subtractions recorded: pension exclusion (Line 10a), retired forest/park/wildlife ranger exclusion (Line 10b), military retirement (code u), public safety retirement (code v), state pension pickup (code r), fire/police job-injury pension payments (code a), fire/police survivor payments (code aa), centenarian income (code ya), U.S. obligation income (code ab), two-income married couple subtraction (Line 14), Social Security and railroad retirement (Line 11). Not recorded: the other Form 502SU codes, none of which is a retirement or age rule (child care Line 9, military overseas pay code p, volunteer police/fire code va, length-of-service awards code n, education, ABLE, adoption, foster care, teacher supplies, union dues, Build America Bond interest code ii, Maryland bond sale profit code e, and others).",
+    "Military retirement (code u): 20,000 at 55 or older, 12,500 under 55, each on the last day of the taxable year; 'under the age of 55' is recorded as max_age 54 (age reached). The booklet prints 'at lest 55 years of age' (typo for 'least'). The booklet does not say whether these caps interact with the Line 10a exclusion beyond keeping code u amounts off Worksheet 13A line 1.",
+    "Public safety retirement (code v): up to 15,000, 55 or older; retired correctional, law enforcement, fire, rescue or emergency services personnel of the United States, Maryland or a Maryland subdivision; the booklet does not say 'contributory'.",
+    "Retired ranger exclusion (Line 10b): 55 or over and not 65 or older (recorded as max_age 64), not totally disabled and no totally disabled spouse; one spouse may take Line 10a and the other Line 10b, but one individual may not take both.",
+    "Social Security: 'Social Security and railroad retirement benefits are exempt from state tax' (Instruction 13 Line 11, PDF page 16); Form 502 Line 11 subtracts the taxable Social Security and RR benefits included in Line 1. Recorded as exempt, and as an exempt_in_full relief.",
+    "Municipal interest: Line 2 adds interest on non-Maryland state and local obligations (including through mutual funds); interest on Maryland and Maryland subdivision obligations is exempt (PDF page 13). Interest on U.S. obligations is subtracted (code ab; not GNMA).",
+    "Indexing: the booklet text has no statement on inflation adjustment of any figure (searched for inflation, indexed, adjusted annually, cost of living); not_stated.",
+    "Recapture: none printed; the schedules are marginal. The exemption step-down is held in the exemption phase_out.",
+    "Two-income married couple subtraction (Line 14, Worksheet 13D): joint return, both spouses with income subject to Maryland tax; the smaller of 1,200 and the lower spouse's federal AGI plus additions less subtractions. covers all_income as the nearest kind.",
+    "Settlement 2026-11-07: base.deductions dependent_exemption.phase_out: A said none, B said the Chart 10A reduction (effect other); PDF page 12 says 'This reduction applies to the additional dependency exemptions as well', so the phase_out is kept, written as effect stepped with the chart's steps.",
+    "Settlement 2026-11-07: base.deductions personal_exemption.phase_out.effect: A and B said other; the schema's stepped effect fits the printed chart (PDF page 12, repeated on PDF page 53), so it is written as stepped with steps.",
+    "Settlement 2026-11-07: capital_gains 2% tax: A said applies_to other, treatment own_rate; B said applies_to all_gains, treatment other; PDF pages 21-22 (Lines 20a and 21b) and 53 (Lines 3b, 8a-8b) say the 2% is an additional tax on 'certain net capital gain income' on top of the tax from the schedule (Line 21 plus 21b), with no short- or long-term split; recorded as all_gains, treatment other, value 0.02, with the 350,000 federal AGI test and the exclusions in condition.",
+    "Settlement 2026-11-07: indexing: A said brackets not_stated and all_other not_stated, B said all_other not_stated; the booklet says nothing about any figure, so one all_other entry is kept.",
+    "Settlement 2026-11-07: reliefs code a (fire/police job-injury pension payments): A recorded it, B did not; PDF page 16 code a prints it and it is a pension rule, so it is kept, with covers public_pension and private_pension (the booklet says 'a pension system' without saying whose) instead of A's other_income.",
+    "Settlement 2026-11-07: reliefs two_income_subtraction.cap: A said married_joint 1,200, B said all 1,200; PDF page 21 Line 14 says 'if both spouses have income subject to Maryland tax and you file a joint return', so the cap is recorded for married_joint only.",
+    "Settlement 2026-11-07: reliefs pension exclusion: A wrote two entries (65 or over; totally disabled), B one entry with disability in other_conditions; PDF page 15 Line 10a prints the test as '65 or over or totally disabled, or your spouse was totally disabled', two branches with their own conditions, so A's two entries are kept (the extraction brief's one entry per branch), each cannot_combine_with the other and the ranger exclusion.",
+    "Settlement 2026-11-07: reliefs pension exclusion covers_unclear: A said roth_conversion, B said nothing; PDF page 15 excludes IRAs but does not name conversions, so roth_conversion stays in covers_unclear.",
+    "Settlement 2026-11-07: reliefs pension exclusion covers: A and B listed annuity; PDF page 15 qualifies only an 'annuity, or endowment from an employee retirement system' and the Form 502R chart (page 2) marks other taxable retirement plans as not qualifying, so annuity (a commercial annuity) is removed and public_pension_other_state is added (the booklet does not limit qualified plans to Maryland ones).",
+    "Settlement 2026-11-07: reliefs military_retirement_under_55.who.max_age: A said 54, B said none (test in other_conditions); PDF page 17 code u says 'under the age of 55 on the last day of the taxable year', so max_age 54 (age reached) is recorded.",
+    "Settlement 2026-11-07: reliefs fire_police_survivor_payments (code aa): neither reader recorded it; PDF page 19 code aa prints a subtraction for pension-system payments and death benefits to survivors of law enforcement officers and firefighters killed in the line of duty; added by the settler as a pension rule.",
+    "Settlement 2026-11-07: reliefs ranger_pension_exclusion.who.max_age: A and B left it out; PDF page 16 Line 10b says 'You were not 65 or older', so max_age 64 is added alongside the other conditions.",
+    "2026-11-07: the age-100 subtraction gains all_income_scope 'person' (it is the income of the individual at least 100; booklet code ya), made explicit when checks found the format's default reading (whole return) wrong for it."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "100000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "125000"
+      },
+      {
+        "rate": "0.055",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "500000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1000000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "175000"
+      },
+      {
+        "rate": "0.055",
+        "start": "225000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "300000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "600000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1200000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "100000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "125000"
+      },
+      {
+        "rate": "0.055",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "500000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "175000"
+      },
+      {
+        "rate": "0.055",
+        "start": "225000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "300000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "600000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1200000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+      "section": "PDF page 22, Instruction 17, Maryland Tax Rate Schedule I (Single, Married Filing Separately, Dependent) and Schedule II (Married Filing Jointly, Head of Household, Qualifying Surviving Spouse); same schedules on PDF page 54; Worksheet Schedules 17A on PDF page 41",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "cite": {
+      "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+      "section": "PDF page 13, Instruction 11 Line 1 (copy federal AGI from Form 1040 line 11a onto Form 502 Line 1); PDF page 21, Instructions 15-16; Form 502 Lines 1, 16-20",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+      "accessed": "2026-11-06"
+    },
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "3350",
+          "married_separate": "3350",
+          "married_joint": "6700",
+          "head_of_household": "6700",
+          "qualifying_surviving_spouse": "6700"
+        },
+        "per": "return",
+        "condition": "Standard deduction method (instead of itemizing; itemizing is allowed only if itemized on the federal return); single, dependent and married filing separately 3,350; joint, head of household and qualifying surviving spouse 6,700.",
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 21, Instruction 16 'STANDARD DEDUCTION METHOD'; PDF page 53 Line 4",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "3200"
+        },
+        "per": "exemption_claimed",
+        "condition": "The filer and spouse, each; a dependent taxpayer claims none (Exemption Box A is zero); reduced by Exemption Amount Chart (10A) by federal AGI.",
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi",
+            "as_printed": "This exemption is reduced once the taxpayer's federal adjusted gross income exceeds $100,000 ($150,000 if filing Joint, Head of Household, or Qualifying Surviving Spouse with Dependent Child). This reduction applies to the additional dependency exemptions as well; however, it does not apply to the taxpayer's age or blindness exemption of $1,000."
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "married_joint": "150000",
+            "head_of_household": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "effect": "stepped",
+          "as_printed": "Exemption Amount Chart (10A), each exemption: single or married filing separately 3,200 at 100,000 or less, 1,600 over 100,000 to 125,000, 800 over 125,000 to 150,000, 0 over 150,000; joint, head of household or qualifying surviving spouse 3,200 up to 150,000, 1,600 over 150,000 to 175,000, 800 over 175,000 to 200,000, 0 in excess of 200,000; dependent taxpayer 0.",
+          "steps": [
+            {
+              "status": "single",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "single",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "single",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_separate",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "married_separate",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_joint",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "married_joint",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "head_of_household",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "head_of_household",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "200000",
+              "amount": "0"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 12, Exemption Amount Chart (10A); PDF page 13, Instruction 10; PDF page 53 Line 6a",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "3200"
+        },
+        "per": "dependent",
+        "condition": "Each allowable dependent other than the filer and spouse (Form 502B); reduced by the same Chart (10A).",
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi",
+            "as_printed": "This exemption is reduced once the taxpayer's federal adjusted gross income exceeds $100,000 ($150,000 if filing Joint, Head of Household, or Qualifying Surviving Spouse with Dependent Child). This reduction applies to the additional dependency exemptions as well; however, it does not apply to the taxpayer's age or blindness exemption of $1,000."
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "married_joint": "150000",
+            "head_of_household": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "effect": "stepped",
+          "as_printed": "Exemption Amount Chart (10A), each exemption: single or married filing separately 3,200 at 100,000 or less, 1,600 over 100,000 to 125,000, 800 over 125,000 to 150,000, 0 over 150,000; joint, head of household or qualifying surviving spouse 3,200 up to 150,000, 1,600 over 150,000 to 175,000, 800 over 175,000 to 200,000, 0 in excess of 200,000; dependent taxpayer 0.",
+          "steps": [
+            {
+              "status": "single",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "single",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "single",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_separate",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "married_separate",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_joint",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "married_joint",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "head_of_household",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "head_of_household",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "200000",
+              "amount": "0"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 12, Exemption Amount Chart (10A); PDF page 13, Instruction 10; PDF page 53 Line 6c; Form 502 page 2 Exemptions Line C",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "dependent_age_65_exemption",
+        "what": "other",
+        "amount": {
+          "all": "3200"
+        },
+        "per": "dependent",
+        "condition": "An additional exemption of up to 3,200 for any other dependent claimed who is 65 or over (Form 502B boxes 4 and 5); PDF page 53: the dependent amount 'is doubled for allowable dependents age 65 or over'. Reduced by Chart (10A) ('applies to the additional dependency exemptions as well').",
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi",
+            "as_printed": "This exemption is reduced once the taxpayer's federal adjusted gross income exceeds $100,000 ($150,000 if filing Joint, Head of Household, or Qualifying Surviving Spouse with Dependent Child). This reduction applies to the additional dependency exemptions as well; however, it does not apply to the taxpayer's age or blindness exemption of $1,000."
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "married_joint": "150000",
+            "head_of_household": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "effect": "stepped",
+          "as_printed": "Exemption Amount Chart (10A), each exemption: single or married filing separately 3,200 at 100,000 or less, 1,600 over 100,000 to 125,000, 800 over 125,000 to 150,000, 0 over 150,000; joint, head of household or qualifying surviving spouse 3,200 up to 150,000, 1,600 over 150,000 to 175,000, 800 over 175,000 to 200,000, 0 in excess of 200,000; dependent taxpayer 0.",
+          "steps": [
+            {
+              "status": "single",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "single",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "single",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_separate",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "married_separate",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_joint",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "married_joint",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "head_of_household",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "head_of_household",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "200000",
+              "amount": "0"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 13, Instruction 10 'EXEMPTIONS ALLOWED'; PDF page 12 Chart (10A) text; PDF page 53 Line 6c",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "person",
+        "condition": "The filer or spouse 65 or older on the last day of the tax year (turning 65 after year end does not qualify); not reduced by the income chart.",
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 13, Instruction 10 'EXEMPTIONS ALLOWED'; PDF page 12 chart text; Form 502 page 2 Exemptions Line B (X $1,000)",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "blind_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "person",
+        "condition": "The filer or spouse blind on the last day of the tax year; not reduced by the income chart.",
+        "cite": {
+          "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+          "section": "PDF page 13, Instruction 10 'EXEMPTIONS ALLOWED'; PDF page 12 chart text; Form 502 page 2 Exemptions Line B",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+      "section": "PDF page 16, Instruction 13 Line 11: 'Social Security and railroad retirement benefits are exempt from state tax.'; Form 502 page 2 Line 11 (taxable Social Security and RR benefits included in Line 1 subtracted)",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ss_rr_exempt",
+      "label": "Federally taxed Social Security and railroad retirement benefits (Line 11)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 16, Instruction 13 Line 11; Form 502 page 2 Line 11",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "pension_exclusion_age_65",
+      "label": "Pension Exclusion (Line 10a, Worksheet 13A), age 65 or over",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "A traditional IRA, a Roth IRA, a rollover IRA, a simplified employee plan (SEP), a Keogh plan, an ineligible deferred compensation plan or foreign retirement income does not qualify.",
+        "SIMPLE individual retirement account or annuity (Form 502R chart, rows 2-7 do not qualify)",
+        "Other taxable retirement income (Form 502R row 7), so an annuity not paid by an employee retirement system",
+        "Amounts subtracted as military retirement (code u) or public safety retirement (code v) are not included on Worksheet 13A line 1",
+        "Social Security and Railroad Retirement are not included in the qualifying pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65,
+        "other_conditions": [
+          "65 or over on the last day of the tax year",
+          "Pension, annuity or endowment from an employee retirement system qualified under IRC 401(a), 403 or 457(b), included in federal AGI (Form 502R chart: pension, profit-sharing or stock bonus plans 401(a), 403, 403(b) or 457(b); 401(k); state or local government or tax-exempt 457(b); Thrift Savings; SIMPLE 401(k))"
+        ]
+      },
+      "cap": {
+        "all": "41200"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet 13A: 41,200 per person less that person's total Social Security and Railroad Retirement benefits (Tier I and Tier II, taxable or not; on a joint return where only one spouse has a pension, only that spouse's benefits); the exclusion is the smaller of the qualifying pension and that tentative exclusion; zero when the benefits are 41,200 or more. Part-year residents prorate by months of residence over 12.",
+      "cannot_combine_with": [
+        "pension_exclusion_disabled",
+        "ranger_pension_exclusion"
+      ],
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 14, Worksheet 13A lines 1-5 and specific instructions; PDF pages 15-16, Instruction 13 Line 10a; PDF page 7, FAQ 1 and 2; Form 502R page 2 chart",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "pension_exclusion_disabled",
+      "label": "Pension Exclusion (Line 10a, Worksheet 13A), totally disabled",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "A traditional IRA, a Roth IRA, a rollover IRA, a simplified employee plan (SEP), a Keogh plan, an ineligible deferred compensation plan or foreign retirement income does not qualify.",
+        "SIMPLE individual retirement account or annuity (Form 502R chart, rows 2-7 do not qualify)",
+        "Other taxable retirement income (Form 502R row 7), so an annuity not paid by an employee retirement system",
+        "Amounts subtracted as military retirement (code u) or public safety retirement (code v) are not included on Worksheet 13A line 1",
+        "Social Security and Railroad Retirement are not included in the qualifying pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Totally disabled, or the spouse totally disabled, on the last day of the tax year (a mental or physical impairment preventing substantial gainful activity, of long, continued or indefinite duration; physician's certification attached)",
+          "Pension, annuity or endowment from an employee retirement system qualified under IRC 401(a), 403 or 457(b), included in federal AGI (Form 502R chart: pension, profit-sharing or stock bonus plans 401(a), 403, 403(b) or 457(b); 401(k); state or local government or tax-exempt 457(b); Thrift Savings; SIMPLE 401(k))"
+        ]
+      },
+      "cap": {
+        "all": "41200"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet 13A: 41,200 per person less that person's total Social Security and Railroad Retirement benefits (Tier I and Tier II, taxable or not; on a joint return where only one spouse has a pension, only that spouse's benefits); the exclusion is the smaller of the qualifying pension and that tentative exclusion; zero when the benefits are 41,200 or more. Part-year residents prorate by months of residence over 12.",
+      "cannot_combine_with": [
+        "pension_exclusion_age_65",
+        "ranger_pension_exclusion"
+      ],
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 15, Instruction 13 Line 10a; PDF page 14, Worksheet 13A; Form 502R Part 3",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ranger_pension_exclusion",
+      "label": "Pension Exclusion for Retired Forest/Park/Wildlife Ranger (Line 10b, Worksheet 13E)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "A traditional IRA, a Roth IRA, a rollover IRA, a simplified employee plan (SEP), a Keogh plan, an ineligible deferred compensation plan or foreign retirement income does not qualify.",
+        "Amounts subtracted as military retirement income (code u) or public safety retirement income (code v)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "max_age": 64,
+        "other_conditions": [
+          "55 or over and not 65 or older on the last day of the tax year; not totally disabled and no totally disabled spouse (otherwise Worksheet 13A)",
+          "Retirement income attributable to service as a Forest/Park/Wildlife Ranger of the United States, Maryland or a political subdivision of Maryland",
+          "Pension, annuity or endowment from an employee retirement system qualified under IRC 401(a), 403 or 457(b)"
+        ]
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Smallest of the ranger pension, 15,000 (maximum statutory exclusion), and 41,200 less total Social Security and Railroad Retirement benefits received (Worksheet 13E lines 4-8).",
+      "cannot_combine_with": [
+        "pension_exclusion_age_65",
+        "pension_exclusion_disabled"
+      ],
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 16, Instruction 13 Line 10b; PDF page 18, Worksheet 13E lines 1-8; PDF page 7, FAQ 1",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_retirement_55_plus",
+      "label": "Military Retirement Income (code letter u), age 55 or older",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "other_conditions": [
+          "55 or older on the last day of the taxable year",
+          "Retirement income, including death benefits, received as a result of military service"
+        ]
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 17, Instruction 13 Line 13 code letter u",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_retirement_under_55",
+      "label": "Military Retirement Income (code letter u), under age 55",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 54,
+        "other_conditions": [
+          "Under age 55 on the last day of the taxable year",
+          "Retirement income, including death benefits, received as a result of military service"
+        ]
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 17, Instruction 13 Line 13 code letter u",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "public_safety_retirement",
+      "label": "Public safety employee retirement income (code letter v)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "Personnel from the District of Columbia government or from the government of any other State do not qualify as personnel of the United States."
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "other_conditions": [
+          "Retired correctional officer, law enforcement officer, or fire, rescue or emergency services personnel of the United States, Maryland or a political subdivision of Maryland",
+          "Only income included on the federal return as taxable pension, annuity or endowment from an employee retirement system qualified under IRC 401(a), 403 or 457(b)"
+        ]
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 17, Instruction 13 Line 13 code letter v",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "state_pension_pickup",
+      "label": "State retirement pickup contribution (code letter r)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Pickup contribution shown on Form 1099R from the state retirement or pension systems included in federal AGI (added back while working, Line 3)"
+        ]
+      },
+      "cap_rule": "Limited to the pickup contribution or the taxable pension, whichever is less; any amount not allowed carries forward to the next year until the full pickup contribution has been claimed.",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 17, Instruction 13 Line 13 code letter r; PDF page 13, Instruction 12 Line 3",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "fire_police_injury_payments",
+      "label": "Pension payments to fire fighters and policemen for job-related injuries or disabilities (code letter a)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Payments from a pension system to fire fighters and policemen for job related injuries or disabilities"
+        ]
+      },
+      "cap_rule": "Not more than the amount of such payments included in total income.",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 16, Instruction 13 Line 13 code letter a",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "fire_police_survivor_payments",
+      "label": "Payments to survivors of law enforcement officers and firefighters (code letter aa)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "other_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Payments from a pension system, or a death benefit required by a Maryland municipal or county collective bargaining agreement, to the surviving spouse or other beneficiary of a law enforcement officer or firefighter whose death arises out of or in the course of their employment"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 19, Instruction 13 Line 13 code letter aa",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "age_100_income",
+      "label": "Income of resident individuals at least 100 years of age (code letter ya)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 100,
+        "other_conditions": [
+          "Resident individual at least 100 years of age at the end of the taxable year"
+        ]
+      },
+      "cap": {
+        "all": "100000"
+      },
+      "cap_per": "person",
+      "cap_rule": "The maximum value of the subtraction is 100,000 of income received by an individual during a taxable year.",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 20, Instruction 13 Line 13 code letter ya",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      },
+      "all_income_scope": "person"
+    },
+    {
+      "id": "us_obligations_income",
+      "label": "Income from U.S. Government obligations (code letter ab)",
+      "form": "subtraction",
+      "covers": [
+        "interest",
+        "dividends",
+        "capital_gains"
+      ],
+      "not_covered": [
+        "Income from Government National Mortgage Association securities cannot be subtracted",
+        "Dividends from mutual funds that invest in U.S. Government obligations: only the portion attributable to interest or capital gain from those obligations"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 19, Instruction 13 Line 13 code letter ab; code hh and Worksheet 13C (PDF pages 18-19) for the exemption adjustment",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "two_income_subtraction",
+      "label": "Two-income married couple subtraction (Line 14, Worksheet 13D)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Joint return",
+          "Both spouses have income subject to Maryland tax"
+        ]
+      },
+      "cap": {
+        "married_joint": "1200"
+      },
+      "cap_per": "return",
+      "cap_rule": "Smaller of 1,200 and the lower spouse's amount (Worksheet 13D line 6: each spouse's federal AGI plus additions less subtractions, the smaller of the two, not less than zero).",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 21, Instruction 13 Line 14; PDF page 18, Worksheet 13D lines 1-7",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on non-Maryland state and local bonds (including through mutual funds) is added back on Form 502 Line 2; interest on obligations of Maryland or a Maryland subdivision is exempt. Interest on Build America Bonds included in federal AGI is subtracted (code ii).",
+    "cite": {
+      "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+      "section": "PDF page 13, Instruction 12 Line 2; PDF page 19 code ii",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "additional_cap_gain_tax",
+      "applies_to": "all_gains",
+      "treatment": "other",
+      "value": "0.02",
+      "condition": "Additional tax of .02 on 'certain net capital gain income' (Form 502CG Line 9 to Form 502 Line 20a, times .02 on Line 21b), on top of the rate schedule tax on Line 21, when federal AGI on Line 1 is more than 350,000 (one figure for every filing status) and there is capital gain income on Line 1c. 'Net capital gain from the sale of certain assets is excluded'; the exclusions are in Form 502CG and Technical Bulletin 58, not in these sources. The 350,000 threshold is in applies_over.",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "PDF page 4, New for 2025 'Additional 2% Tax on Net Capital Gain Income'; PDF page 21, Line 20a; PDF page 22, Line 21b; PDF page 53, Lines 3b and 8b; Form 502 page 3 Lines 20a and 21b; threshold: PDF page 4 ('in excess of $350,000'), page 21 Line 20a, page 22 Line 21b ('more than $350,000 on Line 1')",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      },
+      "applies_over": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "all": "350000"
+        }
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions)",
+        "section": "Whole booklet text searched (inflation, indexed, adjusted annually, cost of living): no statement on inflation adjustment of brackets, deductions, exemptions or relief amounts",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "recapture": []
+}

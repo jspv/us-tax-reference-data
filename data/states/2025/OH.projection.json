@@ -1,0 +1,358 @@
+{
+  "layer": "projection",
+  "state": "OH",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/OH.record.json",
+    "sha256": "f0290fb22845caeba9860b0c80ae09843f9ea53e1cc2996ebf6ca54069f084a6"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.0275",
+        "start": "26050",
+        "base": "342"
+      },
+      {
+        "rate": "0.03125",
+        "start": "100000",
+        "base": "2394.32"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.0275",
+        "start": "26050",
+        "base": "342"
+      },
+      {
+        "rate": "0.03125",
+        "start": "100000",
+        "base": "2394.32"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "2400"
+        },
+        "per": "person",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "all": "40000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "all",
+              "over": "40000",
+              "amount": "2150"
+            },
+            {
+              "status": "all",
+              "over": "80000",
+              "amount": "1900"
+            },
+            {
+              "status": "all",
+              "over": "750000",
+              "amount": "0",
+              "applies_when": "at_or_over"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "railroad_benefits_deduction",
+      "from_record": [
+        "railroad_benefits_deduction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "uniformed_services_retirement",
+      "from_record": [
+        "uniformed_services_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "retirement_income_credit",
+      "from_record": [
+        "retirement_income_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "200",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap": {
+        "all": "200"
+      },
+      "cap_per": "return",
+      "income_test": {
+        "measure": {
+          "base": "state_taxable_income"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "senior_citizen_credit",
+      "from_record": [
+        "senior_citizen_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "50",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "50"
+      },
+      "cap_per": "return",
+      "income_test": {
+        "measure": {
+          "base": "state_taxable_income"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "relief_income_tests",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    },
+    {
+      "figure": "relief_credit_amounts",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.credit_amount"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "business_income_deduction",
+      "from_record": [
+        "business_income_deduction"
+      ],
+      "what": "Business income: the first 250,000 (125,000 married separate) is deducted and the rest taxed at a flat 3%, apart from the brackets. Outside a retirement projection's core: self-employment income runs through the brackets instead, and the deduction is not added back in the income tests.",
+      "warn_when": "always"
+    },
+    {
+      "id": "joint_filing_credit",
+      "from_record": [
+        "joint_filing_credit"
+      ],
+      "what": "Joint filing credit: on a joint return where each spouse has at least 500 of qualifying income (pensions and IRA withdrawals count; interest, dividends, gains, rents, Social Security and military retirement do not), 5% to 20% of the tax by income, up to 650. A projection's relief can't state the 500 test for each spouse.",
+      "warn_when": "always"
+    },
+    {
+      "id": "federal_civil_service_military_share",
+      "from_record": [
+        "federal_civil_service_military_share"
+      ],
+      "what": "A federal civil service pension of someone with military service: the share for military years (military years / total federal service years) is deducted. Service years are not a yearly fact.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "survivor_benefits_deduction",
+      "from_record": [
+        "survivor_benefits_deduction",
+        "disability_benefits_deduction"
+      ],
+      "what": "Survivor benefits (any amount received because of another person's death, including a survivor's pension, to the extent in federal AGI) and disability benefits are deducted in full and don't count toward the retirement income credit. A projection can't tell them from other pension income.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "lump_sum_retirement_credit",
+      "from_record": [
+        "lump_sum_retirement_credit",
+        "lump_sum_distribution_credit"
+      ],
+      "what": "Lump sum retirement credit and lump sum distribution credit for a total distribution from a qualified plan, figured by an age multiple. Taking either gives up the retirement income credit or the senior citizen credit on this and future returns.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption"
+      ],
+      "what": "Exemption for each dependent (the same amount as the personal exemption).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "oh_unreimbursed_medical_deduction",
+      "from_record": [],
+      "what": "Unreimbursed medical deduction (Schedule of Adjustments line 44): health and long-term care premiums, and Medicare-period premiums and medical care over 7.5% of federal AGI. Premiums are not a yearly fact.",
+      "warn_when": "always"
+    },
+    {
+      "id": "exemption_credit",
+      "from_record": [
+        "exemption_credit"
+      ],
+      "what": "Exemption credit: 20 for each exemption claimed when MAGI less exemptions is under 30,000. A low-income credit: it lowers tax only when taxable income is over 26,050 and MAGI less exemptions is under 30,000.",
+      "warn_when": "never"
+    },
+    {
+      "id": "military_pay_outside_ohio",
+      "from_record": [
+        "military_pay_outside_ohio"
+      ],
+      "what": "Active duty and National Guard pay of an Ohio resident stationed outside Ohio is deducted.",
+      "warn_when": "never"
+    },
+    {
+      "id": "oh_other_credits",
+      "from_record": [],
+      "what": "Credits in the record's notes only: earned income credit, child and dependent care credit, Ohio resident credit for tax paid to another state, and other small credits.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The retirement income credit is a flat 200 whenever the return has covered income, where Table 2 steps on the amount: 0 to 500 gets 0, then 25, 50, 80, 130, and 200 from 8,001.",
+      "direction": "understates_tax",
+      "size": "At most 200 a year, only with eligible retirement income of 8,000 or less: 3,000 of it gets 50, not 200."
+    },
+    {
+      "what": "The retirement income credit is given for any covered income, where it needs income received on account of retirement: FAQ 7 says early withdrawals do not qualify.",
+      "direction": "understates_tax",
+      "size": "At most 200 a year, for a year with draws before retirement."
+    },
+    {
+      "what": "Roth conversions are taxed (FAQ 8) and are left out of the retirement income credit's covers (covers_unclear in the record).",
+      "direction": "overstates_tax",
+      "size": "At most 200 a year, and only if a conversion is the return's sole retirement income and Ohio counts it."
+    },
+    {
+      "what": "The senior citizen credit is given when the older spouse is 65 or older, so a joint return with one spouse 65 gets it. No source says how a joint return is tested.",
+      "direction": "understates_tax",
+      "size": "50 a year if Ohio requires both spouses to be 65."
+    },
+    {
+      "what": "The joint filing credit is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 650 a year for a couple who each have pension or wage income: 5% of the tax over 75,000 of MAGI less exemptions, 20% at the lowest incomes."
+    },
+    {
+      "what": "Self-employment income is taxed in the brackets, and MAGI is taken as Ohio AGI and MAGI less exemptions as Ohio taxable income (exact without business income). Ohio deducts the first 250,000 of business income, taxes the rest at 3%, and adds the deduction back in MAGI.",
+      "direction": "overstates_tax",
+      "size": "Up to 3.125% of business income, plus the 342.00 lump sum if business income is what lifts taxable income over 26,050. The missing add-back can raise an exemption or keep a credit that Ohio would cut."
+    },
+    {
+      "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "2.75% or 3.125% of the interest."
+    },
+    {
+      "what": "A projection that cannot tell Ohio bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "2.75% or 3.125% of the interest from Ohio obligations."
+    },
+    {
+      "what": "School district income tax (SD 100) is local and out of scope (issue #1). Retirement income is taxed only in traditional tax base districts; Social Security is in neither base.",
+      "direction": "understates_tax",
+      "size": "Depends on the district."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

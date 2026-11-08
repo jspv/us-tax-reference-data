@@ -1,0 +1,73 @@
+{
+  "id": "ar_2025_joint_exclusion_and_65_special",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ar_65_special_credit",
+    "ar_retirement_exclusion_59_5_plus",
+    "ar_age_65_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 11 items 12 and 13 and the NOTE (total exemptions from all plans under 12 and 13 cannot exceed 6,000 per taxpayer); PDF page 13 LINE 18A and 18B (public or private employment-related plans, the recipient does not have to be retired; traditional IRA after 59 1/2); record ar_employer_plan_exclusion, ar_traditional_ira_exclusion_59_5; PDF page 12 LINE 7A 'Any taxpayer age 65 or over not claiming a retirement income exemption on line 18 is eligible for an additional $29 (per taxpayer) tax credit'; record ar_65_special_credit",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-03-03"
+      },
+      {
+        "age": 67,
+        "born": "1958-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "AR",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "25300.00"
+  },
+  "expected": {
+    "state_agi": "54000.00",
+    "state_taxable_income": "49060.00",
+    "state_tax_before_credits": "1493.38",
+    "credits": "145.00",
+    "state_income_tax": "1348.38",
+    "relief_amounts": {
+      "ar_65_special_credit": "29.00",
+      "ar_age_65_credit": "58.00",
+      "ar_retirement_exclusion_59_5_plus": "6000.00"
+    }
+  },
+  "worked": "Joint, 66 and 67. Primary: Arkansas Public Employees Retirement System pension 40,000 (public, paid by Arkansas). Spouse: wages 20,000, no retirement income. Each taxpayer chooses: the primary takes the 6,000 exemption (worth 3.9% x 6,000 = 234, more than the 29 65 Special credit); the spouse claims nothing on line 18B, so the spouse takes the 65 Special credit. Federal (given, not tested): federal AGI = wages (spouse) 20,000.00 + public pension paid by AR (primary) 40,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 for 65 or older = 25,300.00 (federal senior deduction ignored). AR1000F, filing status 2 (married filing joint); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 20,000.00. Line 18A (primary, age 66): gross pension 40,000.00 = 40,000.00; less the 6,000 exemption: exemption = lesser of 40,000.00 and 6,000.00 = 6,000.00; taxable 34,000.00. Line 23 total income = 54,000.00; line 24 adjustments 0.00; line 25 AGI = 54,000.00. Projection check: federal AGI 60,000.00 - 6,000 exclusion (ar_retirement_exclusion_59_5_plus) 6,000.00 = state AGI 54,000.00. Line 27 standard deduction (filing status 2) 4,940.00; line 28 net taxable income = 54,000.00 - 4,940.00 = 49,060.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (11,200.00 - 5,600.00) 5,600.00 = 112.00 + 3% x (15,990.00 - 11,200.00) 4,790.00 = 143.70 + 3.4% x (26,400.00 - 15,990.00) 10,410.00 = 353.94 + 3.9% x (49,060.00 - 26,400.00) 22,660.00 = 883.74; total 1,493.38. (The Regular Income Tax Table row 49,001-49,101 gives 1,493; expected keeps the schedule.) Line 7A boxes: personal 2, 65 or over 2, 65 Special 1 = 5 x 29.00 = 145.00; line 7C and line 34 145.00; line 37 total credits 145.00. Line 38 net tax = 1,493.38 - 145.00 = 1,348.38. Status 4 would give primary 34,000.00 - 2,470.00 = 31,530.00, tax 809.71, and spouse 20,000.00 - 2,470.00 = 17,530.00, tax 112.00 + 143.70 + 3.4% x 1,540.00 = 308.06: together 1,117.77 before credits, below the joint 1,493.38; the projection uses status 2 (approximations).",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "The 65 Special credit and the 6,000 exclusions are one per-person choice (best_of_group). The booklet says a taxpayer claiming a line 18 exemption cannot take the 65 Special credit; the projection gives each person the better of the two, which is what a filer would choose.",
+    "Married couples are taxed on the one table using joint net taxable income (filing status 2). Arkansas also lets them file separately on the same return (status 4, each spouse's tax from the same table on their own income, added), which is lower whenever both have income, because each spouse gets the lower bands."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

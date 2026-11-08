@@ -1,0 +1,43 @@
+{
+  "id": "ma_2025_ma_noncontributory_pension",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "us_ma_contributory_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "PDF p11 'State court judges who were appointed prior to January 2, 1975 receive taxable noncontributory pensions'; PDF p10 Line 4 first bullet (contributory only); Form 1 lines 2a, 2c, 4, 10-22",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "public",
+          "paying_government": "MA",
+          "contributory": false,
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "22250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

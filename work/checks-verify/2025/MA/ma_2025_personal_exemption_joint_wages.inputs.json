@@ -1,0 +1,48 @@
+{
+  "id": "ma_2025_personal_exemption_joint_wages",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "Form 1 lines 2a (married filing jointly 8,800, PDF p10 Line 2a), 3, 10, 11a-11b (PDF p11), 16-22 (PDF p12)",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      },
+      {
+        "age": 43,
+        "born": "1982-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "88500.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

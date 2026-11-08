@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "sc_retirement_under_65": "3000.00"
+    },
+    "state_income_tax": "633.00",
+    "state_tax_before_credits": "633.00",
+    "state_taxable_income": "21250.00"
+  },
+  "worked": "Single, 60, New York State public pension 40,000. 'All public employee retirement plans of the federal, state, and local governments' qualify, so another state's pension gets the same 3,000; no other SC exclusion for it. Line 1 federal taxable income 24250.00; line 2 additions 0.00; line 3 = 24250.00. p-1 retirement (under 65): lesser of 3,000 and NY public pension 40,000: 3000.00 Line 4 subtractions total 3000.00; line 5 SC taxable income 24250.00 - 3000.00 = 21250.00 tax: 0.03 x (17,840 - 3,560) = 428.40, plus 0.06 x (21250.00 - 17,840) = 204.60; total 633.00 (check 6% x 21250.00 - 642 = 633.00) (line 6; formula on exact income, not the table row midpoint). Credits: none modelled (Two Wage Earner Credit not_modelled; no dependents); credits 0.00. Federal taxable income is given (federal senior deduction ignored per brief). State income tax 633.00."
+}

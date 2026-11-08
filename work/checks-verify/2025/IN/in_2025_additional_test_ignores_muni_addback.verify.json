@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "43000.00",
+    "state_income_tax": "1215.00",
+    "state_tax_before_credits": "1215.00",
+    "state_taxable_income": "40500.00"
+  },
+  "worked": "IT-40 line 1 federal AGI 38,000.00 (given; federal senior deduction ignored in the federal figures). Schedule 1 line 3 add-back: other-state municipal interest 5,000.00; Indiana's own municipal interest 3,000.00 is not in federal AGI and is not added (muni_interest.treatment other_states_taxed_own_exempt). State AGI (IT-40 line 5) = 38,000.00 + 5,000.00 - 0.00 = 43,000.00. Schedule 3 line 1 personal exemptions: 1 x 1,000 = 1,000.00. Schedule 3 line 4 age 65 exemption: 1 x 1,000 = 1,000.00. Schedule 3 line 5: federal AGI 38,000.00 is less than 40,000.00 (IT-40 line 1, before add-backs): 1 x 500 = 500.00. Exemptions total 2,500.00. Taxable income (line 7) = max(0, 43,000.00 - 2,500.00) = 40,500.00. Line 8: 3% x 40,500.00 = 1,215.00. No credits modelled: credits 0.00; state income tax 1,215.00."
+}

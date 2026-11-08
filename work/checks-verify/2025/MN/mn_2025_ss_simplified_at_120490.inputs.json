@@ -1,0 +1,50 @@
+{
+  "id": "mn_2025_ss_simplified_at_120490",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "mn_social_security_simplified"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1M line 12 and Worksheet for line 12 steps 1-30 (M1M PDF p.3, p.4)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "103490.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "120490.00",
+    "federal_taxable_income": "104740.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.mn_social_security_simplified"
+  ]
+}

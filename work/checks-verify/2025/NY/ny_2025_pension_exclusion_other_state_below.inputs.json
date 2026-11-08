@@ -1,0 +1,52 @@
+{
+  "id": "ny_2025_pension_exclusion_other_state_below",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_annuity_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 9, Line 26 (You may not subtract: pension payments attributable to employment by an employer other than a New York public employer ... may qualify for the exclusion) and Line 29 (59 1/2 before January 1, 2025; not more than 20,000); Form IT-201 lines 26 and 29; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-06-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "15000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NJ",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "79250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_annuity_exclusion"
+  ]
+}

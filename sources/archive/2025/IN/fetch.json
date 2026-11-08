@@ -1,0 +1,77 @@
+[
+  {
+    "state": "IN",
+    "title": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "url": "https://forms.in.gov/Download.aspx?id=16915",
+    "retrieved": "2026-11-07T01:06:25.375069+00:00",
+    "ok": true,
+    "final_url": "https://forms.in.gov/Download.aspx?id=16915",
+    "file": "IT-40_Instructions__12-25_.pdf",
+    "bytes": 925411,
+    "sha256": "b571f21423925108109187c58d0c9ec106bc4d1051d517e563a940228ed0c79c",
+    "archived_url": "https://web.archive.org/web/20260414051905id_/https://forms.in.gov/Download.aspx?id=16915"
+  },
+  {
+    "state": "IN",
+    "title": "2025 Form IT-40",
+    "url": "https://forms.in.gov/Download.aspx?id=16914",
+    "retrieved": "2026-11-07T01:06:31.130239+00:00",
+    "ok": true,
+    "final_url": "https://forms.in.gov/Download.aspx?id=16914",
+    "file": "IT-40__9-25__Fillable.pdf",
+    "bytes": 3242429,
+    "sha256": "0b5d74cffea1dc758eff500a8d74bf020b53b977b57e04b12ce344316234b785",
+    "archived_url": "https://web.archive.org/web/20251226065919id_/https://forms.in.gov/Download.aspx?id=16914"
+  },
+  {
+    "state": "IN",
+    "title": "2025 IT-40 Schedule 1 Add-Backs",
+    "url": "https://forms.in.gov/Download.aspx?id=16932",
+    "retrieved": "2026-11-07T01:06:37.059081+00:00",
+    "ok": true,
+    "final_url": "https://forms.in.gov/Download.aspx?id=16932",
+    "file": "Schedule_1__9-25__Fillable.pdf",
+    "bytes": 132614,
+    "sha256": "5d870d022418a23e3e40e6980a60f5588586f2f4853e59791b96ce03732f4594",
+    "archived_url": "https://web.archive.org/web/20251224094408id_/https://forms.in.gov/Download.aspx?id=16932"
+  },
+  {
+    "state": "IN",
+    "title": "2025 IT-40 Schedule 2 Deductions (Social Security/railroad retirement, civil service annuity, military retirement)",
+    "url": "https://forms.in.gov/Download.aspx?id=16933",
+    "retrieved": "2026-11-07T01:06:42.630738+00:00",
+    "ok": true,
+    "final_url": "https://forms.in.gov/Download.aspx?id=16933",
+    "file": "Schedule_2__9-25__Fillable.pdf",
+    "bytes": 146806,
+    "sha256": "1e29c4f83b863296022ef0e2a2884cc6959223aeff8862bce5a4d554241f045a",
+    "archived_url": "https://web.archive.org/web/20251226063019id_/https://forms.in.gov/Download.aspx?id=16933"
+  },
+  {
+    "state": "IN",
+    "title": "Indiana DOR: Deductions (civil service annuity, Social Security, military retirement)",
+    "url": "https://www.in.gov/dor/i-am-a/individual/deductions",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:06:48.196149+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.in.gov/dor/i-am-a/individual/deductions",
+    "file": "deductions.html",
+    "bytes": 374173,
+    "sha256": "0289077e6e45844091ff4293916daf6af7c8af7a96fb69ec270cd61aef44c0a2",
+    "text_file": "deductions.page.txt"
+  },
+  {
+    "state": "IN",
+    "title": "2025 Schedule 3: Exemptions",
+    "url": "https://forms.in.gov/Download.aspx?id=16936",
+    "retrieved": "2026-11-07T13:17:23.847457+00:00",
+    "ok": true,
+    "final_url": "https://forms.in.gov/Download.aspx?id=16936",
+    "method": "browser",
+    "file": "Schedule_3__9-25__Fillable_.pdf",
+    "bytes": 154582,
+    "sha256": "65f15ef124f06fb0fbe9d784cd17e5a94508bc0699b8ee6b35aa8fcb10e4e7fe",
+    "archived_url": "https://web.archive.org/web/20251224103505id_/https://forms.in.gov/Download.aspx?id=16936"
+  }
+]

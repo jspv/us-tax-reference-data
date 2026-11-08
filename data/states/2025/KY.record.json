@@ -1,0 +1,522 @@
+{
+  "layer": "record",
+  "state": "KY",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Sources read: 2025 Form 740 packet with instructions (40 PDF pages), Schedule M (4 pages), Schedule P (2 pages), and, archived on 2026-11-07, Form 740 (3 pages) and Schedule ITC (8 pages). Page numbers are the PDF's own (pypdf markers), not the printed folios: the differences chart is packet PDF p.9, printed page 7.",
+    "Form 740 and Schedule ITC are not inside the packet: packet PDF pp.4, 10, 19, 20, 30 and 34 say 'This page has been intentionally left blank' and PDF p.39 is empty. Both were archived separately on 2026-11-07 (740_2025.pdf and Schedule_ITC_2025.pdf). Form 740 lines cited here were checked against Form 740 PDF pp.1-2: line 17 personal tax credits, line 18 = line 16 less line 17 ('If line 17 is larger than line 16, enter zero'), line 19 the sum of line 18 Columns A and B, line 20 family size, line 21 = line 19 times the Family Size Tax Credit decimal, line 22 = line 19 less line 21.",
+    "Flat rate: the booklet prints one rate, 4% (PDF p.3 'For 2025, the tax rate for individual income tax is 4%'; PDF p.13 Line 12 'Multiply line 11 by four percent (.04)'). No separate schedule is printed for any filing status. Kentucky's statuses are Single (including federal head of household and qualifying widow(er)), Married filing separately on a combined return, Married filing joint, and Married filing separate returns (PDF p.13).",
+    "Standard deduction 3,270 (PDF p.3, p.13, p.31). Recorded per return because a joint return gets one; on a combined return (Filing Status 2) each spouse enters 3,270, and PDF p.13 says that status is open 'if both you and your spouse had income'. Itemizing on Schedule A is allowed; if one spouse itemizes the other must.",
+    "No personal exemption, dependent exemption, age-65 or blindness deduction is printed (not found in the booklet). Chart B (PDF p.11) uses 4,270 and 5,270 for age 65 or over or blind, but those are filing-requirement thresholds, not deductions.",
+    "Personal tax credits: Schedule ITC PDF p.2 Section B prints, for the taxpayer (lines 1-3) and for the spouse (lines 5-7, 'Complete only if filing joint or married, filing separately on a combined return'): 'If you were 65 on or before 12/31/2025, enter 40'; 'If you were legally blind on 12/31/2025, enter 40'; 'If you were a member of the Kentucky National Guard on 12/31/2025, enter 20'. Lines 9-12 carry them to Form 740 line 17 (not to exceed 100 a person, 200 joint). Form 740 PDF p.1 line 18 stops them at the tax. who.basis each_person follows the separate taxpayer and spouse lines. Packet PDF p.14 Line 17 and Schedule ITC PDF p.7 say only who completes Section B.",
+    "Family Size Tax Credit: the table is Schedule ITC PDF p.2 Section C, ten bands per family size one to four or more, 100% down to 10%, none above 20,815, 28,130, 35,445 and 42,760. Its first edges are the thresholds packet PDF p.3 prints (15,650, 21,150, 26,650, 32,150) and its last edges are 133 percent of them, rounded to the dollar ('incomes up to 133 percent of the threshold amount', PDF p.3). Packet PDF p.14: 'If your total MGI is $42,760 or less, you may qualify'; Form 740 PDF p.1 line 5 says the same of Columns A and B. Both printed examples (packet PDF p.26 and Schedule ITC PDF p.8: family of two at 22,650, 80%; family of four at 33,000, 90%) agree with the table. Schedule ITC PDF p.2 and Form 740 PDF p.2 line 21: the decimal multiplies Form 740 line 19, the tax after the personal tax credits, so credit_basis is tax with credit_rate 1. Family size is a household fact (qualifying children), not a filing status; the structured steps key family size one to 'single' and family size two to 'married_joint', and sizes three and four are in as_printed only.",
+    "Pension income exclusion: two layers that add. Schedule P line 4 = line 1(c) + the lesser of line 2 or 31,110. Line 1(c) has no dollar limit; the 31,110 limit applies only to income not in line 1(c). Each spouse computes their own.",
+    "Pensions from other states' governments: not named in the sources, and New York appears nowhere in them. Schedule P Part I takes only pension income 'paid by the federal government, by the Commonwealth of Kentucky, or by any Kentucky local government', and the Schedule P flowchart ends for anyone else with 'You do not need to file Schedule P. You are limited to $31,110 in excludable retirement.' Such a pension is 'pension and retirement income paid under a written retirement plan' (Schedule M PDF p.3), so public_pension_other_state is in ky_pension_exclusion and not in ky_pre1998_government_service. Judgement call: the kind is taken from those general words, not named. The reciprocity list on PDF p.22 covers wages and personal services, not pensions; no rule depends on the paying state, so paying_states is not used.",
+    "Disability retirement benefits, death benefits and deferred compensation reported on Form 1040 line 1 are eligible for the exclusion (Schedule M PDF p.3 and worksheet; Schedule P PDF p.2). Disability and death benefits have no income kind in the schema, so they are named in other_conditions only.",
+    "Schedule P PDF p.2 line 2 also takes amounts from Schedule M line 5 that reflect pension and IRA bases differences. Chart item 3 (PDF p.9): pensions and annuities starting after 7/1/86 and before 1/1/90 keep the 3-year recovery rule. Lump-sum distributions: special 10-year averaging on Form 4972-K (PDF p.13 Line 13). Not recorded as reliefs.",
+    "Not found in the booklet: any age, birth-year or income test on the pension exclusion.",
+    "Credit for tax paid to another state (Schedule ITC Section A line 6, PDF p.22-23), child and dependent care credit (20% of the federal credit, PDF p.14 Line 24), education tuition credit (Form 8863-K) and business incentive credits are not recorded as reliefs.",
+    "Other exempt items on the differences chart, not recorded as reliefs: Kentucky local government lease interest payments (item 9) and election workers' income (item 11).",
+    "Kentucky's Internal Revenue Code date is December 31, 2024 (PDF p.3). Qualified tips, overtime income and car loan interest are 'not deductible on the Kentucky return' (PDF p.3; PDF p.9 items 30-32).",
+    "Capital gains are not given a rate or a deducted share; the only different treatment printed is the two exempt items in capital_gains.",
+    "Surtaxes and recapture: none found in the booklet. Local occupational and license taxes are out of scope.",
+    "Indexing: the booklet says nothing about inflation adjustment of the rate, the standard deduction or the 31,110 limit. The family size thresholds are described as 'based on the federal poverty level' (PDF p.3); the booklet does not say how they change from year to year, so that entry stays not_stated with the wording in index.",
+    "Settlement 2026-11-07: capital_gains: A recorded none, B recorded eminent domain and Kentucky Turnpike Bond gains as exempt; PDF p.9 chart items 7 and 10 print both 'Exempt' and Schedule M PDF p.4 Line 14 lists eminent domain; kept B's two entries.",
+    "Settlement 2026-11-07: reliefs (killed in line of duty): A had no entry, B had one; PDF p.6 prints the exemption and Schedule M PDF p.4 Line 14 lists it; kept B's entry.",
+    "Settlement 2026-11-07: reliefs (Schedule P Part I): A split supplemental (Tier 2) railroad benefits into their own entry, B merged them with the pre-1998 government entry; Schedule P PDF p.1 line 1 and PDF p.2 apply the service-credit test only to the government pensions and take Tier 2 benefits whole; kept A's two entries.",
+    "Settlement 2026-11-07: reliefs (Tier 1 railroad): A had no entry, B had one; Schedule M PDF p.3 Line 10 prints 'Social Security equivalent U.S. Railroad Retirement Board benefits'; kept B's entry.",
+    "Settlement 2026-11-07: reliefs (Social Security) who.basis: A said each_person, B said return; Schedule M PDF p.3 Line 10 tests neither spouse and has no cap; return.",
+    "Settlement 2026-11-07: ky_pre1998_government_service covers military_pension: A and B agreed and both flagged it, and the point was sent back to be settled from the form. Schedule P's payer test is 'pension income paid by the federal government' (PDF p.2) and 'retired from the federal government' (PDF p.1). It names no military pension and excludes none; 'military' appears only for purchased service credit (PDF p.2 definitions and worksheet line 2). The packet's chart (PDF p.9 item 2) is the only printed statement on military retirement: its Kentucky cell, checked on the rendered page, sits against all three system lines including 'Federal and Military Retirement Systems' and says 'Partially exempt if retired after December 31, 1997; exempt if retired before January 1, 1998; Schedule P may be required'. The form's silence does not contradict the chart, so military_pension stays in covers."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+      "section": "PDF p.13 Line 12 Tax Computation 'Multiply line 11 by four percent (.04)'; PDF p.3 What's New 'the tax rate for individual income tax is 4%'",
+      "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ky_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "all": "3270"
+        },
+        "per": "return",
+        "condition": "Nonitemizers. Taxpayers may instead itemize on Schedule A; if one spouse itemizes the other must. Joint return: only one 3,270. Married filing separately on a combined return: 3,270 in both Columns A and B.",
+        "cite": {
+          "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+          "section": "PDF p.13 Line 10 Deductions; PDF p.3 What's New 'STANDARD DEDUCTION'; PDF p.31 Schedule A instructions",
+          "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+      "section": "PDF p.13 Lines 5-11 (line 5 federal AGI, line 6 additions, line 8 subtractions, line 9 Kentucky AGI, line 10 deductions, line 11 taxable income); PDF p.11 'Kentucky Adjusted Gross Income'",
+      "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+      "section": "PDF p.1 Part II line 10 'Enter taxable amount of Social Security and Railroad Retirement Board benefits from federal Form 1040 or 1040-SR, line 6(b)'; PDF p.3 Line 10; packet PDF p.9 chart item 6 'Exempt'; packet PDF p.3 'remains exempt under KRS 141.019(1)(e)'",
+      "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ky_pension_exclusion",
+      "label": "Pension Income Exclusion (Schedule M line 9; Schedule P Parts II and III)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion",
+        "annuity"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "pension and retirement income paid under a written retirement plan, qualified or unqualified; as a general rule reported on federal Form 1040 line 4(b) or 5(b) or Form 4972, or a disability retirement benefit or deferred compensation distribution reported on line 1",
+          "death benefits and disability retirement benefits are named as eligible",
+          "for retirees of the federal government, Kentucky or a Kentucky local government, the part excluded under ky_pre1998_government_service is taken first and only the rest counts here"
+        ]
+      },
+      "cap": {
+        "all": "31110"
+      },
+      "cap_per": "person",
+      "cap_rule": "100 percent of taxable retirement benefits or 31,110, whichever is less, for each taxpayer, computed independently of a spouse on the same return; joint filers combine the two amounts. Schedule P line 4 adds this amount to line 1(c).",
+      "cite": {
+        "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "section": "PDF p.3 Line 9 Pension Income Exclusion and Pension Income Exclusion Worksheet Steps 1-3; packet PDF p.28 (same text); packet PDF p.9 chart item 4; Schedule P PDF p.1 lines 2-4 and PDF p.2 'Types of Income Subject to Exclusion'",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_pre1998_government_service",
+      "label": "Exempt Retirement Income, Schedule P Part I (federal, Kentucky state and Kentucky local government pension income attributable to service credit earned before January 1, 1998)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "not_covered": [
+        "Do not include income from deferred compensation plans in Part I",
+        "Retired from none of the federal government, the Commonwealth of Kentucky or a Kentucky local government: 'You do not need to file Schedule P. You are limited to $31,110 in excludable retirement.'"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "pension income paid by the federal government, by the Commonwealth of Kentucky, or by any Kentucky local government",
+          "only the part attributable to service credit earned before 1998-01-01: all of it if the date of retirement is before 1998-01-01; otherwise the taxable pension times the exempt percentage (months of service before 1998 divided by total months of service, computed for each pension)",
+          "includes federal or Kentucky disability retirement income attributable to service credit earned before 1998-01-01"
+        ]
+      },
+      "cap_rule": "No dollar cap: 'completely excludable above the $31,110'. The part of the pension not exempt here goes to Part II with other retirement income, under ky_pension_exclusion. Each spouse computes their own.",
+      "cite": {
+        "publication": "2025 Schedule P Pension Income Exclusion",
+        "section": "PDF p.1 'Do You Need to File Schedule P?' and Part I lines 1(a)-1(c), line 4; PDF p.2 Part I instructions and exempt percentage worksheet lines 1-4; packet PDF p.9 chart item 2",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20P%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_railroad_tier2",
+      "label": "Supplemental (Tier 2) U.S. Railroad Retirement Board benefits (Schedule P Part I)",
+      "form": "subtraction",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "supplemental (Tier 2) U.S. Railroad Retirement Board benefits reported on Form 1040 or 1040-SR line 5(b)"
+        ]
+      },
+      "cap_rule": "No dollar cap: 'completely excludable above the $31,110'; no service-credit test. Entered in Schedule P line 1 and added to line 3 on line 4.",
+      "cite": {
+        "publication": "2025 Schedule P Pension Income Exclusion",
+        "section": "PDF p.1 flowchart and Part I line 1; PDF p.2 Part I instructions; packet PDF p.9 chart item 5 'Exempt; Schedule P may be required'",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20P%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_railroad_tier1_subtraction",
+      "label": "Social Security equivalent U.S. Railroad Retirement Board benefits (Schedule M line 10)",
+      "form": "subtraction",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Social Security equivalent Railroad Retirement Board benefits reported on federal Form 1040 line 6(b)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "section": "PDF p.1 Part II line 10; PDF p.3 Line 10; packet PDF p.28 Line 10",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_social_security_subtraction",
+      "label": "Taxable Social Security (Schedule M line 10)",
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "section": "PDF p.1 Part II line 10; PDF p.3 Line 10 'Enter Social Security and Social Security equivalent U.S. Railroad Retirement Board benefits included on Form 740, page 1, line 5'",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_us_government_interest",
+      "label": "Interest income from U.S. government bonds and securities (Schedule M line 8)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "not_covered": [
+        "taxable interest from securities, such as FNMA (Fannie Mae), GNMA (Ginnie Mae) and FHLMC (Freddie Mac), which are merely guaranteed by the U.S. government"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "section": "PDF p.1 Part II line 8; PDF p.2 Line 8; packet PDF p.9 chart item 1",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_active_duty_military_pay",
+      "label": "Active Duty Military Pay (Schedule M line 13)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "military pay received while on active duty as a member of the Armed Forces, a reserve component or the National Guard; active duty as defined in KRS 141.175; wages is the nearest income kind"
+        ]
+      },
+      "cap_rule": "No cap: 'All military pay received by members of the Armed Forces while on active duty can be excluded.'",
+      "cite": {
+        "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "section": "PDF p.1 Part II line 13; PDF p.4 Line 13; packet PDF p.12 Military Pay Exclusion",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_killed_in_line_of_duty",
+      "label": "Income of military personnel killed in the line of duty (Schedule M line 14)",
+      "form": "exempt_in_full",
+      "covers": [
+        "all_income"
+      ],
+      "all_income_scope": "person",
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "soldier killed in the line of duty; all income from all sources of the decedent for the year of death and the year before, including federal and state death benefits payable to the estate or any beneficiaries"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+        "section": "PDF p.6 'Death of Military Personnel Killed in Line of Duty'; PDF p.29 Schedule M line 14 list; Schedule M PDF p.4 Line 14",
+        "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_personal_tax_credit_age_65",
+      "label": "Personal tax credit, 65 or over (Schedule ITC Section B; Form 740 line 17)",
+      "form": "credit",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cite": {
+        "publication": "2025 Schedule ITC Kentucky Individual Tax Credit Schedule",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf",
+        "accessed": "2026-11-07",
+        "section": "PDF p.2 Section B line 1 (taxpayer) and line 5 (spouse): 'If you were 65 on or before 12/31/2025, enter 40'; lines 9-12 carry the total to Form 740 line 17; PDF p.7 Section B instructions; Form 740 PDF p.1 lines 17-18; packet PDF p.14 Line 17"
+      },
+      "credit_amount": "40"
+    },
+    {
+      "id": "ky_personal_tax_credit_blind_guard",
+      "label": "Personal tax credit, blind or in the Kentucky National Guard (Schedule ITC Section B; Form 740 line 17)",
+      "form": "credit",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "legally blind on 12/31/2025, or a member of the Kentucky National Guard on 12/31/2025"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Schedule ITC Kentucky Individual Tax Credit Schedule",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf",
+        "accessed": "2026-11-07",
+        "section": "PDF p.2 Section B lines 2-3 (taxpayer) and 6-7 (spouse): 'If you were legally blind on 12/31/2025, enter 40'; 'If you were a member of the Kentucky National Guard on 12/31/2025, enter 20'; lines 9-12 carry the total to Form 740 line 17; PDF p.7 Section B instructions; Form 740 PDF p.1 lines 17-18"
+      },
+      "cap_rule": "40 if legally blind on 12/31/2025; 20 if a member of the Kentucky National Guard on 12/31/2025; per person, the taxpayer on lines 2-3 and the spouse on lines 6-7 (Schedule ITC PDF p.2 Section B)."
+    },
+    {
+      "id": "ky_family_size_tax_credit",
+      "label": "Family Size Tax Credit (Schedule ITC Section C; Form 740 lines 20 and 21)",
+      "form": "credit",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "family size: yourself, your spouse if married and living in the same household, and qualifying children; the maximum family size is four",
+          "family size 1 is an individual either single, or married living apart from his or her spouse for the entire year; 2 is an individual with one qualifying child or a married couple; 3 is an individual with two qualifying children or a married couple with one; 4 is an individual with three or more qualifying children or a married couple with two or more",
+          "qualifying child as defined in Internal Revenue Code Section 152(c)"
+        ]
+      },
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified gross income is the greater of federal adjusted gross income adjusted to include interest income derived from municipal bonds (non-Kentucky) and lump-sum pension distributions not included in federal adjusted gross income; or Kentucky adjusted gross income adjusted to include lump-sum pension distributions not included in federal adjusted gross income. (Packet PDF p.11.) The worksheet (Schedule ITC PDF p.8; packet PDF p.26) also adds the spouse's federal AGI (line b) and the spouse's Kentucky AGI (line g) 'If married filing separate returns and living in the same household', and enters zero for an AGI of zero or less."
+        },
+        "threshold": {
+          "single": "15650",
+          "married_joint": "21150"
+        },
+        "effect": "stepped",
+        "as_printed": "Family Size Tax Credit Table (Schedule ITC Section C): credit is a percentage of Form 740 line 19 (tax after the personal tax credits), entered on line 21. Family size one: MGI not over 15,650 100%; over 15,650 to 16,276 90%; to 16,902 80%; to 17,528 70%; to 18,154 60%; to 18,780 50%; to 19,406 40%; to 19,876 30%; to 20,345 20%; to 20,815 10%; over 20,815 none. Family size two: 21,150 / 21,996 / 22,842 / 23,688 / 24,534 / 25,380 / 26,226 / 26,861 / 27,495 / 28,130. Family size three: 26,650 / 27,716 / 28,782 / 29,848 / 30,914 / 31,980 / 33,046 / 33,846 / 34,645 / 35,445. Family size four or more: 32,150 / 33,436 / 34,722 / 36,008 / 37,294 / 38,580 / 39,866 / 40,831 / 41,795 / 42,760. Each column ends at 133 percent of its threshold (packet PDF p.3). 'If your total MGI is $42,760 or less, you may qualify' (packet PDF p.14). Structured steps and threshold: 'single' holds the family size one column and 'married_joint' the family size two column, and threshold is each column's first edge, where the credit starts to fall; sizes three and four are in this text only.",
+        "steps": [
+          {
+            "status": "single",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "single",
+            "over": "15650",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "single",
+            "over": "16276",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "single",
+            "over": "16902",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "single",
+            "over": "17528",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "single",
+            "over": "18154",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "single",
+            "over": "18780",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "single",
+            "over": "19406",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "single",
+            "over": "19876",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "single",
+            "over": "20345",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "single",
+            "over": "20815",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "married_joint",
+            "over": "21150",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "married_joint",
+            "over": "21996",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "married_joint",
+            "over": "22842",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "married_joint",
+            "over": "23688",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "married_joint",
+            "over": "24534",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "married_joint",
+            "over": "25380",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "married_joint",
+            "over": "26226",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "married_joint",
+            "over": "26861",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "married_joint",
+            "over": "27495",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "married_joint",
+            "over": "28130",
+            "keep_share": "0"
+          }
+        ]
+      },
+      "cite": {
+        "publication": "2025 Schedule ITC Kentucky Individual Tax Credit Schedule",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf",
+        "accessed": "2026-11-07",
+        "section": "PDF p.2 Section C, Family Size Tax Credit Table; PDF p.8 Section C instructions (family size) and Worksheet for Computation of Modified Gross Income; Form 740 PDF p.2 lines 20-22 ('Multiply line 19 by Family Size Tax Credit decimal amount'); packet PDF p.3, p.11, p.14 and p.26"
+      },
+      "credit_rate": "1",
+      "credit_basis": "tax"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on securities of other states and their political subdivisions is added (Schedule M line 1); interest from securities of Kentucky and its political subdivisions is exempt.",
+    "cite": {
+      "publication": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+      "section": "PDF p.1 Part I line 1; PDF p.2 Line 1 and its Note; packet PDF p.9 chart item 8",
+      "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "ky_eminent_domain_gains",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "capital gains on property taken by eminent domain",
+      "cite": {
+        "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+        "section": "PDF p.9 chart item 10; PDF p.29 Schedule M line 14 list; Schedule M PDF p.4 Line 14",
+        "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ky_turnpike_bond_gains",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "capital gains on sale of Kentucky Turnpike Bonds",
+      "cite": {
+        "publication": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+        "section": "PDF p.9 chart item 7",
+        "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "ky_standard_deduction",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "ky_pension_exclusion",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "ky_family_size_tax_credit",
+      "indexed": "not_stated",
+      "index": "described as 'based on the federal poverty level' (packet PDF p.3); yearly adjustment not stated"
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

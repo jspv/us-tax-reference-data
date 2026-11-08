@@ -1,0 +1,60 @@
+{
+  "id": "in_2025_civil_service_railroad_below_cap",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "civil_service_annuity",
+    "railroad_retirement"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Schedule 2 line 11 code 601 and PDF pages 19-20 Civil Service Annuity Deduction (PDF page 19: 'The lesser of the amount of taxable civil service annuity income ... or $16,000, Less all amounts of Social Security income and tier 1 and tier 2 Railroad Retirement income ... received by the civil service annuitant'); Schedule 2 lines 5 and 6 (PDF page 17 Lines 5 and 6: 'Indiana does not tax Social Security income or the railroad retirement benefits'); Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000), line 4 (PDF page 25: 1,000 age 65 or older), line 5 (PDF page 25: 500 age 65 or older and IT-40 line 1 under 40,000, or under 20,000 married filing separately); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-05-14"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "9000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        },
+        {
+          "amount": "3000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "32000.00",
+    "federal_taxable_income": "14250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.civil_service_annuity",
+    "relief_amounts.railroad_retirement"
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "state": "WA",
+    "title": "Income tax (Washington does not currently have an individual income tax)",
+    "url": "https://dor.wa.gov/taxes-rates/income-tax",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:44:11.279521+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.wa.gov/taxes-rates/income-tax",
+    "file": "income-tax.html",
+    "bytes": 74403,
+    "sha256": "336922b6d06706afe9c8ef606b31fc39e4939c8eabea421c8152af7d2b990cd3",
+    "text_file": "income-tax.page.txt"
+  },
+  {
+    "state": "WA",
+    "title": "Capital gains tax (standard deduction $278,000 for 2025; retirement accounts and real estate exempt)",
+    "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:44:17.239547+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+    "file": "capital-gains-tax.html",
+    "bytes": 89259,
+    "sha256": "0e2bc84b1828d6d95d1a5d0f92852c84c6df079f319bc1391fc1c006ce408a2f",
+    "text_file": "capital-gains-tax.page.txt"
+  },
+  {
+    "state": "WA",
+    "title": "New tiered rates for Washington's capital gains tax (7% to $1M, 9.9% above, from tax year 2025)",
+    "url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:44:22.902513+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+    "file": "new-tiered-rates-washingtons-capital-gains-tax.html",
+    "bytes": 74255,
+    "sha256": "16901002300ae14249db614fb536b59ea15d6e42c0a12de5337b886795cb861e",
+    "text_file": "new-tiered-rates-washingtons-capital-gains-tax.page.txt"
+  },
+  {
+    "state": "WA",
+    "title": "Do you owe capital gains tax?",
+    "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax/do-you-owe-capital-gains-tax",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:44:28.620898+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax/do-you-owe-capital-gains-tax",
+    "file": "do-you-owe-capital-gains-tax.html",
+    "bytes": 75540,
+    "sha256": "664e77c3df1774f27679e308f7836350fc46a1287c809985543790fdc5e4bd47",
+    "text_file": "do-you-owe-capital-gains-tax.page.txt"
+  }
+]

@@ -1,0 +1,503 @@
+{
+ "layer": "record",
+ "state": "CO",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Colorado starts from federal taxable income (DR 0104 line 1: 'Enter your federal taxable income from your federal income tax form 1040, 1040 SR, or 1040 SP, line 15', booklet PDF p.8); additions on lines 2-9, subtractions from DR 0104AD on line 11, Colorado taxable income on line 12 (PDF p.10; form PDF p.39-40).",
+  "The booklet prints no standard deduction, personal exemption, dependent exemption, or age-65 or blindness amount of its own; base.deductions is empty. Federal deductions reach Colorado through federal taxable income.",
+  "Standard or itemized federal deduction addback (DR 0104 line 4, PDF p.8-9): when federal AGI (Form 1040 line 11a) exceeds 300,000, add back the part of Form 1040 line 12e over 12,000 (single, married filing separately, head of household) or 16,000 (married filing jointly), reduced by any Schedule A state income tax already added back on line 2. No schema field holds an addback.",
+  "Qualified business income deduction addback (DR 0104 line 3, PDF p.8): the section 199A deduction is added back when AGI exceeds 500,000 (1,000,000 joint), and for partners or shareholders of an entity that made a SALT Parity Election. State income tax addback (line 2): any state income tax deducted on Schedule A. Neither is held by a schema field.",
+  "Rate: 'The income tax rate is currently 4.4%. Full-year residents should refer to the tax table in this booklet' (PDF p.10, Line 13). The tax table (PDF p.34-35, '2025 Colorado Income Tax Table with tax rate of 4.4%') has no filing-status columns, and the worksheet for taxable incomes over 50,000 multiplies by .044 (PDF p.35). So one flat bracket from 0 for every status; married_separate and head_of_household are not given separately because no separate schedule is printed. 'Currently' is the booklet's word. The worksheet's caption reads 'Colorado Taxable Income from Form 104 line 11' where the line instructions say line 12 (as printed).",
+  "Social Security: relief. DR 0104AD lines 3 and 5 subtract 'Social Security Benefits (including SSDI) received that were included in Federal Taxable Income' (DR 0104AD p.1). Age 65 or older at December 31, 2025: the entire taxable amount. Age 55-64: the entire amount if single with federal AGI (DR 0104 line 34) not over 75,000 or married filing jointly not over 95,000, otherwise limited to 20,000. Under 55: only benefits received due to the death of the person originally entitled to them, limited to 20,000 (PDF p.18 Line 3; PDF p.19 Line 5).",
+  "The booklet prints the 55-64 thresholds only for single (75,000) and married filing jointly (95,000). For head of household and married filing separately no threshold is printed; read literally ('if either: Your filing status was single ... or ... married filing jointly'), such a filer qualifies only for the 20,000-limited subtraction, but the booklet does not say so outright. Not found in the booklet.",
+  "The 55-64 Social Security rule is two alternative entries in one best_of_group: the full-amount entry is removed above the AGI threshold, the 20,000-limited entry is the alternative. Below the threshold the full entry is never smaller, so best-of gives the printed result.",
+  "Pension and annuity subtraction (DR 0104AD lines 4 and 6, PDF p.18-19): the instructions say 'the income you earned from a pension or annuity' that is included in federal taxable income, with no limit by payer: they do not split public from private pensions, or Colorado's own government pensions from federal or other states' government pensions. The form line reads 'Pension, Annuity, IRA, or Disability Income (not including SSDI)'. So one entry per age tier covers public_pension, public_pension_other_state, private_pension, annuity, ira_distribution and employer_plan_distribution. Disability income is named on the form line but no schema income kind holds it.",
+  "Pensions from other states' governments: the booklet names no state, prints no reciprocity rule and makes no payer-state distinction; such a pension is in the same entries as Colorado's own (public_pension_other_state in covers), read from the absence of any Colorado-only limit on 'pension or annuity'. No paying_states.",
+  "The pension cap is shared with the Social Security subtraction: 24,000 (65 or older) or 20,000 (55-64, or under 55 as a secondary beneficiary) minus the amount entered on line 3, or the person's taxable pension/annuity income if smaller (cap_rule). Each spouse qualifies separately; 'Pension/annuity income should not be intermingled between spouses' (PDF p.19).",
+  "Roth conversions are not mentioned (covers_unclear). Military retirement pay of a person 55 or older: the line 4 text names no military pensions and line 7 gives a separate 15,000 subtraction only to people 54 or younger; whether line 4 takes military retirement at 55 or older is not found in the booklet (covers_unclear).",
+  "The DR 0104PN part-year schedule (PDF p.65, line 12) takes 'the sum of all income from your federal form 1040, lines 4b, 5b, and 6b', and line 31 (PDF p.68) places 'The pension/annuity subtraction and the PERA or DPS retirement subtraction to the extent included on line 13'; this supports the pension subtraction taking IRA (4b) and pension and annuity (5b) income.",
+  "The booklet refers to the Department publication 'Income Tax Topics: Social Security, Pensions and Annuities' for joint returns where both spouses receive Social Security, for the pension subtraction, and for whether and how much of a PERA/DPSRS pension may be subtracted (line 14). That page could not be fetched (fetch.json ok false, timeout), so the PERA/DPSRS amount and the joint-return detail are not found in the sources. Line 14 refers to 'your 2024 federal taxable income' (as printed).",
+  "Railroad Benefit Subtraction (line 15, PDF p.22): 'List any railroad retirement benefits that you reported on your federal income tax return and is calculated as part of your federal taxable income'; no age test or cap is printed.",
+  "U.S. Government Interest (line 2, PDF p.18): interest on U.S. government bonds, treasury bills and other U.S. obligations; Fannie Mae and Ginnie Mae interest excluded.",
+  "Municipal interest (DR 0104 line 9, PDF p.10): 'Interest earned from bonds issued by any state or political subdivision, but not bonds issued by the State of Colorado or its political subdivisions on or after May 1, 1980' is added back. Colorado bonds issued before May 1, 1980 are therefore added back too; the treatment is recorded as other_states_taxed_own_exempt with that exception in the note.",
+  "Capital gains: no different rate or deducted share is printed; the agricultural land capital gain subtraction (line 9, capped 100,000) is recorded as a relief, so capital_gains is empty.",
+  "Recapture: none found in the booklet; one flat rate.",
+  "Indexing: the booklet says nothing about inflation adjustment of the rate or the subtraction caps (not_stated).",
+  "Not recorded as reliefs (not retirement or Social Security relief): state tax refund (1), CollegeInvest (10) and ABLE (11) contributions, charitable contributions (12), reservation income (13), marijuana and natural medicine business deduction (16), reacquisition of residency during active duty (17), home savings account (18), FAMLI benefits (19), other (20), HB21-1002 carryforward (21).",
+  "Settlement 2026-11-07: reliefs co_pension_65_plus / co_pension_55_64 / co_pension_under_55_survivor covers: A said public_pension_other_state in covers and no covers_unclear; B said public_pension_other_state, military_pension and roth_conversion in covers_unclear; PDF p.18-19 Line 4 says 'the income you earned from a pension or annuity' with no payer limit and names neither conversions nor military pensions: public_pension_other_state in covers (A); military_pension and roth_conversion in covers_unclear (B).",
+  "Settlement 2026-11-07: reliefs co_pension_* not_covered: A put 'Social Security is not entered on line 4' in other_conditions, B in not_covered; PDF p.19 'Do not enter any social security benefits on line 4': not_covered (B).",
+  "Settlement 2026-11-07: reliefs co_pera_dpsrs_1984_1986 who.basis: A said return, B said each_person (with 'contributory plan'); PDF p.22 Line 14 and DR 0104AD line 14 give one line per return and no age test: return (A). The test is contributions made in a fixed window, not a contributory plan in general, so the window is written out and the generic 'contributory plan' is not added. The amount is not printed, so the entry has no cap (the compare tool reads an uncapped subtraction as exempt_in_full; the form here is a subtraction of an amount the booklet does not print).",
+  "Settlement 2026-11-07: muni_interest.treatment: A said other, B said other_states_taxed_own_exempt; PDF p.10 Line 9 adds back bonds of 'any state or political subdivision, but not bonds issued by the State of Colorado or its political subdivisions on or after May 1, 1980': other_states_taxed_own_exempt (B), with the pre-1980 exception in the note.",
+  "Settlement 2026-11-07: brackets.derivation: neither reader recorded it; the tax comes from the printed table and the 4.4% worksheet (PDF p.34-35): four rows with status all (100-200 tax 7; 10,000-10,100 tax 442; 25,000-25,100 tax 1,102; 49,900-50,000 tax 2,198; income is the row midpoint) and the formula over 50,000 x .044 minus 0."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.044",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.044",
+    "start": "0"
+   }
+  ],
+  "cite": {
+   "publication": "2025 DR 0104 Booklet",
+   "section": "PDF p.10, DR 0104 Line 13 Colorado Tax ('The income tax rate is currently 4.4%'); PDF p.34 '2025 Colorado Income Tax Table with tax rate of 4.4%'; PDF p.35 'Worksheet for taxable incomes over $50,000', 'Multiply by 4.4%', 'X .044'",
+   "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+   "accessed": "2026-11-07"
+  },
+  "derivation": {
+   "method": "tax_table_and_formula",
+   "table_rows": [
+    {
+     "status": "all",
+     "income": "150",
+     "tax": "7"
+    },
+    {
+     "status": "all",
+     "income": "10050",
+     "tax": "442"
+    },
+    {
+     "status": "all",
+     "income": "25050",
+     "tax": "1102"
+    },
+    {
+     "status": "all",
+     "income": "49950",
+     "tax": "2198"
+    }
+   ],
+   "formula": {
+    "over": "50000",
+    "rate": "0.044",
+    "minus": "0"
+   },
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "Tax table rows (Over / But not over / Tax): $100-$200 $7 (PDF p.34); $10,000-$10,100 $442 (p.34); $25,000-$25,100 $1,102 (p.34); $49,900-$50,000 $2,198 (p.35); income given is the row midpoint. Formula: PDF p.35 'Worksheet for taxable incomes over $50,000', Colorado taxable income 'X .044' (nothing subtracted)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": {
+   "treatment": "follows",
+   "cite": {
+    "publication": "2025 Colorado Individual Income Tax Filing Guide (Book104)",
+    "section": "PDF p.5 and p.8, Line 1: 'Colorado income tax is based on your federal taxable income, which has already considered your deductions'; Line 1 is federal Form 1040 line 15; the Line 4 addback uses Form 1040 line 12e only, so line 13b (Schedule 1-A, including the senior deduction) stays in",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-08"
+   },
+   "notes": "The Colorado State Auditor's 2026 report on federal law changes (PDF p.42) agrees: the senior deduction automatically applies to Colorado taxable income."
+  },
+  "deductions": [],
+  "cite": {
+   "publication": "2025 DR 0104 Booklet",
+   "section": "PDF p.8, DR 0104 Line 1 Federal Taxable Income (Form 1040 line 15); PDF p.10, Lines 10-12 (Colorado taxable income is line 10 minus the DR 0104AD subtractions on line 11); form PDF p.39 line 1 and p.40 lines 11-12",
+   "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "2025 DR 0104 Booklet",
+   "section": "PDF p.18, Instructions for DR 0104AD, Line 3 Social Security Benefits; PDF p.19, Line 5 Spouse Social Security Benefits; DR 0104AD lines 3 and 5 (PDF p.51)",
+   "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "co_ss_65_plus",
+   "label": "Social Security Benefits subtraction, age 65 or older (DR 0104AD line 3 / line 5)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "only benefits included in federal taxable income"
+    ]
+   },
+   "cap_rule": "The entire amount of the person's Social Security benefits included in federal taxable income; the primary taxpayer's on line 3, the secondary taxpayer's on line 5; the sum of lines 3 and 5 cannot exceed Form 1040 line 6b.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18, Instructions for DR 0104AD, Line 3 Social Security Benefits; PDF p.19, Line 5",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_ss_55_64_full",
+   "label": "Social Security Benefits subtraction, age 55 to 64, federal AGI not over the threshold",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 55,
+    "max_age": 64,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "only benefits included in federal taxable income"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "your federal adjusted gross income on line 34 of your form DR 0104 (Form 1040 line 11a)"
+    },
+    "threshold": {
+     "single": "75000",
+     "married_joint": "95000"
+    },
+    "effect": "removes",
+    "as_printed": "You may claim the subtraction for the entire amount of the social security benefits you received that were included in your federal taxable income if either: Your filing status was single and your federal adjusted gross income did not exceed $75,000; or Your filing status was married filing jointly and your federal adjusted gross income did not exceed $95,000. (Line 5, secondary taxpayer: 'does not exceed $95,000'.)"
+   },
+   "cap_rule": "The entire amount of the person's Social Security benefits included in federal taxable income; the sum of lines 3 and 5 cannot exceed Form 1040 line 6b.",
+   "best_of_group": "co_ss_55_64",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18, Instructions for DR 0104AD, Line 3; PDF p.19, Line 5 for the secondary taxpayer",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_ss_55_64_limited",
+   "label": "Social Security Benefits subtraction, age 55 to 64, limited to 20,000 when federal AGI exceeds the threshold",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 55,
+    "max_age": 64,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "applies when federal AGI exceeds 75,000 (single) or 95,000 (married filing jointly)",
+     "only benefits included in federal taxable income"
+    ]
+   },
+   "cap": {
+    "all": "20000"
+   },
+   "cap_per": "person",
+   "cap_rule": "'If your federal adjusted gross income exceeded these thresholds, the subtraction you may claim is limited to $20,000.' The sum of lines 3 and 5 cannot exceed Form 1040 line 6b.",
+   "best_of_group": "co_ss_55_64",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18, Instructions for DR 0104AD, Line 3; PDF p.19, Line 5",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_ss_under_55_survivor",
+   "label": "Social Security Benefits subtraction, under 55, benefits received due to a death",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 54,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "only benefits received due to the death of the person originally entitled to the benefits"
+    ]
+   },
+   "cap": {
+    "all": "20000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Only Social Security benefits included in federal taxable income; the sum of lines 3 and 5 cannot exceed Form 1040 line 6b.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18, Instructions for DR 0104AD, Line 3; PDF p.19, Line 5",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_pension_65_plus",
+   "label": "Pension and Annuity Subtraction, age 65 or older (DR 0104AD line 4 / line 6)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "military_pension",
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "social security benefits ('Do not enter any social security benefits on line 4')",
+    "SSDI (form line 4: 'not including SSDI')"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "only pension or annuity income included in federal taxable income"
+    ]
+   },
+   "cap": {
+    "all": "24000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Subtract 24,000 minus any amount entered on line 3 (the Social Security subtraction), or the person's total taxable pension/annuity income, whichever is smaller; if line 3 is greater than 24,000, no pension subtraction. Not intermingled between spouses: each spouse meets the requirements separately and claims only on their own pension/annuity income (primary on line 4, secondary on line 6).",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18-19, Instructions for DR 0104AD, Line 4 Pension and Annuity Subtraction, first bullet; PDF p.19-20, Line 6; DR 0104AD line 4 'Primary Taxpayer Pension, Annuity, IRA, or Disability Income (not including SSDI)' (PDF p.51)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_pension_55_64",
+   "label": "Pension and Annuity Subtraction, at least 55 but not yet 65 (DR 0104AD line 4 / line 6)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "military_pension",
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "social security benefits ('Do not enter any social security benefits on line 4')",
+    "SSDI (form line 4: 'not including SSDI')"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 55,
+    "max_age": 64,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "only pension or annuity income included in federal taxable income"
+    ]
+   },
+   "cap": {
+    "all": "20000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Subtract 20,000 minus any amount entered on line 3 (the Social Security subtraction), or the person's total taxable pension/annuity income, whichever is smaller; if line 3 is 20,000, no pension subtraction. Not intermingled between spouses (primary on line 4, secondary on line 6).",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.19, Instructions for DR 0104AD, Line 4, second bullet; Line 6",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_pension_under_55_survivor",
+   "label": "Pension and Annuity Subtraction, younger than 55, secondary beneficiary",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "military_pension",
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "social security benefits ('Do not enter any social security benefits on line 4')",
+    "SSDI (form line 4: 'not including SSDI')"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 54,
+    "other_conditions": [
+     "age as of December 31, 2025",
+     "received the pension/annuity income as a secondary beneficiary (widow, dependent child, etc.) due to the death of the person who earned the pension/annuity"
+    ]
+   },
+   "cap": {
+    "all": "20000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Subtract 20,000 minus any amount entered on line 3, or the total secondary beneficiary taxable pension/annuity income, whichever is smaller; if line 3 is 20,000, no pension subtraction. Not intermingled between spouses.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.19, Instructions for DR 0104AD, Line 4, third bullet",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_military_retirement_under_55",
+   "label": "Military Retirement Subtraction (DR 0104AD line 7 / line 8)",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 54,
+    "other_conditions": [
+     "54 years of age or younger as of December 31, 2025",
+     "only military retirement income included in federal taxable income"
+    ]
+   },
+   "cap": {
+    "all": "15000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Subtract 15,000 or the total taxable military retirement benefits, whichever is smaller; not intermingled between spouses (primary on line 7, secondary on line 8).",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.20, Instructions for DR 0104AD, Line 7 Military Retirement Subtraction and Line 8; DR 0104AD lines 7 and 8 '(under age 55)' (PDF p.52)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_pera_dpsrs_1984_1986",
+   "label": "PERA/DPSRS Subtraction (DR 0104AD line 14)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "made contributions to PERA between July 1, 1984 and December 31, 1986, or to Denver Public Schools District No. 1 Retirement during 1986",
+     "federal taxable income includes pension income",
+     "submit a copy of the previously taxed contribution"
+    ]
+   },
+   "cap_rule": "The amount is not printed in the booklet: it refers to the publication Income Tax Topics: Social Security, Pensions, and Annuities 'to determine if you can take a subtraction for any of your pension income'. That publication is not in the sources.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.22, Instructions for DR 0104AD, Line 14 PERA/DPSRS Subtraction; DR 0104AD line 14 (PDF p.52)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_railroad_benefit",
+   "label": "Railroad Benefit Subtraction (DR 0104AD line 15)",
+   "form": "subtraction",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "railroad retirement benefits reported on the federal return and included in federal taxable income"
+    ]
+   },
+   "cap_rule": "No cap or age test is printed: list any railroad retirement benefits included in federal taxable income.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.22, Instructions for DR 0104AD, Line 15 Railroad Benefit; DR 0104AD line 15 (PDF p.52)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_us_government_interest",
+   "label": "U.S. Government Interest (DR 0104AD line 2)",
+   "form": "subtraction",
+   "covers": [
+    "interest"
+   ],
+   "not_covered": [
+    "interest earned from Federal National Mortgage Association and Government National Mortgage Association (Fannie Mae and Ginnie Mae)",
+    "Dividends from mutual funds may not be 100% exempt."
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "interest from U.S. government bonds, treasury bills and other obligations of the U.S. or its territories, possessions and agencies, included in federal taxable income"
+    ]
+   },
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.18, Instructions for DR 0104AD, Line 2 U.S. Government Interest; DR 0104AD line 2",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "co_ag_land_capital_gain",
+   "label": "Colorado Agricultural Land Capital Gain Subtraction (DR 0104AD line 9)",
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "required to file federal Schedule F and sold agricultural land in Colorado",
+     "submit DR 1316"
+    ]
+   },
+   "cap": {
+    "all": "100000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Limited to 100,000 of the capital gain included in federal taxable income.",
+   "cite": {
+    "publication": "2025 DR 0104 Booklet",
+    "section": "PDF p.20, Instructions for DR 0104AD, Line 9 Colorado Agricultural Land Capital Gain Subtraction",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest on bonds issued by any state or political subdivision is added back (DR 0104 line 9), except bonds issued by the State of Colorado or its political subdivisions on or after May 1, 1980; Colorado bonds issued before that date are added back too.",
+  "cite": {
+   "publication": "2025 DR 0104 Booklet",
+   "section": "PDF p.10, DR 0104 Line 9 Other Additions, Bond interest",
+   "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": "not_stated"
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

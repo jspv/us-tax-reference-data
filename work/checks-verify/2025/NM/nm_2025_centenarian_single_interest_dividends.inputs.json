@@ -1,0 +1,45 @@
+{
+  "id": "nm_2025_centenarian_single_interest_dividends",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "centenarian_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF pages 3 to 4, line 12, boxes 12a and 12b; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "interest": "12000.00",
+      "dividends": "8000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.centenarian_exemption"
+  ]
+}

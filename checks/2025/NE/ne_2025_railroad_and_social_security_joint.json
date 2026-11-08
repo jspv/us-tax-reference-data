@@ -1,0 +1,77 @@
+{
+  "id": "ne_2025_railroad_and_social_security_joint",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_railroad_retirement_exclusion",
+    "ne_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I line 18; booklet PDF page 24 Line 18; record ne_railroad_retirement_exclusion; Schedule I line 31; booklet PDF page 26 Line 31; record ne_social_security_exclusion",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-02-27"
+      },
+      {
+        "age": 66,
+        "born": "1959-03-29"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "26000.00",
+          "person": 0
+        },
+        {
+          "amount": "14000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "40000.00"
+    },
+    "federal_agi": "98000.00",
+    "federal_taxable_income": "63300.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "19500.00",
+    "state_tax_before_credits": "600.03",
+    "credits": "342.00",
+    "state_income_tax": "258.03",
+    "relief_amounts": {
+      "ne_railroad_retirement_exclusion": "24000.00"
+    }
+  },
+  "worked": "Married filing jointly, 68 and 66: railroad retirement Tier II 24,000, Social Security 26,000 and 14,000, interest 40,000. Federal taxable Social Security: provisional income 24,000.00 + 40,000.00 + 20,000.00 = 84,000.00; 85% x (84,000.00 - 44,000.00) = 34,000.00 + 6,000.00 = 40,000.00, limited to 85% x 40,000.00 = 34,000.00. Line 18 and line 31 are separate lines and both come out in full; the booklet's Tier I ratio only divides Tier I between them, and there is no Tier I here. Federal (given, not tested): federal AGI = railroad retirement Tier II (you) 24,000.00 + taxable Social Security 34,000.00 + interest 40,000.00 = 98,000.00. Federal taxable income = 98,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 for 65 or older = 63,300.00 (federal senior deduction ignored). Form 1040N filing status (2) married filing jointly, resident. Line 2a: 2 box(es) checked: box 1 (you born 1957-02-27, before January 2, 1961), box 3 (spouse born 1959-03-29, before January 2, 1961). Line 4a 1; line 4b 1; line 4c none; line 4 total 2. Line 5 federal AGI 98,000.00. Line 6 Nebraska standard deduction, chart for 2 box(es): 20,500.00 (0-box amount 17,200.00 plus 2 x 1,650.00, the step between chart rows); lines 7 to 9 skipped (no federal itemizing); line 10 20,500.00. Line 11 = 98,000.00 - 20,500.00 = 77,500.00. Line 12 adjustments increasing federal AGI 0.00. Schedule I Part B: line 18 Railroad Retirement Board benefits 24,000.00; line 31 Social Security included in federal AGI 34,000.00; line 44 total 58,000.00. Line 13 = 58,000.00. Line 14 Nebraska taxable income = 77,500.00 + 0.00 - 58,000.00 = 19,500.00. State income after additions and subtractions (before the deduction) = 98,000.00 + 0.00 - 58,000.00 = 40,000.00. Line 15 tax, schedule as numbers (married_joint column): 2.46% x 8,040.00 = 197.784 + 3.51% x 11,460.00 = 402.246; total 600.030, rounded once to 600.03. The Tax Table row 19,460 to 19,560 gives 600; expected keeps the schedule. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 600.03. Line 18 personal exemption credit = 171 x 2 = 342.00; line 34 342.00. Line 35 = 600.03 - 342.00 = 258.03. Federal Tax Liability Worksheet (PDF page 17): net adjustments -58,000.00 are under 5,000, but it does not reduce line 35: the federal tax before credits is at least 10% x 63,300.00 = 6,330.00, above worksheet line 2 of 258.03.",
+  "accepted_approximations": [
+    "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_csrs_annuity_exclusion",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

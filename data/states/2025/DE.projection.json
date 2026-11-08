@@ -1,0 +1,362 @@
+{
+  "layer": "projection",
+  "state": "DE",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/DE.record.json",
+    "sha256": "61b110cee25525e69caec185ef1de5cd9fbe82304f5bdc82b12f398236aab8e7"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.022",
+        "start": "2000"
+      },
+      {
+        "rate": "0.039",
+        "start": "5000"
+      },
+      {
+        "rate": "0.048",
+        "start": "10000"
+      },
+      {
+        "rate": "0.052",
+        "start": "20000"
+      },
+      {
+        "rate": "0.0555",
+        "start": "25000"
+      },
+      {
+        "rate": "0.066",
+        "start": "60000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.022",
+        "start": "2000"
+      },
+      {
+        "rate": "0.039",
+        "start": "5000"
+      },
+      {
+        "rate": "0.048",
+        "start": "10000"
+      },
+      {
+        "rate": "0.052",
+        "start": "20000"
+      },
+      {
+        "rate": "0.0555",
+        "start": "25000"
+      },
+      {
+        "rate": "0.066",
+        "start": "60000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "de_standard_deduction",
+        "amount": {
+          "single": "3250",
+          "married_joint": "6500",
+          "married_separate": "3250",
+          "head_of_household": "3250",
+          "qualifying_surviving_spouse": "3250"
+        },
+        "per": "return"
+      },
+      {
+        "id": "de_additional_standard_65",
+        "amount": {
+          "all": "2500"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "de_railroad_retirement",
+      "from_record": [
+        "de_ss_rr_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "de_pension_excl_under60_nonmilitary",
+      "from_record": [
+        "de_pension_excl_under60_nonmilitary"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 59
+      },
+      "cap": {
+        "all": "2000"
+      },
+      "cap_per": "person",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_military",
+        "de_pension_excl_60_plus"
+      ]
+    },
+    {
+      "id": "de_pension_excl_under60_military",
+      "from_record": [
+        "de_pension_excl_under60_military"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 59
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_nonmilitary",
+        "de_pension_excl_60_plus"
+      ]
+    },
+    {
+      "id": "de_pension_excl_60_plus",
+      "from_record": [
+        "de_pension_excl_60_plus"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 60
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_nonmilitary",
+        "de_pension_excl_under60_military"
+      ]
+    },
+    {
+      "id": "de_personal_credit",
+      "from_record": [
+        "de_personal_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "110",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "de_additional_personal_credit_60",
+      "from_record": [
+        "de_additional_personal_credit_60"
+      ],
+      "form": "credit",
+      "credit_amount": "110",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 60
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "credits",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.credit_amount"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "de_line11_single_separate",
+      "from_record": [
+        "de_line11_single_separate",
+        "de_line11_joint"
+      ],
+      "what": "Line 11 exclusion for persons 60 or over or disabled (2,000 single or separate, Line 10 of 10,000 or less, earned income under 2,500; 4,000 joint, both spouses 60 or disabled, Line 10 of 20,000 or less, combined earned income under 5,000). Left out because it does not change the tax of an age-qualified filer: at Line 10 of 10,000 a single filer aged 60 owes 134.25 on 6,750 after the standard deduction, less than the 220 of personal credits (110 + 110 at 60 or over); a joint couple both 60 at Line 10 of 20,000 owes 429 on 13,500, less than their 440 of credits. It matters only for a disabled filer under 60, which a projection does not know.",
+      "warn_when": "never"
+    },
+    {
+      "id": "de_higher_education_exclusion",
+      "from_record": [
+        "de_higher_education_exclusion"
+      ],
+      "what": "Higher-education exclusion (Line 8a): IRA, 401(k) and 457 distributions used the same year for books, tuition or fees of the taxpayer or dependents under 26. A projection does not know what a withdrawal pays for.",
+      "warn_when": "never"
+    },
+    {
+      "id": "de_us_obligations_interest",
+      "from_record": [
+        "de_us_obligations_interest"
+      ],
+      "what": "Interest on U.S. obligations (Treasury bills, notes, bonds, savings bonds) is exempt (Line 5). A projection cannot tell Treasury interest from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "de_additional_standard_blind",
+      "from_record": [
+        "de_additional_standard_blind"
+      ],
+      "what": "Additional standard deduction of 2,500 for a blind person (Line 21). A projection does not know blindness.",
+      "warn_when": "never"
+    },
+    {
+      "id": "de_personal_credit",
+      "from_record": [
+        "de_personal_credit"
+      ],
+      "what": "The 110 personal credit for each dependent listed on the federal return (Line 27a); the filer's and spouse's credits are modelled.",
+      "warn_when": "has_dependents"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The Delaware standard deduction (and the age-65 additional amount, which needs it) is always taken; Delaware itemized deductions (Form PIT-RSA) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "Up to 6.6% of the amount by which itemized deductions exceed the standard and additional amounts, for an itemizer."
+    },
+    {
+      "what": "Roth conversions are left out of the 60-plus pension exclusion (the booklet does not say whether they count as eligible retirement income).",
+      "direction": "overstates_tax",
+      "size": "Only when the person's pension and other eligible income leave room under 12,500: up to 6.6% x 12,500 = 825 a year per person."
+    },
+    {
+      "what": "For a person under 60, IRA and 401(k) distributions, annuities and Roth conversions are left out of the 2,000 non-military pension exclusion (the booklet speaks only of a pension).",
+      "direction": "overstates_tax",
+      "size": "Up to 6.6% x 2,000 = 132 a year per person, for someone under 60 with such income and no pension."
+    },
+    {
+      "what": "Annuities (outside a qualified plan) are left out of the 60-plus pension exclusion (not named in the booklet).",
+      "direction": "overstates_tax",
+      "size": "Only when room remains under 12,500: up to 825 a year per person."
+    },
+    {
+      "what": "The rule that an early distribution (1099-R Box 7 code 1, or one with a federal early-withdrawal penalty) does not qualify is not applied; every covered pension of a person under 60 gets the exclusion.",
+      "direction": "understates_tax",
+      "size": "Up to 6.6% x 2,000 = 132 a year (non-military) or 6.6% x 12,500 = 825 (military), for an under-60 pension paid as an early distribution."
+    },
+    {
+      "what": "A projection that cannot tell Delaware bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back (Line 2).",
+      "direction": "overstates_tax",
+      "size": "Up to 6.6% of the interest from Delaware obligations."
+    },
+    {
+      "what": "Treasury interest is taxed (the Line 5 subtraction is not modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 6.6% of the Treasury interest."
+    },
+    {
+      "what": "The credit for income tax paid to another state (Line 28) is not modelled.",
+      "direction": "overstates_tax",
+      "size": "Up to the other state's tax on income it taxes, for a household with income taxed elsewhere."
+    },
+    {
+      "what": "The separate tax on a qualified lump-sum distribution (Form PIT-STC, 30 Del. C. §1102(b)) is not used; any lump sum runs through the schedule.",
+      "direction": "either",
+      "size": "Only in a year with a qualified lump-sum distribution."
+    },
+    {
+      "what": "Tax is computed from the statute's rate schedule; returns with Line 23 under 60,000 use the Division's tax table, which is built on the same rates but in income rows.",
+      "direction": "either",
+      "size": "A few dollars at most (rounding within a table row)."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [],
+  "joint_income": "half_each"
+}

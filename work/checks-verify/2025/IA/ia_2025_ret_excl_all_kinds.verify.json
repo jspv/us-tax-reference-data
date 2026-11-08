@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "40.00",
+  "relief_amounts": {
+   "ia_personal_credit": "40.00",
+   "ia_ret_excl_age55": "36000.00"
+  },
+  "state_income_tax": "2021.50",
+  "state_tax_before_credits": "2061.50",
+  "state_taxable_income": "54250.00"
+ },
+ "worked": "Federal AGI 106000.00; federal deduction 15750.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 90250.00. Schedule 1 line 7 column B, public pension of person 0, age 60 (55 or over): -10000.00. Schedule 1 line 7 column B, private annuity of person 0, age 60 (55 or over): -5000.00. Schedule 1 line 7 column B, ira_distribution of person 0, age 60: -8000.00. Schedule 1 line 7 column B, employer_plan_distribution of person 0, age 60: -6000.00. Schedule 1 line 7 column B, roth_conversion of person 0, age 60: -7000.00. Line 3, net Iowa modifications: 0.00 - 36000.00 = -36000.00. Line 4, Iowa taxable income: 90250.00 + -36000.00 = 54250.00. Line 5: 54250.00 x 3.8% = 2061.50. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 0 x 20 = 0.00; total 40.00. Line 12: 2061.50 - 40.00 = 2021.50. The single filers' tax reduction (41-146) is not applied; its terms are not in the sources."
+}

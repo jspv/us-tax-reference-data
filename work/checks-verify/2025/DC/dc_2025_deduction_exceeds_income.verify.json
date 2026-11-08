@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "12000.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Filing status single. Line 4 federal AGI 12,000.00. Additions Line 5-6: none. Line 7 = 12,000.00. Line 10 subtraction: taxable Social Security 0.00 (exempt). Pensions (any payer, incl. federal, military, NY), IRA distributions and Roth conversions: no DC subtraction; taxed in federal AGI (survivor-benefit Line 12 not modelled). Subtractions Line 15: none. Line 16 DC AGI = 12,000.00 - 0.00 = 12,000.00. G-1 a basic standard deduction 15,000.00; persons: born 1953-02-28 age 72; 1 born before 1961-01-02 (65+) x 2,000.00 = 2,000.00; G-1 h total 17,000.00. Line 19 taxable income 12,000.00 - 17,000.00 = -5,000.00, floored at 0.00. Tax rate schedule (Calculation I): none; total 0.00 (the form uses the 50-dollar tax table at or under 100,000; schedule result used). Credits: none in the projection, 0.00. DC tax = 0.00. Federal senior deduction ignored (federal figures given)."
+}

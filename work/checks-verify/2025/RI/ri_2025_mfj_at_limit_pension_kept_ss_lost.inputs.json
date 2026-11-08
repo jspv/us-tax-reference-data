@@ -1,0 +1,67 @@
+{
+  "id": "ri_2025_mfj_at_limit_pension_kept_ss_lost",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_pension_annuity_modification",
+    "ri_social_security_modification"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 75,
+        "born": "1950-06-15"
+      },
+      {
+        "age": 74,
+        "born": "1951-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "10050.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "29700.00"
+    },
+    "federal_agi": "133750.00",
+    "federal_taxable_income": "99050.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_pension_annuity_modification",
+    "relief_amounts.ri_social_security_modification"
+  ]
+}

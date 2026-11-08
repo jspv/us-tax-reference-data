@@ -1,0 +1,63 @@
+{
+  "id": "va_2025_edge_birth_date_1961_joint",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_deduction_income_based",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 8-9, 11, 12, 14-16; PDF p15 Line 4 Age Deduction and Exemptions; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; PDF p17 (printed Page 11) Taxpayers Age 65 and Older and Line 5; PDF p41 Tax Rate Schedule; Spouse Tax Adjustment Worksheet (PDF p18, printed Page 12), not applied by the projection",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      },
+      {
+        "age": 64,
+        "born": "1961-01-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "36900.00"
+  },
+  "expected": {
+    "state_agi": "58000.00",
+    "state_taxable_income": "37840.00",
+    "state_tax_before_credits": "1918.30",
+    "credits": "0.00",
+    "state_income_tax": "1918.30",
+    "relief_amounts": {
+      "age_deduction_income_based": "12000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): Federal AGI = wages (you) 40,000.00 + wages (spouse) 30,000.00 = 70,000.00. Federal taxable income = 70,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 additional for age 65 or older = 36,900.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 70,000.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 70,000.00. Income-based age deduction (you born 1961-01-01); Age 65 and Older Deduction Worksheet: line 1 = 1; line 2 FAGI 70,000.00; lines 3-6 no conformity adjustments; line 7 taxable Social Security 0.00; line 8 AFAGI = 70,000.00 - 0.00 = 70,000.00; line 9 limit 75,000.00; line 10: AFAGI not over the limit, 12,000.00 for each claimant = 12,000.00. Line 4 age deduction = 12,000.00. Line 5 taxable Social Security subtracted = 0.00. Line 6 state refund 0.00. Line 7 Schedule ADJ subtractions 0.00. Line 8 = 12,000.00 + 0.00 + 0.00 + 0.00 = 12,000.00. Line 9 VAGI = 70,000.00 - 12,000.00 = 58,000.00. Line 11 standard deduction (Filing Status 2) = 17,500.00. Line 12 exemptions: Section A 2 x 930.00 = 1,860.00; Section B 1 x 800.00 (65 or older) = 800.00; total 2,660.00. Line 14 = 20,160.00. Line 15 Virginia taxable income = 58,000.00 - 20,160.00 = 37,840.00. Line 16 tax, rate schedule (PDF p41) as numbers: 720.00 + 5.75% x (37,840.00 - 17,000.00 = 20,840.00) = 720.00 + 1,198.30 = 1,918.30 (the form rounds to the whole dollar: 1,918.00). Line 17 Spouse Tax Adjustment 0.00 under the projection (see the note below). Credits none modelled or claimed, 0.00. Virginia income tax = 1,918.30. Whose birth date counts: you (born January 1, 1961) qualify for the income-based age deduction; the spouse (born January 2, 1961) does not, so worksheet line 1 is 1. Age-65 exemption: you turn 65 on January 1, 2026, and the tax rule counts an age as reached the day before the birthday, so you are 65 for 2025 (PDF p15: age 65 or older on or before January 1, 2026) and claim the 800.00 in Section B; the spouse (born January 2, 1961) is 64 and does not. The same rule gives you the federal additional 1,600.00. Spouse Tax Adjustment on the form: separate VAGI less exemptions you 40,000.00 - 12,000.00 - 1,730.00 = 26,270.00, spouse 30,000.00 - 930.00 = 29,070.00, the smaller over 17,000 and taxable income 37,840.00 over 34,000, so 259.00 (form tax 1,659.30); not applied (approximation).",
+  "accepted_approximations": [
+    "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

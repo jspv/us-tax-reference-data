@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "vt_social_security_exemption": "10744.00"
+  },
+  "state_agi": "46366.00",
+  "state_income_tax": "1077.56",
+  "state_tax_before_credits": "1077.56",
+  "state_taxable_income": "32166.00"
+ },
+ "worked": "Filing status single; IN-111 Line 1 federal AGI 57,110.00 (federal taxable income 39360.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 12, Retirement Income Exemption Worksheet (Social Security election): share = 1 - (57,110.00 - 55,000.00) / 10,000.00 = 0.789000, rounded 2 dp 0.79; exemption 13,600.00 x 0.79 = 10,744.00. IN-112 Line 19 net modification = 0.00 - 10,744.00; IN-111 Line 3 state AGI = 57,110.00 + 0.00 - 10,744.00 = 46,366.00. Line 4 standard deduction 7,650.00 + 1,250 x 1 (born before Jan. 2, 1961) = 8,900.00; Line 5e exemptions 1 x 5,300 = 5,300.00; Line 6 = 14,200.00. Line 7 taxable income = 46,366.00 - 14,200.00 = 32,166.00. Rate schedule (single): 3.3500% x (32,166.00 - 0.00) = 1077.561000; total 1077.561000. NOTE: schedule tax 1077.561000 has sub-cent part; rounded half up. Line 8: federal AGI 57,110.00 not greater than 150,000, minimum tax does not apply; tax 1,077.56 (formula, not the 100-dollar tax table). No credits modelled: credits 0.00; state income tax 1,077.56."
+}

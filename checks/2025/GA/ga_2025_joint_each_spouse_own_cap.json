@@ -1,0 +1,73 @@
+{
+  "id": "ga_2025_joint_each_spouse_own_cap",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ga_retirement_exclusion_65_plus",
+    "ga_retirement_exclusion_62_64",
+    "ga_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 1 'Retirement income' (PDF p.21); Retirement Income Exclusion notes (PDF p.24: Social Security, Railroad Retirement and exempt income left out; items allocated to the owner); Schedule 1 page 2 lines 1-17 and footnote (PDF p.48; 2025GA500.pdf p.8): lines 1-5 earned income limited to the 5,000 Maximum Earned Income, lines 6-14 unearned retirement income, line 16 maximum allowable exclusion 35,000 (62-64) or 65,000 (65 or older), line 17 the lesser of lines 15 and 16; PDF p.21 'each must qualify on a separate basis. If both spouses qualify, each spouse may claim the amounts above'; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-11-03"
+      },
+      {
+        "age": 63,
+        "born": "1962-02-17"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "80000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "126900.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "46000.00",
+    "state_tax_before_credits": "2387.40",
+    "credits": "0.00",
+    "state_income_tax": "2387.40",
+    "relief_amounts": {
+      "ga_retirement_exclusion_65_plus": "65000.00",
+      "ga_retirement_exclusion_62_64": "25000.00"
+    }
+  },
+  "worked": "Federal AGI = private pension (person 0) 80,000.00 + IRA distribution (person 1) 20,000.00 + wages (person 1) 60,000.00 = 160,000.00. Federal taxable income = 160,000.00 - (standard deduction 31,500.00 + 1,600.00 x 1 aged 65 or older) = 126,900.00 (federal senior deduction ignored; federal figures are given, not tested; Georgia starts from federal AGI). Each spouse qualifies separately and claims their own maximum (PDF p.21); items are allocated to the owner (PDF p.24). Schedule 1 page 2 (taxpayer, person 0, age 68: 65,000 branch): line 1 salary and wages 0.00; line 2 other earned income 0.00; line 3 total earned income 0.00; line 4 maximum earned income 5,000.00; line 5 lesser of lines 3 and 4 = 0.00; line 12 taxable pensions 80,000.00; line 14 = 80,000.00; line 15 = 0.00 + 80,000.00 = 80,000.00; line 16 maximum allowable exclusion 65,000.00; line 17 lesser of lines 15 and 16 = 65,000.00. The taxpayer's cap binds: 15,000 of the pension stays taxed. Schedule 1 page 2 (spouse, person 1, age 63: 35,000 branch): line 1 salary and wages 60,000.00; line 2 other earned income 0.00; line 3 total earned income 60,000.00; line 4 maximum earned income 5,000.00; line 5 lesser of lines 3 and 4 = 5,000.00; line 11 taxable IRA distributions 20,000.00; line 14 = 20,000.00; line 15 = 5,000.00 + 20,000.00 = 25,000.00; line 16 maximum allowable exclusion 35,000.00; line 17 lesser of lines 15 and 16 = 25,000.00. The spouse's unused room (35,000.00 - 25,000.00 = 10,000.00) cannot take the taxpayer's excess: caps do not pool. Schedule 1 additions lines 1-5 none, line 6 = 0.00. Schedule 1 line 13 total subtractions = line 7a taxpayer retirement income exclusion 65,000.00 + line 7d spouse retirement income exclusion 25,000.00 = 90,000.00; line 14 net adjustments = 0.00 - 90,000.00 = -90,000.00. Form 500 line 8 federal AGI 160,000.00; line 9 = -90,000.00; line 10 Georgia AGI = 160,000.00 - 90,000.00 = 70,000.00. Line 11 standard deduction (married joint) 24,000.00 (the filer takes the federal standard deduction, so must take Georgia's); line 13 = 70,000.00 - 24,000.00 = 46,000.00; line 14 dependent exemption 0 dependents = 0.00; line 15a = 46,000.00; line 15b NOL 0.00; line 15c = 46,000.00. Line 16 tax = 5.19% x 46,000.00 = 2,387.4000 = 2,387.40; the form rounds to the nearest dollar and gives 2,387; expected uses the unrounded formula to the cent. Line 17 Low Income Credit: federal AGI is not under 20,000, so none; no other credits; credits 0.00; state income tax = 2,387.40.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ga_retirement_exclusion_disabled"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

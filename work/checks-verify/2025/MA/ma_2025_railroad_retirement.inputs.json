@@ -1,0 +1,49 @@
+{
+  "id": "ma_2025_railroad_retirement",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Tax Treatment of Government Pensions (Massachusetts DOR web page, updated April 3, 2026)",
+    "section": "'Tier I and II railroad retirement pension': 'Tier I or Tier II railroad retirement benefits are exempt from Massachusetts taxation.' Form 1 lines 2a, 2c, 4, 10-22 (2025 Form 1 Instructions PDF p10, p12)",
+    "url": "https://www.mass.gov/info-details/tax-treatment-of-out-of-state-government-pensions-for-ma-residents"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "private",
+          "kind": "railroad_retirement",
+          "amount": "24000.00",
+          "person": 0
+        },
+        {
+          "source": "private",
+          "amount": "36000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "42250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "ct_2025_qualifying_surviving_spouse",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 19, Table A (MFJ or QSS column, more than 59,000 to 60,000: 12,000); PDF page 20, Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule); PDF page 23, Table E (MFJ/QSS, more than 52,000 to 96,000: .10); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "28500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.personal_exemption"
+  ]
+}

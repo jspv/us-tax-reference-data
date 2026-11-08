@@ -1,0 +1,66 @@
+{
+  "id": "ct_2025_ss_full_exempt_at_threshold",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_full_exempt",
+    "ss_partial_exempt"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF pages 8-9, Schedule 1 Line 41; PDF page 24, Social Security Benefit Adjustment Worksheet ('$100,000 or more? Yes: Complete this worksheet', Lines A-F); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      },
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "66000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "66900.00"
+  },
+  "expected": {
+    "state_agi": "76000.00",
+    "state_taxable_income": "76000.00",
+    "state_tax_before_credits": "2920.00",
+    "credits": "292.00",
+    "state_income_tax": "2628.00",
+    "relief_amounts": {
+      "ss_full_exempt": "0.00",
+      "ss_partial_exempt": "24000.00"
+    }
+  },
+  "worked": "Federal Social Security Benefits Worksheet: Line 1 benefits 40,000.00; Line 2 half 20,000.00; Line 3 other income 66,000.00; Line 4 tax-exempt interest 0.00; Line 5 = 86,000.00; Line 6 adjustments 0.00; Line 7 = 86,000.00; Line 8 base 32,000.00; Line 9 = 86,000.00 - 32,000.00 = 54,000.00; Line 10 12,000.00; Line 11 = 42,000.00; Line 12 lesser of Lines 9 and 10 = 12,000.00; Line 13 half 6,000.00; Line 14 lesser of Lines 2 and 13 = 6,000.00; Line 15 = 42,000.00 x 0.85 = 35,700.00; Line 16 = 41,700.00; Line 17 = 40,000.00 x 0.85 = 34,000.00; Line 18 taxable benefits, the lesser of Lines 16 and 17 = 34,000.00. Federal AGI = wages 66,000.00 + taxable Social Security 34,000.00 = 100,000.00. Federal taxable income = 100,000.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 66,900.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 100,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 100,000.00. Schedule 1 Line 41 Social Security benefit adjustment: federal AGI 100,000.00 is 100,000.00 or more, so ss_full_exempt does not apply (0.00) and the Social Security Benefit Adjustment Worksheet (ss_partial_exempt) is completed: Line A = federal worksheet Line 1 = 40,000.00; Line B = federal worksheet Line 9 = 54,000.00; Line C lesser of A and B = 40,000.00 (Line A); Line D = 40,000.00 x 0.25 = 10,000.00; Line E taxable benefits (federal worksheet Line 18) = 34,000.00; Line F = 34,000.00 - 10,000.00 = 24,000.00 -> 24,000.00. Schedule 1 Line 50 total subtractions = 24,000.00; CT-1040 Line 4 = 24,000.00. CT-1040 Line 5 Connecticut AGI = 100,000.00 - 24,000.00 = 76,000.00. Tax Calculation Schedule Line 1 = 76,000.00; Line 2 Table A: exemption 0.00 at Connecticut AGI 76,000.00; Line 3 taxable income = 76,000.00 - 0.00 = 76,000.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 76,000.00: 20,000.00 x 0.02 + 56,000.00 x 0.045 = 400.00 + 2,520.00 = 2,920.00. Line 5 Table C 0.00 (Connecticut AGI 76,000.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 2,920.00. Line 8 Table E decimal 0.10 at Connecticut AGI 76,000.00; Line 9 = 2,920.00 x 0.10 = 292.00. Line 10 Connecticut income tax = 2,920.00 - 292.00 = 2,628.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Federal AGI exactly 100,000.00 is '100,000 or more' (applies_when at_or_over), so the partial worksheet applies at the figure itself. Line A (gross benefits) is the lesser.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

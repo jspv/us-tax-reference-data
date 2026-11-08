@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "15000.00",
+    "state_income_tax": "391.00",
+    "state_tax_before_credits": "391.00",
+    "state_taxable_income": "9200.00",
+    "relief_amounts": {
+      "born_1946_1966": "45000.00"
+    }
+  },
+  "worked": "Single born 1950. Options (claim one): Worksheet 3.3 private 45,000 < 49,423 -> 45,000; Worksheet 2 Tier 2 20,000 (covered income 60,000). Best: retirement subtraction 45,000.00. Taxable SS 25,500 subtracted. state_agi 85,500 - 25,500 - 45,000 = 15,000.00. Exemption 5,800. Taxable 9,200.00. Tax 391.00. [check: state_agi 15000.00, taxable 9200.00, tax 391.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

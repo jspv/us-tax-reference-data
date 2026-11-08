@@ -1,0 +1,76 @@
+{
+  "id": "ca_2025_senior_credit_joint_both_65",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "senior_exemption_credit",
+    "personal_exemption_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 60 Schedule CA (540) Line 6 (Social Security excluded)",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-05-12"
+      },
+      {
+        "age": 70,
+        "born": "1955-11-03"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        },
+        {
+          "amount": "25000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "55250.00"
+    },
+    "federal_agi": "145250.00",
+    "federal_taxable_income": "110550.00"
+  },
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "78588.00",
+    "state_tax_before_credits": "1871.38",
+    "credits": "612.00",
+    "state_income_tax": "1259.38",
+    "relief_amounts": {
+      "senior_exemption_credit": "306.00",
+      "personal_exemption_credit": "306.00"
+    }
+  },
+  "worked": "Married filing jointly, both 70: private pensions 60,000 and 30,000, Social Security 40,000 and 25,000 (gross 65,000). Federal taxable Social Security (given): provisional income 90,000 + 32,500 = 122,500; 85% x (122,500 - 44,000) + 6,000 = 72,725, limited to 85% x 65,000 = 55,250. Federal AGI = 90,000 + 55,250 = 145,250. Form 540 line 13 federal AGI = 145,250.00. Federal taxable income = 145,250.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age-65 addition = 110,550.00 (given, not tested; the federal senior deduction is ignored). Subtractions: Schedule CA (540) line 6 column B, taxable Social Security excluded in full 55,250.00. Schedule CA Part I line 27 column B = 55,250.00 = Form 540 line 14. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 145,250.00 - 55,250.00 = 90,000.00. Line 18 California standard deduction (married filing jointly, PDF page 13 chart) 11,412.00. Line 19 taxable income = 90,000.00 - 11,412.00 = 78,588.00. Tax on 78,588.00 by the projection's brackets: 22,158.00 x 1% = 221.58; 30,370.00 x 2% = 607.40; 26,060.00 x 4% = 1,042.40; total 1,871.38. Line 31: the form uses the Tax Table for taxable income of 100,000 or less; the row 78,551-78,650 gives 1,872 (formula result kept in expected). Line 32 exemption credits: federal AGI 145,250.00 is not more than 504,411.00, so no AGI limitation; line 7 personal 2 x 153 = 306.00; line 9 senior 2 x 153 = 306.00; line 32 = 612.00. Line 33 = 1,871.38 - 612.00 = 1,259.38; no other credits (lines 34 to 47 nil), line 48 = 1,259.38. State income tax = 1,259.38.",
+  "accepted_approximations": [
+    "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

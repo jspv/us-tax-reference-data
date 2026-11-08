@@ -1,0 +1,37 @@
+{
+  "layer": "projection",
+  "state": "AK",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/AK.record.json",
+    "sha256": "45be1e2ca2e2d6452c8f516cbd08366a90665cb70b3e6c832ec5a5305d20bfa2"
+  },
+  "has_income_tax": false,
+  "brackets": {
+    "single": [],
+    "married_joint": []
+  },
+  "base": {
+    "starts_from": "none",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "all_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [],
+  "not_modelled": [],
+  "recapture": [],
+  "derived_figures": [],
+  "approximations": [
+    {
+      "what": "No personal income tax (Personal Income Tax page, Alaska Department of Revenue, Tax Division). Social Security and municipal interest are shown as exempt because nothing is taxed.",
+      "direction": "either",
+      "size": "None: there is no state income tax to estimate."
+    }
+  ]
+}

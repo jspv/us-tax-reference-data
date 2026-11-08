@@ -1,0 +1,56 @@
+[
+  {
+    "state": "IA",
+    "title": "2025 Expanded Instructions (IA 1040)",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "retrieved": "2026-11-07T01:04:56.239155+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "file": "4435.pdf",
+    "bytes": 3282692,
+    "sha256": "e7cf068dbcafb5319afa6efbebde5120d8850811d4ff4d66654e1ba5687af343",
+    "archived_url": "https://web.archive.org/web/20261108001112id_/https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  {
+    "state": "IA",
+    "title": "2025 IA 1040 Iowa Individual Income Tax Return",
+    "url": "https://revenue.iowa.gov/media/4400/download?inline=",
+    "retrieved": "2026-11-07T01:05:01.490189+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.iowa.gov/media/4400/download?inline=",
+    "file": "4400.pdf",
+    "bytes": 343170,
+    "sha256": "b3708d094ec05f0e86482109da47cd1173aa0c85e6ea48c1d1ef34d8171a00cd",
+    "archived_url": "https://web.archive.org/web/20260405220233id_/https://revenue.iowa.gov/media/4400/download?inline="
+  },
+  {
+    "state": "IA",
+    "title": "2025 IA 1040 Schedule 1 expanded instructions (line 7 pension/retirement exclusion)",
+    "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/ia-1040-schedule-1",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:05:06.647955+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/ia-1040-schedule-1",
+    "file": "ia-1040-schedule-1.html",
+    "bytes": 248870,
+    "sha256": "bdff333856f3179cc6415ad9850b2a3a787473ad89f1d418295e77e2c91b717b",
+    "text_file": "ia-1040-schedule-1.page.txt"
+  },
+  {
+    "state": "IA",
+    "title": "Retirement Income Tax Guidance (page dated March 13, 2025)",
+    "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/retirement-income-tax-guidance",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:05:14.630064+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/retirement-income-tax-guidance",
+    "file": "retirement-income-tax-guidance.html",
+    "bytes": 210785,
+    "sha256": "cd9d3d0d45ce18f65e918524e95f5916e9d152bd40d3636f5d7c02b9ff1f85b0",
+    "text_file": "retirement-income-tax-guidance.page.txt"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Single born 1959-01-01: turns 67 on 2025-12-31 (day before the birthday) and is inside Tier 3's January 1, 1953 - January 1, 1959 range (projection bounds by birth date; record approximation on the January 1/2, 1959 boundary). Worksheet 2: 20,000 (projection does not subtract the 5,800 exemption; booklet line 11 = 14,200); covered interest 15,000 -> 15,000. state_agi 0.00; taxable floored at 0.00; tax 0.00 (booklet: 15,000 - 14,200 - 5,800 < 0 -> also 0). [check: state_agi 0.00, taxable 0.00, tax 0.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

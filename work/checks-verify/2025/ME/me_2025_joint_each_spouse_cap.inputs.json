@@ -1,0 +1,71 @@
+{
+  "id": "me_2025_joint_each_spouse_cap",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_income_deduction",
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27 and the Worksheet for Pension Income Deduction lines P1-P10 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2); Schedule 1A line 1 (booklet PDF p.7)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-04-02"
+      },
+      {
+        "age": 66,
+        "born": "1959-10-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "55000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "30016.00",
+      "municipal_interest_own_state": "3000.00",
+      "municipal_interest_other_state": "4000.00"
+    },
+    "federal_agi": "139016.00",
+    "federal_taxable_income": "104316.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_income_deduction"
+  ]
+}

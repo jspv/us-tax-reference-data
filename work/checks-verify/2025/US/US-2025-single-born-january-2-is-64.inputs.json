@@ -1,0 +1,33 @@
+{
+  "id": "US-2025-single-born-january-2-is-64",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "none",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction"
+  ],
+  "description": "Single filer born January 2, 1961: 64 at the end of 2025, so no additional standard deduction and no senior deduction.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1961-01-02",
+        "age": 64
+      }
+    ],
+    "wages": "60000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

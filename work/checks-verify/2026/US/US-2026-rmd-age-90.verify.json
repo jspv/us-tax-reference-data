@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "rmd_amount": "10119.41",
+    "rmd_divisor": "12.2"
+  },
+  "worked": "Born 1936-10-31: attains 90 in 2026; applicable age 70 1/2 or 72 under earlier law, so 2026 is a required year. Uniform Lifetime Table age 90: 12.2. RMD = 123456.78 / 12.2 = 10119.41."
+}

@@ -1,0 +1,59 @@
+{
+  "id": "wi_2025_std_deduction_joint",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-02-11"
+      },
+      {
+        "age": 49,
+        "born": "1976-09-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "58500.00"
+  },
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "75760.00",
+    "state_tax_before_credits": "3233.36",
+    "credits": "0.00",
+    "state_income_tax": "3233.36"
+  },
+  "worked": "Married filing jointly, 52 and 49, wages 60,000 and 30,000: joint column of the table, two 700 exemptions. Federal (given, not tested): federal AGI = wages (you) 60,000.00 + wages (spouse) 30,000.00 = 90,000.00. Federal taxable income = 90,000.00 - standard deduction 31,500.00 = 58,500.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 90,000.00; line 2 Schedule I adjustments 0.00; line 3 90,000.00; line 4 additions 0.00; line 5 90,000.00. Schedule SB: no subtraction applies; line 50 0.00. Form 1 line 6 0.00; line 7 Wisconsin income = 90,000.00 - 0.00 = 90,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 36), row 90,000 to less than 90,500, column Married filing jointly: 12,840.00 (printed row, at least / less than / single / joint / separate / head of household: 90,000 / 90,500 / 5,076 / 12,840 / 0 / 5,076). Line 9 = 90,000.00 - 12,840.00 = 77,160.00. Line 10a 2 x 700 = 1,400.00; line 10b 0 x 250 = 0.00; line 10c 1,400.00. Line 11 taxable income = 77,160.00 - 1,400.00 = 75,760.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 19,580.00 = 685.30 + 4.4% x 47,720.00 = 2,099.68 + 5.3% x 8,460.00 = 448.38; total 3,233.36, rounded once to 3,233.36. The Tax Table row 75,700 to 75,800 (PDF page 42) gives 3,233; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 3,233.36.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "la_2025_base",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New; PDF page 3 Line 8",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-05-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "15270.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "60270.00",
+    "federal_taxable_income": "44520.00"
+  },
+  "expected": {
+    "state_agi": "60270.00",
+    "state_taxable_income": "47770.00",
+    "state_tax_before_credits": "1433.10",
+    "credits": "0.00",
+    "state_income_tax": "1433.10"
+  },
+  "worked": "Federal AGI = wages (person 0) 45,000.00 + private pension (person 0) 15,270.00 = 60,270.00. Federal taxable income = 60,270.00 - 15,750.00 federal standard deduction = 44,520.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. No Schedule E adjustments. IT-540 Line 7 federal AGI 60,270.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 60,270.00 - 12,500.00 = 47,770.00. Line 11 = 47,770.00 x .03 = 1,433.10; the form rounds to the nearest dollar and gives 1,433; expected uses the unrounded formula to the cent. Line 12 credits 0.00. Line 13 = 1,433.10. A private pension under 65 has no relief (code 06E needs age 65).",
+  "accepted_approximations": [
+    "The booklet rounds the tax to the nearest dollar (Line 11); the projection does not round."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

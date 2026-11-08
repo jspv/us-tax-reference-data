@@ -1,0 +1,71 @@
+{
+  "id": "mo_2025_private_joint_below_each_own_cap",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "private_pension_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Instructions PDF p7 Line 7 income percentages and combined return; PDF p21 'A separate tax must be computed for you and your spouse'; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      },
+      {
+        "age": 62,
+        "born": "1963-05-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        },
+        {
+          "amount": "3000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "31000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "22000.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "private_pension_subtraction": "9000.00"
+    }
+  },
+  "worked": "Married filing combined (joint federal), ages 60 and 62. Each spouse has a 6,000 of their own: person 0's 10,000 is limited to 6,000, and the 3,000 of room person 1 leaves unused does not pass to person 0. Taxable income is 0 here, so the amount shows only in relief_amounts: a joint return under the 32,000 limit falls under the 31,500 standard deduction once the exemption is taken. Federal (given, not tested): federal AGI = wages 18,000.00 + IRA distributions 13,000.00 = 31,000.00. Federal taxable income = 31,000.00 - standard deduction 31,500.00 = 0.00 (floored at 0) (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 31,000.00. Line 2 additions 0.00. Line 3 total income 31,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 31,000.00 - 0.00 = 31,000.00. Section B: Line 1 31,000.00; Line 2 0.00; Line 3 31,000.00; Line 4 32,000.00; Line 5 0.00; Line 6Y 10,000.00, Line 7Y 6,000.00; Line 6S 3,000.00, Line 7S 3,000.00; Line 8 9,000.00; Line 9 9,000.00. Projection, each person: person 0 6,000.00 - 0.00 = 6,000.00; person 1 3,000.00 - 0.00 = 3,000.00; total 9,000.00. Form MO-1040 Line 8 pension and Social Security exemption 9,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 31,500.00. Line 26 subtotal 31,000.00 - 9,000.00 - 31,500.00 = -9,500.00 (below 0, so 0.00: taxable income is floored at 0). Line 29 taxable income 0.00. Tax 0.00 (nothing taxable). state_agi (after every relief, as the check format defines it) = Line 6 31,000.00 - Line 8 9,000.00 = 22,000.00; the form's Missouri AGI is Line 6, 31,000.00.",
+  "accepted_approximations": [
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

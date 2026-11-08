@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "44250.00",
+    "state_income_tax": "1670.75",
+    "state_tax_before_credits": "1670.75",
+    "state_taxable_income": "44250.00"
+  },
+  "worked": "Status single; persons [50]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 60,000.00 less line 12 federal standard deduction 15,750.00 = 44,250.00. New Mexico municipal interest 5,000.00: added on PIT-ADJ line 1, deducted on line 7, net 0 (other_states_taxed_own_exempt). state_agi = 44,250.00 + additions 0.00 - subtractions 0.00 = 44,250.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). PIT-1 line 14 worksheet: line 3 = 60,000.00 - 20,000 floored at 0 = 40,000.00; line 5 = x 0.15 = 6,000.00; line 6 = 2,500 - line 5 (not below 0) = 0.00; line 7 exemptions 1 (dependents not modelled); line 8 = 0.00. state_taxable_income (PIT-1 line 17) = 44,250.00 - 0.00 - 0.00 = 44,250.00. Tax on 44,250.00, single brackets: 0.015 x 5,500.00 = 82.5000; 0.032 x 11,000.00 = 352.0000; 0.043 x 17,000.00 = 731.0000; 0.047 x 10,750.00 = 505.2500; total 1,670.7500, 1,670.75 to the cent. The printed table gives 1,671 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

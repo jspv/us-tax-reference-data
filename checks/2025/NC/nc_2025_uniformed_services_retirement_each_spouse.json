@@ -1,0 +1,79 @@
+{
+  "id": "nc_2025_uniformed_services_retirement_each_spouse",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "uniformed_services_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF pages 18-19, Schedule S Part B Line 21 (Uniformed Services retirement: at least 20 years of service or medically retired; may not also be deducted on Line 20); Form D-400 Schedule S page 3, Line 21; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15 (each spouse deducts own qualifying retired pay)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-10"
+      },
+      {
+        "age": 64,
+        "born": "1961-08-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true,
+          "vested_by_1989_08_12": false
+        },
+        {
+          "amount": "24000.00",
+          "person": 1,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true,
+          "vested_by_1989_08_12": false
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "61900.00"
+  },
+  "expected": {
+    "state_taxable_income": "15500.00",
+    "state_tax_before_credits": "658.75",
+    "credits": "0.00",
+    "state_income_tax": "658.75",
+    "relief_amounts": {
+      "uniformed_services_retirement": "54000.00"
+    }
+  },
+  "worked": "Federal AGI = military retired pay 30,000.00 (spouse 1, 24 years of service) + military retired pay 24,000.00 (spouse 2, 20 years of service) + IRA distribution 40,000.00 (spouse 1) + interest 1,000.00 = 95,000.00. Neither spouse had five years of creditable service by 1989-08-12, so Bailey (Line 20) does not apply. Federal taxable income = 95,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional (spouse 1) = 61,900.00 (given, not tested; the federal senior deduction is ignored). Projection: uniformed_services_retirement is per person, so each spouse's military pension is deducted in full: 30,000.00 + 24,000.00 = 54,000.00; the IRA distribution and interest stay taxed. D-400 Line 6 federal AGI 95,000.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 95,000.00. Line 9 deductions (Schedule S Part B) 54,000.00 (Line 21 Uniformed Services retirement: spouse 1 30,000.00, spouse 2 24,000.00). Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (married_joint) 25,500.00. Line 12a = Lines 9 + 10 + 11 = 79,500.00; Line 12b = Line 8 - Line 12a = 15,500.00. Line 14 NC taxable income (full-year resident) = 15,500.00. Line 15 tax = 15,500.00 x 0.0425 = 658.75. Line 16 credits 0.00; Line 17 income tax = 658.75.",
+  "accepted_approximations": [
+    "Maintainer assumption (decision 2026-11-07), not a booklet rule: every military pension is assumed to meet the Schedule S Line 21 test (at least 20 years of service in the Uniformed Services, or a medical retirement) and is deducted in full, per person; Survivor Benefit Plan payments are deducted when held as a military pension. The booklet allows the deduction only when the test is met (PDF page 19). A retiree with under 20 years and no medical retirement, not vested for Bailey by 1989-08-12, owes 4.25% of the pension more than shown (1,275 a year on 30,000). A military retiree with five or more years of creditable service on 1989-08-12 qualifies under Bailey (Line 20) whatever the length of service, and the same income may not be deducted on both lines, so for that retiree the result is the same either way."
+  ],
+  "accepted_warnings": [
+    "state_assumption:uniformed_services_retirement",
+    "state_rule_not_modelled:bailey_defined_benefit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

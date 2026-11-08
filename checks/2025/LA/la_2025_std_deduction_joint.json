@@ -1,0 +1,55 @@
+{
+  "id": "la_2025_std_deduction_joint",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "la_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-03-09"
+      },
+      {
+        "age": 49,
+        "born": "1976-07-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "58500.00"
+  },
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "65000.00",
+    "state_tax_before_credits": "1950.00",
+    "credits": "0.00",
+    "state_income_tax": "1950.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 60,000.00 + wages (person 1) 30,000.00 = 90,000.00. Federal taxable income = 90,000.00 - 31,500.00 federal standard deduction = 58,500.00 (given, not tested; the federal senior deduction is ignored). Filing status 2 on Form IT-540. Louisiana starts from federal AGI. No Schedule E adjustments. IT-540 Line 7 federal AGI 90,000.00. Line 8 standard deduction (filing status 2) 25,000.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 90,000.00 - 25,000.00 = 65,000.00. Line 11 = 65,000.00 x .03 = 1,950.00. Line 12 credits 0.00. Line 13 = 1,950.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

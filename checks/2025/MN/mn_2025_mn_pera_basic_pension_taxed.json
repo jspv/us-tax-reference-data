@@ -1,0 +1,59 @@
+{
+  "id": "mn_2025_mn_pera_basic_pension_taxed",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "mn_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule M1QPEN Qualified Public Pension Subtraction",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1QPEN PDF p.1 lines 1-10, p.2 qualified plan table and basic member definition; Schedule M1M line 29",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1qpen-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-07-07",
+        "not_covered_by_social_security": true
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "MN"
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "25050.00",
+    "state_tax_before_credits": "1340.18",
+    "credits": "0.00",
+    "state_income_tax": "1340.18"
+  },
+  "worked": "Minnesota PERA pension of a basic member, no Social Security credit: it qualifies on Schedule M1QPEN, up to 13,540 at this AGI, but the subtraction is not modelled. Federal (given, not tested): federal AGI = pension 40,000.00 = 40,000.00. Federal taxable income = 40,000.00 - 15,750.00 federal standard deduction (15,750 plus 0 x 2,000) = 24,250.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 40,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 40,000.00. Schedule M1M line 16: no one is 65 or older (born before January 2, 1961), so no Schedule M1R subtraction. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 0.00 + 0.00 + 0.00 = 0.00 (lines 12, 16, 17, 25). State income before deduction = 40,000.00 - 0.00 = 40,000.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 14,950.00. Form M1 line 8 total = 14,950.00 + 0.00 = 14,950.00; line 9 Minnesota taxable income = 40,000.00 - 14,950.00 = 25,050.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (25,050.00 - 0.00) = 1,340.175 = 1,340.175. The tax table (PDF pp.32-38) gives 1,340; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 1,340.18. Schedule M1QPEN would give lesser of 40,000.00 and 13,540.00 = 13,540.00 (AGI is under 84,490); not modelled, expected follows the projection.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table.",
+    "The Qualified Public Pension Subtraction is not applied, for any pension of Minnesota, the federal government or another state. Modelling it on the kind of pension alone would give it to members who earned Social Security credit, who do not qualify."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_foreign_service_retirement",
+    "state_rule_not_modelled:mn_marriage_credit",
+    "state_rule_not_modelled:mn_qualified_public_pension"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

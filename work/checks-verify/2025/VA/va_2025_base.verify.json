@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "56000.00",
+    "state_income_tax": "2405.90",
+    "state_tax_before_credits": "2405.90",
+    "state_taxable_income": "46320.00"
+  },
+  "worked": "Line 1 federal AGI 56000.00; Line 2 additions 0.00; Line 3 56000.00. Line 5 Social Security subtraction (taxable on federal return) 0.00. Person 0 (born 1980-04-15) does not qualify for an age deduction. Line 8 total subtractions 0.00; Line 9 VAGI = 56000.00 - 0.00 = 56000.00. Line 11 standard deduction 8750.00; Line 12 exemptions 1 x 930 + 0 x 800 (age 65 or older by 2026-01-01) = 930.00. Line 14 taxable income = 56000.00 - 8750.00 - 930.00 = 46320.00. Line 15 tax by the rate schedule as numbers: 0.02 x (3000.00 - 0.00) = 60.00; 0.03 x (5000.00 - 3000.00) = 60.00; 0.05 x (17000.00 - 5000.00) = 600.00; 0.0575 x (46320.00 - 17000.00) = 1685.90; total 2405.90. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 2405.90. Federal figures given; federal senior deduction ignored (not tested)."
+}

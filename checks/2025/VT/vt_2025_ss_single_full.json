@@ -1,0 +1,67 @@
+{
+  "id": "vt_2025_ss_single_full",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_social_security_exemption",
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet, Sections I and II (booklet PDF p.16; IN-112 Instructions PDF p.2); Schedule IN-112 Part I Line 12 (booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-08-01"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30040.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13884.00"
+    },
+    "federal_agi": "43924.00",
+    "federal_taxable_income": "26174.00"
+  },
+  "expected": {
+    "state_agi": "30040.00",
+    "state_taxable_income": "15840.00",
+    "state_tax_before_credits": "530.64",
+    "credits": "0.00",
+    "state_income_tax": "530.64",
+    "relief_amounts": {
+      "vt_social_security_exemption": "13884.00"
+    }
+  },
+  "worked": "Federal taxable Social Security: provisional income = other income 30,040.00 + half of benefits 15,000.00 = 45,040.00; 85% x (45,040.00 - 34,000.00) + 4,500.00 = 13,884.00, limited to 85% x 30,000.00 = 25,500.00; taxable 13,884.00. Federal (given, not tested): federal AGI = IRA distribution (person 0) 30,040.00 + taxable Social Security 13,884.00 = 43,924.00. Federal taxable income = 43,924.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 26,174.00 (federal senior deduction ignored). Form IN-111, Single: Line 1 federal AGI 43,924.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Retirement Income Exemption Worksheet (Social Security elected): question 2, AGI 43,924.00 is less than 65,000.00; question 3, less than 55,000.00: full exemption, Form 1040 Line 6b 13,884.00. Line 12 13,884.00. Subtractions: Line 12 retirement benefits (Social Security) 13,884.00; Line 18 total subtractions 13,884.00. Line 19 net modifications = 0.00 - 13,884.00 = -13,884.00. Form IN-111 Line 2 -13,884.00; Line 3 = 43,924.00 + (-13,884.00) = 30,040.00. Line 4 standard deduction 7,650.00 + 1 x 1,250.00 age box(es) = 8,900.00 [person 0 born 1957-08-01 (65 or older: box checked)]. Line 5a-5d personal exemptions 1; Line 5e 1 x 5,300.00 = 5,300.00. Line 6 = 8,900.00 + 5,300.00 = 14,200.00. Line 7 Vermont taxable income = 30,040.00 - 14,200.00 = 15,840.00. Line 8: schedule tax on 15,840.00 (Schedule X, booklet p.46, merged continuous schedule): 3.35% x (15,840.00 - 0.00) = 530.64; the tax table (pp.47-51) gives 531. Federal AGI 43,924.00 is not greater than 150,000.00, so no minimum tax: Line 8 530.64. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 530.64; Lines 11-13 0.00; Line 14 Vermont income tax 530.64.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

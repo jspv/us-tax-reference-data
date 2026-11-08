@@ -1,0 +1,36 @@
+{
+  "id": "US-2026-single-retiree-senior-fully-phased-out",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Single retiree age 72 with a large pension and Social Security: benefits taxable at the 85% cap and the senior deduction fully phased out.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1954-04-04",
+        "age": 72
+      }
+    ],
+    "taxable_pensions": "150000",
+    "social_security_benefits": "40000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

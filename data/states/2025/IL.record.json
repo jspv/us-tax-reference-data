@@ -1,0 +1,433 @@
+{
+ "layer": "record",
+ "state": "IL",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Illinois has one flat rate, 4.95%, on net income (Line 11 = base income Line 9 less exemption allowance Line 10); it applies to every filing status, and no bracket schedule or surtax is printed.",
+  "The booklet prints no standard deduction, and federal itemized deductions may not be subtracted (Schedule M Instructions PDF page 1). The only deduction-like amounts are the Line 10 exemption allowance (10a personal, 10b age 65, 10c blind, 10d dependents).",
+  "Dependent amount (Line 10d) comes from Schedule IL-E/EITC Step 2 Line 1, which is not among the documents read; its dollar figure is not printed in them, so no dependent_exemption deduction is recorded. Not found in the booklet.",
+  "Exemption chart (Instructions PDF page 8): the Single row includes Single, Head of Household, Widowed and Married filing separately. A federal Qualifying Surviving Spouse chooses Widowed (PDF page 6), so that status has the single amount and the 250,000 test.",
+  "Income Exceptions cover the whole Line 10 exemption allowance, so the test is recorded on the personal, age 65 and blind entries alike; it would also remove Line 10d. The word printed is 'greater than', so the amount exactly at the threshold keeps the allowance (applies_when over).",
+  "The same Income Exceptions wording removes the property tax and K-12 credits (Instructions PDF page 9). Schedule ICR, which holds those credits, is not among the documents read; no credit is recorded.",
+  "Line 2 of the return adds back federally tax-exempt interest and dividend income (federal Form 1040 Line 2a), so the base starts from federal AGI plus that amount plus Schedule M additions.",
+  "Social Security: Form IL-1040 Line 5 ('Social Security benefits and certain retirement plan income if included in Line 1'), Instructions PDF page 7 Line 5, and Pub 120 PDF page 2 all subtract the federally taxed benefits.",
+  "Line 5 has no dollar cap, no age test and no income test in any of the three documents; only the federally taxed portion, not the gross amount, is subtracted (Pub 120 PDF page 2). 'You may include early distributions from qualified plans and IRAs.'",
+  "Other states' government pensions: no sentence names another state or a particular paying state, and no document says they are treated differently from Illinois's. The treatment comes from Pub 120's wording, set out in the settlement note on il_government_pension. No reciprocity rule concerns pensions (the agreements with Iowa, Kentucky, Michigan and Wisconsin are about compensation, Instructions PDF page 3), so paying_states is left out.",
+  "Schedule M Instructions PDF page 1, 'May I subtract my out-of-state income? No', answers what Schedule M (Line 7) allows. The same list sends retirement income to Line 5: 'income received from Social Security benefits and retirement plans (including Illinois Teacher's Retirement). Eligible retirement income should be subtracted on Form IL-1040, Line 5.' It is not read as a limit on Line 5.",
+  "Pub 120's government bullet says 'reported as wages on your U.S. 1040 or 1040-SR, Line 1z'. That line reference does not narrow the kind: Form IL-1040 Line 5 says 'Generally on fed. Forms 1040/1040-SR, Lines 4b, 5b, and 6b', and Pub 120 PDF page 3 lists government retirement among the items that attach federal pages 1 and 2, with a Form 1099-R when Lines 4b, 5b and 6b do not identify the income.",
+  "Annuities are not named on Line 5. Federal Line 5b is labelled 'Pensions & annuities' in the Allocation Worksheet (Instructions PDF page 17), and Pub 120 refuses 'income that is not from a qualified employee benefit plan'; so annuity is in covers_unclear on il_qualified_plan.",
+  "Retirement payments to retired partners: the documents disagree. Pub 120 PDF page 3 says report them on Schedule M, and Instructions PDF page 7 says they 'should not be included on Line 5'; Schedule M Instructions PDF page 2, Line 14 says 'Do include these amounts on Form IL-1040, Line 5.' No relief entry is written, because no amount rule is printed and no income kind matches.",
+  "Railroad sick pay and railroad unemployment compensation are a separate subtraction on Schedule M Line 37 (Schedule M Instructions PDF page 5); not retirement income, not recorded as a relief.",
+  "Municipal interest: treatment other, because Illinois's own bonds are not exempt as a class. Only the listed obligations are (Schedule M Lines 34 and 35).",
+  "Capital gains: no rate or deduction different from ordinary income is printed, apart from the Line 5 employer-securities subtraction (il_nua_employer_securities) and the Schedule M Line 23 August 1, 1969 valuation limitation (Schedule F, not among the documents read).",
+  "Schedule M prints other subtractions and lump limits (college savings and ABLE contributions 10,000; 20,000 joint) that are not retirement items and are not recorded as reliefs.",
+  "Indexing: no document says whether any figure is adjusted for inflation. The exemption is printed under 'What's New for 2025?' as the amount 'for tax year 2025', which is not a statement either way.",
+  "Settlement 2026-11-07: indexing: A wrote one all_other entry, B wrote all_other and personal_exemption, both not_stated; Instructions PDF page 1 says only 'The personal exemption amount for tax year 2025 is $2,850', nothing about adjustment, so the single all_other entry stands.",
+  "Settlement 2026-11-07: government pensions: A said two entries (public_pension; military_pension), B said one covering public_pension, public_pension_other_state and military_pension; Pub 120 PDF page 2 prints one bullet, 'a government retirement and government disability plan, including military plans', so one entry.",
+  "Settlement 2026-11-07: public_pension_other_state: A said covers_unclear, B said covers; Pub 120 says it. PDF page 2 allows 'a government retirement and government disability plan, including military plans', with no limit to Illinois, and that bullet's own 'military plans' shows government is not confined to Illinois's; the next bullet says 'a state or local governmental deferred compensation plan', not an Illinois one; and PDF page 3's refusal turns only on 'plans that are not government plans'. Where Illinois means only Illinois it says so (Schedule M Line 34, 'obligations of Illinois state and local governments'). So it is in covers.",
+  "Settlement 2026-11-07: employer plans and IRAs: A said one entry, B said two; Pub 120 PDF page 2 prints separate bullets, and the 10-year averaging refusal on PDF page 3 reaches only a qualified retirement plan, so two entries.",
+  "Settlement 2026-11-07: 457 plans: A and B held them in the text of the government entry; Pub 120 PDF page 2 prints a separate bullet that also reports on Line 5b, so il_governmental_457 is its own entry.",
+  "Settlement 2026-11-07: other Line 5 items: A said one entry (capital_gains, wages, interest), B said separate entries for employer securities and retirement bonds and left out group term life premiums; Pub 120 PDF page 2 prints a bullet for each with its own condition, so three entries, group term life kept from A.",
+  "Settlement 2026-11-07: Schedule M Line 22 covers: A said interest, B said interest and dividends; Schedule M Instructions PDF page 3 says 'distributions received from mutual funds' and never says dividends, so covers is interest, the fund share is in cap_rule, and dividends is in covers_unclear.",
+  "Settlement 2026-11-07: Schedule M Line 21 military pay: A left it in notes, B wrote a relief; Schedule M Instructions PDF page 3 prints the subtraction with its exclusions, so B's entry is kept."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0495",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0495",
+    "start": "0"
+   }
+  ],
+  "cite": {
+   "publication": "2025 IL-1040 Instructions",
+   "section": "PDF page 1, What's New for 2025, Income Tax Rate; Form IL-1040 PDF page 1, Line 12 'Multiply Line 11 by 4.95% (.0495)'",
+   "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+   "accessed": "2026-11-06"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "cite": {
+   "publication": "2025 Form IL-1040",
+   "section": "PDF page 1, Lines 1 to 11 (federal AGI on Line 1, plus Lines 2 and 3, less Lines 5 to 7 = base income; less Line 10 = net income)",
+   "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040.pdf",
+   "accessed": "2026-11-07"
+  },
+  "deductions": [
+   {
+    "id": "il_personal_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "single": "2850",
+     "married_joint": "5700",
+     "married_separate": "2850",
+     "head_of_household": "2850",
+     "qualifying_surviving_spouse": "2850"
+    },
+    "per": "return",
+    "condition": "Line 10a. The Single row includes Single, Head of Household, Widowed and Married filing separately. If someone can claim the filer or spouse as a dependent (Line C): single keeps 2,850 with base income of 2,850 or below, otherwise 0; joint with one box checked keeps 5,700 with base income of 2,850 or below, otherwise 2,850; joint with both boxes keeps 5,700 with base income of 5,700 or below, otherwise 0.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "federal AGI"
+     },
+     "threshold": {
+      "single": "250000",
+      "married_joint": "500000",
+      "married_separate": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "removes",
+     "applies_when": "over",
+     "as_printed": "If your federal filing status is married filing jointly and your federal AGI is greater than $500,000, you are not entitled to an exemption allowance on Line 10. ... single, head of household, married filing separately, or widowed and your federal AGI is greater than $250,000, you are not entitled to an exemption allowance on Line 10. Enter \"zero\" on Line 10."
+    },
+    "cite": {
+     "publication": "2025 IL-1040 Instructions",
+     "section": "PDF page 8, Line 10a chart and Income Exceptions; PDF page 1 Exemption Allowance",
+     "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+     "accessed": "2026-11-06"
+    }
+   },
+   {
+    "id": "il_age_65_exemption",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "Line 10b: you (or your spouse if married filing jointly) were 65 or older; number of boxes checked x 1,000.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "federal AGI"
+     },
+     "threshold": {
+      "single": "250000",
+      "married_joint": "500000",
+      "married_separate": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "removes",
+     "applies_when": "over",
+     "as_printed": "If your federal filing status is married filing jointly and your federal AGI is greater than $500,000, you are not entitled to an exemption allowance on Line 10. ... single, head of household, married filing separately, or widowed and your federal AGI is greater than $250,000, you are not entitled to an exemption allowance on Line 10. Enter \"zero\" on Line 10."
+    },
+    "cite": {
+     "publication": "2025 IL-1040 Instructions",
+     "section": "PDF page 8, Line 10b and Income Exceptions; Form IL-1040 PDF page 1, Line 10b",
+     "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+     "accessed": "2026-11-06"
+    }
+   },
+   {
+    "id": "il_blind_exemption",
+    "what": "blind_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "Line 10c: you (or your spouse if married filing jointly) were legally blind; number of boxes checked x 1,000.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "federal AGI"
+     },
+     "threshold": {
+      "single": "250000",
+      "married_joint": "500000",
+      "married_separate": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "removes",
+     "applies_when": "over",
+     "as_printed": "If your federal filing status is married filing jointly and your federal AGI is greater than $500,000, you are not entitled to an exemption allowance on Line 10. ... single, head of household, married filing separately, or widowed and your federal AGI is greater than $250,000, you are not entitled to an exemption allowance on Line 10. Enter \"zero\" on Line 10."
+    },
+    "cite": {
+     "publication": "2025 IL-1040 Instructions",
+     "section": "PDF page 8, Line 10c and Income Exceptions; Form IL-1040 PDF page 1, Line 10c",
+     "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+     "accessed": "2026-11-06"
+    }
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Form IL-1040",
+   "section": "PDF page 1, Line 5; Pub 120 PDF page 2, Social Security benefits bullet; Instructions PDF page 7, Line 5",
+   "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "il_social_security",
+   "label": "Social Security benefits (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, Social Security benefits bullet (U.S. 1040 Line 6b); Form IL-1040 PDF page 1, Line 5; Instructions PDF page 7, Line 5",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "cap_rule": "No cap printed. Only the federally taxed portion included in Line 1; do not include Social Security withheld from wages shown on Form W-2."
+  },
+  {
+   "id": "il_government_pension",
+   "label": "Government retirement and government disability plans, including military plans (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, government retirement bullet; PDF page 3 'What federally taxed income may I not subtract?' and attachment list; Instructions PDF page 7, Line 5; Schedule M Instructions PDF page 1 (Illinois Teacher's Retirement)",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "cap_rule": "No cap, age test or income test printed; only the federally taxed portion. Pub 120 does not limit the plan to an Illinois government."
+  },
+  {
+   "id": "il_governmental_457",
+   "label": "State or local governmental deferred compensation plan under IRC Section 457 (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "a state or local governmental deferred compensation plan paid under IRC Section 457"
+    ]
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, deferred compensation bullet (U.S. 1040 Line 1z or 5b); PDF page 3 attachment list; Instructions PDF page 7, Line 5",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "not_covered": [
+    "deferred compensation and disability plans that are not government plans"
+   ],
+   "cap_rule": "No cap printed; only the federally taxed portion."
+  },
+  {
+   "id": "il_qualified_plan",
+   "label": "Qualified employee benefit plan income including 401(k) plans (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "private_pension",
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, first bullet (U.S. 1040 Line 5b); PDF page 3 'What federally taxed income may I not subtract?'",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "covers_unclear": [
+    "annuity"
+   ],
+   "not_covered": [
+    "income that is not from a qualified employee benefit plan, including third-party sick pay and deferred compensation and disability plans that are not government plans",
+    "any ordinary income from a qualified retirement plan for which you have elected to use the 'Special 10-Year Averaging Method' on U.S. Form 4972"
+   ],
+   "cap_rule": "No cap printed; only the federally taxed portion. A qualified employee benefit plan is defined in IRC Sections 402 through 408. Early distributions may be included."
+  },
+  {
+   "id": "il_ira",
+   "label": "IRA and self-employed retirement (SEP) plan income (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution",
+    "roth_conversion"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, IRA bullet (U.S. 1040 Line 4b), 'including amounts rolled over to a Roth IRA'; PDF page 3 attachment 'converting a traditional IRA to a Roth IRA'",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "cap_rule": "No cap printed; only the federally taxed portion. Early distributions may be included."
+  },
+  {
+   "id": "il_railroad",
+   "label": "Railroad retirement income (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, railroad retirement bullet (U.S. 1040 Lines 5b and 6b); Instructions PDF page 7, Line 5",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "cap_rule": "No cap printed; only the federally taxed portion."
+  },
+  {
+   "id": "il_nua_employer_securities",
+   "label": "Capital gains on employer securities received in a lump-sum distribution (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "employer securities received in a lump-sum distribution"
+    ]
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, employer securities bullet (U.S. 1040 Line 7a); PDF page 3 attachment Form IL-4644",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   },
+   "cap_rule": "Only to the extent the gains are due to net unrealized appreciation on the securities at the time of distribution."
+  },
+  {
+   "id": "il_group_term_life",
+   "label": "Group term life insurance premiums paid by a qualified or government retirement plan (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "premiums paid by a qualified retirement plan or government retirement plan and included as wages"
+    ]
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, group term life bullet (U.S. 1040 Line 1z)",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "il_retirement_bonds",
+   "label": "Interest realized on the redemption of U.S. retirement bonds (IL-1040 Line 5)",
+   "form": "subtraction",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "Publication 120 Retirement Income (December 2025)",
+    "section": "PDF page 2, last bullet (U.S. 1040 Line 2b)",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "il_military_pay",
+   "label": "Military pay earned (Schedule M Line 21)",
+   "form": "subtraction",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "pay from the U.S. Armed Forces, the National Guard of any state, or as a dual status military technician"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule M Instructions",
+    "section": "PDF page 3, Line 21",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf",
+    "accessed": "2026-11-07"
+   },
+   "not_covered": [
+    "combat pay that is not included in your federal adjusted gross income",
+    "pay under the Voluntary Separation Incentive",
+    "pay from the military as a civilian",
+    "pay under the Ready Reserve Mobilization Income Insurance Program",
+    "pay for duty as an officer in the Public Health Service"
+   ]
+  },
+  {
+   "id": "il_us_obligation_interest",
+   "label": "U.S. Treasury bonds, bills, notes, savings bonds, and U.S. agency interest (Schedule M Line 22)",
+   "form": "subtraction",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "2025 Schedule M Instructions",
+    "section": "PDF page 3, Line 22",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf",
+    "accessed": "2026-11-07"
+   },
+   "covers_unclear": [
+    "dividends"
+   ],
+   "not_covered": [
+    "savings bond interest that is not included in your federal adjusted gross income"
+   ],
+   "cap_rule": "No cap printed; net of related bond premium amortization. Mutual fund distributions: all of a fund investing exclusively in U.S. government obligations, otherwise only the share attributable to them."
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other",
+  "note": "All federally tax-exempt interest is added back on Form IL-1040 Line 2. 'Interest from state and local government obligations is not exempt from Illinois Income Tax except where legislation has been specifically adopted to provide for an exemption.' Schedule M Line 34 subtracts only the listed Illinois obligations (not when owned through a mutual fund), and Line 35 the listed non-U.S. bonds (Guam, Puerto Rico, Virgin Islands, American Samoa, Northern Mariana Islands, mutual mortgage insurance fund).",
+  "cite": {
+   "publication": "2025 Schedule M Instructions",
+   "section": "PDF page 4, Lines 34 and 35; Form IL-1040 PDF page 1, Line 2; Instructions PDF page 7, Line 2",
+   "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 IL-1040 Instructions",
+    "section": "PDF pages 1 and 8 (rate and exemption amounts printed, nothing about adjustment)",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+    "accessed": "2026-11-06"
+   }
+  }
+ ],
+ "recapture": []
+}

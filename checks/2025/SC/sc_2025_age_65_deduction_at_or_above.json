@@ -1,0 +1,53 @@
+{
+  "id": "sc_2025_age_65_deduction_at_or_above",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "sc_age_65_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF p.12 'Line q: Age 65 and older deduction' and Worksheet for taxpayer (line q-1) lines 1-4; PDF p.13 Examples 1-5 (Example 1); SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-11-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_taxable_income": "17250.00",
+    "state_tax_before_credits": "410.70",
+    "credits": "0.00",
+    "state_income_tax": "410.70"
+  },
+  "worked": "Federal AGI = wages 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 17,750.00 (15,750.00 single + 1 x 2,000.00 for 65 or older) = 32,250.00 (federal senior deduction ignored, federal figures given, not tested). SC1040 line 1 federal taxable income 32,250.00; additions lines a-e none, line 2 = 0.00; line 3 = 32,250.00. No retirement income, so p-1 = 0.00 and p-4 = 0.00. Line q-1 worksheet (age 67): line 1 15,000.00; line 2 0.00; line 3 0.00; line 4 = 15,000.00 against the wages (Example 1). Income 32,250.00 on line 3 is above the 15,000 amount, so the full amount is used. Projection: age 65 entry min(15,000, any income) = 15,000; the 65-or-older retirement entry has no covered income (0). Line 4 total subtractions = q-1 15,000.00 = 15,000.00. Line 5 South Carolina income subject to tax = 32,250.00 - 15,000.00 = 17,250.00. Line 6 tax = 3% x (17,250.00 - 3,560.00) = 3% x 13,690.00 = 410.70; the printed table (row 17,200 to 17,300, figured at the row midpoint) gives 411; expected uses the bracket formula on the exact income. Line 12 Two Wage Earner Credit: not modelled (warning), 0.00; it is for joint filers only, so 0 anyway. Line 14 credits 0.00; line 15 state income tax = 410.70.",
+  "accepted_approximations": [
+    "The bracket starts 3,560 and 17,840 are derived from the printed tax table and the 6%-minus-642 formula; the table fixes them only to 3,559-3,566 and 17,818-17,857. Tax below 100,000 is figured on the exact income, where the booklet uses the table row's midpoint.",
+    "The booklet stacks the age 65 deduction on the retirement deduction (15,000 less the retirement and military deductions taken). The projection puts the 65-or-older retirement deduction and the age 65 deduction in one best_of_group, with the age 65 cap reduced by military retirement. For a person 65 or older this gives the same total as the worksheets, the larger of 15,000 and the military retirement income (Examples 1-5), whenever the person's income covers it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:sc_two_wage_earner_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

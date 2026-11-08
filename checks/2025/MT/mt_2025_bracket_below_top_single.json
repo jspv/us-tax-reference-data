@@ -1,0 +1,45 @@
+{
+  "id": "mt_2025_bracket_below_top_single",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "35750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "35750.00",
+    "federal_taxable_income": "20000.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "20000.00",
+    "state_tax_before_credits": "940.00",
+    "credits": "0.00",
+    "state_income_tax": "940.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 35,750.00 = 35,750.00. Federal taxable income = 35,750.00 - standard deduction 15,750.00 = 20,000.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 35,750.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 20,000.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 20,000.00 + 0.00 - 0.00 - 0.00 = 20,000.00. Page 2 worksheet: line 1 taxable income 20,000.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 4.7% x 20,000.00 = 940.00; line 13 = 940.00, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 20,000.00 = 940.00. Line 9 nonrefundable credits 0.00; line 10 tax after credits 940.00. Taxable income sits under 21,100, so all of it pays 4.7%; the form and the schedule agree.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

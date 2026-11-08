@@ -1,0 +1,51 @@
+{
+  "id": "md_2025_military_55_below",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement_55_plus"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 13 (Form 502SU code u), 15-21; Instruction 13 Line 13 code letter u (PDF page 17); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50550.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "15000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "65550.00",
+    "federal_taxable_income": "49800.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.military_retirement_55_plus"
+  ]
+}

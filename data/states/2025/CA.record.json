@@ -1,0 +1,535 @@
+{
+  "layer": "record",
+  "state": "CA",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: PDF page 75 prints Schedule X (single or married/RDP filing separately), Schedule Y (married/RDP filing jointly or qualifying surviving spouse/RDP) and Schedule Z (head of household), nine rates from 1% to 12.3%, for Form 540 line 19 taxable income over 100,000. married_separate is Schedule X (one schedule printed for both statuses); qualifying surviving spouse uses Schedule Y (the schema has no list for it). The printed tax at each band start agrees with the rates (Schedule X: 110.79 at 11,079 ... 72,219.84 at 742,953; Schedule Y 144,439.65 at 1,485,906; Schedule Z 97,472.91 at 1,010,417).",
+    "Tax Table: taxable income of 100,000 or less uses the Tax Table on PDF pages 69 to 73 ($100 rows). It is not recorded; rows checked against the schedules agree to the dollar at the row midpoint: 30,051-30,150: 568 / 380 / 380; 60,051-60,150: 2,192 / 1,132 / 1,132; 99,951-100,000: 5,736 / 3,068 / 3,708 (status 1 or 3 / 2 or 5 / 4). The schedules start at 0, so the bracket list covers all incomes.",
+    "Surtax: the Behavioral Health Services Tax (PDF page 16, Form 540 line 62; PDF page 5 says the Mental Health Services Tax is renamed from 2025) is 1% of Form 540 line 19 taxable income over 1,000,000, one threshold printed for every filing status. It is added on line 62, after the exemption and other credits (line 32 to 48).",
+    "Starting point: Form 540 line 13 is federal AGI; Schedule CA (540) subtractions (line 14) and additions (line 16) give California AGI (line 17); line 18 subtracts the larger of California itemized deductions or the standard deduction; line 19 is taxable income. The booklet says California itemized deductions may be limited based on federal AGI (PDF page 13; Schedule CA Part II line 29 uses the same 252,203 / 378,310 / 504,411 amounts, PDF page 52).",
+    "Exemptions are credits against tax, not deductions from income (PDF page 14: 'Exemption credits reduce your tax'; Form 540 line 11 total goes to line 32, subtracted from the line 31 tax, line 33 not below zero). They are recorded as credit reliefs (form credit, credit_amount, credit_basis tax, covers all_income), not in base.deductions, so a consumer subtracts them from tax. credit_basis 'tax' here means the credit is taken off the tax; it is a fixed amount, not a share of it (no credit_rate).",
+    "Exemption credit amounts: Form 540 PDF page 39 prints 'X $153' on lines 7 (personal), 8 (blind) and 9 (senior) and 'X $475' on line 10 (each dependent). Personal: 1 box for filing status 1, 3 or 4 (single, married/RDP filing separately, head of household), 2 for status 2 or 5 (married/RDP filing jointly, qualifying surviving spouse/RDP); a qualifying surviving spouse therefore gets 2 personal credits although only one person files. Personal, blind and senior credits are not allowed to a filer someone else can claim as a dependent (PDF page 12).",
+    "Exemption credit AGI limitation (PDF page 14): over federal AGI of 252,203 (single, married/RDP filing separately), 504,411 (married/RDP filing jointly, qualifying surviving spouse/RDP) or 378,310 (head of household), each credit loses 6 for each 2,500 (1,250 if married/RDP filing separately) of excess or part of it; a 153 credit is gone 62,500 over the amount (31,250 if filing separately), a 475 credit 197,500 over (98,750). This is a stepped phase-down, but its step amounts are not printed, so it is recorded with effect 'other', the threshold and the worksheet in as_printed; no steps are listed.",
+    "Social Security: exempt. PDF page 60 Schedule CA line 6: 'California excludes U.S. social security benefits or equivalent Tier 1 railroad retirement benefits from taxable income'; checked against PDF page 67 (claim of right: 'Social security benefits are not taxable by California') and PDF page 13 line 14 ('differences between your federal and California income, e.g., social security benefits').",
+    "Railroad retirement: Tier 1 is excluded with Social Security (line 6) and benefits on federal Form RRB-1099-R included in federal income are entered in column B of line 5 (PDF page 60), so all railroad retirement benefits are excluded; one relief entry holds both tiers.",
+    "Government pensions of California, its localities and the federal government (civilian): no subtraction is printed. PDF page 60, Line 5a and 5b - Pensions and Annuities: 'Generally, no adjustments are made on this line. However, if you received Tier 2 railroad retirement benefits or partially taxable distributions from a pension plan, you may need to make the following adjustments.' The only pension adjustments printed are Tier 2 railroad, the three-year-rule annuity and the military retirement exclusion; a public pension is taxed as included in federal AGI.",
+    "Pensions from other states' governments, New York State in particular: not found in the booklet. The booklet prints no subtraction, no reciprocity rule and no mention of another state's or New York's pension; such a pension falls under the general line 5 statement ('Generally, no adjustments are made on this line') and is taxed as included in federal AGI. No public_pension_other_state entry is recorded.",
+    "Private pensions, IRA and employer-plan distributions, Roth conversions: no exclusion or subtraction printed. PDF page 59, Line 4a and 4b - IRA Distributions: 'Generally, no adjustments are made on this line. However, there may be significant differences in the taxable amount of a distribution (including a distribution from conversion of a traditional IRA to a Roth IRA), depending on when you made your contributions to the IRA.' Differences come from California basis (FTB Pub. 1005), not from an exclusion. PDF page 60 line 5 says the same for pensions and annuities. No age-based or retirement-income relief was found in the booklet.",
+    "Military Retirement Exclusion (PDF page 60 line 5; PDF pages 6 and 55 What's New): taxable years beginning on or after 2025-01-01 and before 2030-01-01; uniformed-services retirement pay or Department of Defense Survivor Benefit Plan annuity payments; up to 20,000 'for each type of payments'; capped at 20,000 for 'a surviving spouse, spouses filing a joint return, and any other individual'; federal AGI not over 125,000 (250,000 for 'a surviving spouse or spouses filing a joint return'). Read as a per-return cap of 20,000 and a 125,000 limit for every status except joint and surviving spouse. 'Surviving spouse' is read as the qualifying surviving spouse/RDP status (a judgement call); the booklet does not say what happens above the limit, and 'must not exceed' is read as no exclusion (effect removes). covers lists 'annuity' only for the Survivor Benefit Plan annuity (other_conditions).",
+    "Interest on U.S. obligations is subtracted in Schedule CA column B line 2 (PDF page 59), recorded as exempt_in_full of that interest.",
+    "Capital gains: PDF page 60 line 7a: 'California taxes long and short term capital gains as regular income. No special rate for long term capital gains exists.' capital_gains is empty.",
+    "Indexing: the booklet does not say whether the brackets, standard deduction, exemption credits, their AGI limits or the military exclusion limits are adjusted for inflation (searched: inflation, indexed, adjusted annually, cost of living). all_other not_stated.",
+    "Recapture: none printed. The exemption-credit AGI limitation reduces credits, not the lower brackets, so it is not recapture.",
+    "Not recorded (credits outside the record's scope, design.md): Senior Head of Household credit (PDF page 15, code 163: 65 or older, qualifying individual died in 2023 or 2024, AGI not over 98,652, 2% of taxable income up to 1,860), joint custody head of household and dependent parent credits, the nonrefundable renter's credit, the California earned income tax credit and the young child tax credit.",
+    "Schedule CA (540) was read as a separate document (2025-540-ca.pdf, retrieved 2026-11-07): it holds only the line labels (line 5 pensions and annuities, line 6 social security benefits, columns B subtractions and C additions); the rules are in the booklet's Schedule CA instructions (PDF pages 55 to 62), so cites use the booklet.",
+    "Registered domestic partners file as married/RDP on the same schedules and amounts; no separate figures printed.",
+    "Page numbers: the booklet's printed page numbers equal the PDF page numbers (PDF page 75 is printed 'Page 75'), so every cite is a PDF page.",
+    "Settlement 2026-11-07: base.deductions personal, blind, senior and dependent exemptions: A and B recorded them in base.deductions with a note that they are credits; PDF page 14 says 'Exemption credits reduce your tax'; moved to reliefs as credits (form credit, credit_amount 153 / 475), as the settlement dispatch asks.",
+    "Settlement 2026-11-07: phase_out on the blind, senior and dependent exemptions (21 fields): A said each has the AGI limitation (federal AGI, 252,203 / 504,411 / 378,310, effect other); B gave it only on the personal exemption; PDF page 14 AGI Limitation Worksheet applies it to lines 7, 8 and 9 (lines f to i) and line 10 (lines j to m). A kept, now each credit's income_test.",
+    "Settlement 2026-11-07: second standard deduction for dependents (7 fields): B only, as entry standard_deduction_dependent with the same amounts as maximums; PDF page 13 prints the California Standard Deduction Worksheet for Dependents (1,350 minimum, 5,706 / 11,412 limits). Kept as the standard deduction's condition, not as a second per-return entry, so no consumer subtracts two standard deductions.",
+    "Settlement 2026-11-07: indexing entries for brackets, standard_deduction and personal_exemption_credit (3 fields): B only, all not_stated; the booklet says nothing about indexing any figure, so by the brief (rule 8) only the all_other entry is kept.",
+    "Settlement 2026-11-07: us_obligations_interest who.basis (6 fields): A said each_person, B said return; PDF page 59 line 2 prints no age test, per-person cap or each-spouse rule, so return (the schema: 'return when neither'). Form set to exempt_in_full (all of that interest, no cap).",
+    "Settlement 2026-11-07: Social Security and railroad entries (12 fields): A had social_security_exclusion (social_security, each_person) and one railroad entry for both tiers (each_person); B had social_security_exclusion covering social_security and railroad_retirement (Tier 1) plus a separate Tier 2 entry (return). PDF page 60 lines 5 and 6 exclude Tier 1 (with Social Security) and RRB-1099-R benefits alike, with no cap, age test or each-spouse rule: one Social Security entry and one railroad entry covering both tiers, basis return, form exempt_in_full.",
+    "Settlement 2026-11-07: military_retirement_exclusion covers (part of 22 fields): A said military_pension, B said military_pension and annuity; PDF page 60 line 5 covers 'retirement pay ... for service in the uniformed services or annuity payments pursuant to a United States Department of Defense Survivor Benefit Plan': B kept, the annuity limited to the Survivor Benefit Plan in other_conditions.",
+    "Settlement 2026-11-07: military_retirement_exclusion who.basis: A said return, B said each_person; PDF page 60: 'The exclusion is capped at $20,000 for a surviving spouse, spouses filing a joint return, and any other individual', with a test on the return's federal AGI and no age test: return, cap_per return (both readers had cap_per return).",
+    "Settlement 2026-11-07: military_retirement_exclusion income_test thresholds for married_separate and head_of_household: A said 125,000, B left them out; PDF page 60: 'federal AGI must not exceed $125,000 (or $250,000 for a surviving spouse or spouses filing a joint return)', so 125,000 for every other status: A kept.",
+    "Settlement 2026-11-07: Tax Table pages (wording): A said pages 63 to 73, B said 69 to 74; PDF page 13 line 31 says 'the tax table beginning on page 69' and the table runs PDF pages 69 to 73 (page 74 is blank)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "11079"
+      },
+      {
+        "rate": "0.04",
+        "start": "26264"
+      },
+      {
+        "rate": "0.06",
+        "start": "41452"
+      },
+      {
+        "rate": "0.08",
+        "start": "57542"
+      },
+      {
+        "rate": "0.093",
+        "start": "72724"
+      },
+      {
+        "rate": "0.103",
+        "start": "371479"
+      },
+      {
+        "rate": "0.113",
+        "start": "445771"
+      },
+      {
+        "rate": "0.123",
+        "start": "742953"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "22158"
+      },
+      {
+        "rate": "0.04",
+        "start": "52528"
+      },
+      {
+        "rate": "0.06",
+        "start": "82904"
+      },
+      {
+        "rate": "0.08",
+        "start": "115084"
+      },
+      {
+        "rate": "0.093",
+        "start": "145448"
+      },
+      {
+        "rate": "0.103",
+        "start": "742958"
+      },
+      {
+        "rate": "0.113",
+        "start": "891542"
+      },
+      {
+        "rate": "0.123",
+        "start": "1485906"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "11079"
+      },
+      {
+        "rate": "0.04",
+        "start": "26264"
+      },
+      {
+        "rate": "0.06",
+        "start": "41452"
+      },
+      {
+        "rate": "0.08",
+        "start": "57542"
+      },
+      {
+        "rate": "0.093",
+        "start": "72724"
+      },
+      {
+        "rate": "0.103",
+        "start": "371479"
+      },
+      {
+        "rate": "0.113",
+        "start": "445771"
+      },
+      {
+        "rate": "0.123",
+        "start": "742953"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "22173"
+      },
+      {
+        "rate": "0.04",
+        "start": "52530"
+      },
+      {
+        "rate": "0.06",
+        "start": "67716"
+      },
+      {
+        "rate": "0.08",
+        "start": "83805"
+      },
+      {
+        "rate": "0.093",
+        "start": "98990"
+      },
+      {
+        "rate": "0.103",
+        "start": "505208"
+      },
+      {
+        "rate": "0.113",
+        "start": "606251"
+      },
+      {
+        "rate": "0.123",
+        "start": "1010417"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 540 Personal Income Tax Booklet",
+      "section": "PDF page 75, 2025 California Tax Rate Schedules X (single or married/RDP filing separately), Y (married/RDP filing jointly or qualifying surviving spouse/RDP) and Z (head of household), for Form 540 line 19 over 100,000; PDF pages 69 to 73 Tax Table for 100,000 or less; PDF page 13, Line 31 - Tax",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [
+    {
+      "id": "behavioral_health_services_tax",
+      "rate": "0.01",
+      "over": {
+        "all": "1000000"
+      },
+      "measure": {
+        "base": "state_taxable_income",
+        "as_printed": "If your taxable income is more than $1,000,000, compute the Behavioral Health Services Tax: taxable income from Form 540, line 19, less $1,000,000, times .01"
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 16, Line 62 - Behavioral Health Services Tax worksheet lines 1 to 5; PDF page 5, What's New, Behavioral Health Services Act (renamed from the Mental Health Services Tax); PDF page 40, Form 540 line 62",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "5706",
+          "married_joint": "11412",
+          "married_separate": "5706",
+          "head_of_household": "11412",
+          "qualifying_surviving_spouse": "11412"
+        },
+        "per": "return",
+        "condition": "The larger of California itemized deductions or this amount (Form 540 line 18). Not for a filer who can be claimed as a dependent: that filer uses the California Standard Deduction Worksheet for Dependents, the smaller of (the larger of earned income or the 1,350 minimum) and 5,706 (single, married/RDP filing separately) or 11,412 (married/RDP filing jointly, head of household, qualifying surviving spouse/RDP). Married/RDP filing separately: both spouses itemize or both take the standard deduction. Not tied to the federal choice.",
+        "cite": {
+          "publication": "2025 Form 540 Personal Income Tax Booklet",
+          "section": "PDF page 13, Line 18 and the California Standard Deduction Chart for Most People; Standard Deduction Worksheet for Dependents lines 1 to 5; PDF page 40, Form 540 line 18; PDF page 52, Schedule CA (540) Part II line 30",
+          "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 540 Personal Income Tax Booklet",
+      "section": "PDF page 39-40, Form 540 lines 13 to 19 (line 13 federal AGI; lines 14 and 16 Schedule CA subtractions and additions; line 18 deduction; line 19 taxable income); PDF page 13 line instructions",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form 540 Personal Income Tax Booklet",
+      "section": "PDF page 60, Schedule CA (540) instructions, Line 6 - Social Security Benefits: 'California excludes U.S. social security benefits or equivalent Tier 1 railroad retirement benefits from taxable income. Enter in column B the amount of taxable U.S. social security benefits ... shown on line 6b, column A'; PDF page 67, claim of right: 'Social security benefits are not taxable by California'",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "social_security_exclusion",
+      "label": "Social security benefits (Schedule CA (540) line 6, column B)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 60, Schedule CA (540) Line 6 - Social Security Benefits",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "railroad_retirement_subtraction",
+      "label": "Railroad retirement benefits: Tier 1 (Schedule CA (540) line 6) and Form RRB-1099-R benefits (line 5), column B",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Tier 1 railroad retirement benefits equivalent to social security, subtracted on line 6",
+          "railroad retirement benefits reported on federal Form RRB-1099-R (Tier 2) and included in taxable income in column A, subtracted on line 5"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 60, Schedule CA (540) Line 5a and 5b - Pensions and Annuities, and Line 6 - Social Security Benefits",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_retirement_exclusion",
+      "label": "Military Retirement Exclusion",
+      "form": "subtraction",
+      "covers": [
+        "military_pension",
+        "annuity"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "retirement pay from the federal government for service in the uniformed services, or annuity payments pursuant to a United States Department of Defense Survivor Benefit Plan (the only annuity covered)",
+          "taxable years beginning on or after 2025-01-01 and before 2030-01-01"
+        ]
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Enter the taxable payment amount in column B, 'not to exceed $20,000 for each type of payments described'; 'The exclusion is capped at $20,000 for a surviving spouse, spouses filing a joint return, and any other individual who did not exceed the federal AGI limits.'",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "The qualified taxpayer's federal AGI must not exceed $125,000 (or $250,000 for a surviving spouse or spouses filing a joint return)"
+        },
+        "threshold": {
+          "single": "125000",
+          "married_separate": "125000",
+          "head_of_household": "125000",
+          "married_joint": "250000",
+          "qualifying_surviving_spouse": "250000"
+        },
+        "effect": "removes",
+        "as_printed": "The qualified taxpayer's federal AGI must not exceed $125,000 (or $250,000 for a surviving spouse or spouses filing a joint return)."
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 60, Schedule CA (540) Line 5a and 5b - Pensions and Annuities; PDF page 6 and PDF page 55, What's New, Military Retirement Exclusion (R&TC Sections 17132.9 and 17132.10)",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "us_obligations_interest",
+      "label": "Interest on U.S. savings bonds, Treasury bills, notes and bonds and other U.S. obligations (Schedule CA (540) line 2, column B)",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "interest from U.S. savings bonds (except series EE bonds issued after 1989 that qualified for the Education Savings Bond Program exclusion), U.S. Treasury bills, notes and bonds, and any other bonds or obligations of the United States and its territories",
+          "exempt-interest dividends from a mutual fund with at least 50% of its assets in tax-exempt U.S. obligations and/or California or its municipal obligations are exempt",
+          "no entry for Fannie Mae, Ginnie Mae or FHLMC securities"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 59, Schedule CA (540) Line 2 - Taxable Interest",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "personal_exemption_credit",
+      "label": "Personal exemption credit (Form 540 line 7)",
+      "form": "credit",
+      "credit_amount": "153",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "number of credits by filing status box: 1 if single, married/RDP filing separately or head of household; 2 if married/RDP filing jointly or qualifying surviving spouse/RDP (Form 540 line 7)",
+          "not if someone else can claim you as a dependent on their tax return (PDF page 12)"
+        ]
+      },
+      "cap_rule": "A fixed 153 a credit, subtracted from the tax (Form 540 line 32 from line 31, line 33 not below zero), not from income; reduced by the AGI limitation.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Form 540, line 13 (federal AGI); RDPs recalculate their AGI using a federal pro forma Form 1040 or 1040-SR or the California RDP Adjustments Worksheet"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "other",
+        "as_printed": "Line 32 - Exemption Credits: 'Exemption credits reduce your tax. If your federal AGI on line 13 is more than the amount shown below for your filing status, your credits will be limited.' Single or married/RDP filing separately $252,203; married/RDP filing jointly or qualifying surviving spouse/RDP $504,411; head of household $378,310. AGI Limitation Worksheet: c = line 13 less the amount; d = c divided by $2,500 ($1,250 if married/RDP filing separately), rounded to the next higher whole number; e = d x $6; the dollar amount of lines 7, 8 and 9 is reduced by e for each box (lines f to i) and the dollar amount of line 10 by e for each dependent (lines j to m), neither below zero. So each 153 or 475 credit loses 6 for each 2,500 (1,250) of AGI or part of it over the amount."
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 39, Form 540 line 7 'X $153'; PDF page 12, Line 7 - Personal Exemptions; PDF page 14, Line 32 - Exemption Credits and AGI Limitation Worksheet",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "blind_exemption_credit",
+      "label": "Blind exemption credit (Form 540 line 8)",
+      "form": "credit",
+      "credit_amount": "153",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "visually impaired: not capable of seeing better than 20/200 while wearing glasses or contact lenses, or field of vision not more than 20 degrees; doctor's statement the first year",
+          "not if someone else can claim you as a dependent on their tax return (PDF page 12)"
+        ]
+      },
+      "cap_rule": "A fixed 153 for each of you or your spouse/RDP who is visually impaired, subtracted from the tax; reduced by the AGI limitation.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Form 540, line 13 (federal AGI); RDPs recalculate their AGI using a federal pro forma Form 1040 or 1040-SR or the California RDP Adjustments Worksheet"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "other",
+        "as_printed": "Line 32 - Exemption Credits: 'Exemption credits reduce your tax. If your federal AGI on line 13 is more than the amount shown below for your filing status, your credits will be limited.' Single or married/RDP filing separately $252,203; married/RDP filing jointly or qualifying surviving spouse/RDP $504,411; head of household $378,310. AGI Limitation Worksheet: c = line 13 less the amount; d = c divided by $2,500 ($1,250 if married/RDP filing separately), rounded to the next higher whole number; e = d x $6; the dollar amount of lines 7, 8 and 9 is reduced by e for each box (lines f to i) and the dollar amount of line 10 by e for each dependent (lines j to m), neither below zero. So each 153 or 475 credit loses 6 for each 2,500 (1,250) of AGI or part of it over the amount."
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 39, Form 540 line 8 'X $153'; PDF page 12, Line 8 - Blind Exemptions; PDF page 14, Line 32 AGI Limitation Worksheet",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "senior_exemption_credit",
+      "label": "Senior exemption credit (Form 540 line 9)",
+      "form": "credit",
+      "credit_amount": "153",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65,
+        "other_conditions": [
+          "65 or older by December 31, 2025; a 65th birthday on January 1, 2026 counts as age 65 on December 31, 2025",
+          "not if someone else can claim you as a dependent on their tax return (PDF page 12)"
+        ]
+      },
+      "cap_rule": "A fixed 153 for each spouse/RDP 65 or older, subtracted from the tax; reduced by the AGI limitation.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Form 540, line 13 (federal AGI); RDPs recalculate their AGI using a federal pro forma Form 1040 or 1040-SR or the California RDP Adjustments Worksheet"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "other",
+        "as_printed": "Line 32 - Exemption Credits: 'Exemption credits reduce your tax. If your federal AGI on line 13 is more than the amount shown below for your filing status, your credits will be limited.' Single or married/RDP filing separately $252,203; married/RDP filing jointly or qualifying surviving spouse/RDP $504,411; head of household $378,310. AGI Limitation Worksheet: c = line 13 less the amount; d = c divided by $2,500 ($1,250 if married/RDP filing separately), rounded to the next higher whole number; e = d x $6; the dollar amount of lines 7, 8 and 9 is reduced by e for each box (lines f to i) and the dollar amount of line 10 by e for each dependent (lines j to m), neither below zero. So each 153 or 475 credit loses 6 for each 2,500 (1,250) of AGI or part of it over the amount."
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 39, Form 540 line 9 'X $153'; PDF page 12, Line 9 - Senior Exemptions; PDF page 14, Line 32 AGI Limitation Worksheet",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "dependent_exemption_credit",
+      "label": "Dependent exemption credit (Form 540 line 10)",
+      "form": "credit",
+      "credit_amount": "475",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "one credit for each dependent listed on the return (name, SSN or ITIN and relationship); the dependents must be the same as on the federal return"
+        ]
+      },
+      "cap_rule": "475 for each dependent, subtracted from the tax; reduced by the AGI limitation (worksheet lines j to m).",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Form 540, line 13 (federal AGI); RDPs recalculate their AGI using a federal pro forma Form 1040 or 1040-SR or the California RDP Adjustments Worksheet"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "other",
+        "as_printed": "Line 32 - Exemption Credits: 'Exemption credits reduce your tax. If your federal AGI on line 13 is more than the amount shown below for your filing status, your credits will be limited.' Single or married/RDP filing separately $252,203; married/RDP filing jointly or qualifying surviving spouse/RDP $504,411; head of household $378,310. AGI Limitation Worksheet: c = line 13 less the amount; d = c divided by $2,500 ($1,250 if married/RDP filing separately), rounded to the next higher whole number; e = d x $6; the dollar amount of lines 7, 8 and 9 is reduced by e for each box (lines f to i) and the dollar amount of line 10 by e for each dependent (lines j to m), neither below zero. So each 153 or 475 credit loses 6 for each 2,500 (1,250) of AGI or part of it over the amount."
+      },
+      "cite": {
+        "publication": "2025 Form 540 Personal Income Tax Booklet",
+        "section": "PDF page 39, Form 540 line 10 'X $475'; PDF page 12, Line 10 - Dependent Exemptions; PDF page 14, Line 32 AGI Limitation Worksheet",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Column C (an addition) takes the federally tax-exempt interest from non-California state bonds, non-California municipal bonds, District of Columbia obligations issued after December 27, 1973, non-California bonds passed through from S corporations, trusts, partnerships or LLCs, and exempt-interest dividends from other states' obligations or from mutual funds that fail the 50% rule. California obligations are not on the list, and a fund with at least 50% of its assets in U.S. and/or California or California municipal obligations pays dividends exempt from California tax. Line 3: 'California taxes dividends derived from other states and their municipal obligations.' The booklet does not say in so many words that California bond interest is exempt; it is read from the addition list and the 50% rule.",
+    "cite": {
+      "publication": "2025 Form 540 Personal Income Tax Booklet",
+      "section": "PDF page 59, Schedule CA (540) Line 2 - Taxable Interest (column C list and the 50% rule) and Line 3 - Ordinary Dividends",
+      "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

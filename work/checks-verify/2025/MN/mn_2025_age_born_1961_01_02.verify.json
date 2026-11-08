@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "35050.00",
+    "state_tax_before_credits": "1911.14",
+    "credits": "0.00",
+    "state_income_tax": "1911.14"
+  },
+  "worked": "Filing status single; ages [64]. M1 line 1 federal AGI 50,000. M1M line 1 addition, other-state municipal interest: 0. Age 65 subtraction: no one is 65 or older: 0. State AGI: 50,000 + 0 - 0 military - 0 railroad - 0 age 65 - 0 Social Security = 50,000. Standard deduction (M1 line 4): 14950; total 14,950. Taxable income (M1 line 9): 50,000 - 14,950 = 35,050. Tax (single schedule, numbers not table): 32,570 x 0.0535 = 1,742.495; 2,480 x 0.068 = 168.64; total 1,911.135 = 1911.14. The printed tax table gives 1911. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 1911.14. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

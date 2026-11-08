@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "95000.00",
+    "state_income_tax": "3789.00",
+    "state_tax_before_credits": "3789.00",
+    "state_taxable_income": "63400.00"
+  },
+  "worked": "Filing status married_joint. Line 4 federal AGI 95,000.00. Additions Line 5-6: none. Line 7 = 95,000.00. Pensions (any payer, incl. federal, military, NY), IRA distributions and Roth conversions: no DC subtraction; taxed in federal AGI (survivor-benefit Line 12 not modelled). Subtractions Line 15: none. Line 16 DC AGI = 95,000.00 - 0.00 = 95,000.00. G-1 a basic standard deduction 30,000.00; persons: born 1958-04-19 age 67, born 1964-08-08 age 61; 1 born before 1961-01-02 (65+) x 1,600.00 = 1,600.00; G-1 h total 31,600.00. Line 19 taxable income = 95,000.00 - 31,600.00 = 63,400.00. Tax rate schedule (Calculation I): 10,000.00 x 0.04 = 400.00; 30,000.00 x 0.06 = 1,800.00; 20,000.00 x 0.065 = 1,300.00; 3,400.00 x 0.085 = 289.00; total 3,789.00 (the form uses the 50-dollar tax table at or under 100,000; schedule result used). Credits: none in the projection, 0.00. DC tax = 3,789.00. Federal senior deduction ignored (federal figures given)."
+}

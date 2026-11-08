@@ -1,0 +1,50 @@
+{
+  "id": "md_2025_ss_exempt",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_rr_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 11, 15-21; Instruction 13 Line 11 (PDF page 16): 'Social Security and railroad retirement benefits are exempt from state tax'; Chart 10A (PDF page 12); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40550.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "57550.00",
+    "federal_taxable_income": "41800.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ss_rr_exempt"
+  ]
+}

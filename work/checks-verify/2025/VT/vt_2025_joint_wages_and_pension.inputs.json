@@ -1,0 +1,53 @@
+{
+  "id": "vt_2025_joint_wages_and_pension",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-04-20"
+      },
+      {
+        "age": 55,
+        "born": "1970-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30020.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "100020.00",
+    "federal_taxable_income": "68520.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

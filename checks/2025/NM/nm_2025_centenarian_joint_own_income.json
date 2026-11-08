@@ -1,0 +1,65 @@
+{
+  "id": "nm_2025_centenarian_joint_own_income",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "centenarian_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF pages 3 to 4, line 12, boxes 12a and 12b; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      },
+      {
+        "age": 88,
+        "born": "1937-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        },
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "65300.00"
+  },
+  "expected": {
+    "state_agi": "5300.00",
+    "state_taxable_income": "5300.00",
+    "state_tax_before_credits": "79.50",
+    "credits": "0.00",
+    "state_income_tax": "79.50",
+    "relief_amounts": {
+      "centenarian_exemption": "60000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 60,000.00 + IRA distribution (person 1) 40,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 65,300.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, married filing jointly. Line 9 federal AGI 100,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 34,700.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 100,000.00 is over the worksheet's printed ceiling 55,000.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 13 age 65 or older: Table 1 (married filing jointly) row for federal AGI 100,000.00 gives 0.00 x 1 qualifying = 0.00; line 12 age 100 or older (person 0, age 100): that person's own income = 60,000.00; PIT-ADJ line 28 total 60,000.00. Line 17 = 100,000.00 + 0.00 - 34,700.00 - 0.00 - 60,000.00 = 5,300.00. By the projection: state_agi = federal taxable income 65,300.00 - 60,000.00 = 5,300.00; less base deductions 0.00 gives 5,300.00. Line 18 tax, schedule as numbers: 1.5% x 5,300.00 = 79.5; total 79.5, to the cent 79.50. The table row over 5,200 to 5,300 gives 79; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 79.50. The booklet exempts half of all community income plus all separate income. If both distributions were community income the exempt amount would be 50,000.00, not 60,000.00. Line 17 would be 15,300.00 and the tax by the schedule 353.60; expected follows the projection.",
+  "accepted_approximations": [
+    "The age 100 exemption offsets the person's own income; a married centenarian exempts half of all community income and all separate income, and New Mexico is a community property state."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "ny_2025_recapture_single_150k",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 12, Line 39 (NY AGI over 107,650: tax computation worksheets); PDF page 33 rate schedule; PDF page 36, Tax computation worksheet 7; Form IT-201 lines 19, 33-39; IT-201-I PDF page 11 (line 34)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-08-18"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "150000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "134250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

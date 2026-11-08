@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "34000.00",
+    "state_taxable_income": "34000.00",
+    "state_tax_before_credits": "1530.00",
+    "credits": "1530.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "military_retirement_credit": "900.00"
+    }
+  },
+  "worked": "TC-40 line 4 federal AGI 34000.00. Line 5 additions: code 57 other-state municipal interest 0.00 (projection muni treatment other_states_taxed_own_exempt; all other-state interest added). Line 6 total income 34000.00 + 0.00 = 34000.00. Line 8 subtractions: code 78 railroad retirement 0.00 (relief railroad_retirement, exempt_in_full). Line 9 Utah taxable income 34000.00 - 0.00 = 34000.00. Qualified Exempt Taxpayer worksheet: line 1 federal AGI 34000.00; line 2 standard deduction 15750.00; line 3 senior deduction left out by the projection (threshold is the standard deduction only); line 5 = 18250.00: above zero, not exempt. State taxable income 34000.00; line 10 tax 34000.00 x 0.045 = 1530.00. Taxpayer tax credit (projection: 6% of the state income up to the cap 15750.00, the federal standard deduction without the age 65 extras): line 16 0.06 x min(34000.00, 15750.00) = 945.00; line 17 base 18213.00; line 18 15787.00; line 19 x 0.013 = 205.23; line 20 credit 739.77. Retirement credit (18): persons born on or before 1952-12-31: 1; line 1 450.00; line 2 34000.00 - line 3 code 57 0.00 + line 5 tax-exempt interest 0.00 = line 6 MAGI 34000.00; line 7 25000.00; line 8 9000.00; line 9 x 0.025 = 225.00; line 10 225.00 (one reduction on the return). Military retirement credit (AJ), one worksheet per person: person 0: 20000.00 x 0.045 = 900.00; total 900.00. Cannot combine 18 with AH or AJ: with 18 the tax is 565.23; with AH and AJ 0.00; keep AH/AJ. Credits: taxpayer tax credit 739.77 + retirement 0.00 + Social Security 0.00 + military 900.00 = 1639.77; limited to the tax 1530.00: 1530.00 (nonrefundable). Utah income tax 1530.00 - 1530.00 = 0.00. Federal figures given; federal senior deduction ignored. Amounts to the cent from the formulas; the form's whole-dollar rounding is not used."
+}

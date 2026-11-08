@@ -1,0 +1,50 @@
+{
+  "id": "ri_2025_ss_at_limit_single",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_social_security_modification"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Modification Worksheet: Taxable Social Security Income Worksheet (booklet page 18)",
+    "section": "Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/Social%20Security%20Worksheet_b.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "73000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "107000.00",
+    "federal_taxable_income": "89250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_social_security_modification"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "expected": {
+    "state_taxable_income": "44250.00",
+    "state_tax_before_credits": "1947.00",
+    "credits": "0.00",
+    "state_income_tax": "1947.00",
+    "relief_amounts": {
+      "co_military_retirement_under_55": "12000.00"
+    }
+  },
+  "worked": [
+    "DR 0104 line 1 federal taxable income 56250.00 (given: federal AGI 72000.00 less the federal standard deduction; federal senior deduction ignored). No additions apply (lines 2-4 addbacks not applied by the projection; AGI under 300,000).",
+    "DR 0104AD line 7: person 0 age 48 (54 or younger): military retirement 12000.00, subtraction min(.., 15,000) = 12000.00.",
+    "DR 0104 line 10 subtractions total 12000.00; line 11 Colorado taxable income = 56250.00 - 12000.00 = 44250.00.",
+    "DR 0104 line 12 tax = 44250.00 x 4.4% = 1947.00 (formula, not the tax table, which would use the row midpoint and round to the dollar). No credits; state income tax {c(tax)}."
+  ]
+}

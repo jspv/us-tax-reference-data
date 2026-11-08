@@ -1,0 +1,40 @@
+{
+  "id": "nd_2025_municipal_interest_no_addition",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "No addition on Form ND-1 lines 2-3 or Schedule ND-1SA lines 1-2 names municipal interest; PDF p.14 Line 5; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "3000.00",
+      "municipal_interest_other_state": "5000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "84250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

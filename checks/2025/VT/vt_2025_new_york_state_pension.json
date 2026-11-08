@@ -1,0 +1,67 @@
+{
+  "id": "vt_2025_new_york_state_pension",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet question 1 (booklet PDF p.16); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-10-01",
+        "not_covered_by_social_security": false
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20040.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50040.00",
+    "federal_taxable_income": "32290.00"
+  },
+  "expected": {
+    "state_agi": "50040.00",
+    "state_taxable_income": "35840.00",
+    "state_tax_before_credits": "1200.64",
+    "credits": "0.00",
+    "state_income_tax": "1200.64"
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 20,040.00 + public pension paid by NY (person 0) 30,000.00 = 50,040.00. Federal taxable income = 50,040.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 32,290.00 (federal senior deduction ignored). Form IN-111, Single: Line 1 federal AGI 50,040.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Schedule IN-112 Line 12: a New York State pension is a pension of 'a state government', but the worksheet's exemption 'only applies to benefits that are based on earnings not covered by the Social Security Act'; this member's earnings paid Social Security tax, so it does not qualify (no Social Security benefits to elect either): Line 12 0.00. The whole pension stays in income. Subtractions: Lines 7-16c all 0.00; Line 18 total subtractions 0.00. Line 19 net modifications = 0.00 - 0.00 = 0.00. Form IN-111 Line 2 0.00; Line 3 = 50,040.00 + (0.00) = 50,040.00. Line 4 standard deduction 7,650.00 + 1 x 1,250.00 age box(es) = 8,900.00 [person 0 born 1959-10-01 (65 or older: box checked)]. Line 5a-5d personal exemptions 1; Line 5e 1 x 5,300.00 = 5,300.00. Line 6 = 8,900.00 + 5,300.00 = 14,200.00. Line 7 Vermont taxable income = 50,040.00 - 14,200.00 = 35,840.00. Line 8: schedule tax on 35,840.00 (Schedule X, booklet p.46, merged continuous schedule): 3.35% x (35,840.00 - 0.00) = 1,200.64; the tax table (pp.47-51) gives 1201. Federal AGI 50,040.00 is not greater than 150,000.00, so no minimum tax: Line 8 1,200.64. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 1,200.64; Lines 11-13 0.00; Line 14 Vermont income tax 1,200.64.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_csrs_exemption",
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "md_2025_joint_two_earners",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule II (PDF page 22); Line 14 and Worksheet 13D (PDF pages 18, 21)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-01"
+      },
+      {
+        "age": 43,
+        "born": "1982-07-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        },
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "88500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

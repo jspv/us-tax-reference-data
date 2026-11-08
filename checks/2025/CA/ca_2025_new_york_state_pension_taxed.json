@@ -1,0 +1,62 @@
+{
+  "id": "ca_2025_new_york_state_pension_taxed",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "PDF page 60 Schedule CA (540) instructions, Line 5a and 5b ('Generally, no adjustments are made on this line'; no subtraction for another state's government pension); Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-04-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "expected": {
+    "state_agi": "80000.00",
+    "state_taxable_income": "74294.00",
+    "state_tax_before_credits": "3347.98",
+    "credits": "153.00",
+    "state_income_tax": "3194.98",
+    "relief_amounts": {
+      "standard_deduction": "5706.00"
+    }
+  },
+  "worked": "Single, 62, California resident: a New York State and Local Retirement System pension 60,000 and wages 20,000; federal AGI = 80,000. California has no subtraction for another state's government pension, so the New York pension is taxed in full. Form 540 line 13 federal AGI = 80,000.00. Federal taxable income = 80,000.00 - 15,750.00 federal standard deduction = 64,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (the New York State pension is taxed as included in federal AGI, Schedule CA line 5, PDF page 60). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 80,000.00 - 0.00 = 80,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 80,000.00 - 5,706.00 = 74,294.00. Tax on 74,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 15,182.00 x 8% = 1,214.56; 1,570.00 x 9.3% = 146.01; total 3,347.98. Line 31: the form uses the Tax Table for taxable income of 100,000 or less; the row 74,251-74,350 gives 3,349 (formula result kept in expected). Line 32 exemption credits: federal AGI 80,000.00 is not more than 252,203.00, so no AGI limitation; line 7 personal 1 x 153 = 153.00; line 9 senior 0 x 153 = 0.00; line 32 = 153.00. Line 33 = 3,347.98 - 153.00 = 3,194.98; no other credits (lines 34 to 47 nil), line 48 = 3,194.98. State income tax = 3,194.98.",
+  "accepted_approximations": [
+    "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

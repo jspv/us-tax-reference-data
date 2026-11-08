@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "19.00",
+  "state_income_tax": "0.00",
+  "state_tax_before_credits": "19.00",
+  "state_taxable_income": "500.00"
+ },
+ "worked": "Federal AGI 16250.00; federal deduction 15750.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 500.00. Line 3, net Iowa modifications: 0.00 - 0.00 = 0.00. Line 4, Iowa taxable income: 500.00 + 0.00 = 500.00. Line 5: 500.00 x 3.8% = 19.00. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 0 x 20 = 0.00; total 40.00. Credits are limited to the tax: 19.00 used; line 12 enters zero if negative (PDF p.18). Line 12: 19.00 - 19.00 = 0.00. The single filers' tax reduction (41-146) is not applied; its terms are not in the sources."
+}

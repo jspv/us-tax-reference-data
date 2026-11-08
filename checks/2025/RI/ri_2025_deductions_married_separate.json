@@ -1,0 +1,53 @@
+{
+  "id": "ri_2025_deductions_married_separate",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "ri_standard_deduction",
+    "ri_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "54000.00",
+    "state_tax_before_credits": "2025.00",
+    "credits": "0.00",
+    "state_income_tax": "2025.00",
+    "relief_amounts": {
+      "ri_personal_exemption": "5100.00",
+      "ri_standard_deduction": "10900.00"
+    }
+  },
+  "worked": "Federal AGI = wages 70,000.00 = 70,000.00. Federal taxable income = 70,000.00 - 15,750.00 standard deduction = 54,250.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 70,000.00. Line 1y total decreasing modifications = 0.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 0.00 = 0.00; RI-1040 line 2 = 0.00. Line 3 modified federal AGI = 70,000.00 + (0.00) = 70,000.00. Standard Deduction and Exemption Worksheets: line 3 70,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 10,900.00 (Married filing separately). Line 5 = 70,000.00 - 10,900.00 = 59,100.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00. Line 7 taxable income = 59,100.00 - 5,100.00 = 54,000.00. Line 8 tax on 54,000.00 by the schedule as numbers: 54,000.00 x 0.0375 = 2025.000000 = 2,025.00. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 2,025.00. Note: Married separate: 10,900 and one exemption; only this spouse is on the return.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_approximations": []
+}

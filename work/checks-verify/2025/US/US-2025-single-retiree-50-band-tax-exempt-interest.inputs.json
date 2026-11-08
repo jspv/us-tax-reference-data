@@ -1,0 +1,37 @@
+{
+  "id": "US-2025-single-retiree-50-band-tax-exempt-interest",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Single retiree age 68 with Social Security, a pension and tax-exempt interest: the tax-exempt interest counts in the worksheet, and the benefits fall partly in the 85% band.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1957-01-20",
+        "age": 68
+      }
+    ],
+    "taxable_pensions": "18000",
+    "tax_exempt_interest": "2000",
+    "social_security_benefits": "30000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "layer": "projection",
+  "state": "LA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/LA.record.json",
+    "sha256": "ea3cfb884ca14949a2adf7454996aa6f332b9a46d8a80ce05b443a653f8fb415"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "la_standard_deduction",
+        "amount": {
+          "single": "12500",
+          "married_separate": "12500",
+          "married_joint": "25000",
+          "head_of_household": "25000",
+          "qualifying_surviving_spouse": "25000"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "la_government_pension",
+      "from_record": [
+        "la_lasers_trsl_benefits",
+        "la_other_exempt_retirement_systems",
+        "la_federal_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "la_railroad_retirement",
+      "from_record": [
+        "la_railroad_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "la_retirement_income_exemption_65",
+      "from_record": [
+        "la_retirement_income_exemption_65"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "public_pension_other_state",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "la_permanent_total_disability_income",
+      "from_record": [
+        "la_permanent_total_disability_income"
+      ],
+      "what": "Exclusion of up to 6,000 of annual disability income for a permanent, total disability (code 49E).",
+      "warn_when": "never"
+    },
+    {
+      "id": "la_military_pay_exclusion",
+      "from_record": [
+        "la_military_pay_exclusion"
+      ],
+      "what": "Exclusion of up to 50,000 of active-duty pay earned outside Louisiana after 120 or more consecutive days on active duty (code 10E).",
+      "warn_when": "never"
+    },
+    {
+      "id": "la_us_obligation_interest",
+      "from_record": [
+        "la_us_obligation_interest"
+      ],
+      "what": "Interest and dividends on U.S. government obligations are exempt (code 01E); the projection cannot tell them from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "la_excess_federal_itemized",
+      "from_record": [
+        "la_excess_federal_itemized"
+      ],
+      "what": "Lines 9A to 9D: for a filer who itemized federally, the federal medical and dental deduction above 15,750 (single or separate), 31,500 (joint or surviving spouse) or 23,625 (head of household) is subtracted as well as the standard deduction.",
+      "warn_when": "never"
+    },
+    {
+      "id": "la_business_sale_gain",
+      "from_record": [
+        "la_business_sale_gain"
+      ],
+      "what": "Net capital gain from selling a nonpublicly traded Louisiana business held at least five years, limited to installment and perfected sales before January 1, 2025 (code 20E).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Roth conversions are left out of the 12,000 retirement income exemption (covers_unclear in the record: the booklet does not name them, though the exemption takes amounts reported on Form 1040 Lines 4b and 5b). If Louisiana counts them, this overstates tax for a converter aged 65 or older.",
+      "direction": "overstates_tax",
+      "size": "At most 360 a year for each person aged 65 or older (12,000 at 3%), and only when that person's other retirement income leaves room under the 12,000."
+    },
+    {
+      "what": "On a joint return with one spouse 65 or older, that spouse gets the exemption on his or her own retirement income, following Worksheet Line 5 ('For each taxpayer 65 or older'). If the code 06E paragraph's 'both you and your spouse are age 65 years or older' were applied literally, that return would get none.",
+      "direction": "understates_tax",
+      "size": "At most 360 a year, if that literal reading were the rule."
+    },
+    {
+      "what": "Every public_pension is treated as exempt. Louisiana exempts only its listed systems (codes 02E, 03E, 05E) and federal retirement systems (code 04E); a Louisiana government pension from a system not on the list would fall in the 12,000 exemption instead.",
+      "direction": "understates_tax",
+      "size": "3% of the pension above any exemption, for a pension from an unlisted system."
+    },
+    {
+      "what": "All Railroad Retirement income is treated as exempt. The only source says benefits 'received by federal retirees' may be excluded, and does not say who else qualifies.",
+      "direction": "understates_tax",
+      "size": "3% of the benefits for a recipient who does not qualify."
+    },
+    {
+      "what": "The age 65 test is applied by age in the tax year; the sources do not say on what date a person must be 65.",
+      "direction": "either",
+      "size": "One year's exemption at most, in the year a person turns 65."
+    },
+    {
+      "what": "The excess medical deduction (Lines 9A to 9D) is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "3% of the federal medical deduction above the Line 9C amount, for a filer who itemizes."
+    },
+    {
+      "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "3% of the interest."
+    },
+    {
+      "what": "A projection that cannot tell Louisiana bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back. Other-state obligations purchased before January 1, 1980 are also not added back by Louisiana.",
+      "direction": "overstates_tax",
+      "size": "3% of the interest on Louisiana bonds and on pre-1980 other-state bonds."
+    },
+    {
+      "what": "The booklet rounds the tax to the nearest dollar (Line 11); the projection does not round.",
+      "direction": "either",
+      "size": "Under 1 dollar."
+    },
+    {
+      "what": "Credits outside the record's scope are not applied: the Louisiana Earned Income Credit (Line 16, 5 percent of the federal credit), child care and school readiness credits, and the credit for income taxes paid to other states (Schedule C Line 1). Other Schedule E exemptions (START contributions, school expense deductions and similar) are not applied either.",
+      "direction": "overstates_tax",
+      "size": "Depends on the household; none for most retirees."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

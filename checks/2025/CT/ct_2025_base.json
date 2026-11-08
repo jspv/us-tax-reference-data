@@ -1,0 +1,48 @@
+{
+  "id": "ct_2025_base",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "Form CT-1040 Lines 1-6; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "35000.00",
+    "state_tax_before_credits": "1325.00",
+    "credits": "132.50",
+    "state_income_tax": "1192.50"
+  },
+  "worked": "Federal AGI = wages 40,000.00 = 40,000.00. Federal taxable income = 40,000.00 - 15,750.00 standard deduction = 24,250.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 40,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 40,000.00. Schedule 1 Line 50 total subtractions = 0.00; CT-1040 Line 4 = 0.00. CT-1040 Line 5 Connecticut AGI = 40,000.00 - 0.00 = 40,000.00. Tax Calculation Schedule Line 1 = 40,000.00; Line 2 Table A: Connecticut AGI 40,000.00 is more than 39,000.00, exemption 5,000.00; Line 3 taxable income = 40,000.00 - 5,000.00 = 35,000.00. Line 4 Table B (Single or Married Filing Separately schedule) on 35,000.00: 10,000.00 x 0.02 + 25,000.00 x 0.045 = 200.00 + 1,125.00 = 1,325.00. Line 5 Table C 0.00 (Connecticut AGI 40,000.00 is not more than 56,500.00); Line 6 Table D 0.00 (not more than 105,000.00); Line 7 = 1,325.00. Line 8 Table E decimal 0.10 (Connecticut AGI 40,000.00 is in the band more than 33,300.00); Line 9 = 1,325.00 x 0.10 = 132.50. Line 10 Connecticut income tax = 1,325.00 - 132.50 = 1,192.50 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Plain wage return: no Schedule 1 additions or subtractions.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

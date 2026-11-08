@@ -1,0 +1,59 @@
+{
+  "id": "id_2025_age_65_qualifying_surviving_spouse",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_addition",
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.10 Line 12a; PDF p.11 worksheet line 5 ('born before January 2, 1961'); Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-03-03"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "26900.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "26900.00",
+    "state_tax_before_credits": "915.73",
+    "credits": "155.00",
+    "state_income_tax": "760.73"
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 60,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 26,900.00 (the federal senior deduction is ignored). Form 40 (filing status qualifying surviving spouse): line 7 federal AGI 60,000.00. Line 8 additions 0.00; line 9 = 60,000.00 + 0.00 = 60,000.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8: a private pension is not in the closed Part Two list (PDF p.45-46). Line 8e 0.00; line 8f 0.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 0.00 = 0.00. Form 40 line 10 0.00; line 11 total adjusted income = 60,000.00 - 0.00 = 60,000.00. Line 12a boxes checked 1. Standard Deduction Worksheet: line 1 31,500.00; line 4 31,500.00; line 5 1 x 1,600.00 = 1,600.00; line 6 33,100.00. Line 15 0.00 (no Schedule A); line 16 33,100.00. Line 17 = 60,000.00 - 33,100.00 = 26,900.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 26,900.00. Line 20 worksheet: line 1 26,900.00; line 2 9,622.00; line 3 = 17,278.00; line 4 at 5.3%; line 5 tax = 17,278.00 x 5.3% = 915.734, to the cent 915.73 (the return rounds to whole dollars, PDF p.8, and shows 916; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 915.73. Food Tax Credit Worksheet (Form 40 line 43): 1 x 155.00 = 155.00. State income tax = 915.73 - 155.00 = 760.73. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations). Line 18 would take any federal Schedule 1-A amount, the senior deduction included; it is ignored here and the projection does not subtract it (approximations). Worksheet line 5 prints 2,000 only for single and head of household, so a qualifying surviving spouse takes 1,600; the tax worksheet line 2 is 9,622.",
+  "accepted_approximations": [
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged.",
+    "The federal Schedule 1-A and qualified business income deductions are not subtracted (Form 40 line 18)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:health_insurance_premiums",
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction",
+    "state_rule_not_modelled:ret_csrs_fsrds",
+    "state_rule_not_modelled:ret_idaho_firefighters"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

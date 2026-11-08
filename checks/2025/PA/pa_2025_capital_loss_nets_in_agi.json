@@ -1,0 +1,50 @@
+{
+  "id": "pa_2025_capital_loss_nets_in_agi",
+  "state": "PA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+    "section": "PA-40 lines 1a to 12 (form pages 1-2); PDF page 1 and form line 12 rate 3.07 percent; PDF page 9 no standard deduction or exemptions; PDF page 20 Lines 9 and 10; PDF page 21 Lines 11 and 12; PDF page 20 'You cannot use a loss that you report in one income class'; projection: starts from federal AGI, losses are as AGI holds them",
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-10-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "-3000.00"
+    },
+    "federal_agi": "57000.00",
+    "federal_taxable_income": "41250.00"
+  },
+  "expected": {
+    "state_agi": "57000.00",
+    "state_taxable_income": "57000.00",
+    "state_tax_before_credits": "1749.90",
+    "credits": "0.00",
+    "state_income_tax": "1749.90"
+  },
+  "worked": "A capital loss: federal AGI nets 3,000.00 against wages; PA ignores it, the projection starts from AGI and keeps the netting. Federal AGI = wages person 0 60,000.00 + long-term gains -3,000.00 = 57,000.00. Federal taxable income = 57,000.00 - standard deduction 15,750.00 = 41,250.00 (given, not tested; the federal senior deduction is ignored). Pennsylvania, as the projection works it: start federal AGI 57,000.00; income after reliefs = 57,000.00. No standard deduction or exemption (PDF page 9), no Line 10 deduction: state taxable income 57,000.00. Tax = 57,000.00 x 0.0307 = 1,749.90. No credit in the projection; state income tax 1,749.90. Form: Line 1a/1c 60,000.00; Line 2 0.00; Line 3 0.00; Line 5 0.00; Line 9 60,000.00; Line 10 0.00; Line 11 60,000.00; Line 12 1,842.00. Schedule SP: Eligibility Income 60,000.00 is over 8,750.00, so no Tax Forgiveness on the form either. The form adds only positive classes: its Line 9 is 60,000.00 and its tax 1,842.00, 92.10 over the projection's 1,749.90 (the approximation's own example). Expected follows the projection.",
+  "accepted_approximations": [
+    "Pennsylvania has no federal starting point: it adds the positive amounts of eight classes (compensation, interest, dividends, business, gains, rents, estates and trusts, gambling). The mapping runs from federal AGI to those classes: start from federal AGI, then take out what the reliefs below exempt. Wages, interest, dividends, gains, business income and rents are taken as federal AGI holds them, in one sum. The differences that remain are listed one by one in the next four entries.",
+    "Losses: Pennsylvania ignores a loss in one class against any other class, has no carryover, and does not let one spouse's loss offset the other's income. Federal AGI nets capital losses against other income, up to 3,000 a year with carryover, and business and rental losses in full."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

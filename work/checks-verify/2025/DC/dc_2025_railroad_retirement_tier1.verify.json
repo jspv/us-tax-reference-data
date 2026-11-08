@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "22000.00",
+    "state_income_tax": "200.00",
+    "state_tax_before_credits": "200.00",
+    "state_taxable_income": "5000.00",
+    "relief_amounts": {
+      "railroad_retirement_tier1": "18000.00"
+    }
+  },
+  "worked": "Filing status single. Line 4 federal AGI 40,000.00. Additions Line 5-6: none. Line 7 = 40,000.00. Line 10 subtraction: railroad retirement 18,000.00 exempted in full by the projection (railroad_retirement_tier1, exempt_in_full; tier 2 also exempted per the projection approximation). Pensions (any payer, incl. federal, military, NY), IRA distributions and Roth conversions: no DC subtraction; taxed in federal AGI (survivor-benefit Line 12 not modelled). Line 16 DC AGI = 40,000.00 - 18,000.00 = 22,000.00. G-1 a basic standard deduction 15,000.00; persons: born 1959-05-05 age 66; 1 born before 1961-01-02 (65+) x 2,000.00 = 2,000.00; G-1 h total 17,000.00. Line 19 taxable income = 22,000.00 - 17,000.00 = 5,000.00. Tax rate schedule (Calculation I): 5,000.00 x 0.04 = 200.00; total 200.00 (the form uses the 50-dollar tax table at or under 100,000; schedule result used). Credits: none in the projection, 0.00. DC tax = 200.00. Federal senior deduction ignored (federal figures given)."
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "85000.00",
+    "state_taxable_income": "77000.00",
+    "state_tax_before_credits": "4070.00",
+    "credits": "0.00",
+    "state_income_tax": "4070.00"
+  },
+  "worked": "Line 19 federal AGI 85000.00 (given). Federal taxable income 69250.00 given, not used (NY starts from federal AGI).\nLine 24 = 85000.00\nLine 32 subtractions 0; line 33 NY AGI = 85000.00 - 0 = 85000.00\nLine 34 standard deduction (single) 8000; line 36 dependents none; line 37/38 taxable income = 85000.00 - 8000 = 77000.00\nRate schedule on 77000.00: 8500 x 0.04 = 340.00; 3200 x 0.045 = 144.000; 2200 x 0.0525 = 115.5000; 63100.00 x 0.055 = 3470.50000; schedule tax 4070.00000\nNY AGI 85000.00 <= 107,650: no recapture worksheet; tax = schedule tax 4070.00\nLine 39 tax as above; credits (household credit etc.) not in projection: 0; state income tax = line 39"
+}

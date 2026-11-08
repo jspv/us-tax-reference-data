@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "41950.00",
+    "state_income_tax": "249.69",
+    "state_tax_before_credits": "249.69",
+    "state_taxable_income": "9050.00",
+    "relief_amounts": {
+      "private_pension_subtraction": "4000.00"
+    }
+  },
+  "worked": "Filing status qualifying_surviving_spouse; persons ages [58]. Federal AGI 45950.00 (given). Taxable Social Security 18950.00 split by each person's share of benefits (MO-A Section C worksheet): person 0: 18950.00 x 48000.00/48000.00 = 18950.00 Person 0 group mo_social_security_or_public_pension: public pension min(0, 47633) = 0; Social Security exemption 0 (age 58 under 62; taxable share 18950.00 stays taxed); keep the larger: none 0. (Form MO-A Section A Line 4 = Line 2 less Line 3, so pension + SS together = the larger.) Private pension (MO-A Section B): covered per person ['6000.00'] (private pensions, annuities, IRA and plan distributions; Roth conversions not covered; railroad not included), each limited to 6000: ['6000.00'], Line 8 total 6000.00. Line 1-3 measure: federal AGI 45950.00 + other-state muni 0 - taxable SS 18950.00 - gains 0 - military 0 - railroad 0 - business 0.0 = 27000.00; limit 25000; Line 5 excess (over strictly) 2000.00; Line 9 = max(0, 6000.00 - 2000.00) = 4000.00 (excess taken once off the total). Missouri AGI (state_agi) = 45950.00 + additions 0 - subtractions 4000.00 = 41950.00 Deductions (MO-1040 Lines 14-15): standard 31500 + age 65 1600 x 0 = 0 + head of household/QSS exemption 1400 = 32900 Taxable income = 41950.00 - 32900 = 9050.00 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2626 - 1313) = 26.26; 0.025 x (3939 - 2626) = 32.825; 0.03 x (5252 - 3939) = 39.39; 0.035 x (6565 - 5252) = 45.955; 0.04 x (7878 - 6565) = 52.52; 0.045 x (9050.00 - 7878) = 52.74000; sum 249.69000 -> 249.69 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 249.69"
+}

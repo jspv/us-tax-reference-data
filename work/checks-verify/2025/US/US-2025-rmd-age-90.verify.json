@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "rmd_amount": "10119.41",
+    "rmd_divisor": "12.2"
+  },
+  "worked": "Owner born 1935-10-31, attains age 90 in 2025; Uniform Lifetime Table age 90 divisor 12.2; 123456.78 / 12.2 = 10119.41."
+}

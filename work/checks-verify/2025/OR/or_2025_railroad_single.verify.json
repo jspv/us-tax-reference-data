@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "256.00",
+    "relief_amounts": {
+      "railroad_retirement_subtraction": "22000.00"
+    },
+    "state_agi": "20000.00",
+    "state_income_tax": "830.94",
+    "state_tax_before_credits": "1086.94",
+    "state_taxable_income": "15965.00"
+  },
+  "worked": "Line 7 federal AGI 42000.00 (start: projection base.starts_from federal_agi). Railroad Retirement Board benefits subtraction (code 330) -22000.00. Federal tax liability subtraction (line 10): not_modelled, not applied. Oregon income after additions and subtractions (state_agi) 20000.00. Line 17 standard deduction 2835.00 + age 65 addition 1 x 1200.00 = 4035.00. Line 19 taxable income 20000.00 - 4035.00 = 15965.00. Line 20 tax, schedule S: 4400.00 x 0.0475 = 209; 6700.00 x 0.0675 = 452.25; 4865.00 x 0.0875 = 425.6875; total 1086.9375 = 1086.94. Line 25 exemption credit: federal AGI 42000.00 is not over 100000.00: 1 x 256 = 256.00. Code 811 line 3 covered income of those 62 or older: 20000.00 (ira_distribution 20000.00 person 0). Line 4 limit 7500.00; less Social Security 0.00 and railroad 22000.00 = 0.00; smaller of covered and that = 0.00. Income measure: federal AGI 42000.00 + tax-exempt interest 0.00 - taxable Social Security 0.00 = 42000.00; over 15000.00 by 27000.00. Projection: 0.00 - 27000.00 = 0.00 (not below 0); x 9% = 0.00. Credits 256.00 + 0.00 = 256.00: 256.00. State income tax 1086.94 - 256.00 = 830.94. Federal senior deduction ignored; federal figures as given."
+}

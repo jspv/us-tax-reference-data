@@ -1,0 +1,64 @@
+{
+  "id": "me_2025_joint_std_deduction_inside_band",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "age_65_additional_standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+    "section": "Form 1040ME lines 14-20 (PDF pp.1-2); line 17 Maine Standard Deduction Chart and Worksheet for Standard / Itemized Deductions lines 1-8 (booklet PDF p.5); line 13 table and line 18 (PDF p.5); Worksheet for Phaseout of Personal Exemption Deduction Amount lines 1-8 (booklet PDF p.6); 2025 Tax Rate Schedules (PDF p.13). Record cite: base.deductions, booklet PDF page 5 (chart, worksheet line 4 widths 75,000 / 112,500 / 150,000, line 5 to four decimals, line 13 table), PDF page 6 (exemption worksheet line 4 widths 125,000 / 62,500, line 5 to four decimals), PDF page 11 Quick Facts; brackets PDF page 13",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-03-03"
+      },
+      {
+        "age": 66,
+        "born": "1959-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        },
+        {
+          "amount": "50111.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "250111.00",
+    "federal_taxable_income": "215411.00"
+  },
+  "expected": {
+    "state_agi": "250111.00",
+    "state_taxable_income": "217689.84",
+    "state_tax_before_credits": "14548.02",
+    "credits": "0.00",
+    "state_income_tax": "14548.02",
+    "relief_amounts": {}
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 200,000.00 + wages (person 1) 50,111.00 = 250,111.00. Federal taxable income = 250,111.00 - 31,500.00 standard deduction - 2 x 1,600.00 for 65 or older = 215,411.00 (federal senior deduction ignored). Form 1040ME, married filing jointly: line 14 federal AGI 250,111.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 0.00; Schedule 1A total = line 15a 0.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 0.00 + railroad retirement 0.00 = 0.00. Schedule 1S line 4 pension income deduction 0.00 (no eligible pension income). Schedule 1S line 27 total subtractions = 0.00 + 0.00 = line 15b 0.00. Line 16 Maine AGI = 250,111.00 + 0.00 - 0.00 = 250,111.00. Line 17 (person 0 born 1957-03-03 is 68 at December 31, 2025; person 1 born 1959-10-10 is 66 at December 31, 2025; 2 box(es)): Worksheet for Standard/Itemized Deductions (PDF p.5): line 1 250,111.00; line 2 200,050.00; line 3 50,061.00; line 4 150,000.00; line 5 = 0.33374, entered to four decimals as 0.3337; line 6 chart amount 33,200.00; line 7 = 33,200.00 x 0.3337 = 11,078.84; line 8 = 22,121.16. Projection (share kept 1 - 0.3337 = 0.6663): base 30,000.00 x 0.6663 = 19,989.00 + additional 65-or-over 2 x 1,600.00 x 0.6663 = 2,132.16 = 22,121.16, the same. Line 17 = 22,121.16. Line 13 = 2; line 18 exemption = 2 x 5,150.00 = 10,300.00 (Maine AGI not over 400,100.00). Line 19 taxable income = 250,111.00 - 22,121.16 - 10,300.00 = 217,689.84. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (53,600.00 - 0.00) = 3,108.80 + 6.75% x (126,900.00 - 53,600.00) = 4,947.75 + 7.15% x (217,689.84 - 126,900.00) = 6,491.47356 = 14,548.02356, 14,548.02 to the cent. The printed schedule (PDF p.13) with its whole-dollar constant 8,057.00 gives 14,548.47; expected keeps the bracket tax computed in full. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 14,548.02.",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:me_property_tax_fairness_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

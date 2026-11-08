@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "33000.00",
+    "state_taxable_income": "20500.00",
+    "state_tax_before_credits": "615.00",
+    "credits": "0.00",
+    "state_income_tax": "615.00",
+    "relief_amounts": {
+      "la_government_pension": "36000.00"
+    }
+  },
+  "worked": "Schedule E Line 1 federal AGI 69,000.00 (given). Line 3 = 69,000.00. Military retired pay 36,000.00 (person 0) exempt in full, code 04E (FAQ: both military and nonmilitary). 06E worksheet person 0 (age 48): under 65, Line 5 none (own L3 0.00 gets no exemption). Worksheet Line 6 code 06E = 0.00. Line 4H exempt income = gov 36,000.00 + railroad 0.00 + 06E 0.00 + 07E 0.00 = 36,000.00. Line 5 Louisiana AGI = 69,000.00 - 36,000.00 = 33,000.00. IT-540 Line 7 33,000.00; Line 8 standard deduction 12,500.00; Line 9D none; Line 10 = 20,500.00. Line 11 = 20,500.00 x .03 = 615.00 (form rounds to the dollar: 615). Line 12 credits 0.00; Line 13 tax 615.00."
+}

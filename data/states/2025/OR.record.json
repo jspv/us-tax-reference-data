@@ -1,0 +1,1014 @@
+{
+ "layer": "record",
+ "state": "OR",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "4400"
+   },
+   {
+    "rate": "0.0875",
+    "start": "11100"
+   },
+   {
+    "rate": "0.099",
+    "start": "125000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "4400"
+   },
+   {
+    "rate": "0.0875",
+    "start": "11100"
+   },
+   {
+    "rate": "0.099",
+    "start": "125000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "8800"
+   },
+   {
+    "rate": "0.0875",
+    "start": "22200"
+   },
+   {
+    "rate": "0.099",
+    "start": "250000"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "8800"
+   },
+   {
+    "rate": "0.0875",
+    "start": "22200"
+   },
+   {
+    "rate": "0.099",
+    "start": "250000"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+   "section": "PDF p.143, 'Miscellaneous Oregon income tax information for tax years 2022-2025', Marginal tax rates, 2025 column (one schedule for Single and Married filing separately; one for Married filing jointly, Head of household and Qualifying surviving spouse); Form OR-40 instructions PDF p.32 Chart S and Chart J",
+   "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "2835",
+     "married_joint": "5670",
+     "married_separate": "2835",
+     "head_of_household": "4560",
+     "qualifying_surviving_spouse": "5670"
+    },
+    "per": "return",
+    "condition": "Use the larger of this or Oregon itemized deductions (Schedule OR-A). Married filing separately: 0 if the spouse itemizes. Non-U.S. citizen without permanent resident status: 0 (itemized deductions may be claimed). Short-period return: none. Someone who can be claimed as a dependent on another return: the larger of earned income plus 450, up to the filing-status amount, or 1,350.",
+    "cite": {
+     "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+     "section": "PDF p.16, line 17, Table 5. Standard deduction, and 'Standard deduction-Dependents who can be claimed on another taxpayer's return'; Form OR-40 PDF p.3 line 17; Pub OR-17 PDF p.95 and p.143",
+     "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "age_65_additional",
+    "what": "age_65_exemption",
+    "amount": {
+     "single": "1200",
+     "head_of_household": "1200",
+     "married_joint": "1000",
+     "married_separate": "1000",
+     "qualifying_surviving_spouse": "1000"
+    },
+    "per": "person",
+    "condition": "Each of you and your spouse who turned age 65 by January 1, 2026 (a box on line 17): 1,200 if single or head of household, 1,000 for all other filers, added to the standard deduction.",
+    "cite": {
+     "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+     "section": "PDF p.16, line 17 'Standard deduction-Age 65 or older, or blind'; Pub OR-17 PDF p.95",
+     "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "blind_additional",
+    "what": "blind_exemption",
+    "amount": {
+     "single": "1200",
+     "head_of_household": "1200",
+     "married_joint": "1000",
+     "married_separate": "1000",
+     "qualifying_surviving_spouse": "1000"
+    },
+    "per": "person",
+    "condition": "Each of you and your spouse who was blind at the end of the tax year (a box on line 17): 1,200 if single or head of household, 1,000 for all other filers, added to the standard deduction.",
+    "cite": {
+     "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+     "section": "PDF p.16, line 17 'Standard deduction-Age 65 or older, or blind'; Pub OR-17 PDF p.95",
+     "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "federal_tax_liability_subtraction",
+    "what": "other",
+    "amount": {
+     "single": "8500",
+     "married_joint": "8500",
+     "married_separate": "4250",
+     "head_of_household": "8500",
+     "qualifying_surviving_spouse": "8500"
+    },
+    "per": "return",
+    "condition": "Subtraction on Form OR-40 line 10, before the deduction on lines 16-18: the smaller of the filer's federal income tax liability after credits other than the earned income credit (worksheet lines 1-10: Form 1040 line 22, less excess advance premium tax credit, plus certain other income taxes, less American Opportunity, refundable adoption and premium tax credits) and the maximum, which is the amount shown here until federal AGI reaches the first step, then falls with federal AGI (Table 4). Not self-employment tax, Social Security or Medicare tax on tips, household employment taxes, penalties or interest.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "federal adjusted gross income (Form OR-40 line 7)"
+     },
+     "threshold": {
+      "single": "125000",
+      "married_separate": "125000",
+      "married_joint": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "stepped",
+     "applies_when": "at_or_over",
+     "steps": [
+      {
+       "status": "single",
+       "over": "0",
+       "amount": "8500"
+      },
+      {
+       "status": "single",
+       "over": "125000",
+       "amount": "6800",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "130000",
+       "amount": "5100",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "135000",
+       "amount": "3400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "140000",
+       "amount": "1700",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "145000",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "0",
+       "amount": "4250"
+      },
+      {
+       "status": "married_separate",
+       "over": "125000",
+       "amount": "3400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "130000",
+       "amount": "2550",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "135000",
+       "amount": "1700",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "140000",
+       "amount": "850",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "145000",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "0",
+       "amount": "8500"
+      },
+      {
+       "status": "married_joint",
+       "over": "250000",
+       "amount": "6800",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "260000",
+       "amount": "5100",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "270000",
+       "amount": "3400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "280000",
+       "amount": "1700",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "290000",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "0",
+       "amount": "8500"
+      },
+      {
+       "status": "head_of_household",
+       "over": "250000",
+       "amount": "6800",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "260000",
+       "amount": "5100",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "270000",
+       "amount": "3400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "280000",
+       "amount": "1700",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "290000",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "0",
+       "amount": "8500"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "250000",
+       "amount": "6800",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "260000",
+       "amount": "5100",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "270000",
+       "amount": "3400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "280000",
+       "amount": "1700",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "290000",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      }
+     ],
+     "as_printed": "Table 4. Federal tax liability subtraction AGI phaseout: maximum allowable tax liability subtraction by federal AGI ('At least' / 'But less than'); 0 at 145,000 or more (single, married filing separately) or 290,000 or more (joint, head of household, qualifying surviving spouse)"
+    },
+    "cite": {
+     "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+     "section": "PDF p.14-15, line 10 and Federal tax liability subtraction worksheet; PDF p.15 Table 4; PDF p.4 'Federal tax liability subtraction'; Pub OR-17 PDF p.71-72 and Table 9",
+     "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Form OR-40 Oregon Individual Income Tax Return for Full-year Residents",
+   "section": "PDF p.3, lines 7-19: line 7 federal AGI, line 8 additions, lines 10-13 subtractions, lines 16-18 itemized or standard deduction, line 19 Oregon taxable income",
+   "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Form OR-40 Oregon Individual Income Tax Return for Full-year Residents",
+   "section": "PDF p.3, line 11 'Social Security amount on federal Form 1040 or 1040-SR, line 6b' is a subtraction; Pub OR-17 PDF p.52 'Oregon doesn't tax any amount of your Social Security, Railroad Retirement Board, or railroad unemployment benefits' and PDF p.83; instructions PDF p.15 line 11",
+   "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "social_security_subtraction",
+   "label": "Social Security benefits subtraction (Form OR-40 line 11)",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.83 'Social Security benefits (ORS 316.054)': Oregon doesn't tax Social Security benefits; any included in federal AGI are subtracted. Form OR-40 instructions PDF p.15 line 11",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "railroad_retirement_subtraction",
+   "label": "Railroad Retirement Board benefits subtraction",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "not_covered": [
+    "Benefits paid by private railroad employers are private pensions taxed the same on both the federal and Oregon returns. There is no Oregon subtraction for retirement benefits paid by private railroad employers."
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Benefits paid by the Railroad Retirement Board only (Tier 1 with Social Security on line 11; Tier 2, windfall, vested dual, supplemental annuities, unemployment and sickness on Schedule OR-ASC)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.82 'Railroad Retirement Board benefits (ORS 316.054)', subtraction code 330; Form OR-40 instructions PDF p.15 line 11",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "federal_pension_subtraction",
+   "label": "Federal pension income subtraction (code 307)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "military_pension",
+    "employer_plan_distribution"
+   ],
+   "paying_states": [
+    "federal"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Federal pension included in federal AGI, paid to the retiree or the beneficiary (military retirement pay counts: the booklet's Example 2 is an Army Reserve retiree and the credit list says 'Federal pensions (includes military)')",
+     "The share subtracted is the months of federal service or retirement points earned before October 1, 1991 divided by the total months or points, rounded to three places: 100 percent if all were before that date, nothing if none were; the same percentage is used every year",
+     "employer_plan_distribution here means federal Thrift Savings Plan withdrawals only, and only once the taxpayer is a retiree"
+    ]
+   },
+   "cap_rule": "No dollar cap. The subtraction is the person's own federal pension percentage times the taxable federal pension in federal AGI (worksheet lines 1-3). The percentage is personal and is not in the share field.",
+   "not_covered": [
+    "Disability payments if you haven't attained the minimum retirement age",
+    "Federal pension with no months of service or points earned before October 1, 1991",
+    "Thrift Savings Plan withdrawals before retirement",
+    "Thrift Savings Plan money moved to another type of account: it loses its character and is no longer a federal pension"
+   ],
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.73-74 'Federal pension income [ORS 316.680(1)(e)]' [Subtraction code 307], worksheet and Examples 1-2; PDF p.106 credit list 'Federal pensions (includes military) not subtracted from Oregon taxable income'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "retirement_income_credit",
+   "label": "Retirement income credit (code 811)",
+   "form": "credit",
+   "credit_rate": "0.09",
+   "credit_basis": "covered_income",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "military_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "annuity"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Social Security and Tier 1 Railroad Retirement Board benefits (they reduce the limit instead, worksheet lines 5-6)",
+    "Federal pension income already subtracted from Oregon income (worksheet line 2)",
+    "Stock options, restructured stock plans and severance plans"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "other_conditions": [
+     "Receives taxable retirement income included in Oregon taxable income",
+     "Household income less than 22,500 (45,000 if married filing jointly)",
+     "Social Security and Tier 1 Railroad Retirement Board benefits less than 7,500 (15,000 if married filing jointly)",
+     "Household income plus Social Security and Tier 1 benefits less than 22,500 (45,000 if married filing jointly)"
+    ]
+   },
+   "cap": {
+    "single": "7500",
+    "married_separate": "7500",
+    "head_of_household": "7500",
+    "qualifying_surviving_spouse": "7500",
+    "married_joint": "15000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Credit = 9 percent of the smaller of (a) net Oregon taxable pension (line 3: retirement income of the eligible individual(s) on Form OR-40 line 7, less federal pension subtracted) and (b) line 10: 7,500 (15,000 if married filing jointly) minus both spouses' total Social Security and Tier 1 benefits, not below 0, then minus household income over the base of 15,000 (30,000 if married filing a joint return), not below 0. The credit can't be more than the tax; unused credit is lost.",
+   "income_test": {
+    "measure": {
+     "base": "household_income",
+     "as_printed": "Household income generally includes all income (both taxable and nontaxable) each spouse received during the year; gross income reduced by adjustments as reported in federal AGI, plus items not in federal AGI (veterans' and military benefits, gifts/grants/scholarships over 500, disability pay, nontaxable dividends, inheritance, insurance proceeds, nontaxable interest, lottery winnings, Tier 2 RRB benefits, IRA conversions included in AGI); excludes Social Security and Tier 1 RRB benefits, state tax refund, return-of-contribution pension income, rolled-over pensions not in AGI"
+    },
+    "threshold": {
+     "single": "15000",
+     "married_separate": "15000",
+     "head_of_household": "15000",
+     "qualifying_surviving_spouse": "15000",
+     "married_joint": "30000"
+    },
+    "effect": "dollar_for_dollar",
+    "as_printed": "Worksheet lines 7-10: 'Household income base. Enter $15,000 ($30,000 if married filing a joint return)'; 'Line 7 minus line 8, but not less than $0'; 'Line 6 minus line 9, but not less than $0'. The three 'How do you qualify' tests (household income under 22,500, benefits under 7,500, the two together under 22,500; 45,000 and 15,000 if married filing jointly) are the points where this worksheet reaches 0."
+   },
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.106-107 'Retirement income (ORS 316.157)' [Credit code 811]: Who can claim, How do you qualify, What's included in household income, worksheet lines 1-12; PDF p.52 'Retirement income means income from'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "previously_taxed_retirement_contributions",
+   "label": "Previously taxed employee retirement plan contributions (code 327)",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution",
+    "employer_plan_distribution",
+    "public_pension_other_state"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Oregon resident who made the plan contributions while a nonresident",
+     "Contributions deducted on federal return but taxed (no deduction allowed) by the state where the person was a resident, and a return was filed there",
+     "Distributions included in federal AGI this year",
+     "Not required to file a nonresident Oregon return for the contribution year; no credit for tax paid to another state; no other-state tax benefit for the distributions before becoming an Oregon resident",
+     "Not available when the other state did not tax the contributions (the booklet's California and Washington examples); the Kansas example is a state public employee retirement fund"
+    ]
+   },
+   "cap_rule": "Distributions after becoming an Oregon resident are treated as recovery of previously taxed contributions; subtraction each year up to the total previously taxed contributions. No subtraction for interest or other investment income or for contributions not previously taxed.",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.80-81, 'Previously taxed employee retirement plan contributions (ORS 316.159) [Subtraction code 327]' and Examples 1-4 (Example 2: Kansas public employee retirement fund)",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "previously_taxed_ira_conversion",
+   "label": "Previously taxed IRA conversions (code 348)",
+   "form": "subtraction",
+   "covers": [
+    "roth_conversion"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Conversion of a traditional IRA to a Roth IRA that is taxed by another state (e.g. converted while a resident of New York) and the amount is included in federal taxable income"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.81, 'Previously taxed IRA conversions [ORS 316.680(1)(f)] [Subtraction code 348]'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_obligations_interest_subtraction",
+   "label": "Interest and dividends on U.S. bonds and notes (code 315)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "not_covered": [
+    "Amounts where the U.S. government only guarantees the security",
+    "Pension income received from funds invested in U.S. government securities",
+    "Gain recognized on the sale of U.S. bonds and notes (taxable by Oregon)",
+    "Interest from Fannie Mae, Freddie Mac, Farmers Home Administration, Export-Import Bank (with asterisk), Ginnie Mae (asterisk), repurchase agreements and others marked No"
+   ],
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.77-78 'Interest and dividends on U.S. bonds and notes [ORS 316.680(1)(a)]' [Subtraction code 315] and its list; PDF p.86 'Interest and dividends on U.S. bonds and notes are exempt from state tax'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_interest_in_ira_distributions",
+   "label": "U.S. government interest in IRA or Keogh distributions (code 331)",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "A distribution from a self-employed retirement plan or an IRA that is included in federal AGI",
+     "Part of the plan or IRA was invested in U.S. bonds and notes"
+    ]
+   },
+   "cap_rule": "The subtraction is the retirement plan exempt earnings included in the distribution, by any reasonable method (the booklet's worksheet: exempt earnings on the account as a share of balance plus distribution, times the distribution).",
+   "not_covered": [
+    "Other retirement plans: 'you may not subtract pension income received from funds invested in U.S. government securities' (PDF p.77)"
+   ],
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.86-87 'U.S. government interest in IRA or Keogh distributions (ORS 316.681)' [Subtraction code 331] and example",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "special_oregon_medical_subtraction",
+   "label": "Special Oregon medical subtraction (code 351)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "min_age": 66,
+    "other_conditions": [
+     "Turned 66 by the end of the tax year; only that person's own qualifying medical or dental expenses (not anyone under 66, not dependents, not expenses deducted elsewhere on the return)",
+     "Federal AGI not more than 200,000 (100,000 if single or married filing separately)"
+    ]
+   },
+   "cap": {
+    "all": "1800"
+   },
+   "cap_per": "person",
+   "cap_rule": "Each qualifying person's subtraction is the smaller of that person's qualifying expenses (their share of the Oregon deduction if itemizing; the expenses themselves if not) and the Table 1 maximum for filing status and federal AGI, never more than 1,800 each; the two are added. A filer on the standard deduction can claim it.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income from Form OR-40, line 7"
+    },
+    "threshold": {
+     "single": "25000",
+     "married_separate": "25000",
+     "married_joint": "50000",
+     "head_of_household": "50000",
+     "qualifying_surviving_spouse": "50000"
+    },
+    "effect": "stepped",
+    "applies_when": "at_or_over",
+    "steps": [
+     {
+      "status": "single",
+      "over": "0",
+      "amount": "1800"
+     },
+     {
+      "status": "single",
+      "over": "25000",
+      "amount": "1400",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "single",
+      "over": "50000",
+      "amount": "1000",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "single",
+      "over": "100001",
+      "amount": "0",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "amount": "1800"
+     },
+     {
+      "status": "married_separate",
+      "over": "25000",
+      "amount": "1400",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_separate",
+      "over": "50000",
+      "amount": "1000",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_separate",
+      "over": "100001",
+      "amount": "0",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_joint",
+      "over": "0",
+      "amount": "1800"
+     },
+     {
+      "status": "married_joint",
+      "over": "50000",
+      "amount": "1400",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "amount": "1000",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "married_joint",
+      "over": "200001",
+      "amount": "0",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "amount": "1800"
+     },
+     {
+      "status": "head_of_household",
+      "over": "50000",
+      "amount": "1400",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100000",
+      "amount": "1000",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "head_of_household",
+      "over": "200001",
+      "amount": "0",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "amount": "1800"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "50000",
+      "amount": "1400",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "100000",
+      "amount": "1000",
+      "applies_when": "at_or_over"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "200001",
+      "amount": "0",
+      "applies_when": "at_or_over"
+     }
+    ],
+    "as_printed": "Table 1. Special Oregon medical subtraction-maximum amount, per qualifying taxpayer, by federal AGI at least / but less than"
+   },
+   "cite": {
+    "publication": "2025 Schedule OR-ASC and OR-ASC-NP Instructions",
+    "section": "PDF p.2-3 'Special Oregon medical subtraction [code 351]', worksheet and Table 1; Pub OR-17 PDF p.83-85 and Table 11",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/sch_or-asc_or-asc-np-inst_101-063-1_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "personal_exemption_credit",
+   "label": "Exemption credit for yourself and your spouse (Form OR-40 line 25)",
+   "form": "credit",
+   "credit_amount": "256",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "One for yourself if no one else can claim you as a dependent",
+     "One for your spouse if no one else can claim your spouse as a dependent and you file jointly, or you file separately and your spouse has no income"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income from Form OR-40, line 7"
+    },
+    "threshold": {
+     "single": "100000",
+     "married_separate": "100000",
+     "head_of_household": "200000",
+     "qualifying_surviving_spouse": "200000",
+     "married_joint": "200000"
+    },
+    "effect": "removes",
+    "applies_when": "over",
+    "as_printed": "If your federal AGI is more than $200,000 ($100,000 if your filing status is single or married filing separately), enter 0"
+   },
+   "cite": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+    "section": "PDF p.17-18, line 25 and Exemption credit worksheet line 1; Form OR-40 PDF p.4 line 25; Pub OR-17 PDF p.98-99 'Exemption credit (ORS 316.085)', 'You and your spouse'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "dependent_exemption_credit",
+   "label": "Exemption credit for each dependent (Form OR-40 line 25, dependents on line 6c)",
+   "form": "credit",
+   "credit_amount": "256",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "One for each qualifying child and each other qualifying relative claimed as a dependent"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income from Form OR-40, line 7"
+    },
+    "threshold": {
+     "single": "100000",
+     "married_separate": "100000",
+     "head_of_household": "200000",
+     "qualifying_surviving_spouse": "200000",
+     "married_joint": "200000"
+    },
+    "effect": "removes",
+    "applies_when": "over",
+    "as_printed": "If your federal AGI is more than $200,000 ($100,000 if your filing status is single or married filing separately), enter 0"
+   },
+   "cite": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+    "section": "PDF p.18 Exemption credit worksheet line 1; Pub OR-17 PDF p.98-99 'Personal exemption', 'All dependents'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "severe_disability_exemption_credit",
+   "label": "Additional exemption credit for severe disability (lines 6a and 6b)",
+   "form": "credit",
+   "credit_amount": "256",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Taxpayer or spouse has a permanent severe disability at the end of the tax year (permanent loss of use of feet/legs or both hands, permanent blindness, or permanent condition limiting ability to earn a living, maintain a household or transport oneself)",
+     "Allowed even if someone else can claim you as a dependent"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income from Form OR-40, line 7"
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "removes",
+    "applies_when": "over",
+    "as_printed": "If your federal AGI is more than $100,000, enter 0 (regardless of filing status)"
+   },
+   "cite": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions (Form OR-40 Instructions)",
+    "section": "PDF p.18, Exemption credit worksheet line 2; Publication OR-17 PDF p.99 'Severe disability (ORS 316.752, 316.758)'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "child_disability_exemption_credit",
+   "label": "Additional exemption credit for a dependent child with a qualifying disability (line 6d)",
+   "form": "credit",
+   "credit_amount": "256",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Dependent child age 21 or younger, eligible for early intervention or special education services, with an eligible disability under the federal Individuals with Disabilities Education Act at the end of the tax year"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income from Form OR-40, line 7"
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "removes",
+    "applies_when": "over",
+    "as_printed": "If your federal AGI is more than $100,000, enter 0 (regardless of filing status)"
+   },
+   "cite": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions (Form OR-40 Instructions)",
+    "section": "PDF p.18, Exemption credit worksheet line 3; PDF p.13 line 6d; Publication OR-17 PDF p.99",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest and dividends on bonds of another state or its political subdivisions that are not on the federal return are an addition (code 158). Oregon adds nothing back for its own: interest on bonds of Oregon and its political subdivisions is subtracted to the extent it is in federal income (code 317), and so is interest on bonds of an interstate bridge commission formed along the Oregon-Washington border.",
+  "cite": {
+   "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+   "section": "PDF p.63-64 'Interest and dividends on government bonds of other states [ORS 316.680(2)(a)]' [Addition code 158]; PDF p.85-86 'State and local government bond interest (ORS 316.056, 381.740)' [Subtraction code 317]",
+   "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "personal_exemption_credit",
+   "indexed": "yes",
+   "index": "inflation (index not named)",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.98, 'Exemption credit (ORS 316.085)': 'The exemption amount is indexed for inflation.'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "dependent_exemption_credit",
+   "indexed": "yes",
+   "index": "inflation (index not named)",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.98, 'Exemption credit (ORS 316.085)': 'The exemption amount is indexed for inflation.'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "severe_disability_exemption_credit",
+   "indexed": "yes",
+   "index": "inflation (index not named)",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.98, 'Exemption credit (ORS 316.085)': 'The exemption amount is indexed for inflation.'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "child_disability_exemption_credit",
+   "indexed": "yes",
+   "index": "inflation (index not named)",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.98, 'Exemption credit (ORS 316.085)': 'The exemption amount is indexed for inflation.'",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "PDF p.143 prints the 2022-2025 bracket, standard deduction and federal tax subtraction figures rising each year (the 125,000 and 250,000 bracket starts do not), but no sentence in any document says they are indexed; 'indexed' is found only on PDF p.98 and 'inflation' only there and on p.75, which is about another subject",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": [],
+ "notes": [
+  "Settlement 2026-11-07: brackets.head_of_household and brackets.married_separate: A listed them, B left them out; Pub OR-17 PDF p.143 and the instructions' Chart S and Chart J print single with married filing separately and joint with head of household and qualifying surviving spouse, so both are given. Head of household must be explicit because a missing status defaults to single.",
+  "Settlement 2026-11-07: exemption credits (32 + 28 comparison lines): A put them in reliefs as credits, B in base.deductions; instructions PDF p.17-18 and Form OR-40 line 25 make them credits against tax, so they are reliefs with form credit (as California, Delaware and Iowa). Split into four entries, each branch its own.",
+  "Settlement 2026-11-07: exemption credit basis: A said return, B per exemption claimed; Pub OR-17 PDF p.99 gives one for yourself and one for your spouse, so personal_exemption_credit is each_person and dependents have their own entry.",
+  "Settlement 2026-11-07: dependent standard deduction floor: B made a deduction of 1,350 per person, A held it in the condition; instructions PDF p.16 prints it as a limit on the standard deduction for someone who can be claimed as a dependent, not a deduction, so it stays in the condition.",
+  "Settlement 2026-11-07: federal_tax_liability_subtraction phase_out.applies_when: A at_or_over, B left out; Table 4 (instructions PDF p.15) bands are 'At least' / 'But less than', so at_or_over.",
+  "Settlement 2026-11-07: muni_interest.treatment: A other, B other_states_taxed_own_exempt; Pub OR-17 PDF p.63 (addition code 158) and PDF p.85-86 (subtraction code 317) say other states' are taxed and Oregon's are not, so other_states_taxed_own_exempt. A missed code 317.",
+  "Settlement 2026-11-07: retirement_income_credit.who: A min_age 62, B born_on_or_before 1963-12-31; Pub OR-17 PDF p.106 prints 'age 62 or older at the end of the year', so min_age 62 (a birth date would be right for 2025 only).",
+  "Settlement 2026-11-07: retirement_income_credit.covers public_pension_other_state: A covers_unclear, B covers; Pub OR-17 PDF p.106 lists 'State or local government public pensions' with no limit to Oregon, and 'Employee pensions', and PDF p.52 lists 'Plans for federal, state, or local government employees', so covers.",
+  "Settlement 2026-11-07: retirement_income_credit.income_test: A removes at 22,500 / 45,000, B other at the same figures; the worksheet on Pub OR-17 PDF p.107 lines 7-10 cuts the limit dollar for dollar over 15,000 / 30,000, and the 22,500 test is where line 10 reaches 0, so dollar_for_dollar over 15,000 / 30,000, with the printed tests kept in who.other_conditions.",
+  "Settlement 2026-11-07: retirement_income_credit cap: A only in cap_rule, B cap 7,500 / 15,000 per return; worksheet line 4 prints it, so as B, with the reductions in cap_rule.",
+  "Settlement 2026-11-07: retirement_income_credit other statuses: PDF p.106-107 print '$22,500 ($45,000 if married filing jointly)', '$7,500 ($15,000 if married filing jointly)' and '$15,000 ($30,000 if married filing a joint return)'. The first figure is the booklet's for every return that is not joint, so married filing separately, head of household and qualifying surviving spouse take it; no status is named separately.",
+  "Settlement 2026-11-07: federal_pension_subtraction.covers employer_plan_distribution: B yes, A in other_conditions only; Pub OR-17 PDF p.73 says federal TSP withdrawals are eligible once the taxpayer is a retiree, so listed, with the limit in other_conditions, and paying_states federal.",
+  "Settlement 2026-11-07: social security and railroad reliefs: A subtraction per return, B exempt_in_full each person; Pub OR-17 PDF p.52 'Oregon doesn't tax any amount', so exempt_in_full, each_person as Oklahoma and Ohio.",
+  "Settlement 2026-11-07: us_obligations_interest_subtraction: A recorded it, B only in the muni note; Pub OR-17 PDF p.77 prints it (code 315), kept, form exempt_in_full because PDF p.86 says 'exempt from state tax'.",
+  "Settlement 2026-11-07: special_oregon_medical_subtraction.who: A min_age 66, B born_on_or_before 1959-12-31; Schedule OR-ASC instructions PDF p.2 print 'turned age 66 by the end of the tax year', so min_age 66. all_income_scope: A person, B return; it is a subtraction from the return's income, so return.",
+  "Settlement 2026-11-07: us_interest_in_ira_distributions: neither reader had it; Pub OR-17 PDF p.86-87 prints it (code 331), a relief on IRA income, so added.",
+  "Settlement 2026-11-07: indexing: A exemption credit and all_other, B also not_stated lines for brackets, the standard deduction and the federal subtraction; the booklet says nothing about them, so all_other carries them (brief rule 8), and each of the four exemption credits names the same sentence.",
+  "Retirement income is taxed unless a listed rule takes it out: 'Most retirement income is subject to Oregon tax when received by an Oregon resident. This is true even if you were a nonresident when you earned the income' (Pub OR-17 PDF p.52). IRA distributions and amounts converted to a Roth IRA that are in federal income are taxed (PDF p.49). No general exclusion is printed for private pensions, IRAs or employer plans; the reliefs are the retirement income credit and the subtractions listed.",
+  "Pensions of Oregon state and local governments: no subtraction or exclusion found in the booklet; taxed as retirement income and eligible for the retirement income credit.",
+  "Pensions from other states' governments, New York State included: the booklet names no paying state and no reciprocity rule for them, so paying_states is left out. The Department's page says 'If you change your permanent residence to Oregon, your pension income, along with all other income regardless of source, is taxable in Oregon' (https://www.oregon.gov/dor/programs/individuals/pages/pit.aspx, 'If I become an Oregon resident, is my retirement income taxable?'), and Pub OR-17 PDF p.100 says 'if you live in Oregon, other states can't tax your pension income'. Taxed the same as an Oregon pension: in the retirement income credit's covers, and in the code 327 subtraction if the other state taxed the contributions. The credit for tax paid to another state is not available on it (PDF p.100). 'New York' appears only in the IRA conversion example (PDF p.81).",
+  "Federal pension subtraction: the share is personal (service or points before October 1, 1991 over the total), so it is in cap_rule and other_conditions and not in share. The Department's page: 'If you receive a U.S. government pension for service before October 1991, you may be entitled to subtract all or part of that pension'.",
+  "Exemption credits: the booklet prints no personal exemption deduction; 'Through tax year 2025, the amount of the federal deduction is $0' (Pub OR-17 PDF p.98). Each exemption is a 256 credit against tax. Nonrefundable: 'can't be used in any other year' (instructions PDF p.17).",
+  "Federal tax liability subtraction: the amount is the maximum before the Table 4 steps, and the real subtraction is the smaller of that and the federal tax after credits. Part B (extra federal tax paid for a prior year) and Part C (foreign income tax, up to 3,000; 1,500 if separate) share the same limit (Pub OR-17 PDF p.71-72) and are not recorded as entries.",
+  "Brackets: for taxable income under 50,000 the booklet prints a tax table (Column S single and married filing separately; Column J joint, head of household, surviving spouse), and at 50,000 or more Charts S and J. The schedule on Pub OR-17 PDF p.143 reproduces them: Chart S 4,065 at 50,000 and 10,627 at 125,000; Chart J prints 3,756 at 50,000 and 21,256 at 250,000 where the bare schedule gives 3,755 and 21,255, because the Department rounds the tax at each bracket edge. No surtax or recapture is printed.",
+  "Capital gains: taxed as ordinary income. Reduced rates exist for a farm liquidation long-term gain (Publication OR-FCG, Worksheet FCG) and qualified business income (Pub OR-17 PDF p.26 Table 4, 7 percent and up). The farm rate is not printed in the supplied documents ('the reduced rate', PDF p.28-29), so capital_gains stays empty. Farm income averaging also exists.",
+  "Oregon surplus (kicker): for 2025, 9.863 percent of the 2024 total Oregon personal income tax liability, claimed on line 32 like a payment (instructions PDF p.18). Available only on the return for an odd-numbered year and only if there is a surplus (Pub OR-17 PDF p.96).",
+  "Statewide transit tax (0.1 percent of wages, Pub OR-17 PDF p.31) is 'not reported on your Oregon income tax return' and is not recorded. Transit self-employment taxes are local and out of scope.",
+  "Oregon itemized deductions (Schedule OR-A) are not in the supplied documents. Other subtractions and credits not about retirement, interest or deductions are not recorded (military pay, kids credit, earned income credit, political contribution credit)."
+ ]
+}

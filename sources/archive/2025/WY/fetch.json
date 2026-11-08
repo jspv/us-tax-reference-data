@@ -1,0 +1,16 @@
+[
+  {
+    "state": "WY",
+    "title": "State of Wyoming - About Wyoming (states Wyoming has no individual or corporate income tax)",
+    "url": "https://www.wyo.gov/about-wyoming",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:45:33.800633+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.wyo.gov/about-wyoming",
+    "file": "about-wyoming.html",
+    "bytes": 281485,
+    "sha256": "baa273b5e6c06c6ff1aec85416882c073a406fde7b10c1ca178331b049d31956",
+    "text_file": "about-wyoming.page.txt"
+  }
+]

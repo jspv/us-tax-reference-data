@@ -1,0 +1,52 @@
+{
+  "id": "wi_2025_long_term_gain_exclusion",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 5 (SB Instructions PDF page 2; 30% long-term gain exclusion); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-12-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "54000.00",
+    "state_taxable_income": "43904.00",
+    "state_tax_before_credits": "1799.66",
+    "credits": "0.00",
+    "state_income_tax": "1799.66"
+  },
+  "worked": "Single, 60: wages 40,000 and long-term capital gains 20,000 (no losses, no carryover). Schedule SB line 5 (from Schedule WD) subtracts 30% of the long-term gain; the standard deduction is then looked up on the lower Wisconsin income. Federal (given, not tested): federal AGI = wages (you) 40,000.00 + long term gains 20,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 15,750.00 = 44,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 60,000.00; line 2 Schedule I adjustments 0.00; line 3 60,000.00; line 4 additions 0.00; line 5 60,000.00. Schedule SB: line 5 capital gain subtraction, 30% x 20,000.00 long-term gain = 6,000.00; line 50 total 6,000.00. Form 1 line 6 6,000.00; line 7 Wisconsin income = 60,000.00 - 6,000.00 = 54,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 54,000 to less than 54,500, column Single: 9,396.00 (printed row, at least / less than / single / joint / separate / head of household: 54,000 / 54,500 / 9,396 / 19,960 / 3,849 / 9,707). Line 9 = 54,000.00 - 9,396.00 = 44,604.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 44,604.00 - 700.00 = 43,904.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 29,224.00 = 1,285.856; total 1,799.656, rounded once to 1,799.66. The Tax Table row 43,900 to 44,000 (PDF page 40) gives 1,802; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 1,799.66.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

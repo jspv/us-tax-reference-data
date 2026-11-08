@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "23050.00",
+    "state_tax_before_credits": "1233.18",
+    "credits": "0.00",
+    "state_income_tax": "1233.18",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "0.00"
+    }
+  },
+  "worked": "Filing status single; ages [67]. M1 line 1 federal AGI 40,000. M1M line 1 addition, other-state municipal interest: 0. Age 65 subtraction (M1R, M1M line 16), oldest person 67: cap 9600 less benefits received 0 and railroad benefits 0 = 9,600; less 50% of AGI over 14500 (50% x 25,500 = 12,750) = 0. State AGI: 40,000 + 0 - 0 military - 0 railroad - 0 age 65 - 0 Social Security = 40,000. Standard deduction (M1 line 4): 14950; age addition 1 x 2000 = 2,000; total 16,950. Taxable income (M1 line 9): 40,000 - 16,950 = 23,050. Tax (single schedule, numbers not table): 23,050 x 0.0535 = 1,233.175; total 1,233.175 = 1233.18. The printed tax table gives 1233. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 1233.18. Form against projection: Schedule M1QPEN may subtract this pension (NY); the projection does not apply it (not_modelled). With the M1R, line 12 and line 4 differences only: taxable 23,050, tax 1233.18. Expected above follows the projection as the brief says. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "12999.00",
+    "state_income_tax": "322.45",
+    "state_tax_before_credits": "322.45",
+    "state_taxable_income": "7249.00"
+  },
+  "worked": "Start: federal AGI 12,999.00 (projection starts_from federal_agi). wages person 0 12,999.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 12,999.00. Standard deduction (married_separate, state AGI 12,999.00 over 0): 4,250.00. Personal exemption (married_separate): 1,500.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 12,999.00 - 4,250.00 - 1,500.00 = 7,249.00. Tax on 7,249.00 with the single brackets: 0.02 x (500.00 - 0.00) = 10.00; 0.04 x (3,000.00 - 500.00) = 100.00; 0.05 x (7,249.00 - 3,000.00) = 212.45; total 322.45. Credits: none in the projection: 0.00. State income tax = 322.45."
+}

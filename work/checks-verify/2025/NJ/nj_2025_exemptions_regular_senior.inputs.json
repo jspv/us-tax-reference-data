@@ -1,0 +1,53 @@
+{
+  "id": "nj_2025_exemptions_regular_senior",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nj_regular_exemption",
+    "nj_senior_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 6, 7, 13, 30: Instr PDF p.8 Line 6 Regular Exemptions and Line 7 Senior 65+ ('born in 1960 or earlier'), PDF p.9 line 13; lines 15, 27, 29, 38-43: PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-12-31"
+      },
+      {
+        "age": 58,
+        "born": "1967-04-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "66900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_regular_exemption",
+    "relief_amounts.nj_senior_exemption"
+  ]
+}

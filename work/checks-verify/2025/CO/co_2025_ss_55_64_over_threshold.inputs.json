@@ -1,0 +1,51 @@
+{
+  "id": "co_2025_ss_55_64_over_threshold",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_ss_55_64_full",
+    "co_ss_55_64_limited"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5), 55-64 federal AGI over 75,000: 'limited to $20,000'; DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "85500.00",
+    "federal_taxable_income": "69750.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_ss_55_64_full",
+    "relief_amounts.co_ss_55_64_limited"
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "state": "NV",
+    "title": "Income Tax in Nevada",
+    "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:36:41.517909+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+    "file": "income-tax-in-nevada.html",
+    "bytes": 129453,
+    "sha256": "a7f3f5e663124605e5ff10fc195db2654c75c7870566888eef430aec03008ed4",
+    "text_file": "income-tax-in-nevada.page.txt"
+  }
+]

@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "775.61",
+  "state_tax_before_credits": "775.61",
+  "state_taxable_income": "88250.00"
+ },
+ "worked": "Federal check: AGI 108,000.00 = wages 100,000.00 + short_term_gains -2,000.00 + long_term_gains 10,000.00; less standard deduction 15,750 + age 0 = federal taxable income 92,250.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 92,250.00; no additions (lines 2-3 are 0).\nLine 6 long-term gain exclusion 40% of 10,000.00 = 4,000.00\nLine 17 total subtractions = 4,000.00\nLine 18 = 92,250.00 - 4,000.00 = 88,250.00\nLine 20 tax: single band 0.0195 on 39,775.00 (over 48,475.00) = 775.6125000\nLine 20 tax = 775.6125000 -> 775.61 to the cent\nThe Tax Table row 88,250-88,300 gives 776; schedule formula used per the checks brief.\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 775.61.\nForm differs: worksheet smaller of Sch D lines 15 and 16 = 8,000.00, exclusion 3,200.00, form taxable 89,050.00, formula tax 791.21. Expected follows the projection. Approximation: The long-term gain exclusion is applied to long-term gains; the worksheet uses the smaller of net long-term gain and overall net gain, so a net short-term loss reduces it.\nApproximation: Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+}

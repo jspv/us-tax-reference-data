@@ -1,0 +1,664 @@
+{
+ "layer": "record",
+ "state": "WV",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Standard deduction: the booklet prints no standard deduction (the words do not appear in the booklet or the Schedule M). West Virginia's starting point is federal AGI, and federal deductions are not allowed: 'the only itemized deductions allowed to be claimed from the federal income tax return are gambling losses' (PDF page 21 section 'Itemized Deductions'; Schedule M line 46). The Tax Division page calls the 8,000 senior citizen modification 'similar in operation to the federal standard deduction'; it is a relief here (wv_senior_citizen_deduction), for people 65 or older or disabled only.",
+  "Brackets: Rate Schedule I (PDF page 37) names Single, Head of household, Married filing joint and Widow[er] with dependent child, so head_of_household and qualifying_surviving_spouse have no schedule of their own. Rate Schedule II is for married filing separately.",
+  "Brackets: filers under Rate Schedule I with taxable income under 100,000 use the Tax Table (PDF pages 38 onward). Every one of its 1,702 rows checked equals Rate Schedule I at the row's midpoint, rounded to the whole dollar. The schedule's printed 'tax plus rate' amounts (222.00, 666.00, 1,165.50, 2,053.50; 111.00, 333, 582.75, 1,026.75) are the sums of the lower bands, so no band has a base.",
+  "Governments of other states: 'New York' does not appear in the booklet, and no line names another state's government pension. Lines 31 and 33(a) name West Virginia systems only and line 33(b) names Federal Retirement. Treatment of public_pension_other_state: not found in the booklet. Such a pension stays in federal AGI and is taxed, and only the age 65 or disability deduction can reach it, because that deduction takes any income.",
+  "Private pensions, IRA and employer-plan distributions and annuities: not found as a subtraction in the booklet. They stay in federal AGI; the PDF page 30 example lists 'IRA Distributions' in total income and subtracts them nowhere but through the 8,000 senior deduction. The only private-pension line is the PBGC Modification (line 45). Roth conversions: the word Roth does not appear in the booklet (not found in the booklet). Line 54 adds back qualifying 402(e) lump sums taxed on federal Form 4972.",
+  "Social Security: treatment is relief. Line 34 subtracts benefits included in federal AGI, 100% at or under the AGI limit and for 2025 65% above it. The AGI limit is tested on the return (a joint return's federal AGI against 100,000). The form's line 34 box names only single, married separate and married joint; the instructions (PDF pages 17 and 28) add head of household and widow(er) at 50,000.",
+  "Scheduled change (for tax years after 2025): the Tax Division page says the share above the AGI limit was 35% for 2024 and 65% for 2025 and 'In Tax Year 2026, it will become a 100% decreasing modification', so from 2026 taxable Social Security is subtracted in full at any income. The page adds that many people will see the benefit only in 2026, because line 34 uses up the 8,000 senior deduction.",
+  "PDF page 29 line 40 says Social Security benefits 'that are taxable on your federal return are also taxable to West Virginia'. That sentence is about what not to enter on the railroad line, and it does not override line 34.",
+  "Line numbers: the Schedule M instructions keep older numbers from line 47 on, two higher than the 2025 form (box (c) says lines 35 through 48 where the form and the example say 35 to 46; the example's table is numbered 49; 'LINE 49 Add lines 29 through 50' is the form's 'Add lines 29 through 48'). This record uses the form's numbers.",
+  "Line 47 disability: PDF page 29 says 'taxpayers under age 65', PDF page 23 says 'regardless of age'. A person 65 or older qualifies as a senior anyway, so no max_age is set.",
+  "Line 47 senior and disability entries are one line with one 8,000 for each person: a person who qualifies both ways gets one deduction. Each spouse is tested separately, so one spouse may claim as a senior and the other as disabled.",
+  "Other Schedule M subtractions, not retirement relief and not recorded: S corporation bank assets (35), state and local tax refunds (38), college savings contributions (39), long-term care insurance premiums (41), IRC 1341 repayments (42), ABLE (43), Jumpstart deposits (44), gambling losses (46). Income on lines 35 to 46 is left out of line 47 column (c).",
+  "Property tax credits (Senior Citizens Tax Credit, Homestead Excess Property Tax Credit, Disabled Veterans Real Property Tax Credit, Property Tax Adjustment Credits) are credits for property tax paid, not relief on income, and are not recorded. The credit for income tax paid to another state is not recorded.",
+  "Capital gains: the booklet prints no separate rate or deduction; capital_gains is empty. Surtaxes and recapture: none printed.",
+  "Indexing: the booklet says nothing about inflation adjustment ('inflation', 'indexed' and 'adjusted annually' do not appear). Figures are not_stated.",
+  "Settlement 2026-11-07: brackets.head_of_household: A left it out, B listed Schedule I again; PDF page 37 prints one schedule for these statuses and the format gives a status only when it has its own, so it is left out.",
+  "Settlement 2026-11-07: brackets[].base: A recorded the printed tax at each band, B none; PDF page 37's amounts are the plain sums of the lower bands and base is for a table that steps up, so it is left out.",
+  "Settlement 2026-11-07: base.deductions low-income exclusion amount and phase_out: A listed each status and a phase_out, B gave all with a married_separate amount and the limit in the condition; PDF page 31 says 10,000 (5,000 married filing separately) and 'If Line A is greater than $10,000 ($5,000 if married filing separate returns), you are not eligible', so each status and phase_out removes.",
+  "Settlement 2026-11-07: base.deductions surviving spouse exemption: A its own entry, B inside the personal exemption's condition; PDF pages 3, 23 and 26 print box (d) separately, so its own entry.",
+  "Settlement 2026-11-07: line 33: A two entries each capped at 2,000, B one entry; PDF page 28 'Combined amounts of 33a and 33b must not exceed $2,000' and the form add them first, so one entry with one cap.",
+  "Settlement 2026-11-07: surviving spouse deduction who.basis: A each_person, B return; the form prints line 48 in the Column A and Column B of each person (PDF page 6), so each_person.",
+  "Settlement 2026-11-07: reliefs: line 29 (A only) kept, because it feeds line 47 column (d); lines 36 and 37 (B only) kept, because PDF pages 22, 28 and 29 print them; Family Tax Credit (neither reader) added from PDF pages 13 and 14 as a printed income tax credit.",
+  "Settlement 2026-11-07: forms: A exempt_in_full, B subtraction for railroad retirement; PDF page 29 'West Virginia does not impose tax on this income', and PDF page 22 says the same of lines 30, 31 and 32, so all four are exempt_in_full."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "10000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "25000"
+   },
+   {
+    "rate": "0.0444",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "60000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "10000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "25000"
+   },
+   {
+    "rate": "0.0444",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "60000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "12500"
+   },
+   {
+    "rate": "0.0444",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "30000"
+   }
+  ],
+  "cite": {
+   "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+   "section": "PDF page 37, 2025 Tax Rate Schedules, Rate Schedule I and Rate Schedule II; PDF pages 26 and 27, LINE 8; Tax Table from PDF page 38",
+   "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "wv_personal_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "2000"
+    },
+    "per": "exemption_claimed",
+    "condition": "Box (a) yourself, unless you can be claimed as a dependent on another person's return; box (b) spouse, only if filing status is married filing jointly and the spouse can't be claimed as a dependent",
+    "cite": {
+     "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+     "section": "PDF page 3, Form IT-140 exemption boxes and line 6; PDF page 26, EXEMPTIONS and LINE 6",
+     "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wv_dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "2000"
+    },
+    "per": "dependent",
+    "condition": "Box (c) eligible dependents: under 19 and younger than you, under 24 and a student and younger than you, or any age and permanently and totally disabled; did not provide over half of their own support; lived with you more than half of 2025",
+    "cite": {
+     "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+     "section": "PDF page 26, EXEMPTIONS box (c); PDF page 3, Form IT-140 line 6",
+     "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wv_surviving_spouse_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "2000"
+    },
+    "per": "exemption_claimed",
+    "condition": "Box (d): one additional exemption for a surviving spouse for the two taxable years following the year in which the spouse died, provided he or she has not remarried before the end of the taxable year",
+    "cite": {
+     "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+     "section": "PDF page 26, EXEMPTIONS box (d); PDF page 23 'Surviving Spouse'; PDF page 3 box (d)",
+     "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wv_zero_exemption_amount",
+    "what": "other",
+    "amount": {
+     "all": "500"
+    },
+    "per": "return",
+    "condition": "Only if the total in exemption box (e) is zero",
+    "cite": {
+     "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+     "section": "PDF page 3, Form IT-140 box (e); PDF page 26, LINE 6; PDF page 23 'Filing Requirements for Children'",
+     "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wv_low_income_earned_income_exclusion",
+    "what": "other",
+    "amount": {
+     "single": "10000",
+     "married_joint": "10000",
+     "head_of_household": "10000",
+     "qualifying_surviving_spouse": "10000",
+     "married_separate": "5000"
+    },
+    "per": "return",
+    "condition": "Line 5: the smaller of federal AGI, earned income, or the maximum. Earned income is wages, salaries, tips, other employee compensation and net Schedule C self-employment earnings; it does not include interest, dividends and retirement income in the form of pensions or annuities",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal Adjusted Gross income from line 1 of Form IT-140"
+     },
+     "threshold": {
+      "single": "10000",
+      "married_joint": "10000",
+      "head_of_household": "10000",
+      "qualifying_surviving_spouse": "10000",
+      "married_separate": "5000"
+     },
+     "effect": "removes",
+     "as_printed": "If Line A is greater than $10,000 ($5,000 if married filing separate returns), you are not eligible for the exclusion"
+    },
+    "cite": {
+     "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+     "section": "PDF page 31, West Virginia Low-Income Earned Income Exclusion Worksheet; PDF page 3 Form IT-140 line 5; PDF page 26 LINE 5",
+     "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+   "section": "PDF page 26, instructions opening paragraph and LINES 1 through 7; PDF page 3, Form IT-140 lines 1 to 7",
+   "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+   "section": "PDF page 28, Schedule M instructions, LINE 34; PDF page 5 Schedule M line 34; PDF page 17 Important Information for 2025",
+   "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "wv_us_wv_obligations",
+   "label": "Interest or dividends on U.S. obligations (Schedule M line 29)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "income on obligations of the United States and its possessions and bonds or securities of any United States authority, commission or instrumentality, exempt from state income tax under federal law, including United States Savings Bonds and federal interest dividends paid by a regulated investment company",
+     "West Virginia bonds that are subject to federal tax but exempt from state tax under West Virginia law"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 29; PDF page 5 Schedule M line 29",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_fed_law_enforcement_retirement",
+   "label": "Certain Federal Law Enforcement Retirement (Schedule M line 30)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "retired federal law enforcement officer or fireman, benefit (including survivorship annuities) from certain federal retirement systems",
+     "documentation required: Summary of Federal Service from FERS, federal form RI 20-124, or Division of Justice ID card issued at retirement"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 30; PDF page 5 Schedule M line 30; PDF page 22 'Certain State and Federal Retirement Systems'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_police_fire_retirement",
+   "label": "Any West Virginia State or Local Police, Deputy Sheriffs' or Firemen's Retirement (Schedule M line 31)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Subtractions for retirement received from West Virginia Public Employee's Retirement System is limited to $2,000 and must be claimed on line 33"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "taxable amount received from any West Virginia state or local police, deputy sheriffs' or firemen's retirement system, including survivorship annuities, regardless of age"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 31; PDF page 5 Schedule M line 31; PDF page 22 'Certain State and Federal Retirement Systems'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_military_retirement",
+   "label": "Military Retirement Modification (Schedule M line 32)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "taxable military retirement income, including survivorship annuities, from the regular Armed Forces, Reserves, and National Guard"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 32; PDF page 5 Schedule M line 32; PDF page 22 'Certain State and Federal Retirement Systems'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_other_retirement",
+   "label": "Other Retirement Modification (Schedule M line 33): (a) West Virginia Teachers' and Public Employees' Retirement; (b) Federal Retirement Systems (Title 4 USC 111)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Military retirement: 'This amount should not be included on line 33b'",
+    "Federal retirement 'already deducted on line 30'",
+    "West Virginia state or local police, deputy sheriffs' or firemen's retirement, which goes on line 31"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "taxable retirement income from the West Virginia Teachers' Retirement System and/or the West Virginia Public Employees' Retirement System (line 33a), or from Federal Retirement not already deducted on line 30 (line 33b); regardless of age"
+    ]
+   },
+   "cap": {
+    "all": "2000"
+   },
+   "cap_per": "person",
+   "cap_rule": "One 2000 for lines 33(a) and 33(b) together in each person's column: 'Combined amounts of 33a and 33b must not exceed $2,000.' The form: 'Add lines 33 (a) and (b). If that sum is greater than $2,000, enter $2,000'.",
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 33; PDF page 5 Schedule M line 33; PDF page 22 'Certain State and Federal Retirement Systems'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_social_security",
+   "label": "Social Security Benefits (Schedule M line 34)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "the amount is the Social Security benefits included in federal AGI: line 34(c) is total benefits (a) minus benefits exempt for federal purposes (b)"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income (Form IT-140 line 1). Schedule M line 34: 'Multiply 34(c) by 0.65 if your Federal AGI exceeds $ 50,000 for SINGLE or MARRIED SEPARATE filers $100,000 for MARRIED JOINT filers'"
+    },
+    "threshold": {
+     "single": "50000",
+     "married_separate": "50000",
+     "head_of_household": "50000",
+     "qualifying_surviving_spouse": "50000",
+     "married_joint": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.65"
+     }
+    ],
+    "as_printed": "100 percent (100%) of social security benefits received and included in federal adjusted gross income when federal AGI of a married couple filing a joint return does not exceed $100,000, or $50,000 in the case of a single, head of household, widow(er), or a married individual filing a separate return; for taxable year 2025, 65% when federal AGI exceeds those amounts"
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 34; PDF page 5 Schedule M line 34; PDF page 17 Important Information for 2025",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_active_duty_military_pay",
+   "label": "Certain Active Duty Military pay (Schedule M line 36)",
+   "form": "exempt_in_full",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "National Guard or Armed Forces Reserves member called to active duty in support of the contingency operation in Executive Order 13223 (the Overseas Contingency Operation); if not domiciled in West Virginia, Part II of Schedule A instead"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 28, Schedule M instructions, LINE 36; PDF page 5 Schedule M line 36; PDF page 22 'Active Duty Military Pay'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_active_military_separation",
+   "label": "Active Military Separation (Schedule M line 37)",
+   "form": "exempt_in_full",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "West Virginia resident separated from military service after at least 30 continuous days on active duty; military orders, DD214 and W-2 required"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 29, Schedule M instructions, LINE 37; PDF page 5 Schedule M line 37; PDF page 22 'Active Military Separation'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_railroad_retirement",
+   "label": "Railroad Retirement Board Income (Schedule M line 40)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "not_covered": [
+    "Social Security benefits that are taxable on your federal return are also taxable to West Virginia and should NOT be included on this line"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "all United States Railroad Retirement Board benefits in federal AGI, including unemployment compensation, disability and sick pay"
+    ]
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 29, Schedule M instructions, LINE 40; PDF page 5 Schedule M line 40; PDF page 22 'US Railroad Retirement'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_pbgc",
+   "label": "PBGC Modification (Schedule M line 45)",
+   "form": "subtraction",
+   "covers": [
+    "private_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "retired under an employer-provided defined benefit plan that terminated before or after retirement, covered by a guarantor whose maximum benefit guarantee is less than the maximum benefit the person was entitled to"
+    ]
+   },
+   "cap_rule": "The difference between (a) the amount the person would have received had the plan not terminated and (b) the amount actually received from the guarantor.",
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 29, Schedule M instructions, LINE 45; PDF page 5 Schedule M line 45",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_senior_citizen_deduction",
+   "label": "Senior Citizen or Disability Deduction, as a Senior Citizen (Schedule M line 47)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "was 65 before the end of the taxable year; year of birth entered on line 47(a)",
+     "ONLY THE INCOME OF THE SPOUSE WHO MEETS THE ELIGIBILITY REQUIREMENTS QUALIFIES FOR THE MODIFICATION"
+    ]
+   },
+   "cap": {
+    "all": "8000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Schedule M line 47, for each person: column (c) is that person's income not reported on lines 35 through 46, not to exceed 8000; column (d) is the sum of that person's lines 29 through 34; the deduction is (c) minus (d), and zero if (d) is larger. So lines 29 through 34 and line 47 together come to the higher of the sum of lines 29 through 34 or column (c). Income on lines 29 through 34 stays in column (c): in the PDF page 30 example a person with 13,000 of income, 7,500 of it on lines 29 and 31, enters 8000 in (c), 7500 in (d) and takes 500. Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'. Line 47 and the surviving spouse deduction (line 48) share the 8000. Joint income is divided between spouses by percentage of ownership.",
+   "best_of_group": "wv_senior_or_disability",
+   "cannot_combine_with": [
+    "wv_disability_deduction"
+   ],
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 29, Schedule M instructions, LINE 47; PDF page 30 example; PDF page 6 Schedule M line 47; PDF page 23 'Taxpayers over age 65 or disabled'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_disability_deduction",
+   "label": "Senior Citizen or Disability Deduction, as disabled (Schedule M line 47)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "regardless of age, certified by a physician as permanently and totally disabled during the taxable year; medically certified as unable to engage in any substantial gainful activity due to physical or mental impairment",
+     "year the disability began entered on line 47(b); in the first year a 2025 West Virginia Schedule H or federal Schedule R is required",
+     "ONLY THE INCOME OF THE SPOUSE WHO MEETS THE ELIGIBILITY REQUIREMENTS QUALIFIES FOR THE MODIFICATION"
+    ]
+   },
+   "cap": {
+    "all": "8000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Schedule M line 47, for each person: column (c) is that person's income not reported on lines 35 through 46, not to exceed 8000; column (d) is the sum of that person's lines 29 through 34; the deduction is (c) minus (d), and zero if (d) is larger. So lines 29 through 34 and line 47 together come to the higher of the sum of lines 29 through 34 or column (c). Income on lines 29 through 34 stays in column (c): in the PDF page 30 example a person with 13,000 of income, 7,500 of it on lines 29 and 31, enters 8000 in (c), 7500 in (d) and takes 500. Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'. Line 47 and the surviving spouse deduction (line 48) share the 8000. Joint income is divided between spouses by percentage of ownership.",
+   "best_of_group": "wv_senior_or_disability",
+   "cannot_combine_with": [
+    "wv_senior_citizen_deduction"
+   ],
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 29, Schedule M instructions, LINE 47; PDF page 6 Schedule M line 47; PDF page 23 'Taxpayers over age 65 or disabled'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_surviving_spouse_deduction",
+   "label": "Surviving Spouse Deduction (Schedule M line 48)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "one-time subtraction for the taxable year following the year of the spouse's death",
+     "the decedent was 65 or older, or was certified as permanently and totally disabled, before death",
+     "the surviving spouse did not remarry before the end of the taxable year"
+    ]
+   },
+   "cap": {
+    "all": "8000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Shares the 8000 with line 47. Printed: total deductions on lines 29 through 34 and line 49 must be under $8,000; if under, enter only the difference; the combined total of Line 49 and 50 can not exceed $8,000. These instructions keep older line numbers two higher than the 2025 form: their line 49 is the form's line 47 and their line 50 is the form's line 48 (the form has line 47 as this deduction's neighbour, and the instructions' own 'LINE 49 Add lines 29 through 50' is the form's 'Add lines 29 through 48').",
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 30, Schedule M instructions, LINE 48; PDF page 6 Schedule M line 48; PDF page 23 'Surviving Spouse'",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wv_family_tax_credit",
+   "label": "Family Tax Credit (Schedule FTC-1)",
+   "form": "credit",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "family size is the number of exemptions in boxes a, b and c; over 8 uses the table for a family size of 8",
+     "individuals who file with zero exemptions cannot claim it",
+     "persons who pay the federal alternative minimum tax are not eligible"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "plus_tax_exempt_interest": true,
+     "as_printed": "Modified Federal Adjusted Gross Income: federal AGI, plus increasing West Virginia modifications (Form IT-140 line 2), plus tax-exempt interest not already included on line 2 (Schedule FTC-1 lines 1 to 4)"
+    },
+    "threshold": {
+     "single": "56850",
+     "married_joint": "56850",
+     "head_of_household": "56850",
+     "qualifying_surviving_spouse": "56850",
+     "married_separate": "28425"
+    },
+    "effect": "other",
+    "as_printed": "The credit is a percentage of the tax on Form IT-140 line 8, from the tables on PDF page 14, by family size and Modified Federal AGI. Table 1 gives 100% up to $15,650 for a family size of 1, $21,150 for 2, $26,650 for 3, $32,150 for 4, $37,650 for 5, $43,150 for 6, $48,650 for 7 and $54,150 for 8 or more, then falls 10 points in each of ten bands to 0% over $18,350, $23,850, $29,350, $34,850, $40,350, $45,850, $51,350 and $56,850. Table 2 (married filing separately) gives 100% up to $7,825 for 1, $10,575 for 2, $13,325 for 3 and $16,075 for 4, down to 0% over $9,175, $11,925, $14,675 and $17,425; size 8 or more reaches 0% over $28,425. The threshold given is the top of each table, above which no family size has a credit."
+   },
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "PDF page 13, Schedule FTC-1; PDF page 14, Family Tax Credit Tables 1 and 2; PDF page 7 Tax Credit Recap line 2",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Line 52 adds interest or dividends on state and local bonds other than West Virginia and its political subdivisions. West Virginia bonds are not added; those subject to federal tax are subtracted on line 29.",
+  "cite": {
+   "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+   "section": "PDF page 31, Schedule M instructions, LINE 52; PDF page 6 Schedule M line 52; PDF page 28 LINE 29",
+   "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "section": "No inflation adjustment language found in the booklet; PDF pages 26 and 37 print the figures",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": []
+}

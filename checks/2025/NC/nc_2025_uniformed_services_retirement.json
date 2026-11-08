@@ -1,0 +1,70 @@
+{
+  "id": "nc_2025_uniformed_services_retirement",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "uniformed_services_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF pages 18-19, Schedule S Part B Line 21 (Uniformed Services retirement: at least 20 years of service or medically retired; may not also be deducted on Line 20); Form D-400 Schedule S page 3, Line 21; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-03-03"
+      },
+      {
+        "age": 60,
+        "born": "1965-12-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "45000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true,
+          "vested_by_1989_08_12": false
+        }
+      ],
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "75000.00",
+    "federal_taxable_income": "43500.00"
+  },
+  "expected": {
+    "state_taxable_income": "4500.00",
+    "state_tax_before_credits": "191.25",
+    "credits": "0.00",
+    "state_income_tax": "191.25",
+    "relief_amounts": {
+      "uniformed_services_retirement": "45000.00"
+    }
+  },
+  "worked": "Federal AGI = military retired pay 45,000.00 (spouse 1, 22 years of service, first service after 1989 so not vested for Bailey) + wages 30,000.00 (spouse 2) = 75,000.00. Federal taxable income = 75,000.00 - 31,500.00 federal standard deduction = 43,500.00 (given, not tested; the federal senior deduction is ignored). Projection: uniformed_services_retirement deducts the military pension in full (exempt_in_full, per person); here the retiree meets the Line 21 test (22 years), so the booklet gives the same result. D-400 Line 6 federal AGI 75,000.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 75,000.00. Line 9 deductions (Schedule S Part B) 45,000.00 (Line 21 Uniformed Services retirement, spouse 1; Line 20 Bailey 0.00, not vested). Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (married_joint) 25,500.00. Line 12a = Lines 9 + 10 + 11 = 70,500.00; Line 12b = Line 8 - Line 12a = 4,500.00. Line 14 NC taxable income (full-year resident) = 4,500.00. Line 15 tax = 4,500.00 x 0.0425 = 191.25. Line 16 credits 0.00; Line 17 income tax = 191.25.",
+  "accepted_approximations": [
+    "Maintainer assumption (decision 2026-11-07), not a booklet rule: every military pension is assumed to meet the Schedule S Line 21 test (at least 20 years of service in the Uniformed Services, or a medical retirement) and is deducted in full, per person; Survivor Benefit Plan payments are deducted when held as a military pension. The booklet allows the deduction only when the test is met (PDF page 19). A retiree with under 20 years and no medical retirement, not vested for Bailey by 1989-08-12, owes 4.25% of the pension more than shown (1,275 a year on 30,000). A military retiree with five or more years of creditable service on 1989-08-12 qualifies under Bailey (Line 20) whatever the length of service, and the same income may not be deducted on both lines, so for that retiree the result is the same either way."
+  ],
+  "accepted_warnings": [
+    "state_assumption:uniformed_services_retirement",
+    "state_rule_not_modelled:bailey_defined_benefit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

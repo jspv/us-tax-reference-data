@@ -1,0 +1,68 @@
+{
+  "id": "co_2025_pension_65_plus_ss_over_cap",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_pension_65_plus",
+    "co_ss_65_plus"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 4 / line 6 Pension and Annuity Subtraction (PDF p.18-19 Line 4 bullets; p.19-20 Line 6; DR 0104AD p.1 lines 4 and 6), 65 or older: 'if the amount in line 3 of this form is greater than $24,000, you may not claim any subtraction'; DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 75,
+        "born": "1950-07-07"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "interest": "40000.00",
+      "taxable_social_security": "42500.00"
+    },
+    "federal_agi": "102500.00",
+    "federal_taxable_income": "84750.00"
+  },
+  "expected": {
+    "state_taxable_income": "42250.00",
+    "state_tax_before_credits": "1859.00",
+    "credits": "0.00",
+    "state_income_tax": "1859.00",
+    "relief_amounts": {
+      "co_pension_65_plus": "0.00",
+      "co_ss_65_plus": "42500.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (you) 20,000.00 + interest 40,000.00 + taxable Social Security 42,500.00 = 102,500.00. Taxable Social Security on gross benefits 50,000.00 (you): federal SS worksheet (given): half of benefits 25,000.00 + other income 60,000.00 = 85,000.00; less 25,000.00 = 60,000.00; line 11 = 51,000.00; line 13 = half of smaller of 60,000.00 and 9,000.00 = 4,500.00; line 14 = 4,500.00; line 15 = 85% x 51,000.00 = 43,350.00; line 16 = 47,850.00; 85% of benefits = 42,500.00; taxable Social Security = 42,500.00. Federal taxable income = 102,500.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 84,750.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 84,750.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 102,500.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 84,750.00. DR 0104AD: Line 3 (primary taxpayer, age 75, 65 or older): entire taxable Social Security 42,500.00. Line 4 (primary taxpayer, age 75, 65 or older): taxable pension, annuity and IRA income 20,000.00; limit 24,000.00 minus line 3 42,500.00 is below zero, so 0.00 (line 3 is greater than 24,000.00); subtraction = smaller of 20,000.00 and 0.00 = 0.00. Line 22 subtotal = 42,500.00; DR 0104 line 11 = 42,500.00. Line 12 Colorado taxable income = 84,750.00 - 42,500.00 = 42,250.00. Line 13 tax = 4.4% x 42,250.00 = 1,859.00 (the tax table row over 42,200.00 but not over 42,300.00, PDF p.35, gives 1,859.00; expected keeps the formula figure). No credits claimed: 0.00. Colorado income tax 1,859.00.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income at 4.4%; below 50,000 the booklet uses the tax table, which taxes each 100-dollar row at its midpoint and rounds to the dollar.",
+    "The pension cap is reduced by each person's taxable Social Security (the record's line 3 or line 5 subtraction). That equals the printed rule whenever the Social Security subtraction is the person's full taxable benefit, and also when it is limited to 20,000 (the 55-64 pension cap is then used up either way). How a joint return's taxable Social Security (Form 1040 line 6b) is split between spouses is left to a Department publication not in the sources; the projection splits it the way the household's facts do."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:co_pension_under_55_survivor",
+    "state_rule_not_modelled:co_pera_dpsrs_1984_1986"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

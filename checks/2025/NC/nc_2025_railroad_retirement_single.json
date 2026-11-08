@@ -1,0 +1,60 @@
+{
+  "id": "nc_2025_railroad_retirement_single",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 18, Schedule S Part B Line 19 (Social Security and Tier 1 or Tier 2 railroad retirement benefits included in federal AGI are deducted); Form D-400 Schedule S page 2 (PDF page 3), Line 19; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-04-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "54750.00",
+    "federal_taxable_income": "37000.00"
+  },
+  "expected": {
+    "state_taxable_income": "18000.00",
+    "state_tax_before_credits": "765.00",
+    "credits": "0.00",
+    "state_income_tax": "765.00",
+    "relief_amounts": {
+      "railroad_retirement": "24000.00"
+    }
+  },
+  "worked": "Federal AGI = railroad retirement Tier 2 annuity 24,000.00 (taxable federally as a pension) + IRA distribution 30,750.00 = 54,750.00. Federal taxable income = 54,750.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 37,000.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 54,750.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 54,750.00. Line 9 deductions (Schedule S Part B) 24,000.00 (Line 19 railroad retirement (Tier 2, included in federal AGI) 24,000.00). Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (single) 12,750.00. Line 12a = Lines 9 + 10 + 11 = 36,750.00; Line 12b = Line 8 - Line 12a = 18,000.00. Line 14 NC taxable income (full-year resident) = 18,000.00. Line 15 tax = 18,000.00 x 0.0425 = 765.00. Line 16 credits 0.00; Line 17 income tax = 765.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:bailey_defined_benefit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

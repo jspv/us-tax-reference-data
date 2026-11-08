@@ -1,0 +1,36 @@
+{
+  "id": "US-2025-separate-lived-apart-top-bracket-niit-medicare",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Married filing separately, lived apart all year, age 52, wages 400,000 and some interest: the separate 37% bracket, the 125,000 separate thresholds for the net investment income tax and the additional Medicare tax.",
+  "inputs": {
+    "filing_status": "married_separate",
+    "lived_with_spouse": false,
+    "persons": [
+      {
+        "born": "1973-02-27",
+        "age": 52
+      }
+    ],
+    "wages": "400000",
+    "taxable_interest": "5000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

@@ -1,0 +1,1376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tax-reference-data/schema/federal.schema.json",
+  "title": "Federal figures for one tax year",
+  "description": "The federal tax, Medicare, payroll and retirement-account figures a retirement projection uses, for one tax year. Every amount and rate is a string holding a decimal number. Every group carries a cite naming the publication, PDF page and line or code section, and an indexing block saying how the figure changes in later years. Figures are as printed; nothing is computed here except where the publication prints a figure only in words.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "layer",
+    "jurisdiction",
+    "tax_year",
+    "income_tax",
+    "medicare",
+    "payroll",
+    "retirement_accounts",
+    "rmd"
+  ],
+  "properties": {
+    "layer": {
+      "const": "federal"
+    },
+    "jurisdiction": {
+      "const": "US"
+    },
+    "tax_year": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "income_tax": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brackets",
+        "standard_deduction",
+        "additional_standard_deduction",
+        "capital_gains",
+        "net_investment_income_tax",
+        "additional_medicare_tax",
+        "social_security_benefits"
+      ],
+      "properties": {
+        "brackets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schedules",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "schedules": {
+              "$ref": "#/$defs/brackets_by_status"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Ordinary income tax rate schedules (26 U.S.C. 1)."
+        },
+        "standard_deduction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "amount",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "amount": {
+              "$ref": "#/$defs/by_status"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Basic standard deduction (26 U.S.C. 63(c)(2))."
+        },
+        "additional_standard_deduction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "married",
+            "unmarried",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "married": {
+              "$ref": "#/$defs/amount"
+            },
+            "unmarried": {
+              "$ref": "#/$defs/amount"
+            },
+            "conditions": {
+              "type": "string"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Additional standard deduction per condition (age 65 or older, blind) per person (26 U.S.C. 63(f)). married: married filing jointly or separately, or qualifying surviving spouse; unmarried: single or head of household."
+        },
+        "senior_deduction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "amount_per_person",
+            "minimum_age",
+            "phase_out",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "amount_per_person": {
+              "$ref": "#/$defs/amount"
+            },
+            "minimum_age": {
+              "type": "integer"
+            },
+            "phase_out": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "threshold",
+                "rate",
+                "measure"
+              ],
+              "properties": {
+                "threshold": {
+                  "$ref": "#/$defs/by_status"
+                },
+                "rate": {
+                  "$ref": "#/$defs/amount"
+                },
+                "measure": {
+                  "type": "string",
+                  "description": "The income measure, in the statute's words (modified adjusted gross income)."
+                }
+              }
+            },
+            "not_allowed_for": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "married_separate"
+                ]
+              }
+            },
+            "conditions": {
+              "type": "string",
+              "description": "Other conditions in words (valid SSN, joint return for married persons)."
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Deduction for seniors added by P.L. 119-21 for 2025 through 2028: an amount per qualifying person, reduced by rate x the measure over the threshold, not below 0."
+        },
+        "capital_gains": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "schedules",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "schedules": {
+              "$ref": "#/$defs/brackets_by_status"
+            },
+            "other_rates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "what",
+                  "rate"
+                ],
+                "properties": {
+                  "what": {
+                    "type": "string"
+                  },
+                  "rate": {
+                    "$ref": "#/$defs/amount"
+                  }
+                }
+              }
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Rates on qualified dividends and net capital gain (26 U.S.C. 1(h)): each band's start is a taxable income level, as the Qualified Dividends and Capital Gain Tax Worksheet applies it. other_rates: maximum rates on unrecaptured section 1250 gain and collectibles."
+        },
+        "net_investment_income_tax": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rate",
+            "threshold",
+            "measure",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "threshold": {
+              "$ref": "#/$defs/by_status"
+            },
+            "measure": {
+              "type": "string"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "26 U.S.C. 1411: rate x the lesser of net investment income and the measure over the threshold."
+        },
+        "additional_medicare_tax": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rate",
+            "threshold",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "threshold": {
+              "$ref": "#/$defs/by_status"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "26 U.S.C. 3101(b)(2): rate on wages and self-employment income over the threshold."
+        },
+        "social_security_benefits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "base_amount",
+            "adjusted_base_amount",
+            "first_rate",
+            "second_rate",
+            "measure",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "base_amount": {
+              "$ref": "#/$defs/by_status"
+            },
+            "adjusted_base_amount": {
+              "$ref": "#/$defs/by_status"
+            },
+            "first_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "second_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "measure": {
+              "type": "string",
+              "description": "The income compared with the base amounts, in the statute's words (modified adjusted gross income plus half the benefits)."
+            },
+            "married_separate_lived_with_spouse": {
+              "type": "string",
+              "description": "What applies to a married person filing separately who lived with the spouse at any time in the year."
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Taxable part of Social Security benefits (26 U.S.C. 86; Publication 915 worksheet)."
+        },
+        "salt_cap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cap",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "cap": {
+              "$ref": "#/$defs/by_status"
+            },
+            "phase_down": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "threshold",
+                "rate",
+                "floor",
+                "measure"
+              ],
+              "properties": {
+                "threshold": {
+                  "$ref": "#/$defs/by_status"
+                },
+                "rate": {
+                  "$ref": "#/$defs/amount"
+                },
+                "floor": {
+                  "$ref": "#/$defs/by_status"
+                },
+                "measure": {
+                  "type": "string"
+                }
+              }
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Limit on the itemized deduction for state and local taxes (26 U.S.C. 164(b)(6)-(7)): the cap is reduced by rate x the measure over the threshold, not below the floor."
+        }
+      }
+    },
+    "medicare": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "part_b",
+        "irmaa"
+      ],
+      "properties": {
+        "part_b": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "standard_monthly_premium",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "standard_monthly_premium": {
+              "$ref": "#/$defs/amount"
+            },
+            "annual_deductible": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Medicare Part B standard premium and deductible for the calendar year."
+        },
+        "irmaa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lookback_years",
+            "measure",
+            "tiers",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "lookback_years": {
+              "type": "integer",
+              "description": "The premium year uses the tax return from this many years earlier."
+            },
+            "measure": {
+              "type": "string"
+            },
+            "tiers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "over"
+                ],
+                "properties": {
+                  "over": {
+                    "$ref": "#/$defs/by_status"
+                  },
+                  "up_to": {
+                    "$ref": "#/$defs/by_status"
+                  },
+                  "part_b_monthly_total": {
+                    "$ref": "#/$defs/amount"
+                  },
+                  "part_b_monthly_adjustment": {
+                    "$ref": "#/$defs/amount"
+                  },
+                  "part_d_monthly_adjustment": {
+                    "$ref": "#/$defs/amount"
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "applies_when": {
+                    "enum": [
+                      "over",
+                      "at_or_over"
+                    ],
+                    "description": "over (default): the tier applies when the measure is more than `over`. at_or_over: when it is equal to or more (CMS prints the top tier as 'greater than or equal to')."
+                  }
+                },
+                "description": "One income tier. over: the tier applies when the measure is more than this (by status: single covers single, head of household, qualifying surviving spouse and married filing separately who lived apart; married_separate is the separate-but-lived-together table); up_to: the tier's upper limit, inclusive, as printed."
+              },
+              "description": "Tiers from lowest to highest. A household is in the highest tier whose `over` test its measure passes (more than `over`, or equal to or more for applies_when at_or_over); `up_to` is the upper limit as printed and is for reading only, so a tier just below an at_or_over tier ends below that tier's `over`."
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Income-related monthly adjustment amounts for Parts B and D (42 U.S.C. 1395r(i), 1395w-113(a)(7))."
+        }
+      }
+    },
+    "payroll": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "social_security",
+        "medicare"
+      ],
+      "properties": {
+        "social_security": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "wage_base",
+            "employee_rate",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "wage_base": {
+              "$ref": "#/$defs/amount"
+            },
+            "employee_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "employer_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "self_employment_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "OASDI tax (26 U.S.C. 3101(a), 1401(a); wage base 42 U.S.C. 430)."
+        },
+        "medicare": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "employee_rate",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "employee_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "employer_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "self_employment_rate": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Hospital insurance tax (26 U.S.C. 3101(b)(1))."
+        },
+        "earnings_test": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "under_full_retirement_age",
+            "year_reaching_full_retirement_age",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "under_full_retirement_age": {
+              "$ref": "#/$defs/amount"
+            },
+            "year_reaching_full_retirement_age": {
+              "$ref": "#/$defs/amount"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Social Security retirement earnings test exempt amounts (annual)."
+        }
+      }
+    },
+    "retirement_accounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elective_deferral",
+        "catch_up",
+        "ira",
+        "qualified_charitable_distribution"
+      ],
+      "properties": {
+        "elective_deferral": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "limit",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "limit": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "401(k), 403(b), governmental 457(b) elective deferral limit (26 U.S.C. 402(g)(1))."
+        },
+        "catch_up": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "age_50_and_over",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "age_50_and_over": {
+              "$ref": "#/$defs/amount"
+            },
+            "age_60_to_63": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Catch-up contributions to 401(k), 403(b), governmental 457(b) (26 U.S.C. 414(v)); age_60_to_63 is the higher limit from 2025."
+        },
+        "ira": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "limit",
+            "catch_up_age_50",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "limit": {
+              "$ref": "#/$defs/amount"
+            },
+            "catch_up_age_50": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "IRA contribution limit and catch-up (26 U.S.C. 219(b)(5))."
+        },
+        "roth_ira_phase_out": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "start",
+            "end",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "start": {
+              "$ref": "#/$defs/by_status"
+            },
+            "end": {
+              "$ref": "#/$defs/by_status"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Roth IRA contribution phase-out range by modified AGI (26 U.S.C. 408A(c)(3))."
+        },
+        "traditional_ira_deduction_phase_out": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "covered",
+            "covered_end",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "covered": {
+              "$ref": "#/$defs/by_status"
+            },
+            "covered_end": {
+              "$ref": "#/$defs/by_status"
+            },
+            "spouse_covered": {
+              "$ref": "#/$defs/amount"
+            },
+            "spouse_covered_end": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Deduction phase-out range when the contributor is covered by a workplace plan (start, end), and when only the spouse is covered (26 U.S.C. 219(g))."
+        },
+        "qualified_charitable_distribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "limit",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "limit": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Annual QCD limit per IRA owner (26 U.S.C. 408(d)(8))."
+        },
+        "hsa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "self_only",
+            "family",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "self_only": {
+              "$ref": "#/$defs/amount"
+            },
+            "family": {
+              "$ref": "#/$defs/amount"
+            },
+            "catch_up_age_55": {
+              "$ref": "#/$defs/amount"
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "HSA contribution limits (26 U.S.C. 223(b))."
+        }
+      }
+    },
+    "rmd": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_age",
+        "uniform_lifetime_table",
+        "single_life_table"
+      ],
+      "properties": {
+        "start_age": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "by_birth_year",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "by_birth_year": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "age"
+                ],
+                "properties": {
+                  "born_from": {
+                    "type": "integer"
+                  },
+                  "born_through": {
+                    "type": "integer"
+                  },
+                  "age": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Required beginning age (26 U.S.C. 401(a)(9)(C)) by year of birth."
+        },
+        "uniform_lifetime_table": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rows",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "age",
+                  "divisor"
+                ],
+                "properties": {
+                  "age": {
+                    "type": "integer"
+                  },
+                  "divisor": {
+                    "$ref": "#/$defs/amount"
+                  }
+                }
+              }
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Distribution periods for owners (26 CFR 1.401(a)(9)-9(c)); the last row covers that age and older."
+        },
+        "single_life_table": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rows",
+            "cite",
+            "indexing"
+          ],
+          "properties": {
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "age",
+                  "divisor"
+                ],
+                "properties": {
+                  "age": {
+                    "type": "integer"
+                  },
+                  "divisor": {
+                    "$ref": "#/$defs/amount"
+                  }
+                }
+              }
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "indexing": {
+              "$ref": "#/$defs/indexing_rules"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "derivations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/derivation"
+              }
+            }
+          },
+          "description": "Single Life Table (26 CFR 1.401(a)(9)-9(b)), used by beneficiaries."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "amount": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+    },
+    "cite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication",
+        "section",
+        "url",
+        "accessed"
+      ],
+      "properties": {
+        "publication": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1,
+          "description": "PDF page and the line, worksheet or code section; never just the title."
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "accessed": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "also": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "section"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "pattern": "^https://"
+              },
+              "section": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "description": "Further documents that print some of this group's figures (a table split across two notices). The validator looks for each figure in the cited document and these."
+        }
+      }
+    },
+    "by_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "all": {
+          "$ref": "#/$defs/amount"
+        },
+        "single": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/amount"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/amount"
+        },
+        "qualifying_surviving_spouse": {
+          "$ref": "#/$defs/amount"
+        }
+      },
+      "description": "An amount per federal filing status; 'all' when one amount applies to every status. A qualifying surviving spouse uses married_joint unless qualifying_surviving_spouse is given."
+    },
+    "bracket_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rate",
+          "start"
+        ],
+        "properties": {
+          "rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "start": {
+            "$ref": "#/$defs/amount"
+          },
+          "base": {
+            "$ref": "#/$defs/amount",
+            "description": "Printed tax on income up to this band's start. When present it replaces the sum of the lower bands: tax on income above start is base + rate x (income - start). Income exactly at start stays in the band below. Used where a state's table steps up at a threshold (Ohio)."
+          }
+        }
+      }
+    },
+    "brackets_by_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "single",
+        "married_joint",
+        "married_separate",
+        "head_of_household"
+      ],
+      "properties": {
+        "single": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/bracket_list"
+        }
+      },
+      "description": "Each band: rate applies to income from start up to the next band's start. A qualifying surviving spouse uses married_joint."
+    },
+    "indexing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "cite"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "fixed",
+            "inflation",
+            "wage_index",
+            "scheduled",
+            "set_yearly"
+          ],
+          "description": "fixed: the amount is written in the statute and does not change. inflation: adjusted each year by a price index (index, base_period, rounding). wage_index: adjusted by the national average wage index (Social Security wage base). scheduled: the statute prints each year's amount or a fixed yearly step (schedule). set_yearly: an agency sets it each year with no formula a projection can repeat (Medicare Part B premium)."
+        },
+        "index": {
+          "enum": [
+            "C-CPI-U",
+            "CPI-U",
+            "average_wage_index"
+          ],
+          "description": "C-CPI-U: chained CPI for all urban consumers (26 U.S.C. 1(f)(6)). CPI-U: CPI for all urban consumers."
+        },
+        "base_period": {
+          "type": "string",
+          "description": "As the statute states it, e.g. 'calendar year 2016' or 'the 12 months ending August 31, 2024'."
+        },
+        "rounding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "multiple",
+            "direction"
+          ],
+          "properties": {
+            "multiple": {
+              "$ref": "#/$defs/amount"
+            },
+            "direction": {
+              "enum": [
+                "down",
+                "nearest",
+                "up"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            },
+            "multiple_by_status": {
+              "$ref": "#/$defs/by_status"
+            }
+          },
+          "description": "Round the adjusted amount to a multiple of this: down (the statute says 'next lowest multiple'), nearest, or up. multiple_by_status overrides the multiple for the statuses it names (some figures for married filing separately round to half the unit)."
+        },
+        "schedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "year",
+              "amount"
+            ],
+            "properties": {
+              "year": {
+                "type": "integer"
+              },
+              "amount": {
+                "$ref": "#/$defs/by_status"
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "applies_through": {
+          "type": "integer",
+          "description": "Last tax year this rule applies; after it, 'then' says what replaces it."
+        },
+        "then": {
+          "type": "string",
+          "description": "What applies after applies_through, in words, with the amount if the statute prints it."
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "indexed_from": {
+          "type": "integer",
+          "description": "First year the figure is indexed; before it the figure stays as printed (the IRMAA top limits are not indexed before 2028)."
+        },
+        "never_decreases": {
+          "type": "boolean",
+          "description": "True when the statute says the adjusted figure may not fall below the prior year's (the Social Security wage base)."
+        },
+        "applies_to": {
+          "type": "string",
+          "description": "When the group's figures don't all index the same way: which figures this indexing covers. Derived figures (derivations) are never indexed themselves."
+        }
+      },
+      "description": "How this figure changes in later years, cited to the statute that says so. A projection uses this to carry the figure forward."
+    },
+    "derivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "rule",
+        "from",
+        "cite"
+      ],
+      "properties": {
+        "target": {
+          "type": "string",
+          "pattern": "^[a-z_]+(\\[[0-9]+\\])?(\\.[a-z_]+(\\[[0-9]+\\])?)*$",
+          "description": "The derived figure, as a path inside this group: 'schedules.single[1].start', 'amount.married_joint', 'tiers[4].over.married_joint'."
+        },
+        "rule": {
+          "enum": [
+            "times",
+            "minus"
+          ],
+          "description": "times: target = from x factor. minus: target = from - subtract."
+        },
+        "from": {
+          "type": "string",
+          "pattern": "^[a-z_]+(\\[[0-9]+\\])?(\\.[a-z_]+(\\[[0-9]+\\])?)*$",
+          "description": "The figure it is set from, a path inside this group. That figure must be indexed on its own (not itself a target)."
+        },
+        "factor": {
+          "$ref": "#/$defs/amount"
+        },
+        "subtract": {
+          "type": "string",
+          "pattern": "^[a-z_]+(\\[[0-9]+\\])?(\\.[a-z_]+(\\[[0-9]+\\])?)*$"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "description": "A figure the statute sets from another figure of the same year, after that figure's own indexing and rounding; the derived figure is not indexed or rounded itself. Example: the joint standard deduction is 2 times the single one (26 U.S.C. 63(c)(2)(A)). In a later year a projection indexes the source and re-derives the target. The validator re-does the arithmetic exactly."
+    },
+    "indexing_rules": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/indexing"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/indexing"
+          }
+        }
+      ]
+    }
+  }
+}

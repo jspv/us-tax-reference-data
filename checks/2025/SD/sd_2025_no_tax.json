@@ -1,0 +1,45 @@
+{
+  "id": "sd_2025_no_tax",
+  "state": "SD",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Taxes (individuals), South Dakota Department of Revenue",
+    "section": "'Income Tax' heading, first sentence: South Dakota has no personal income tax (no state return or form lines exist)",
+    "url": "https://dor.sd.gov/individuals/taxes/"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-01-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "interest": "500.00"
+    },
+    "federal_agi": "60500.00",
+    "federal_taxable_income": "44750.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 60,000.00 + interest 500.00 = 60,500.00. Federal taxable income = 60,500.00 - 15,750.00 single standard deduction = 44,750.00 (given, not tested). South Dakota imposes no personal income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00 regardless of income.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

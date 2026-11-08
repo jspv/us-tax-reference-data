@@ -1,0 +1,43 @@
+{
+  "id": "mi_2025_personal_exemption",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "mi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "MI-1040 line 9a (PDF page 10, Line 9a: number of exemptions x 5,800); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income); record cite PDF page 10 Line 9a and Line 9e, PDF page 3",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.mi_personal_exemption"
+  ]
+}

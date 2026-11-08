@@ -1,0 +1,60 @@
+{
+  "id": "wv_2025_base",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M (PDF pp.5-6; instructions PDF pp.28-30), no line applies; IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "48000.00",
+    "state_tax_before_credits": "1520.70",
+    "credits": "0.00",
+    "state_income_tax": "1520.70"
+  },
+  "worked": "Single, age 45, wages and a private pension: no Schedule M line applies to either (no line subtracts a private pension). filer born 1980-06-15, age 45 at December 31, 2025. Federal AGI (given) = wages 40,000.00 + private pension 10,000.00 = 50,000.00. Federal taxable income (given, not tested) = 50,000.00 - standard deduction 15,750.00 = 34,250.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 50,000.00. Schedule M additions lines 51-58 none; IT-140 line 2 0.00. Schedule M Column A: line 47: age 45, under 65 and not disabled, none; line 49 = 0.00. Line 50 total subtractions = 0.00. IT-140 line 3 subtractions 0.00; line 4 West Virginia AGI = 50,000.00 + 0.00 - 0.00 = 50,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 1 x 2,000.00 = 2,000.00. Line 7 taxable income = 50,000.00 - 2,000.00 = 48,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 15,000.00 = 444 + 3.33% x 15,000.00 = 499.5 + 4.44% x 8,000.00 = 355.2; total 1520.7 = 1,520.70. The Tax Table row 48,000 to under 48,050 (PDF p.38 on) gives 1,522; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 1,520.70.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wv_fed_law_enforcement_retirement",
+    "state_rule_not_modelled:wv_pbgc",
+    "state_rule_not_modelled:wv_police_fire_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Washington has no individual income tax (Income tax page); projection has_income_tax false, brackets empty, starts_from none, no reliefs or credits. Wages 90,000 + interest 2,000 = federal AGI 92,000 (federal taxable 76,250 = 92,000 - 15,750, given, not tested). No state return exists: taxable income 0.00, tax before credits 0.00, credits 0.00, tax 0.00. The capital gains excise tax is not modelled and there are no gains in the household."
+}

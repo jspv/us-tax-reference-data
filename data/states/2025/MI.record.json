@@ -1,0 +1,851 @@
+{
+  "layer": "record",
+  "state": "MI",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Flat tax: 4.25% for 2025 (PDF page 3; page 10 Line 17). Married filing separately, head of household and qualifying surviving spouse have no own schedule: head of household and qualifying surviving spouse must file Michigan as single (page 10 Line 7).",
+    "Michigan retirement rules are by birth year of the older spouse (key person); each birth-year branch is its own relief entry, and all retirement subtractions plus Tier 2/Tier 3 Michigan Standard Deductions share best_of_group mi_retirement_choice because the booklet says a recipient born before 1967 may qualify for several options but may claim only one.",
+    "Born after December 31, 1966: booklet says they do not qualify for a retirement and pension subtraction unless allowed under another section (the SSA-exempt retired-by-2013 entry; surviving spouse exceptions); all benefits in AGI are taxable. Not a relief entry because there is nothing to subtract.",
+    "Date discrepancy: the heading for SSA-exempt recipients says born January 1, 1959 through January 1, 1964, but Line 18 says January 2, 1959 through January 1, 1964; I used 1959-01-02 (Line 18). Likewise SSA-exempt retired-by-2013 heading says 'born after January 1, 1959' and I used 1959-01-02. Born January 1, 1959 falls in the Tier 3 / Section D branch.",
+    "Caps of 49,423 / 98,846 are printed as such on Line 19 and the pages; Worksheet 3.3 computes 75% of 65,897 / 131,794 less military, National Guard and railroad retirement (75% of 65,897 = 49,422.75, printed rounded to 49,423).",
+    "Public vs private: pre-1946 and fire/police entries are split into a public entry (no cap) and a private entry (cap 65,897 / 131,794). For the 1946-1966 and SSA-exempt branches the cap is on total public and private benefits, so there is one entry each; worksheets 3.1 and 3.2 count public benefits first and cap private benefits at the remaining room.",
+    "Fire/police: the booklet says the recipient may claim the most beneficial of option (a) (public all, private to 65,897/131,794) or a Michigan Standard Deduction by year of birth, so the two entries share the group; the surviving spouse of a fire/police retiree also qualifies.",
+    "Qualifying surviving spouse (claimed a retirement or Social Security subtraction on the joint return in the year of death and not remarried; spouse died before 2025) uses the older of self or deceased spouse's birth year; recorded in other_conditions and here only, not as its own entries.",
+    "roth_conversion: the booklet never mentions Roth conversions; it says IRA distributions after age 59 1/2 (or a series of equal periodic payments for life under IRC 72(t)(2)(A)(iv)) qualify, so roth_conversion is in covers_unclear. Qualifying annuity: retirement annuity policy paid to a senior citizen (65 or older) for life. Foreign plans meeting Michigan's qualifications may be eligible.",
+    "Standard deduction 'covers': the booklet says it applies 'against all income types', so every income kind except social_security and military/railroad (which reduce the amount) is listed; Social Security is instead subtracted separately (Tier 3 reduces it by taxable Social Security).",
+    "Social Security treated as exempt: Schedule 1 line 14 subtracts the taxable portion of Social Security included in AGI (page 14); no explicit sentence says 'Michigan does not tax Social Security'. Tier 1 and Tier 2 railroad retirement is subtracted on line 11.",
+    "Municipal interest: Schedule 1 line 1 adds back interest and dividends from obligations of states and political subdivisions other than Michigan; the booklet does not say outright that Michigan's own obligations are exempt, so own-state exemption is inferred from the 'other than Michigan' wording. U.S. government obligation interest is subtracted (line 10).",
+    "Capital gains: no separate rate or deduction share is printed; gains are taxed as other income except the age-based line 28 deduction and Michigan adjustments (MI-1040D) for pre-1967 property, U.S. obligations and out-of-state property. capital_gains is empty.",
+    "Exemption: 5,800 per exemption claimed (self, spouse, each dependent) plus stillbirth exemption of 5,800 (line 9d); special exemption 3,400 for deaf, blind, hemiplegic, paraplegic, quadriplegic or totally and permanently disabled (one per person, not for someone who reached 66 by Feb 28, 2025 as totally and permanently disabled); 500 for a qualified disabled veteran; 1,500 on line 9e if someone else can claim you (with 0 on line 9a). The special exemption is recorded with what 'other' since the schema has no combined deaf/blind/disabled value.",
+    "Left out: Renaissance Zone subtraction, tribal member subtraction, 529/MET deductions, severance-tax and marihuana items, federal elderly/disabled credit subtraction (line 23, only as a reducer), P.A. 24 of 2025 IRC decoupling adjustments, credits (EITC 30% of federal, out-of-state tax credit, homestead property tax credit), and all non-retirement subtractions.",
+    "Indexing: the booklet does not say any figure is adjusted for inflation; it gives 2025-specific amounts. Recorded as not_stated for all figures.",
+    "Schema limits: no field for 'smaller of public/private rules interacting' beyond cap_rule text; reductions by military, railroad, taxable Social Security, exemptions and active-duty pay are in cap_rule text only; per-spouse doubling for SSA-exempt entries (30,000 / 70,000) is in cap_rule only.",
+    "Settlement 2026-11-06: reading A taken as the record; reading B merged public and private benefits for births before 1946 under one capped entry, which the booklet does not support (public benefits are not capped).",
+    "Format update 2026-11-06: recapture added (none found in the booklet).",
+    "2026-11-07 (from the hand-worked checks): Worksheet 3.3 cites corrected to PDF page 25; projection: pre-1946 public and private subtractions stack (not a best-of group), another state's government pension counts as private, Tier 2/3 bounded by birth date only, the 75% cap reduction recorded as an approximation."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+      "section": "PDF page 3, 'Tax Rate, Exemption Allowances, and Deductions for Retirees and Seniors'; PDF page 10 Line 17",
+      "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "mi_personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "5800"
+        },
+        "per": "exemption_claimed",
+        "condition": "Number of exemptions for you, your spouse (if filing jointly) and your dependents, each multiplied by 5,800; if someone else can claim you, enter 0 on line 9a and 1,500 on line 9e",
+        "cite": {
+          "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+          "section": "PDF page 10, Line 9a and Line 9e; PDF page 3",
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "mi_stillbirth_exemption",
+        "what": "other",
+        "amount": {
+          "all": "5800"
+        },
+        "per": "exemption_claimed",
+        "condition": "Parent of a stillborn delivered during 2025 with a Certificate of Stillbirth",
+        "cite": {
+          "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+          "section": "PDF page 3; PDF page 10 Line 9d",
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "mi_special_exemption",
+        "what": "other",
+        "amount": {
+          "all": "3400"
+        },
+        "per": "person",
+        "condition": "Deaf, blind, hemiplegic, paraplegic, quadriplegic or totally and permanently disabled; one per person; not available as totally and permanently disabled if age 66 by February 28, 2025",
+        "cite": {
+          "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+          "section": "PDF page 3; PDF page 10 Line 9b",
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "mi_disabled_veteran_exemption",
+        "what": "other",
+        "amount": {
+          "all": "500"
+        },
+        "per": "return",
+        "condition": "Taxpayer, spouse or a dependent is a qualified disabled veteran; may not be claimed on more than one return",
+        "cite": {
+          "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+          "section": "PDF page 10, Line 9c",
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "mi_dependent_filer_exemption",
+        "what": "other",
+        "amount": {
+          "all": "1500"
+        },
+        "per": "return",
+        "condition": "Someone else can claim you as a dependent (line 9e, with 0 on line 9a)",
+        "cite": {
+          "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+          "section": "PDF page 10, Line 9e",
+          "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+      "section": "PDF page 10, Line 10 (AGI from U.S. Form 1040) and Lines 9a-9e",
+      "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+      "section": "PDF page 14, Schedule 1 Line 14 (subtract taxable Social Security included in AGI)",
+      "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "mi_pre1946_public",
+      "label": "Retirement and pension benefits subtraction, public benefits, recipients born before 1946 (Form 4884 Section A)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31",
+        "other_conditions": [
+          "Public benefits are those from the State of Michigan, Michigan local governmental units, and federal civil service"
+        ]
+      },
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, 'Recipients born before 1946'; PDF page 19 'Qualifying public benefits'",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_pre1946_private",
+      "label": "Retirement and pension benefits subtraction, private benefits, recipients born before 1946 (Form 4884 Section A)",
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31",
+        "other_conditions": [
+          "Qualifying surviving spouse may use the decedent's birth year"
+        ]
+      },
+      "cap": {
+        "single": "65897",
+        "married_separate": "65897",
+        "married_joint": "131794"
+      },
+      "cap_per": "return",
+      "cap_rule": "Private benefits only; single limit applies to married filing separately. If public benefits are greater than the maximum, the recipient and spouse may not claim an additional subtraction for private benefits. Private limits are reduced by military, Michigan National Guard and railroad retirement subtracted on Schedule 1 line 11.",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, 'Recipients born before 1946'; PDF page 19 'NOTE: Private pension limits'",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_firepolice_public",
+      "label": "Qualified fire, police and county corrections retirement benefits: public benefits (Form 4884 Section A)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Qualifying distribution included in AGI from Michigan service as a police or fire department employee under the Compulsory Arbitration of Labor Disputes in Police and Fire Departments Act, a state police trooper or sergeant, or a county jail corrections officer; substantially similar federal employment also qualifies; a surviving spouse of such an employee also qualifies",
+          "Any year of birth"
+        ]
+      },
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 19-20, 'Recipients of Retirement Benefits from Qualified Fire, Police, and County Corrections Service', option (a)",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_firepolice_private",
+      "label": "Qualified fire, police and county corrections retirement benefits: private benefits (Form 4884 Section A)",
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Same fire, police or county corrections service test as the public entry",
+          "Any year of birth"
+        ]
+      },
+      "cap": {
+        "single": "65897",
+        "married_separate": "65897",
+        "married_joint": "131794"
+      },
+      "cap_per": "return",
+      "cap_rule": "Private benefits only. If public retirement benefits are greater than the maximum, the recipient and spouse are not entitled to an additional subtraction for private benefits.",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, option (a); PDF page 19 'NOTE: Private pension limits'",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_ret_1946_1952",
+      "label": "Retirement and pension benefits subtraction, born 1946 through 1952 (Form 4884 Section D, Worksheet 3.3)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1946-01-01",
+        "born_on_or_before": "1952-12-31",
+        "other_conditions": [
+          "Qualifying surviving spouse of a decedent born in the period may claim it; benefits received from a deceased spouse who died before 2025 count"
+        ]
+      },
+      "cap": {
+        "single": "49423",
+        "married_separate": "49423",
+        "married_joint": "98846"
+      },
+      "cap_per": "return",
+      "cap_rule": "Worksheet 3.3: 75% of (65,897 single or 131,794 joint, less military, Michigan National Guard and taxable railroad retirement subtracted on Schedule 1 line 11), compared with total public and private benefits; the smaller is the subtraction. The booklet prints the unreduced maximum as 49,423 single or married filing separately and 98,846 joint. Single limits apply to married filing separately.",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, 'Recipients born during the period from January 1, 1946 through December 31, 1952'; PDF page 22 Line 19; PDF page 25 Worksheet 3.3",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_ret_1953_1959",
+      "label": "Retirement and pension benefits subtraction, born January 1, 1953 through January 1, 1959 (Form 4884 Section D, Worksheet 3.3)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1953-01-01",
+        "born_on_or_before": "1959-01-01",
+        "other_conditions": [
+          "Qualifying surviving spouse of a decedent born in the period may claim it; benefits received from a deceased spouse who died before 2025 count"
+        ]
+      },
+      "cap": {
+        "single": "49423",
+        "married_separate": "49423",
+        "married_joint": "98846"
+      },
+      "cap_per": "return",
+      "cap_rule": "Worksheet 3.3: 75% of (65,897 single or 131,794 joint, less military, Michigan National Guard and taxable railroad retirement subtracted on Schedule 1 line 11), compared with total public and private benefits; the smaller is the subtraction. The booklet prints the unreduced maximum as 49,423 single or married filing separately and 98,846 joint. Single limits apply to married filing separately.",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, 'Recipients born during the period from January 1, 1953 through January 1, 1959'; PDF page 22 Line 19; PDF page 25 Worksheet 3.3",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_ret_1959_1966",
+      "label": "Retirement and pension benefits subtraction, born January 2, 1959 through December 31, 1966 (Form 4884 Section D, Worksheet 3.3)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1959-01-02",
+        "born_on_or_before": "1966-12-31",
+        "other_conditions": [
+          "Qualifying surviving spouse of a decedent born in the period may claim it; benefits received from a deceased spouse who died before 2025 count"
+        ]
+      },
+      "cap": {
+        "single": "49423",
+        "married_separate": "49423",
+        "married_joint": "98846"
+      },
+      "cap_per": "return",
+      "cap_rule": "Worksheet 3.3: 75% of (65,897 single or 131,794 joint, less military, Michigan National Guard and taxable railroad retirement subtracted on Schedule 1 line 11), compared with total public and private benefits; the smaller is the subtraction. The booklet prints the unreduced maximum as 49,423 single or married filing separately and 98,846 joint. Single limits apply to married filing separately.",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, 'Recipients born during the period from January 2, 1959 through December 31, 1966'; PDF page 22 Line 19; PDF page 25 Worksheet 3.3",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_ssa_exempt_1959_1964",
+      "label": "Retirement benefits subtraction, SSA-exempt employment, born 1959 through 1964, age 62 (Form 4884 Section C, Worksheet 3.2)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "min_age": 62,
+        "born_on_or_after": "1959-01-02",
+        "born_on_or_before": "1964-01-01",
+        "other_conditions": [
+          "Receives (or spouse receives) retirement benefits from governmental employment not covered by the federal Social Security Act; box 24C or 24G on Schedule 1 checked",
+          "Qualifying surviving spouse of a decedent born after 1958 who had reached 62 and received SSA-exempt benefits in the year of death also qualifies"
+        ]
+      },
+      "cap": {
+        "single": "15000",
+        "married_separate": "15000",
+        "married_joint": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Up to 15,000; if both spouses on a joint return receive SSA-exempt retirement benefits (boxes 24C and 24G), the maximum is 30,000. Worksheet 3.2: public benefits plus private benefits limited to (65,897 or 131,794 less military/railroad on line 11 and public benefits), then the smaller of that and 15,000 (30,000).",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, SSA exempt born 1959 through 1964 heading; PDF page 22 Line 18; PDF page 24 Worksheet 3.2",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_ssa_exempt_retired_2013",
+      "label": "Retirement benefits subtraction, SSA-exempt employment, born after January 1, 1959 and retired as of January 1, 2013 (Form 4884 Section B, Worksheet 3.1)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts received before the recipient could retire under the plan provisions, including amounts paid on separation, withdrawal, or discontinuance of the plan",
+        "Early retirement incentives unless paid from a pension trust",
+        "Deferred compensation plans that let the employee set the amount put aside and set no retirement age or years of service: 401(k) attributable to unmatched employee contributions alone",
+        "403(b) attributable to unmatched employee contributions, other than plans purchased by an organization exempt under IRC 501(c)(3) or a public school system",
+        "457 plans",
+        "Retirement distributions from Thrift Savings Plan",
+        "Public benefits from other states are treated as private benefits (including those from states offering a similar or reciprocal subtraction for Michigan public benefits)",
+        "Military and Michigan National Guard retirement and railroad retirement benefits are subtracted on Schedule 1 line 11, not on Form 4884"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1959-01-02",
+        "other_conditions": [
+          "Retired as of January 1, 2013 and receives retirement benefits from SSA-exempt employment (box 24C/24D, 24G/24H)",
+          "Also used if the older spouse was born before January 2, 1959 and died during the tax year before reaching 67 with the same retirement and SSA-exempt facts",
+          "Qualifying surviving spouse of a decedent born after 1952 who received SSA-exempt benefits in the year of death and had retired as of January 1, 2013"
+        ]
+      },
+      "cap": {
+        "single": "35000",
+        "married_separate": "35000",
+        "married_joint": "55000"
+      },
+      "cap_per": "return",
+      "cap_rule": "35,000 single or married filing separately; 55,000 joint; if both spouses on a joint return receive SSA-exempt retirement benefits, 70,000. Worksheet 3.1: public benefits plus private benefits limited to (65,897 or 131,794 less military/railroad on line 11 and public benefits), then the smaller of that and 20,000 (40,000 joint) plus 15,000 (30,000 if both spouses).",
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 20, SSA exempt born after January 1, 1959 and retired as of January 1, 2013; PDF page 21 Line 17; PDF page 23 Worksheet 3.1",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_tier2_std_deduction",
+      "label": "Tier 2 Michigan Standard Deduction",
+      "form": "subtraction",
+      "covers": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "min_age": 67,
+        "born_on_or_after": "1946-01-01",
+        "born_on_or_before": "1952-12-31",
+        "other_conditions": [
+          "Older spouse must have reached 67",
+          "Qualifying surviving spouse who has reached 67 may elect it"
+        ]
+      },
+      "cap": {
+        "single": "20000",
+        "married_separate": "20000",
+        "married_joint": "40000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Booklet: 'Michigan Standard Deduction against all income types'. 20,000 single or married filing separately, 40,000 joint; increased by 15,000 if box 24C or 24G checked, by 30,000 if both 24C and 24G checked. Reduced by military and Michigan National Guard retirement and railroad retirement subtracted on Schedule 1 line 11 and by active-duty military pay on line 14 (Worksheet 2 lines 4 to 7). Taxpayer chooses this deduction or the retirement subtraction (line 27), not both.",
+      "cannot_combine_with": [
+        "mi_ret_1946_1952"
+      ],
+      "best_of_group": "mi_retirement_choice",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 17, Line 25; PDF page 18 Worksheet 2 lines 1-7a",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_tier2_std_deduction_1953_ssa",
+      "label": "Tier 2 Michigan Standard Deduction (born 1953 through January 1, 1959, retired as of January 1, 2013, SSA-exempt benefits)",
+      "form": "subtraction",
+      "covers": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "min_age": 67,
+        "born_on_or_after": "1953-01-01",
+        "born_on_or_before": "1959-01-01",
+        "other_conditions": [
+          "Reached age 67, the person or spouse was retired as of January 1, 2013, and received retirement benefits from SSA-exempt employment (boxes 24C and 24D, or 24G and 24H)"
+        ]
+      },
+      "cap": {
+        "single": "20000",
+        "married_separate": "20000",
+        "married_joint": "40000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Worksheet 2 line 7b stops at line 7: 20,000 single or married filing separately, 40,000 joint, plus 15,000 if either box pair (24C and 24D, or 24G and 24H) is checked, plus 30,000 if both spouses' pairs are checked; less military, Michigan National Guard and railroad retirement and active-duty pay. Does not reduce for exemptions or taxable Social Security.",
+      "best_of_group": "mi_retirement_choice",
+      "cannot_combine_with": [
+        "mi_ret_1953_1959"
+      ],
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 18, Worksheet 2 lines 2b and 7b",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_tier3_std_deduction",
+      "label": "Tier 3 Michigan Standard Deduction",
+      "form": "subtraction",
+      "covers": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "min_age": 67,
+        "born_on_or_after": "1953-01-01",
+        "born_on_or_before": "1959-01-01",
+        "other_conditions": [
+          "Must reach 67 on or before December 31, 2025 (considered to turn 67 the day before the 67th birthday)",
+          "Applies if the SSA-exempt, retired-by-2013 test of the other Tier 2 entry is not met"
+        ]
+      },
+      "cap": {
+        "single": "20000",
+        "married_separate": "20000",
+        "married_joint": "40000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Up to 20,000 single or married filing separately, up to 40,000 joint, against all income types. Worksheet 2: 20,000 or 40,000 plus up to 15,000 (30,000) if boxes 24C and 24D (24G and 24H) are checked, less military, Michigan National Guard and railroad retirement and active-duty pay, less taxable Social Security, less the amounts on MI-1040 lines 9a and 9d (exemptions); not below 0. Taxpayer chooses this deduction or the retirement subtraction (line 27), not both.",
+      "best_of_group": "mi_retirement_choice",
+      "cannot_combine_with": [
+        "mi_ret_1953_1959"
+      ],
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 17, Line 26; PDF page 18 Worksheet 2 lines 1-11",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_senior_investment_deduction",
+      "label": "Dividend/Interest/Capital Gains Deduction for Taxpayers Born Prior to 1946 (Schedule 1 line 28)",
+      "form": "subtraction",
+      "covers": [
+        "interest",
+        "dividends",
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31",
+        "other_conditions": [
+          "Also the unremarried surviving spouse of a decedent born before 1946 who died after reaching age 65"
+        ]
+      },
+      "cap": {
+        "single": "14688",
+        "married_separate": "14688",
+        "married_joint": "29376"
+      },
+      "cap_per": "return",
+      "cap_rule": "Maximum 14,688 single or married filing separately, 29,376 joint, reduced by Schedule 1 line 11 (military, National Guard, railroad), line 27 (public and private retirement) and the federal elderly/disabled credit amount subtracted on line 23; smaller of the result or interest, dividends and capital gains included in AGI.",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 3 General Information; PDF page 17 Line 28 and worksheet",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_military_retirement",
+      "label": "Military retirement benefits (U.S. Armed Forces or Michigan National Guard), Schedule 1 line 11",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Retirement benefits due to service in the U.S. Armed Forces or Michigan National Guard"
+        ]
+      },
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 14, Schedule 1 Line 11",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_railroad_retirement",
+      "label": "Taxable Tier 1 and Tier 2 railroad retirement benefits, Schedule 1 line 11",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 14, Schedule 1 Line 11",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_active_duty_pay",
+      "label": "Compensation for active duty in the U.S. Armed Forces, Schedule 1 line 14",
+      "form": "exempt_in_full",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Active duty compensation only; U.S. Public Health Service, contracted employee pay and civilian pay are not military pay"
+        ]
+      },
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 14, Schedule 1 Line 14 and NOTE",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "mi_us_obligations_interest",
+      "label": "Income from U.S. government obligations, Schedule 1 line 10",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "Reduced by related expenses used to arrive at AGI.",
+      "cite": {
+        "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+        "section": "PDF page 14, Schedule 1 Line 10",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Schedule 1 line 1 adds interest and dividends from obligations of states and political subdivisions other than Michigan; the exemption of Michigan's own obligations is implied, not stated.",
+    "cite": {
+      "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+      "section": "PDF page 13, Schedule 1 Line 1",
+      "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "mi_pre1946_private",
+      "indexed": "yes",
+      "index": "Inflation (the measure is not named): the private retirement maximum of MCL 206.30(1)(f)(iv), 42,240 single and 84,480 joint in 2007, 'has been indexed for inflation each year since 2008'; 65,897 and 131,794 for 2025",
+      "cite": {
+        "publication": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits), Michigan Department of Treasury",
+        "section": "'Pre-2012 Michigan Tax Treatment of Retirement Distributions' (MCL 206.30(1)(f)(iv)): the private retirement maximum 'has been indexed for inflation each year since 2008'; 'Post-2011', Tier 1: 'the inflation-indexed private retirement maximum, which for tax year 2025 is $65,897 for a single filer and $131,794 for joint filers'",
+        "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "mi_ret_1946_1952",
+      "indexed": "yes",
+      "index": "75% of the inflation-adjusted private retirement maximum for 2025 (the maximum is indexed for inflation each year; the measure is not named)",
+      "cite": {
+        "publication": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits), Michigan Department of Treasury",
+        "section": "'Treatment of Retirement Income under PA 4', Issue 2 (MCL 206.30(10)): 'Tax Year 2025 - taxpayers born after 1945 and before 1967 may deduct combined public and private retirement benefits not to exceed 75% of the inflation-adjusted private retirement maximum'; 'Pre-2012' section: the maximum 'has been indexed for inflation each year since 2008'",
+        "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "mi_ret_1953_1959",
+      "indexed": "yes",
+      "index": "75% of the inflation-adjusted private retirement maximum for 2025 (the maximum is indexed for inflation each year; the measure is not named)",
+      "cite": {
+        "publication": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits), Michigan Department of Treasury",
+        "section": "'Treatment of Retirement Income under PA 4', Issue 2 (MCL 206.30(10)): 'Tax Year 2025 - taxpayers born after 1945 and before 1967 may deduct combined public and private retirement benefits not to exceed 75% of the inflation-adjusted private retirement maximum'; 'Pre-2012' section: the maximum 'has been indexed for inflation each year since 2008'",
+        "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "mi_ret_1959_1966",
+      "indexed": "yes",
+      "index": "75% of the inflation-adjusted private retirement maximum for 2025 (the maximum is indexed for inflation each year; the measure is not named)",
+      "cite": {
+        "publication": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits), Michigan Department of Treasury",
+        "section": "'Treatment of Retirement Income under PA 4', Issue 2 (MCL 206.30(10)): 'Tax Year 2025 - taxpayers born after 1945 and before 1967 may deduct combined public and private retirement benefits not to exceed 75% of the inflation-adjusted private retirement maximum'; 'Pre-2012' section: the maximum 'has been indexed for inflation each year since 2008'",
+        "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

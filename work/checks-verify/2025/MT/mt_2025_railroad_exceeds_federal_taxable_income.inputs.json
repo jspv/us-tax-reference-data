@@ -1,0 +1,51 @@
+{
+  "id": "mt_2025_railroad_exceeds_federal_taxable_income",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p28 Lines 22 and 23, Railroad Retirement Benefits; Form 2 PDF p3 lines 22-24; record reliefs railroad_retirement_subtraction; Form 2 PDF p1 lines 3 and 7 ('If zero or less, enter 0'); Instructions PDF p13 Line 7",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement_subtraction"
+  ]
+}

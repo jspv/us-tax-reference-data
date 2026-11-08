@@ -1,0 +1,2280 @@
+{
+  "layer": "federal",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "notes": [
+    "Reader A extraction from the archived sources only (sources/archive/2025/US/). The U.S. Code pages are the 2024 edition (govinfo), which predates P.L. 119-21; for provisions P.L. 119-21 changed (1(j) rates and their inflation adjustment, 63(c)(7) standard deduction, 151(d)(5)(C) senior deduction, 164(b)(6)-(7) SALT cap) the public law text is cited for the amended wording.",
+    "Medicare figures are for premium year 2025; the IRMAA tiers use the 2023 tax return (lookback 2).",
+    "Left out: retirement_accounts.hsa (no archived source prints the HSA contribution limits: they are in Rev. Proc. 2024-25 / 2025-19, not archived); payroll employer rates (26 U.S.C. 3111 not archived).",
+    "Standard deduction: Rev. Proc. 2024-40 printed $15,000 / $30,000 / $22,500 before P.L. 119-21; the 2025 Form 1040 instructions print the amended $15,750 / $31,500 / $23,625, which are used. Rev. Proc. 2024-40's other figures used here (rate tables, capital gains amounts, additional standard deduction) were not changed by P.L. 119-21 for 2025.",
+    "Capital gains: the married-separate maximum 15-percent rate amount ($300,000) is not half of the joint $600,050; it is recorded as printed and treated as its own indexed amount (half of the statute's $479,000), not as a derivation.",
+    "Earnings test indexing method is not confirmed from an archived source (42 U.S.C. 403(f)(8) not archived)."
+  ],
+  "income_tax": {
+    "brackets": {
+      "schedules": {
+        "single": [
+          {
+            "rate": "0.10",
+            "start": "0"
+          },
+          {
+            "rate": "0.12",
+            "start": "11925"
+          },
+          {
+            "rate": "0.22",
+            "start": "48475"
+          },
+          {
+            "rate": "0.24",
+            "start": "103350"
+          },
+          {
+            "rate": "0.32",
+            "start": "197300"
+          },
+          {
+            "rate": "0.35",
+            "start": "250525"
+          },
+          {
+            "rate": "0.37",
+            "start": "626350"
+          }
+        ],
+        "married_joint": [
+          {
+            "rate": "0.10",
+            "start": "0"
+          },
+          {
+            "rate": "0.12",
+            "start": "23850"
+          },
+          {
+            "rate": "0.22",
+            "start": "96950"
+          },
+          {
+            "rate": "0.24",
+            "start": "206700"
+          },
+          {
+            "rate": "0.32",
+            "start": "394600"
+          },
+          {
+            "rate": "0.35",
+            "start": "501050"
+          },
+          {
+            "rate": "0.37",
+            "start": "751600"
+          }
+        ],
+        "married_separate": [
+          {
+            "rate": "0.10",
+            "start": "0"
+          },
+          {
+            "rate": "0.12",
+            "start": "11925"
+          },
+          {
+            "rate": "0.22",
+            "start": "48475"
+          },
+          {
+            "rate": "0.24",
+            "start": "103350"
+          },
+          {
+            "rate": "0.32",
+            "start": "197300"
+          },
+          {
+            "rate": "0.35",
+            "start": "250525"
+          },
+          {
+            "rate": "0.37",
+            "start": "375800"
+          }
+        ],
+        "head_of_household": [
+          {
+            "rate": "0.10",
+            "start": "0"
+          },
+          {
+            "rate": "0.12",
+            "start": "17000"
+          },
+          {
+            "rate": "0.22",
+            "start": "64850"
+          },
+          {
+            "rate": "0.24",
+            "start": "103350"
+          },
+          {
+            "rate": "0.32",
+            "start": "197300"
+          },
+          {
+            "rate": "0.35",
+            "start": "250500"
+          },
+          {
+            "rate": "0.37",
+            "start": "626350"
+          }
+        ]
+      },
+      "cite": {
+        "publication": "Rev. Proc. 2024-40",
+        "section": "PDF pages 5-6, section 2.01 Tax Rate Tables, Table 1 (married filing jointly and surviving spouses), Table 2 (heads of households), Table 3 (unmarried individuals), Table 4 (married filing separately)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+            "section": "PDF page 80, 2025 Tax Computation Worksheet - Line 16, Sections A-D (prints the 22% to 37% band edges only)"
+          }
+        ]
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2016",
+          "applies_to": "The start of the 12% band and the start of the 22% band in every schedule (the end of the 10% and 12% bands).",
+          "rounding": {
+            "multiple": "50",
+            "direction": "down",
+            "multiple_by_status": {
+              "single": "25",
+              "married_separate": "25"
+            },
+            "notes": "1(f)(7)(A): an increase not a multiple of $50 is rounded to the next lowest multiple of $50; (f)(7)(B): $25 for a married individual filing a separate return, and 1(j)(3)(B)(ii) applies (f)(7)(B) to unmarried individuals (single) too. Head of household and joint use $50."
+          },
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 88 (139 Stat. 158), sec. 70101(b): section 1(j)(3)(B)(i) amended by inserting 'solely for purposes of determining the dollar amounts at which any rate bracket higher than 12 percent ends and at which any rate bracket higher than 22 percent begins,' (effective for taxable years beginning after December 31, 2025)",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+                "section": "26 U.S.C. 1(j)(3)(B) (tables prescribed as under subsection (f)(1)-(2); (ii) subsection (f)(7)(B) applies to unmarried individuals; (iii) subsection (f)(8) shall not apply); 1(f)(3) cost-of-living adjustment; 1(f)(6) C-CPI-U; 1(f)(7) rounding to the next lowest multiple of $50, $25 for married filing separately"
+              }
+            ]
+          },
+          "notes": "As amended by P.L. 119-21 sec. 70101(b), the 'calendar year 2017' substitution in 1(j)(3)(B)(i) applies only to the edges where a band above 12% ends or a band above 22% begins; the other edges fall back to 1(f)(3) unmodified, whose base is calendar year 2016 (C-CPI-U, 1(f)(3)(A)(ii) and (f)(6)). The adjustment is to the 1(j)(2) table amounts, not to the prior year's figures. Effective for taxable years beginning after December 31, 2025: the 2025 figures in this file were themselves set with the calendar year 2017 base for every edge."
+        },
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2017",
+          "applies_to": "The starts of the 24%, 32%, 35% and 37% bands in every schedule.",
+          "rounding": {
+            "multiple": "50",
+            "direction": "down",
+            "multiple_by_status": {
+              "single": "25",
+              "married_separate": "25"
+            },
+            "notes": "1(f)(7)(A): an increase not a multiple of $50 is rounded to the next lowest multiple of $50; (f)(7)(B): $25 for a married individual filing a separate return, and 1(j)(3)(B)(ii) applies (f)(7)(B) to unmarried individuals (single) too. Head of household and joint use $50."
+          },
+          "cite": {
+            "publication": "26 U.S.C. 1, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 1(j)(3)(B)(i) ('subsection (f)(3) shall be applied by substituting \"calendar year 2017\" for \"calendar year 2016\"'), (j)(3)(B)(ii) ('subsection (f)(7)(B) shall apply to any unmarried individual other than a surviving spouse or head of household'), (j)(3)(B)(iii) ('subsection (f)(8) shall not apply'); 1(f)(7)(A) 'rounded to the next lowest multiple of $50', (f)(7)(B) '$25' for a married individual filing a separate return",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+            "accessed": "2026-11-08",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+                "section": "sec. 70101(a)-(b), PDF page 88: 1(j) made permanent; the 2017 base now applies solely to the edges where a band above 12% ends and a band above 22% begins"
+              }
+            ]
+          },
+          "notes": "Each of the four schedules is adjusted on its own from its 1(j)(2) table; 1(j)(3)(B)(iii) says subsection (f)(8) (the joint = 200% of single rule) does not apply, so no edge is derived from another schedule's edge."
+        }
+      ],
+      "notes": "No derivations: under 1(j)(3)(B) each table is prescribed from its own 1(j)(2) base table, and 1(j)(3)(B)(iii) switches off 1(f)(8). The printed joint edges for 10% to 35% are exactly twice the single edges, and married-separate's 37% start is exactly half the joint 37% start, but that follows arithmetically from the 1(j)(2) base tables (built that way) and the $50/$25 rounding, not from a statute rule. The rates are written in 1(j)(2) and are not indexed. A qualifying surviving spouse uses married_joint (1(j)(2)(A)). Each status's schedule is indexed from its own 2018 base table: 26 U.S.C. 1(j)(3)(B)(iii) says subsection (f)(8) (the rule tying separate and single brackets to joint) shall not apply, and single and married filing separately round down to $25, the others to $50 (1(f)(7)(B), 1(j)(3)(B)(ii)). The 2018 base tables set the first five single and married filing separately edges at exactly half the joint edges, and rounding x down to $25 always equals half of 2x rounded down to $50, so those edges equal half the joint edges every year. A projection that derives them as joint x 0.5 gets the same figures; the 37% edges are indexed on their own either way."
+    },
+    "standard_deduction": {
+      "amount": {
+        "single": "15750",
+        "married_joint": "31500",
+        "married_separate": "15750",
+        "head_of_household": "23625"
+      },
+      "cite": {
+        "publication": "Instructions for Form 1040 and 1040-SR (2025)",
+        "section": "PDF page 6, What's New, 'Standard deduction amount increased. ... $15,750-Single or Married filing separately. $31,500-Married filing jointly or Qualifying surviving spouse. $23,625-Head of household.'; PDF page 35, Standard Deduction Worksheet for Dependents, line 3",
+        "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "section": "PDF pages 88-89, sec. 70102(b): '$18,000' replaced by '$23,625' and '$12,000' by '$15,750' in section 63(c)(7)(A); effective for taxable years beginning after December 31, 2024"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "inflation",
+        "index": "C-CPI-U",
+        "base_period": "calendar year 2024",
+        "applies_to": "single (the 63(c)(2)(C) amount) and head_of_household (the 63(c)(2)(B) amount)",
+        "rounding": {
+          "multiple": "50",
+          "direction": "down",
+          "notes": "63(c)(7)(B)(ii): 'If any increase under this clause is not a multiple of $50, such increase shall be rounded to the next lowest multiple of $50.' Applied to the $15,750 and $23,625 amounts for taxable years beginning after 2025."
+        },
+        "cite": {
+          "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+          "section": "PDF pages 88-89, sec. 70102(a)-(b): section 63(c)(7) made permanent; '$18,000' -> '$23,625', '$12,000' -> '$15,750', '2018' -> '2025' and '2017' -> '2024' in subparagraph (B)(ii)",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+          "accessed": "2026-11-07",
+          "also": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+              "section": "26 U.S.C. 63(c)(7)(B): (i) paragraph (4) does not apply to the (2)(B) and (2)(C) amounts; (ii) the amounts are increased by the cost-of-living adjustment under 1(f)(3), substituting the stated year for '2016', the increase rounded to the next lowest multiple of $50"
+            }
+          ]
+        },
+        "notes": "As amended, 63(c)(7)(B)(ii) reads: for taxable years beginning after 2025, the $23,625 and $15,750 amounts are increased by the 1(f)(3) cost-of-living adjustment with '2024' substituted for '2016' (so C-CPI-U, calendar year 2024 base, 1(f)(3)(C)). 63(c)(4) no longer applies to these two amounts (63(c)(7)(B)(i))."
+      },
+      "derivations": [
+        {
+          "target": "amount.married_joint",
+          "rule": "times",
+          "from": "amount.single",
+          "factor": "2",
+          "cite": {
+            "publication": "26 U.S.C. 63, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 63(c)(2)(A): joint return or surviving spouse '200 percent of the dollar amount in effect under subparagraph (C) for the taxable year'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "amount.married_separate",
+          "rule": "times",
+          "from": "amount.single",
+          "factor": "1",
+          "cite": {
+            "publication": "26 U.S.C. 63, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 63(c)(2)(C): '$3,000 in any other case' (married filing separately is an 'other case', the same amount as single; $15,750 by 63(c)(7)(A)(ii) as amended)",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "Married filing separately and single are the same statutory amount (63(c)(2)(C), 'any other case')."
+        }
+      ],
+      "notes": "P.L. 119-21 sec. 70102 set the 2025 amounts in the statute. Rev. Proc. 2024-40 section 2.15(1) (PDF page 12), published before the law, printed $15,000 single and married filing separately, $30,000 joint and $22,500 head of household; the Form 1040 instructions figures are used, per the law in force. Not inflation-adjusted for 2025: the amended 63(c)(7)(B)(ii) adjusts only for taxable years beginning after 2025. A qualifying surviving spouse uses married_joint (63(c)(2)(A)(ii))."
+    },
+    "additional_standard_deduction": {
+      "married": "1600",
+      "unmarried": "2000",
+      "conditions": "One amount for each condition per person: age 65 or older before the close of the taxable year, and blind at the close of the taxable year (63(f)(1)-(2)); for the spouse only when the spouse's exemption is allowable to the taxpayer under 151(b). The unmarried amount applies to an individual who is not married and is not a surviving spouse (63(f)(3)).",
+      "cite": {
+        "publication": "Instructions for Form 1040 and 1040-SR (2025)",
+        "section": "PDF page 35, Standard Deduction Worksheet for Dependents, line 4b: 'multiply the number on line 1 by $1,600 ($2,000 if single or head of household)'",
+        "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+            "section": "PDF page 12, section 2.15(3) Aged or blind: '$1,600 ... increased to $2,000 if the individual is also unmarried and not a surviving spouse'"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "inflation",
+        "index": "C-CPI-U",
+        "base_period": "calendar year 1987",
+        "rounding": {
+          "multiple": "50",
+          "direction": "down",
+          "notes": "1(f)(7)(A) rounds an increase under 63(c)(4) to the next lowest multiple of $50; 1(f)(7)(B)'s $25 rule for married filing separately does not apply to 63(c)(4)."
+        },
+        "cite": {
+          "publication": "26 U.S.C. 63, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 63(c)(4): each dollar amount in subsection (f) ($600; $750 unmarried) increased by the 1(f)(3) cost-of-living adjustment, substituting 'calendar year 1987' for 'calendar year 2016' (4)(B)(i)",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+          "accessed": "2026-11-08",
+          "also": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+              "section": "26 U.S.C. 1(f)(7)(A)-(B): an increase determined under section 63(c)(4) not a multiple of $50 rounded to the next lowest multiple of $50; the $25 rule excludes 63(c)(4)"
+            }
+          ]
+        },
+        "notes": "The 1(f)(3) adjustment compares the C-CPI-U for the preceding year with the CPI for 1987 scaled by the 2016 C-CPI-U/CPI ratio (1(f)(3)(A)-(B)); in effect a C-CPI-U index."
+      },
+      "notes": "Not changed by P.L. 119-21."
+    },
+    "senior_deduction": {
+      "amount_per_person": "6000",
+      "minimum_age": 65,
+      "phase_out": {
+        "threshold": {
+          "single": "75000",
+          "married_joint": "150000",
+          "head_of_household": "75000",
+          "qualifying_surviving_spouse": "75000"
+        },
+        "rate": "0.06",
+        "measure": "modified adjusted gross income: adjusted gross income increased by any amount excluded from gross income under section 911, 931, or 933 (151(d)(5)(C)(iii)(II))"
+      },
+      "not_allowed_for": [
+        "married_separate"
+      ],
+      "conditions": "Per qualified individual: the taxpayer, and on a joint return the spouse, who has attained age 65 before the close of the taxable year; the individual's social security number must be on the return (151(d)(5)(C)(iv)); a married individual must file a joint return (151(d)(5)(C)(v)). The reduction applies to the $6,000 amount, so on a joint return each qualifying spouse's $6,000 is reduced by the same 6% of joint MAGI over $150,000.",
+      "cite": {
+        "publication": "2025 Schedule 1-A (Form 1040), Additional Deductions",
+        "section": "PDF page 2, Part V Enhanced Deduction for Seniors, lines 31-36: line 32 'Enter $75,000 ($150,000 if married filing jointly)', line 34 'Multiply line 33 by 6% (0.06)', line 35 'Subtract line 34 from $6,000'; caution 'If married, you must file jointly to claim this deduction.'",
+        "url": "https://www.irs.gov/pub/irs-prior/f1040s1a--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "section": "PDF pages 89-90, sec. 70103(a)(3), 26 U.S.C. 151(d)(5)(C)"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "fixed",
+        "applies_through": 2028,
+        "then": "No deduction: 151(d)(5)(C)(i) allows it only for a taxable year beginning before January 1, 2029.",
+        "cite": {
+          "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+          "section": "PDF pages 89-90 (139 Stat. 159-160), sec. 70103(a)(3), new 26 U.S.C. 151(d)(5)(C): (i) '$6,000 for each qualified individual' for a taxable year beginning before January 1, 2029; (ii) taxpayer or (joint return) spouse who 'has attained age 65 before the close of the taxable year'; (iii)(I) 'reduced (but not below zero) by 6 percent of so much of the taxpayer's modified adjusted gross income as exceeds $75,000 ($150,000 in the case of a joint return)'; (iv) social security number required; (v) married individuals must file a joint return",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+          "accessed": "2026-11-07"
+        },
+        "notes": "The statute writes $6,000, $75,000, $150,000 and 6 percent and provides no inflation adjustment."
+      },
+      "notes": "qualifying_surviving_spouse is listed because the higher $150,000 threshold is for 'a joint return' only; a qualifying surviving spouse files no joint return and uses $75,000 (Schedule 1-A line 32 gives $150,000 only 'if married filing jointly'). Schedule 1-A line 36 describes eligibility as born before January 2, 1961 (age 65 by the end of 2025)."
+    },
+    "capital_gains": {
+      "schedules": {
+        "single": [
+          {
+            "rate": "0",
+            "start": "0"
+          },
+          {
+            "rate": "0.15",
+            "start": "48350"
+          },
+          {
+            "rate": "0.20",
+            "start": "533400"
+          }
+        ],
+        "married_joint": [
+          {
+            "rate": "0",
+            "start": "0"
+          },
+          {
+            "rate": "0.15",
+            "start": "96700"
+          },
+          {
+            "rate": "0.20",
+            "start": "600050"
+          }
+        ],
+        "married_separate": [
+          {
+            "rate": "0",
+            "start": "0"
+          },
+          {
+            "rate": "0.15",
+            "start": "48350"
+          },
+          {
+            "rate": "0.20",
+            "start": "300000"
+          }
+        ],
+        "head_of_household": [
+          {
+            "rate": "0",
+            "start": "0"
+          },
+          {
+            "rate": "0.15",
+            "start": "64750"
+          },
+          {
+            "rate": "0.20",
+            "start": "566700"
+          }
+        ]
+      },
+      "other_rates": [
+        {
+          "what": "maximum rate on unrecaptured section 1250 gain (26 U.S.C. 1(h)(1)(E))",
+          "rate": "0.25"
+        },
+        {
+          "what": "maximum rate on collectibles gain and section 1202 gain, the 28-percent rate gain (26 U.S.C. 1(h)(1)(F), (h)(4)-(5))",
+          "rate": "0.28"
+        }
+      ],
+      "cite": {
+        "publication": "Instructions for Form 1040 and 1040-SR (2025)",
+        "section": "PDF page 38, Qualified Dividends and Capital Gain Tax Worksheet - Line 16: line 6 '$48,350 if single or married filing separately, $96,700 if married filing jointly or qualifying surviving spouse, $64,750 if head of household'; line 13 '$533,400 if single, $300,000 if married filing separately, $600,050 if married filing jointly or qualifying surviving spouse, $566,700 if head of household'; lines 18 '15% (0.15)' and 21 '20% (0.20)'",
+        "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+            "section": "PDF page 7, section 2.03 Maximum Capital Gains Rate (§ 1(h), § 1(j)(5)), table of maximum zero rate amounts and maximum 15% rate amounts"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+            "section": "26 U.S.C. 1(h)(1)(E) '25 percent' (unrecaptured section 1250 gain) and (F) '28 percent' (remaining gain, which is 28-percent rate gain)"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "inflation",
+        "index": "C-CPI-U",
+        "base_period": "calendar year 2017",
+        "applies_to": "The 15% band starts for married_joint and head_of_household (the maximum zero rate amounts, 1(j)(5)(B)(i)(I)-(II)) and all four 20% band starts (the maximum 15-percent rate amounts, 1(j)(5)(B)(ii)(I)-(III), including the married-separate amount; see notes).",
+        "rounding": {
+          "multiple": "50",
+          "direction": "down",
+          "notes": "1(j)(5)(C): 'If any increase under this subparagraph is not a multiple of $50, such increase shall be rounded to the next lowest multiple of $50.' No separate $25 rule for married filing separately here."
+        },
+        "cite": {
+          "publication": "26 U.S.C. 1, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 1(j)(5)(B) maximum amounts ($77,200 joint, $51,700 head of household zero rate; $479,000 joint (½ such amount for married filing separately), $452,400 head of household, $425,800 other individuals 15 percent); 1(j)(5)(C) each dollar amount in clauses (i) and (ii) increased by the 1(f)(3) adjustment substituting 'calendar year 2017' for 'calendar year 2016', rounded to the next lowest multiple of $50",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+          "accessed": "2026-11-08"
+        }
+      },
+      "derivations": [
+        {
+          "target": "schedules.single[1].start",
+          "rule": "times",
+          "from": "schedules.married_joint[1].start",
+          "factor": "0.5",
+          "cite": {
+            "publication": "26 U.S.C. 1, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 1(j)(5)(B)(i)(III): maximum zero rate amount 'in the case of any other individual (other than an estate or trust), an amount equal to ½ of the amount in effect for the taxable year under subclause (I)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "schedules.married_separate[1].start",
+          "rule": "times",
+          "from": "schedules.married_joint[1].start",
+          "factor": "0.5",
+          "cite": {
+            "publication": "26 U.S.C. 1, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 1(j)(5)(B)(i)(III): maximum zero rate amount 'in the case of any other individual (other than an estate or trust), an amount equal to ½ of the amount in effect for the taxable year under subclause (I)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "Married filing separately is 'any other individual' for the zero rate amount."
+        }
+      ],
+      "notes": "Band starts are taxable income levels, as the Qualified Dividends and Capital Gain Tax Worksheet applies them (gains fill the bands after ordinary income). The married-separate maximum 15-percent rate amount is not recorded as a derivation: 1(j)(5)(B)(ii)(I) writes '$479,000 (½ such amount in the case of a married individual filing a separate return)', and the IRS treats the half ($239,500) as a dollar amount indexed on its own under 1(j)(5)(C). For 2025 that gives the printed $300,000, which is not half of the joint $600,050 ($300,025); a same-year half would contradict the printed figure. The single 20% start ($425,800 base) is likewise its own figure, not half of joint. A qualifying surviving spouse uses married_joint."
+    },
+    "net_investment_income_tax": {
+      "rate": "0.038",
+      "threshold": {
+        "single": "200000",
+        "married_joint": "250000",
+        "married_separate": "125000",
+        "head_of_household": "200000"
+      },
+      "measure": "modified adjusted gross income: adjusted gross income increased by the foreign earned income exclusion amount excluded under section 911(a)(1), net of related deductions and exclusions (1411(d))",
+      "cite": {
+        "publication": "2025 Instructions for Form 8960",
+        "section": "PDF page 2, Application to Individuals: 'must pay 3.8% of the smaller of (a) or (b) ... Married filing jointly or Qualifying surviving spouse is $250,000. Married filing separately is $125,000. Single or Head of household is $200,000.'",
+        "url": "https://www.irs.gov/pub/irs-prior/i8960--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2A-sec1411.htm",
+            "section": "26 U.S.C. 1411(a)(1), (b)"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 U.S.C. 1411, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 1411(b): the threshold amounts are written in the statute with no adjustment provision",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2A-sec1411.htm",
+          "accessed": "2026-11-08"
+        },
+        "notes": "Not indexed for inflation."
+      },
+      "derivations": [
+        {
+          "target": "threshold.married_separate",
+          "rule": "times",
+          "from": "threshold.married_joint",
+          "factor": "0.5",
+          "cite": {
+            "publication": "26 U.S.C. 1411, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 1411(b)(2): 'in the case of a married taxpayer (as defined in section 7703) filing a separate return, ½ of the dollar amount determined under paragraph (1)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2A-sec1411.htm",
+            "accessed": "2026-11-08"
+          }
+        }
+      ],
+      "notes": "A qualifying surviving spouse uses the $250,000 joint threshold (1411(b)(1) names a surviving spouse). Tax = rate x the lesser of net investment income and the measure over the threshold."
+    },
+    "additional_medicare_tax": {
+      "rate": "0.009",
+      "threshold": {
+        "single": "200000",
+        "married_joint": "250000",
+        "married_separate": "125000",
+        "head_of_household": "200000",
+        "qualifying_surviving_spouse": "200000"
+      },
+      "cite": {
+        "publication": "2025 Instructions for Form 8959",
+        "section": "PDF page 1, 'Threshold Amounts for Additional Medicare Tax ... aren't indexed for inflation': Married filing jointly $250,000; Married filing separately $125,000; Single $200,000; Head of household $200,000; Qualifying surviving spouse $200,000; 'A 0.9% Additional Medicare Tax'",
+        "url": "https://www.irs.gov/pub/irs-prior/i8959--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+            "section": "26 U.S.C. 3101(b)(2)"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 U.S.C. 3101, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 3101(b)(2)(A)-(C): amounts written in the statute; no adjustment provision",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+          "accessed": "2026-11-08"
+        },
+        "notes": "Not indexed (the Form 8959 instructions also say so)."
+      },
+      "derivations": [
+        {
+          "target": "threshold.married_separate",
+          "rule": "times",
+          "from": "threshold.married_joint",
+          "factor": "0.5",
+          "cite": {
+            "publication": "26 U.S.C. 3101, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 3101(b)(2)(B): married filing separately '½ of the dollar amount determined under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+            "accessed": "2026-11-08"
+          }
+        }
+      ],
+      "notes": "qualifying_surviving_spouse is listed because the $250,000 threshold is for 'a joint return' only (3101(b)(2)(A)); a qualifying surviving spouse is 'any other case', $200,000. The same rate and thresholds apply to self-employment income (26 U.S.C. 1401(b)(2), not separately cited)."
+    },
+    "social_security_benefits": {
+      "base_amount": {
+        "single": "25000",
+        "married_joint": "32000",
+        "married_separate": "25000",
+        "head_of_household": "25000",
+        "qualifying_surviving_spouse": "25000"
+      },
+      "adjusted_base_amount": {
+        "single": "34000",
+        "married_joint": "44000",
+        "married_separate": "34000",
+        "head_of_household": "34000",
+        "qualifying_surviving_spouse": "34000"
+      },
+      "first_rate": "0.5",
+      "second_rate": "0.85",
+      "measure": "modified adjusted gross income plus one-half of the social security benefits received (86(b)(1)); modified adjusted gross income is adjusted gross income determined without regard to section 86 and sections 85(c), 135, 137, 221, 911, 931 and 933, increased by tax-exempt interest (86(b)(2))",
+      "married_separate_lived_with_spouse": "Base amount and adjusted base amount are both zero (86(c)(1)(C), (c)(2)(C)) for a married person who does not file a joint return and does not live apart from the spouse at all times during the year; in effect 85% of the measure is taxable, up to 85% of benefits (Publication 915 Worksheet 1 note: skip lines 9-16 and multiply line 8 by 85%).",
+      "cite": {
+        "publication": "Publication 915 (2025), Social Security and Equivalent Railroad Retirement Benefits",
+        "section": "PDF page 3, 'Base amount. Your base amount is: $25,000 if you are single, head of household, or qualifying surviving spouse; $25,000 if you are married filing separately and lived apart from your spouse for all of 2025; $32,000 if you are married filing jointly; or $0 if you are married filing separately and lived with your spouse at any time during 2025.'; PDF page 6, 'up to 85% of your benefits can be taxable if ... more than $34,000 ($44,000 if you are married filing jointly)'; PDF page 7, Worksheet 1 lines 9-19 ('50% (0.50)', '85% (0.85)')",
+        "url": "https://www.irs.gov/pub/irs-prior/p915--2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.htm",
+            "section": "26 U.S.C. 86(a), (b), (c)"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 U.S.C. 86, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 86(c): base and adjusted base amounts written in the statute; no adjustment provision",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.htm",
+          "accessed": "2026-11-08"
+        },
+        "notes": "Not indexed."
+      },
+      "notes": "married_separate holds the figures for a married person filing separately who lived apart from the spouse all year (86(c)(1)(A), (c)(2)(A) 'except as otherwise provided'). qualifying_surviving_spouse is listed because the joint amounts are for 'a joint return' only; a qualifying surviving spouse uses $25,000 / $34,000 (Publication 915 page 3)."
+    },
+    "salt_cap": {
+      "cap": {
+        "single": "40000",
+        "married_joint": "40000",
+        "married_separate": "20000",
+        "head_of_household": "40000"
+      },
+      "phase_down": {
+        "threshold": {
+          "single": "500000",
+          "married_joint": "500000",
+          "married_separate": "250000",
+          "head_of_household": "500000"
+        },
+        "rate": "0.30",
+        "floor": {
+          "single": "10000",
+          "married_joint": "10000",
+          "married_separate": "5000",
+          "head_of_household": "10000"
+        },
+        "measure": "modified adjusted gross income: adjusted gross income increased by any amount excluded from gross income under section 911, 931, or 933 (164(b)(7)(B)(iv))"
+      },
+      "cite": {
+        "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+        "section": "PDF pages 99-100 (139 Stat. 169-170), sec. 70120: 164(b)(6) limit becomes 'the applicable limitation amount (half the applicable limitation amount in the case of a married individual filing a separate return)'; new 164(b)(7)(A) applicable limitation amount $40,000 for 2025, $40,400 for 2026, 101 percent of the preceding year's amount for 2027 through 2029, $10,000 after 2029; (7)(B)(i) 'reduced by 30 percent of the excess (if any) of the taxpayer's modified adjusted gross income over the threshold amount (half the threshold amount in the case of a married individual filing a separate return)'; (7)(B)(ii) threshold $500,000 for 2025, $505,000 for 2026, then 101 percent of the preceding year's; (7)(B)(iii) 'shall not result in the applicable limitation amount being less than $10,000'; (7)(B)(iv) modified adjusted gross income",
+        "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+            "section": "PDF page 7, What's New, 'State and local tax deduction limit increased ... $40,000 ($20,000 if married filing separately) ... reduced if your modified adjusted gross income is more than $500,000 ($250,000 if married filing separately) but will not be reduced below $10,000 ($5,000 if married filing separately).'"
+          }
+        ]
+      },
+      "derivations": [
+        {
+          "target": "cap.married_separate",
+          "rule": "times",
+          "from": "cap.single",
+          "factor": "0.5",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(a)(2), 26 U.S.C. 164(b)(6) as amended: 'half the applicable limitation amount in the case of a married individual filing a separate return'",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          }
+        },
+        {
+          "target": "phase_down.threshold.married_separate",
+          "rule": "times",
+          "from": "phase_down.threshold.single",
+          "factor": "0.5",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(b), 26 U.S.C. 164(b)(7)(B)(i): 'half the threshold amount in the case of a married individual filing a separate return'",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          }
+        },
+        {
+          "target": "phase_down.floor.married_separate",
+          "rule": "times",
+          "from": "phase_down.floor.single",
+          "factor": "0.5",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(a)(2), 26 U.S.C. 164(b)(6) as amended: 'half the applicable limitation amount in the case of a married individual filing a separate return'",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          },
+          "notes": "The $10,000 floor is on the applicable limitation amount; married filing separately is allowed half of that amount (164(b)(6)), so half the floor. The Form 1040 instructions print $5,000."
+        }
+      ],
+      "indexing": [
+        {
+          "method": "scheduled",
+          "applies_to": "cap (the applicable limitation amount)",
+          "schedule": [
+            {
+              "year": 2025,
+              "amount": {
+                "all": "40000"
+              },
+              "notes": "half for married filing separately"
+            },
+            {
+              "year": 2026,
+              "amount": {
+                "all": "40400"
+              },
+              "notes": "half for married filing separately"
+            }
+          ],
+          "applies_through": 2029,
+          "then": "From 2030 the applicable limitation amount is $10,000 (half, $5,000, for married filing separately) with no phase-down (164(b)(7)(A)(iv); the (7)(B) reduction applies only to taxable years beginning before January 1, 2030).",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(b), 26 U.S.C. 164(b)(7)(A)(i)-(iv)",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          },
+          "notes": "For 2027, 2028 and 2029 the amount is 101 percent of the amount in effect for the preceding year (164(b)(7)(A)(iii)); the statute states no rounding for that step."
+        },
+        {
+          "method": "scheduled",
+          "applies_to": "phase_down.threshold",
+          "schedule": [
+            {
+              "year": 2025,
+              "amount": {
+                "all": "500000"
+              },
+              "notes": "half for married filing separately"
+            },
+            {
+              "year": 2026,
+              "amount": {
+                "all": "505000"
+              },
+              "notes": "half for married filing separately"
+            }
+          ],
+          "applies_through": 2029,
+          "then": "No phase-down from 2030 (164(b)(7)(B)(i) applies only to taxable years beginning before January 1, 2030).",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(b), 26 U.S.C. 164(b)(7)(B)(i)-(ii)",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          },
+          "notes": "After 2026 the threshold is 101 percent of the preceding year's (164(b)(7)(B)(ii)(III)); no rounding is stated. Unlike the cap, (7)(B)(ii)(III) has no end year, but the phase-down itself ends after 2029."
+        },
+        {
+          "method": "fixed",
+          "applies_to": "phase_down.rate and phase_down.floor",
+          "applies_through": 2029,
+          "then": "No phase-down from 2030; the cap is a flat $10,000 ($5,000 married filing separately).",
+          "cite": {
+            "publication": "Public Law 119-21 (July 4, 2025), enrolled text (govinfo)",
+            "section": "PDF page 99, sec. 70120(b), 26 U.S.C. 164(b)(7)(B)(i), (iii): 30 percent; not less than $10,000",
+            "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+            "accessed": "2026-11-07"
+          }
+        }
+      ],
+      "notes": "The cap is reduced by rate x (measure - threshold), not below the floor. Married filing separately, read literally: the applicable limitation amount (reduced by 30% of MAGI over half the threshold, not below $10,000) is halved, which halves the effective reduction to 15% of the excess; the IRS texts print the halved cap, threshold and floor but not the effective rate. rate holds the statute's 30 percent. Rev. Proc. 2024-40 predates P.L. 119-21 and has no SALT figure."
+    }
+  },
+  "medicare": {
+    "part_b": {
+      "standard_monthly_premium": "185.00",
+      "annual_deductible": "257",
+      "cite": {
+        "publication": "CMS fact sheet, 2025 Medicare Parts A & B Premiums and Deductibles (Nov 08, 2024)",
+        "section": "'Medicare Part B Premium and Deductible': 'The standard monthly premium for Medicare Part B enrollees will be $185.00 for 2025 ... The annual deductible for all Medicare Part B beneficiaries will be $257 in 2025' (web page, no PDF pages)",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/2025-medicare-parts-b-premiums-and-deductibles",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "set_yearly",
+        "rounding": {
+          "multiple": "0.10",
+          "direction": "nearest",
+          "notes": "42 CFR 408.27: 'Any monthly premium that is not a multiple of 10 cents is rounded to the nearest multiple of 10 cents, and any odd multiple of 5 cents is rounded to the next higher multiple of 10 cents.' (42 U.S.C. 1395r(c) also rounds to the nearest 10 cents.)"
+        },
+        "cite": {
+          "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+          "section": "42 U.S.C. 1395r(a)(1), (a)(3): during September each year the Secretary determines the monthly actuarial rate and promulgates the monthly premium for the succeeding calendar year (50 percent of the actuarial rate for enrollees age 65 and over); 1395r(c) premiums rounded to the nearest multiple of ten cents",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+          "accessed": "2026-11-08",
+          "also": [
+            {
+              "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-42?part=408&section=408.27",
+              "section": "42 CFR 408.27 Rounding the monthly premium"
+            }
+          ]
+        },
+        "notes": "Premium year = calendar year 2025. The Part B deductible is set under 42 U.S.C. 1395l(b), which is not among the archived sources, so its method is not cited here; CMS announces it each year with the premium."
+      },
+      "notes": "Figures for premium year 2025."
+    },
+    "irmaa": {
+      "lookback_years": 2,
+      "measure": "modified adjusted gross income: adjusted gross income determined without regard to sections 135, 911, 931, and 933, increased by tax-exempt interest (42 U.S.C. 1395r(i)(4)(A)); for a joint return, the return's modified adjusted gross income",
+      "tiers": [
+        {
+          "over": {
+            "single": "0",
+            "married_joint": "0",
+            "married_separate": "0"
+          },
+          "up_to": {
+            "single": "106000",
+            "married_joint": "212000",
+            "married_separate": "106000"
+          },
+          "part_b_monthly_total": "185.00",
+          "part_b_monthly_adjustment": "0.00",
+          "part_d_monthly_adjustment": "0.00",
+          "notes": "No adjustment: 'Less than or equal to' the first limit."
+        },
+        {
+          "over": {
+            "single": "106000",
+            "married_joint": "212000"
+          },
+          "up_to": {
+            "single": "133000",
+            "married_joint": "266000"
+          },
+          "part_b_monthly_total": "259.00",
+          "part_b_monthly_adjustment": "74.00",
+          "part_d_monthly_adjustment": "13.70"
+        },
+        {
+          "over": {
+            "single": "133000",
+            "married_joint": "266000"
+          },
+          "up_to": {
+            "single": "167000",
+            "married_joint": "334000"
+          },
+          "part_b_monthly_total": "370.00",
+          "part_b_monthly_adjustment": "185.00",
+          "part_d_monthly_adjustment": "35.30"
+        },
+        {
+          "over": {
+            "single": "167000",
+            "married_joint": "334000"
+          },
+          "up_to": {
+            "single": "200000",
+            "married_joint": "400000"
+          },
+          "part_b_monthly_total": "480.90",
+          "part_b_monthly_adjustment": "295.90",
+          "part_d_monthly_adjustment": "57.00"
+        },
+        {
+          "over": {
+            "single": "200000",
+            "married_joint": "400000",
+            "married_separate": "106000"
+          },
+          "up_to": {
+            "single": "500000",
+            "married_joint": "750000",
+            "married_separate": "394000"
+          },
+          "part_b_monthly_total": "591.90",
+          "part_b_monthly_adjustment": "406.90",
+          "part_d_monthly_adjustment": "78.60",
+          "notes": "CMS prints the upper limit as 'less than' ($500,000; $750,000; $394,000 married separate); the next tier starts 'greater than or equal to' that amount. For the married-separate (lived with spouse) table this tier starts above the unmarried threshold."
+        },
+        {
+          "over": {
+            "single": "500000",
+            "married_joint": "750000",
+            "married_separate": "394000"
+          },
+          "part_b_monthly_total": "628.90",
+          "part_b_monthly_adjustment": "443.90",
+          "part_d_monthly_adjustment": "85.80",
+          "applies_when": "at_or_over",
+          "notes": "'Greater than or equal to'."
+        }
+      ],
+      "cite": {
+        "publication": "CMS fact sheet, 2025 Medicare Parts A & B Premiums and Deductibles (Nov 08, 2024)",
+        "section": "'Medicare Part B Income-Related Monthly Adjustment Amounts', Full Part B Coverage table (individual and joint returns: adjustment and total monthly premium) and the married-lived-with-spouse separate-return Full Part B Coverage table; 'Medicare Part D Income-Related Monthly Adjustment Amounts' tables (web page, no PDF pages)",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/2025-medicare-parts-b-premiums-and-deductibles",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.htm",
+            "section": "42 U.S.C. 1395w-113(a)(7): Part D adjustment uses the 1395r(i) threshold, applicable percentage and modified adjusted gross income"
+          }
+        ]
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "CPI-U",
+          "base_period": "the 12-month period ending with August 2018",
+          "applies_to": "The single limits other than $500,000 (the threshold, i.e. tiers[1].over.single, and the tier limits above it), and the married-separate first limit (the unmarried threshold).",
+          "rounding": {
+            "multiple": "1000",
+            "direction": "nearest",
+            "notes": "1395r(i)(5)(B): 'rounded to the nearest multiple of $1,000'."
+          },
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(5)(A): each dollar amount in paragraph (2) or (3) increased by the percentage by which the average CPI-U for the 12-month period ending with August of the preceding calendar year exceeds that average for the 12 months ending with August 2006 'or, in the case of a calendar year beginning with 2020, August 2018'; (5)(B) rounding to the nearest $1,000",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "Base amounts are the 2019 table (1395r(i)(3)(C)(i)(III)): $85,000 (threshold), $107,000, $133,500, $160,000. A tier's up_to is the same statutory amount as the next tier's over. The premium year uses the measure from the tax return of two years earlier (1395r(i)(4)(B)(i))."
+        },
+        {
+          "method": "inflation",
+          "index": "CPI-U",
+          "base_period": "the 12-month period ending with August 2026",
+          "indexed_from": 2028,
+          "applies_to": "The $500,000 single amount (tiers[4].up_to.single and tiers[5].over.single).",
+          "rounding": {
+            "multiple": "1000",
+            "direction": "nearest"
+          },
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(5)(C): (i) subparagraph (A) does not apply to the $500,000 amounts; (ii) for calendar years beginning after 2027 they are increased by the CPI-U change since the 12-month period ending with August 2026; (5)(B) rounding",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "method": "set_yearly",
+          "applies_to": "part_b_monthly_total, part_b_monthly_adjustment and part_d_monthly_adjustment of every tier",
+          "rounding": {
+            "multiple": "0.10",
+            "direction": "nearest",
+            "notes": "42 CFR 408.27 (Part B premium): nearest 10 cents, an odd multiple of 5 cents rounds up."
+          },
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(A)-(C): Part B monthly adjustment = (applicable percentage - 25 percentage points) x (200 percent of the monthly actuarial rate for enrollees age 65 and over, plus 4 times any (a)(6) increase); applicable percentages 35, 50, 65, 80, 85",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.htm",
+                "section": "42 U.S.C. 1395w-113(a)(7)(B): Part D monthly adjustment = ((applicable percentage - 25.5 percent) / 25.5 percent) x the base beneficiary premium"
+              },
+              {
+                "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-42?part=408&section=408.27",
+                "section": "42 CFR 408.27"
+              }
+            ]
+          },
+          "notes": "The amounts follow each year's actuarial rate and Part D base beneficiary premium, which CMS sets yearly."
+        }
+      ],
+      "derivations": [
+        {
+          "target": "tiers[0].up_to.married_joint",
+          "rule": "times",
+          "from": "tiers[0].up_to.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[1].over.married_joint",
+          "rule": "times",
+          "from": "tiers[1].over.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[1].up_to.married_joint",
+          "rule": "times",
+          "from": "tiers[1].up_to.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[2].over.married_joint",
+          "rule": "times",
+          "from": "tiers[2].over.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[2].up_to.married_joint",
+          "rule": "times",
+          "from": "tiers[2].up_to.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[3].over.married_joint",
+          "rule": "times",
+          "from": "tiers[3].over.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[3].up_to.married_joint",
+          "rule": "times",
+          "from": "tiers[3].up_to.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[4].over.married_joint",
+          "rule": "times",
+          "from": "tiers[4].over.single",
+          "factor": "2",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): for a joint return the table's dollar amounts are 'twice the dollar amounts otherwise applicable'; (i)(2)(B) threshold for a joint return 'twice the amount applicable under subparagraph (A)'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[4].up_to.married_joint",
+          "rule": "times",
+          "from": "tiers[4].up_to.single",
+          "factor": "1.5",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): 'with respect to the dollar amounts applied in the last row of the table under subclause (III) of such clause (and the second dollar amount specified in the second to last row of such table), clause (i) shall be applied by substituting dollar amounts which are 150 percent of such dollar amounts for the calendar year'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The second dollar amount in the second-to-last row of the table (the $500,000 'less than' limit)."
+        },
+        {
+          "target": "tiers[5].over.married_joint",
+          "rule": "times",
+          "from": "tiers[5].over.single",
+          "factor": "1.5",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(ii): 'with respect to the dollar amounts applied in the last row of the table under subclause (III) of such clause (and the second dollar amount specified in the second to last row of such table), clause (i) shall be applied by substituting dollar amounts which are 150 percent of such dollar amounts for the calendar year'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The dollar amount in the last row of the table ($500,000)."
+        },
+        {
+          "target": "tiers[0].up_to.married_separate",
+          "rule": "times",
+          "from": "tiers[1].over.single",
+          "factor": "1",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(1)-(2)(A): the adjustment applies when modified adjusted gross income exceeds the threshold amount; the (2)(A) amount applies to every return except a joint return",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The married-separate table's first limit is the unmarried threshold amount itself."
+        },
+        {
+          "target": "tiers[4].over.married_separate",
+          "rule": "times",
+          "from": "tiers[1].over.single",
+          "factor": "1",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(1)-(2)(A): the adjustment applies when modified adjusted gross income exceeds the threshold amount; the (2)(A) amount applies to every return except a joint return",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The adjustment starts only above the threshold; with every table amount reduced by the threshold (1395r(i)(3)(C)(iii)) all reduced bands below the 80 percent band lie under it, so the married-separate table jumps from the threshold straight to the 80 percent tier."
+        },
+        {
+          "target": "tiers[4].up_to.married_separate",
+          "rule": "minus",
+          "from": "tiers[4].up_to.single",
+          "subtract": "tiers[1].over.single",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(iii): for a married individual filing separately who did not live apart all year, 'reducing each of the dollar amounts otherwise applicable under such clause for the calendar year by the threshold amount for such year applicable to an unmarried individual'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "target": "tiers[5].over.married_separate",
+          "rule": "minus",
+          "from": "tiers[5].over.single",
+          "subtract": "tiers[1].over.single",
+          "cite": {
+            "publication": "42 U.S.C. 1395r, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 1395r(i)(3)(C)(iii): for a married individual filing separately who did not live apart all year, 'reducing each of the dollar amounts otherwise applicable under such clause for the calendar year by the threshold amount for such year applicable to an unmarried individual'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+            "accessed": "2026-11-08"
+          }
+        }
+      ],
+      "notes": "Premium year 2025 (tax return of 2023). tiers: single covers single, head of household, qualifying surviving spouse and married filing separately who lived apart all year; married_separate is the separate-return-but-lived-with-spouse table, which CMS prints with three rows only (tiers 0, 4 and 5 here). The joint 80 percent band's upper limit and the joint top limit are 150 percent of the individual $500,000 (1395r(i)(3)(C)(ii)); the other joint limits are twice the individual ones."
+    }
+  },
+  "payroll": {
+    "social_security": {
+      "wage_base": "176100",
+      "employee_rate": "0.062",
+      "self_employment_rate": "0.124",
+      "cite": {
+        "publication": "SSA Fact Sheet, 2025 Social Security Changes",
+        "section": "PDF page 1, 'Maximum Taxable Earnings, Social Security (OASDI only) ... $176,100' (2025 column); note: 'The Social Security portion (OASDI) is 6.20% on earnings up to the applicable taxable maximum amount'",
+        "url": "https://www.ssa.gov/news/assets/materials/press/factsheets/colafacts2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+            "section": "26 U.S.C. 3101(a): '6.2 percent of the wages'"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+            "section": "26 U.S.C. 1401(a): '12.4 percent of the amount of the self-employment income'"
+          }
+        ]
+      },
+      "indexing": [
+        {
+          "method": "wage_index",
+          "index": "average_wage_index",
+          "applies_to": "wage_base",
+          "base_period": "the national average wage index for 1992 (applied to $60,600); the index used is for the calendar year before the year of determination",
+          "rounding": {
+            "multiple": "300",
+            "direction": "nearest",
+            "notes": "42 U.S.C. 430(b): a product not a multiple of $300 is rounded 'to the next higher multiple of $300 where such product is a multiple of $150 but not of $300 and to the nearest multiple of $300 in any other case'."
+          },
+          "never_decreases": true,
+          "cite": {
+            "publication": "42 U.S.C. 430, United States Code, 2024 Edition (govinfo)",
+            "section": "42 U.S.C. 430(b): the base is the base in effect in the year of determination or, if larger, $60,600 x (national average wage index for the year before the determination / national average wage index for 1992), rounded as stated; 430(a): determined when benefits get a cost-of-living increase, effective for the following year",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec430.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "Determined only in a year in which a cost-of-living benefit increase takes effect (430(a)); otherwise it stays."
+        },
+        {
+          "method": "fixed",
+          "applies_to": "employee_rate and self_employment_rate",
+          "cite": {
+            "publication": "26 U.S.C. 3101, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 3101(a) 6.2 percent",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+            "accessed": "2026-11-08",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+                "section": "26 U.S.C. 1401(a) 12.4 percent"
+              }
+            ]
+          }
+        }
+      ],
+      "notes": "employer_rate is left out: the employer tax (26 U.S.C. 3111) is not among the archived sources, and the SSA sheet prints only the employee and self-employed rates."
+    },
+    "medicare": {
+      "employee_rate": "0.0145",
+      "self_employment_rate": "0.029",
+      "cite": {
+        "publication": "SSA Fact Sheet, 2025 Social Security Changes",
+        "section": "PDF page 1, note: 'The Medicare portion (HI) is 1.45% on all earnings'; 'Medicare (HI only) No Limit'",
+        "url": "https://www.ssa.gov/news/assets/materials/press/factsheets/colafacts2025.pdf",
+        "accessed": "2026-11-07",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+            "section": "26 U.S.C. 3101(b)(1): '1.45 percent of the wages'"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+            "section": "26 U.S.C. 1401(b)(1): '2.9 percent of the amount of the self-employment income'"
+          }
+        ]
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 U.S.C. 3101, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 3101(b)(1) 1.45 percent, no wage limit",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+          "accessed": "2026-11-08",
+          "also": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+              "section": "26 U.S.C. 1401(b)(1) 2.9 percent"
+            }
+          ]
+        }
+      },
+      "notes": "No wage base. employer_rate left out (26 U.S.C. 3111 not archived). The 0.9% additional tax is in income_tax.additional_medicare_tax."
+    },
+    "earnings_test": {
+      "under_full_retirement_age": "23400",
+      "year_reaching_full_retirement_age": "62160",
+      "notes": "Annual exempt amounts. Under full retirement age, $1 of benefits is withheld for every $2 of earnings above the limit; in the year full retirement age is reached, $1 for every $3 above the limit, counting only earnings before the month full retirement age is attained; none from that month (SSA fact sheet notes).",
+      "cite": {
+        "publication": "SSA Fact Sheet, 2025 Social Security Changes",
+        "section": "PDF pages 1-2, Retirement Earnings Test Exempt Amounts, 2025 column: 'Under full retirement age $23,400/yr. ($1,950/mo.)'; 'The year an individual reaches full retirement age $62,160/yr. ($5,180/mo.)'",
+        "url": "https://www.ssa.gov/news/assets/materials/press/factsheets/colafacts2025.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "wage_index",
+        "index": "average_wage_index",
+        "cite": {
+          "publication": "SSA Fact Sheet, 2025 Social Security Changes",
+          "section": "PDF pages 1-2, Retirement Earnings Test Exempt Amounts, 2025 column: 'Under full retirement age $23,400/yr. ($1,950/mo.)'; 'The year an individual reaches full retirement age $62,160/yr. ($5,180/mo.)' (prints only the amounts, not the method)",
+          "url": "https://www.ssa.gov/news/assets/materials/press/factsheets/colafacts2025.pdf",
+          "accessed": "2026-11-07"
+        },
+        "notes": "NOT CONFIRMED FROM AN ARCHIVED SOURCE: the statute that sets the exempt amounts (42 U.S.C. 403(f)(8)) is not among the archived sources, so this indexing cites the SSA fact sheet, which prints the amounts but not how they change. wage_index is the reader's understanding of 403(f)(8), not read from a source; base period and rounding are left out for the same reason."
+      }
+    }
+  },
+  "retirement_accounts": {
+    "elective_deferral": {
+      "limit": "23500",
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF page 1: 'The limitation under section 402(g)(1) on the exclusion for elective deferrals ... is increased from $23,000 to $23,500.'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "inflation",
+        "base_period": "the calendar quarter beginning July 1, 2005",
+        "rounding": {
+          "multiple": "500",
+          "direction": "down",
+          "notes": "402(g)(4): an increase not a multiple of $500 is rounded to the next lowest multiple of $500."
+        },
+        "cite": {
+          "publication": "26 U.S.C. 402, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 402(g)(4): the $15,000 amount adjusted 'at the same time and in the same manner as under section 415(d), except that the base period shall be the calendar quarter beginning July 1, 2005', increases rounded to the next lowest multiple of $500",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.htm",
+          "accessed": "2026-11-08"
+        },
+        "notes": "index left out: section 415(d) adjusts by procedures similar to Social Security Act 215(i)(2)(A) (Notice cover text), a CPI-W measure, which the schema's index list does not offer; 26 U.S.C. 415 itself is not archived."
+      },
+      "notes": "Applies to 401(k), 403(b) and the Thrift Savings Plan (402(g)(3)); the governmental 457(b) limit under 457(e)(15) is the same amount in the Notice."
+    },
+    "catch_up": {
+      "age_50_and_over": "7500",
+      "age_60_to_63": "11250",
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF pages 1-2: section 414(v)(2)(B)(i) catch-up for individuals aged 50 or over 'remains $7,500'; section 414(v)(2)(E)(i) catch-up 'for individuals who attain age 60, 61, 62, or 63 in 2025 is $11,250'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "base_period": "the calendar quarter beginning July 1, 2005",
+          "applies_to": "age_50_and_over",
+          "rounding": {
+            "multiple": "500",
+            "direction": "down",
+            "notes": "414(v)(2)(C)(i): 'rounded to the next lower multiple of $500'."
+          },
+          "cite": {
+            "publication": "26 U.S.C. 414, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 414(v)(2)(B)(i) $5,000; (v)(2)(C)(i) adjusted annually in the same manner as under section 415(d), base period the calendar quarter beginning July 1, 2005, rounded to the next lower multiple of $500",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "index left out: 415(d) procedures (CPI-W based), not in the schema's index list."
+        },
+        {
+          "method": "inflation",
+          "base_period": "the calendar quarter beginning July 1, 2024",
+          "applies_to": "age_60_to_63",
+          "indexed_from": 2026,
+          "rounding": {
+            "multiple": "500",
+            "direction": "down",
+            "notes": "Same manner as the age-50 amount (414(v)(2)(C)(i) second sentence), so next lower multiple of $500."
+          },
+          "cite": {
+            "publication": "26 U.S.C. 414, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 414(v)(2)(E)(i): the adjusted dollar amount for an eligible participant who attains age 60 but not 64 before the close of the year is the greater of $10,000 or 150 percent of the (B)(i) amount in effect for 2024; (v)(2)(C)(i): for years beginning after December 31, 2025, adjusted annually, base period the calendar quarter beginning July 1, 2024",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The 2025 amount is set from the 2024 age-50 amount (150% x $7,500 = $11,250, more than $10,000), not from a same-year figure, so it is not a derivation; indexing starts in 2026. index left out: 415(d) procedures (CPI-W based)."
+        }
+      ],
+      "notes": "Plans other than SIMPLE plans (401(k)(11), 408(p)), which have their own amounts (414(v)(2)(B)(ii)-(iii)). age_60_to_63 applies to a participant who attains age 60, 61, 62 or 63 by the end of the year."
+    },
+    "ira": {
+      "limit": "7000",
+      "catch_up_age_50": "1000",
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF page 4: 'The deductible amount under section 219(b)(5)(A) ... remains $7,000. The increase in the deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 ... remains $1,000.'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2007",
+          "applies_to": "limit",
+          "rounding": {
+            "multiple": "500",
+            "direction": "down",
+            "notes": "219(b)(5)(C)(ii): the adjusted amount, if not a multiple of $500, is rounded to the next lower multiple of $500."
+          },
+          "cite": {
+            "publication": "26 U.S.C. 219, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 219(b)(5)(A) $5,000; (b)(5)(C)(i) increased by the 1(f)(3) adjustment substituting 'calendar year 2007' for 'calendar year 2016'; (C)(ii) rounding",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2022",
+          "applies_to": "catch_up_age_50",
+          "rounding": {
+            "multiple": "100",
+            "direction": "down",
+            "notes": "219(b)(5)(C)(iii): the adjusted amount, if not a multiple of $100, is rounded to the next lower multiple of $100."
+          },
+          "cite": {
+            "publication": "26 U.S.C. 219, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 219(b)(5)(B)(ii) $1,000; (b)(5)(C)(iii) for years after 2023 increased by the 1(f)(3) adjustment substituting 'calendar year 2022', rounded to the next lower multiple of $100",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+            "accessed": "2026-11-08"
+          }
+        }
+      ],
+      "notes": "Traditional and Roth IRA contributions combined (408A(c)(2))."
+    },
+    "roth_ira_phase_out": {
+      "start": {
+        "single": "150000",
+        "married_joint": "236000",
+        "married_separate": "0",
+        "head_of_household": "150000"
+      },
+      "end": {
+        "single": "165000",
+        "married_joint": "246000",
+        "married_separate": "10000",
+        "head_of_household": "165000"
+      },
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF pages 4-5: under section 408A(c)(3)(A) the phase-out range 'is between $236,000 and $246,000 for married couples filing jointly ... For singles and heads of household ... between $150,000 and $165,000. For a married individual filing a separate return ... remains between $0 and $10,000.'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2005",
+          "applies_to": "start.married_joint, start.single and start.head_of_household",
+          "rounding": {
+            "multiple": "1000",
+            "direction": "nearest",
+            "notes": "408A(c)(3)(D): 'Any increase ... shall be rounded to the nearest multiple of $1,000.'"
+          },
+          "cite": {
+            "publication": "26 U.S.C. 408A, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 408A(c)(3)(B)(ii)(I) $150,000 joint, (II) $95,000 other (not married filing separately), (III) zero for married filing separately; (c)(3)(D) the (I) and (II) amounts increased by the 1(f)(3) adjustment substituting 'calendar year 2005', increases rounded to the nearest $1,000",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "method": "fixed",
+          "applies_to": "start.married_separate (zero) and the width of each range (end minus start)",
+          "cite": {
+            "publication": "26 U.S.C. 408A, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 408A(c)(3)(A)(ii): the reduction ratio's denominator is '$15,000 ($10,000 in the case of a joint return or a married individual filing a separate return)'; (B)(ii)(III) zero",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "end is not indexed on its own: it is start plus $15,000 (single, head of household) or $10,000 (joint, married filing separately). The schema's derivations (times, minus) cannot express start plus a constant, so this is stated here instead of as derivations."
+        }
+      ],
+      "notes": "Measure: adjusted gross income as under 219(g)(3), excluding Roth conversion income (408A(c)(3)(B)(i)). A married person filing separately who lived apart all year uses the single range (408A(c)(3)(C), 219(g)(4))."
+    },
+    "traditional_ira_deduction_phase_out": {
+      "covered": {
+        "single": "79000",
+        "married_joint": "126000",
+        "married_separate": "0",
+        "head_of_household": "79000"
+      },
+      "covered_end": {
+        "single": "89000",
+        "married_joint": "146000",
+        "married_separate": "10000",
+        "head_of_household": "89000"
+      },
+      "spouse_covered": "236000",
+      "spouse_covered_end": "246000",
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF page 4: under section 219(g)(2)(A) the deduction is phased out for single individuals and heads of household who are active participants 'between $79,000 and $89,000'; married filing jointly, contributor an active participant, 'between $126,000 and $146,000'; contributor not an active participant married to one who is, 'between $236,000 and $246,000'; married filing separately active participant 'remains $0 to $10,000'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 2005",
+          "applies_to": "covered.married_joint, covered.single, covered.head_of_household and spouse_covered",
+          "rounding": {
+            "multiple": "1000",
+            "direction": "nearest",
+            "notes": "219(g)(8): 'Any increase determined under the preceding sentence shall be rounded to the nearest multiple of $1,000.'"
+          },
+          "cite": {
+            "publication": "26 U.S.C. 219, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 219(g)(3)(B)(i) $80,000 joint, (ii) $50,000 other, (iii) zero married filing separately; (g)(7)(A) $150,000 spouse not an active participant; (g)(8) the (3)(B)(i), (3)(B)(ii) and (7)(A) amounts increased by the 1(f)(3) adjustment substituting 'calendar year 2005', increases rounded to the nearest $1,000",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "method": "fixed",
+          "applies_to": "covered.married_separate (zero) and the width of each range (end minus start)",
+          "cite": {
+            "publication": "26 U.S.C. 219, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 219(g)(2)(A)(ii): '$10,000 ($20,000 in the case of a joint return)'; (g)(7)(B): $10,000 for a spouse who is not an active participant; (g)(3)(B)(iii) zero",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+            "accessed": "2026-11-08"
+          },
+          "notes": "The end figures are not indexed on their own: covered_end = covered + $10,000 ($20,000 joint), spouse_covered_end = spouse_covered + $10,000. The schema's derivations cannot express start plus a constant."
+        }
+      ],
+      "notes": "covered: the contributor is an active participant in a workplace plan. spouse_covered: the contributor is not an active participant but the spouse is (joint return). A married person filing separately who lived apart all year is treated as not married (219(g)(4)) and uses the single range."
+    },
+    "qualified_charitable_distribution": {
+      "limit": "108000",
+      "cite": {
+        "publication": "IRS Notice 2024-80, 2025 Amounts Relating to Retirement Plans and IRAs",
+        "section": "PDF page 5: 'The aggregate amount of qualified charitable distributions that are not includible in gross income under section 408(d)(8)(A) is increased from $105,000 to $108,000.'",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "inflation",
+        "index": "C-CPI-U",
+        "base_period": "calendar year 2022",
+        "rounding": {
+          "multiple": "1000",
+          "direction": "nearest",
+          "notes": "408(d)(8)(G)(ii): the increased amount, if not a multiple of $1,000, is rounded to the nearest multiple of $1,000."
+        },
+        "cite": {
+          "publication": "26 U.S.C. 408, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 408(d)(8)(A) $100,000; (d)(8)(G)(i) for taxable years beginning after 2023 increased by the 1(f)(3) adjustment substituting 'calendar year 2022'; (G)(ii) rounding to the nearest $1,000",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.htm",
+          "accessed": "2026-11-08"
+        }
+      },
+      "notes": "Per IRA owner; distributions made on or after age 70 1/2 (408(d)(8)(B)(ii))."
+    }
+  },
+  "rmd": {
+    "start_age": {
+      "by_birth_year": [
+        {
+          "born_from": 1951,
+          "born_through": 1959,
+          "age": 73
+        },
+        {
+          "born_from": 1960,
+          "age": 75
+        }
+      ],
+      "cite": {
+        "publication": "26 U.S.C. 401, United States Code, 2024 Edition (govinfo)",
+        "section": "26 U.S.C. 401(a)(9)(C)(v) Applicable age: '(I) In the case of an individual who attains age 72 after December 31, 2022, and age 73 before January 1, 2033, the applicable age is 73. (II) In the case of an individual who attains age 74 after December 31, 2032, the applicable age is 75.'",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.htm",
+        "accessed": "2026-11-08"
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 U.S.C. 401, United States Code, 2024 Edition (govinfo)",
+          "section": "26 U.S.C. 401(a)(9)(C)(v): ages written in the statute by when the individual attains them",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.htm",
+          "accessed": "2026-11-08"
+        }
+      },
+      "notes": "Born 1951 attains 72 in 2023 (after December 31, 2022), so 1951 is the first year under (I). Born 1959 satisfies both clauses as written (attains 73 in 2032, before January 1, 2033, and 74 in 2033, after December 31, 2032); recorded as 73, reading clause (I)'s explicit range as controlling (Publication 590-B (2025), PDF page 6, also gives age 73 to anyone who reaches 72 after December 31, 2022, without a 75 rule). Born 1960 or later: 75. People born before 1951 (age 72 or 70 1/2 under earlier law) are not covered: the current statute does not print their ages and the earlier-law boundary (reaching 70 1/2 after December 31, 2019) falls mid-year, which a birth-year row cannot hold."
+    },
+    "uniform_lifetime_table": {
+      "rows": [
+        {
+          "age": 72,
+          "divisor": "27.4"
+        },
+        {
+          "age": 73,
+          "divisor": "26.5"
+        },
+        {
+          "age": 74,
+          "divisor": "25.5"
+        },
+        {
+          "age": 75,
+          "divisor": "24.6"
+        },
+        {
+          "age": 76,
+          "divisor": "23.7"
+        },
+        {
+          "age": 77,
+          "divisor": "22.9"
+        },
+        {
+          "age": 78,
+          "divisor": "22.0"
+        },
+        {
+          "age": 79,
+          "divisor": "21.1"
+        },
+        {
+          "age": 80,
+          "divisor": "20.2"
+        },
+        {
+          "age": 81,
+          "divisor": "19.4"
+        },
+        {
+          "age": 82,
+          "divisor": "18.5"
+        },
+        {
+          "age": 83,
+          "divisor": "17.7"
+        },
+        {
+          "age": 84,
+          "divisor": "16.8"
+        },
+        {
+          "age": 85,
+          "divisor": "16.0"
+        },
+        {
+          "age": 86,
+          "divisor": "15.2"
+        },
+        {
+          "age": 87,
+          "divisor": "14.4"
+        },
+        {
+          "age": 88,
+          "divisor": "13.7"
+        },
+        {
+          "age": 89,
+          "divisor": "12.9"
+        },
+        {
+          "age": 90,
+          "divisor": "12.2"
+        },
+        {
+          "age": 91,
+          "divisor": "11.5"
+        },
+        {
+          "age": 92,
+          "divisor": "10.8"
+        },
+        {
+          "age": 93,
+          "divisor": "10.1"
+        },
+        {
+          "age": 94,
+          "divisor": "9.5"
+        },
+        {
+          "age": 95,
+          "divisor": "8.9"
+        },
+        {
+          "age": 96,
+          "divisor": "8.4"
+        },
+        {
+          "age": 97,
+          "divisor": "7.8"
+        },
+        {
+          "age": 98,
+          "divisor": "7.3"
+        },
+        {
+          "age": 99,
+          "divisor": "6.8"
+        },
+        {
+          "age": 100,
+          "divisor": "6.4"
+        },
+        {
+          "age": 101,
+          "divisor": "6.0"
+        },
+        {
+          "age": 102,
+          "divisor": "5.6"
+        },
+        {
+          "age": 103,
+          "divisor": "5.2"
+        },
+        {
+          "age": 104,
+          "divisor": "4.9"
+        },
+        {
+          "age": 105,
+          "divisor": "4.6"
+        },
+        {
+          "age": 106,
+          "divisor": "4.3"
+        },
+        {
+          "age": 107,
+          "divisor": "4.1"
+        },
+        {
+          "age": 108,
+          "divisor": "3.9"
+        },
+        {
+          "age": 109,
+          "divisor": "3.7"
+        },
+        {
+          "age": 110,
+          "divisor": "3.5"
+        },
+        {
+          "age": 111,
+          "divisor": "3.4"
+        },
+        {
+          "age": 112,
+          "divisor": "3.3"
+        },
+        {
+          "age": 113,
+          "divisor": "3.1"
+        },
+        {
+          "age": 114,
+          "divisor": "3.0"
+        },
+        {
+          "age": 115,
+          "divisor": "2.9"
+        },
+        {
+          "age": 116,
+          "divisor": "2.8"
+        },
+        {
+          "age": 117,
+          "divisor": "2.7"
+        },
+        {
+          "age": 118,
+          "divisor": "2.5"
+        },
+        {
+          "age": 119,
+          "divisor": "2.3"
+        },
+        {
+          "age": 120,
+          "divisor": "2.0"
+        }
+      ],
+      "cite": {
+        "publication": "26 CFR 1.401(a)(9)-9 (eCFR renderer, content as of 2026-11-01)",
+        "section": "paragraph (c) Uniform Lifetime Table, Table 2 to Paragraph (c), 'Age of employee' / 'Applicable denominator', ages 72 to 120+ (HTML page, no PDF pages)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 CFR 1.401(a)(9)-9 (eCFR renderer, content as of 2026-11-01)",
+          "section": "paragraph (f)(1): the tables 'apply for distribution calendar years beginning on or after January 1, 2022'",
+          "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+          "accessed": "2026-11-07"
+        },
+        "notes": "Changes only if the regulation is amended."
+      },
+      "notes": "The regulation's table starts at age 72; the last row (age 120) is printed '120+'."
+    },
+    "single_life_table": {
+      "rows": [
+        {
+          "age": 0,
+          "divisor": "84.6"
+        },
+        {
+          "age": 1,
+          "divisor": "83.7"
+        },
+        {
+          "age": 2,
+          "divisor": "82.8"
+        },
+        {
+          "age": 3,
+          "divisor": "81.8"
+        },
+        {
+          "age": 4,
+          "divisor": "80.8"
+        },
+        {
+          "age": 5,
+          "divisor": "79.8"
+        },
+        {
+          "age": 6,
+          "divisor": "78.8"
+        },
+        {
+          "age": 7,
+          "divisor": "77.9"
+        },
+        {
+          "age": 8,
+          "divisor": "76.9"
+        },
+        {
+          "age": 9,
+          "divisor": "75.9"
+        },
+        {
+          "age": 10,
+          "divisor": "74.9"
+        },
+        {
+          "age": 11,
+          "divisor": "73.9"
+        },
+        {
+          "age": 12,
+          "divisor": "72.9"
+        },
+        {
+          "age": 13,
+          "divisor": "71.9"
+        },
+        {
+          "age": 14,
+          "divisor": "70.9"
+        },
+        {
+          "age": 15,
+          "divisor": "69.9"
+        },
+        {
+          "age": 16,
+          "divisor": "69.0"
+        },
+        {
+          "age": 17,
+          "divisor": "68.0"
+        },
+        {
+          "age": 18,
+          "divisor": "67.0"
+        },
+        {
+          "age": 19,
+          "divisor": "66.0"
+        },
+        {
+          "age": 20,
+          "divisor": "65.0"
+        },
+        {
+          "age": 21,
+          "divisor": "64.1"
+        },
+        {
+          "age": 22,
+          "divisor": "63.1"
+        },
+        {
+          "age": 23,
+          "divisor": "62.1"
+        },
+        {
+          "age": 24,
+          "divisor": "61.1"
+        },
+        {
+          "age": 25,
+          "divisor": "60.2"
+        },
+        {
+          "age": 26,
+          "divisor": "59.2"
+        },
+        {
+          "age": 27,
+          "divisor": "58.2"
+        },
+        {
+          "age": 28,
+          "divisor": "57.3"
+        },
+        {
+          "age": 29,
+          "divisor": "56.3"
+        },
+        {
+          "age": 30,
+          "divisor": "55.3"
+        },
+        {
+          "age": 31,
+          "divisor": "54.4"
+        },
+        {
+          "age": 32,
+          "divisor": "53.4"
+        },
+        {
+          "age": 33,
+          "divisor": "52.5"
+        },
+        {
+          "age": 34,
+          "divisor": "51.5"
+        },
+        {
+          "age": 35,
+          "divisor": "50.5"
+        },
+        {
+          "age": 36,
+          "divisor": "49.6"
+        },
+        {
+          "age": 37,
+          "divisor": "48.6"
+        },
+        {
+          "age": 38,
+          "divisor": "47.7"
+        },
+        {
+          "age": 39,
+          "divisor": "46.7"
+        },
+        {
+          "age": 40,
+          "divisor": "45.7"
+        },
+        {
+          "age": 41,
+          "divisor": "44.8"
+        },
+        {
+          "age": 42,
+          "divisor": "43.8"
+        },
+        {
+          "age": 43,
+          "divisor": "42.9"
+        },
+        {
+          "age": 44,
+          "divisor": "41.9"
+        },
+        {
+          "age": 45,
+          "divisor": "41.0"
+        },
+        {
+          "age": 46,
+          "divisor": "40.0"
+        },
+        {
+          "age": 47,
+          "divisor": "39.0"
+        },
+        {
+          "age": 48,
+          "divisor": "38.1"
+        },
+        {
+          "age": 49,
+          "divisor": "37.1"
+        },
+        {
+          "age": 50,
+          "divisor": "36.2"
+        },
+        {
+          "age": 51,
+          "divisor": "35.3"
+        },
+        {
+          "age": 52,
+          "divisor": "34.3"
+        },
+        {
+          "age": 53,
+          "divisor": "33.4"
+        },
+        {
+          "age": 54,
+          "divisor": "32.5"
+        },
+        {
+          "age": 55,
+          "divisor": "31.6"
+        },
+        {
+          "age": 56,
+          "divisor": "30.6"
+        },
+        {
+          "age": 57,
+          "divisor": "29.8"
+        },
+        {
+          "age": 58,
+          "divisor": "28.9"
+        },
+        {
+          "age": 59,
+          "divisor": "28.0"
+        },
+        {
+          "age": 60,
+          "divisor": "27.1"
+        },
+        {
+          "age": 61,
+          "divisor": "26.2"
+        },
+        {
+          "age": 62,
+          "divisor": "25.4"
+        },
+        {
+          "age": 63,
+          "divisor": "24.5"
+        },
+        {
+          "age": 64,
+          "divisor": "23.7"
+        },
+        {
+          "age": 65,
+          "divisor": "22.9"
+        },
+        {
+          "age": 66,
+          "divisor": "22.0"
+        },
+        {
+          "age": 67,
+          "divisor": "21.2"
+        },
+        {
+          "age": 68,
+          "divisor": "20.4"
+        },
+        {
+          "age": 69,
+          "divisor": "19.6"
+        },
+        {
+          "age": 70,
+          "divisor": "18.8"
+        },
+        {
+          "age": 71,
+          "divisor": "18.0"
+        },
+        {
+          "age": 72,
+          "divisor": "17.2"
+        },
+        {
+          "age": 73,
+          "divisor": "16.4"
+        },
+        {
+          "age": 74,
+          "divisor": "15.6"
+        },
+        {
+          "age": 75,
+          "divisor": "14.8"
+        },
+        {
+          "age": 76,
+          "divisor": "14.1"
+        },
+        {
+          "age": 77,
+          "divisor": "13.3"
+        },
+        {
+          "age": 78,
+          "divisor": "12.6"
+        },
+        {
+          "age": 79,
+          "divisor": "11.9"
+        },
+        {
+          "age": 80,
+          "divisor": "11.2"
+        },
+        {
+          "age": 81,
+          "divisor": "10.5"
+        },
+        {
+          "age": 82,
+          "divisor": "9.9"
+        },
+        {
+          "age": 83,
+          "divisor": "9.3"
+        },
+        {
+          "age": 84,
+          "divisor": "8.7"
+        },
+        {
+          "age": 85,
+          "divisor": "8.1"
+        },
+        {
+          "age": 86,
+          "divisor": "7.6"
+        },
+        {
+          "age": 87,
+          "divisor": "7.1"
+        },
+        {
+          "age": 88,
+          "divisor": "6.6"
+        },
+        {
+          "age": 89,
+          "divisor": "6.1"
+        },
+        {
+          "age": 90,
+          "divisor": "5.7"
+        },
+        {
+          "age": 91,
+          "divisor": "5.3"
+        },
+        {
+          "age": 92,
+          "divisor": "4.9"
+        },
+        {
+          "age": 93,
+          "divisor": "4.6"
+        },
+        {
+          "age": 94,
+          "divisor": "4.3"
+        },
+        {
+          "age": 95,
+          "divisor": "4.0"
+        },
+        {
+          "age": 96,
+          "divisor": "3.7"
+        },
+        {
+          "age": 97,
+          "divisor": "3.4"
+        },
+        {
+          "age": 98,
+          "divisor": "3.2"
+        },
+        {
+          "age": 99,
+          "divisor": "3.0"
+        },
+        {
+          "age": 100,
+          "divisor": "2.8"
+        },
+        {
+          "age": 101,
+          "divisor": "2.6"
+        },
+        {
+          "age": 102,
+          "divisor": "2.5"
+        },
+        {
+          "age": 103,
+          "divisor": "2.3"
+        },
+        {
+          "age": 104,
+          "divisor": "2.2"
+        },
+        {
+          "age": 105,
+          "divisor": "2.1"
+        },
+        {
+          "age": 106,
+          "divisor": "2.1"
+        },
+        {
+          "age": 107,
+          "divisor": "2.1"
+        },
+        {
+          "age": 108,
+          "divisor": "2.0"
+        },
+        {
+          "age": 109,
+          "divisor": "2.0"
+        },
+        {
+          "age": 110,
+          "divisor": "2.0"
+        },
+        {
+          "age": 111,
+          "divisor": "2.0"
+        },
+        {
+          "age": 112,
+          "divisor": "2.0"
+        },
+        {
+          "age": 113,
+          "divisor": "1.9"
+        },
+        {
+          "age": 114,
+          "divisor": "1.9"
+        },
+        {
+          "age": 115,
+          "divisor": "1.8"
+        },
+        {
+          "age": 116,
+          "divisor": "1.8"
+        },
+        {
+          "age": 117,
+          "divisor": "1.6"
+        },
+        {
+          "age": 118,
+          "divisor": "1.4"
+        },
+        {
+          "age": 119,
+          "divisor": "1.1"
+        },
+        {
+          "age": 120,
+          "divisor": "1.0"
+        }
+      ],
+      "cite": {
+        "publication": "26 CFR 1.401(a)(9)-9 (eCFR renderer, content as of 2026-11-01)",
+        "section": "paragraph (b) Single Life Table, Table 1 to Paragraph (b), 'Age' / 'Life expectancy', ages 0 to 120+ (HTML page, no PDF pages)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+        "accessed": "2026-11-07"
+      },
+      "indexing": {
+        "method": "fixed",
+        "cite": {
+          "publication": "26 CFR 1.401(a)(9)-9 (eCFR renderer, content as of 2026-11-01)",
+          "section": "paragraph (f)(1): the tables 'apply for distribution calendar years beginning on or after January 1, 2022'",
+          "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+          "accessed": "2026-11-07"
+        },
+        "notes": "Changes only if the regulation is amended."
+      },
+      "notes": "The last row (age 120) is printed '120+'."
+    }
+  }
+}

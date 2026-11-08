@@ -1,0 +1,58 @@
+{
+  "id": "ks_2025_age65_head_of_household",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "kansas_standard_deduction",
+    "age_65_additional_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); WORKSHEET - Standard Deduction for People 65 or Older and/or Blind (PDF page 6); tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-12-12"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "19375.00"
+  },
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "26490.00",
+    "state_tax_before_credits": "1390.74",
+    "credits": "0.00",
+    "state_income_tax": "1390.74"
+  },
+  "worked": "Federal AGI = IRA distribution (you) 45,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 25,625.00 (23,625.00 + 1 x 2,000.00 for 65 or older) = 19,375.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). No Kansas modifications: Schedule S lines A9 and A26 are 0.00, line A27 net modification 0.00 (the K-40 instructions let a filer skip line 2). Form K-40: line 1 federal AGI 45,000.00; line 2 modifications 0.00; line 3 Kansas AGI = 45,000.00 + (0.00) = 45,000.00; line 4 standard deduction (head of household), worksheet for people 65 or older: 1 box checked, 6,180.00 + 1 x 850.00 = 7,030.00 (the worksheet prints 7,030.00); line 5 exemption allowance 9,160.00 + head of household additional exemption 2,320.00 = 11,480.00, 0 dependents; line 6 total deductions = 7,030.00 + 11,480.00 = 18,510.00; line 7 taxable income = 45,000.00 - 18,510.00 = 26,490.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 23,000.00 = 1,196.00 + 5.58% x (26,490.00 - 23,000.00 = 3,490.00) = 194.7420; total 1,390.7420 = 1,390.74. Line 7 is 100,000 or less, so the form reads the tax table: row 26,451-26,500, single, head of household or married filing separate column, PDF page 29, gives 1,390; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 1,390.74. Credits (lines 13-15, 17): none, 0.00; state income tax = 1,390.74. The head of household step is 850.00. No dependents in the inputs; the form would add 2,320.00 per dependent.",
+  "accepted_approximations": [
+    "A pension from another state's government, private pensions, IRA and other employer-plan distributions and Roth conversions stay in Kansas income: no line subtracts them. This is read from the booklet's silence, not from a sentence saying they are taxed.",
+    "The blind amount, dependent exemptions and disabled veteran exemption are not applied (not_modelled).",
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_warnings": [
+    "state_rule_not_modelled:kpers_rollover_withdrawals",
+    "state_rule_not_modelled:thrift_savings_plans"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "nc_2025_railroad_and_social_security_joint",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 18, Schedule S Part B Line 19 (Social Security and Tier 1 or Tier 2 railroad retirement benefits included in federal AGI are deducted); Form D-400 Schedule S page 2 (PDF page 3), Line 19; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-01-09"
+      },
+      {
+        "age": 67,
+        "born": "1958-06-25"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "20400.00"
+    },
+    "federal_agi": "90400.00",
+    "federal_taxable_income": "55700.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement"
+  ]
+}

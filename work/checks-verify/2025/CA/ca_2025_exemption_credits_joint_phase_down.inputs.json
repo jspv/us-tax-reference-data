@@ -1,0 +1,57 @@
+{
+  "id": "ca_2025_exemption_credits_joint_phase_down",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_exemption_credit",
+    "senior_exemption_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 39 Form 540 line 7 (box 2: enter 2) and line 9",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-04"
+      },
+      {
+        "age": 67,
+        "born": "1958-08-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "250000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "170000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "interest": "60000.00",
+      "dividends": "40000.00"
+    },
+    "federal_agi": "520000.00",
+    "federal_taxable_income": "485300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.personal_exemption_credit",
+    "relief_amounts.senior_exemption_credit"
+  ]
+}

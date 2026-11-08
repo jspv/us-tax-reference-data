@@ -1,0 +1,656 @@
+{
+ "layer": "projection",
+ "state": "NJ",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/NJ.record.json",
+  "sha256": "a85f942b72ad1d1993c5c01e395d2fbc55e7785cfba9b2eabe053c4acc8d193f"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.035",
+    "start": "35000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "75000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0245",
+    "start": "50000"
+   },
+   {
+    "rate": "0.035",
+    "start": "70000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "80000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "150000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.035",
+    "start": "35000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "75000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0245",
+    "start": "50000"
+   },
+   {
+    "rate": "0.035",
+    "start": "70000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "80000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "150000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "nj_regular_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person"
+   },
+   {
+    "id": "nj_senior_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "min_age": 65
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "nj_pension_exclusion",
+   "from_record": [
+    "nj_pension_exclusion_age62"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62
+   },
+   "cap": {
+    "married_joint": "100000",
+    "single": "75000",
+    "head_of_household": "75000",
+    "qualifying_surviving_spouse": "75000",
+    "married_separate": "50000"
+   },
+   "cap_per": "return",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "plus_tax_exempt_interest": true,
+     "minus_taxable_social_security": true
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_joint",
+      "over": "125000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_joint",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "single",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "single",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "head_of_household",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "head_of_household",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "100000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_separate",
+      "over": "125000",
+      "keep_share": "0.125"
+     },
+     {
+      "status": "married_separate",
+      "over": "150000",
+      "keep_share": "0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "nj_unclaimed_exclusion",
+   "from_record": [
+    "nj_unclaimed_pension_exclusion"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends",
+    "capital_gains",
+    "rent_and_royalties",
+    "other_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62
+   },
+   "cap": {
+    "married_joint": "100000",
+    "single": "75000",
+    "head_of_household": "75000",
+    "qualifying_surviving_spouse": "75000",
+    "married_separate": "50000"
+   },
+   "cap_per": "return",
+   "cap_reduced_by": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion"
+   ],
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "plus_tax_exempt_interest": true,
+     "minus_taxable_social_security": true
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_joint",
+      "over": "125000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_joint",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "single",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "single",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "head_of_household",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "head_of_household",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "100000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_separate",
+      "over": "125000",
+      "keep_share": "0.125"
+     },
+     {
+      "status": "married_separate",
+      "over": "150000",
+      "keep_share": "0"
+     }
+    ]
+   },
+   "earned_income_limit": {
+    "amount": {
+     "all": "3000"
+    },
+    "per": "return"
+   },
+   "requires": [
+    "earned_income_limit"
+   ]
+  },
+  {
+   "id": "nj_military_pension_exempt",
+   "from_record": [
+    "nj_military_pension_exempt"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "nj_railroad_retirement_exempt",
+   "from_record": [
+    "nj_railroad_retirement_exempt"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "nj_pension_exclusion",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs:nj_pension_exclusion"
+   ]
+  },
+  {
+   "figure": "nj_unclaimed_exclusion",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs:nj_unclaimed_exclusion"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "nj_pension_exclusion_disabled",
+   "from_record": [
+    "nj_pension_exclusion_disabled"
+   ],
+   "what": "Pension exclusion for a person under 62 who is blind or disabled as defined by Social Security guidelines on the last day of the year: the same line 28a exclusion (same maximum, bands and covered income) as from age 62. A projection does not know disability, so it gives the exclusion only from age 62.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    18,
+    61
+   ]
+  },
+  {
+   "id": "nj_disability_pension_exempt",
+   "from_record": [
+    "nj_disability_pension_exempt"
+   ],
+   "what": "A public or private pension paid because of permanent and total disability is not taxable until the year the person turns 65. A projection taxes it as an ordinary pension.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "nj_special_exclusion",
+   "from_record": [
+    "nj_special_exclusion"
+   ],
+   "what": "Special Exclusion of 6,000 (joint, head of household, qualifying widow(er)) or 3,000 (single, separate) for a return where a person is 62 or older and neither spouse can ever receive Social Security or Railroad Retirement benefits because the employer did not take part. A projection does not hold Social Security eligibility.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    62,
+    120
+   ]
+  },
+  {
+   "id": "nj_blind_disabled_exemption",
+   "from_record": [
+    "nj_blind_disabled_exemption"
+   ],
+   "what": "1,000 exemption for each filer who is blind or disabled on the last day of the year.",
+   "warn_when": "never"
+  },
+  {
+   "id": "nj_veteran_exemption",
+   "from_record": [
+    "nj_veteran_exemption"
+   ],
+   "what": "6,000 exemption for each filer who is an honorably discharged military veteran (a veteran qualifies with or without a military pension).",
+   "warn_when": "has_military_pension"
+  },
+  {
+   "id": "nj_dependent_child_exemption",
+   "from_record": [
+    "nj_dependent_child_exemption",
+    "nj_other_dependent_exemption",
+    "nj_college_dependent_exemption"
+   ],
+   "what": "1,500 exemption per dependent child or other dependent, and 1,000 more per dependent full-time college student under 22.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "nj_obligation_gains_exempt",
+   "from_record": [
+    "nj_obligation_gains_exempt"
+   ],
+   "what": "Capital gains from New Jersey obligations and direct federal obligations are exempt; a projection can't tell which gains come from them.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "New Jersey starts from its own total income (line 27), not federal AGI: no federal adjustments (IRA, HSA, self-employment tax, student loan deductions) are allowed, employee contributions to 403(b), 457, Thrift Savings and other plans except 401(k) are taxed, losses in one income category cannot offset another, and Treasury interest is exempt. The projection starts from federal AGI less taxable Social Security.",
+   "direction": "either",
+   "size": "Usually small for a retiree; for a working household, an IRA or HSA deduction of 7,000 understates New Jersey tax by about 7,000 x the bracket rate (about 390 at 5.525%)."
+  },
+  {
+   "what": "Taxable amount of pensions and IRA withdrawals: New Jersey excludes previously taxed contributions (contributory pensions other than 401(k), IRA, 403(b) and 457 contributions, all taxed when made) by the Three-Year Rule, General Rule or IRA Worksheet C, so its line 20a amount can be lower than the federal taxable amount. The projection uses the federal taxable amount, also for the taxable part of a Roth conversion.",
+   "direction": "overstates_tax",
+   "size": "The previously taxed contributions recovered in the year times the rate, when not already excluded; nothing for a noncontributory pension or a 401(k) funded after 1983."
+  },
+  {
+   "what": "Pension exclusion, line 27 income of 100,001 to 150,000: the booklet excludes the band's share (for example 50% joint) of the qualifying pension income itself, with no dollar cap; the projection applies the share to the capped relief (the lesser of pension income and the filing-status maximum).",
+   "direction": "overstates_tax",
+   "size": "Only when the qualifying pension income exceeds the maximum: joint, line 27 of 110,000 all from one 62-year-old's pension: booklet 55,000, projection 50,000; 5,000 more taxed, in the 2.45% band there, about 120."
+  },
+  {
+   "what": "Unclaimed exclusion earned-income test (Worksheet D lines 4-8): the booklet adds wages, net profits from business, partnership income and S corporation income (lines 15, 18, 21, 22, a loss on any of them counted as nothing) and allows the exclusion only at 3,000 or less; the projection's earned income is wages plus self-employment only, so partnership and S corporation income are not counted (and a self-employment loss, if the reader nets it against wages, lowers the total where the booklet counts it as nothing).",
+   "direction": "understates_tax",
+   "size": "Only for a person 62 or older with partnership or S corporation income (or a business loss) that takes the total over 3,000: single, 64, pension 20,000, partnership income 10,000, interest 15,000: the booklet gives no unclaimed exclusion (taxable 24,000, tax 350.00), the projection excludes the 15,000 interest (taxable 9,000, tax 126.00), 224.00 less tax; more if the partnership income is itself mapped to other income the exclusion covers."
+  },
+  {
+   "what": "Unclaimed exclusion covered income: the booklet lets it cover any income of the qualifying person, wages up to the 3,000 limit included, and in the two upper bands the pension income left after the percentage exclusion; the projection covers interest, dividends, capital gains, rents and royalties and other income only, so working people are not given an exclusion on wages.",
+   "direction": "overstates_tax",
+   "size": "At most 3,000 of wages or self-employment income (about 40 to 190 of tax), plus, between 100,001 and 150,000, pension income above the percentage exclusion that the unused maximum could have covered."
+  },
+  {
+   "what": "Unclaimed exclusion, line 27 income of 100,001 to 150,000: the booklet's maximum is a share of line 27 (50% joint, 37.5% single, head of household and qualifying widow(er), 25% separate; then 25%, 18.75%, 12.5%) less the line 28a exclusion; the projection keeps the same shares of the filing-status maximum and reduces that maximum by the qualifying pension income (exact at 100,000 or less, where line 28a is the lesser of pension income and the maximum).",
+   "direction": "overstates_tax",
+   "size": "Joint, line 27 114,000 with a 6,200 pension: booklet maximum 57,000 less 3,100 = 53,900; projection 0.5 x (100,000 - 6,200) = 46,900 (with no earned income over 3,000), 7,000 less excluded, about 170 more tax in the 2.45% band."
+  },
+  {
+   "what": "Income test measure: line 27 total income is mapped to federal AGI less taxable Social Security plus tax-exempt interest (other states' bonds are taxable in New Jersey and count in line 27; New Jersey bonds and Treasury interest do not count, which the projection can't tell apart).",
+   "direction": "either",
+   "size": "Matters near the 100,000, 125,000 and 150,000 band edges, where a dollar of income can change the exclusion by thousands: joint, 62+, 90,000 pension: just over 150,000 of line 27 the exclusion drops from 22,500 to 0."
+  },
+  {
+   "what": "Municipal and federal interest: the projection treats all tax-exempt interest as other states' bonds (taxable in New Jersey) and federal interest as taxable; New Jersey bonds and U.S. Treasury obligations are exempt in New Jersey.",
+   "direction": "overstates_tax",
+   "size": "New Jersey bond and Treasury interest times the rate: 10,000 of Treasury interest at 5.525% is about 550."
+  },
+  {
+   "what": "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule.",
+   "direction": "either",
+   "size": "Under 1 dollar."
+  },
+  {
+   "what": "Pension exclusion for joint filers where one spouse qualifies by age and the other only by disability: the projection gives the exclusion only to the spouse 62 or older.",
+   "direction": "overstates_tax",
+   "size": "The disabled spouse's pension income within the shared maximum, times the rate."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": [],
+ "joint_income": "half_each"
+}

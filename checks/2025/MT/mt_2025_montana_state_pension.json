@@ -1,0 +1,51 @@
+{
+  "id": "mt_2025_montana_state_pension",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; No Schedule I line names it: Form 2 PDF p3 lines 8-24; Instructions PDF p21 definition of subtractions; PDF p13 line 11b; hub 'Repealed Deductions' list; settlement facts 1-3",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "45000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "MT",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "29250.00"
+  },
+  "expected": {
+    "state_agi": "29250.00",
+    "state_taxable_income": "29250.00",
+    "state_tax_before_credits": "1472.55",
+    "credits": "0.00",
+    "state_income_tax": "1472.55"
+  },
+  "worked": "Federal (given, not tested): federal AGI = public pension paid by MT (person 0) 45,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 15,750.00 = 29,250.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 45,000.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 29,250.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 29,250.00 + 0.00 - 0.00 - 0.00 = 29,250.00. Page 2 worksheet: line 1 taxable income 29,250.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 5.9% x 29,250.00 = 1,725.75, less 253 = 1,472.75; line 13 = 1,472.75, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 21,100.00 = 991.70; 5.9% x (29,250.00 - 21,100.00 = 8,150.00) = 480.85; bracket tax 1,472.55. Line 9 nonrefundable credits 0.00; line 10 tax after credits 1,472.55. The form gives 1,472.75; expected keeps the projection's 1,472.55, a difference of 0.20 from the table's whole-dollar constant (253 against 253.20). Montana's own government pension has no subtraction either (settlement fact 2).",
+  "accepted_approximations": [
+    "The tables print a whole-dollar constant with the 5.9% rate (253, 506, 380) where the bracket arithmetic gives 253.20, 506.40, 380.40."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

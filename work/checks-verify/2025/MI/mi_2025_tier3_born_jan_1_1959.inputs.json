@@ -1,0 +1,35 @@
+{
+  "id": "mi_2025_tier3_born_jan_1_1959",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "tier3_standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 26 (PDF page 17: born January 1, 1953 through January 1, 1959 and 'reached the age of 67 on or before December 31, 2025 ... You are considered to turn 67 the day before your 67th birthday'); Worksheet 2 lines 1-11 (PDF page 18); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1959-01-01"
+      }
+    ],
+    "income": {
+      "interest": "15000.00"
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

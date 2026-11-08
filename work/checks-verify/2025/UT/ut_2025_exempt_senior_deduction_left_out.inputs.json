@@ -1,0 +1,44 @@
+{
+  "id": "ut_2025_exempt_senior_deduction_left_out",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "qualified_exempt_taxpayer"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); Line 21 and Qualified Exempt Taxpayer Worksheet lines 1 to 5 (PDF pp.10-11)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "21000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "21000.00",
+    "federal_taxable_income": "3250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.qualified_exempt_taxpayer"
+  ]
+}

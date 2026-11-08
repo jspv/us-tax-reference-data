@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "155.00",
+  "relief_amounts": {
+   "ret_service_member": "0.00"
+  },
+  "state_agi": "50000.00",
+  "state_income_tax": "1405.27",
+  "state_tax_before_credits": "1560.27",
+  "state_taxable_income": "34250.00"
+ },
+ "worked": "Form 40 line 7 federal AGI 50000.00 (given). 39R line 8: military pensions 30000.00, of which 0.00 belong to a person 62 or older (line 8e); maximum 48216.00 (single) less RR 0.00 less gross SS 0.00 = 48216.00 (floored at 0); deduction = smaller = 0.00. Line 11 Idaho income (state_agi) = 50000.00 + 0.00 - 0.00 = 50000.00. Line 16 standard deduction 15750.00 + age 65 addition 0 x 2000.00 = 0.00; total 15750.00. Line 19/20 taxable income = max(0, 50000.00 - 15750.00) = 34250.00. Tax: (34250.00 - 4811.00) x 5.3% = 1560.26700 -> 1560.27. Line 43 Food Tax Credit: 155 x 1 persons = 155.00, refundable (paid in full, not limited to tax). Permanent Building Fund 10 not charged (approximation). Federal senior deduction ignored (federal figures given). State income tax = 1560.27 - 155.00 = 1405.27."
+}

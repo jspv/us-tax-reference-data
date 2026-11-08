@@ -1,0 +1,43 @@
+{
+  "id": "ne_2025_muni_interest_other_state_added",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I lines 1 to 3 and 13; booklet PDF page 23 Lines 1 to 3; record muni_interest",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 44,
+        "born": "1981-11-29"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "2000.00",
+      "municipal_interest_other_state": "3000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

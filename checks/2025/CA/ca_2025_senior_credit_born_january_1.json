@@ -1,0 +1,57 @@
+{
+  "id": "ca_2025_senior_credit_born_january_1",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "senior_exemption_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 12 Line 9 footnote ('If your 65th birthday is on January 1, 2026, you are considered to be age 65 on December 31, 2025')",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "55000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "CA",
+          "contributory": true
+        }
+      ],
+      "interest": "15000.00"
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "52250.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "64294.00",
+    "state_tax_before_credits": "2527.57",
+    "credits": "306.00",
+    "state_income_tax": "2221.57",
+    "relief_amounts": {
+      "senior_exemption_credit": "153.00"
+    }
+  },
+  "worked": "Single, born 1961-01-01: 64 on December 31, 2025 by the calendar, but the booklet counts a person whose 65th birthday is January 1, 2026 as 65 on December 31, 2025 (age input 65, the tax rule; the federal rule is the same, so the federal 2,000 age addition applies too): a California public-employee pension 55,000 (taxed: no California government pension subtraction, PDF page 60 line 5) and interest 15,000; federal AGI = 70,000. Form 540 line 13 federal AGI = 70,000.00. Federal taxable income = 70,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age-65 addition = 52,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (a California government pension needs no adjustment on line 5, PDF page 60). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 70,000.00 - 0.00 = 70,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 70,000.00 - 5,706.00 = 64,294.00. Tax on 64,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 6,752.00 x 8% = 540.16; total 2,527.57. Line 31: the form uses the Tax Table for taxable income of 100,000 or less; the row 64,251-64,350 gives 2,528 (formula result kept in expected). Line 32 exemption credits: federal AGI 70,000.00 is not more than 252,203.00, so no AGI limitation; line 7 personal 1 x 153 = 153.00; line 9 senior 1 x 153 = 153.00; line 32 = 306.00. Line 33 = 2,527.57 - 306.00 = 2,221.57; no other credits (lines 34 to 47 nil), line 48 = 2,221.57. State income tax = 2,221.57. With the age given by the tax rule (65), the projection's min_age 65 test allows the senior credit, as line 9 does; a consumer that took age 64 from the calendar would miss it (the projection's January 1 approximation).",
+  "accepted_approximations": [
+    "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

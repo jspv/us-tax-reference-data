@@ -1,0 +1,43 @@
+{
+  "id": "md_2025_cap_gain_2pct_short_and_long_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 1c, 16-21, 20a, 21b; PDF page 4 'Additional 2% Tax on Net Capital Gain Income and Form 502CG' (federal AGI in excess of $350,000); PDF page 21 Line 20a; PDF page 22 Line 21b ('Multiply the amount on Line 20a by .02') and Tax Rate Schedules I and II; PDF page 21 Instruction 16 standard deduction; Exemption Amount Chart 10A (PDF pages 12-13); record additional_cap_gain_tax and additional_cap_gain_tax_agi_threshold",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-03-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "300350.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "20000.00",
+      "long_term_gains": "80000.00"
+    },
+    "federal_agi": "400350.00",
+    "federal_taxable_income": "384600.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

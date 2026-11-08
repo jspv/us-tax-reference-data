@@ -1,0 +1,65 @@
+{
+  "id": "nd_2025_railroad_and_social_security_joint",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14 Line 8; PDF p.15 Line 15 (Tier 1 benefits on line 8, Social Security on line 15, both subtracted); PDF p.16 Line 22 and PDF p.17 qualified income; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-01"
+      },
+      {
+        "age": 68,
+        "born": "1957-10-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "150000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "27200.00"
+    },
+    "federal_agi": "195200.00",
+    "federal_taxable_income": "160500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement_exclusion"
+  ]
+}

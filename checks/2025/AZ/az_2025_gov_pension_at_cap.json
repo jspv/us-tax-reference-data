@@ -1,0 +1,58 @@
+{
+  "id": "az_2025_gov_pension_at_cap",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "az_gov_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF pages 19-20 Line 29a (Arizona State Retirement System); PDF page 39 Form 140 line 29a; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-02-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "2500.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "AZ",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "52500.00",
+    "federal_taxable_income": "36750.00"
+  },
+  "expected": {
+    "state_taxable_income": "34250.00",
+    "state_tax_before_credits": "856.25",
+    "credits": "0.00",
+    "state_income_tax": "856.25",
+    "relief_amounts": {
+      "az_gov_pension_exclusion": "2500.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 50,000.00 + Arizona government pension (person 0) 2,500.00 = 52,500.00. Federal taxable income = 52,500.00 - 15,750.00 federal standard deduction = 36,750.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 52,500.00; line 13 small business income 0.00; line 14 = 52,500.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 52,500.00 + 0.00 = 52,500.00. Subtractions: line 29a government pension exclusion: person 0: lesser of 2,500.00 received and 2,500.00 = 2,500.00; total 2,500.00. Line 35 = 52,500.00 - 2,500.00 = 50,000.00; line 36 other subtractions 0.00; line 37 = 50,000.00. Line 38 age 65 or over: box 8 = 0 x 2,100.00 = 0.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 50,000.00 - 0.00 = 50,000.00. Line 43 standard deduction (single) 15,750.00; line 44 0.00. Line 45 Arizona taxable income = 50,000.00 - 15,750.00 = 34,250.00. Line 46 tax = 34,250.00 x 2.5% = 856.25. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 50,000.00, over the maximum for the status). Line 52 balance of tax 856.25.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

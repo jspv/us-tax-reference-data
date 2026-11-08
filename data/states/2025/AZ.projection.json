@@ -1,0 +1,214 @@
+{
+  "layer": "projection",
+  "state": "AZ",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/AZ.record.json",
+    "sha256": "68458103f7046879148ff4db5dd1a8e5ffbf801a7ef8f3475af78858b93326f0"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.025",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.025",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "15750",
+          "married_joint": "31500",
+          "married_separate": "15750",
+          "head_of_household": "23625",
+          "qualifying_surviving_spouse": "23625"
+        },
+        "per": "return"
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "2100"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "az_gov_pension_exclusion",
+      "from_record": [
+        "az_gov_pension_exclusion"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "2500"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "az_military_retirement_exclusion",
+      "from_record": [
+        "az_military_retirement_exclusion"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "az_social_security_railroad_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [
+    {
+      "id": "az_ltcg_post_2011_subtraction",
+      "applies_to": "long_term",
+      "treatment": "deduction_share",
+      "value": "0.25"
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "blind_exemption",
+      "from_record": [
+        "blind_exemption"
+      ],
+      "what": "Blind exemption of 1,500 for each filer or spouse who is totally or partially blind (certified statement), line 39.",
+      "warn_when": "never"
+    },
+    {
+      "id": "other_exemption",
+      "from_record": [
+        "other_exemption"
+      ],
+      "what": "Other exemption of 2,300 for each person 65 or over for whom the filer paid more than one-fourth (over 800) of Arizona nursing, residential care or assisted living cost, or more than 800 of Arizona home health or medical cost; also a stillborn child (line 40).",
+      "warn_when": "person_in_age_range",
+      "age_range": [
+        65,
+        120
+      ]
+    },
+    {
+      "id": "qualifying_parent_grandparent_exemption",
+      "from_record": [
+        "qualifying_parent_grandparent_exemption"
+      ],
+      "what": "Exemption of 10,000 for each parent or grandparent 65 or over who lived with the filer all year, was more than half supported by the filer and needed help with daily living (line 41).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "az_us_obligations_interest_subtraction",
+      "from_record": [
+        "az_us_obligations_interest_subtraction"
+      ],
+      "what": "Interest on U.S. Government obligations (savings bonds, treasury bills) included in federal income is subtracted (line 28); not FNMA or GNMA interest, and not pension or IRA distributions from funds holding them.",
+      "warn_when": "never"
+    },
+    {
+      "id": "az_armed_forces_pay_subtraction",
+      "from_record": [
+        "az_armed_forces_pay_subtraction"
+      ],
+      "what": "Pay for active duty in the U.S. armed forces, and reserve or National Guard pay, is subtracted (line 32).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The standard deduction is always taken; Arizona itemized deductions and the increased standard deduction of 34% of charitable contributions (line 44) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "2.5% of the amount by which itemized deductions exceed the standard deduction, or of 34% of the charitable gifts; for 10,000 of gifts, 85 a year."
+    },
+    {
+      "what": "The 25% subtraction is applied to all net long-term gains, but Arizona allows it only for gains on assets acquired after December 31, 2011 whose acquisition date can be verified (fund distributions without acquisition dates do not qualify).",
+      "direction": "understates_tax",
+      "size": "2.5% of 25% of the long-term gains on assets bought before 2012 or with unknown dates; for 40,000 of such gains, 250 a year."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "2.5% of the Treasury interest; for 10,000 of interest, 250 a year."
+    },
+    {
+      "what": "A projection that cannot tell Arizona bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "2.5% of the Arizona municipal interest."
+    },
+    {
+      "what": "The nonrefundable Dependent Tax Credit (line 49: 100 per dependent under 17, 25 per dependent 17 or older, reduced above federal AGI of 200,000, or 400,000 married filing joint) and the family income tax credit (line 50, for low incomes) are not applied; the record holds them in notes only.",
+      "direction": "overstates_tax",
+      "size": "Up to 100 a year per child under 17 and 25 per older dependent; the family income credit only for low-income households."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

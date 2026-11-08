@@ -1,0 +1,1037 @@
+{
+ "layer": "projection",
+ "state": "MN",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/MN.record.json",
+  "sha256": "89b3ce7bf8c7e01175c4a1647514209daa3e53d7a8cffb8249821df8959ba93b"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "32570"
+   },
+   {
+    "rate": "0.0785",
+    "start": "106990"
+   },
+   {
+    "rate": "0.0985",
+    "start": "198630"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "47620"
+   },
+   {
+    "rate": "0.0785",
+    "start": "189180"
+   },
+   {
+    "rate": "0.0985",
+    "start": "330410"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "23810"
+   },
+   {
+    "rate": "0.0785",
+    "start": "94590"
+   },
+   {
+    "rate": "0.0985",
+    "start": "165205"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "40100"
+   },
+   {
+    "rate": "0.0785",
+    "start": "161130"
+   },
+   {
+    "rate": "0.0985",
+    "start": "264050"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "mn_standard_deduction",
+    "amount": {
+     "single": "14950",
+     "married_joint": "29900",
+     "married_separate": "14950",
+     "head_of_household": "22500",
+     "qualifying_surviving_spouse": "29900"
+    },
+    "per": "return",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "single": "238950",
+      "head_of_household": "238950",
+      "married_joint": "238950",
+      "qualifying_surviving_spouse": "238950",
+      "married_separate": "119475"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.03"
+    }
+   },
+   {
+    "id": "mn_age_65_standard_addition",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1550",
+     "married_separate": "1550",
+     "qualifying_surviving_spouse": "1550"
+    },
+    "per": "person",
+    "min_age": 65
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "relief"
+ },
+ "reliefs": [
+  {
+   "id": "mn_military_pension",
+   "from_record": [
+    "mn_military_pension"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "mn_railroad_retirement",
+   "from_record": [
+    "mn_railroad_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "mn_age_65_subtraction",
+   "from_record": [
+    "mn_age_65_subtraction",
+    "mn_age_65_subtraction_one_spouse"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "older_spouse",
+    "min_age": 65
+   },
+   "cap": {
+    "single": "9600",
+    "head_of_household": "9600",
+    "qualifying_surviving_spouse": "9600",
+    "married_joint": "12000",
+    "married_separate": "6000"
+   },
+   "cap_per": "return",
+   "cap_reduced_by": [
+    "social_security",
+    "railroad_retirement"
+   ],
+   "income_test": {
+    "measure": {
+     "base": "federal_agi"
+    },
+    "threshold": {
+     "single": "14500",
+     "head_of_household": "14500",
+     "qualifying_surviving_spouse": "14500",
+     "married_joint": "18000",
+     "married_separate": "9000"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.5",
+    "applies_when": "over"
+   },
+   "social_security_basis": "nontaxable"
+  },
+  {
+   "id": "mn_social_security_simplified",
+   "from_record": [
+    "mn_social_security_simplified"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi"
+    },
+    "threshold": {
+     "single": "84490",
+     "head_of_household": "84490",
+     "married_joint": "108320",
+     "qualifying_surviving_spouse": "108320",
+     "married_separate": "54160"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "single",
+      "over": "84490",
+      "keep_share": "0.9"
+     },
+     {
+      "status": "single",
+      "over": "88490",
+      "keep_share": "0.8"
+     },
+     {
+      "status": "single",
+      "over": "92490",
+      "keep_share": "0.7"
+     },
+     {
+      "status": "single",
+      "over": "96490",
+      "keep_share": "0.6"
+     },
+     {
+      "status": "single",
+      "over": "100490",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "single",
+      "over": "104490",
+      "keep_share": "0.4"
+     },
+     {
+      "status": "single",
+      "over": "108490",
+      "keep_share": "0.3"
+     },
+     {
+      "status": "single",
+      "over": "112490",
+      "keep_share": "0.2"
+     },
+     {
+      "status": "single",
+      "over": "116490",
+      "keep_share": "0.1"
+     },
+     {
+      "status": "single",
+      "over": "120490",
+      "keep_share": "0"
+     },
+     {
+      "status": "head_of_household",
+      "over": "84490",
+      "keep_share": "0.9"
+     },
+     {
+      "status": "head_of_household",
+      "over": "88490",
+      "keep_share": "0.8"
+     },
+     {
+      "status": "head_of_household",
+      "over": "92490",
+      "keep_share": "0.7"
+     },
+     {
+      "status": "head_of_household",
+      "over": "96490",
+      "keep_share": "0.6"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100490",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "head_of_household",
+      "over": "104490",
+      "keep_share": "0.4"
+     },
+     {
+      "status": "head_of_household",
+      "over": "108490",
+      "keep_share": "0.3"
+     },
+     {
+      "status": "head_of_household",
+      "over": "112490",
+      "keep_share": "0.2"
+     },
+     {
+      "status": "head_of_household",
+      "over": "116490",
+      "keep_share": "0.1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "120490",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_joint",
+      "over": "108320",
+      "keep_share": "0.9"
+     },
+     {
+      "status": "married_joint",
+      "over": "112320",
+      "keep_share": "0.8"
+     },
+     {
+      "status": "married_joint",
+      "over": "116320",
+      "keep_share": "0.7"
+     },
+     {
+      "status": "married_joint",
+      "over": "120320",
+      "keep_share": "0.6"
+     },
+     {
+      "status": "married_joint",
+      "over": "124320",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_joint",
+      "over": "128320",
+      "keep_share": "0.4"
+     },
+     {
+      "status": "married_joint",
+      "over": "132320",
+      "keep_share": "0.3"
+     },
+     {
+      "status": "married_joint",
+      "over": "136320",
+      "keep_share": "0.2"
+     },
+     {
+      "status": "married_joint",
+      "over": "140320",
+      "keep_share": "0.1"
+     },
+     {
+      "status": "married_joint",
+      "over": "144320",
+      "keep_share": "0"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "108320",
+      "keep_share": "0.9"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "112320",
+      "keep_share": "0.8"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "116320",
+      "keep_share": "0.7"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "120320",
+      "keep_share": "0.6"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "124320",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "128320",
+      "keep_share": "0.4"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "132320",
+      "keep_share": "0.3"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "136320",
+      "keep_share": "0.2"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "140320",
+      "keep_share": "0.1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "144320",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_separate",
+      "over": "54160",
+      "keep_share": "0.9"
+     },
+     {
+      "status": "married_separate",
+      "over": "56160",
+      "keep_share": "0.8"
+     },
+     {
+      "status": "married_separate",
+      "over": "58160",
+      "keep_share": "0.7"
+     },
+     {
+      "status": "married_separate",
+      "over": "60160",
+      "keep_share": "0.6"
+     },
+     {
+      "status": "married_separate",
+      "over": "62160",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_separate",
+      "over": "64160",
+      "keep_share": "0.4"
+     },
+     {
+      "status": "married_separate",
+      "over": "66160",
+      "keep_share": "0.3"
+     },
+     {
+      "status": "married_separate",
+      "over": "68160",
+      "keep_share": "0.2"
+     },
+     {
+      "status": "married_separate",
+      "over": "70160",
+      "keep_share": "0.1"
+     },
+     {
+      "status": "married_separate",
+      "over": "72160",
+      "keep_share": "0"
+     }
+    ],
+    "applies_when": "over"
+   },
+   "best_of_group": "mn_social_security_subtraction"
+  },
+  {
+   "id": "mn_social_security_alternative",
+   "from_record": [
+    "mn_social_security_alternative"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cap": {
+    "single": "4560",
+    "head_of_household": "4560",
+    "married_joint": "5840",
+    "qualifying_surviving_spouse": "5840",
+    "married_separate": "2920"
+   },
+   "cap_per": "return",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "plus_tax_exempt_interest": true
+    },
+    "threshold": {
+     "single": "69250",
+     "head_of_household": "69250",
+     "married_joint": "88630",
+     "qualifying_surviving_spouse": "88630",
+     "married_separate": "44315"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.2"
+   },
+   "best_of_group": "mn_social_security_subtraction"
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "relief_income_tests",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.income_test"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "mn_qualified_public_pension",
+   "from_record": [
+    "mn_qualified_public_pension",
+    "mn_qualified_public_pension_other_state"
+   ],
+   "what": "Qualified Public Pension Subtraction (Schedule M1QPEN, M1M line 29): up to 13,540, or 27,080 on a joint return, for listed Minnesota and federal plans and for plans of other states that allow a similar or reciprocal subtraction. It needs service without Social Security credit, which a household's yearly facts do not hold, and for another state's plan a test the sources do not answer for any state, New York included. The subtraction steps down 10% per 2,000 of AGI over 84,490, 108,320 or 54,160.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "mn_foreign_service_retirement",
+   "from_record": [
+    "mn_foreign_service_retirement"
+   ],
+   "what": "Foreign service retirement subtraction (M1M line 36), prorated by years of foreign service.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "mn_dependent_exemption",
+   "from_record": [
+    "mn_dependent_exemption"
+   ],
+   "what": "Dependent exemption of 5,200 each, phased out above 239,050 to 358,550 by filing status.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "mn_blind_standard_addition",
+   "from_record": [
+    "mn_blind_standard_addition"
+   ],
+   "what": "Additional standard deduction of 2,000 (1,550 if married or a qualifying surviving spouse) for a blind filer or spouse; a projection does not know this.",
+   "warn_when": "never"
+  },
+  {
+   "id": "mn_us_bond_interest",
+   "from_record": [
+    "mn_us_bond_interest"
+   ],
+   "what": "Interest and mutual fund dividends from U.S. bonds are subtracted (M1M line 14); a projection cannot tell them from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "mn_disabled_subtraction",
+   "from_record": [
+    "mn_disabled_subtraction"
+   ],
+   "what": "Age 65 or Older/Disabled Subtraction for a permanently and totally disabled person under 65 with federally taxable disability income; a projection does not know this.",
+   "warn_when": "never"
+  },
+  {
+   "id": "mn_marriage_credit",
+   "from_record": [],
+   "what": "Nonrefundable credit for joint filers with taxable earned income, pension or Social Security income (Schedule M1C, not in the archive, so its amount is not in the sources).",
+   "warn_when": "always"
+  },
+  {
+   "id": "mn_niit_amt_lump_sum",
+   "from_record": [],
+   "what": "Net investment income tax on net investment income over 1,000,000 (Schedule NIIT, not in the archive; its rate is not in the sources), Minnesota alternative minimum tax (Schedule M1MT) and tax on lump-sum distributions (Schedule M1LS).",
+   "warn_when": "never"
+  },
+  {
+   "id": "mn_other_credits_and_subtractions",
+   "from_record": [],
+   "what": "Other Schedule M1C credits (long-term care, tax paid to another state, past military service), renter's and other refundable credits, the line 6 state income tax refund, charitable contributions over 500 and the other Schedule M1M subtractions.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "The Qualified Public Pension Subtraction is not applied, for any pension of Minnesota, the federal government or another state. Modelling it on the kind of pension alone would give it to members who earned Social Security credit, who do not qualify.",
+   "direction": "overstates_tax",
+   "size": "Only for a household with service without Social Security credit and AGI within 18,000 over the status amount: at most 13,540 or 27,080 of income, about 1,840 of tax at the 6.8% rate on a joint return."
+  },
+  {
+   "what": "A New York or other out-of-state government pension is taxed as ordinary federal AGI, because the sources do not say which states meet the 'similar or reciprocal' test.",
+   "direction": "overstates_tax",
+   "size": "Same limit as the line above, and only if the paying state meets the test and the service had no Social Security credit."
+  },
+  {
+   "what": "The standard deduction is always taken; Minnesota itemized deductions (Schedule M1SA) are not modelled.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "The standard deduction is applied to a married person filing separately whose spouse itemizes, who may not claim it.",
+   "direction": "either"
+  },
+  {
+   "what": "The standard deduction reduction is modelled as 3% of AGI over 238,950 (119,475 separate), on the base amount only. Worksheet A adds 10% of AGI over 330,300 (165,150 separate), counts the age additions, and limits the reduction to 80%.",
+   "direction": "either",
+   "size": "Understates tax above 330,300: about 1,800 at 566,000 of joint AGI, the largest gap. Slightly overstates tax only near 1,100,000 and above, where 3% passes the 80% limit."
+  },
+  {
+   "what": "The age 65 addition and the age 65 subtraction use min_age 65; Minnesota's test is born before January 2, 1961, so someone born January 1 counts a year early.",
+   "direction": "overstates_tax",
+   "size": "One year's amount, in the rare case of a January 1 birthday."
+  },
+  {
+   "what": "cap_reduced_by social_security must mean benefits received: Schedule M1R line 5 takes off nontaxable benefits only, and benefits received are the nearest measure a projection holds. Line 4 (Schedule R pensions) is not taken off.",
+   "direction": "overstates_tax",
+   "size": "Each dollar of taxable benefits wrongly lowers the subtraction by a dollar, up to the cap: at most 12,000 of subtraction, about 642 of tax at the 5.35% rate. A consumer that reduces by the taxable part instead errs the other way, and gives a household with mostly nontaxable benefits up to 12,000 it does not get."
+  },
+  {
+   "what": "The age 65 subtraction uses the 18,000 line 10 amount on every joint return; when only one spouse qualifies the amount is 14,500, and no projection field tests both spouses.",
+   "direction": "understates_tax",
+   "size": "Only in years when one spouse qualifies: at most 1,750 of subtraction, about 94 of tax at the 5.35% rate."
+  },
+  {
+   "what": "The age 65 subtraction is applied to any married person filing separately; Schedule M1R allows it only if the spouses lived apart for all of 2025.",
+   "direction": "understates_tax",
+   "size": "At most 6,000 of subtraction, about 321 of tax at the 5.35% rate."
+  },
+  {
+   "what": "The age 65 subtraction tests federal AGI; line 9 takes off taxable Railroad Retirement Board benefits and adds lump-sum distributions from federal Form 4972.",
+   "direction": "either",
+   "size": "Only for a household with those amounts; 50 cents of subtraction per dollar of difference."
+  },
+  {
+   "what": "The alternative Social Security method tests federal AGI plus tax-exempt interest, the nearest available measure. Worksheet step 19 uses total income less taxable benefits plus 50% of all benefits, which no projection measure holds. The cap is applied before the reduction; the worksheet takes the lesser of the reduced cap and taxable benefits.",
+   "direction": "overstates_tax",
+   "size": "AGI runs above step 19 by up to 35% of benefits, so the method fades early. It decides only at the top of the simplified bands, where its true value is a few hundred to 5,840 of income: at most about 575 of tax, usually far less."
+  },
+  {
+   "what": "The Tier 1 railroad offset (worksheet steps 26, 27 and 29) is not modelled; Social Security and railroad benefits are treated as separate income.",
+   "direction": "either",
+   "size": "Only for a household with Tier 1 benefits on M1M line 17."
+  },
+  {
+   "what": "All municipal bond interest is treated as from other states and taxed; interest on Minnesota bonds is not added, and a mutual fund with 95% or more from Minnesota bonds adds only its non-Minnesota part.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "The Schedule M1C credit for joint filers is not applied because its amount is not in the sources.",
+   "direction": "overstates_tax",
+   "size": "Not known from the sources."
+  },
+  {
+   "what": "The net investment income tax and Minnesota alternative minimum tax are not applied.",
+   "direction": "understates_tax",
+   "size": "Net investment income tax: only over 1,000,000 of net investment income."
+  },
+  {
+   "what": "Federal AGI is taken as it stands; Minnesota follows the Internal Revenue Code as amended through May 1, 2023, and Schedule M1NC adjusts for later law.",
+   "direction": "either"
+  },
+  {
+   "what": "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table.",
+   "direction": "either",
+   "size": "Under one dollar: at most 54 cents across the 3,476 table cells at row midpoints, more within a 100-wide row."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": [
+  {
+   "value": "0.3",
+   "how": "sum",
+   "of": [
+    "0.2",
+    "0.1"
+   ],
+   "what": "keep share of the simplified Social Security subtraction after seven 10% steps"
+  },
+  {
+   "value": "0.4",
+   "how": "sum",
+   "of": [
+    "0.3",
+    "0.1"
+   ],
+   "what": "keep share after 6 10% steps"
+  },
+  {
+   "value": "0.5",
+   "how": "sum",
+   "of": [
+    "0.4",
+    "0.1"
+   ],
+   "what": "keep share after 5 10% steps"
+  },
+  {
+   "value": "0.6",
+   "how": "sum",
+   "of": [
+    "0.5",
+    "0.1"
+   ],
+   "what": "keep share after 4 10% steps"
+  },
+  {
+   "value": "0.7",
+   "how": "sum",
+   "of": [
+    "0.6",
+    "0.1"
+   ],
+   "what": "keep share after 3 10% steps"
+  },
+  {
+   "value": "0.8",
+   "how": "sum",
+   "of": [
+    "0.7",
+    "0.1"
+   ],
+   "what": "keep share after 2 10% steps"
+  },
+  {
+   "value": "0.9",
+   "how": "sum",
+   "of": [
+    "0.8",
+    "0.1"
+   ],
+   "what": "keep share after 1 10% steps"
+  },
+  {
+   "value": "88490",
+   "how": "sum",
+   "of": [
+    "84490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "92490",
+   "how": "sum",
+   "of": [
+    "88490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "96490",
+   "how": "sum",
+   "of": [
+    "92490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "100490",
+   "how": "sum",
+   "of": [
+    "96490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "104490",
+   "how": "sum",
+   "of": [
+    "100490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "108490",
+   "how": "sum",
+   "of": [
+    "104490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "112490",
+   "how": "sum",
+   "of": [
+    "108490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "116490",
+   "how": "sum",
+   "of": [
+    "112490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "120490",
+   "how": "sum",
+   "of": [
+    "116490",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "112320",
+   "how": "sum",
+   "of": [
+    "108320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "116320",
+   "how": "sum",
+   "of": [
+    "112320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "120320",
+   "how": "sum",
+   "of": [
+    "116320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "124320",
+   "how": "sum",
+   "of": [
+    "120320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "128320",
+   "how": "sum",
+   "of": [
+    "124320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "132320",
+   "how": "sum",
+   "of": [
+    "128320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "136320",
+   "how": "sum",
+   "of": [
+    "132320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "140320",
+   "how": "sum",
+   "of": [
+    "136320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "144320",
+   "how": "sum",
+   "of": [
+    "140320",
+    "2000",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 4,000 written as 2,000 + 2,000 because no record field holds a width (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "56160",
+   "how": "sum",
+   "of": [
+    "54160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "58160",
+   "how": "sum",
+   "of": [
+    "56160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "60160",
+   "how": "sum",
+   "of": [
+    "58160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "62160",
+   "how": "sum",
+   "of": [
+    "60160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "64160",
+   "how": "sum",
+   "of": [
+    "62160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "66160",
+   "how": "sum",
+   "of": [
+    "64160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "68160",
+   "how": "sum",
+   "of": [
+    "66160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "70160",
+   "how": "sum",
+   "of": [
+    "68160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  },
+  {
+   "value": "72160",
+   "how": "sum",
+   "of": [
+    "70160",
+    "2000"
+   ],
+   "what": "band edge of the simplified Social Security subtraction: previous edge plus one step, the printed 2,000 for a separate return (M1M p.4 steps 2-5)"
+  }
+ ]
+}

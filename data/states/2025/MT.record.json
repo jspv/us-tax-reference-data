@@ -1,0 +1,295 @@
+{
+ "layer": "record",
+ "state": "MT",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Montana starts from federal taxable income: Form 2 line 1 is federal AGI, line 2 adds Form 1040 lines 12e and 13b, line 3 subtracts (PDF p12-13; Form 2 PDF p1). Line 2 takes the federal standard or itemized deduction and the Schedule 1-A deductions, including 'the enhanced deduction for seniors'. 'Do not include the federal qualified business income deduction' (Instructions PDF p13).",
+  "The booklet prints no Montana standard deduction, personal exemption or dependent exemption. Hub FAQ: 'Montana no longer has a specific standard deduction.' and 'Montana no longer has dependent or personal exemptions.' The only entry in base.deductions is the age 65 subtraction.",
+  "State income tax deducted federally is added back (Schedule I line 4, Worksheet B, Instructions PDF p22), limited for itemized deductions so that the deduction is not reduced below the federal standard deduction (PDF p13).",
+  "Social Security: treatment taxed rests on the hub sentence 'Taxable Social Security Income and net operating losses are included in Montana taxable income to the extent that they are included in federal taxable income.' Checked against a second document: Form 2 Schedule I lines 8-23 print no Social Security subtraction (Tier I railroad benefits on line 22 are the only benefit of that kind). Instructions PDF p34 says taxable Social Security is not Montana source income for a nonresident, and counts it for a part-year resident while resident. The hub text describes the change that began in tax year 2024 and is not dated 2025.",
+  "Pensions, annuities, IRA and employer-plan distributions, Roth conversions: the booklet prints no Montana subtraction for any of them, so they are taxed as far as they are in federal taxable income. The hub lists 'Partial pension, annuity, and IRA deduction' among the repealed deductions. Instructions PDF p13 line 11b refers to Montana tax withheld on 'pensions, retirement income, or IRA distributions'. Roth conversions are named only in the Schedule 2EC household income definition (PDF p45: 'conversions from a traditional IRA to a Roth IRA'), which is not an income tax rule; no sentence says how conversions are taxed, but no relief exists to cover them.",
+  "Government pensions: not found in the booklet. No entry treats a Montana, federal or other state's government pension differently from any other pension, so public_pension and public_pension_other_state appear in no relief. A New York State pension has no special treatment. The only reciprocity printed is North Dakota, for wages (PDF p12); no pension reciprocity is printed.",
+  "Exempt tribal income (Schedule I line 11, PDF p24), for an enrolled member living on the reservation governed by the tribe, includes 'All interest, dividends, pensions, annuities' sourced to that reservation. Not recorded as a relief, as in other records: it is narrow and turns on residence facts.",
+  "Not recorded (outside the record's scope, docs/design.md: credits other than relief for retirement income and Social Security): Elderly Homeowner/Renter Credit (PDF p15: refundable up to 1,150, age 62 or older, household income under 45,000, a property tax relief program) and the earned income credit (Form 2 line 15: 10% of the federal credit). Also not recorded: 529 deposits (4,500; 9,000 joint; inflation adjusted, PDF p5), ABLE deposits, Medical Savings Account deposits, first-time homebuyer and business subtractions.",
+  "Brackets: starts are printed. The tables print a 'Less' constant (253, 506, 380) with the 5.9% rate. The arithmetic gives 253.20, 506.40 and 380.40 (0.012 times 21,100, 42,200, 31,700), so the printed tax above the top of the first bracket is 0.20 or 0.40 higher than the bracket schedule. brackets.derivation is not used because the starts themselves are printed. Married filing separately is printed with single; qualifying surviving spouse with married filing jointly.",
+  "Capital gains: worksheet on Form 2 PDF p2 lines 1-13. Gains are limited to taxable income (line 3), stacked on ordinary income (line 4), taxed 3% up to the status amount less ordinary income (lines 5-8) and 4.1% above (lines 9-10). Ordinary income 'includes qualified dividends' (Instructions PDF p17). Short-term gains are ordinary income.",
+  "Tax years 2026 and 2027: Instructions PDF p5 (House Bill 337) and PDF p48 print lower schedules, not recorded here: 2026 top rate 5.65% from 47,500 single, 95,000 joint, 71,250 head of household; 2027 top rate 5.4% from 65,000, 130,000, 97,500. These are legislated tables, not a statement that brackets are indexed, so brackets stay not_stated.",
+  "Muni interest: Schedule I line 1 adds back interest from another state's bonds. No sentence says Montana's own bonds are exempt; the reading comes from the base being federal taxable income and the hub sentence that income not taxable federally is 'not taxable to Montana to the extent that they are not included in federal taxable income'.",
+  "The booklet prints no recapture of the lower brackets and no surtax.",
+  "Not stated: the date on which age 65 is tested, and the case of a joint return with one spouse 65 or older. Read as 5,660 for each taxpayer 65 or older, from 'Taxpayers 65 and older receive a $5,660 subtraction' and the 11,320 when both qualify.",
+  "Settlement 2026-11-07: base.deductions and reliefs, age_65_subtraction: A said a base deduction (age_65_exemption, per person, 5660), B said a relief (covers all_income, cap 5660 per person, min_age 65) with base.deductions empty; PDF p13 line 6 and Form 2 PDF p1 line 6 print a flat amount for each taxpayer 65 and older against federal taxable income, and docs/projection-guide.md puts such an amount in base.deductions with min_age. Recorded once, as a base deduction, not as a relief.",
+  "Settlement 2026-11-07: reliefs, us_obligation_interest_subtraction covers: A said interest and dividends, B said interest only; PDF p23 line 9 says 'interest on United States government obligations and mutual fund dividends attributable to that interest'. Both are covered.",
+  "Settlement 2026-11-07: reliefs, military line 13: A and B each wrote one entry; PDF p25 gives retirees and survivor beneficiaries different rules (only retirees have the Montana-source earned income limit), so it is split into working_military_retiree_subtraction and military_survivor_benefit_subtraction. The survivor entry uses military_pension, the nearest income kind."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "21100"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "42200"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "21100"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "31700"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+   "section": "PDF p18 (booklet p12), 2025 Montana Income Tax Rates, Ordinary Income Tax Rates tables for Single and Married Filing Separately; Married Filing Jointly and Qualifying Surviving Spouse; Head of Household",
+   "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": {
+   "treatment": "follows",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p.13: the Schedule 1-A deductions, including 'the enhanced deduction for seniors, are included in the calculation of Montana taxable income' (also PDF p.5)",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  "deductions": [
+   {
+    "id": "age_65_subtraction",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "5660"
+    },
+    "per": "person",
+    "condition": "Taxpayers 65 and older; if married filing jointly and both are 65 and older, the subtraction is 11,320 in total. Offsets federal taxable income whatever its kind; no income test or phase-out is printed.",
+    "cite": {
+     "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+     "section": "PDF p13 (booklet p7), Line 6 - $5,660 subtraction for taxpayers 65 and older; also Form 2 PDF p1 line 6",
+     "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Montana Individual Income Tax Return Form 2",
+   "section": "PDF p1, lines 1-7; Instructions PDF p12-13 (booklet p6-7)",
+   "url": "https://revenuefiles.mt.gov/files/Forms/Montana-Individual-Income-Tax-Return-Form-2/2025_Montana_Individual_Income_Tax_Return_Form_2.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "taxed",
+  "cite": {
+   "publication": "Montana Tax Simplification Resource Hub",
+   "section": "Income Tax Simplification, 'Montana Taxable Income Calculation': 'Taxable Social Security Income and net operating losses are included in Montana taxable income to the extent that they are included in federal taxable income.'",
+   "url": "https://revenue.mt.gov/montana-tax-simplification-resource-hub",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "railroad_retirement_subtraction",
+   "label": "Railroad Retirement Benefits (Schedule I lines 22 and 23)",
+   "form": "subtraction",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p28 (booklet p22), Lines 22 and 23: 'Montana does not tax federal Railroad Retirement Benefits paid by the Railroad Retirement Board'; Form 2 PDF p3 lines 22-23",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "working_military_retiree_subtraction",
+   "label": "Subtraction for working military retirees",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "share": "0.5",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Must have Montana source income from wages, salary and tips for work performed in Montana, net income from a trade or business in Montana, or net farming income in Montana",
+     "Montana resident who became a resident after June 30, 2023, or who was a resident before receiving the military retirement income or survivor benefits and remained a resident thereafter",
+     "Not available to those who were nonresidents when they began receiving military retirement if they became a resident before July 1, 2023, or to those previously qualified who later become nonresidents",
+     "Can only be claimed for five consecutive years after meeting the eligibility requirements; for those who were residents before July 1, 2023, through tax year 2028",
+     "Form WMRE must be included with the return"
+    ]
+   },
+   "cap_rule": "The lesser of 50% of the taxpayer's military retirement income or the amount of Montana source income from wages, salary and tips for compensation performed in Montana, net income from a trade or business in Montana, and net income from farming activities in Montana. No dollar cap is printed.",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p25 (booklet p19), Schedule I Line 13; Form 2 PDF p3 line 13",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "military_survivor_benefit_subtraction",
+   "label": "Subtraction for military survivor benefits",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "share": "0.5",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Beneficiary receiving military survivor benefits under the U.S. Department of Defense's Survivor Benefit Plan: spouses, eligible children, or an 'insurable interest'",
+     "Montana resident who became a resident after June 30, 2023, or who was a resident before receiving the military retirement income or survivor benefits and remained a resident thereafter",
+     "Not available to those who were nonresidents when they began receiving military retirement if they became a resident before July 1, 2023, or to those previously qualified who later become nonresidents",
+     "Can only be claimed for five consecutive years after meeting the eligibility requirements; for those who were residents before July 1, 2023, through tax year 2028",
+     "Form WMRE must be included with the return"
+    ]
+   },
+   "cap_rule": "Up to 50% of the military survivor benefits. No dollar cap and no earned income limit is printed for beneficiaries.",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p25 (booklet p19), Schedule I Line 13; Form 2 PDF p3 line 13",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "active_duty_military_salary_subtraction",
+   "label": "Military salary of an active duty servicemember",
+   "form": "subtraction",
+   "covers": [
+    "wages"
+   ],
+   "not_covered": [
+    "Do not add any retirement, retainer, equivalent pay, or allowances on this line.",
+    "Compensation received for completing your annual training, inactive duty trainings, or when you engaged in active Guard and Reserve duty is not deductible"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Member of the regular U.S. Armed Forces on active duty, or of the National Guard under Title 10 USC orders"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p24 (booklet p18), Schedule I Line 12; Form 2 PDF p3 line 12",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_obligation_interest_subtraction",
+   "label": "Interest and mutual fund dividends from federal bonds, notes, and obligations",
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "Interest on obligations that are only guaranteed by the U.S. government",
+    "Interest or mutual fund dividends attributable to Ginnie Mae bonds, Fannie Mae, or FHLMAC securities"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p23-24 (booklet p17-18), Schedule I Line 9; Form 2 PDF p3 line 9",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Schedule I line 1 adds back interest and mutual fund dividends from bonds of another state, territory or political subdivision of another state. No addition is printed for Montana's own bonds.",
+  "cite": {
+   "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+   "section": "PDF p21 (booklet p15), Schedule I Part I Line 1; Form 2 PDF p3 line 1",
+   "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "ltcg_lower_rate",
+   "applies_to": "long_term",
+   "treatment": "own_rate",
+   "value": "0.03",
+   "condition": "Net long-term capital gains up to the status amount minus Montana ordinary income (21,100 single and married filing separately; 42,200 joint and qualifying surviving spouse; 31,700 head of household).",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p17-18 (booklet p11-12), Net Long-Term Capital Gains Rate tables; Form 2 PDF p2 lines 5-8",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ltcg_upper_rate",
+   "applies_to": "long_term",
+   "treatment": "own_rate",
+   "value": "0.041",
+   "condition": "Net long-term capital gains above the status amount minus ordinary income; all of them when ordinary income exceeds 21,100 (single, married filing separately), 42,200 (joint, qualifying surviving spouse) or 31,700 (head of household).",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p17-18 (booklet p11-12), Net Long-Term Capital Gains Rate tables; Form 2 PDF p2 lines 9-10",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "age_65_subtraction",
+   "indexed": "yes",
+   "index": "inflation: 'This amount is adjusted annually for inflation.'",
+   "cite": {
+    "publication": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "section": "PDF p13 (booklet p7), Line 6",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "brackets",
+   "indexed": "not_stated"
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

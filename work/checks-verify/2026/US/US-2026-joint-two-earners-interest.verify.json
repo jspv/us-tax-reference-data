@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "161200.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "17804.00",
+    "senior_deduction": "0.00",
+    "standard_deduction": "32200.00",
+    "taxable_income": "129000.00",
+    "total_tax": "17804.00"
+  },
+  "worked": "Form 1040: line 1z wages 160000; line 2a tax-exempt interest 0; line 2b taxable interest 1200; line 3a qualified dividends 0; line 3b ordinary dividends 0; lines 4b+5b pensions/IRA 0; line 7a capital gain 0; line 8 other income 0. Form 1040 line 6b taxable SS 0.00; line 9 total income = line 11 AGI = 161200.00 (no adjustments). Standard deduction: basic 32200 (married_joint) + 0 box(es) x 1650 (married/surviving spouse amount) = 32200. Schedule 1-A Part V: nobody 65 or older (born before January 2, 1962); 0. Form 1040 line 14 = 32200 + 0; line 15 taxable income = max(0, 161200.00 - 32200 - 0) = 129000.00. Form 1040 line 16: tax rate schedule (married_joint) on 129000: 0.10 x (24800 - 0) = 2480.00; 0.12 x (100800 - 24800) = 9120.00; 0.22 x (129000 - 100800) = 6204.00; total 17804.00. Form 8960: L1 interest 1200; L2 dividends 0; L5a gain 0; L8/L12 NII 1200; L13 MAGI 161200.00; L14 threshold 250000; L15 0.00; L16 smaller 0.00; L17 3.8% = 0.00. Form 8959 Part I: L1/L4 Medicare wages 160000; L5 250000; L6 0; L7 0.9% = 0.00. Total tax = 17804.00 + 0.00 + 0.00 = 17804.00."
+}

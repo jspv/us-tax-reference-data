@@ -1,0 +1,413 @@
+{
+ "layer": "projection",
+ "state": "OK",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/OK.record.json",
+  "sha256": "6ebb90e6a5b10d4176d780ae4f3c2ead89b0d751b5736ad9ce34b6b29889f65e"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "1000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "2500"
+   },
+   {
+    "rate": "0.0275",
+    "start": "3750"
+   },
+   {
+    "rate": "0.0375",
+    "start": "4900"
+   },
+   {
+    "rate": "0.0475",
+    "start": "7200"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "2000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0275",
+    "start": "7500"
+   },
+   {
+    "rate": "0.0375",
+    "start": "9800"
+   },
+   {
+    "rate": "0.0475",
+    "start": "14400"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "1000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "2500"
+   },
+   {
+    "rate": "0.0275",
+    "start": "3750"
+   },
+   {
+    "rate": "0.0375",
+    "start": "4900"
+   },
+   {
+    "rate": "0.0475",
+    "start": "7200"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "2000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0275",
+    "start": "7500"
+   },
+   {
+    "rate": "0.0375",
+    "start": "9800"
+   },
+   {
+    "rate": "0.0475",
+    "start": "14400"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "amount": {
+     "single": "6350",
+     "married_separate": "6350",
+     "head_of_household": "9350",
+     "married_joint": "12700",
+     "qualifying_surviving_spouse": "12700"
+    },
+    "per": "return"
+   },
+   {
+    "id": "personal_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person"
+   },
+   {
+    "id": "age_65_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "min_age": 65,
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "single": "15000",
+      "married_joint": "25000",
+      "married_separate": "12500",
+      "head_of_household": "19000"
+     },
+     "effect": "removes"
+    }
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "military_retirement",
+   "from_record": [
+    "military_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ok_government_retirement",
+   "from_record": [
+    "ok_government_retirement"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "person"
+  },
+  {
+   "id": "other_retirement_income",
+   "from_record": [
+    "other_retirement_income"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "private_pension",
+    "employer_plan_distribution",
+    "ira_distribution",
+    "annuity"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "person",
+   "cap_reduced_by": [
+    "public_pension"
+   ]
+  },
+  {
+   "id": "railroad_retirement",
+   "from_record": [
+    "railroad_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "csrs_in_lieu_of_ss",
+   "from_record": [
+    "csrs_in_lieu_of_ss"
+   ],
+   "what": "CSRS retirement, including survivor benefits, paid in lieu of Social Security is excluded 100% on Schedule 511-A line 3, as are a CSRS component of a combined annuity and the FERS Annuity Supplement. A projection cannot tell these from other public pensions, so they get the 10,000 limit of line 5.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "dependent_exemption",
+   "from_record": [
+    "dependent_exemption"
+   ],
+   "what": "Exemption of 1,000 for each dependent.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "blind_exemption",
+   "from_record": [
+    "blind_exemption"
+   ],
+   "what": "Additional exemption of 1,000 for each taxpayer or spouse who is legally blind.",
+   "warn_when": "never"
+  },
+  {
+   "id": "us_obligation_interest",
+   "from_record": [
+    "us_obligation_interest"
+   ],
+   "what": "Interest on U.S. government obligations is subtracted on Schedule 511-A line 1 (FNMA and GNMA interest does not qualify); a projection does not hold this share of interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ok_capital_gain_deduction",
+   "from_record": [
+    "ok_capital_gain_deduction"
+   ],
+   "what": "Oklahoma Capital Gain Deduction: qualifying gains on Oklahoma property or Oklahoma headquartered businesses held five or two uninterrupted years are deducted (Form 561); a projection does not know where the assets are.",
+   "warn_when": "never"
+  },
+  {
+   "id": "exempt_obligation_gains",
+   "from_record": [
+    "exempt_obligation_gains"
+   ],
+   "what": "Gains from selling U.S. Government obligations and exempt Oklahoma obligations are subtracted on Schedule 511-A line 11.",
+   "warn_when": "never"
+  },
+  {
+   "id": "military_pay_exclusion",
+   "from_record": [
+    "military_pay_exclusion"
+   ],
+   "what": "Active military pay, including Reserve and National Guard pay, is excluded in full on Schedule 511-C line 1.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ok_out_of_state_income_proration",
+   "from_record": [],
+   "what": "Income from property or business in another state (Form 511 line 4), the proration of deductions and exemptions that goes with it (Schedule 511-E), and the add-back of out-of-state losses.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ok_credits",
+   "from_record": [],
+   "what": "Credits: child care/child tax credit, earned income credit, credit for tax paid to another state, Credit for Property Tax Relief and Sales Tax Relief.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "The brackets are derived from the printed tax table and the 100,000-and-over worksheets; the booklet prints no schedule. Below 100,000 tax is figured on the exact income, where the booklet taxes each 50-dollar row at its midpoint and rounds. At 100,000 and over the single and separate worksheet starts from 4,562 where the schedule gives 4,561.50.",
+   "direction": "either",
+   "size": "Under 2 dollars a year (1.19 from half a table row, under 0.50 from rounding). The table fixes the starts only to within 6 dollars, 12 for the first, which is under 1 dollar of tax."
+  },
+  {
+   "what": "Lines 5 and 6 share one 10,000 limit per person. It is written as the line 6 cap reduced by the person's public pension, which gives the same result as the booklet's '10,000 minus the amounts already claimed on line 5' when every public pension is on the line 5 list.",
+   "direction": "either",
+   "size": "None unless a pension is not on the line 5 list; see the next entry."
+  },
+  {
+   "what": "Every public_pension is treated as paid by a system on the line 5 list (the U.S. civil service or a named Oklahoma system), and every private pension, plan distribution, IRA distribution and annuity as paid by a plan type on the line 6 list. A public plan outside the line 5 list that is a listed plan type reaches line 6 under the same limit, so its result is the same; income outside both lists, such as a non-qualified annuity, gets no exclusion in the booklet.",
+   "direction": "understates_tax",
+   "size": "4.75% of at most 10,000 = 475 a person a year."
+  },
+  {
+   "what": "A pension from another state's government, New York State included, is left out of line 6 and taxed in full. Line 5's list does not name it; line 6 is a list of plan types and the booklet does not say which type another state's plan is (covers_unclear in the record). If the plan is a listed type, it qualifies under the shared 10,000 limit.",
+   "direction": "overstates_tax",
+   "size": "4.75% of at most 10,000 = 475 a person a year, less if line 5 or other line 6 income already uses the limit. None if the plan is not a listed type."
+  },
+  {
+   "what": "Roth conversions are left out of line 6 (covers_unclear in the record: the booklet says conversions are taxed in the same year as federally and does not say whether they count as retirement benefits). If Oklahoma counts them, this overstates tax for a converter.",
+   "direction": "overstates_tax",
+   "size": "4.75% of at most 10,000 = 475 a person a year, less if other retirement income already uses the limit."
+  },
+  {
+   "what": "The age 65 exemption's limits are tested on Federal AGI including Roth conversion income; the booklet leaves conversion income out of the test, and a projection's measures cannot subtract it. A filer whose income is within the limit only without the conversion loses the exemption here.",
+   "direction": "overstates_tax",
+   "size": "1,000 x 4.75% = 47.50 a person a year in a conversion year."
+  },
+  {
+   "what": "The age 65 exemption has no printed limit for a qualifying surviving spouse: the four returns listed are single, joint, separate and head of household, and the threshold here holds only those. The booklet does not say whether that filer may claim it.",
+   "direction": "either",
+   "size": "47.50 a year at most."
+  },
+  {
+   "what": "The standard deduction is always taken. In Oklahoma a filer who itemized federally must use Oklahoma itemized deductions (Schedule 511-D, limited to 17,000 apart from charity and medical), which can be larger or smaller than the standard deduction.",
+   "direction": "either",
+   "size": "4.75% of the difference; for itemized deductions of 17,000 against a 12,700 joint standard deduction, 204.25 a year."
+  },
+  {
+   "what": "Each person counts for the regular exemption. On a separate or head of household return a spouse's exemption needs a spouse with no income who is not filing.",
+   "direction": "understates_tax",
+   "size": "47.50 a year at most."
+  },
+  {
+   "what": "CSRS retirement paid in lieu of Social Security gets the 10,000 limit instead of 100% (not_modelled), and that uses up the limit the person's line 6 income would have had.",
+   "direction": "overstates_tax",
+   "size": "4.75% of the amount over 10,000; for a 30,000 CSRS annuity, 950 a year, plus up to 475 if the person also has line 6 income."
+  },
+  {
+   "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "4.75% of the interest; for 5,000 of Treasury interest, 237.50 a year."
+  },
+  {
+   "what": "All municipal interest is treated as other-state (added and taxed) when a projection cannot tell the bonds apart; interest on Oklahoma state bonds and most local Oklahoma bonds is exempt.",
+   "direction": "overstates_tax",
+   "size": "4.75% of the Oklahoma bond interest."
+  },
+  {
+   "what": "The Oklahoma Capital Gain Deduction and exempt obligation gains are taxed (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "4.75% of the qualifying gain."
+  },
+  {
+   "what": "The blind and dependent exemptions and the credits are left out (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "47.50 for each exemption a year, and the amount of any credit."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

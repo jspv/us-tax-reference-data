@@ -1,0 +1,103 @@
+{
+  "id": "mo_2025_private_test_line6_every_subtraction_at_limit",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "private_pension_subtraction",
+    "capital_gain_subtraction",
+    "military_retirement_subtraction",
+    "railroad_retirement_exempt",
+    "business_income_deduction",
+    "social_security_retirement_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-1040 PDF p2 Lines 1-6; Form MO-A PDF p1 Part 1 Lines 1, 7, 10, 11; PDF p2 Part 1 Lines 17-19; instructions PDF p12 Line 1, PDF p14 Lines 10-11, PDF p16 Lines 17-18; record muni_interest, military_retirement_subtraction, railroad_retirement_exempt, business_income_deduction, capital_gains capital_gain_subtraction; Form MO-A PDF p3 Part 3 Section C; instructions PDF p17; record social_security_retirement_subtraction; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-04-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10706.48",
+          "person": 0
+        }
+      ],
+      "self_employment": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "military"
+        },
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "15300.00",
+      "short_term_gains": "1000.00",
+      "long_term_gains": "5000.00",
+      "municipal_interest_own_state": "2000.00",
+      "municipal_interest_other_state": "1000.00"
+    },
+    "federal_agi": "65300.00",
+    "federal_taxable_income": "49550.00"
+  },
+  "expected": {
+    "state_agi": "19000.00",
+    "state_taxable_income": "3250.00",
+    "state_tax_before_credits": "41.86",
+    "credits": "0.00",
+    "state_income_tax": "41.86",
+    "relief_amounts": {
+      "capital_gain_subtraction": "6000.00",
+      "military_retirement_subtraction": "12000.00",
+      "railroad_retirement_exempt": "6000.00",
+      "business_income_deduction": "2000.00",
+      "social_security_retirement_subtraction": "15300.00",
+      "private_pension_subtraction": "6000.00"
+    }
+  },
+  "worked": "Single, age 63. Every subtraction that comes before Line 6 is taken before the private pension income test: the test is exactly 25,000, not over the limit, so the 6,000 is whole. Line 6 is after every Form MO-A Part 1 subtraction (gains, military, railroad, business income) and the Line 1 addition of other states' bond interest, and before the Line 8 Social Security and pension exemptions; Section B then takes taxable Social Security off. Federal taxable Social Security: other income 50,000.00 + tax-exempt interest 3,000.00 + half of benefits 9,000.00 = provisional 62,000.00; lesser of 85% x 18,000.00 = 15,300.00 and 85% x (62,000.00 - 34,000.00) + 4,500.00 = 28,300.00: 15,300.00. Federal (given, not tested): federal AGI = wages 10,706.48 + self-employment net profit 10,000.00 - deductible half of self-employment tax 706.48 (10,000.00 x 92.35% x 15.3% / 2) + pensions 24,000.00 (military 12,000.00, railroad 6,000.00, private 6,000.00) + short-term gains 1,000.00 + long-term gains 5,000.00 + taxable Social Security 15,300.00 = 65,300.00. Federal taxable income = 65,300.00 - standard deduction 15,750.00 = 49,550.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 65,300.00. Line 2 additions: MO-A Part 1 Line 1 other states' bond interest 1,000.00 (Missouri bond interest 2,000.00 is not added). Line 3 total income 66,300.00. Line 4 subtractions: MO-A Part 1 Line 10 military retirement 12,000.00; Line 11 railroad retirement 6,000.00; Line 17 business income deduction, 20% of net profit 10,000.00 = 2,000.00; Line 18 capital gain 6,000.00; total 26,000.00. Line 6 Missouri adjusted gross income 66,300.00 - 26,000.00 = 40,300.00. MO-A Part 3 Section C (Y, age 63): Line 1 15,300.00; Line 3 15,300.00 (62 or older by December 31). Section C Line 4 total 15,300.00. Section B: Line 1 40,300.00; Line 2 15,300.00; Line 3 25,000.00; Line 4 25,000.00; Line 5 0.00; Line 6Y 6,000.00, Line 7Y 6,000.00; Line 8 6,000.00; Line 9 6,000.00. Projection measure: federal AGI 65,300.00 + tax-exempt interest 3,000.00 - Missouri bond interest 2,000.00 - taxable Social Security 15,300.00 - capital_gain_subtraction 6,000.00 - military_retirement_subtraction 12,000.00 - railroad_retirement_exempt 6,000.00 - business_income_deduction 2,000.00 = 25,000.00. Form MO-1040 Line 8 pension and Social Security exemption 21,300.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 40,300.00 - 21,300.00 - 15,750.00 = 3,250.00. Line 29 taxable income 3,250.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 624.00 = 15.6; total 41.86 = 41.86. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 42; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 40,300.00 - Line 8 21,300.00 = 19,000.00; the form's Missouri AGI is Line 6, 40,300.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled).",
+    "The business income deduction is applied to all self-employment income; it applies to Missouri-source income only, and it also reaches Schedule E Part 2 income, Schedule F and Form 4835 profit, which the projection leaves out."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

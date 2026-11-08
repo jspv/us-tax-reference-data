@@ -1,0 +1,53 @@
+{
+  "id": "mn_2025_std_over_165150_mfs",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "mn_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "200000.00",
+    "federal_taxable_income": "184250.00"
+  },
+  "expected": {
+    "state_agi": "200000.00",
+    "state_taxable_income": "187465.75",
+    "state_tax_before_credits": "13822.84",
+    "credits": "0.00",
+    "state_income_tax": "13822.84"
+  },
+  "worked": "Separate AGI over 165,150: the same tier at the separate amounts. Federal (given, not tested): federal AGI = wages 200,000.00 = 200,000.00. Federal taxable income = 200,000.00 - 15,750.00 federal standard deduction (15,750 plus 0 x 1,600) = 184,250.00 (federal senior deduction ignored). Form M1, married filing separately: line 1 federal AGI 200,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 200,000.00. Schedule M1M line 16: no one is 65 or older (born before January 2, 1961), so no Schedule M1R subtraction. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 0.00 + 0.00 + 0.00 = 0.00 (lines 12, 16, 17, 25). State income before deduction = 200,000.00 - 0.00 = 200,000.00. Standard Deduction Table for Line 4: 14,950.00 (0 age box(es)). Worksheet A: step 1 200,000.00; step 2 45,675.00; step 3 1,370.25; step 4 34,850.00; step 5 3,485.00; step 6 4,855.25; step 7 14,950.00; step 8 11,960.00; step 9 4,855.25; step 10 = 10,094.75. Projection: base 14,950.00 less 3% x 80,525.00 = 2,415.75 gives 12,534.25; plus age additions 0.00 = 12,534.25, which expected follows; the form gives 10,094.75. Form M1 line 8 total = 12,534.25 + 0.00 = 12,534.25; line 9 Minnesota taxable income = 200,000.00 - 12,534.25 = 187,465.75. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (23,810.00 - 0.00) = 1,273.835 + 6.80% x (94,590.00 - 23,810.00) = 4,813.04 + 7.85% x (165,205.00 - 94,590.00) = 5,543.2775 + 9.85% x (187,465.75 - 165,205.00) = 2,192.683875 = 13,822.836375. Line 16 credits 0.00; state income tax 13,822.84. Form's own result for comparison: line 9 189,905.25, schedule tax 14,063.127125.",
+  "accepted_approximations": [
+    "The standard deduction reduction is modelled as 3% of AGI over 238,950 (119,475 separate), on the base amount only. Worksheet A adds 10% of AGI over 330,300 (165,150 separate), counts the age additions, and limits the reduction to 80%."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

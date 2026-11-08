@@ -1,0 +1,42 @@
+{
+  "id": "de_2025_personal_credit_below",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "de_personal_credit",
+    "de_standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. \u00a71102(a)(14)",
+    "section": "Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.5 Line 1; PDF p.8 Line 20a standard deduction table, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. \u00a71102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "8000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "8000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

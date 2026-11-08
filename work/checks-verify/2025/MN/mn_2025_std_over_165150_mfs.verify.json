@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "200000.00",
+    "state_taxable_income": "187465.75",
+    "state_tax_before_credits": "13822.84",
+    "credits": "0.00",
+    "state_income_tax": "13822.84"
+  },
+  "worked": "Filing status married_separate; ages [45]. M1 line 1 federal AGI 200,000. M1M line 1 addition, other-state municipal interest: 0. Age 65 subtraction: no one is 65 or older: 0. State AGI: 200,000 + 0 - 0 military - 0 railroad - 0 age 65 - 0 Social Security = 200,000. Standard deduction (M1 line 4): 14950 less 3% of 80,525 over 119475 = 2,415.75, floored at 0, = 12,534.25; total 12,534.25. Taxable income (M1 line 9): 200,000 - 12,534.25 = 187,465.75. Tax (married_separate schedule, numbers not table): 23,810 x 0.0535 = 1,273.835; 70,780 x 0.068 = 4,813.04; 70,615 x 0.0785 = 5,543.2775; 22,260.75 x 0.0985 = 2,192.683875; total 13,822.836375 = 13822.84. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 13822.84. Form against projection: Worksheets A/B themselves would give a deduction of 10,094.75. With the M1R, line 12 and line 4 differences only: taxable 189,905.25, tax 14063.13. Expected above follows the projection as the brief says. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

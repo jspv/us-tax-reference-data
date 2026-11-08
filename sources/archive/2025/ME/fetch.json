@@ -1,0 +1,71 @@
+[
+  {
+    "state": "ME",
+    "title": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T01:59:04.829779+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "25_1040me_gen_instr_w_cover_pg.pdf",
+    "bytes": 473431,
+    "sha256": "00f731e053a19cc464595fbf38d61e11daa1e3e5a7bed525708a12d9b426051d",
+    "archived_url": "https://web.archive.org/web/20260212010900id_/https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf"
+  },
+  {
+    "state": "ME",
+    "title": "2025 Form 1040ME (fillable)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040ME_fillable.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T01:59:19.066290+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "25_1040ME_fillable.pdf",
+    "bytes": 2124806,
+    "sha256": "6692450e683dc565a1f6605ce76eebb9244cbee7f02151943f603391593be197",
+    "archived_url": "https://web.archive.org/web/20260216025329id_/https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040ME_fillable.pdf"
+  },
+  {
+    "state": "ME",
+    "title": "2025 Form 1040ME Schedule 1S Other Income Subtractions worksheet",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_sch1_other_sub_mods_wksht_fillable.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T01:59:19.243678+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "25_sch1_other_sub_mods_wksht_fillable.pdf",
+    "bytes": 2466194,
+    "sha256": "61ec9d2253ba04d7dc00a1b89466998d96f4d2102ac2cd60c15888513da49f2a",
+    "archived_url": "https://web.archive.org/web/20260212004938id_/https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_sch1_other_sub_mods_wksht_fillable.pdf"
+  },
+  {
+    "state": "ME",
+    "title": "Maine Revenue Services Individual Income Tax FAQ (pension income deduction)",
+    "url": "https://www.maine.gov/revenue/faq/individual-income-tax",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T01:59:19.413178+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "Individual_Income_Tax_FAQ___Maine_Revenue_Services.pdf",
+    "bytes": 325241,
+    "sha256": "e1bf4fafdc6d5a806d782637ca687d3997a68d8cad0c7bbbd93ae79106ff740d"
+  },
+  {
+    "state": "ME",
+    "title": "2025 Schedule 1S with the Pension Income Deduction Worksheet",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T14:32:25.000999+00:00",
+    "ok": true,
+    "method": "plain_http",
+    "note": "the headless browser fetch got HTTP 403 on 2026-11-07; downloaded the same day with curl sending a desktop Chrome user agent",
+    "file": "25_1040me_sch_1s_fillable.pdf",
+    "bytes": 3587877,
+    "sha256": "f158b7ef00c8f1bc27c8c35a65d5478dd410804b30afb20f279e3a81d9e5ca0a",
+    "archived_url": "https://web.archive.org/web/20260212001117id_/https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  }
+]

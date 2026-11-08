@@ -1,0 +1,84 @@
+{
+  "id": "id_2025_military_joint_cap_reduced_by_both_spouses_ss",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ret_service_member",
+    "age_65_addition"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45 Form 39R instructions Line 8, 8a-8c and Line 8e first paragraph; PDF p.33 Form 39R Part B lines 8a-8f; PDF p.44 Form 39R instructions Line 7; PDF p.33 Form 39R Part B line 7; PDF p.56 Form 39NR Line 5; PDF p.10 Line 12a; PDF p.11 worksheet line 5 ('born before January 2, 1961'); Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-02"
+      },
+      {
+        "age": 68,
+        "born": "1957-06-06"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "29750.00"
+    },
+    "federal_agi": "129750.00",
+    "federal_taxable_income": "95050.00"
+  },
+  "expected": {
+    "state_agi": "62676.00",
+    "state_taxable_income": "27976.00",
+    "state_tax_before_credits": "972.76",
+    "credits": "310.00",
+    "state_income_tax": "662.76",
+    "relief_amounts": {
+      "ret_service_member": "37324.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 1) 40,000.00 + military retirement pay (person 0) 60,000.00 + taxable Social Security 29,750.00 = 129,750.00. Federal taxable income = 129,750.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age 65 additional = 95,050.00 (the federal senior deduction is ignored). Form 40 (filing status married filing jointly): line 7 federal AGI 129,750.00. Line 8 additions 0.00; line 9 = 129,750.00 + 0.00 = 129,750.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 29,750.00 + 0.00 = 29,750.00. Line 8 retirement benefits deduction: line 8a 72,324.00; line 8b railroad benefits received 0.00; line 8c Social Security received (gross, both spouses, Box 5) 35,000.00; line 8d = 72,324.00 - 0.00 - 35,000.00, not below zero, = 37,324.00; line 8e (person 0 age 70: 60,000.00 qualifies, age 62 or older) = 60,000.00; line 8f smaller of 8d and 8e = 37,324.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 29,750.00 + 37,324.00 = 67,074.00. Form 40 line 10 67,074.00; line 11 total adjusted income = 129,750.00 - 67,074.00 = 62,676.00. Line 12a boxes checked 2. Standard Deduction Worksheet: line 1 31,500.00; line 4 31,500.00; line 5 2 x 1,600.00 = 3,200.00; line 6 34,700.00. Line 15 0.00 (no Schedule A); line 16 34,700.00. Line 17 = 62,676.00 - 34,700.00 = 27,976.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 27,976.00. Line 20 worksheet: line 1 27,976.00; line 2 9,622.00; line 3 = 18,354.00; line 4 at 5.3%; line 5 tax = 18,354.00 x 5.3% = 972.762, to the cent 972.76 (the return rounds to whole dollars, PDF p.8, and shows 973; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 972.76. Food Tax Credit Worksheet (Form 40 line 43): 2 x 155.00 = 310.00. State income tax = 972.76 - 310.00 = 662.76. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations). Line 18 would take any federal Schedule 1-A amount, the senior deduction included; it is ignored here and the projection does not subtract it (approximations). Gross benefits of both spouses reduce the maximum, the non-pensioner's included, and the taxable 29,750.00 is still subtracted on line 7.",
+  "accepted_approximations": [
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged.",
+    "The federal Schedule 1-A and qualified business income deductions are not subtracted (Form 40 line 18)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:health_insurance_premiums",
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction",
+    "state_rule_not_modelled:ret_csrs_fsrds",
+    "state_rule_not_modelled:ret_idaho_firefighters",
+    "state_rule_not_modelled:ret_service_member_under_62"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

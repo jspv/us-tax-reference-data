@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "20000.00",
+    "state_income_tax": "540.00",
+    "state_tax_before_credits": "540.00",
+    "state_taxable_income": "18000.00"
+  },
+  "worked": "IT-40 line 1 federal AGI 20,000.00 (given; federal senior deduction ignored in the federal figures). State AGI (IT-40 line 5) = 20,000.00 + 0.00 - 0.00 = 20,000.00. Schedule 3 line 1 personal exemptions: 1 x 1,000 = 1,000.00. Schedule 3 line 4 age 65 exemption: 1 x 1,000 = 1,000.00. Schedule 3 line 5: federal AGI 20,000.00 is not less than 20,000.00 (one threshold per return, not doubled): no additional exemption. Exemptions total 2,000.00. Taxable income (line 7) = max(0, 20,000.00 - 2,000.00) = 18,000.00. Line 8: 3% x 18,000.00 = 540.00. No credits modelled: credits 0.00; state income tax 540.00."
+}

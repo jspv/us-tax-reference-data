@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "qualified_exempt_taxpayer": "53625.00"
+    }
+  },
+  "worked": "TC-40 line 4 federal AGI 23625.00. Line 5 additions: code 57 other-state municipal interest 30000.00 (projection muni treatment other_states_taxed_own_exempt; all other-state interest added). Line 6 total income 23625.00 + 30000.00 = 53625.00. Line 8 subtractions: code 78 railroad retirement 0.00 (relief railroad_retirement, exempt_in_full). Line 9 Utah taxable income 53625.00 - 0.00 = 53625.00. Qualified Exempt Taxpayer worksheet: line 1 federal AGI 23625.00; line 2 standard deduction 23625.00; line 3 senior deduction left out by the projection (threshold is the standard deduction only); line 5 = 0.00: zero, so exempt (projection: exempt_in_full of all state income, which removes the whole line 9 income, the code 57 addition included). Projection: qualified_exempt_taxpayer removes 53625.00; state_agi 0, state taxable income 0, tax 0 (the form itself: line 22 = 0). State taxable income 0.00; line 10 tax 0.00 x 0.045 = 0.00. Taxpayer tax credit (projection: 6% of the state income up to the cap 23625.00, the federal standard deduction without the age 65 extras): line 16 0.06 x min(0.00, 23625.00) = 0.00; line 17 base 27320.00; line 18 0.00; line 19 x 0.013 = 0.00; line 20 credit 0.00. Retirement credit (18): no one born on or before 1952-12-31; 0. Credits: taxpayer tax credit 0.00 + retirement 0.00 + Social Security 0.00 + military 0.00 = 0.00; limited to the tax 0.00: 0.00 (nonrefundable). Utah income tax 0.00 - 0.00 = 0.00. Federal figures given; federal senior deduction ignored. Amounts to the cent from the formulas; the form's whole-dollar rounding is not used."
+}

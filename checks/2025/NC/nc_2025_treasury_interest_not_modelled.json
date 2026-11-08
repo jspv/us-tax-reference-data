@@ -1,0 +1,49 @@
+{
+  "id": "nc_2025_treasury_interest_not_modelled",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 18, Schedule S Part B Line 18 (interest on obligations of the United States, such as treasury notes and bills); PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 48,
+        "born": "1977-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00",
+      "interest": "750.00"
+    },
+    "federal_agi": "44750.00",
+    "federal_taxable_income": "29000.00"
+  },
+  "expected": {
+    "state_taxable_income": "32000.00",
+    "state_tax_before_credits": "1360.00",
+    "credits": "0.00",
+    "state_income_tax": "1360.00"
+  },
+  "worked": "Federal AGI = wages 40,000.00 + U.S. Treasury interest 4,000.00 + bank interest 750.00 = 44,750.00. Projection: the Line 18 deduction is not_modelled (warn_when never), so the Treasury interest is taxed. Federal taxable income = 44,750.00 - 15,750.00 federal standard deduction = 29,000.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 44,750.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 44,750.00. Line 9 deductions (Schedule S Part B) 0.00. Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (single) 12,750.00. Line 12a = Lines 9 + 10 + 11 = 12,750.00; Line 12b = Line 8 - Line 12a = 32,000.00. Line 14 NC taxable income (full-year resident) = 32,000.00. Line 15 tax = 32,000.00 x 0.0425 = 1,360.00. Line 16 credits 0.00; Line 17 income tax = 1,360.00. The booklet itself would deduct 4,000.00 on Schedule S Line 18: Line 12b = 44,750.00 - 4,000.00 - 12,750.00 = 28,000.00, tax 1,190.00; the projection overstates tax by 170.00 (4.25% x 4,000.00).",
+  "accepted_approximations": [
+    "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

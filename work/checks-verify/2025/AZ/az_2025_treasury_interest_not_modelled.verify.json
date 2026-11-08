@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "975.00",
+    "state_tax_before_credits": "975.00",
+    "state_taxable_income": "39000.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 54,750.00. Line 28 U.S. obligations interest 4,000.00: not_modelled in the projection, so no subtraction (the form would subtract it and give tax 875.00). Line 35 subtractions 0.00; line 37 = 54,750.00 - 0.00 = 54,750.00. Box 8 = 0 (ages 55); line 38 = 0 x 2,100 = 0.00. Line 42 Arizona AGI = 54,750.00. Line 43 standard deduction 15,750.00; line 45 = 54,750.00 - 15,750.00 = 39,000.00. Line 46 tax = 39,000.00 x 2.5% = 975.00. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 975.00. Federal figures given; federal senior deduction ignored."
+}

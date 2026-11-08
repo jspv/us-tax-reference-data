@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "20103.00",
+    "state_income_tax": "607.88",
+    "state_tax_before_credits": "607.88",
+    "state_taxable_income": "14303.00",
+    "relief_amounts": {
+      "pre1946_private": "65897.00"
+    }
+  },
+  "worked": "Single born 1943. NY State pension is not a Michigan public benefit: treated as private (public_pension_other_state, covered by pre1946_private). Private limit 65,897 (no public, military or railroad to reduce it); 80,000 > limit -> line 27 subtraction 65,897.00. Line 28 worksheet: 14,688 - line 27 65,897 -> 0 (the projection's private reduction is read as covering the other-state pension it treats as private; a literal reading of cap_reduced_by, which omits public_pension_other_state, would allow min(14,688, interest 6,000) = 6,000 and tax 352.88). Taxable SS 25,500 subtracted. state_agi 111,500 - 25,500 - 65,897 = 20,103.00. Exemption 5,800. Taxable 14,303.00. Tax 4.25% = 607.8775 -> 607.88. [check: state_agi 20103.00, taxable 14303.00, tax 607.88; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

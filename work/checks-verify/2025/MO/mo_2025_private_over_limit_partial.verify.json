@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "25000.00",
+    "state_income_tax": "258.81",
+    "state_tax_before_credits": "258.81",
+    "state_taxable_income": "9250.00",
+    "relief_amounts": {
+      "private_pension_subtraction": "3000.00"
+    }
+  },
+  "worked": "Filing status single; persons ages [60]. Federal AGI 28000.00 (given). Private pension (MO-A Section B): covered per person ['8000.00'] (private pensions, annuities, IRA and plan distributions; Roth conversions not covered; railroad not included), each limited to 6000: ['6000'], Line 8 total 6000. Line 1-3 measure: federal AGI 28000.00 + other-state muni 0 - taxable SS 0 - gains 0 - military 0 - railroad 0 - business 0.0 = 28000.00; limit 25000; Line 5 excess (over strictly) 3000.00; Line 9 = max(0, 6000 - 3000.00) = 3000.00 (excess taken once off the total). Missouri AGI (state_agi) = 28000.00 + additions 0 - subtractions 3000.00 = 25000.00 Deductions (MO-1040 Lines 14-15): standard 15750 + age 65 2000 x 0 = 0 + head of household/QSS exemption 0 = 15750 Taxable income = 25000.00 - 15750 = 9250.00 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2626 - 1313) = 26.26; 0.025 x (3939 - 2626) = 32.825; 0.03 x (5252 - 3939) = 39.39; 0.035 x (6565 - 5252) = 45.955; 0.04 x (7878 - 6565) = 52.52; 0.045 x (9191 - 7878) = 59.085; 0.047 x (9250.00 - 9191) = 2.77300; sum 258.80800 -> 258.81 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 258.81"
+}

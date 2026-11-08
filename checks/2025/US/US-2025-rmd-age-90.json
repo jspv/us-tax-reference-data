@@ -1,0 +1,26 @@
+{
+  "id": "US-2025-rmd-age-90",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "rmd",
+  "boundary": "none",
+  "tests": [
+    "rmd.uniform_lifetime_table"
+  ],
+  "description": "IRA owner born in 1935, age 90 in 2025.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1935-10-31",
+    "rmd_prior_year_end_balance": "123456.78"
+  },
+  "expected": {
+    "rmd_divisor": "12.2",
+    "rmd_amount": "10119.41"
+  },
+  "worked": "IRA owner born 1935-10-31; age attained on the 2025 birthday = 2025 - 1935 = 90. Beneficiary is not a spouse more than 10 years younger, so the Uniform Lifetime Table applies.\nBorn before 1951: the required beginning date passed under the earlier law (age 70 1/2 for anyone born before July 1, 1949; age 72 for anyone born July 1, 1949 through 1950); distributions are required every year, including 2025.\nUniform Lifetime Table (26 CFR 1.401(a)(9)-9(c)), age 90: distribution period 12.2.\nRMD = account balance at December 31, 2024, 123,456.78 / 12.2 = 10119.4082, rounded to the cent = 10,119.41.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

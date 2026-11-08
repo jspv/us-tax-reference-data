@@ -1,0 +1,63 @@
+{
+  "id": "mn_2025_ss_simplified_at_88491",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "mn_social_security_simplified"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1M line 12 and Worksheet for line 12 steps 1-30 (M1M PDF p.3, p.4)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "71491.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "88491.00",
+    "federal_taxable_income": "72741.00"
+  },
+  "expected": {
+    "state_agi": "74891.00",
+    "state_taxable_income": "59941.00",
+    "state_tax_before_credits": "3603.72",
+    "credits": "0.00",
+    "state_income_tax": "3603.72",
+    "relief_amounts": {
+      "mn_social_security_simplified": "13600.00"
+    }
+  },
+  "worked": "One dollar over 88,490: two steps. Federal (given, not tested): federal AGI = wages 71,491.00 + taxable Social Security 17,000.00 = 88,491.00. Social Security benefits (Form 1040 line 6a) 20,000.00; line 6b taxable 17,000.00 (federal worksheet: benefits taxable up to 85%; given, not tested). Federal taxable income = 88,491.00 - 15,750.00 federal standard deduction (15,750 plus 0 x 2,000) = 72,741.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 88,491.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 88,491.00. Schedule M1M line 12, Worksheet: step 1 88,491.00; step 2 84,490.00; step 3 4,001.00; step 4 4,001.00 / 4,000 rounded up = 2; step 5 0.2; step 6 17,000.00; step 7 3,400.00; step 8 = 13,600.00 (step 29, Tier 1 step 26 is 0.00). Keep share 0.8. Alternative method, projection: measure = federal AGI + tax-exempt interest = 88,491.00 + 0.00 = 88,491.00; cap first: lesser of 17,000.00 and 4,560.00 = 4,560.00; less 20% x (excess over 69,250.00, 19,241.00) = 3,848.20; alternative = 711.80. Worksheet steps 9-24 as printed: steps 9-11 88,491.00 - 17,000.00 = 71,491.00; steps 12-13 50% x 20,000.00 = 10,000.00; step 14 0.00; step 15 81,491.00; steps 16-18 0.00; step 19 81,491.00; step 20 69,250.00; step 21 12,241.00; step 22 2,448.20; step 23 4,560.00; step 24 2,111.80; step 25-27 17,000.00; step 28 2,111.80; step 30 greater of 2,111.80 and 13,600.00 = 13,600.00. Line 12 = the better of the two, 13,600.00. The projection's alternative entry loses, so only the simplified amount is applied. Schedule M1M line 16: no one is 65 or older (born before January 2, 1961), so no Schedule M1R subtraction. Schedule M1M line 40 = Form M1 line 7 subtractions = 13,600.00 + 0.00 + 0.00 + 0.00 = 13,600.00 (lines 12, 16, 17, 25). State income before deduction = 88,491.00 - 13,600.00 = 74,891.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 14,950.00. Form M1 line 8 total = 14,950.00 + 13,600.00 = 28,550.00; line 9 Minnesota taxable income = 88,491.00 - 28,550.00 = 59,941.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (32,570.00 - 0.00) = 1,742.495 + 6.80% x (59,941.00 - 32,570.00) = 1,861.228 = 3,603.723. The tax table (PDF pp.32-38) gives 3,604; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 3,603.72.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

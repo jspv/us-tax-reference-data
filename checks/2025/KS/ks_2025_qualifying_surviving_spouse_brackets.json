@@ -1,0 +1,53 @@
+{
+  "id": "ks_2025_qualifying_surviving_spouse_brackets",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "kansas_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); FILING STATUS (PDF page 6): 'If your federal filing status is Qualifying Widow(er) with Dependent Child, check the Head of Household box'; tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-06-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "75000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "75000.00",
+    "federal_taxable_income": "43500.00"
+  },
+  "expected": {
+    "state_agi": "75000.00",
+    "state_taxable_income": "57340.00",
+    "state_tax_before_credits": "3024.77",
+    "credits": "0.00",
+    "state_income_tax": "3024.77"
+  },
+  "worked": "Federal AGI = wages (you) 75,000.00 = 75,000.00. Federal taxable income = 75,000.00 - standard deduction 31,500.00 (31,500.00) = 43,500.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). No Kansas modifications: Schedule S lines A9 and A26 are 0.00, line A27 net modification 0.00 (the K-40 instructions let a filer skip line 2). Form K-40: line 1 federal AGI 75,000.00; line 2 modifications 0.00; line 3 Kansas AGI = 75,000.00 + (0.00) = 75,000.00; line 4 standard deduction (qualifying surviving spouse, Head of Household box on the K-40) 6,180.00; line 5 exemption allowance 9,160.00 + head of household additional exemption 2,320.00 = 11,480.00, 0 dependents; line 6 total deductions = 6,180.00 + 11,480.00 = 17,660.00; line 7 taxable income = 75,000.00 - 17,660.00 = 57,340.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 46,000.00 = 2,392.00 + 5.58% x (57,340.00 - 46,000.00 = 11,340.00) = 632.7720; total 3,024.7720 = 3,024.77. Line 7 is 100,000 or less, so the form reads the tax table: row 57,301-57,350, single, head of household or married filing separate column, PDF page 31, gives 3,111; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 3,024.77. Credits (lines 13-15, 17): none, 0.00; state income tax = 3,024.77. Kansas sends this status to the Head of Household box, so its deductions are the head of household amounts and the form's table column is the single group. The projection has no bracket list for this status and the schema gives it the joint schedule, so expected uses 46,000. On the form itself the tax would be 5.2% x 23,000.00 = 1,196.00 + 5.58% x 34,340.00 = 1,916.1720; total 3,112.1720 = 3,112.17; the projection is 87.40 lower (0.38% x 23,000), the approximation's stated maximum. No dependents in the inputs; the form would add 2,320.00 per dependent.",
+  "accepted_approximations": [
+    "A qualifying surviving spouse files as Head of Household in Kansas (PDF page 6), but the schema gives this status the joint brackets; the deductions are correct.",
+    "The blind amount, dependent exemptions and disabled veteran exemption are not applied (not_modelled).",
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "or_2025_exemption_test_ignores_additions",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_exemption_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.63-64 addition code 158 and PDF p.85-86 subtraction code 317; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "99000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "5000.00"
+    },
+    "federal_agi": "99000.00",
+    "federal_taxable_income": "83250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.personal_exemption_credit"
+  ]
+}

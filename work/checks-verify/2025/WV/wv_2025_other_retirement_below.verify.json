@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "1098.90",
+    "credits": "0.00",
+    "state_income_tax": "1098.90",
+    "relief_amounts": {
+      "wv_other_retirement": "1500.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 41500.00 (single). Federal standard deduction and senior deduction ignored: WV starts from federal AGI. You: line 33 WV/federal public pension 1500.00, capped at 2,000 -> 1500.00. Line 2 additions 0; line 3 subtractions 1500.00; line 4 WV AGI = 41500.00 + 0 - 1500.00 = 40000.00. Line 6 exemptions 1 x 2,000 = 2000; line 7 taxable income 40000.00 - 2000 = 38000.00. Tax (rate schedule, exact, no table):   0-10,000 x 0.0222 = 222.0000   10,000-25,000 x 0.0296 = 444.0000   25,000-38,000.00 x 0.0333 = 432.900000 Tax = 1098.900000 -> 1098.90. No credits modelled: credits 0.00; income tax 1098.90."
+}

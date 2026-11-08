@@ -1,0 +1,50 @@
+{
+  "id": "ar_2025_employer_plan_under_59_5_below",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ar_retirement_exclusion_employer_plan"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 11 items 12 and 13 and the NOTE (total exemptions from all plans under 12 and 13 cannot exceed 6,000 per taxpayer); PDF page 13 LINE 18A and 18B (public or private employment-related plans, the recipient does not have to be retired; traditional IRA after 59 1/2); record ar_employer_plan_exclusion, ar_traditional_ira_exclusion_59_5; Subject 206 page 1 ('You are under 59 1/2', settled against it)",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-08-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "4000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "44000.00",
+    "federal_taxable_income": "28250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ar_retirement_exclusion_employer_plan"
+  ]
+}

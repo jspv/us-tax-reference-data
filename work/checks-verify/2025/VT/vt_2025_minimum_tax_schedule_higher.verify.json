@@ -1,0 +1,10 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "200000.00",
+  "state_income_tax": "11413.30",
+  "state_tax_before_credits": "11413.30",
+  "state_taxable_income": "187050.00"
+ },
+ "worked": "Filing status single; IN-111 Line 1 federal AGI 200,000.00 (federal taxable income 184250.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 19 net modification = 0.00 - 0.00; IN-111 Line 3 state AGI = 200,000.00 + 0.00 - 0.00 = 200,000.00. Line 4 standard deduction 7,650.00 + 1,250 x 0 (born before Jan. 2, 1961) = 7,650.00; Line 5e exemptions 1 x 5,300 = 5,300.00; Line 6 = 12,950.00. Line 7 taxable income = 200,000.00 - 12,950.00 = 187,050.00. Rate schedule (single): 3.3500% x (49,400.00 - 0.00) = 1654.9000; 6.600% x (119,700.00 - 49,400.00) = 4639.800; 7.600% x (187,050.00 - 119,700.00) = 5118.60000; total 11413.30000. Line 8 minimum tax: federal AGI 200,000.00 > 150,000, so the greater of 3% x 200,000.00 = 6,000.00 (no U.S. obligations interest) and schedule tax 11,413.30: 11,413.30. No credits modelled: credits 0.00; state income tax 11,413.30."
+}

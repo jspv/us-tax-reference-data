@@ -1,0 +1,49 @@
+{
+  "id": "la_2025_age_64_january_2_birthday",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "la_retirement_income_exemption_65"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "instructions PDF page 7, code 06E and Worksheet for Code 06E, Lines 1 to 6; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-01-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.la_retirement_income_exemption_65"
+  ]
+}

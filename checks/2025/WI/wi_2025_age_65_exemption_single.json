@@ -1,0 +1,60 @@
+{
+  "id": "wi_2025_age_65_exemption_single",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_age_65_exemption",
+    "wi_personal_exemption",
+    "wi_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 4 (SB Instructions PDF page 2); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "interest": "10000.00",
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "11300.00"
+    },
+    "federal_agi": "41300.00",
+    "federal_taxable_income": "23550.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "16774.00",
+    "state_tax_before_credits": "605.94",
+    "credits": "0.00",
+    "state_income_tax": "605.94"
+  },
+  "worked": "Single, 66 (born 1959-05-10): wages 20,000, interest 10,000, Social Security 24,000. 65 or older, so line 10b allows 250 on top of the 700; under 67 and federal AGI over 15,000, so neither retirement subtraction (and there is no retirement income for them). The federally taxable Social Security is subtracted in full on Schedule SB line 4. Federal (given, not tested): federal AGI = wages (you) 20,000.00 + interest 10,000.00 + taxable Social Security 11,300.00 (gross 24,000.00; provisional income 30,000.00 + half of 24,000.00 = 42,000.00; taxable Social Security 11,300.00) = 41,300.00. Federal taxable income = 41,300.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 23,550.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 41,300.00; line 2 Schedule I adjustments 0.00; line 3 41,300.00; line 4 additions 0.00; line 5 41,300.00. Schedule SB: line 4 Social Security adjustment = 11,300.00; line 50 total 11,300.00. Schedule SB line 17: federal AGI 41,300.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 11,300.00; line 7 Wisconsin income = 41,300.00 - 11,300.00 = 30,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 30,000 to less than 30,500, column Single: 12,276.00 (printed row, at least / less than / single / joint / separate / head of household: 30,000 / 30,500 / 12,276 / 24,707 / 8,595 / 15,111). Line 9 = 30,000.00 - 12,276.00 = 17,724.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 17,724.00 - 950.00 = 16,774.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 2,094.00 = 92.136; total 605.936, rounded once to 605.94. The Tax Table row 16,700 to 16,800 (PDF page 39) gives 605; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 605.94.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

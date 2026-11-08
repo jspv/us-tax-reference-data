@@ -1,0 +1,55 @@
+{
+  "id": "ok_2025_worksheet_over_100000_joint",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); tax computation worksheets for 100,000 or more (PDF page 38)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-10-12"
+      },
+      {
+        "age": 50,
+        "born": "1975-10-13"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "214700.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "214700.00",
+    "federal_taxable_income": "183200.00"
+  },
+  "expected": {
+    "state_agi": "214700.00",
+    "state_taxable_income": "200000.00",
+    "state_tax_before_credits": "9123.00",
+    "credits": "0.00",
+    "state_income_tax": "9123.00"
+  },
+  "worked": "Federal AGI = wages (you) 214,700.00 = 214,700.00. Federal taxable income = 214,700.00 - standard deduction 31,500.00 = 183,200.00 (federal senior deduction ignored; federal figures are given, not tested; Oklahoma starts from federal AGI). Form 511: line 1 federal AGI 214,700.00; line 2 subtractions 0.00; line 3 = 214,700.00 - 0.00 = 214,700.00; line 4 out-of-state income 0.00; line 5 214,700.00; line 6 additions 0.00; line 7 Oklahoma AGI 214,700.00; line 8 adjustments 0.00; line 9 214,700.00; line 10 standard deduction (married joint) 12,700.00; line 11 exemptions: 2 Regular + 0 Special = 2 x 1,000.00 = 2,000.00 (no one is 65 or older, 0 Special); line 12 = 12,700.00 + 2,000.00 = 14,700.00; line 13 taxable income = 214,700.00 - 14,700.00 = 200,000.00; line 14 tax (the projection's brackets as numbers; the booklet prints only a table and worksheets): 0.25% x 2,000.00 = 5.0000 + 0.75% x 3,000.00 = 22.5000 + 1.75% x 2,500.00 = 43.7500 + 2.75% x 2,300.00 = 63.2500 + 3.75% x 4,600.00 = 172.5000 + 4.75% x 185,600.00 = 8,816.0000; total 9,123.0000 = 9,123.00. Line 13 is 100,000 or more, so the form uses the worksheet on PDF page 38 (joint, head of household or qualified widow(er)): 4,373 + 0.0475 x 100,000.00 = 9,123.00; expected keeps the schedule figure. Lines 15-17 credits 0.00; line 18 income tax 9,123.00. For the second column the worksheet and the schedule agree: 4,373.00 at 100,000.",
+  "accepted_approximations": [
+    "The brackets are derived from the printed tax table and the 100,000-and-over worksheets; the booklet prints no schedule. Below 100,000 tax is figured on the exact income, where the booklet taxes each 50-dollar row at its midpoint and rounds. At 100,000 and over the single and separate worksheet starts from 4,562 where the schedule gives 4,561.50."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

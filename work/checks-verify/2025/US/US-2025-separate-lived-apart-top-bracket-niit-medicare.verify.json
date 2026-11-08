@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "additional_medicare_tax": "2475.00",
+    "agi": "405000.00",
+    "net_investment_income_tax": "190.00",
+    "regular_tax": "106053.75",
+    "senior_deduction": "0.00",
+    "standard_deduction": "15750.00",
+    "taxable_income": "389250.00",
+    "total_tax": "108718.75"
+  },
+  "worked": "Form 1040: 1z wages 400000; 2a tax-exempt interest 0; 2b taxable interest 5000; 3a qualified dividends 0; 3b ordinary dividends 0; 4b+5b pensions/IRA 0; 7a capital gain 0 (LT 0, ST 0); 8 other income 0. Form 1040 line 9 total income = line 11 AGI = 405000.00 (no adjustments). Line 12e standard deduction: basic 15750 (married_separate) + 0 box(es) x 1600 = 15750. Schedule 1-A Part V: married filing separately cannot claim (must file jointly); 0. Line 14 = 15750.00; line 15 taxable income = max(0, 405000.00 - 15750.00) = 389250.00. Line 16 tax on 389250.00 by the married_separate Tax Rate Schedule = 106053.75. Form 8960: L8 NII 5000.00 (interest + ordinary dividends + net gain); L13 MAGI 405000.00; L14 threshold 125000; L15 excess 280000.00; L16 smaller 5000.00; L17 x 3.8% = 190.00. Form 8959 Part I: L1 wages 400000; L5 threshold 125000; L6 excess 275000.00; L7 x 0.9% = 2475.00. total_tax = 106053.75 + 190.00 + 2475.00 = 108718.75."
+}

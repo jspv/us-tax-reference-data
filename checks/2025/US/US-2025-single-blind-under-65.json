@@ -1,0 +1,40 @@
+{
+  "id": "US-2025-single-blind-under-65",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "none",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction"
+  ],
+  "description": "Single filer age 45, blind at the end of the year, wages only: one unmarried additional standard deduction for blindness.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1980-09-18",
+        "age": 45,
+        "blind": true
+      }
+    ],
+    "wages": "50000"
+  },
+  "expected": {
+    "agi": "50000.00",
+    "standard_deduction": "17750.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "32250.00",
+    "regular_tax": "3631.50",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "3631.50"
+  },
+  "worked": "Filing status: single.\nTaxpayer: born 1980-09-18, age 45 at the end of 2025, blind.\nForm 1040: line 1z wages 50,000.\nForm 1040 line 9 total income = 50,000 = 50,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 50,000.\nLine 12e standard deduction = 15,750 basic (single) + 1 x 2,000 additional (unmarried amount, one per box checked on line 12d for age 65 or older / blind) = 17,750.\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 17,750 + 0 = 17,750; line 15 taxable income = 50,000 - 17,750 = 32,250.\nForm 1040 line 16 (regular tax): Tax Rate Schedule X (single) on 32,250: 10% x 11,925 = 1,192.50; 12% x (32,250 - 11,925) = 2,439; total 3,631.50\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 50,000; line 14 threshold = 200,000; line 15 = 50,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 50,000; line 5 = 200,000 (single); line 6 = 50,000 - 200,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 3,631.50 regular + 0 net investment income tax + 0 additional Medicare tax = 3,631.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

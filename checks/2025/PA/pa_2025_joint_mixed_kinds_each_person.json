@@ -1,0 +1,85 @@
+{
+  "id": "pa_2025_joint_mixed_kinds_each_person",
+  "state": "PA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pa_ira_from_59_5",
+    "pa_military_pension",
+    "pa_public_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+    "section": "PA-40 lines 1a to 12 (form pages 1-2); PDF page 1 and form line 12 rate 3.07 percent; PDF page 9 no standard deduction or exemptions; PDF page 20 Lines 9 and 10; PDF page 21 Lines 11 and 12; PDF page 8 'Military pension benefits'; PDF page 12 Distributions item 6; PDF page 12 'Distributions from Eligible Employer-Sponsored Retirement or Deferred Compensation Programs' item 5 (all distributions, any Box 7 code); PDF page 13 Filing Tip 3; PDF page 8 'Civil Service Annuity'; PDF page 12 'Individual Retirement Accounts', Withdrawals, item 1; PDF page 14 IMPORTANT (retired before 59 1/2: cost recovery until 59 1/2); projection: an IRA withdrawal before 59 1/2 is taxed at the federal taxable amount",
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-12-12"
+      },
+      {
+        "age": 58,
+        "born": "1967-09-19"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        },
+        {
+          "amount": "25000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "PA",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "interest": "20000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "66900.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "30000.00",
+    "state_tax_before_credits": "921.00",
+    "credits": "0.00",
+    "state_income_tax": "921.00",
+    "relief_amounts": {
+      "pa_ira_from_59_5": "15000.00",
+      "pa_military_pension": "30000.00",
+      "pa_public_pension": "25000.00"
+    }
+  },
+  "worked": "Several kinds across two spouses: each person's items are tested on that person; person 1 is 58, so person 1's IRA stays taxed. Federal AGI = military pension person 0 30,000.00 + PA government pension person 1 25,000.00 + IRA distribution person 0 15,000.00 + IRA distribution person 1 10,000.00 + interest 20,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 31,500.00 + age 65 addition 1,600.00 = 66,900.00 (given, not tested; the federal senior deduction is ignored). Pennsylvania, as the projection works it: start federal AGI 100,000.00; less 30,000.00 military pension person 0 (pa_military_pension); less 25,000.00 PA government pension person 1 (pa_public_pension); less 15,000.00 IRA distribution person 0 (born 1953-12-12, 59 1/2 on 2013-06-12) (pa_ira_from_59_5); IRA distribution person 1 10,000.00 stays taxed at the federal amount (born 1967-09-19, 59 1/2 on 2027-03-19, after December 31, 2025); income after reliefs = 30,000.00. No standard deduction or exemption (PDF page 9), no Line 10 deduction: state taxable income 30,000.00. Tax = 30,000.00 x 0.0307 = 921.00. No credit in the projection; state income tax 921.00. Form: Line 1a/1c 10,000.00; Line 2 20,000.00; Line 3 0.00; Line 5 0.00; Line 9 30,000.00; Line 10 0.00; Line 11 30,000.00; Line 12 921.00. Schedule SP: Eligibility Income 30,000.00 is over 15,250.00, so no Tax Forgiveness on the form either.",
+  "accepted_approximations": [
+    "Pennsylvania has no federal starting point: it adds the positive amounts of eight classes (compensation, interest, dividends, business, gains, rents, estates and trusts, gambling). The mapping runs from federal AGI to those classes: start from federal AGI, then take out what the reliefs below exempt. Wages, interest, dividends, gains, business income and rents are taken as federal AGI holds them, in one sum. The differences that remain are listed one by one in the next four entries.",
+    "IRA withdrawals before 59 1/2 are taxed at the federal taxable amount. Pennsylvania taxes only what exceeds previous contributions (cost recovery), and it never allowed a deduction for them, so its amount can be lower. Age is the year's: the withdrawal is exempt from the date the person reaches 59 1/2. The Guide also says a penalty-free withdrawal is exempt; the booklet says no, and the booklet is followed."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:tax_forgiveness"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

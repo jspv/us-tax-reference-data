@@ -1,0 +1,61 @@
+{
+  "id": "ct_2025_personal_credit_last_band_mfj",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 23, Table E (MFJ/QSS, more than 100,000 to 100,500: .01); PDF page 21, Table C (MFJ 0 up to 100,500); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-15"
+      },
+      {
+        "age": 52,
+        "born": "1973-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60400.00",
+          "person": 0
+        },
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100400.00",
+    "federal_taxable_income": "68900.00"
+  },
+  "expected": {
+    "state_agi": "100400.00",
+    "state_taxable_income": "100400.00",
+    "state_tax_before_credits": "4022.00",
+    "credits": "40.22",
+    "state_income_tax": "3981.78",
+    "relief_amounts": {
+      "personal_tax_credit": "40.22"
+    }
+  },
+  "worked": "Federal AGI = wages 100,400.00 = 100,400.00. Federal taxable income = 100,400.00 - 31,500.00 standard deduction = 68,900.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 100,400.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 100,400.00. Schedule 1 Line 50 total subtractions = 0.00; CT-1040 Line 4 = 0.00. CT-1040 Line 5 Connecticut AGI = 100,400.00 - 0.00 = 100,400.00. Tax Calculation Schedule Line 1 = 100,400.00; Line 2 Table A: Connecticut AGI 100,400.00 is more than 71,000.00, exemption 0.00; Line 3 taxable income = 100,400.00 - 0.00 = 100,400.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 100,400.00: 20,000.00 x 0.02 + 80,000.00 x 0.045 + 400.00 x 0.055 = 400.00 + 3,600.00 + 22.00 = 4,022.00. Line 5 Table C 0.00 (Connecticut AGI 100,400.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 4,022.00. Line 8 Table E decimal 0.01 (Connecticut AGI 100,400.00 is in the band more than 100,000.00); Line 9 = 4,022.00 x 0.01 = 40.22. Line 10 Connecticut income tax = 4,022.00 - 40.22 = 3,981.78 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Connecticut AGI 100,400 is in the last Table E band with a credit (.01) and still not over 100,500, where Table C starts.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

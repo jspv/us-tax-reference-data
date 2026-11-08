@@ -1,0 +1,492 @@
+{
+ "layer": "record",
+ "state": "UT",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Utah has no deduction from income. Tax is one flat rate (4.5%) on Utah taxable income (TC-40 line 9, which starts from federal AGI; lines 4 to 9). The federal standard or itemized deduction and the Utah personal exemption do not reduce line 9: they feed the taxpayer tax credit (lines 11 to 20), 6% of (2,111 per dependent + federal standard or itemized deduction - state income tax itemized), less 1.3% of Utah taxable income over a base amount, not below zero. The base.deductions entries record the amounts the booklet prints; they are credit inputs, never income deductions. See relief utah_taxpayer_tax_credit.",
+  "credit_basis is left out of utah_taxpayer_tax_credit: 0.06 is a share of line 15 (exemptions plus deductions), which is neither the covered income nor the tax, and the schema has no value for it. cap is left out too: the booklet prints no cap, and line 12 is whatever the federal return shows.",
+  "The booklet prints no Utah standard deduction of its own. Line 12: 'Enter your federal standard or itemized deduction from line 12e of your federal return' (PDF page 10). The only printed figures are in the Qualified Exempt Taxpayer Worksheet (PDF page 11, line 2: 15,750 single; 23,625 head of household; 31,500 married filing joint; 15,750 married filing separate, or 0 if the spouse itemized; 31,500 qualifying surviving spouse). They are recorded as the federal amounts the booklet prints. The federal age 65 and blindness extras are excluded for the line 21 test only; line 12 takes federal line 12e, and the sources print no amount for those extras.",
+  "Personal exemption: 'The Utah personal exemption is $2,111 per dependent' (PDF page 10, Line 11). Line 2 counts dependents allowed a credit under IRC section 24, and 'You may not claim yourself or your spouse as other dependents' (PDF page 9). A dependent born in 2025 is counted twice (lines 2a and 2c). No age 65 or blindness amount is printed.",
+  "Line 14 reduces the credit base by state and local income tax itemized on federal Schedule A (line 5e less 5b and 5c, not below zero; blank for a standard deduction); no field holds it, so it is in the relief's other_conditions.",
+  "Brackets: one flat rate of 4.5% from 0 for every status; the booklet prints no separate schedule for married filing separately or head of household. PDF page 4: HB 106 lowered the rate 'from 4.55 percent to 4.5 percent'. Second document: TC-40 line 10, 'multiply line 9 by 4.5% (.045)'.",
+  "Another state's government pension, New York State included: not found in the booklet. No entry covers public_pension_other_state and no sentence names one. The subtractions are a closed list of nine codes (PDF page 10, Line 8; PDF page 19; TC-40A web page) and none is a government pension. The nearest sentence: 'Utah residents who earn income in other states must pay Utah tax on that income' (PDF page 7). Such a pension stays in federal AGI on line 4 and is taxed like any other income; only the age-based retirement credit (18), which is not tied to an income kind, or code 90 in its rare case, could apply. That it is taxed is a reading from the closed list, not a printed sentence. No reciprocity rule by paying state is printed.",
+  "Utah's own and federal civilian government pensions: not found in the booklet as a separate rule. No subtraction exists for them. PDF page 23 (AJ): military retirement pay 'does not include Social Security income, 401(k) or IRA distributions, or other sources of income, such as non-military federal retirement'. Military retirement pay has its own credit (AJ) and railroad retirement a subtraction (78).",
+  "Private pensions, IRA and 401(k) distributions: no subtraction in the booklet; they stay in federal AGI, and only the retirement credit (18) can offset them. Code 90 is limited to qualified section 401(a) plans in 'very rare cases' (PDF page 20). Roth conversions are not mentioned anywhere in the sources; no relief exists to cover them, so covers_unclear is not needed.",
+  "Social Security: no subtraction line and no sentence that benefits are taxed or exempt; none of the nine subtraction codes is Social Security (PDF page 19; TC-40A web page). The Utah base is federal AGI, so taxable benefits stay in line 9, and a credit gives relief: AH, 4.5% of taxable benefits (federal 1040 line 6b, less any amount in codes 77 or 78), 'You may only claim this credit for Social Security benefits included in adjusted gross income on this return' (PDF page 23), less 2.5% of modified income over the threshold. Treatment 'relief'.",
+  "Retirement credit (18), Social Security Benefits Credit (AH), Military Retirement Credit (AJ): 18 cannot go with AH or AJ, for either spouse on a joint return: 'You may not claim this credit if you (or your spouse, if filing jointly) claim either the Social Security Benefits Credit (code AH) or the Military Retirement Credit (code AJ)' (PDF page 21), and AH and AJ each repeat it for code 18 (PDF page 23). AH and AJ can combine: each names only code 18 as its bar, and nothing printed bars one with the other, so neither lists the other in cannot_combine_with. No best_of_group is used, because that would make AH and AJ alternatives; the filer chooses 18, or AH and/or AJ.",
+  "Retirement credit worksheet: 450 per qualifying person (900 when both spouses take it, line 1), and one reduction (2.5% of modified AGI over the threshold) taken from that total (line 10). 'the maximum amount of this credit is $450 per individual' (PDF page 21). The credit is tied to no kind of income: covers is all_income because the text says only 'born on or before Dec. 31, 1952'.",
+  "Measures: the retirement credit's modified AGI starts from TC-40 line 6 and the Social Security credit's from line 9; each subtracts the code 57 municipal addition and adds all federal tax-exempt interest (1040 line 2a). So interest added at code 57 is not counted twice. base is 'other' because no schema base subtracts code 57; the definition is in as_printed. The taxpayer tax credit's measure is line 9 itself.",
+  "Qualified Exempt Taxpayer (line 21): the whole Utah tax is zero when federal AGI is at or below the federal standard deduction (without age or blindness extras) plus the federal enhanced deduction for seniors (federal Schedule 1-A line 37). PDF page 4 says 'less than' while Line 21 says 'less than or equal' and the worksheet says line 5 is zero; the worksheet governs. The senior amount is not a fixed number and the sources print none, so the threshold is the standard deduction only and the senior add-on is in as_printed. The income test keeps the relief at the threshold itself and removes it above.",
+  "Municipal interest: Utah bonds exempt (subtraction 71 only when the interest is in federal AGI, such as Build America Bonds). Non-Utah bonds acquired after Jan. 1, 2003 are added back (code 57) unless 'the issuer does not impose an income tax on bonds issued by Utah, or the issuing state does not impose an income tax' (PDF page 18). Because the add-back depends on the issuing state's rule, treatment is 'other'.",
+  "Capital gains: the booklet prints no separate rate or deduction for gains, so capital_gains is empty; not found in the booklet that gains are taxed like ordinary income, though the flat rate and base imply it. Two credits tie to gains (04, 26), both recorded as reliefs.",
+  "All the credits recorded are nonrefundable: 'You may not carry forward or back any credit that is more than your tax liability' (AH, AJ, 04, 26, AA) and 'any retirement credit' (18). Line 24: they 'can reduce your income tax to zero, but cannot result in a refund' (PDF page 11). The schema holds no field for that.",
+  "Not recorded as reliefs: Native American income (77; the Social Security worksheet takes benefits in it out), equitable adjustments (69, 79), FDIC premiums (89), trust items, MSA and my529 addbacks, the state tax refund on line 7, the lump sum distribution addition (51, 'only applies if you filed form 4972'), the credit for income tax paid to another state (17, PDF page 26), and credits unrelated to retirement income (child tax credit, earned income credit, adoption, childcare and others). Line 51 is the only retirement-income addition.",
+  "Indexing: the sources say nothing about inflation adjustment of the rate, the 2,111 exemption, the base phase-out amounts or the credit thresholds. Recorded as not_stated.",
+  "No surtax and no recapture of lower brackets is printed; the 1.3% credit phase-out is a relief income test, not a recapture.",
+  "Settlement 2026-11-07: utah_taxpayer_tax_credit income_test.measure.base: A said other, B said state_taxable_income; PDF page 10 Line 18 uses line 9, Utah taxable income, so state_taxable_income.",
+  "Settlement 2026-11-07: all_income_scope on the taxpayer tax credit and retirement credit: A said return, B left it out; return is the default and nothing printed narrows either to one person's income. Kept.",
+  "Settlement 2026-11-07: Social Security credit who.basis: A said return, B said each_person; PDF page 23 worksheet line 1 enters one amount 'For yourself (and/or your spouse)' and line 10 one threshold, so return. Measure: A said other, B said state_taxable_income; lines 5 to 9 subtract code 57 from line 9, which no schema base says, so other, with plus_tax_exempt_interest true as both had it.",
+  "Settlement 2026-11-07: railroad (78) and previously-taxed retirement (90) who.basis: A said return, B said each_person; PDF page 20 prints no age test or cap and a single amount from the return, and brief rule 5 says return when neither applies. Return.",
+  "Settlement 2026-11-07: US obligations and Utah municipal interest (71): A wrote two entries, covering interest and dividends for US obligations; B wrote one covering interest; PDF page 19 has separate rules and says 'You may only deduct interest or dividend income from U.S. Government obligations'. A.",
+  "Settlement 2026-11-07: Qualified Exempt Taxpayer: A recorded a relief, B held it in notes saying no income test could express it; PDF pages 10 and 11 print it and effect 'removes' with the default 'over' expresses at-or-below exactly. Relief kept.",
+  "Settlement 2026-11-07: Military Survivor Benefits Credit (AA): A recorded it, B a note only; PDF page 28 prints it, 4.5% of survivor benefits, and it is retirement-type income next to AJ. Kept.",
+  "Settlement 2026-11-07: nonresident military pay (82) and nonresident military spouse income (88): A recorded reliefs, B a note only; PDF page 20 limits both to nonresidents and neither is retirement income. Dropped as reliefs; nonresident rules are outside the projection.",
+  "Settlement 2026-11-07: best_of_group: A none, B put 18, AH and AJ in one group; PDF pages 21 and 23 bar only 18 with AH or AJ, so one group would wrongly stop AH with AJ. None; cannot_combine_with holds the bars.",
+  "Settlement 2026-11-07: citations of the Qualified Exempt Taxpayer Worksheet: both readers cited PDF page 10; the pypdf marker puts it on PDF page 11. Corrected."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.045",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.045",
+    "start": "0"
+   }
+  ],
+  "cite": {
+   "publication": "2025 TC-40 Instructions",
+   "section": "PDF page 10, Line 10 'multiply line 9 by 4.5 percent (.045)'; also page 4 What's New; TC-40 page 1 line 10",
+   "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+   "accessed": "2026-11-06"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "cite": {
+   "publication": "2025 TC-40 Instructions",
+   "section": "PDF page 9, Line 4 Federal Adjusted Gross Income; page 10, Lines 5-9",
+   "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+   "accessed": "2026-11-06"
+  },
+  "deductions": [
+   {
+    "id": "utah_personal_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "2111"
+    },
+    "per": "dependent",
+    "condition": "Multiplied by the number on TC-40 line 2d (qualifying dependents; a dependent born in 2025 counted twice). Used only as part of the base of the taxpayer tax credit (line 15); not subtracted from income.",
+    "cite": {
+     "publication": "2025 TC-40 Instructions",
+     "section": "PDF page 10, Line 11 Utah Personal Exemption; PDF page 9, Line 2 Qualifying Dependents; TC-40 page 1 line 11",
+     "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+     "accessed": "2026-11-06"
+    }
+   },
+   {
+    "id": "utah_federal_standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "15750",
+     "married_separate": "15750",
+     "head_of_household": "23625",
+     "married_joint": "31500",
+     "qualifying_surviving_spouse": "31500"
+    },
+    "per": "return",
+    "condition": "Utah has no standard deduction of its own: line 12 takes the federal standard or itemized deduction as claimed on the federal return. These are the federal standard amounts printed in the Qualified Exempt Taxpayer Worksheet (married filing separately 15,750 only if the spouse did not itemize, otherwise 0). Used as part of the taxpayer tax credit base (line 15), not subtracted from income.",
+    "cite": {
+     "publication": "2025 TC-40 Instructions",
+     "section": "PDF page 11, Qualified Exempt Taxpayer Worksheet line 2 a to e; PDF page 10, Line 12",
+     "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+     "accessed": "2026-11-06"
+    }
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "2025 TC-40 Instructions",
+   "section": "PDF page 23, (AH) Social Security Benefits Credit and worksheet; no subtraction line for Social Security on TC-40A Part 2 (page 19 code list)",
+   "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+   "accessed": "2026-11-06"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "utah_taxpayer_tax_credit",
+   "label": "Utah taxpayer tax credit (TC-40 lines 15-20)",
+   "form": "credit",
+   "credit_rate": "0.06",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Credit base is line 13 (personal exemption 2,111 per qualifying dependent plus federal standard or itemized deduction) less line 14 (state income tax itemized on federal Schedule A, line 5e less 5b and 5c, not below zero); the credit is 6% of that base and cannot go below zero; it is subtracted from the 4.5% tax and the result cannot be below zero"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "state_taxable_income",
+     "as_printed": "TC-40 line 9, Utah taxable income/loss (line 6 total income less lines 7 and 8). Line 18: \"Subtract line 17 from line 9. If the result is zero or less, enter '0'.\""
+    },
+    "threshold": {
+     "single": "18213",
+     "married_separate": "18213",
+     "head_of_household": "27320",
+     "married_joint": "36426",
+     "qualifying_surviving_spouse": "36426"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.013",
+    "as_printed": "Line 19: \"Multiply line 18 by 1.3 percent (.013). This is the credit phase-out amount.\" Line 20: \"Subtract the phase-out amount on line 19 from the initial credit on line 16. If the result is zero or less, enter '0'.\" The reduction comes off the credit, after the 6%."
+   },
+   "cap_rule": "The credit is 6% of (exemptions plus federal deductions less Schedule A state income tax), less 1.3% of Utah taxable income over the base amount; not below zero. Line 22 Utah income tax = line 10 minus line 20, not below zero.",
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 10, Lines 11 to 20 and the Line 17 table; TC-40 page 1 lines 11 to 20",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_qualified_exempt_taxpayer",
+   "label": "Qualified Exempt Taxpayer (TC-40 line 21)",
+   "form": "exempt_in_full",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Federal adjusted gross income is no more than the federal standard deduction (not counting the extra age or blindness amounts) plus the federal enhanced deduction for seniors (federal Schedule 1-A line 37, 0 if not filed); married filing separately uses 0 as the standard deduction if the spouse itemized"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Federal adjusted gross income from line 11a of the federal return"
+    },
+    "threshold": {
+     "single": "15750",
+     "married_separate": "15750",
+     "head_of_household": "23625",
+     "married_joint": "31500",
+     "qualifying_surviving_spouse": "31500"
+    },
+    "effect": "removes",
+    "as_printed": "Worksheet line 5 = line 1 (federal AGI) minus line 4 (standard deduction on line 2 plus federal enhanced senior deduction on line 3), not below zero; if line 5 is zero the filer is exempt, enters X on line 21 and 0 on line 22. The threshold shown excludes the senior deduction, which adds to it."
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 10, Line 21; PDF page 11, Qualified Exempt Taxpayer Worksheet lines 1 to 5; PDF page 4, Exemptions",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_retirement_credit",
+   "label": "Retirement Credit (code 18)",
+   "form": "credit",
+   "credit_amount": "450",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "born_on_or_before": "1952-12-31",
+    "other_conditions": [
+     "Claimed by you and/or your spouse (if filing jointly), each born on or before Dec. 31, 1952; enter the birth date(s) on TC-40A"
+    ]
+   },
+   "cap": {
+    "all": "450"
+   },
+   "cap_per": "person",
+   "cap_rule": "Worksheet line 1: 450 if only one spouse takes it, 900 if both do. Reduced by 2.5% of modified adjusted gross income over the threshold (line 9 = line 8 x 0.025), result not below zero; the reduction is figured once on the return. The credit is nonrefundable and cannot be carried forward or back.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "plus_tax_exempt_interest": true,
+     "as_printed": "Modified Adjusted Gross Income = TC-40 line 6 (total income) minus municipal bond interest added back (Schedule A Part 1 code 57), plus tax exempt interest from federal form 1040 or 1040-SR line 2a"
+    },
+    "threshold": {
+     "married_separate": "16000",
+     "married_joint": "32000",
+     "single": "25000",
+     "qualifying_surviving_spouse": "32000",
+     "head_of_household": "32000"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.025",
+    "as_printed": "Line 7: married filing separately 16,000 (also married filing federal 1040NR 16,000); married filing joint 32,000; single 25,000; qualifying surviving spouse or head of household 32,000. Line 8 = line 6 minus line 7 (not below zero); line 9 = line 8 x 0.025. Line 10: \"Subtract line 9 from line 1 (not less than zero)\": one reduction on the return, from 450 or 900."
+   },
+   "cannot_combine_with": [
+    "utah_social_security_credit",
+    "utah_military_retirement_credit"
+   ],
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 21, (18) Retirement Credit (UCA 59-10-1019) and Retirement Credit Worksheet lines 1 to 10; TC-40A web page, (18)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_social_security_credit",
+   "label": "Social Security Benefits Credit (code AH)",
+   "form": "credit",
+   "credit_rate": "0.045",
+   "credit_basis": "covered_income",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "You or your spouse (if filing jointly) received taxable Social Security retirement, disability or survivor benefits included in adjusted gross income on this return; any Social Security benefit included in Native American income (77) or railroad retirement (78) subtractions is taken out"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "plus_tax_exempt_interest": true,
+     "as_printed": "Worksheet line 9: TC-40 line 9 (Utah taxable income/loss) minus municipal bond interest added back (Schedule A Part 1 code 57), plus tax exempt interest from federal form 1040, 1040-SR or 1040-NR line 2a"
+    },
+    "threshold": {
+     "married_separate": "45000",
+     "married_joint": "90000",
+     "single": "54000",
+     "qualifying_surviving_spouse": "90000",
+     "head_of_household": "90000"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.025",
+    "as_printed": "Line 10: married filing separately 45,000 (also married filing federal 1040-NR 45,000); married filing joint 90,000; single 54,000; qualifying surviving spouse or head of household 90,000. Line 11 = line 9 minus line 10 (not below zero); line 12 = line 11 x 0.025; credit (line 13) = line 4 (4.5% of taxable benefits, federal 1040 line 6b less amounts in codes 77/78) minus line 12, not below zero. The reduction comes off the credit, after the 4.5%."
+   },
+   "cap_rule": "Credit = 4.5% of taxable Social Security benefits (line 6b) less 2.5% of modified income over the threshold; not below zero. Nonrefundable; no carryforward or carryback of any amount more than the tax.",
+   "cannot_combine_with": [
+    "utah_retirement_credit"
+   ],
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 23, (AH) Social Security Benefits Credit (UCA 59-10-1042) and Social Security Credit Worksheet lines 1 to 13; TC-40A web page, (AH)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_military_retirement_credit",
+   "label": "Military Retirement Credit (code AJ)",
+   "form": "credit",
+   "credit_rate": "0.045",
+   "credit_basis": "covered_income",
+   "covers": [
+    "military_pension"
+   ],
+   "not_covered": [
+    "Social Security income",
+    "401(k) or IRA distributions",
+    "other sources of income, such as non-military federal retirement",
+    "survivor benefits of a service member who died on active duty or in training (use the Military Survivor Benefits Credit, code AA)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Received taxable military retirement pay (retirement pay related to service in the armed forces, including retirement pay received by a survivor of a deceased service member) included in adjusted gross income on this return; one worksheet per person"
+    ]
+   },
+   "cannot_combine_with": [
+    "utah_retirement_credit"
+   ],
+   "cap_rule": "No cap or income test printed: credit is 4.5% (multiply line 1 by 0.045) of taxable military retirement pay. Nonrefundable, no carryforward.",
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 23, (AJ) Military Retirement Credit (UCA 59-10-1043); PDF page 24, Military Retirement Credit Worksheet lines 1 and 2",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_military_survivor_credit",
+   "label": "Military Survivor Benefits Credit (code AA)",
+   "form": "credit",
+   "credit_rate": "0.045",
+   "credit_basis": "covered_income",
+   "covers": [
+    "other_income"
+   ],
+   "not_covered": [
+    "survivor benefits where the deceased service member was retired from the armed forces (take the Military Retirement Credit, code AJ)"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Surviving spouse or dependent child (10 U.S.C. Sec 1447) of a deceased military member receiving survivor benefits"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 28, (AA) Military Survivor Benefits Credit",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_railroad_retirement_subtraction",
+   "label": "Railroad retirement income (subtraction code 78)",
+   "form": "subtraction",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Pension, disability, unemployment or sickness benefits under the Railroad Retirement Act; deductible only if taxed on the federal return, reported on federal form 1040 or 1040-SR lines 5b and/or 6b; only the railroad retirement part of those lines"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 20, (78) Railroad Retirement Income",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_previously_taxed_retirement",
+   "label": "Previously-taxed Retirement Income (subtraction code 90)",
+   "form": "subtraction",
+   "covers": [
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Distribution from a qualified IRC section 401(a) plan included in federal AGI, where the amount when paid into the plan was not in federal AGI and was taxed by another state, the District of Columbia or a U.S. possession; the booklet says most filers do not qualify"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 20, (90) Previously-taxed Retirement Income",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_us_obligations_interest",
+   "label": "Interest from U.S. Government obligations (subtraction code 71)",
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "Interest or dividends from Federal National Mortgage Association (FNMA) and Government National Mortgage Association (GNMA)",
+    "Interest on IRS or other federal agency refunds"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Only interest or dividend income from U.S. Government obligations (Treasury bills, notes, E, EE, H, HH and I bonds) included in federal AGI, after subtracting related interest expense on money borrowed to buy the obligation"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 19, (71) Interest from Utah Municipal Bonds and U.S. Government Obligations",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_own_muni_interest",
+   "label": "Interest from Utah municipal bonds (subtraction code 71)",
+   "form": "subtraction",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Only Utah municipal bond interest that is included in federal AGI (e.g. Build America Bonds); ordinary municipal interest is already excluded federally so nothing is subtracted"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 19, (71) Utah Municipal Bonds",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_capital_gain_reinvest_credit",
+   "label": "Capital Gain Transactions Credit (code 04)",
+   "form": "credit",
+   "credit_rate": "0.045",
+   "credit_basis": "covered_income",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Transaction on or after Jan. 1, 2008; at least 70 percent of gross proceeds used to buy stock in a qualified Utah small business corporation within 12 months; no ownership interest in that corporation at the time of investment"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 21, (04) Capital Gain Transactions Credit",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  },
+  {
+   "id": "utah_gold_silver_coin_credit",
+   "label": "Gold and Silver Coin Sale Credit (code 26)",
+   "form": "credit",
+   "credit_rate": "0.045",
+   "credit_basis": "covered_income",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Short- or long-term gain on the sale or exchange of gold or silver coin issued by the federal government for another form of legal tender, reported on Schedule D, net of coin capital losses, and not more than federal Schedule D line 16; transaction in the tax year"
+    ]
+   },
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF page 23, (26) Gold and Silver Coin Sale Credit",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other",
+  "note": "Utah municipal bond interest is exempt (subtraction 71 only where included in federal AGI). Interest on non-Utah municipal bonds acquired after Jan. 1, 2003 is added back (code 57) unless the issuer does not impose an income tax on Utah bonds or the issuing state has no income tax.",
+  "cite": {
+   "publication": "2025 TC-40 Instructions",
+   "section": "PDF page 18, (57) Municipal Bond Interest; page 19, (71) Utah Municipal Bonds",
+   "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+   "accessed": "2026-11-06"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "PDF pages 4 and 10: no sentence on inflation adjustment in the sources",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+    "accessed": "2026-11-06"
+   }
+  }
+ ],
+ "recapture": []
+}

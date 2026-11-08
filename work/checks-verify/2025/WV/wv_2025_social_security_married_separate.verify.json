@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "48570.00",
+    "state_taxable_income": "46570.00",
+    "state_tax_before_credits": "1825.42",
+    "credits": "0.00",
+    "state_income_tax": "1825.42",
+    "relief_amounts": {
+      "wv_social_security": "6630.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 55200.00 (married_separate). Federal standard deduction and senior deduction ignored: WV starts from federal AGI. You: line 34 taxable Social Security 10200.00; federal AGI 55200.00 exceeds 50000 -> x 0.65 = 6630.0000. Line 2 additions 0; line 3 subtractions 6630.0000; line 4 WV AGI = 55200.00 + 0 - 6630.0000 = 48570.0000. Line 6 exemptions 1 x 2,000 = 2000; line 7 taxable income 48570.0000 - 2000 = 46570.0000. Tax (rate schedule, exact, no table):   0-5,000 x 0.0222 = 111.0000   5,000-12,500 x 0.0296 = 222.0000   12,500-20,000 x 0.0333 = 249.7500   20,000-30,000 x 0.0444 = 444.0000   30,000-46,570.0000 x 0.0482 = 798.67400000 Tax = 1825.42400000 -> 1825.42. No credits modelled: credits 0.00; income tax 1825.42."
+}

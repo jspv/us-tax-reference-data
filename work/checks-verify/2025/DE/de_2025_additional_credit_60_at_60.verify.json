@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "220.00",
+    "relief_amounts": {
+      "de_personal_credit": "110.00",
+      "de_additional_personal_credit_60": "110.00"
+    },
+    "state_agi": "45250.00",
+    "state_income_tax": "1724.50",
+    "state_tax_before_credits": "1944.50",
+    "state_taxable_income": "42000.00"
+  },
+  "worked": "Line 1 federal AGI 45250.00. Person 0 (age 60) 60-or-over worksheet: pension 0.00 + eligible retirement income (IRA/plan 0.00, interest/dividends/gains share 0.00) = 0.00; lesser of that and 12,500 = 0.00. Line 12 Delaware AGI = 45250.00 - 0.00 = 45250.00 (no additions; Line 11 not modelled). Line 20a standard deduction 3250.00; Line 22 total 3250.00. Line 23 taxable income = 45250.00 - 3250.00 = 42000.00 -> 42000.00. Line 24 tax from the 30 Del. C. 1102(a)(14) schedule (0% to 2,000): 0.022 x (5000-2000) = 66.000; 0.039 x (10000-5000) = 195.000; 0.048 x (20000-10000) = 480.000; 0.052 x (25000-20000) = 260.000; 0.0555 x (42000.00-25000) = 943.500000; total 1944.50. Line 27a personal credits 110 x 1 = 110.00; Line 27b 110 x 1 (60 or over on 12/31/2025) = 110.00; total 220.00; non-refundable, limited to tax 1944.50: credits used 220.00. Line 33 balance due = 1944.50 - 220.00 = 1724.50. Federal figures given; federal senior deduction ignored per brief."
+}

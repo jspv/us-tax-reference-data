@@ -1,0 +1,32 @@
+{
+  "id": "US-2025-single-wages-brackets",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "none",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction"
+  ],
+  "description": "Single filer age 40, wages only; ordinary income through the 10%, 12% and 22% brackets.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1985-04-12",
+        "age": 40
+      }
+    ],
+    "wages": "85000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

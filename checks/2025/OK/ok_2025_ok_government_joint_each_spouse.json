@@ -1,0 +1,74 @@
+{
+  "id": "ok_2025_ok_government_joint_each_spouse",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ok_government_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); Schedule 511-A (form PDF page 45); Schedule 511-A line 5, Oklahoma Government or Federal Civil Service Retirement (PDF page 17); Special exemption and Sixty-five or older (PDF page 9)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-05-01"
+      },
+      {
+        "age": 67,
+        "born": "1958-05-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "OK"
+        },
+        {
+          "amount": "14000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "OK"
+        }
+      ]
+    },
+    "federal_agi": "62000.00",
+    "federal_taxable_income": "27300.00"
+  },
+  "expected": {
+    "state_agi": "42000.00",
+    "state_taxable_income": "27300.00",
+    "state_tax_before_credits": "919.75",
+    "credits": "0.00",
+    "state_income_tax": "919.75",
+    "relief_amounts": {
+      "ok_government_retirement": "20000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (you) 30,000.00 + Oklahoma public pension (you) 18,000.00 + Oklahoma public pension (spouse) 14,000.00 = 62,000.00. Federal taxable income = 62,000.00 - standard deduction 34,700.00 (31,500.00 + 2 x 1,600.00 for 65 or older) = 27,300.00 (federal senior deduction ignored; federal figures are given, not tested; Oklahoma starts from federal AGI). Schedule 511-A: line 5: you 18,000.00 in federal AGI, limit 10,000.00, claims 10,000.00; spouse 14,000.00 in federal AGI, limit 10,000.00, claims 10,000.00; line total 20,000.00; line 18 total subtractions 20,000.00 = 20,000.00. Form 511: line 1 federal AGI 62,000.00; line 2 subtractions 20,000.00; line 3 = 62,000.00 - 20,000.00 = 42,000.00; line 4 out-of-state income 0.00; line 5 42,000.00; line 6 additions 0.00; line 7 Oklahoma AGI 42,000.00; line 8 adjustments 0.00; line 9 42,000.00; line 10 standard deduction (married joint) 12,700.00; line 11 exemptions: 2 Regular + 0 Special = 2 x 1,000.00 = 2,000.00 (2 person(s) 65 or older; line 1 62,000.00 is over the 25,000.00 limit, so 0 Special); line 12 = 12,700.00 + 2,000.00 = 14,700.00; line 13 taxable income = 42,000.00 - 14,700.00 = 27,300.00; line 14 tax (the projection's brackets as numbers; the booklet prints only a table and worksheets): 0.25% x 2,000.00 = 5.0000 + 0.75% x 3,000.00 = 22.5000 + 1.75% x 2,500.00 = 43.7500 + 2.75% x 2,300.00 = 63.2500 + 3.75% x 4,600.00 = 172.5000 + 4.75% x 12,900.00 = 612.7500; total 919.7500 = 919.75. Line 13 is under 100,000, so the form reads the tax table: row 27,300-27,350, column 'Married filing joint or head of household', PDF page 30, gives 921; expected keeps the schedule figure. Lines 15-17 credits 0.00; line 18 income tax 919.75. Each individual has a limit, so each spouse claims 10,000.00 from a pension in that spouse's own name.",
+  "accepted_approximations": [
+    "The brackets are derived from the printed tax table and the 100,000-and-over worksheets; the booklet prints no schedule. Below 100,000 tax is figured on the exact income, where the booklet taxes each 50-dollar row at its midpoint and rounds. At 100,000 and over the single and separate worksheet starts from 4,562 where the schedule gives 4,561.50."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:csrs_in_lieu_of_ss"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "wi_2025_ny_state_pension_under_67",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: Publication 126 PDF page 4 section 3 (a pension for services in another state is taxed as on the federal return) and PDF page 11 section J (a section 414(d) government plan is a qualified retirement plan); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-04-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "45000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": false
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "29250.00"
+  },
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "33824.00",
+    "state_tax_before_credits": "1356.14",
+    "credits": "0.00",
+    "state_income_tax": "1356.14"
+  },
+  "worked": "Single, 62: New York State pension 45,000. Under 65, so neither retirement subtraction; Wisconsin taxes the pension as on the federal return (Publication 126 PDF page 4 section 3: 'This is true even though the retirement benefit may be due to services performed in another state'). Federal (given, not tested): federal AGI = public pension paid by NY (you) 45,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 15,750.00 = 29,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 45,000.00; line 2 Schedule I adjustments 0.00; line 3 45,000.00; line 4 additions 0.00; line 5 45,000.00. Schedule SB: no subtraction applies; line 50 0.00. Form 1 line 6 0.00; line 7 Wisconsin income = 45,000.00 - 0.00 = 45,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 45,000 to less than 45,500, column Single: 10,476.00 (printed row, at least / less than / single / joint / separate / head of household: 45,000 / 45,500 / 10,476 / 21,740 / 5,629 / 11,734). Line 9 = 45,000.00 - 10,476.00 = 34,524.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 34,524.00 - 700.00 = 33,824.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 19,144.00 = 842.336; total 1,356.136, rounded once to 1,356.14. The Tax Table row 33,800 to 33,900 (PDF page 40) gives 1,357; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 1,356.14.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "ct_2025_pension_below_mfj",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_annuity_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 10, Schedule 1 Line 48b; PDF page 24, Pension and Annuity Worksheet Line 1 (MFJ, under 100,000: do not complete, subtract Line 5b); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-06-15"
+      },
+      {
+        "age": 56,
+        "born": "1969-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "58500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "28000.00",
+    "state_tax_before_credits": "760.00",
+    "credits": "114.00",
+    "state_income_tax": "646.00",
+    "relief_amounts": {
+      "pension_annuity_subtraction": "40000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 50,000.00 + private pension 40,000.00 = 90,000.00. Federal taxable income = 90,000.00 - 31,500.00 standard deduction = 58,500.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 90,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 90,000.00. Schedule 1 Line 48b pension and annuity (Line 5b part): federal AGI 90,000.00 is under the 100,000.00 test, decimal 1; 40,000.00 x 1 = 40,000.00 -> 40,000.00. Schedule 1 Line 50 total subtractions = 40,000.00; CT-1040 Line 4 = 40,000.00. CT-1040 Line 5 Connecticut AGI = 90,000.00 - 40,000.00 = 50,000.00. Tax Calculation Schedule Line 1 = 50,000.00; Line 2 Table A: Connecticut AGI 50,000.00 is more than 49,000.00, exemption 22,000.00; Line 3 taxable income = 50,000.00 - 22,000.00 = 28,000.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 28,000.00: 20,000.00 x 0.02 + 8,000.00 x 0.045 = 400.00 + 360.00 = 760.00. Line 5 Table C 0.00 (Connecticut AGI 50,000.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 760.00. Line 8 Table E decimal 0.15 (Connecticut AGI 50,000.00 is in the band more than 41,500.00); Line 9 = 760.00 x 0.15 = 114.00. Line 10 Connecticut income tax = 760.00 - 114.00 = 646.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: No age test: the 58-year-old's private pension is subtracted in full because federal AGI is under 100,000.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit",
+    "state_rule_not_modelled:teachers_pension_50"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

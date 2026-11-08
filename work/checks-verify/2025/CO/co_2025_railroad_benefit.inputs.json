@@ -1,0 +1,51 @@
+{
+  "id": "co_2025_railroad_benefit",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_railroad_benefit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 15 Railroad Benefit (PDF p.22 Line 15; DR 0104AD p.2 line 15); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-12-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_railroad_benefit"
+  ]
+}

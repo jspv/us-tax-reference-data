@@ -1,0 +1,53 @@
+{
+  "id": "wi_2025_retirement_5000_joint_at_or_above",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_retirement_5000"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 17 and the Retirement Income Subtraction Worksheet lines 1-6 (SB Instructions PDF page 8; Publication 126 PDF pages 8-9 section 4.E(2)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-03-03"
+      },
+      {
+        "age": 65,
+        "born": "1960-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "1000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "interest": "28000.00"
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

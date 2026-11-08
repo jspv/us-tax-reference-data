@@ -1,0 +1,51 @@
+{
+  "id": "ks_2025_std_separate",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "kansas_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-02-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "26720.00",
+    "state_tax_before_credits": "1403.58",
+    "credits": "0.00",
+    "state_income_tax": "1403.58"
+  },
+  "worked": "Federal AGI = wages (you) 40,000.00 = 40,000.00. Federal taxable income = 40,000.00 - standard deduction 15,750.00 (15,750.00) = 24,250.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). No Kansas modifications: Schedule S lines A9 and A26 are 0.00, line A27 net modification 0.00 (the K-40 instructions let a filer skip line 2). Form K-40: line 1 federal AGI 40,000.00; line 2 modifications 0.00; line 3 Kansas AGI = 40,000.00 + (0.00) = 40,000.00; line 4 standard deduction (married filing separate) 4,120.00; line 5 exemption allowance (1 exemption) 9,160.00, 0 dependents; line 6 total deductions = 4,120.00 + 9,160.00 = 13,280.00; line 7 taxable income = 40,000.00 - 13,280.00 = 26,720.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 23,000.00 = 1,196.00 + 5.58% x (26,720.00 - 23,000.00 = 3,720.00) = 207.5760; total 1,403.5760 = 1,403.58. Line 7 is 100,000 or less, so the form reads the tax table: row 26,701-26,750, single, head of household or married filing separate column, PDF page 29, gives 1,404; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 1,403.58. Credits (lines 13-15, 17): none, 0.00; state income tax = 1,403.58. Separate return: the standard deduction is 4,120.00 (not the single 3,605.00), the exemption the full 9,160.00, and the 5.2% band runs to 23,000 as for single. Standard deduction assumed for both spouses (PDF page 6: both must use the same method).",
+  "accepted_approximations": [
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

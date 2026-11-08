@@ -1,0 +1,139 @@
+{
+  "US": {
+    "agency": "U.S. federal government (IRS, CMS, SSA, Treasury)",
+    "forms_page_url": "https://www.irs.gov/forms-instructions",
+    "sources": [
+      {
+        "title": "Rev. Proc. 2025-32, 2026 inflation adjustments (as amended by P.L. 119-21)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2026 Form 1040-ES, Estimated Tax for Individuals (prints 2026 tax rate schedules and standard deductions)",
+        "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "IRS Notice 2025-67, 2026 amounts relating to retirement plans and IRAs",
+        "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "CMS fact sheet: 2026 Medicare Parts A & B Premiums and Deductibles (includes Part B and Part D income-related monthly adjustment amount tables)",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+        "kind": "html"
+      },
+      {
+        "title": "SSA 2026 Cost-of-Living Adjustment (COLA) Fact Sheet, web page version (no PDF address confirmed)",
+        "url": "https://www.ssa.gov/news/en/cola/factsheets/2026.html",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 1 (U.S. Code, 2024 edition, govinfo): Tax imposed: rate schedules and inflation adjustment (1(f), 1(h), 1(j))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 63 (U.S. Code, 2024 edition, govinfo): Taxable income defined: standard deduction (63(c), 63(f))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 151 (U.S. Code, 2024 edition, govinfo): Allowance of deductions for personal exemptions (151(d))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partV-sec151.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 86 (U.S. Code, 2024 edition, govinfo): Social security and tier 1 railroad retirement benefits",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 1411 (U.S. Code, 2024 edition, govinfo): Net investment income tax",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2A-sec1411.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 164 (U.S. Code, 2024 edition, govinfo): Taxes (164(b)(6) state and local tax limit)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVI-sec164.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 219 (U.S. Code, 2024 edition, govinfo): Retirement savings (IRA limit 219(b)(5))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 402 (U.S. Code, 2024 edition, govinfo): Taxability of beneficiary of employees' trust (402(g) elective deferral limit)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 414 (U.S. Code, 2024 edition, govinfo): Definitions and special rules (414(v) catch-up contributions)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 408 (U.S. Code, 2024 edition, govinfo): Individual retirement accounts (408(d)(8) qualified charitable distributions)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 408A (U.S. Code, 2024 edition, govinfo): Roth IRAs (408A(c)(3) contribution limit phase-out)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 401 (U.S. Code, 2024 edition, govinfo): Qualified pension, profit-sharing, and stock bonus plans (401(a)(9) required beginning date)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 223 (U.S. Code, 2024 edition, govinfo): Health savings accounts",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 3101 (U.S. Code, 2024 edition, govinfo): Rate of tax (FICA employee; 3101(b)(2) additional Medicare tax)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 1401 (U.S. Code, 2024 edition, govinfo): Rate of tax (self-employment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 430 (U.S. Code, 2024 edition, govinfo): Adjustment of contribution and benefit base",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec430.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 1395r (U.S. Code, 2024 edition, govinfo): Amount of premiums for individuals enrolled under Part B (1395r(i) income-related adjustment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 1395w-113 (U.S. Code, 2024 edition, govinfo): Premiums; late enrollment penalty (Part D income-related adjustment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 CFR 408.27 Rounding of monthly premium (eCFR)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-42?part=408&section=408.27",
+        "kind": "html"
+      },
+      {
+        "title": "26 CFR 1.401(a)(9)-9, Life expectancy and distribution period tables (eCFR)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+        "kind": "html"
+      },
+      {
+        "title": "Public Law 119-21 (One Big Beautiful Bill Act), enrolled text (govinfo)",
+        "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Federal sources for tax year 2026. Form 1040-ES address is the current edition (2026) at irs.gov/pub/irs-pdf. The CMS fact sheet carries the Part D IRMAA table too (no separate 2026 document)."
+  }
+}

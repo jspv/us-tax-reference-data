@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "26000.00",
+    "state_income_tax": "1036.25",
+    "state_tax_before_credits": "1036.25",
+    "state_taxable_income": "21525.00"
+  },
+  "worked": "Start: federal AGI 26,000.00 (projection starts_from federal_agi). wages person 0 26,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 26,000.00. Standard deduction (single, state AGI 26,000.00 over 25999): 2,975.00. Personal exemption (single): 1,500.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 26,000.00 - 2,975.00 - 1,500.00 = 21,525.00. Tax on 21,525.00 with the single brackets: 0.02 x (500.00 - 0.00) = 10.00; 0.04 x (3,000.00 - 500.00) = 100.00; 0.05 x (21,525.00 - 3,000.00) = 926.25; total 1,036.25. Credits: none in the projection: 0.00. State income tax = 1,036.25."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "vt_2025_age_born_1961_01_01",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46); age box: 'born before Jan. 2, 1961' (PDF pp.10-11 Line 4)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "70020.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70020.00",
+    "federal_taxable_income": "52270.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

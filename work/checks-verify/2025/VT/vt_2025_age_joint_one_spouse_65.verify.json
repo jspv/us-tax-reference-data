@@ -1,0 +1,10 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "90010.00",
+  "state_income_tax": "2105.81",
+  "state_tax_before_credits": "2105.81",
+  "state_taxable_income": "62860.00"
+ },
+ "worked": "Filing status married_joint; IN-111 Line 1 federal AGI 90,010.00 (federal taxable income 56910.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 19 net modification = 0.00 - 0.00; IN-111 Line 3 state AGI = 90,010.00 + 0.00 - 0.00 = 90,010.00. Line 4 standard deduction 15,300.00 + 1,250 x 1 (born before Jan. 2, 1961) = 16,550.00; Line 5e exemptions 2 x 5,300 = 10,600.00; Line 6 = 27,150.00. Line 7 taxable income = 90,010.00 - 27,150.00 = 62,860.00. Rate schedule (married_joint): 3.3500% x (62,860.00 - 0.00) = 2105.810000; total 2105.810000. Line 8: federal AGI 90,010.00 not greater than 150,000, minimum tax does not apply; tax 2,105.81 (formula, not the 100-dollar tax table). No credits modelled: credits 0.00; state income tax 2,105.81."
+}

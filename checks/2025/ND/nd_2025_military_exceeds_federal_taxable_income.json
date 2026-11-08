@@ -1,0 +1,54 @@
+{
+  "id": "nd_2025_military_exceeds_federal_taxable_income",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Line 14 (the amount reported on Form 1040 line 5b, not limited to federal taxable income); Form ND-1 line 18 'If less than zero, enter 0'; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-08-08"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "12250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "military_retirement_exclusion": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = military retirement (person 0) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 age 65 additional = 12,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 12,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 12,250.00. Subtractions: line 14 military retirement benefit exclusion 30,000.00. Line 17 total subtractions = 30,000.00. Line 18 North Dakota taxable income = 12,250.00 - 30,000.00 = -17,750.00, less than zero, so enter 0 (expected 0.00). Line 19 = 0.00. Line 20 tax: 0.00 is in the 0% band (up to 48,475.00), so the tax = 0.00. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 0.00. The full 30,000.00 is entered on line 14 even though the federal standard deduction already took 17,750.00 of it: the line asks for the amount on Form 1040 line 5b. relief_amounts shows that full figure.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit",
+    "state_rule_not_modelled:peace_officer_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

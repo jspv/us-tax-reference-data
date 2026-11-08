@@ -1,0 +1,64 @@
+{
+  "id": "wi_2025_railroad_retirement",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 15 (SB Instructions PDF page 7; Publication 126 PDF page 5 section 4.A); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "29250.00"
+  },
+  "expected": {
+    "state_agi": "25000.00",
+    "state_taxable_income": "11424.00",
+    "state_tax_before_credits": "399.84",
+    "credits": "0.00",
+    "state_income_tax": "399.84",
+    "relief_amounts": {
+      "wi_railroad_retirement": "20000.00"
+    }
+  },
+  "worked": "Single, 63: railroad retirement (Railroad Retirement Board, the part on federal Form 1040 line 5b) 20,000 and wages 25,000. Line 15 subtracts it in full. Federal (given, not tested): federal AGI = wages (you) 25,000.00 + public railroad retirement paid by federal (you) 20,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 15,750.00 = 29,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 45,000.00; line 2 Schedule I adjustments 0.00; line 3 45,000.00; line 4 additions 0.00; line 5 45,000.00. Schedule SB: line 15 railroad retirement = 20,000.00; line 50 total 20,000.00. Form 1 line 6 20,000.00; line 7 Wisconsin income = 45,000.00 - 20,000.00 = 25,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 25,000 to less than 25,500, column Single: 12,876.00 (printed row, at least / less than / single / joint / separate / head of household: 25,000 / 25,500 / 12,876 / 25,110 / 9,584 / 16,237). Line 9 = 25,000.00 - 12,876.00 = 12,124.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 12,124.00 - 700.00 = 11,424.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 11,424.00 = 399.84; total 399.84, rounded once to 399.84. The Tax Table row 11,400 to 11,500 (PDF page 39) gives 401; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 399.84.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

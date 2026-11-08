@@ -1,0 +1,50 @@
+{
+  "id": "il_2025_qss_gets_single_amount",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8; Line B 'Widowed' for a federal Qualifying Surviving Spouse, Instructions PDF page 6",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 47,
+        "born": "1978-02-17"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "102850.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "102850.00",
+    "federal_taxable_income": "71350.00"
+  },
+  "expected": {
+    "state_agi": "102850.00",
+    "state_taxable_income": "100000.00",
+    "state_tax_before_credits": "4950.00",
+    "credits": "0.00",
+    "state_income_tax": "4950.00",
+    "relief_amounts": {
+      "il_personal_exemption": "2850.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 102,850.00 = 102,850.00. Federal taxable income = 102,850.00 - standard deduction 31,500.00 = 71,350.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 102,850.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 = 102,850.00. Line 5 0.00. Lines 6 and 7 0.00. Line 8 = 0.00. Line 9 base income = 102,850.00 - 0.00 = 102,850.00. Income Exceptions: federal AGI 102,850.00 is not greater than 250,000.00, so the allowance stands. Line 10a 2,850.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 2,850.00. Line 11 net income = 102,850.00 - 2,850.00 = 100,000.00. Line 12 tax = 100,000.00 x 4.95% = 4,950.0000. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 4,950.00. A federal Qualifying Surviving Spouse chooses Widowed, and the chart's Single row includes Widowed, so the amount is 2,850.00, not the joint 5,700.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

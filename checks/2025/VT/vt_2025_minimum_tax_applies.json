@@ -1,0 +1,66 @@
+{
+  "id": "vt_2025_minimum_tax_applies",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_railroad_retirement",
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Line 8 minimum tax, 3% of federal AGI over 150,000 (booklet PDF p.11 Line 8; PDF p.46 note); Schedule IN-112 Part I Line 14, Railroad Retirement (IN-112 Instructions PDF p.4 Line 14; booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-09-19"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "120000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "142250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "25800.00",
+    "state_tax_before_credits": "4800.00",
+    "credits": "0.00",
+    "state_income_tax": "4800.00",
+    "relief_amounts": {
+      "vt_railroad_retirement": "120000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 40,000.00 + Railroad Retirement Tier 2 annuity (person 0) 120,000.00 = 160,000.00. Federal taxable income = 160,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 142,250.00 (federal senior deduction ignored). Form IN-111, Single: Line 1 federal AGI 160,000.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Subtractions: Line 14 Railroad Retirement 120,000.00; Line 18 total subtractions 120,000.00. Line 19 net modifications = 0.00 - 120,000.00 = -120,000.00. Form IN-111 Line 2 -120,000.00; Line 3 = 160,000.00 + (-120,000.00) = 40,000.00. Line 4 standard deduction 7,650.00 + 1 x 1,250.00 age box(es) = 8,900.00 [person 0 born 1959-09-19 (65 or older: box checked)]. Line 5a-5d personal exemptions 1; Line 5e 1 x 5,300.00 = 5,300.00. Line 6 = 8,900.00 + 5,300.00 = 14,200.00. Line 7 Vermont taxable income = 40,000.00 - 14,200.00 = 25,800.00. Line 8: schedule tax on 25,800.00 (Schedule X, booklet p.46, merged continuous schedule): 3.35% x (25,800.00 - 0.00) = 864.30; the printed row (over 0, base 0.00 + 3.35% of the amount over 0) gives 864.30 (the rate schedule, not the table, because AGI is over 150,000). Federal AGI 160,000.00 is greater than 150,000.00, so Line 8 is the higher of 3% x (federal AGI 160,000.00 less U.S. obligations interest 0.00) = 4,800.00 and the schedule tax 864.30: 4,800.00. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 4,800.00; Lines 11-13 0.00; Line 14 Vermont income tax 4,800.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_csrs_exemption",
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

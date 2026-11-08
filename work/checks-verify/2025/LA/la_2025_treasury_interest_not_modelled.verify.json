@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "44760.00",
+    "state_taxable_income": "32260.00",
+    "state_tax_before_credits": "967.80",
+    "credits": "0.00",
+    "state_income_tax": "967.80"
+  },
+  "worked": "Schedule E Line 1 federal AGI 44,760.00 (given). Line 3 = 44,760.00. 06E worksheet person 0 (age 48): under 65, Line 5 none (own L3 0.00 gets no exemption). Worksheet Line 6 code 06E = 0.00. Treasury interest 4,000.00: code 01E not modelled, stays taxed (projection approximation). Line 4H exempt income = gov 0.00 + railroad 0.00 + 06E 0.00 + 07E 0.00 = 0.00. Line 5 Louisiana AGI = 44,760.00 - 0.00 = 44,760.00. IT-540 Line 7 44,760.00; Line 8 standard deduction 12,500.00; Line 9D none; Line 10 = 32,260.00. Line 11 = 32,260.00 x .03 = 967.80 (form rounds to the dollar: 968). Line 12 credits 0.00; Line 13 tax 967.80."
+}

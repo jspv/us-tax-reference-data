@@ -1,0 +1,51 @@
+{
+  "id": "nm_2025_ss_surviving_spouse_at_limit",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "social_security_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 7, line 25, Table 2 and Examples 1 and 2; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-02-14"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "116000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "116900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.social_security_exemption"
+  ]
+}

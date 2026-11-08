@@ -1,0 +1,10 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "50040.00",
+  "state_income_tax": "1200.64",
+  "state_tax_before_credits": "1200.64",
+  "state_taxable_income": "35840.00"
+ },
+ "worked": "Filing status single; IN-111 Line 1 federal AGI 50,040.00 (federal taxable income 32290.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). Public pension: CSRS/other-systems 10,000 exemption is not_modelled by the projection (approximation: not applied); no subtraction. IN-112 Line 19 net modification = 0.00 - 0.00; IN-111 Line 3 state AGI = 50,040.00 + 0.00 - 0.00 = 50,040.00. Line 4 standard deduction 7,650.00 + 1,250 x 1 (born before Jan. 2, 1961) = 8,900.00; Line 5e exemptions 1 x 5,300 = 5,300.00; Line 6 = 14,200.00. Line 7 taxable income = 50,040.00 - 14,200.00 = 35,840.00. Rate schedule (single): 3.3500% x (35,840.00 - 0.00) = 1200.640000; total 1200.640000. Line 8: federal AGI 50,040.00 not greater than 150,000, minimum tax does not apply; tax 1,200.64 (formula, not the 100-dollar tax table). No credits modelled: credits 0.00; state income tax 1,200.64."
+}

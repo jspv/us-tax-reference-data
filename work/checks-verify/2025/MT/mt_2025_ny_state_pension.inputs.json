@@ -1,0 +1,48 @@
+{
+  "id": "mt_2025_ny_state_pension",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; No Schedule I line names it: Form 2 PDF p3 lines 8-24; Instructions PDF p21 definition of subtractions; PDF p13 line 11b; hub 'Repealed Deductions' list; settlement facts 1-3",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

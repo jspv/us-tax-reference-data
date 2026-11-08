@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "37500.00",
+    "state_tax_before_credits": "1125.00",
+    "credits": "0.00",
+    "state_income_tax": "1125.00",
+    "relief_amounts": {
+      "la_retirement_income_exemption_65": "5000.00"
+    }
+  },
+  "worked": "Schedule E Line 1 federal AGI 55,000.00 (given). Line 3 = 55,000.00. Roth conversion 20,000.00 stays in federal AGI and is left out of the 06E worksheet (projection approximation; roth_conversion is covers_unclear in the record). 06E worksheet person 0 (age 67): L1 5,000.00, L2 0.00, L3 5,000.00, L4 12,000.00, L5 lesser = 5,000.00. Worksheet Line 6 code 06E = 5,000.00. Line 4H exempt income = gov 0.00 + railroad 0.00 + 06E 5,000.00 + 07E 0.00 = 5,000.00. Line 5 Louisiana AGI = 55,000.00 - 5,000.00 = 50,000.00. IT-540 Line 7 50,000.00; Line 8 standard deduction 12,500.00; Line 9D none; Line 10 = 37,500.00. Line 11 = 37,500.00 x .03 = 1,125.00 (form rounds to the dollar: 1,125). Line 12 credits 0.00; Line 13 tax 1,125.00."
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "28500.00",
+    "state_taxable_income": "28500.00",
+    "state_tax_before_credits": "1282.50",
+    "credits": "1173.77",
+    "state_income_tax": "108.73",
+    "relief_amounts": {
+      "retirement_credit": "362.50"
+    }
+  },
+  "worked": "TC-40 line 4 federal AGI 28500.00. Line 5 additions: code 57 other-state municipal interest 0.00 (projection muni treatment other_states_taxed_own_exempt; all other-state interest added). Line 6 total income 28500.00 + 0.00 = 28500.00. Line 8 subtractions: code 78 railroad retirement 0.00 (relief railroad_retirement, exempt_in_full). Line 9 Utah taxable income 28500.00 - 0.00 = 28500.00. Qualified Exempt Taxpayer worksheet: line 1 federal AGI 28500.00; line 2 standard deduction 15750.00; line 3 senior deduction left out by the projection (threshold is the standard deduction only); line 5 = 12750.00: above zero, not exempt. State taxable income 28500.00; line 10 tax 28500.00 x 0.045 = 1282.50. Taxpayer tax credit (projection: 6% of the state income up to the cap 15750.00, the federal standard deduction without the age 65 extras): line 16 0.06 x min(28500.00, 15750.00) = 945.00; line 17 base 18213.00; line 18 10287.00; line 19 x 0.013 = 133.73; line 20 credit 811.27. Retirement credit (18): persons born on or before 1952-12-31: 1; line 1 450.00; line 2 28500.00 - line 3 code 57 0.00 + line 5 tax-exempt interest 0.00 = line 6 MAGI 28500.00; line 7 25000.00; line 8 3500.00; line 9 x 0.025 = 87.50; line 10 362.50 (one reduction on the return). Social Security credit (AH): line 1 taxable benefits 2500.00; line 4 x 0.045 = 112.50; measure (projection: federal AGI plus tax-exempt interest) 28500.00 + 0.00 = 28500.00; line 10 54000.00; line 11 0.00; line 12 x 0.025 = 0.00; line 13 112.50. Cannot combine 18 with AH or AJ: with 18 the tax is 108.73; with AH and AJ 358.73; keep 18. Credits: taxpayer tax credit 811.27 + retirement 362.50 + Social Security 0.00 + military 0.00 = 1173.77; limited to the tax 1282.50: 1173.77 (nonrefundable). Utah income tax 1282.50 - 1173.77 = 108.73. Federal figures given; federal senior deduction ignored. Amounts to the cent from the formulas; the form's whole-dollar rounding is not used."
+}

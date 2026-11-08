@@ -1,0 +1,69 @@
+{
+  "id": "ny_2025_gov_pension_federal_military",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "gov_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 9, Line 26 (the United States ... including the military); Form IT-201 line 26; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-15"
+      },
+      {
+        "age": 52,
+        "born": "1973-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        },
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "170000.00",
+    "federal_taxable_income": "138500.00"
+  },
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "73950.00",
+    "state_tax_before_credits": "3734.75",
+    "credits": "0.00",
+    "state_income_tax": "3734.75",
+    "relief_amounts": {
+      "gov_pension": "80000.00"
+    }
+  },
+  "worked": "Married filing jointly, 55 and 52. Person 0: federal civil service (CSRS/FERS annuity) pension 50,000. Person 1: military retired pay 30,000 and wages 90,000. Both pensions are from the United States, so line 26 subtracts both in full at any age. Federal AGI (IT-201 line 19) = 170,000.00. Federal taxable income = 170,000.00 - 31,500.00 federal standard deduction = 138,500.00 (given, not tested; the federal senior deduction is ignored). Subtraction: line 26 federal civil service pension (person 0) 50,000.00. Subtraction: line 26 military retired pay (person 1) 30,000.00. Line 32 total subtractions = 80,000.00. Line 33 New York AGI = 170,000.00 - 80,000.00 = 90,000.00. Line 34 New York standard deduction (married joint, PDF page 11 table) 16,050.00; line 35 = 90,000.00 - 16,050.00 = 73,950.00; line 36 dependent exemption 0 (no dependents); lines 37/38 taxable income 73,950.00. Rate schedule (PDF page 33, married joint) on 73,950.00: 17,150.00 x 4% = 686.00; 6,450.00 x 4.5% = 290.25; 4,300.00 x 5.25% = 225.75; 46,050.00 x 5.5% = 2,532.75; schedule tax = 3,734.75. NY AGI is 107,650 or less and line 38 is 65,000 or more: the rate schedule applies (PDF page 12, line 39); no recapture worksheet. Line 39 NYS tax = 3,734.75. Credits: none (the household credit, line 40, PDF page 12 tables 1-3, allows no credit above federal AGI of 28,000 single or 32,000 other statuses): state income tax = 3,734.75.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

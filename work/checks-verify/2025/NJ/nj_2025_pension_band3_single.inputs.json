@@ -1,0 +1,57 @@
+{
+  "id": "nj_2025_pension_band3_single",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.22 line 28a chart column $125,001-$150,000 ('18.75% of line 20a'), PDF p.16 IRA withdrawals, PDF p.21 line 27, PDF p.23 Worksheet D; GIT-1 & 2 p.19; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "66000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "44000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "130000.00",
+    "federal_taxable_income": "112250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_pension_exclusion"
+  ]
+}

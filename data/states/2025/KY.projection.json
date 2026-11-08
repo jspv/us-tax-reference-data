@@ -1,0 +1,557 @@
+{
+  "layer": "projection",
+  "state": "KY",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/KY.record.json",
+    "sha256": "7e16835b3024c902189393f85c48f77647ff91d6c010d039a9465824aa93cd35"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ky_standard_deduction",
+        "amount": {
+          "all": "3270"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "ky_pension_exclusion",
+      "from_record": [
+        "ky_pension_exclusion"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion",
+        "annuity"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "31110"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "ky_railroad_retirement",
+      "from_record": [
+        "ky_railroad_tier1_subtraction",
+        "ky_railroad_tier2"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "ky_personal_tax_credit_age_65",
+      "from_record": [
+        "ky_personal_tax_credit_age_65"
+      ],
+      "form": "credit",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "credit_amount": "40"
+    },
+    {
+      "id": "ky_family_size_tax_credit",
+      "from_record": [
+        "ky_family_size_tax_credit"
+      ],
+      "form": "credit",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "credit_rate": "1",
+      "credit_basis": "tax",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "plus_tax_exempt_interest": true
+        },
+        "threshold": {
+          "single": "15650",
+          "married_joint": "21150",
+          "married_separate": "21150",
+          "head_of_household": "21150",
+          "qualifying_surviving_spouse": "21150"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "single",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "single",
+            "over": "15650",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "single",
+            "over": "16276",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "single",
+            "over": "16902",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "single",
+            "over": "17528",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "single",
+            "over": "18154",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "single",
+            "over": "18780",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "single",
+            "over": "19406",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "single",
+            "over": "19876",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "single",
+            "over": "20345",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "single",
+            "over": "20815",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "married_joint",
+            "over": "21150",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "married_joint",
+            "over": "21996",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "married_joint",
+            "over": "22842",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "married_joint",
+            "over": "23688",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "married_joint",
+            "over": "24534",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "married_joint",
+            "over": "25380",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "married_joint",
+            "over": "26226",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "married_joint",
+            "over": "26861",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "married_joint",
+            "over": "27495",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "married_joint",
+            "over": "28130",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_separate",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "married_separate",
+            "over": "21150",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "married_separate",
+            "over": "21996",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "married_separate",
+            "over": "22842",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "married_separate",
+            "over": "23688",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "married_separate",
+            "over": "24534",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "married_separate",
+            "over": "25380",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "married_separate",
+            "over": "26226",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "married_separate",
+            "over": "26861",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "married_separate",
+            "over": "27495",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "married_separate",
+            "over": "28130",
+            "keep_share": "0"
+          },
+          {
+            "status": "head_of_household",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "head_of_household",
+            "over": "21150",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "head_of_household",
+            "over": "21996",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "head_of_household",
+            "over": "22842",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "head_of_household",
+            "over": "23688",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "head_of_household",
+            "over": "24534",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "head_of_household",
+            "over": "25380",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26226",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26861",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "head_of_household",
+            "over": "27495",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "head_of_household",
+            "over": "28130",
+            "keep_share": "0"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "0",
+            "keep_share": "1"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "21150",
+            "keep_share": "0.9"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "21996",
+            "keep_share": "0.8"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "22842",
+            "keep_share": "0.7"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "23688",
+            "keep_share": "0.6"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "24534",
+            "keep_share": "0.5"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "25380",
+            "keep_share": "0.4"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "26226",
+            "keep_share": "0.3"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "26861",
+            "keep_share": "0.2"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "27495",
+            "keep_share": "0.1"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "28130",
+            "keep_share": "0"
+          }
+        ]
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "credits",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.credit_amount"
+      ]
+    },
+    {
+      "figure": "family_size_tax_credit_thresholds",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs:ky_family_size_tax_credit.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "ky_pre1998_government_service",
+      "from_record": [
+        "ky_pre1998_government_service"
+      ],
+      "what": "Schedule P Part I: federal (including military, per the packet's chart), Kentucky state and Kentucky local government pension income attributable to service credit earned before January 1, 1998 is excluded with no dollar cap, on top of the 31,110. A projection cannot know the date of retirement or the months of service before 1998.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "ky_personal_tax_credit_blind_guard",
+      "from_record": [
+        "ky_personal_tax_credit_blind_guard"
+      ],
+      "what": "Personal tax credit of 40 for a person who is legally blind, or 20 for a member of the Kentucky National Guard (Schedule ITC Section B). A projection has neither fact.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ky_us_government_interest",
+      "from_record": [
+        "ky_us_government_interest"
+      ],
+      "what": "Interest on U.S. government bonds and securities is subtracted (Schedule M line 8); the projection cannot tell it from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ky_active_duty_military_pay",
+      "from_record": [
+        "ky_active_duty_military_pay"
+      ],
+      "what": "Active duty military pay is subtracted in full (Schedule M line 13).",
+      "warn_when": "never"
+    },
+    {
+      "id": "ky_killed_in_line_of_duty",
+      "from_record": [
+        "ky_killed_in_line_of_duty"
+      ],
+      "what": "All income of a soldier killed in the line of duty, for the year of death and the year before.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ky_eminent_domain_gains",
+      "from_record": [
+        "ky_eminent_domain_gains",
+        "ky_turnpike_bond_gains"
+      ],
+      "what": "Capital gains on property taken by eminent domain and on sale of Kentucky Turnpike Bonds are exempt.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ky_other_credits_and_averaging",
+      "from_record": [],
+      "what": "Credit for tax paid to another state, child and dependent care credit (20% of the federal credit), education tuition credit, business incentive credits, and 10-year averaging of lump-sum distributions (Form 4972-K).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Schedule P Part I is not applied: every government pension is held to the 31,110 limit, and military pensions likewise.",
+      "direction": "overstates_tax",
+      "size": "4% of the excluded amount lost. A 60,000 federal pension with half its service before 1998 is fully excluded by Kentucky (30,000 under Part I, 30,000 under the limit); the projection excludes 31,110, so it overstates tax by 4% of 28,890 = 1,155.60 a year."
+    },
+    {
+      "what": "One 3,270 standard deduction is applied to a married couple. On a combined return (Filing Status 2), open when both spouses had income, each spouse takes 3,270.",
+      "direction": "overstates_tax",
+      "size": "4% of 3,270 = 130.80 a year for a couple who both have income."
+    },
+    {
+      "what": "The standard deduction is always taken; Kentucky itemized deductions (Schedule A) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "4% of the amount by which itemized deductions exceed 3,270, for an itemizer."
+    },
+    {
+      "what": "Interest on U.S. government bonds and securities is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "4% of that interest."
+    },
+    {
+      "what": "A projection that cannot tell Kentucky bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "4% of the interest from Kentucky obligations."
+    },
+    {
+      "what": "Kentucky's Internal Revenue Code date is December 31, 2024; the projection uses the household's current federal AGI and applies no other Schedule M additions or subtractions.",
+      "direction": "either",
+      "size": "Usually none for retirement income."
+    },
+    {
+      "what": "Family size is taken from filing status: one for single, two for every other status; dependents are not modelled. On the form family size counts the filer, a spouse living in the same household and qualifying children (IRC 152(c)), up to four. A filer with qualifying children gets a smaller table here than on the form. A head of household or qualifying surviving spouse with no qualifying child, or a married separate filer who lived apart from the spouse all year, is family size one on the form and gets a larger table here.",
+      "direction": "either",
+      "size": "Only at or under 42,760 of modified gross income. Too much tax: up to the whole tax, e.g. 1,155.20 for a single parent of three with 32,150 of wages (family size four, 100%; family size one, none). Too little tax: up to the whole tax, e.g. 715.20 for a family-size-one head of household with 21,150 of wages (family size two, 100%)."
+    },
+    {
+      "what": "Modified gross income is taken as federal AGI plus all tax-exempt interest. The form uses the greater of federal AGI plus non-Kentucky municipal interest and lump sums, or Kentucky AGI plus lump sums; Kentucky bond interest is included here and lump sums are left out.",
+      "direction": "either",
+      "size": "Each 10% band is 469 to 1,286 of income wide, so Kentucky bond interest (counted here, not on the form) lowers the credit by a band for about each such amount and can remove it (overstates tax); a lump sum left out of federal AGI (counted on the form, not here) does the opposite. None for a household with neither."
+    },
+    {
+      "what": "The Family Size Tax Credit is a share of the tax after the personal tax credits (Form 740 line 19 after line 17), so a consumer must apply it after the 40 age credit.",
+      "direction": "either",
+      "size": "None when applied in that order. Applied to the tax before the age credit, the credit is too large by the share times the age credit: at most 0.9 x 80 = 72 a year for a couple both 65 or over (at 100% the tax is 0 either way)."
+    },
+    {
+      "what": "The family size credit's income test uses the filer's own federal AGI on a married separate return. The Schedule ITC worksheet adds the spouse's federal AGI (line b) when the couple lives together.",
+      "direction": "understates_tax",
+      "size": "Only for a separate filer at or under 28,130, the end of the family size two column: up to the whole tax, at most 715.20 (own income 21,150, kept at 100% here, while the spouse's income would lift the couple past the table)."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

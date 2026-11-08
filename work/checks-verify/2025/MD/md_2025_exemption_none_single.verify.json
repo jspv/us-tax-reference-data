@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "160000.00",
+    "state_income_tax": "7625.75",
+    "state_tax_before_credits": "7625.75",
+    "state_taxable_income": "156650.00"
+  },
+  "worked": "Filing status single. Line 1 federal AGI 160000.00 (given; federal taxable income 144250.00 given, federal senior deduction ignored). Income items sum to 160000.00 = federal AGI. Line 16 Maryland AGI = 160000.00 + additions 0.00 - subtractions 0.00 = 160000.00. Line 17 standard deduction (flat, single) 3350.00. Chart 10A: federal AGI 160000.00 -> 0.00 per exemption x 1 = 0.00. Age 65 exemption (not reduced by AGI): 0 x 1,000.00 = 0.00. Line 19 total exemptions 0.00. Line 20 taxable net income = 160000.00 - 3350.00 - 0.00 = 156650.00. Line 21 tax by schedule (single): 0.02 x (1000.00 - 0) = 20.00; 0.03 x (2000.00 - 1000) = 30.00; 0.04 x (3000.00 - 2000) = 40.00; 0.0475 x (100000.00 - 3000) = 4607.50; 0.05 x (125000.00 - 100000) = 1250.00; 0.0525 x (150000.00 - 125000) = 1312.50; 0.055 x (156650.00 - 150000) = 365.75; total 7625.75. State tax before credits 7625.75; credits 0.00; state income tax 7625.75. (County local tax not part of the projection.)"
+}

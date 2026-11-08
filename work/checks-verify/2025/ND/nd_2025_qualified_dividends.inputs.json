@@ -1,0 +1,43 @@
+{
+  "id": "nd_2025_qualified_dividends",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "qualified_dividend_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Line 13 - Qualified dividend exclusion; Form ND-1 line 13; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "20000.00"
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "104250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.qualified_dividend_exclusion"
+  ]
+}

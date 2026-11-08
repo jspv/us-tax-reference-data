@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "az_gov_pension_exclusion": "2500.00"
+    },
+    "state_income_tax": "45.00",
+    "state_tax_before_credits": "45.00",
+    "state_taxable_income": "1800.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 40,000.00. Person 0 public pension 30,000.00 paid by NY: public_pension_other_state, not covered by line 29a, taxed as included federally. Line 29a person 1 own/federal government pension 10,000.00: lesser of amount or 2,500 = 2,500.00. Line 35 subtractions 2,500.00; line 37 = 40,000.00 - 2,500.00 = 37,500.00. Box 8 = 2 (ages 66, 65); line 38 = 2 x 2,100 = 4,200.00. Line 42 Arizona AGI = 33,300.00. Line 43 standard deduction 31,500.00; line 45 = 33,300.00 - 31,500.00 = 1,800.00. Line 46 tax = 1,800.00 x 2.5% = 45.00. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 45.00. Federal figures given; federal senior deduction ignored."
+}

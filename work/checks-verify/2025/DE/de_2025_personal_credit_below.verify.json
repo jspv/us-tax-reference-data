@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "60.50",
+    "state_agi": "8000.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "60.50",
+    "state_taxable_income": "4750.00"
+  },
+  "worked": "Line 1 federal AGI 8000.00. Line 12 Delaware AGI = 8000.00 - 0.00 = 8000.00 (no additions; Line 11 not modelled). Line 20a standard deduction 3250.00; Line 22 total 3250.00. Line 23 taxable income = 8000.00 - 3250.00 = 4750.00 -> 4750.00. Line 24 tax from the 30 Del. C. 1102(a)(14) schedule (0% to 2,000): 0.022 x (4750.00-2000) = 60.50000; total 60.50. Line 27a personal credits 110 x 1 = 110.00; Line 27b 110 x 0 (60 or over on 12/31/2025) = 0.00; total 110.00; non-refundable, limited to tax 60.50: credits used 60.50. Line 33 balance due = 60.50 - 60.50 = 0.00. Federal figures given; federal senior deduction ignored per brief."
+}

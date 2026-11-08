@@ -1,0 +1,55 @@
+{
+  "id": "oh_2025_exemption_at_750000",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-11-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "750000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "750000.00",
+    "federal_taxable_income": "734250.00"
+  },
+  "expected": {
+    "state_agi": "750000.00",
+    "state_taxable_income": "750000.00",
+    "state_tax_before_credits": "22706.82",
+    "credits": "0.00",
+    "state_income_tax": "22706.82",
+    "relief_amounts": {
+      "personal_exemption": "0.00"
+    }
+  },
+  "worked": "Federal AGI = wages person 0 750,000.00 = 750,000.00. Federal taxable income = 750,000.00 - standard deduction 15,750.00 = 734,250.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 750,000.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 750,000.00 + 0.00 - 0.00 = 750,000.00. Line 4: MAGI is line 3 with no business income deduction, 750,000.00, in the band 750,000 or greater: 0.00 each; 1 exemption x 0.00 = 0.00. Line 5 = 750,000.00 - 0.00 = 750,000.00. Line 6 taxable business income 0.00. Line 7 = 750,000.00. Line 8a tax: 750,000.00 is over 100,000: 2,394.32 plus 3.125% of (750,000.00 - 100,000.00 = 650,000.00) = 2,394.32 + 20,312.50 = 22,706.82. Schedule of Credits line 1 = 22,706.82. MAGI less exemptions (worksheet PDF p.40) = 750,000.00 - 0.00 = 750,000.00 (equal to line 7 without business income), at or over 100,000.00, so the retirement income and senior citizen credits are not available. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 22,706.82 - 0.00 = 22,706.82. State income tax 22,706.82. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 22,707; expected keeps the formula result. The row '$750,000 or greater' allows 0, so the exemption goes at exactly 750,000.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "id_2025_std_deduction_joint",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-03-11"
+      },
+      {
+        "age": 48,
+        "born": "1977-08-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "68500.00"
+  },
+  "expected": {
+    "state_agi": "100000.00",
+    "state_taxable_income": "68500.00",
+    "state_tax_before_credits": "3120.53",
+    "credits": "310.00",
+    "state_income_tax": "2810.53"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 70,000.00 + wages (person 1) 30,000.00 = 100,000.00. Federal taxable income = 100,000.00 - 31,500.00 federal standard deduction = 68,500.00 (the federal senior deduction is ignored). Form 40 (filing status married filing jointly): line 7 federal AGI 100,000.00. Line 8 additions 0.00; line 9 = 100,000.00 + 0.00 = 100,000.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8: no qualifying retirement benefits, line 8f 0.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 0.00 = 0.00. Form 40 line 10 0.00; line 11 total adjusted income = 100,000.00 - 0.00 = 100,000.00. Line 12a boxes checked 0. Standard Deduction Worksheet: line 1 31,500.00; line 4 31,500.00; line 5 0 x 1,600.00 = 0.00; line 6 31,500.00. Line 15 0.00 (no Schedule A); line 16 31,500.00. Line 17 = 100,000.00 - 31,500.00 = 68,500.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 68,500.00. Line 20 worksheet: line 1 68,500.00; line 2 9,622.00; line 3 = 58,878.00; line 4 at 5.3%; line 5 tax = 58,878.00 x 5.3% = 3120.534, to the cent 3,120.53 (the return rounds to whole dollars, PDF p.8, and shows 3,121; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 3,120.53. Food Tax Credit Worksheet (Form 40 line 43): 2 x 155.00 = 310.00. State income tax = 3,120.53 - 310.00 = 2,810.53. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations).",
+  "accepted_approximations": [
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

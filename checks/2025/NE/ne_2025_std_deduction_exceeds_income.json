@@ -1,0 +1,50 @@
+{
+  "id": "ne_2025_std_deduction_exceeds_income",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table)",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-02-10"
+      },
+      {
+        "age": 54,
+        "born": "1971-02-11"
+      }
+    ],
+    "income": {
+      "interest": "15000.00"
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "15000.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Married filing jointly, 55 and 54: interest 15,000. The standard deduction is more than the income, so taxable income is floored at zero and no credit is used. Federal (given, not tested): federal AGI = interest 15,000.00 = 15,000.00. Federal taxable income = 15,000.00 - standard deduction 31,500.00, below zero, so 0.00 (federal senior deduction ignored). Form 1040N filing status (2) married filing jointly, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4b 1; line 4c none; line 4 total 2. Line 5 federal AGI 15,000.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 17,200.00; lines 7 to 9 skipped (no federal itemizing); line 10 17,200.00. Line 11 = 15,000.00 - 17,200.00 = -2,200.00. Line 12 adjustments increasing federal AGI 0.00. Line 13 adjustments decreasing federal AGI 0.00. Line 14 = -2,200.00 + 0.00 - 0.00 = -2,200.00, less than zero, so the form enters 0.00. State income after additions and subtractions (before the deduction) = 15,000.00 + 0.00 - 0.00 = 15,000.00. Line 15 tax 0.00. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 0.00. Line 18 personal exemption credit = 171 x 2 = 342.00; line 34 342.00. Line 35 = 0.00 (nonrefundable: nothing of the credit is used). Federal Tax Liability Worksheet (PDF page 17): line 2 is zero or less, so line 35 is 0.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

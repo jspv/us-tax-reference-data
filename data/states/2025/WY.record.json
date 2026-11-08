@@ -1,0 +1,68 @@
+{
+  "layer": "record",
+  "state": "WY",
+  "tax_year": 2025,
+  "has_income_tax": false,
+  "notes": [
+    "The source is the state's general portal (wyo.gov), not the tax agency (the Wyoming Department of Revenue); it says Wyoming has no individual or corporate income tax. The brackets, surtaxes, deductions and reliefs are therefore empty.",
+    "The source prints no standard deduction, personal or dependent exemption, or other income-tax deduction (it describes no income tax).",
+    "Social Security treatment: not stated in the source; not found in the source.",
+    "Municipal bond interest treatment: not stated in the source; not found in the source.",
+    "Capital gains: the source prints no rate or treatment for gains; not found in the source.",
+    "The page carries no tax year; it was retrieved 2026-11-07 and is recorded as tax year 2025 as dispatched."
+  ],
+  "brackets": {
+    "single": [],
+    "married_joint": [],
+    "cite": {
+      "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+      "section": "economy paragraph, second sentence: \"Unlike other states, Wyoming does not possess an individual or corporate income tax.\"",
+      "url": "https://www.wyo.gov/about-wyoming",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "none",
+    "deductions": [],
+    "cite": {
+      "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+      "section": "economy paragraph, second sentence: \"Unlike other states, Wyoming does not possess an individual or corporate income tax.\"",
+      "url": "https://www.wyo.gov/about-wyoming",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+      "section": "page text: no statement on this topic",
+      "url": "https://www.wyo.gov/about-wyoming",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+      "section": "page text: no statement on this topic",
+      "url": "https://www.wyo.gov/about-wyoming",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "About Wyoming, State of Wyoming official portal (wyo.gov)",
+        "section": "page text: no statement on this topic",
+        "url": "https://www.wyo.gov/about-wyoming",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

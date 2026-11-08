@@ -1,0 +1,90 @@
+{
+  "id": "md_2025_pension_excl_both_spouses",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_exclusion",
+    "ss_rr_exempt",
+    "age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 11, 14-21; Worksheet 13A, NOTE and lines 1-5 (PDF page 14); Instruction 13 Line 10a (PDF page 15); Instruction 10 (PDF page 13); Schedule II (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-02"
+      },
+      {
+        "age": 68,
+        "born": "1957-12-01"
+      }
+    ],
+    "income": {
+      "employer_plan_distribution": [
+        {
+          "amount": "5000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        },
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "MD"
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "119000.00",
+    "federal_taxable_income": "84300.00"
+  },
+  "expected": {
+    "state_agi": "42600.00",
+    "state_taxable_income": "27500.00",
+    "state_tax_before_credits": "1253.75",
+    "credits": "0.00",
+    "state_income_tax": "1253.75",
+    "relief_amounts": {
+      "pension_exclusion": "42400.00",
+      "ss_rr_exempt": "34000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private employer pension (you) 50,000.00 + public pension paid by MD (spouse) 30,000.00 + 401(k) distribution (spouse) 5,000.00 + taxable Social Security 34,000.00 = 119,000.00. Taxable Social Security 34,000.00 is the federal Social Security Benefits Worksheet amount on gross benefits 40,000.00 (given). Federal taxable income = 119,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 84,300.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 119,000.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 119,000.00. Worksheet 13A: You (age 70): line 1 qualifying pension 50,000.00; line 2 41,200.00; line 3 Social Security 25,000.00; line 4 tentative 41,200.00 - 25,000.00 = 16,200.00; line 5 smaller = 16,200.00; Spouse (age 68): line 1 qualifying pension 35,000.00; line 2 41,200.00; line 3 Social Security 15,000.00; line 4 tentative 41,200.00 - 15,000.00 = 26,200.00; line 5 smaller = 26,200.00. Line 10a = 42,400.00. Line 11 taxable Social Security in Line 1 = 34,000.00 (exempt in full). Line 14 two-income subtraction: 1,200.00 on the form (both spouses have Maryland income); the projection does not apply it, see the approximation note at the end. Line 15 total subtractions = Line 10a 42,400.00 + Line 11 34,000.00 = 76,400.00. Line 16 Maryland AGI = 119,000.00 - 76,400.00 = 42,600.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 6,700.00. Line 18 net income = 42,600.00 - 6,700.00 = 35,900.00. Line 19 exemptions: Chart 10A at federal AGI 119,000.00 (not over 150,000) gives 3,200.00 each x 2 (Box A) + 1,000.00 x 2 for age 65 or older (Box B, not reduced by the chart) = 8,400.00. Line 20 taxable net income = 35,900.00 - 8,400.00 = 27,500.00. Line 21 tax, Schedule II as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 24,500.00 = 1,163.75; total 1,253.75. (The tax table row 27,500-27,550, PDF page 35, gives 1,255; expected keeps the formula figure.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 1,253.75. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). Line 14 (Worksheet 13D, PDF page 18): the form would subtract the smaller of 1,200 and the lower spouse's income after subtractions = 1,200.00, lowering tax by 1,200 x 4.75% = 57.00; the projection does not apply it (approximation), so expected shows 0.00 here. Each spouse completes a separate column of Worksheet 13A with his or her own Social Security; the two exclusions are combined on Line 10a.",
+  "accepted_approximations": [
+    "The two-income married couple subtraction is not applied."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:fire_police_injury_payments",
+    "state_rule_not_modelled:pension_exclusion_disabled",
+    "state_rule_not_modelled:ranger_pension_exclusion",
+    "state_rule_not_modelled:state_pension_pickup"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

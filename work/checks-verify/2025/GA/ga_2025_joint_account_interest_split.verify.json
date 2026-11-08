@@ -1,0 +1,16 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "ga_retirement_exclusion_65_plus": "65000.00",
+      "ga_retirement_exclusion_62_64": "20000.00"
+    },
+    "state_agi": "55000.00",
+    "state_income_tax": "1608.90",
+    "state_tax_before_credits": "1608.90",
+    "state_taxable_income": "31000.00",
+    "relief_amounts.ga_retirement_exclusion_65_plus": "65000.00",
+    "relief_amounts.ga_retirement_exclusion_62_64": "20000.00"
+  },
+  "worked": "Interest 40,000 jointly held: 20,000 each. P0 (67): IRA 100,000 + interest 20,000 = 120,000 -> capped 65,000. P1 (63): interest 20,000 under 35,000 cap -> 20,000. Total exclusion 85,000. GA AGI 140,000 - 85,000 = 55,000. Standard deduction joint 24,000. Taxable 31,000. Tax 31,000 x 5.19% = 1,608.90 (form rounds to 1,609). No credits."
+}

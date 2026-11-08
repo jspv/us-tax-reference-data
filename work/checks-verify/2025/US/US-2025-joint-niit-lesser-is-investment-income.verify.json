@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "additional_medicare_tax": "630.00",
+    "agi": "430000.00",
+    "net_investment_income_tax": "4180.00",
+    "regular_tax": "72784.00",
+    "senior_deduction": "0.00",
+    "standard_deduction": "31500.00",
+    "taxable_income": "398500.00",
+    "total_tax": "77594.00"
+  },
+  "worked": "Form 1040: 1z wages 320000; 2a tax-exempt interest 0; 2b taxable interest 10000; 3a qualified dividends 35000; 3b ordinary dividends 40000; 4b+5b pensions/IRA 0; 7a capital gain 60000 (LT 60000, ST 0); 8 other income 0. Form 1040 line 9 total income = line 11 AGI = 430000.00 (no adjustments). Line 12e standard deduction: basic 31500 (married_joint) + 0 box(es) x 1600 = 31500. Schedule 1-A Part V: L31 MAGI 430000.00; L32 150000; L33 280000.00; L34 16800.00; L35 0.00; 0 qualifying person(s) on L36a/b; L37 = 0.00. Line 14 = 31500.00; line 15 taxable income = max(0, 430000.00 - 31500.00) = 398500.00. QDCG Worksheet: L1 398500.00; L2 35000.00; L3 60000.00; L4 95000.00; L5 303500.00; L6 96700.00; L7 96700.00; L8 96700.00; L9 0.00; L10 95000.00; L11 0.00; L12 95000.00; L13 600050.00; L14 398500.00; L15 303500.00; L16 95000.00; L17 95000.00; L18 14250.00; L19 95000.00; L20 0.00; L21 0.00; L22 58534.00; L23 72784.00; L24 81646.00; L25 72784.00 (L22/L24 by the Tax Rate Schedules). Line 16 tax = 72784.00. Form 8960: L8 NII 110000.00 (interest + ordinary dividends + net gain); L13 MAGI 430000.00; L14 threshold 250000; L15 excess 180000.00; L16 smaller 110000.00; L17 x 3.8% = 4180.00. Form 8959 Part I: L1 wages 320000; L5 threshold 250000; L6 excess 70000.00; L7 x 0.9% = 630.00. total_tax = 72784.00 + 4180.00 + 630.00 = 77594.00."
+}

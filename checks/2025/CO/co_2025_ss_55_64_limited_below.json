@@ -1,0 +1,58 @@
+{
+  "id": "co_2025_ss_55_64_limited_below",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_ss_55_64_limited"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5), 55-64 federal AGI over 75,000, taxable benefits under 20,000; DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "97000.00",
+    "federal_taxable_income": "81250.00"
+  },
+  "expected": {
+    "state_taxable_income": "64250.00",
+    "state_tax_before_credits": "2827.00",
+    "credits": "0.00",
+    "state_income_tax": "2827.00",
+    "relief_amounts": {
+      "co_ss_55_64_full": "0.00",
+      "co_ss_55_64_limited": "17000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 80,000.00 + taxable Social Security 17,000.00 = 97,000.00. Taxable Social Security on gross benefits 20,000.00 (you): federal SS worksheet (given): half of benefits 10,000.00 + other income 80,000.00 = 90,000.00; less 25,000.00 = 65,000.00; line 11 = 56,000.00; line 13 = half of smaller of 65,000.00 and 9,000.00 = 4,500.00; line 14 = 4,500.00; line 15 = 85% x 56,000.00 = 47,600.00; line 16 = 52,100.00; 85% of benefits = 17,000.00; taxable Social Security = 17,000.00. Federal taxable income = 97,000.00 - standard deduction 15,750.00 = 81,250.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 81,250.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 97,000.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 81,250.00. DR 0104AD: Line 3 (primary taxpayer, age 62, 55-64): federal AGI (DR 0104 line 34) 97,000.00 exceeds 75,000.00, so the full subtraction is not allowed and the subtraction is limited to 20,000: smaller of 17,000.00 and 20,000.00 = 17,000.00. Line 22 subtotal = 17,000.00; DR 0104 line 11 = 17,000.00. Line 12 Colorado taxable income = 81,250.00 - 17,000.00 = 64,250.00. Line 13 tax = 4.4% x 64,250.00 = 2,827.00 (taxable income over 50,000: the PDF p.35 worksheet multiplies by .044, same figure). No credits claimed: 0.00. Colorado income tax 2,827.00.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

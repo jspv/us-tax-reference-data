@@ -1,0 +1,48 @@
+{
+  "id": "ky_2025_age_65_joint_one_spouse",
+  "state": "KY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ky_personal_tax_credit_age_65",
+    "ky_standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Kentucky Form 740 packet with instructions (Kentucky Department of Revenue), with 2025 Form 740, Schedule M, Schedule P and Schedule ITC",
+    "section": "Form 740 (2025) page 1 lines 5-19 and page 2 lines 20-22 (740_2025.pdf PDF pp.1-2); packet PDF p.13 Line 5, Lines 6-9 (Kentucky AGI), Line 10 'Nonitemizers, enter the standard deduction of $3,270 ... If filing a joint return, only one $3,270 standard deduction is allowed', Line 11, Line 12 'Multiply line 11 by four percent (.04)'; packet PDF p.3 'For 2025, the standard deduction is $3,270' and 'the tax rate for individual income tax is 4%'; Schedule ITC (2025) PDF p.2 Section B line 1 (taxpayer) and line 5 (spouse) 'If you were 65 on or before 12/31/2025, enter 40'; Form 740 lines 16-18 (line 18: if line 17 is larger than line 16, enter zero); packet PDF p.14 Line 17; Schedule ITC (2025) PDF p.2 Section C Family Size Tax Credit Table (family size one: not over 15,650 100% ... over 20,815 0; family size two: not over 21,150 100% ... over 28,130 0); packet PDF p.26 Worksheet for Computation of Modified Gross Income lines (a)-(j) and Section C family size definitions; packet PDF p.11 Modified Gross Income; packet PDF p.14 Line 20 and Line 21 (MGI 42,760 or less); Form 740 page 2 lines 20-22 (line 21: line 19 times the decimal from Schedule ITC)",
+    "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-11-30"
+      },
+      {
+        "age": 63,
+        "born": "1962-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "45000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "11900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ky_personal_tax_credit_age_65"
+  ]
+}

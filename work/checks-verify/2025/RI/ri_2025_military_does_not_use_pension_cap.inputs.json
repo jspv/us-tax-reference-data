@@ -1,0 +1,56 @@
+{
+  "id": "ri_2025_military_does_not_use_pension_cap",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_pension_annuity_modification",
+    "ri_military_pension_modification"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Instructions PDF p.10, Schedule M line 1v; Guide PDF p.15; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      },
+      {
+        "age": 69,
+        "born": "1956-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "interest": "30000.00"
+    },
+    "federal_agi": "130000.00",
+    "federal_taxable_income": "95300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_military_pension_modification",
+    "relief_amounts.ri_pension_annuity_modification"
+  ]
+}

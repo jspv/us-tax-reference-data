@@ -1,0 +1,14 @@
+{
+ "expected": {
+  "credits": "155.00",
+  "relief_amounts": {
+   "railroad_retirement": "20000.00",
+   "ret_service_member": "0.00"
+  },
+  "state_agi": "50000.00",
+  "state_income_tax": "1299.27",
+  "state_tax_before_credits": "1454.27",
+  "state_taxable_income": "32250.00"
+ },
+ "worked": "Form 40 line 7 federal AGI 95500.00 (given). 39R line 7: taxable Social Security 25500.00 subtracted (exempt). 39R line 7: railroad retirement 20000.00 exempt in full, subtracted. 39R line 8: military pensions 20000.00, of which 20000.00 belong to a person 62 or older (line 8e); maximum 48216.00 (single) less RR 20000.00 less gross SS 30000.00 = 0.00 (floored at 0); deduction = smaller = 0.00. Line 11 Idaho income (state_agi) = 95500.00 + 0.00 - 45500.00 = 50000.00. Line 16 standard deduction 15750.00 + age 65 addition 1 x 2000.00 = 2000.00; total 17750.00. Line 19/20 taxable income = max(0, 50000.00 - 17750.00) = 32250.00. Tax: (32250.00 - 4811.00) x 5.3% = 1454.26700 -> 1454.27. Line 43 Food Tax Credit: 155 x 1 persons = 155.00, refundable (paid in full, not limited to tax). Permanent Building Fund 10 not charged (approximation). Federal senior deduction ignored (federal figures given). State income tax = 1454.27 - 155.00 = 1299.27."
+}

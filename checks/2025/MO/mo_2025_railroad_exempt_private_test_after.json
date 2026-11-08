@@ -1,0 +1,73 @@
+{
+  "id": "mo_2025_railroad_exempt_private_test_after",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_exempt",
+    "private_pension_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction; Form MO-A PDF p1 Part 1 Line 11; instructions PDF p14 Line 11; record railroad_retirement_exempt",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "38250.00"
+  },
+  "expected": {
+    "state_agi": "18000.00",
+    "state_taxable_income": "2250.00",
+    "state_tax_before_credits": "18.74",
+    "credits": "0.00",
+    "state_income_tax": "18.74",
+    "relief_amounts": {
+      "private_pension_subtraction": "6000.00",
+      "railroad_retirement_exempt": "30000.00"
+    }
+  },
+  "worked": "Single, age 60. Railroad retirement (Tier II) is exempt on Part 1 Line 11, without a cap and outside both pension sections, so it is out of Line 6 and of the income test. Federal (given, not tested): federal AGI = wages 18,000.00 + pensions 36,000.00 = 54,000.00. Federal taxable income = 54,000.00 - standard deduction 15,750.00 = 38,250.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 54,000.00. Line 2 additions 0.00. Line 3 total income 54,000.00. Line 4 subtractions: MO-A Part 1 Line 11 railroad retirement benefits 30,000.00; total 30,000.00. Line 6 Missouri adjusted gross income 54,000.00 - 30,000.00 = 24,000.00. Section B: Line 1 24,000.00; Line 2 0.00; Line 3 24,000.00; Line 4 25,000.00; Line 5 0.00; Line 6Y 6,000.00, Line 7Y 6,000.00; Line 8 6,000.00; Line 9 6,000.00. Form MO-1040 Line 8 pension and Social Security exemption 6,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 24,000.00 - 6,000.00 - 15,750.00 = 2,250.00. Line 29 taxable income 2,250.00. Tax by the bands (0% to 1,313): 2% x 937.00 = 18.74; total 18.74 = 18.74. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 19; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 24,000.00 - Line 8 6,000.00 = 18,000.00; the form's Missouri AGI is Line 6, 24,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

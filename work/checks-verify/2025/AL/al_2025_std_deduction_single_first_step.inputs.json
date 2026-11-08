@@ -1,0 +1,42 @@
+{
+  "id": "al_2025_std_deduction_single_first_step",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8): single column row '$26,000 - $26,499' 2,975; Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 35,
+        "born": "1990-06-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "26000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "26000.00",
+    "federal_taxable_income": "10250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

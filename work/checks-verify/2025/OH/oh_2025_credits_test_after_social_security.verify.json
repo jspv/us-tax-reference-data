@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "state_agi": "90050.00",
+    "state_taxable_income": "88150.00",
+    "state_tax_before_credits": "2049.75",
+    "credits": "250.00",
+    "state_income_tax": "1799.75",
+    "relief_amounts": {
+      "retirement_income_credit": "200.00",
+      "senior_citizen_credit": "50.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 110050.00. Line 16 taxable Social Security deducted 20000.00 (the federal taxable amount, not the gross). Line 3 Ohio AGI: 110050.00 + 0.00 - 20000.00 = 90050.00. MAGI = Ohio AGI, no business income deduction. Line 4 exemptions: Ohio AGI over 80,000 and under 750,000: 1,900 each; 1 x 1900.00 = 1900.00. Line 5 and line 7: 90050.00 - 1900.00 = 88150.00. Line 8a bracket tax: over 26,050 up to 100,000: 342.00 + 2.75% x (88150.00 - 26,050) = 2049.750000 = 2049.75, by formula, no whole-dollar rounding. MAGI less exemptions 88150.00 is under 100,000. Schedule of Credits line 2, retirement income credit: covered income 90050.00 (private_pension); projection gives flat 200 per return if the test passes: 200.00. Line 4 senior citizen credit: older person 70; 65 or older; 50.00. Credits 250.00; state income tax 2049.75 - 250.00 = 1799.75. Exemption credit (line 9) not applied: not_modelled. Federal senior deduction ignored; federal figures given, not tested."
+}

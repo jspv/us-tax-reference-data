@@ -1,0 +1,45 @@
+{
+  "id": "md_2025_exemption_step_800_joint",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule II (PDF page 22); Chart 10A joint column over 175,000 not over 200,000 ($800); Worksheet Schedules 17A (PDF page 41)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-01"
+      },
+      {
+        "age": 48,
+        "born": "1977-11-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "185000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "185000.00",
+    "federal_taxable_income": "153500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

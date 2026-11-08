@@ -1,0 +1,46 @@
+{
+  "id": "ok_2025_worksheet_over_100000_joint",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); tax computation worksheets for 100,000 or more (PDF page 38)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-10-12"
+      },
+      {
+        "age": 50,
+        "born": "1975-10-13"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "214700.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "214700.00",
+    "federal_taxable_income": "183200.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

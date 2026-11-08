@@ -1,0 +1,657 @@
+{
+  "layer": "projection",
+  "state": "AL",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/AL.record.json",
+    "sha256": "4439b39b1aaacdcbe44cf2c2b03a06cdf1c184aeded78e2e0e78fd2f16ee4b43"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.04",
+        "start": "500"
+      },
+      {
+        "rate": "0.05",
+        "start": "3000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.04",
+        "start": "1000"
+      },
+      {
+        "rate": "0.05",
+        "start": "6000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "3000",
+          "married_joint": "8500",
+          "married_separate": "4250",
+          "head_of_household": "5200"
+        },
+        "per": "return",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "single": "25999",
+            "married_joint": "25999",
+            "married_separate": "12999",
+            "head_of_household": "25999"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "married_joint",
+              "over": "0",
+              "amount": "8500"
+            },
+            {
+              "status": "married_joint",
+              "over": "25999",
+              "amount": "8325"
+            },
+            {
+              "status": "married_joint",
+              "over": "26499",
+              "amount": "8150"
+            },
+            {
+              "status": "married_joint",
+              "over": "26999",
+              "amount": "7975"
+            },
+            {
+              "status": "married_joint",
+              "over": "27499",
+              "amount": "7800"
+            },
+            {
+              "status": "married_joint",
+              "over": "27999",
+              "amount": "7625"
+            },
+            {
+              "status": "married_joint",
+              "over": "28499",
+              "amount": "7450"
+            },
+            {
+              "status": "married_joint",
+              "over": "28999",
+              "amount": "7275"
+            },
+            {
+              "status": "married_joint",
+              "over": "29499",
+              "amount": "7100"
+            },
+            {
+              "status": "married_joint",
+              "over": "29999",
+              "amount": "6925"
+            },
+            {
+              "status": "married_joint",
+              "over": "30499",
+              "amount": "6750"
+            },
+            {
+              "status": "married_joint",
+              "over": "30999",
+              "amount": "6575"
+            },
+            {
+              "status": "married_joint",
+              "over": "31499",
+              "amount": "6400"
+            },
+            {
+              "status": "married_joint",
+              "over": "31999",
+              "amount": "6225"
+            },
+            {
+              "status": "married_joint",
+              "over": "32499",
+              "amount": "6050"
+            },
+            {
+              "status": "married_joint",
+              "over": "32999",
+              "amount": "5875"
+            },
+            {
+              "status": "married_joint",
+              "over": "33499",
+              "amount": "5700"
+            },
+            {
+              "status": "married_joint",
+              "over": "33999",
+              "amount": "5525"
+            },
+            {
+              "status": "married_joint",
+              "over": "34499",
+              "amount": "5350"
+            },
+            {
+              "status": "married_joint",
+              "over": "34999",
+              "amount": "5175"
+            },
+            {
+              "status": "married_joint",
+              "over": "35499",
+              "amount": "5000"
+            },
+            {
+              "status": "married_separate",
+              "over": "0",
+              "amount": "4250"
+            },
+            {
+              "status": "married_separate",
+              "over": "12999",
+              "amount": "4162"
+            },
+            {
+              "status": "married_separate",
+              "over": "13249",
+              "amount": "4074"
+            },
+            {
+              "status": "married_separate",
+              "over": "13499",
+              "amount": "3986"
+            },
+            {
+              "status": "married_separate",
+              "over": "13749",
+              "amount": "3898"
+            },
+            {
+              "status": "married_separate",
+              "over": "13999",
+              "amount": "3810"
+            },
+            {
+              "status": "married_separate",
+              "over": "14249",
+              "amount": "3722"
+            },
+            {
+              "status": "married_separate",
+              "over": "14499",
+              "amount": "3634"
+            },
+            {
+              "status": "married_separate",
+              "over": "14749",
+              "amount": "3546"
+            },
+            {
+              "status": "married_separate",
+              "over": "14999",
+              "amount": "3458"
+            },
+            {
+              "status": "married_separate",
+              "over": "15249",
+              "amount": "3370"
+            },
+            {
+              "status": "married_separate",
+              "over": "15499",
+              "amount": "3282"
+            },
+            {
+              "status": "married_separate",
+              "over": "15749",
+              "amount": "3194"
+            },
+            {
+              "status": "married_separate",
+              "over": "15999",
+              "amount": "3106"
+            },
+            {
+              "status": "married_separate",
+              "over": "16249",
+              "amount": "3018"
+            },
+            {
+              "status": "married_separate",
+              "over": "16499",
+              "amount": "2930"
+            },
+            {
+              "status": "married_separate",
+              "over": "16749",
+              "amount": "2842"
+            },
+            {
+              "status": "married_separate",
+              "over": "16999",
+              "amount": "2754"
+            },
+            {
+              "status": "married_separate",
+              "over": "17249",
+              "amount": "2666"
+            },
+            {
+              "status": "married_separate",
+              "over": "17499",
+              "amount": "2578"
+            },
+            {
+              "status": "married_separate",
+              "over": "17749",
+              "amount": "2500"
+            },
+            {
+              "status": "head_of_household",
+              "over": "0",
+              "amount": "5200"
+            },
+            {
+              "status": "head_of_household",
+              "over": "25999",
+              "amount": "5065"
+            },
+            {
+              "status": "head_of_household",
+              "over": "26499",
+              "amount": "4930"
+            },
+            {
+              "status": "head_of_household",
+              "over": "26999",
+              "amount": "4795"
+            },
+            {
+              "status": "head_of_household",
+              "over": "27499",
+              "amount": "4660"
+            },
+            {
+              "status": "head_of_household",
+              "over": "27999",
+              "amount": "4525"
+            },
+            {
+              "status": "head_of_household",
+              "over": "28499",
+              "amount": "4390"
+            },
+            {
+              "status": "head_of_household",
+              "over": "28999",
+              "amount": "4255"
+            },
+            {
+              "status": "head_of_household",
+              "over": "29499",
+              "amount": "4120"
+            },
+            {
+              "status": "head_of_household",
+              "over": "29999",
+              "amount": "3985"
+            },
+            {
+              "status": "head_of_household",
+              "over": "30499",
+              "amount": "3850"
+            },
+            {
+              "status": "head_of_household",
+              "over": "30999",
+              "amount": "3715"
+            },
+            {
+              "status": "head_of_household",
+              "over": "31499",
+              "amount": "3580"
+            },
+            {
+              "status": "head_of_household",
+              "over": "31999",
+              "amount": "3445"
+            },
+            {
+              "status": "head_of_household",
+              "over": "32499",
+              "amount": "3310"
+            },
+            {
+              "status": "head_of_household",
+              "over": "32999",
+              "amount": "3175"
+            },
+            {
+              "status": "head_of_household",
+              "over": "33499",
+              "amount": "3040"
+            },
+            {
+              "status": "head_of_household",
+              "over": "33999",
+              "amount": "2905"
+            },
+            {
+              "status": "head_of_household",
+              "over": "34499",
+              "amount": "2770"
+            },
+            {
+              "status": "head_of_household",
+              "over": "34999",
+              "amount": "2635"
+            },
+            {
+              "status": "head_of_household",
+              "over": "35499",
+              "amount": "2500"
+            },
+            {
+              "status": "single",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "single",
+              "over": "25999",
+              "amount": "2975"
+            },
+            {
+              "status": "single",
+              "over": "26499",
+              "amount": "2950"
+            },
+            {
+              "status": "single",
+              "over": "26999",
+              "amount": "2925"
+            },
+            {
+              "status": "single",
+              "over": "27499",
+              "amount": "2900"
+            },
+            {
+              "status": "single",
+              "over": "27999",
+              "amount": "2875"
+            },
+            {
+              "status": "single",
+              "over": "28499",
+              "amount": "2850"
+            },
+            {
+              "status": "single",
+              "over": "28999",
+              "amount": "2825"
+            },
+            {
+              "status": "single",
+              "over": "29499",
+              "amount": "2800"
+            },
+            {
+              "status": "single",
+              "over": "29999",
+              "amount": "2775"
+            },
+            {
+              "status": "single",
+              "over": "30499",
+              "amount": "2750"
+            },
+            {
+              "status": "single",
+              "over": "30999",
+              "amount": "2725"
+            },
+            {
+              "status": "single",
+              "over": "31499",
+              "amount": "2700"
+            },
+            {
+              "status": "single",
+              "over": "31999",
+              "amount": "2675"
+            },
+            {
+              "status": "single",
+              "over": "32499",
+              "amount": "2650"
+            },
+            {
+              "status": "single",
+              "over": "32999",
+              "amount": "2625"
+            },
+            {
+              "status": "single",
+              "over": "33499",
+              "amount": "2600"
+            },
+            {
+              "status": "single",
+              "over": "33999",
+              "amount": "2575"
+            },
+            {
+              "status": "single",
+              "over": "34499",
+              "amount": "2550"
+            },
+            {
+              "status": "single",
+              "over": "34999",
+              "amount": "2525"
+            },
+            {
+              "status": "single",
+              "over": "35499",
+              "amount": "2500"
+            }
+          ]
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "single": "1500",
+          "married_joint": "3000",
+          "married_separate": "1500",
+          "head_of_household": "3000"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "al_public_pension",
+      "from_record": [
+        "al_public_pension_exempt",
+        "al_firefighter_retirement_exempt",
+        "al_peace_officer_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "al_military_pension",
+      "from_record": [
+        "al_military_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "al_railroad_retirement",
+      "from_record": [
+        "al_railroad_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "al_defined_benefit_pension",
+      "from_record": [
+        "al_defined_benefit_414j_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "al_federal_income_tax_deduction",
+      "from_record": [],
+      "what": "Federal income tax deduction (Form 40 line 12, worksheet on booklet PDF page 31): Alabama subtracts the year's federal income tax (Form 1040 line 22 plus Net Investment Income Tax, less refundable credits). The record has no figure for it (it has no fixed amount) and the projection's yearly facts do not include federal tax.",
+      "warn_when": "always"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption"
+      ],
+      "what": "Dependent exemption, per dependent, stepping down with Alabama AGI from 1,000 to 500 to 300.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "al_us_obligation_interest_exempt",
+      "from_record": [
+        "al_us_obligation_interest_exempt"
+      ],
+      "what": "Interest on U.S. obligations (Treasury bills, notes, savings bonds) is exempt; the projection cannot tell it from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "al_precious_metal_bullion_gain",
+      "from_record": [
+        "al_precious_metal_bullion_gain"
+      ],
+      "what": "Net capital gain on the exchange of precious metal bullion is exempt from 2025.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The federal income tax deduction is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 5% of the year's federal income tax: a household paying 20,000 federal tax is overstated by up to 1,000 a year in Alabama tax. The largest approximation for Alabama."
+    },
+    {
+      "what": "Alabama starts from its own total income and Alabama AGI (Form 40 line 10); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+      "direction": "either",
+      "size": "Usually small for a retiree; for a State of Alabama employee, retirement contributions deferred federally are taxed by Alabama (understates), and Alabama IRA adjustments differ."
+    },
+    {
+      "what": "The brackets are derived from the tax table. Under 100,000 the table taxes each 100-dollar row at its midpoint, rounded; above 100,000 the printed worksheet ((income - 100,000) x .05 + 4,958, or + 4,918 joint) is 2 dollars below the derived brackets.",
+      "direction": "overstates_tax",
+      "size": "At most 2 dollars a year above 100,000 of taxable income; under 1 dollar either way below it."
+    },
+    {
+      "what": "Every private pension and every other state's government pension is treated as paid by a plan that qualifies as a defined benefit plan under IRC 414(j), and every Alabama or federal government pension as exempt; the booklet exempts only the listed systems and qualifying 414(j) plans and leaves qualification to the plan administrator.",
+      "direction": "understates_tax",
+      "size": "5% of a pension whose plan does not qualify: 1,500 a year on a 30,000 pension."
+    },
+    {
+      "what": "The standard deduction is always taken; Alabama itemized deductions (Schedule A) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "5% of the amount by which itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "IRA and employer-plan distributions use the federal taxable amount; Alabama basis can be larger (IRA, SEP and Keogh contributions before 1982, 401(k)(2) and 403(b) contributions before 1985 count as Alabama basis).",
+      "direction": "overstates_tax",
+      "size": "5% of the extra Alabama basis recovered; usually none for contributions made after 1985."
+    },
+    {
+      "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "5% of the Treasury interest."
+    },
+    {
+      "what": "A projection that cannot tell Alabama bonds from other states' bonds treats all tax-exempt interest as other-state and taxes it.",
+      "direction": "overstates_tax",
+      "size": "5% of the interest from Alabama obligations."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

@@ -1,0 +1,74 @@
+{
+  "id": "md_2025_pension_excl_both_spouses",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_exclusion",
+    "ss_rr_exempt",
+    "age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 11, 14-21; Worksheet 13A, NOTE and lines 1-5 (PDF page 14); Instruction 13 Line 10a (PDF page 15); Instruction 10 (PDF page 13); Schedule II (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-02"
+      },
+      {
+        "age": 68,
+        "born": "1957-12-01"
+      }
+    ],
+    "income": {
+      "employer_plan_distribution": [
+        {
+          "amount": "5000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        },
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "MD"
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "119000.00",
+    "federal_taxable_income": "84300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_exclusion",
+    "relief_amounts.ss_rr_exempt"
+  ]
+}

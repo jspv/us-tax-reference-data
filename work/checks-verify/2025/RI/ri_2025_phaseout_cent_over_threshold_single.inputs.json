@@ -1,0 +1,45 @@
+{
+  "id": "ri_2025_phaseout_cent_over_threshold_single",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "ri_standard_deduction",
+    "ri_personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Rhode Island Tax Rate Schedule and Worksheets (page marked DRAFT 10/01/2025)",
+    "section": "Standard Deduction Worksheet and Exemption Worksheet lines 1-8, 2025 Tax Rate Schedule and Worksheets PDF p.1 (marked DRAFT 10/01/2025); Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-10/2025%20Tax%20Rate%20and%20Worksheets_d.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "254250.01",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "254250.01",
+    "federal_taxable_income": "238500.01"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_personal_exemption",
+    "relief_amounts.ri_standard_deduction"
+  ]
+}

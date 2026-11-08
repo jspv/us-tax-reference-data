@@ -1,0 +1,64 @@
+{
+  "id": "wi_2025_retirement_5000_joint_at_or_above",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_retirement_5000"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 17 and the Retirement Income Subtraction Worksheet lines 1-6 (SB Instructions PDF page 8; Publication 126 PDF pages 8-9 section 4.E(2)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-03-03"
+      },
+      {
+        "age": 65,
+        "born": "1960-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "1000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "interest": "28000.00"
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "3393.00",
+    "state_tax_before_credits": "118.76",
+    "credits": "0.00",
+    "state_income_tax": "118.76"
+  },
+  "worked": "Married filing jointly, 66 and 65: you IRA 1,000; spouse private pension 1,000; interest 28,000; federal AGI exactly 30,000 is not less than 30,000, so no line 17 subtraction. Federal (given, not tested): federal AGI = ira distribution (you) 1,000.00 + private pension (spouse) 1,000.00 + interest 28,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 31,500.00 + 2 x 1,600.00 = 0.00 (floored at 0); the federal senior deduction is ignored. Form 1 line 1 federal AGI 30,000.00; line 2 Schedule I adjustments 0.00; line 3 30,000.00; line 4 additions 0.00; line 5 30,000.00. Schedule SB: no subtraction applies; line 50 0.00. Schedule SB line 17: federal AGI 30,000.00 is not less than 30,000.00, so no 5,000 subtraction. Form 1 line 6 0.00; line 7 Wisconsin income = 30,000.00 - 0.00 = 30,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 30,000 to less than 30,500, column Married filing jointly: 24,707.00 (printed row, at least / less than / single / joint / separate / head of household: 30,000 / 30,500 / 12,276 / 24,707 / 8,595 / 15,111). Line 9 = 30,000.00 - 24,707.00 = 5,293.00. Line 10a 2 x 700 = 1,400.00; line 10b 2 x 250 = 500.00; line 10c 1,900.00. Line 11 taxable income = 5,293.00 - 1,900.00 = 3,393.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 3,393.00 = 118.755; total 118.755, rounded once to 118.76. The Tax Table row 3,300 to 3,400 (PDF page 38) gives 117; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 118.76.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

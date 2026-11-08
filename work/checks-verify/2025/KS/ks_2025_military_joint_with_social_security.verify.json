@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "12040.00",
+    "state_tax_before_credits": "626.08",
+    "credits": "0.00",
+    "state_income_tax": "626.08",
+    "relief_amounts": {
+      "military_retirement": "70000.00"
+    }
+  },
+  "worked": "Filing status married_joint. K-40 line 1 federal AGI 152,500.00 (given). A10 Social Security in federal AGI 42,500.00 subtracted in full (no income test), not the gross 50,000.00. A14 military retirement 70,000.00 subtracted, no age test (military_retirement). IRA distribution 40,000.00: no subtraction line, stays in Kansas income. Line 2 modifications -112,500.00. Line 3 Kansas AGI 152,500.00 + (-112,500.00) = 40,000.00. Line 4 standard deduction 8,240 + 2 age box(es) x 700 = 9,640 (worksheet PDF page 6). Line 5 exemption 18,320. Line 6 27,960.00. Line 7 taxable income 40,000.00 - 27,960.00 = 12,040.00. Line 8 tax 12,040.00 x 5.2% = 626.08000. the table row 12,001-12,050 gives 625. No credits in the projection: credits 0.00. Tax 626.08."
+}

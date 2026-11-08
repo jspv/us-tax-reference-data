@@ -1,0 +1,26 @@
+{
+  "id": "US-2026-irmaa-single-at-first-limit",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "irmaa",
+  "boundary": "below",
+  "tests": [
+    "medicare.irmaa",
+    "medicare.part_b"
+  ],
+  "description": "Single beneficiary with MAGI exactly at the first IRMAA limit ('less than or equal to'): standard premium, no adjustment.",
+  "inputs": {
+    "filing_status": "single",
+    "magi": "109000"
+  },
+  "expected": {
+    "part_b_monthly_premium": "202.90",
+    "part_d_monthly_adjustment": "0.00"
+  },
+  "worked": "Premium year 2026; the income-related adjustment uses MAGI from the 2024 tax return (two years back): 109,000 (adjusted gross income plus tax-exempt interest).\nCMS 2026 Medicare Parts A & B premiums fact sheet, Part B table, the individual tax return column (single, head of household, qualifying surviving spouse, married filing separately and lived apart all year): 109,000 is less than or equal to 109,000.\nPart B: standard premium 202.90 + income-related adjustment 0.00 = total monthly premium 202.90.\nPart D table, same row: monthly income-related adjustment 0.00 (added to the plan premium).",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

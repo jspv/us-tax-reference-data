@@ -1,0 +1,55 @@
+{
+  "id": "al_2025_std_deduction_single_full_band_top",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8): single column row '$0 - $25,999' 3,000; Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 35,
+        "born": "1990-06-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25999.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "25999.00",
+    "federal_taxable_income": "10249.00"
+  },
+  "expected": {
+    "state_agi": "25999.00",
+    "state_taxable_income": "21499.00",
+    "state_tax_before_credits": "1034.95",
+    "credits": "0.00",
+    "state_income_tax": "1034.95"
+  },
+  "worked": "Federal AGI = wages (person 0) 25,999.00 = 25,999.00. Federal taxable income = 25,999.00 - 15,750.00 federal standard deduction = 10,249.00 (given, not tested; the federal senior deduction is ignored). Alabama: the projection starts from federal AGI and removes exempt income (Form 40 builds its own lines 5b to 10, which give the same AGI for this household). Form 40 line 10 Alabama AGI = 25,999.00. Line 11 standard deduction (single, chart PDF page 9): AL AGI 25,999.00 is in the first band (0 to 25,999.00), the full amount, so 3,000.00. Line 12 federal income tax deduction: the form subtracts the 2025 federal income tax (worksheet PDF page 31); the projection does not model it (not_modelled, approximation), so 0.00 here. Line 13 personal exemption (single) 1,500.00. Line 14 dependent exemption 0.00 (no dependents). Line 15 total deductions = 3,000.00 + 0.00 + 1,500.00 + 0.00 = 4,500.00. Line 16 taxable income = 25,999.00 - 4,500.00 = 21,499.00. Line 17 tax from the derived single / married filing separately / head of family schedule (2% from 0, 4% from 500, 5% from 3,000): (500.00 - 0.00) x 0.02 = 10.00 + (3,000.00 - 500.00) x 0.04 = 100.00 + (21,499.00 - 3,000.00) x 0.05 = 924.95 = 1,034.95; the tax table row 21,400-21,500 (single / married filing separately / head of family column, PDF pages 25 to 30) gives 1,033. Line 18 net tax due, no credits: 1,034.95.",
+  "accepted_approximations": [
+    "The federal income tax deduction is not applied (not_modelled).",
+    "The brackets are derived from the tax table. Under 100,000 the table taxes each 100-dollar row at its midpoint, rounded; above 100,000 the printed worksheet ((income - 100,000) x .05 + 4,958, or + 4,918 joint) is 2 dollars below the derived brackets."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:al_federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

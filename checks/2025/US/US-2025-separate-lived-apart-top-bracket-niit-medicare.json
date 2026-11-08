@@ -1,0 +1,42 @@
+{
+  "id": "US-2025-separate-lived-apart-top-bracket-niit-medicare",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Married filing separately, lived apart all year, age 52, wages 400,000 and some interest: the separate 37% bracket, the 125,000 separate thresholds for the net investment income tax and the additional Medicare tax.",
+  "inputs": {
+    "filing_status": "married_separate",
+    "lived_with_spouse": false,
+    "persons": [
+      {
+        "born": "1973-02-27",
+        "age": 52
+      }
+    ],
+    "wages": "400000",
+    "taxable_interest": "5000"
+  },
+  "expected": {
+    "agi": "405000.00",
+    "standard_deduction": "15750.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "389250.00",
+    "regular_tax": "106053.75",
+    "net_investment_income_tax": "190.00",
+    "additional_medicare_tax": "2475.00",
+    "total_tax": "108718.75"
+  },
+  "worked": "Filing status: married filing separately, lived apart from the spouse all year.\nTaxpayer: born 1973-02-27, age 52 at the end of 2025.\nForm 1040: line 1z wages 400,000; line 2b taxable interest 5,000.\nForm 1040 line 9 total income = 400,000 + 5,000 = 405,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 405,000.\nLine 12e standard deduction = 15,750 (married filing separately; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 15,750 + 0 = 15,750; line 15 taxable income = 405,000 - 15,750 = 389,250.\nForm 1040 line 16 (regular tax): Tax Rate Schedule Y-2 (married filing separately) on 389,250: 10% x 11,925 = 1,192.50; 12% x (48,475 - 11,925) = 4,386; 22% x (103,350 - 48,475) = 12,072.50; 24% x (197,300 - 103,350) = 22,548; 32% x (250,525 - 197,300) = 17,032; 35% x (375,800 - 250,525) = 43,846.25; 37% x (389,250 - 375,800) = 4,976.50; total 106,053.75\nForm 8960: lines 1 + 2 + 5a = 5,000 interest + 0 dividends + 0 gain = 5,000 (line 8; no deductions, line 12 = 5,000; pensions, IRA distributions and Social Security are not investment income).\n  line 13 MAGI = 405,000; line 14 = 125,000 (married filing separately); line 15 = 280,000; line 16 = smaller of 5,000 and 280,000 = 5,000 (the net investment income is the lesser); line 17 = 3.8% x 5,000 = 190\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 400,000; line 5 = 125,000 (married filing separately); line 6 = 275,000; line 7 = 0.9% x 275,000 = 2,475 (additional Medicare tax).\nTotal tax = 106,053.75 regular + 190 net investment income tax + 2,475 additional Medicare tax = 108,718.75.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

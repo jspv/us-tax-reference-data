@@ -1,0 +1,46 @@
+{
+  "id": "hi_2025_joint_one_spouse_65",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-01"
+      },
+      {
+        "age": 63,
+        "born": "1962-04-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 1
+        }
+      ],
+      "interest": "5000.00"
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "61900.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "fl_2025_no_tax",
+  "state": "FL",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Tax Information for New Residents (GT-800025), Florida Department of Revenue",
+    "section": "PDF page 3, 'Other Taxes and Fees', first sentence: Florida does not impose personal income tax (no state return or form lines exist)",
+    "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "81000.00",
+    "federal_taxable_income": "65250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 80,000.00 + interest 1,000.00 = 81,000.00. Federal taxable income = 81,000.00 - 15,750.00 single standard deduction = 65,250.00 (given, not tested). Florida imposes no personal income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00 regardless of income.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

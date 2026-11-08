@@ -1,0 +1,53 @@
+{
+  "id": "oh_2025_bracket_just_over_26050",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 9 (PDF p.29)",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "28454.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "28454.00",
+    "federal_taxable_income": "12704.00"
+  },
+  "expected": {
+    "state_agi": "28454.00",
+    "state_taxable_income": "26054.00",
+    "state_tax_before_credits": "342.11",
+    "credits": "0.00",
+    "state_income_tax": "342.11"
+  },
+  "worked": "Federal AGI = wages person 0 28,454.00 = 28,454.00. Federal taxable income = 28,454.00 - standard deduction 15,750.00 = 12,704.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 28,454.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 28,454.00 + 0.00 - 0.00 = 28,454.00. Line 4: MAGI is line 3 with no business income deduction, 28,454.00, in the band 40,000 or less: 2,400.00 each; 1 exemption x 2,400.00 = 2,400.00. Line 5 = 28,454.00 - 2,400.00 = 26,054.00. Line 6 taxable business income 0.00. Line 7 = 26,054.00. Line 8a tax: 26,054.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (26,054.00 - 26,050.00 = 4.00) = 342.00 + 0.11 = 342.11. Schedule of Credits line 1 = 342.11. MAGI less exemptions (worksheet PDF p.40) = 28,454.00 - 2,400.00 = 26,054.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 342.11 - 0.00 = 342.11. State income tax 342.11. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 342; expected keeps the formula result. The printed 342.00 applies from the first dollar over 26,050. The form also gives the exemption credit here (line 9, MAGI less exemptions under 30,000: 1 x 20.00), leaving 322.11; the projection does not model it, so expected stays 342.11.",
+  "accepted_approximations": [
+    "Exemption credit: 20 for each exemption claimed when MAGI less exemptions is under 30,000. A low-income credit: it lowers tax only when taxable income is over 26,050 and MAGI less exemptions is under 30,000."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

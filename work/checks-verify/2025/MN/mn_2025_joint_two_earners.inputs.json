@@ -1,0 +1,50 @@
+{
+  "id": "mn_2025_joint_two_earners",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "mn_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      },
+      {
+        "age": 43,
+        "born": "1982-05-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        },
+        {
+          "amount": "22000.00",
+          "person": 1
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "113000.00",
+    "federal_taxable_income": "81500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

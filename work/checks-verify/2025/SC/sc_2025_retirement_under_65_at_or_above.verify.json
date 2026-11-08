@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "sc_retirement_under_65": "3000.00"
+    },
+    "state_income_tax": "380.70",
+    "state_tax_before_credits": "380.70",
+    "state_taxable_income": "16250.00"
+  },
+  "worked": "Single, 62, private pension 30,000 + IRA 5,000; capped at 3,000. Line 1 federal taxable income 19250.00; line 2 additions 0.00; line 3 = 19250.00. p-1 retirement (under 65): lesser of 3,000 and pension+IRA 35,000: 3000.00 Line 4 subtractions total 3000.00; line 5 SC taxable income 19250.00 - 3000.00 = 16250.00 tax: 0.03 x (16250.00 - 3,560) = 380.70 (line 6; formula on exact income, not the table row midpoint). Credits: none modelled (Two Wage Earner Credit not_modelled; no dependents); credits 0.00. Federal taxable income is given (federal senior deduction ignored per brief). State income tax 380.70."
+}

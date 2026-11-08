@@ -1,0 +1,55 @@
+{
+  "id": "ia_2025_capital_gains_taxed_in_full",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12; Schedule 1 line 16, PDF p.74",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00",
+      "dividends": "3000.00",
+      "short_term_gains": "1000.00",
+      "long_term_gains": "30000.00"
+    },
+    "federal_agi": "76000.00",
+    "federal_taxable_income": "60250.00"
+  },
+  "expected": {
+    "state_taxable_income": "60250.00",
+    "state_tax_before_credits": "2289.50",
+    "credits": "40.00",
+    "state_income_tax": "2249.50",
+    "relief_amounts": {
+      "ia_personal_credit": "40.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 40,000.00 + interest 2,000.00 + dividends 3,000.00 + short-term gains 1,000.00 + long-term gains 30,000.00 = 76,000.00. Federal taxable income = 76,000.00 - standard deduction 15,750.00 = 60,250.00 (federal senior deduction ignored). IA 1040 filing status 1 (single). Step 3 line a personal credits 1 x 40.00 = 40.00; line b 0 x 20.00 = 0.00 (65 or older on or before January 1, 2026; nobody blind); line c no dependents; line d and line 8 = 40.00. Line 1c federal AGI 76,000.00; line 2 federal taxable income 60,250.00. Schedule 1: no additions or subtractions. Schedule 1 line 21 net modifications = 0.00; line 3 = 0.00. Line 4 Iowa taxable income = 60,250.00 + (0.00) = 60,250.00. Line 5 tax = 3.8% x 60,250.00 = 2,289.50; line 7 = 2,289.50. Line 11 total credits 40.00; line 12 balance = 2,289.50 - 40.00 = 2,249.50. State income tax 2,249.50 (no line 13-17 credits; line 19 school district or EMS surtax is local, not computed). The form allows whole-dollar rounding; expected keeps the cents. Low-income exemption test (PDF p.10-11): line 4 60,250.00 + federal deduction 15,750.00 = 76,000.00, against 9,000.00: not exempt. Single filers' tax reduction (PDF p.18): its worksheet 41-146 is not in the sources, so it is not applied. Gains are taxed at the flat 3.8%, with no extra rate. The Iowa capital gain deduction (Schedule 1 line 16, form IA 100) has terms that are not in the sources and is not modelled, so a qualifying gain would owe less.",
+  "accepted_approximations": [
+    "Iowa capital gain deduction (Schedule 1 line 16, form IA 100): its terms are not in the sources. Gains are taxed at 3.8% in full, which overstates tax for a gain that qualifies.",
+    "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

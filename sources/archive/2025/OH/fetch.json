@@ -1,0 +1,67 @@
+[
+  {
+    "state": "OH",
+    "title": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+    "retrieved": "2026-11-07T01:36:52.836597+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+    "method": "browser",
+    "file": "it1040-booklet.pdf",
+    "bytes": 3427251,
+    "sha256": "931b21e7484ba96e561cf2346d8a7d2a8005bd990724b5903c9a90acede5f50e",
+    "archived_url": "https://web.archive.org/web/20260213161700id_/https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  {
+    "state": "OH",
+    "title": "2025 Ohio IT 1040 bundle (return, Schedule of Adjustments, Schedule of Credits)",
+    "url": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf",
+    "retrieved": "2026-11-07T07:53:11.239181+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf",
+    "method": "browser",
+    "file": "1040-bundle-original-fi.pdf",
+    "bytes": 3248126,
+    "sha256": "4e6432e23df3bf181a8e9d7ee5d5bb7e2e96a6a21dd65fa39c625fb8a7e2f57c",
+    "archived_url": "https://web.archive.org/web/20261108002400id_/https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf"
+  },
+  {
+    "state": "OH",
+    "title": "2025 Ohio IT 1040 bundle (return, Schedule of Adjustments, Schedule of Credits)",
+    "url": "https://tax.ohio.gov/static/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf",
+    "retrieved": "2026-11-07T03:03:30.953838+00:00",
+    "ok": false,
+    "status": 404,
+    "final_url": "https://tax.ohio.gov/static/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf",
+    "plain_http_error": "HTTP Error 404: Not Found",
+    "error": "no document returned (HTTP 404)"
+  },
+  {
+    "state": "OH",
+    "title": "Senior Citizens and Ohio Income Taxes (Social Security, pensions, IRA)",
+    "url": "https://tax.ohio.gov/individual/file-now/senior-citizens-and-ohio-income-tax",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:19:46.302785+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "oh-senior-citizens-income-tax.pdf",
+    "bytes": 885510,
+    "sha256": "f12aeffd4b45ad81b2e4b73db2faa802b737eb354476c73ee729cd0e04e44b6b"
+  },
+  {
+    "state": "OH",
+    "title": "Income - Retirement Income (Department FAQ)",
+    "url": "https://tax.ohio.gov/help-center/faqs/income-retirement-income/income-retirement-income",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:19:46.466572+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "oh-faq-retirement-income.pdf",
+    "bytes": 1851066,
+    "sha256": "891bfb0947c40361123528c26549da210e1c63e5247b8b63b02e658661e28264"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "ri_pension_annuity_modification": "49950.00",
+      "ri_social_security_modification": "0.00"
+    },
+    "state_agi": "83800.00",
+    "state_income_tax": "2133.75",
+    "state_tax_before_credits": "2133.75",
+    "state_taxable_income": "56900.00"
+  },
+  "worked": "RI-1040 line 1 federal AGI 133750.00; filing status qualifying_surviving_spouse. Age test (born on or before 1959-03-01): person 0 born 1955-06-15 yes. Later-births branch needs age 67 and born on or after 1959-03-02: person 0 no. Schedule M line 1v military pension 0.00; line 1d railroad retirement 0.00. Line 1t question 2: federal AGI 133750.00 less than or equal to 133750? yes. person 0: line 5b pension/annuity/plan 49950.00, table line 2 49950.00, line 3 lesser with 50,000 = 49950.00; line 1t = 49950.00. Line 1s worksheet line 7: federal AGI 133750.00 is not less than 133750: STOP, 0.00. Line 2 net modifications -49950.00; line 3 state AGI 83800.00. Phase-out worksheets: line 3 83800.00 not more than 254,250: full amount. Line 4 standard deduction 21800.00 x 1 = 21800.00. Line 6 exemptions 1 x 5,100 x 1 = 5100.00. Line 7 taxable income 83800.00 - 21800.00 - 5100.00 = 56900.00. Line 8 tax: 3.75% x 56900.00 = 2133.750000 = 2133.750000, 2133.75 to the cent. No credit is modelled: credits 0.00; RI income tax 2133.75. Federal figures taken as given (the federal senior deduction ignored)."
+}

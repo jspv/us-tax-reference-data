@@ -1,0 +1,41 @@
+[
+  {
+    "state": "MD",
+    "title": "2025 Maryland State and Local Tax Forms and Instructions (Resident Booklet)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+    "retrieved": "2026-11-06T22:17:38.722623+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+    "file": "resident-booklet.pdf",
+    "bytes": 2860595,
+    "sha256": "17bc9f77e055c0570daee8840921e635b1b0952a39d54f28e33516699b9b6ba5",
+    "archived_url": "https://web.archive.org/web/20260924124904id_/https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  {
+    "state": "MD",
+    "title": "2025 Form 502R Retirement Income",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502r.pdf",
+    "retrieved": "2026-11-06T22:17:44.094278+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502r.pdf",
+    "file": "502r.pdf",
+    "bytes": 170461,
+    "sha256": "7205c4ec7b65460bfd6e1bab8dbd269d8dad308d537bc3980e1224a78d8be029",
+    "archived_url": "https://web.archive.org/web/20260418103356id_/https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502r.pdf"
+  },
+  {
+    "state": "MD",
+    "title": "2025 Form 502 Resident Income Tax Return",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502.pdf",
+    "retrieved": "2026-11-06T22:17:50.124109+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502.pdf",
+    "file": "502.pdf",
+    "bytes": 223813,
+    "sha256": "4f4d604f27cf6995cbab58b7650fd812c0e4ccc9f8d899f04261ded5a04a24cf",
+    "archived_url": "https://web.archive.org/web/20260320162521id_/https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502.pdf"
+  }
+]

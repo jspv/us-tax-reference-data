@@ -1,0 +1,60 @@
+{
+  "id": "ut_2025_social_security_and_military_together",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "social_security_credit",
+    "military_retirement_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (AH) Social Security Benefits Credit and Social Security Credit Worksheet lines 1 to 13 (PDF p.23); (AJ) Military Retirement Credit (PDF p.23) and worksheet lines 1 and 2 (PDF p.24)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "62000.00",
+    "federal_taxable_income": "46250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.social_security_credit",
+    "relief_amounts.military_retirement_credit"
+  ]
+}

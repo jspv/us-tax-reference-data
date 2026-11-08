@@ -1,0 +1,50 @@
+{
+  "id": "mi_2025_personal_exemption",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "mi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "MI-1040 line 9a (PDF page 10, Line 9a: number of exemptions x 5,800); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income); record cite PDF page 10 Line 9a and Line 9e, PDF page 3",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "44200.00",
+    "state_tax_before_credits": "1878.50",
+    "credits": "0.00",
+    "state_income_tax": "1878.50",
+    "relief_amounts": {
+      "mi_personal_exemption": "5800.00"
+    }
+  },
+  "worked": "Federal AGI = wages 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - federal standard deduction (15,750.00) = 34,250.00; given, not tested; the federal senior deduction is ignored. Michigan: line 10 AGI 50,000.00; no additions or subtractions; line 14 50,000.00; line 9a one exemption (no dependents, nobody else can claim the filer) 1 x 5,800 = 5,800.00, carried to line 15; line 16 = 50,000.00 - 5,800.00 = 44,200.00. MI-1040 line 17 tax = 44,200.00 x 0.0425 = 1,878.50. No credits; state income tax 1,878.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

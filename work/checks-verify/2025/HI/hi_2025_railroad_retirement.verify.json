@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "hi_railroad_retirement": "24000.00"
+    },
+    "state_agi": "30000.00",
+    "state_income_tax": "815.17",
+    "state_tax_before_credits": "815.17",
+    "state_taxable_income": "23312.00"
+  },
+  "worked": "Line 7 federal AGI 54,000.00. Line 14 subtract railroad retirement (hi_railroad_retirement, exempt in full) 24,000.00. Line 20 Hawaii AGI 30,000.00. Line 23 standard deduction 4,400.00; line 25 exemptions 1 personal + 1 age-65 = 2 x 1,144 = 2,288.00. Line 26 taxable income 23,312.00. Line 27 tax by the rate schedule: 9,600.00 x 0.014 = 134.4000; 4,800.00 x 0.032 = 153.6000; 4,800.00 x 0.055 = 264.0000; 4,112.00 x 0.064 = 263.1680; total 815.1680 -> 815.17 (the form uses the Tax Table under 100,000; schedule formula used). Credits: none modelled, 0.00. State income tax 815.17."
+}

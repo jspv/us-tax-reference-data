@@ -1,0 +1,47 @@
+{
+  "id": "la_2025_std_deduction_surviving_spouse",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "la_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 56,
+        "born": "1969-04-25"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "38500.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "45000.00",
+    "state_tax_before_credits": "1350.00",
+    "credits": "0.00",
+    "state_income_tax": "1350.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 70,000.00 = 70,000.00. Federal taxable income = 70,000.00 - 31,500.00 federal standard deduction = 38,500.00 (given, not tested; the federal senior deduction is ignored). Filing status 5 on Form IT-540. Louisiana starts from federal AGI. No Schedule E adjustments. IT-540 Line 7 federal AGI 70,000.00. Line 8 standard deduction (filing status 5) 25,000.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 70,000.00 - 25,000.00 = 45,000.00. Line 11 = 45,000.00 x .03 = 1,350.00. Line 12 credits 0.00. Line 13 = 1,350.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

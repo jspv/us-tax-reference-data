@@ -1,0 +1,52 @@
+{
+  "id": "or_2025_ny_state_pension_in_retirement_credit",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.52 'Most retirement income is subject to Oregon tax'; the Department's Personal Income Tax page; Pub OR-17 PDF p.106-107 'Retirement income' (credit code 811) worksheet lines 1-12; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "5000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.retirement_income_credit"
+  ]
+}

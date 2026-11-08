@@ -1,0 +1,57 @@
+{
+  "id": "ks_2025_public_pension_only_taxable_income_floor",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "public_retirement",
+    "age_65_additional_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); Schedule S line A14 (ip25 PDF page 21), instructions PDF page 12 'Retirement benefits specifically exempt from Kansas Income Tax'; K-40 line 7 (PDF page 7: 'if less than zero, enter 0'); tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-04-25"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "KS",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "12250.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "public_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = Kansas public pension (you) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 17,750.00 (15,750.00 + 1 x 2,000.00 for 65 or older) = 12,250.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). Schedule S Part A: line A1 0.00; lines A2-A8 0.00; line A9 total additions 0.00. Line A10 0.00; lines A11-A13 0.00; line A14 retirement benefits specifically exempt: KPERS annuity 30,000.00 = 30,000.00; lines A15-A25 0.00; line A26 total subtractions = 30,000.00; line A27 net modification = 0.00 - 30,000.00 = -30,000.00. Form K-40: line 1 federal AGI 30,000.00; line 2 modifications -30,000.00; line 3 Kansas AGI = 30,000.00 + (-30,000.00) = 0.00; line 4 standard deduction (single), worksheet for people 65 or older: 1 box checked, 3,605.00 + 1 x 850.00 = 4,455.00 (the worksheet prints 4,455.00); line 5 exemption allowance (1 exemption) 9,160.00, 0 dependents; line 6 total deductions = 4,455.00 + 9,160.00 = 13,615.00; line 7 taxable income = 0.00 - 13,615.00 is -13,615.00, less than zero, so the form enters 0; expected 0.00; line 8 tax on 0.00 = 0.00. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 0.00. Credits (lines 13-15, 17): none, 0.00; state income tax = 0.00. Kansas AGI is 0.00 once the pension is subtracted, so taxable income floors at 0.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:regents_annuity_contracts"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

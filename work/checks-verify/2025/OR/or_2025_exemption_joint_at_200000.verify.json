@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "512.00",
+    "relief_amounts": {
+      "personal_exemption_credit": "512.00"
+    },
+    "state_agi": "200010.00",
+    "state_income_tax": "15872.75",
+    "state_tax_before_credits": "16384.75",
+    "state_taxable_income": "194340.00"
+  },
+  "worked": "Line 7 federal AGI 200000.00 (start: projection base.starts_from federal_agi). Addition code 158, other-state municipal interest +10.00. Federal tax liability subtraction (line 10): not_modelled, not applied. Oregon income after additions and subtractions (state_agi) 200010.00. Line 17 standard deduction 5670.00 = 5670.00. Line 19 taxable income 200010.00 - 5670.00 = 194340.00. Line 20 tax, schedule J: 8800.00 x 0.0475 = 418; 13400.00 x 0.0675 = 904.5; 172140.00 x 0.0875 = 15062.25; total 16384.75 = 16384.75. Line 25 exemption credit: federal AGI 200000.00 is not over 200000.00: 2 x 256 = 512.00. Credits 512.00 + 0.00 = 512.00: 512.00. State income tax 16384.75 - 512.00 = 15872.75. Federal senior deduction ignored; federal figures as given."
+}

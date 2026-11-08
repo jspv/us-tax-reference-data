@@ -1,0 +1,65 @@
+{
+  "id": "nc_2025_uniformed_services_retirement_each_spouse",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "uniformed_services_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF pages 18-19, Schedule S Part B Line 21 (Uniformed Services retirement: at least 20 years of service or medically retired; may not also be deducted on Line 20); Form D-400 Schedule S page 3, Line 21; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15 (each spouse deducts own qualifying retired pay)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-10"
+      },
+      {
+        "age": 64,
+        "born": "1961-08-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true,
+          "vested_by_1989_08_12": false
+        },
+        {
+          "amount": "24000.00",
+          "person": 1,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true,
+          "vested_by_1989_08_12": false
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "61900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.uniformed_services_retirement"
+  ]
+}

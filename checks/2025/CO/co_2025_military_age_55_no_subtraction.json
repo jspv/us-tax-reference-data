@@ -1,0 +1,64 @@
+{
+  "id": "co_2025_military_age_55_no_subtraction",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "co_military_retirement_under_55"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 7 / line 8 Military Retirement Subtraction (PDF p.20 Lines 7-8; DR 0104AD p.2 lines 7-8 '(under age 55)') ('54 years of age or younger as of December 31, 2025'); line 4 silent on military pay (record covers_unclear); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "expected": {
+    "state_taxable_income": "54250.00",
+    "state_tax_before_credits": "2387.00",
+    "credits": "0.00",
+    "state_income_tax": "2387.00",
+    "relief_amounts": {
+      "co_military_retirement_under_55": "0.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 40,000.00 + military pension paid by the federal government (you) 30,000.00 = 70,000.00. Federal taxable income = 70,000.00 - standard deduction 15,750.00 = 54,250.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 54,250.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 70,000.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 54,250.00. DR 0104AD: Line 7 (primary taxpayer, age 55): 0.00, the military retirement subtraction requires age 54 or younger on December 31, 2025; line 4 is not used for military retirement pay (the projection leaves it out of the pension subtraction). Line 22 subtotal = 0.00; DR 0104 line 11 = 0.00. Line 12 Colorado taxable income = 54,250.00 - 0.00 = 54,250.00. Line 13 tax = 4.4% x 54,250.00 = 2,387.00 (taxable income over 50,000: the PDF p.35 worksheet multiplies by .044, same figure). No credits claimed: 0.00. Colorado income tax 2,387.00. Age edge: at 55 the line 7 subtraction is gone. Whether line 4 (55-64, up to 20,000) takes military retirement pay is not settled by the booklet; the projection does not, so the whole 30,000.00 stays taxed. If line 4 does take it, the form gives a 20,000.00 subtraction and tax of 1,507.00 (4.4% x 34,250.00).",
+  "accepted_approximations": [
+    "Military retirement pay of a person 55 or older is left out of the pension subtraction (covers_unclear in the record); the booklet's separate 15,000 military subtraction is for people 54 or younger only."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:co_pension_under_55_survivor",
+    "state_rule_not_modelled:co_pera_dpsrs_1984_1986"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

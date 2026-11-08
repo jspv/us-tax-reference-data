@@ -1,0 +1,52 @@
+{
+  "id": "ca_2025_new_york_state_pension_taxed",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "PDF page 60 Schedule CA (540) instructions, Line 5a and 5b ('Generally, no adjustments are made on this line'; no subtraction for another state's government pension); Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-04-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.standard_deduction"
+  ]
+}

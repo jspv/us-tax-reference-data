@@ -1,0 +1,51 @@
+{
+  "id": "ga_2025_retirement_62_64_401k_at_or_above",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ga_retirement_exclusion_62_64"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 1 'Retirement income' (PDF p.21); Retirement Income Exclusion notes (PDF p.24: Social Security, Railroad Retirement, exempt interest and other income 'not taxable to Georgia' left out, and lottery or gambling income; items allocated to the owner); Schedule 1 page 2 lines 1-17 and footnote (PDF p.48; 2025GA500.pdf p.8): lines 1-5 earned income limited to the 5,000 Maximum Earned Income, lines 6-14 unearned retirement income (line 11 'Taxable IRA Distributions', line 12 'Taxable Pensions'), line 16 maximum allowable exclusion 35,000 (62-64) or 65,000 (65 or older), line 17 the lesser of lines 15 and 16; Form 500 Line 8 starts from federal AGI (PDF p.16); a 401(k), 403(b) or 457 payout is a federal taxable pension and goes on Schedule 1 page 2 line 12 'Taxable Pensions'; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11; record cite: ga_retirement_exclusion_62_64 / ga_retirement_exclusion_65_plus (maintainer decision 2026-11-07: 401(k), 403(b) and 457 payouts and Roth conversions are covered)",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-03-10"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "4000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "38250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ga_retirement_exclusion_62_64"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "part_b_monthly_premium": "405.80",
+    "part_d_monthly_adjustment": "37.50"
+  },
+  "worked": "CMS 2026 IRMAA (married_joint column; premium year 2026 looks back to the 2024 return): MAGI 300000 is greater than 274000 and less than or equal to 342000; Part B total 405.80 (standard 202.90 + adjustment 202.90); Part D adjustment 37.50."
+}

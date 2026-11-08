@@ -1,0 +1,58 @@
+{
+  "id": "nd_2025_base",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "Plain return, no subtractions; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-04-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "15000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "85000.00",
+    "federal_taxable_income": "69250.00"
+  },
+  "expected": {
+    "state_taxable_income": "69250.00",
+    "state_tax_before_credits": "405.11",
+    "credits": "0.00",
+    "state_income_tax": "405.11"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 70,000.00 + private pension (person 0) 15,000.00 = 85,000.00. Federal taxable income = 85,000.00 - standard deduction 15,750.00 = 69,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 69,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 69,250.00. Subtractions lines 5-16: none; line 17 = 0.00. Line 18 North Dakota taxable income = 69,250.00 - 0.00 = 69,250.00. Line 19 = 69,250.00. Line 20 tax: 1.95% x (69,250.00 - 48,475.00) = 1.95% x 20,775.00 = 405.1125, to the cent 405.11; the Tax Table row 69,250 to 69,300 gives 406; expected uses the bracket formula on the exact income. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 405.11. A private pension has no North Dakota line, so it stays in the starting figure. North Dakota has no standard deduction or exemption of its own: the federal standard deduction is already inside line 1b.",
+  "accepted_approximations": [
+    "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit",
+    "state_rule_not_modelled:peace_officer_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

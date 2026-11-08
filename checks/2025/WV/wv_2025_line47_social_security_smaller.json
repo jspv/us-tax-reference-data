@@ -1,0 +1,68 @@
+{
+  "id": "wv_2025_line47_social_security_smaller",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_social_security",
+    "wv_senior_citizen_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 34 Social Security Benefits, 100% at or under the AGI limit and 65% above it for 2025 (PDF p.5; instructions PDF p.28; PDF p.17; Tax Division Social Security Modification page); Schedule M line 47 Senior Citizen Deduction columns (a)-(d) (PDF p.6; instructions PDF p.29; example PDF p.30; PDF p.23 'Taxpayers over age 65 or disabled'; Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-08-08"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "6000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "3000.00"
+    },
+    "federal_agi": "33000.00",
+    "federal_taxable_income": "15250.00"
+  },
+  "expected": {
+    "state_agi": "25000.00",
+    "state_taxable_income": "23000.00",
+    "state_tax_before_credits": "606.80",
+    "credits": "0.00",
+    "state_income_tax": "606.80",
+    "relief_amounts": {
+      "wv_social_security": "0.00",
+      "wv_senior_citizen_deduction": "8000.00"
+    }
+  },
+  "worked": "Single, age 70: line 34 is under 8,000, so line 47 tops it up to 8,000; lines 29-34 plus line 47 come to 8,000, the higher of the two. filer born 1955-08-08, age 70 at December 31, 2025. Federal taxable Social Security (IRS worksheet, given): other income 30,000.00 + half of benefits 3,000.00 = provisional income 33,000.00; 50% x (33,000.00 - 25,000.00) = 4,000.00, limited to half the benefits 3,000.00: 3,000.00. Federal AGI (given) = private pension 30,000.00 + taxable Social Security 3,000.00 = 33,000.00. Federal taxable income (given, not tested) = 33,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 aged 65 or older = 15,250.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 33,000.00. Schedule M additions lines 51-58 none; IT-140 line 2 0.00. Schedule M Column A: line 34(a) total benefits 6,000.00, (b) exempt for federal 3,000.00, (c) taxable 3,000.00; federal AGI 33,000.00 does not exceed 50,000.00, so line 34 = 3,000.00 (100%); line 47 (age 70): column (c) income not on lines 35-46 = 33,000.00, limited to 8,000.00: 8,000.00; column (d) lines 29-34 = 3,000.00; line 47 = 8,000.00 - 3,000.00 = 5,000.00; line 49 = 8,000.00. Line 50 total subtractions = 8,000.00. Projection (per person): The filer: Social Security subtraction 3,000.00; age 65 deduction = lesser of (8,000.00 - military retirement 0.00) and own income 33,000.00 = 8,000.00; best_of_group wv_line_47 keeps the larger, 8,000.00 (wv_senior_citizen_deduction). Projection subtractions total 8,000.00, the same as line 50. IT-140 line 3 subtractions 8,000.00; line 4 West Virginia AGI = 33,000.00 + 0.00 - 8,000.00 = 25,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 1 x 2,000.00 = 2,000.00. Line 7 taxable income = 25,000.00 - 2,000.00 = 23,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 13,000.00 = 384.8; total 606.8 = 606.80. The Tax Table row 23,000 to under 23,100 (PDF p.38 on) gives 608; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 606.80.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wv_fed_law_enforcement_retirement",
+    "state_rule_not_modelled:wv_pbgc",
+    "state_rule_not_modelled:wv_police_fire_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

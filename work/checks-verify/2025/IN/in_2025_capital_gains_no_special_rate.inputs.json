@@ -1,0 +1,42 @@
+{
+  "id": "in_2025_capital_gains_no_special_rate",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Record capital_gains empty: no rate or deduction in the booklet differs from ordinary income; Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-12-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "6000.00",
+      "short_term_gains": "4000.00",
+      "long_term_gains": "15000.00"
+    },
+    "federal_agi": "65000.00",
+    "federal_taxable_income": "49250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

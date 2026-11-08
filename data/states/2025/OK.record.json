@@ -1,0 +1,634 @@
+{
+ "layer": "record",
+ "state": "OK",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Brackets are derived. The booklet prints no bracket schedule: it prints a Tax Table of 2,000 rows, 50 dollars wide, for taxable income under 100,000 (PDF pages 27-38), and on page 38 two worksheets for 100,000 or more: '$4,562 plus 0.0475 over $100,000' for single or married filing separate, and '$4,373 plus 0.0475 over $100,000' for married filing joint, head of household or qualified widow(er). The rates and starts were fitted to the table. Worked over all 2,000 rows at the row midpoint, the schedule differs from the printed figure by at most 0.44 dollars in both columns, so every row is the schedule's result rounded to the dollar. At 100,000 the schedule gives 4,561.50 (printed 4,562) and 4,373.00 (printed 4,373); at 200,000 it gives 9,311.50 against the worksheet's 9,312, and 9,123.00 against 9,123.",
+  "How tightly the table fixes the fit, changing one figure at a time and requiring every row to stay within 0.50 of its printed tax: the first start in each column can move by up to 12 dollars and each other start by up to 6, and no rate can move by 0.05 of a percentage point. Starts single 1,000, 2,500, 3,750, 4,900, 7,200 and joint 2,000, 5,000, 7,500, 9,800, 14,400 are the round figures inside those ranges. The second column's starts are exactly double the first's.",
+  "The worksheets are not in brackets.derivation.formula: that field holds one 'rate x income minus constant' tested against both columns, the two columns have different constants, and their constants as 'minus' figures (188 and 377) are not printed. The printed 'Tax on $100,000' figures are table rows at income 100000, so the validator re-checks both columns and the two other statuses at the worksheet's starting point. The worksheet rate 0.0475 is the top bracket rate.",
+  "The table's columns are 'Single or married filing separate' and 'Married* filing joint or head of household'; the footnote reads 'This column must also be used by a Qualified Surviving Spouse.' So married_separate copies the first column and head_of_household the second; qualifying surviving spouse has no key in brackets and uses the joint list. Table rows are recorded for all four keys so the validator checks each list.",
+  "Docling reads the 85,400-85,450 row's joint tax as 3,683; the pypdf text reads 3,681 and the schedule gives 3,680.69. The pypdf figure is used.",
+  "Social Security: PDF page 16: 'Social Security benefits that are included in the Federal AGI shall be subtracted.' PDF page 45, Schedule 511-A line 2 'Social Security benefits taxed on your Federal Form 1040 or 1040-SR'. The Help Center page says the same. Recorded as exempt.",
+  "Resident income: PDF page 3: 'An Oklahoma resident individual is taxed on all income reported on the federal return, except income from real and tangible personal property located in another state, income from business activities in another state, or the gains/losses from the sales or exchange of real property in another state.' PDF page 9 says line 4 out-of-state income 'is not non-business interest or dividends, installment sale interest, salary/wages, pensions, unemployment compensation, gambling, or income from personal services.' So a pension stays in Oklahoma income unless a Schedule 511-A line takes it out.",
+  "Lines 5 and 6 of Schedule 511-A share one 10,000 limit per person: PDF page 17: 'the amount of the exclusion on this line cannot exceed $10,000 minus the amounts already claimed on Schedule 511-A, line 5 (if less than zero, enter \"0\")'. Each line also stops at the amount included in Federal AGI. The booklet prints no age test on either line. Line 5 adds 'To be eligible, you must have retirement income in your name'; line 6 says only 'Each individual'.",
+  "Another state's government pension, New York State included: no sentence in the booklet or the Help Center page names one, and New York appears in neither. Line 5 is a closed list ('The retirement benefits must be received from the following') of the U.S. civil service and named Oklahoma systems, so a New York State pension is not on it. Line 6 is a list of plan types, not payers: 'The retirement benefits must be received from the following and satisfy the requirements of the IRC' (IRC Sec. 401, 457, 408, 403(a) or (b), 86, 402(e)). Whether a New York State pension reaches line 6 therefore turns on whether its plan is one of the listed types, and the booklet does not say which type any other state's plan is. public_pension_other_state is in covers_unclear on line 6 for that reason. If the plan is not a listed type, no line takes it out and it is taxed (PDF page 3).",
+  "Roth conversions: PDF page 20: 'Rollovers and IRA Conversions are taxed in the same year as on the federal return.' The booklet does not say whether a converted amount counts as retirement benefits on line 6, so roth_conversion is in covers_unclear. Separately, the age 65 exemption's Federal AGI limits leave conversion income out (PDF page 9).",
+  "Special (age 65) exemption: PDF page 9, an additional exemption 'for each taxpayer or spouse' who is 65 or older at the close of the tax year, on a single return with line 1 equal to 15,000 or less, joint 25,000 or less, married filing separate 12,500 or less, head of household 19,000 or less. '*Note: If your Federal AGI includes income from the conversion of a traditional individual retirement account to a Roth individual retirement account, this income shall be excluded in determining the Federal AGI limits. Provide a copy of your federal return and Form 8606.' The schema's measure has no field for this, so the measure is federal_agi with the exclusion in as_printed. The four numbered returns do not include a qualifying surviving spouse: no limit for that status is found in the booklet, and it does not say whether that filer may claim this exemption.",
+  "Age: PDF page 9: 'If you turned age 65 on January 1, 2026, you are considered to be age 65 at the end of 2025.'",
+  "Standard deduction: PDF page 10: 'If you claimed the standard deduction on your federal return, you must claim the Oklahoma standard deduction. If you claimed itemized deductions on your federal return, you must claim Oklahoma itemized deductions.' The filer has no choice of the larger. A person claimed as a dependent still gets the standard deduction but enters 0 for the regular exemption (PDF pages 8 and 10).",
+  "Oklahoma itemized deductions: Schedule 511-D starts from federal Schedule A, takes out state and local sales or income tax, and is limited to 17,000; 'Charitable contributions and medical expenses are not subject to the $17,000 limit' (PDF page 10; form PDF page 46). This is a limit on itemized deductions, not a deduction of 17,000, so it is here and not in base.deductions.",
+  "Exemptions: 'Oklahoma allows $1,000 for each exemption claimed on the top of the return' (PDF page 10; form line 11, PDF page 43). A spouse's exemption on a separate or head of household return requires that the spouse had no income, is not filing and cannot be claimed as a dependent (PDF page 8). The booklet prints no phase-out of the regular exemptions or the standard deduction.",
+  "Federal civil service: CSRS paid in lieu of Social Security is excluded 100% on line 3, apart from the 10,000 limit; FERS does not qualify except a CSRS component and the FERS Annuity Supplement (PDF page 17). Other U.S. civil service retirement is on line 5, without CSRS benefits already excluded on line 3. Military retirement (line 4) and Railroad Retirement (line 7) are separate and unlimited.",
+  "An early distribution due to termination of employment before retirement or disability (generally code 1 in box 7) does not qualify on line 5 but 'may qualify for the \"Other Retirement Income\" exclusion on Schedule 511-A, line 6' (PDF page 17).",
+  "Capital gain deduction: 'You can deduct qualifying gains receiving capital treatment that are included in Federal AGI' (PDF page 18). No percentage is printed; recorded as a deduction of the full qualifying gain (value 1), with the three tests in condition.",
+  "Interest on U.S. government obligations is subtracted on line 1; FNMA and GNMA interest does not qualify (PDF page 16). The active military pay exclusion is on Schedule 511-C line 1 (PDF pages 22 and 46); it is not retirement income.",
+  "Out-of-state income (Form 511 line 4) is real or tangible personal property or business income in another state; a filer with such income prorates deductions and exemptions on Schedule 511-E (PDF pages 9 and 25). Out-of-state losses are added back on Schedule 511-B line 2 (PDF page 20). Lump-sum distributions not in Federal AGI are added on Schedule 511-B line 3 and may qualify for a retirement exclusion (PDF page 20).",
+  "Credits are not recorded as entries: child care/child tax credit (PDF page 11), credit for tax paid to another state (page 11), Credit for Property Tax Relief for a person 65 or older or disabled with gross household income up to 12,000, at most 200 (page 14), Sales Tax Relief with an income limit raised to 50,000 at 65 or older (page 15), and the earned income credit at 5% of the federal credit. None depends on the kind of retirement income.",
+  "The booklet prints no surtax, no recapture of lower brackets and no statement on inflation indexing: not found in the booklet. The 10% additional tax on non-qualified Health Savings Account withdrawals (line 14b, PDF page 10) applies to those withdrawals, not to income over a threshold.",
+  "Settlement 2026-11-07: brackets.derivation.method: A said tax_table_and_formula, B said tax_table; PDF pages 27 and 38 print both a table and worksheets for 100,000 or more, so tax_table_and_formula, with no formula object because the constants differ by column.",
+  "Settlement 2026-11-07: brackets.derivation.table_rows: A listed 14 rows, B listed 14 other rows; all 28 are printed (checked against the table), and neither set reaches every band of both columns. Replaced by 26 rows that sit either side of each band edge in each column and include the page 38 figures at 100,000.",
+  "Settlement 2026-11-07: base.deductions itemized_cap: A left it out and B recorded it as a deduction of 17,000 per return; PDF page 10 says Oklahoma itemized deductions 'are limited to, and may not exceed, $17,000', a limit and not a deduction, so it is in notes and not in base.deductions.",
+  "Settlement 2026-11-07: capital_gains exempt_obligation_gains: A recorded it and B did not; PDF page 16 says 'The capital gain/loss from the sale of an U.S. Government obligation is exempt' and PDF page 20 says the same of Oklahoma obligations, with Schedule 511-A line 11 on page 18. Kept.",
+  "Settlement 2026-11-07: indexing: A gave all_other only, B added brackets and standard_deduction as not_stated; the booklet says nothing on either, and extraction brief rule 8 asks for an entry only where it does. A's single all_other entry kept."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "1000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "2500"
+   },
+   {
+    "rate": "0.0275",
+    "start": "3750"
+   },
+   {
+    "rate": "0.0375",
+    "start": "4900"
+   },
+   {
+    "rate": "0.0475",
+    "start": "7200"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "2000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0275",
+    "start": "7500"
+   },
+   {
+    "rate": "0.0375",
+    "start": "9800"
+   },
+   {
+    "rate": "0.0475",
+    "start": "14400"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "1000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "2500"
+   },
+   {
+    "rate": "0.0275",
+    "start": "3750"
+   },
+   {
+    "rate": "0.0375",
+    "start": "4900"
+   },
+   {
+    "rate": "0.0475",
+    "start": "7200"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0025",
+    "start": "0"
+   },
+   {
+    "rate": "0.0075",
+    "start": "2000"
+   },
+   {
+    "rate": "0.0175",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0275",
+    "start": "7500"
+   },
+   {
+    "rate": "0.0375",
+    "start": "9800"
+   },
+   {
+    "rate": "0.0475",
+    "start": "14400"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+   "section": "PDF pages 27-38, 2025 Oklahoma Income Tax Table (columns 'Single or married filing separate' and 'Married* filing joint or head of household'; footnote on the Qualified Surviving Spouse); PDF page 38, tax computation worksheets for taxable income of 100,000 or more; derived, see notes",
+   "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+   "accessed": "2026-11-07"
+  },
+  "derivation": {
+   "method": "tax_table_and_formula",
+   "table_rows": [
+    {
+     "status": "single",
+     "income": "975",
+     "tax": "2"
+    },
+    {
+     "status": "single",
+     "income": "2475",
+     "tax": "14"
+    },
+    {
+     "status": "single",
+     "income": "3725",
+     "tax": "35"
+    },
+    {
+     "status": "single",
+     "income": "4875",
+     "tax": "67"
+    },
+    {
+     "status": "single",
+     "income": "7175",
+     "tax": "153"
+    },
+    {
+     "status": "single",
+     "income": "7225",
+     "tax": "155"
+    },
+    {
+     "status": "single",
+     "income": "14725",
+     "tax": "511"
+    },
+    {
+     "status": "single",
+     "income": "50025",
+     "tax": "2188"
+    },
+    {
+     "status": "single",
+     "income": "99975",
+     "tax": "4560"
+    },
+    {
+     "status": "single",
+     "income": "100000",
+     "tax": "4562"
+    },
+    {
+     "status": "married_joint",
+     "income": "1975",
+     "tax": "5"
+    },
+    {
+     "status": "married_joint",
+     "income": "4975",
+     "tax": "27"
+    },
+    {
+     "status": "married_joint",
+     "income": "7475",
+     "tax": "71"
+    },
+    {
+     "status": "married_joint",
+     "income": "9775",
+     "tax": "134"
+    },
+    {
+     "status": "married_joint",
+     "income": "14375",
+     "tax": "306"
+    },
+    {
+     "status": "married_joint",
+     "income": "14425",
+     "tax": "308"
+    },
+    {
+     "status": "married_joint",
+     "income": "14725",
+     "tax": "322"
+    },
+    {
+     "status": "married_joint",
+     "income": "50025",
+     "tax": "1999"
+    },
+    {
+     "status": "married_joint",
+     "income": "99975",
+     "tax": "4372"
+    },
+    {
+     "status": "married_joint",
+     "income": "100000",
+     "tax": "4373"
+    },
+    {
+     "status": "married_separate",
+     "income": "7175",
+     "tax": "153"
+    },
+    {
+     "status": "married_separate",
+     "income": "99975",
+     "tax": "4560"
+    },
+    {
+     "status": "married_separate",
+     "income": "100000",
+     "tax": "4562"
+    },
+    {
+     "status": "head_of_household",
+     "income": "14375",
+     "tax": "306"
+    },
+    {
+     "status": "head_of_household",
+     "income": "99975",
+     "tax": "4372"
+    },
+    {
+     "status": "head_of_household",
+     "income": "100000",
+     "tax": "4373"
+    }
+   ],
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Income is each row's midpoint. Rows (At least / But less than): 950-1,000, 1,950-2,000, 2,450-2,500, 3,700-3,750, 4,850-4,900, 4,950-5,000 (PDF page 27); 7,150-7,200, 7,200-7,250, 7,450-7,500, 9,750-9,800, 14,350-14,400, 14,400-14,450, 14,700-14,750 (page 28); 50,000-50,050 (page 32); 99,950-100,000 (page 38). The rows at income 100000 are the worksheets' line 5 'Tax on $100,000' on page 38: 4,562 (single or married filing separate) and 4,373 (married filing joint, head of household or qualified widow(er)); each worksheet then adds 0.0475 of the amount over 100,000",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "6350",
+     "married_separate": "6350",
+     "head_of_household": "9350",
+     "married_joint": "12700",
+     "qualifying_surviving_spouse": "12700"
+    },
+    "per": "return",
+    "condition": "only if no itemized deductions were claimed on the federal return; a filer who itemized federally must use Oklahoma itemized deductions (Schedule 511-D). Available even when claimed as a dependent on another return",
+    "cite": {
+     "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+     "section": "PDF page 10, Deductions, Standard Deduction (line 10); PDF page 43, Form 511 line 10; PDF page 25, Schedule 511-E",
+     "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "personal_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "exemption_claimed",
+    "condition": "for yourself if you cannot be claimed as a dependent on another return, and for your spouse on a joint return if your spouse cannot be so claimed; on a separate or head of household return a spouse counts only if the spouse had no income, is not filing and cannot be so claimed",
+    "cite": {
+     "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+     "section": "PDF page 8, Exemption Terms, Regular; PDF page 10, Exemptions (line 11); PDF page 43, Form 511 line 11",
+     "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "dependent",
+    "condition": "each individual who is your dependent as defined in IRC Sec. 152",
+    "cite": {
+     "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+     "section": "PDF page 9, Dependents; PDF page 10, Exemptions (line 11)",
+     "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "age_65_exemption",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "each taxpayer or spouse 65 or older at the close of the tax year (a January 1, 2026 birthday counts as age 65 at the end of 2025), on a return within the Federal AGI limit for its filing status",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal AGI, Form 511 line 1. 'If your Federal AGI includes income from the conversion of a traditional individual retirement account to a Roth individual retirement account, this income shall be excluded in determining the Federal AGI limits.'"
+     },
+     "threshold": {
+      "single": "15000",
+      "married_joint": "25000",
+      "married_separate": "12500",
+      "head_of_household": "19000"
+     },
+     "effect": "removes",
+     "as_printed": "(1) Single return with line 1 equal to $15,000 or less. (2) Joint return with line 1 equal to $25,000 or less. (3) Married filing separate return with line 1 equal to $12,500 or less. (4) Head of household return with line 1 equal to $19,000 or less."
+    },
+    "cite": {
+     "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+     "section": "PDF page 9, EXEMPTIONS (continued), Special, and SIXTY-FIVE OR OLDER; PDF page 10, Exemptions (line 11)",
+     "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "blind_exemption",
+    "what": "blind_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "each taxpayer or spouse who is legally blind",
+    "cite": {
+     "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+     "section": "PDF page 9, Legally Blind; PDF page 10, Exemptions (line 11)",
+     "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+   "section": "PDF page 42, Form 511 lines 1-9 (Federal AGI on line 1, Oklahoma AGI on line 7); PDF page 43, Form 511 lines 10-13 (Oklahoma Taxable Income on line 13)",
+   "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+   "section": "PDF page 16, Social Security (line A2): 'Social Security benefits that are included in the Federal AGI shall be subtracted'; PDF page 45, Schedule 511-A line 2; second source: Help Center, 'Does Oklahoma tax my Social Security retirement income?'",
+   "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "social_security_subtraction",
+   "label": "Social Security benefits taxed on your Federal Form 1040 or 1040-SR (Schedule 511-A line 2)",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap_rule": "Benefits included in Federal AGI are subtracted in full",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 16, Social Security (line A2); PDF page 45, Schedule 511-A line 2; second source: Help Center, 'Does Oklahoma tax my Social Security retirement income?'",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "csrs_in_lieu_of_ss",
+   "label": "Federal civil service retirement in lieu of social security (Schedule 511-A line 3)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "retirement benefits from the Federal Civil Service Retirement System (CSRS), including survivor benefits, paid in lieu of Social Security; the Form CSA 1099-R or CSF 1099-R must be in your name",
+     "a CSRS component of benefits containing both FERS and CSRS, and the FERS Annuity Supplement paid to certain FERS retirees until eligible for Social Security at age 62, qualify"
+    ]
+   },
+   "not_covered": [
+    "Retirement benefits paid under the Federal Employees Retirement System (FERS) do not qualify for this exclusion, except a CSRS component and the FERS Annuity Supplement"
+   ],
+   "cap_rule": "100%, to the extent included in Federal AGI; separate from the 10,000 limit of lines 5 and 6",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 17, Federal Civil Service Retirement in Lieu of Social Security (line A3); PDF page 45, line 3",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "military_retirement",
+   "label": "Military Retirement (Schedule 511-A line 4)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap_rule": "100% of retirement benefits from any component of the Armed Forces of the United States",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 17, Military Retirement (line A4); PDF page 45, line 4; second source: Help Center, 'Does Oklahoma tax all of my military retirement income?'",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ok_government_retirement",
+   "label": "Oklahoma government or Federal civil service retirement (Schedule 511-A line 5)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "you must have retirement income in your name",
+     "received from the Civil Service of the United States; the Oklahoma Public Employees Retirement System; the Oklahoma Teacher's Retirement System; the Oklahoma Law Enforcement Retirement System; the Oklahoma Firefighters Pension and Retirement System; the Oklahoma Police Pension and Retirement System; employee retirement systems created by counties pursuant to 19 OS Sec. 951; the Uniform Retirement System for Justices and Judges; the Oklahoma Wildlife Conservation Department Retirement Fund; the Oklahoma Employment Security Commission Retirement Plan; or employee retirement systems created by municipalities pursuant to 11 OS Sec. 48-101"
+    ]
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Up to 10,000 but not to exceed the amount included in Federal AGI. The 10,000 is shared with line 6: what is claimed here reduces the line 6 limit",
+   "not_covered": [
+    "An early distribution from a retirement fund due to termination of employment prior to your retirement or disability (generally a '1' in box 7 of Form 1099-R); it may qualify on line 6",
+    "CSRS retirement benefits already excluded on Schedule 511-A, line 3"
+   ],
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 17, Oklahoma Government or Federal Civil Service Retirement (line A5); PDF page 45, line 5; second source: Help Center, 'Does Oklahoma tax all of my Oklahoma government or federal civil service retirement income?'",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "other_retirement_income",
+   "label": "Other retirement income (Schedule 511-A line 6)",
+   "form": "subtraction",
+   "covers": [
+    "private_pension",
+    "employer_plan_distribution",
+    "ira_distribution",
+    "annuity"
+   ],
+   "covers_unclear": [
+    "roth_conversion",
+    "public_pension_other_state"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "the benefits must be received from the following and satisfy the requirements of the IRC: an employee pension benefit plan under IRC Sec. 401; an eligible deferred compensation plan under IRC Sec. 457; an individual retirement account, annuity or trust or simplified employee pension under IRC Sec. 408; an employee annuity under IRC Sec. 403 (a) or (b); United States Retirement Bonds under IRC Sec. 86; or lump-sum distributions from a retirement plan under IRC Sec. 402 (e)"
+    ]
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Up to 10,000 but not to exceed the amount included in Federal AGI. For any individual who claims line 5, the amount on this line cannot exceed 10,000 minus the amounts already claimed on line 5 (if less than zero, enter 0); one 10,000 limit per person across both lines",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 17, Other Retirement Income (line A6); PDF page 45, line 6; second source: Help Center, 'Does Oklahoma tax my other retirement income?'",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "railroad_retirement",
+   "label": "U.S. Railroad Retirement Board benefits (Schedule 511-A line 7)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap_rule": "All qualified benefits included in Federal AGI",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 18, U.S. Railroad Retirement Board Benefits (line A7); PDF page 45, line 7",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_obligation_interest",
+   "label": "Interest on U.S. government obligations (Schedule 511-A line 1)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "a detailed schedule with 1099s is furnished; a mutual fund's share needs its documentation of the percentage exempt"
+    ]
+   },
+   "not_covered": [
+    "Interest from entities such as Federal National Mortgage Association (FNMA) and Government National Mortgage Association (GNMA)"
+   ],
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 16, Interest on U.S. Government Obligations (line A1); PDF page 45, line 1",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "military_pay_exclusion",
+   "label": "Military pay exclusion (Schedule 511-C line 1)",
+   "form": "exempt_in_full",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Oklahoma resident who is a member of any component of the Armed Services"
+    ]
+   },
+   "cap_rule": "100% of active military pay, including Reserve and National Guard pay, to the extent included in Federal AGI; not retirement income",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 22, Schedule 511-C, Military Pay Exclusion (line C1); PDF page 46, Schedule 511-C line 1",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest on bonds of another state or its subdivisions that is exempt federally is added to Federal AGI (Schedule 511-B line 1). Obligations of the State of Oklahoma and the named authorities are exempt. Local Oklahoma obligations issued after July 1, 2001 are exempt except those financing projects for nonprofit corporations. Oklahoma municipal bonds issued before July 2, 2001 are exempt only if the authorizing statute says so.",
+  "cite": {
+   "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+   "section": "PDF page 20, Schedule 511-B, State and Municipal Bond Interest, items 1-4 (line B1); PDF page 45, Schedule 511-B line 1",
+   "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "ok_capital_gain_deduction",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "1",
+   "condition": "qualifying gains receiving capital treatment (net capital gains under IRC Sec. 1222(11)) included in Federal AGI, earned on: real or tangible personal property in Oklahoma owned at least five uninterrupted years; stock or ownership interest in an Oklahoma headquartered company, LLC or partnership owned at least two uninterrupted years; or property in Oklahoma sold as part of all or substantially all of the assets of an Oklahoma headquartered business, owned at least two uninterrupted years. Form 561 required",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF pages 18-19, Oklahoma Capital Gain Deduction (line A12); PDF page 45, Schedule 511-A line 12",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "exempt_obligation_gains",
+   "applies_to": "other",
+   "treatment": "exempt",
+   "value": "0",
+   "condition": "gain from the sale of a U.S. Government obligation, or of an obligation of the State of Oklahoma and the named authorities; other state or municipal bonds only if the authorizing statute says so",
+   "cite": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "PDF page 16, note to line A1; PDF page 18, Gains from the Sale of Exempt Government Obligations (line A11); PDF page 20, item 1 and note to line B1",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

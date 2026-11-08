@@ -1,0 +1,53 @@
+{
+  "id": "ri_2025_mfs_over_limit",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_pension_annuity_modification"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "50000.00"
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "92650.00"
+  },
+  "expected": {
+    "state_agi": "110000.00",
+    "state_taxable_income": "94000.00",
+    "state_tax_before_credits": "3666.00",
+    "credits": "0.00",
+    "state_income_tax": "3666.00",
+    "relief_amounts": {
+      "ri_pension_annuity_modification": "0.00"
+    }
+  },
+  "worked": "Federal AGI = private pension (person 0) 60,000.00 + interest 50,000.00 = 110,000.00. Federal taxable income = 110,000.00 - 15,750.00 standard deduction - 1 x 1,600.00 age 65+ = 92,650.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 110,000.00. Line 1t: question 1 born on or before March 1, 1959: person 0 born 1955-06-15 (age 70): yes; question 2 federal AGI 110,000.00 less than or equal to 107,000.00: no. Not both yes: no table, modification 0.00. Line 1y total decreasing modifications = 0.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 0.00 = 0.00; RI-1040 line 2 = 0.00. Line 3 modified federal AGI = 110,000.00 + (0.00) = 110,000.00. Standard Deduction and Exemption Worksheets: line 3 110,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 10,900.00 (Married filing separately). Line 5 = 110,000.00 - 10,900.00 = 99,100.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00. Line 7 taxable income = 99,100.00 - 5,100.00 = 94,000.00. Line 8 tax on 94,000.00 by the schedule as numbers: 79,900.00 x 0.0375 = 2996.2500 + 14,100.00 x 0.0475 = 669.750000 = 3,666.00. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 3,666.00. Note: Married separate has the 107,000 limit.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_approximations": []
+}

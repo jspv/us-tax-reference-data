@@ -1,0 +1,314 @@
+{
+  "layer": "projection",
+  "state": "CO",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/CO.record.json",
+    "sha256": "e8228d4090007574b211018d7e2c9c1101dc73c63ffbacc7b334b9e7b3310fd1"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.044",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.044",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_taxable_income",
+    "federal_senior_deduction": "follows",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "relief"
+  },
+  "reliefs": [
+    {
+      "id": "co_ss_65_plus",
+      "from_record": [
+        "co_ss_65_plus"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      }
+    },
+    {
+      "id": "co_ss_55_64_full",
+      "from_record": [
+        "co_ss_55_64_full"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "max_age": 64
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_joint": "95000"
+        },
+        "effect": "removes"
+      },
+      "best_of_group": "co_ss_55_64"
+    },
+    {
+      "id": "co_ss_55_64_limited",
+      "from_record": [
+        "co_ss_55_64_limited"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "max_age": 64
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "best_of_group": "co_ss_55_64"
+    },
+    {
+      "id": "co_pension_65_plus",
+      "from_record": [
+        "co_pension_65_plus"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "annuity",
+        "ira_distribution",
+        "employer_plan_distribution"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "24000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "social_security"
+      ],
+      "social_security_basis": "taxable"
+    },
+    {
+      "id": "co_pension_55_64",
+      "from_record": [
+        "co_pension_55_64"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "annuity",
+        "ira_distribution",
+        "employer_plan_distribution"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55,
+        "max_age": 64
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "social_security"
+      ],
+      "social_security_basis": "taxable"
+    },
+    {
+      "id": "co_military_retirement_under_55",
+      "from_record": [
+        "co_military_retirement_under_55"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 54
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "co_railroad_benefit",
+      "from_record": [
+        "co_railroad_benefit"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "relief_income_tests",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "co_ss_under_55_survivor",
+      "from_record": [
+        "co_ss_under_55_survivor"
+      ],
+      "what": "Social Security subtraction under age 55, only for benefits received due to the death of the person originally entitled to them, up to 20,000 a person. A projection cannot tell survivor benefits from other benefits (SSDI is not subtractable under 55).",
+      "warn_when": "person_in_age_range",
+      "age_range": [
+        0,
+        54
+      ]
+    },
+    {
+      "id": "co_pension_under_55_survivor",
+      "from_record": [
+        "co_pension_under_55_survivor"
+      ],
+      "what": "Pension and annuity subtraction under age 55 for a secondary beneficiary (widow, dependent child) of the person who earned the pension: up to 20,000 less the line 3 Social Security subtraction. A projection cannot tell inherited pension or IRA income from the person's own.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "co_pera_dpsrs_1984_1986",
+      "from_record": [
+        "co_pera_dpsrs_1984_1986"
+      ],
+      "what": "PERA/DPSRS subtraction for Colorado PERA contributions made July 1, 1984 to December 31, 1986, or Denver Public Schools retirement contributions made in 1986. The amount is set in a Department publication that is not in the sources.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "co_us_government_interest",
+      "from_record": [
+        "co_us_government_interest"
+      ],
+      "what": "Interest on U.S. government bonds, treasury bills and other U.S. obligations is subtracted (DR 0104AD line 2); Fannie Mae and Ginnie Mae interest is not.",
+      "warn_when": "never"
+    },
+    {
+      "id": "co_ag_land_capital_gain",
+      "from_record": [
+        "co_ag_land_capital_gain"
+      ],
+      "what": "Agricultural land capital gain subtraction, up to 100,000, for a farmer (federal Schedule F) who sold agricultural land in Colorado.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Tax is figured on the exact income at 4.4%; below 50,000 the booklet uses the tax table, which taxes each 100-dollar row at its midpoint and rounds to the dollar.",
+      "direction": "either",
+      "size": "At most about 2 dollars a year (4.4% of half a 100-dollar row, plus rounding)."
+    },
+    {
+      "what": "The standard or itemized federal deduction addback (DR 0104 line 4) is not applied: when federal AGI exceeds 300,000, the federal deduction above 12,000 (single, married filing separately, head of household) or 16,000 (joint) is added back.",
+      "direction": "understates_tax",
+      "size": "4.4% of the federal deduction above 12,000 or 16,000, only in years federal AGI exceeds 300,000."
+    },
+    {
+      "what": "The state income tax addback (line 2, Schedule A state income tax) and the qualified business income deduction addback (line 3, AGI over 500,000 or 1,000,000 joint, or a SALT Parity Election) are not applied.",
+      "direction": "understates_tax",
+      "size": "4.4% of the amount added back; only for itemizers who deduct state income tax, or households with a section 199A deduction."
+    },
+    {
+      "what": "The pension cap is reduced by each person's taxable Social Security (the record's line 3 or line 5 subtraction). That equals the printed rule whenever the Social Security subtraction is the person's full taxable benefit, and also when it is limited to 20,000 (the 55-64 pension cap is then used up either way). How a joint return's taxable Social Security (Form 1040 line 6b) is split between spouses is left to a Department publication not in the sources; the projection splits it the way the household's facts do.",
+      "direction": "either",
+      "size": "4.4% of any difference in the split, at most 4.4% of 24,000 = 1,056 a person a year."
+    },
+    {
+      "what": "Roth conversions are left out of the pension subtraction's covers (covers_unclear in the record). If Colorado counts a conversion as IRA income on line 4, this overstates tax for a converter aged 55 or older whose other pension and IRA income leaves the cap unused.",
+      "direction": "overstates_tax",
+      "size": "At most 4.4% of 24,000 = 1,056 a person a year at 65 or older, 4.4% of 20,000 = 880 at 55-64."
+    },
+    {
+      "what": "Military retirement pay of a person 55 or older is left out of the pension subtraction (covers_unclear in the record); the booklet's separate 15,000 military subtraction is for people 54 or younger only.",
+      "direction": "overstates_tax",
+      "size": "At most 1,056 a person a year at 65 or older and 880 at 55-64, if line 4 does take military retirement."
+    },
+    {
+      "what": "The 55-64 full Social Security subtraction has thresholds printed only for single (75,000) and married filing jointly (95,000). Read literally, a head of household or married filing separately filer gets only the 20,000-limited subtraction; a consumer that falls back to the single threshold for these statuses allows the full subtraction up to 75,000.",
+      "direction": "understates_tax",
+      "size": "4.4% of taxable Social Security above 20,000 a person, for a head of household or separate filer aged 55-64 with federal AGI at or under 75,000."
+    },
+    {
+      "what": "A projection that cannot tell Colorado bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "4.4% of the interest from Colorado bonds issued on or after May 1, 1980."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "4.4% of the Treasury interest."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

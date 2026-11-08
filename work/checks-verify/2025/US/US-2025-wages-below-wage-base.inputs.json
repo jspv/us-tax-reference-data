@@ -1,0 +1,20 @@
+{
+  "id": "US-2025-wages-below-wage-base",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "payroll",
+  "boundary": "below",
+  "tests": [
+    "payroll.social_security",
+    "payroll.medicare"
+  ],
+  "description": "Employee with wages under the Social Security wage base.",
+  "inputs": {
+    "filing_status": "single",
+    "wages": "120000"
+  },
+  "asked": [
+    "medicare_tax",
+    "social_security_tax"
+  ]
+}

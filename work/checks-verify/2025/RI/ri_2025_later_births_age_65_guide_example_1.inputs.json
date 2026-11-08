@@ -1,0 +1,59 @@
+{
+  "id": "ri_2025_later_births_age_65_guide_example_1",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_pension_annuity_modification_later_births",
+    "ri_social_security_modification_later_births"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Guide PDF p.18, Section 5 Example #1; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "11764.71",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "10000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_pension_annuity_modification_later_births",
+    "relief_amounts.ri_social_security_modification_later_births"
+  ]
+}

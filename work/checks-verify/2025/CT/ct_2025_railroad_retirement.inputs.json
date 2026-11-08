@@ -1,0 +1,52 @@
+{
+  "id": "ct_2025_railroad_retirement",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 9, Schedule 1 Line 43; PDF page 10 ('Tier 1 and Tier 2 railroad retirement benefits are fully exempt'); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "37250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement"
+  ]
+}

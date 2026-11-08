@@ -1,0 +1,43 @@
+{
+  "id": "US-2026-joint-two-earners-interest",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "none",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction"
+  ],
+  "description": "Married couple filing jointly, ages 45 and 43, combined wages and some bank interest; 22% bracket.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1981-03-08",
+        "age": 45
+      },
+      {
+        "born": "1983-11-21",
+        "age": 43
+      }
+    ],
+    "wages": "160000",
+    "taxable_interest": "1200"
+  },
+  "expected": {
+    "agi": "161200.00",
+    "standard_deduction": "32200.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "129000.00",
+    "regular_tax": "17804.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "17804.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: married filing jointly.\nTaxpayer: born 1981-03-08, age 45 at the end of 2026.\nSpouse: born 1983-11-21, age 43 at the end of 2026.\nForm 1040: line 1z wages 160,000; line 2b taxable interest 1,200.\nForm 1040 line 9 total income = 160,000 + 1,200 = 161,200; line 10 adjustments 0; line 11a/11b adjusted gross income = 161,200.\nLine 12e standard deduction = 32,200 (married filing jointly; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 32,200 + 0 = 32,200; line 15 taxable income = 161,200 - 32,200 = 129,000.\nForm 1040 line 16 (regular tax): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 129,000: 10% x 24,800 = 2,480; 12% x (100,800 - 24,800) = 9,120; 22% x (129,000 - 100,800) = 6,204; total 17,804\nForm 8960: lines 8 and 12 net investment income = 1,200; line 13 MAGI = 161,200; line 14 threshold = 250,000; line 15 = 161,200 - 250,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 160,000; line 5 = 250,000 (married filing jointly); line 6 = 160,000 - 250,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 17,804 regular + 0 net investment income tax + 0 additional Medicare tax = 17,804.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

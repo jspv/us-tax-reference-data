@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "50000.00",
+    "state_income_tax": "1878.50",
+    "state_tax_before_credits": "1878.50",
+    "state_taxable_income": "44200.00",
+    "relief_amounts": {
+      "mi_personal_exemption": "5800.00"
+    }
+  },
+  "worked": "Single born 1985. state_agi 50,000.00. Line 9a: 1 x 5,800 = 5,800.00. Taxable 44,200.00. Tax 1,878.50. [check: state_agi 50000.00, taxable 44200.00, tax 1878.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

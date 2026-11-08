@@ -1,0 +1,46 @@
+{
+  "id": "ga_2025_military_at_or_above",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ga_military_exclusion_base"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 2 'Military Retirement Income' (PDF pp.21-22); Schedule 1 page 3 'Do I Qualify' box and lines 1-8 (PDF p.49; 2025GA500.pdf p.9): line 2 base military exclusion 17,500, line 3 lesser of lines 1 and 2, stop if Georgia earned income is less than 17,501; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-06"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "interest": "5000.00"
+    },
+    "federal_agi": "35000.00",
+    "federal_taxable_income": "19250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ga_military_exclusion_base"
+  ]
+}

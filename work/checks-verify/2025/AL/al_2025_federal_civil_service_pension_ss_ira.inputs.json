@@ -1,0 +1,60 @@
+{
+  "id": "al_2025_federal_civil_service_pension_ss_ira",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "al_public_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "PDF page 14 Schedule RS instructions (Civil Service Retirement System, Social Security not reported; IRA distributions on Schedule RS); PDF page 7; Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8); Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "20400.00",
+      "interest": "2000.00"
+    },
+    "federal_agi": "82400.00",
+    "federal_taxable_income": "64650.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.al_public_pension"
+  ]
+}

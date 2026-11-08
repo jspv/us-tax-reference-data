@@ -1,0 +1,44 @@
+[
+  {
+    "state": "WV",
+    "title": "2025 IT-140 Personal Income Tax Forms and Instructions",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "retrieved": "2026-11-07T01:45:15.504959+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "method": "browser",
+    "file": "it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+    "bytes": 1175763,
+    "sha256": "6383bf9748fde18c0469b0eb1b836f4ff6999a2c541bf4e909502a8b3132e0b0",
+    "archived_url": "https://web.archive.org/web/20260110102529id_/https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  {
+    "state": "WV",
+    "title": "2025 Schedule M (Modifications to Federal AGI)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.Schedule-M.2025.pdf",
+    "retrieved": "2026-11-07T01:45:20.998565+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.wv.gov/Documents/PIT/2025/it140.Schedule-M.2025.pdf",
+    "method": "browser",
+    "file": "it140.Schedule-M.2025.pdf",
+    "bytes": 413049,
+    "sha256": "3b333dd10136c82fa2862a41f08ee8ab432b2e2f6cbfc0c9baf07cdca8f3f6b1",
+    "archived_url": "https://web.archive.org/web/20260125062410id_/https://tax.wv.gov/Documents/PIT/2025/it140.Schedule-M.2025.pdf"
+  },
+  {
+    "state": "WV",
+    "title": "Social Security Modification (65% decreasing modification for tax year 2025)",
+    "url": "https://tax.wv.gov/Individuals/SeniorCitizens/Pages/SeniorCitizenSocialSecurityModification.aspx",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:45:26.187663+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.wv.gov/Individuals/SeniorCitizens/Pages/SeniorCitizenSocialSecurityModification.aspx",
+    "file": "SeniorCitizenSocialSecurityModification.html",
+    "bytes": 59780,
+    "sha256": "8a129271aa43d64802a57dd60711c71072014cb3ba9783a13ed764d7505c5d41",
+    "text_file": "SeniorCitizenSocialSecurityModification.page.txt"
+  }
+]

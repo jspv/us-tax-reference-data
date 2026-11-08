@@ -1,0 +1,53 @@
+{
+  "id": "ar_2025_railroad_retirement",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ar_railroad_retirement_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); record ar_social_security_railroad_exempt",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-04"
+      }
+    ],
+    "income": {
+      "interest": "35000.00",
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "64000.00",
+    "federal_taxable_income": "46250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ar_railroad_retirement_exempt"
+  ]
+}

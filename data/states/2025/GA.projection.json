@@ -1,0 +1,280 @@
+{
+ "layer": "projection",
+ "state": "GA",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/GA.record.json",
+  "sha256": "351000eed5476f21ccd89b9463b3f8d5ee2af5fca0a4c23429010ddfd19840f1"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0519",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0519",
+    "start": "0"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "ga_standard_deduction",
+    "amount": {
+     "single": "12000",
+     "married_joint": "24000",
+     "married_separate": "12000",
+     "head_of_household": "12000",
+     "qualifying_surviving_spouse": "12000"
+    },
+    "per": "return"
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "ga_retirement_exclusion_62_64",
+   "from_record": [
+    "ga_retirement_exclusion_62_64"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "wages",
+    "self_employment",
+    "interest",
+    "dividends",
+    "capital_gains",
+    "rent_and_royalties",
+    "other_income",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "max_age": 64
+   },
+   "cap": {
+    "all": "35000"
+   },
+   "cap_per": "person",
+   "sub_limits": [
+    {
+     "income": "wages",
+     "amount": {
+      "all": "5000"
+     }
+    },
+    {
+     "income": "self_employment",
+     "amount": {
+      "all": "5000"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ga_retirement_exclusion_65_plus",
+   "from_record": [
+    "ga_retirement_exclusion_65_plus"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "wages",
+    "self_employment",
+    "interest",
+    "dividends",
+    "capital_gains",
+    "rent_and_royalties",
+    "other_income",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65
+   },
+   "cap": {
+    "all": "65000"
+   },
+   "cap_per": "person",
+   "sub_limits": [
+    {
+     "income": "wages",
+     "amount": {
+      "all": "5000"
+     }
+    },
+    {
+     "income": "self_employment",
+     "amount": {
+      "all": "5000"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ga_military_exclusion_base",
+   "from_record": [
+    "ga_military_exclusion_base"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 61
+   },
+   "cap": {
+    "all": "17500"
+   },
+   "cap_per": "person"
+  },
+  {
+   "id": "ga_railroad_retirement",
+   "from_record": [
+    "ga_social_security_railroad"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "ga_retirement_exclusion_disabled",
+   "from_record": [
+    "ga_retirement_exclusion_disabled"
+   ],
+   "what": "Retirement income exclusion for a person under 62 who is permanently disabled and unable to perform any gainful employment: up to 35,000 of the same retirement income as the 62-64 branch.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "ga_military_exclusion_additional",
+   "from_record": [
+    "ga_military_exclusion_additional"
+   ],
+   "what": "Additional military retirement exclusion of 17,500 (35,000 in all) for a person under 62 with more than 17,500 of Georgia earned income; the test is on the person's own earned income, which no projection measure holds.",
+   "warn_when": "has_military_pension"
+  },
+  {
+   "id": "ga_dependent_exemption",
+   "from_record": [
+    "ga_dependent_exemption"
+   ],
+   "what": "Dependent exemption of 4,000 for each dependent, unborn dependents included.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "ga_us_obligations_interest",
+   "from_record": [
+    "ga_us_obligations_interest"
+   ],
+   "what": "Interest and dividends on U.S. Government bonds and other U.S. obligations are subtracted (Subtractions item 4).",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "Military retirement at 62 or older is left out of the general retirement exclusion (covers_unclear: the worksheet's 'Taxable Pensions' line does not say whether it includes military retirement).",
+   "direction": "overstates_tax",
+   "size": "5.19% of the military retirement, up to the unused exclusion room, for a military retiree 62 or older."
+  },
+  {
+   "what": "The 5,000 earned-income limit inside the retirement exclusion is one combined limit on wages and other earned income; the projection applies 5,000 to wages and 5,000 to self-employment separately.",
+   "direction": "understates_tax",
+   "size": "Only for a person 62 or older with both wages and self-employment income: at most 5.19% of 5,000 = 259.50 a year."
+  },
+  {
+   "what": "The Georgia standard deduction is always taken; a filer who itemizes federally must itemize for Georgia instead, and Georgia itemized deductions are not modelled.",
+   "direction": "either",
+   "size": "5.19% of the difference between Georgia itemized deductions and the standard deduction."
+  },
+  {
+   "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "5.19% of the Treasury interest."
+  },
+  {
+   "what": "A projection that cannot tell Georgia bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+   "direction": "overstates_tax",
+   "size": "5.19% of the interest from Georgia obligations."
+  },
+  {
+   "what": "Lump sum distributions from employee benefit plans reported on federal Form 4972 must be added to Georgia income (Additions item 3); the projection does not add them.",
+   "direction": "understates_tax",
+   "size": "5.19% of a Form 4972 lump sum, in the year taken."
+  },
+  {
+   "what": "The Low Income Credit (federal AGI less than 20,000) is out of the record's scope and not applied.",
+   "direction": "overstates_tax",
+   "size": "Small, for a household with federal AGI under 20,000."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": [],
+ "joint_income": "half_each"
+}

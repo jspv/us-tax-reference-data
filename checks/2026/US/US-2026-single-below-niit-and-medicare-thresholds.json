@@ -1,0 +1,43 @@
+{
+  "id": "US-2026-single-below-niit-and-medicare-thresholds",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Single filer age 45 with wages under 200,000, dividends and a long-term gain: MAGI 199,000 is not over the 200,000 threshold, so no net investment income tax and no additional Medicare tax.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1981-05-05",
+        "age": 45
+      }
+    ],
+    "wages": "180000",
+    "ordinary_dividends": "15000",
+    "qualified_dividends": "12000",
+    "net_long_term_gain": "4000"
+  },
+  "expected": {
+    "agi": "199000.00",
+    "standard_deduction": "16100.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "182900.00",
+    "regular_tax": "35054.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "35054.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: single.\nTaxpayer: born 1981-05-05, age 45 at the end of 2026.\nForm 1040: line 1z wages 180,000; line 3a qualified dividends 12,000; line 3b ordinary dividends 15,000; line 7a capital gain 4,000 (Schedule D line 16: net long-term 4,000).\nForm 1040 line 9 total income = 180,000 + 15,000 + 4,000 = 199,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 199,000.\nLine 12e standard deduction = 16,100 (single; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 16,100 + 0 = 16,100; line 15 taxable income = 199,000 - 16,100 = 182,900.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 182,900; line 2 = 12,000; line 3 = 4,000 (Schedule D lines 15 and 16 both 4,000); line 4 = 16,000; line 5 = 182,900 - 16,000 = 166,900\n  line 6 = 49,450; line 7 = smaller of 182,900 and 49,450 = 49,450; line 8 = smaller of 166,900 and 49,450 = 49,450; line 9 = 0 taxed at 0%\n  line 10 = smaller of 182,900 and 16,000 = 16,000; line 11 = 0; line 12 = 16,000\n  line 13 = 545,500; line 14 = smaller of 182,900 and 545,500 = 182,900; line 15 = 166,900 + 0 = 166,900; line 16 = 16,000; line 17 = smaller of 16,000 and 16,000 = 16,000\n  line 18 = 15% x 16,000 = 2,400; line 19 = 16,000; line 20 = 16,000 - 16,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule X (single) on 166,900: 10% x 12,400 = 1,240; 12% x (50,400 - 12,400) = 4,560; 22% x (105,700 - 50,400) = 12,166; 24% x (166,900 - 105,700) = 14,688; total 32,654\n  line 23 = 2,400 + 0 + 32,654 = 35,054\n  line 24 (tax on line 1): Tax Rate Schedule X (single) on 182,900: 10% x 12,400 = 1,240; 12% x (50,400 - 12,400) = 4,560; 22% x (105,700 - 50,400) = 12,166; 24% x (182,900 - 105,700) = 18,528; total 36,494\n  line 25 = smaller of 35,054 and 36,494 = 35,054 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 8 and 12 net investment income = 19,000; line 13 MAGI = 199,000; line 14 threshold = 200,000; line 15 = 199,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 180,000; line 5 = 200,000 (single); line 6 = 180,000 - 200,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 35,054 regular + 0 net investment income tax + 0 additional Medicare tax = 35,054.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "age_deduction_income_based": "0.00"
+    },
+    "state_agi": "70000.00",
+    "state_income_tax": "3164.90",
+    "state_tax_before_credits": "3164.90",
+    "state_taxable_income": "59520.00"
+  },
+  "worked": "Line 1 federal AGI 100600.00; Line 2 additions 0.00; Line 3 100600.00. Line 5 Social Security subtraction (taxable on federal return) 30600.00. Line 4 age deduction person 0 (born 1959-09-09, income-based): AFAGI = FAGI 100600.00 - taxable SS 30600.00 = 70000.00; excess over 50000.00 = 20000.00; 12,000.00 - 20000.00 = 0.00 (floored at 0), limited to remaining state income: 0.00. Line 8 total subtractions 30600.00; Line 9 VAGI = 100600.00 - 30600.00 = 70000.00. Line 11 standard deduction 8750.00; Line 12 exemptions 1 x 930 + 1 x 800 (age 65 or older by 2026-01-01) = 1730.00. Line 14 taxable income = 70000.00 - 8750.00 - 1730.00 = 59520.00. Line 15 tax by the rate schedule as numbers: 0.02 x (3000.00 - 0.00) = 60.00; 0.03 x (5000.00 - 3000.00) = 60.00; 0.05 x (17000.00 - 5000.00) = 600.00; 0.0575 x (59520.00 - 17000.00) = 2444.90; total 3164.90. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 3164.90. Federal figures given; federal senior deduction ignored (not tested)."
+}

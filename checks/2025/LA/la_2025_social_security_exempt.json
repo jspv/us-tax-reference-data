@@ -1,0 +1,52 @@
+{
+  "id": "la_2025_social_security_exempt",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "instructions PDF page 7, code 07E; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "11300.00"
+    },
+    "federal_agi": "41300.00",
+    "federal_taxable_income": "25550.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "17500.00",
+    "state_tax_before_credits": "525.00",
+    "credits": "0.00",
+    "state_income_tax": "525.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 30,000.00 + taxable Social Security (gross 24,000.00) 11,300.00 = 41,300.00. Federal taxable income = 41,300.00 - 15,750.00 federal standard deduction = 25,550.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. Schedule E: Line 1 federal AGI 41,300.00. Line 3 total = 41,300.00. Exempt income: code 07E taxable Social Security 11,300.00. Line 4H = 11,300.00. Line 5 Louisiana AGI = 41,300.00 - 11,300.00 = 30,000.00. IT-540 Line 7 (from Schedule E Line 5) 30,000.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 30,000.00 - 12,500.00 = 17,500.00. Line 11 = 17,500.00 x .03 = 525.00. Line 12 credits 0.00. Line 13 = 525.00. Taxable Social Security, federal worksheet: 30,000.00 + half of 24,000.00 = 42,000.00; 0.85 x (42,000.00 - 34,000.00) = 6,800.00 + 4,500.00 = 11,300.00, under 0.85 x 24,000.00 = 20,400.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "co_2025_military_age_55_no_subtraction",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "co_military_retirement_under_55"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 7 / line 8 Military Retirement Subtraction (PDF p.20 Lines 7-8; DR 0104AD p.2 lines 7-8 '(under age 55)') ('54 years of age or younger as of December 31, 2025'); line 4 silent on military pay (record covers_unclear); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_military_retirement_under_55"
+  ]
+}

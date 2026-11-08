@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "50000.00",
+    "state_income_tax": "2020.00",
+    "state_tax_before_credits": "2020.00",
+    "state_taxable_income": "42000.00"
+  },
+  "worked": "Start: federal AGI 50,000.00 (projection starts_from federal_agi). wages person 0 30,000.00: taxed, stays in federal AGI. wages person 1 20,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 50,000.00. Standard deduction (married_joint, state AGI 50,000.00 over 35499): 5,000.00. Personal exemption (married_joint): 3,000.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 50,000.00 - 5,000.00 - 3,000.00 = 42,000.00. Tax on 42,000.00 with the married_joint brackets: 0.02 x (1,000.00 - 0.00) = 20.00; 0.04 x (6,000.00 - 1,000.00) = 200.00; 0.05 x (42,000.00 - 6,000.00) = 1,800.00; total 2,020.00. Credits: none in the projection: 0.00. State income tax = 2,020.00. The inputs carry no dependents, so the dependent exemption chart band (1,000 at AGI 0-50,000) has no effect; dependent exemption is not_modelled in any case."
+}

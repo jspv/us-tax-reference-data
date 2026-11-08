@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "15304.00",
+    "state_income_tax": "157.42",
+    "state_tax_before_credits": "157.42",
+    "state_taxable_income": "3704.00",
+    "relief_amounts": {
+      "born_1946_1966": "98846.00"
+    }
+  },
+  "worked": "Joint; older spouse born 1961-02-01 (1946-1966 branch; Tier 2/3 not available). Worksheet 3.3: public MI pension 60,000 + IRA 50,000 = 110,000 total benefits vs joint limit 98,846 (no military/railroad) -> line 27 subtraction 98,846.00. Interest 4,150 not covered. state_agi 114,150 - 98,846 = 15,304.00. Exemptions 11,600. Taxable 3,704.00. Tax 4.25% = 157.42. [check: state_agi 15304.00, taxable 3704.00, tax 157.42; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

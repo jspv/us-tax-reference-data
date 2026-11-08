@@ -1,0 +1,43 @@
+[
+  {
+    "state": "ID",
+    "title": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "retrieved": "2026-11-07T01:05:25.351391+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "file": "EIN00046_03-02-2026.pdf",
+    "bytes": 3040929,
+    "sha256": "952263e92f7c096b10aba50555cc7c166c78efc3b6ce6e5029d4837404553005",
+    "archived_url": "https://web.archive.org/web/20260317090035id_/https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  {
+    "state": "ID",
+    "title": "Idaho Retirement Benefits Deduction",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:05:34.810195+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "file": "idaho-retirement-benefits-deduction.html",
+    "bytes": 240699,
+    "sha256": "b9193a41e2b7892c3dff7274a5ee58b6703e8d422c8bdb6cfb1d1805b138a948",
+    "text_file": "idaho-retirement-benefits-deduction.page.txt"
+  },
+  {
+    "state": "ID",
+    "title": "Income Tax for Seniors and Retirees",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/specific-guidance-for-individual-income-tax/specific-guidance-for-individuals-seniors-and-retirees/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:05:42.946733+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.idaho.gov/taxes/income-tax/individual-income/specific-guidance-for-individual-income-tax/specific-guidance-for-individuals-seniors-and-retirees/",
+    "file": "specific-guidance-for-individuals-seniors-and-retirees.html",
+    "bytes": 264042,
+    "sha256": "87b04f67a47c9b5357eb2d2dc8b7a0ac2085042048ac21e5015a58f9c520f1a4",
+    "text_file": "specific-guidance-for-individuals-seniors-and-retirees.page.txt"
+  }
+]

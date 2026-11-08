@@ -1,0 +1,53 @@
+{
+  "id": "mi_2025_senior_investment_below",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "senior_investment_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 28 and its worksheet lines 1-8 (PDF page 17: born prior to 1946, maximum 14,688 single); PDF page 3 General Information; MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 81,
+        "born": "1944-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13850.00",
+      "interest": "6000.00",
+      "dividends": "3000.00",
+      "long_term_gains": "1000.00"
+    },
+    "federal_agi": "43850.00",
+    "federal_taxable_income": "26100.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.senior_investment_deduction"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "40.00",
+  "relief_amounts": {
+   "ia_personal_credit": "40.00",
+   "ia_railroad_retirement": "20000.00"
+  },
+  "state_income_tax": "1261.50",
+  "state_tax_before_credits": "1301.50",
+  "state_taxable_income": "34250.00"
+ },
+ "worked": "Federal AGI 70000.00; federal deduction 15750.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 54250.00. Schedule 1 line 7 column B, railroad retirement: -20000.00 (any age). Line 3, net Iowa modifications: 0.00 - 20000.00 = -20000.00. Line 4, Iowa taxable income: 54250.00 + -20000.00 = 34250.00. Line 5: 34250.00 x 3.8% = 1301.50. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 0 x 20 = 0.00; total 40.00. Line 12: 1301.50 - 40.00 = 1261.50. The single filers' tax reduction (41-146) is not applied; its terms are not in the sources."
+}

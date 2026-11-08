@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "75000.00",
+    "state_taxable_income": "67000.00",
+    "state_tax_before_credits": "3520.00",
+    "credits": "0.00",
+    "state_income_tax": "3520.00",
+    "relief_amounts": {
+      "pension_annuity_exclusion": "20000.00"
+    }
+  },
+  "worked": "Line 19 federal AGI 120500.00 (given). Federal taxable income 102750.00 given, not used (NY starts from federal AGI).\nLine 24 = 120500.00\nLine 27 taxable Social Security 25500.00 subtracted (exempt)\nPension 85000.00 (public, PA) person 0: qualifies for line 29 exclusion if 59 1/2\nira_distribution 10000.00 person 0: line 29 eligible if 59 1/2\nPerson 0 born 1958-01-20 reaches 59 1/2 on 2017-07-20: qualifies (projection counts reaching 59 1/2 in the year); eligible 95000.00, exclusion 20000\nLine 29 total 20000\nLine 32 subtractions 45500.00; line 33 NY AGI = 120500.00 - 45500.00 = 75000.00\nLine 34 standard deduction (single) 8000; line 36 dependents none; line 37/38 taxable income = 75000.00 - 8000 = 67000.00\nRate schedule on 67000.00: 8500 x 0.04 = 340.00; 3200 x 0.045 = 144.000; 2200 x 0.0525 = 115.5000; 53100.00 x 0.055 = 2920.50000; schedule tax 3520.00000\nNY AGI 75000.00 <= 107,650: no recapture worksheet; tax = schedule tax 3520.00\nLine 39 tax as above; credits (household credit etc.) not in projection: 0; state income tax = line 39"
+}

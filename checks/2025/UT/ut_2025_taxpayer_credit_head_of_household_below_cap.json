@@ -1,0 +1,66 @@
+{
+  "id": "ut_2025_taxpayer_credit_head_of_household_below_cap",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "taxpayer_tax_credit",
+    "railroad_retirement"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (78) Railroad Retirement Income (PDF p.20)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "25000.00",
+    "federal_taxable_income": "1375.00"
+  },
+  "expected": {
+    "state_agi": "15000.00",
+    "state_taxable_income": "15000.00",
+    "state_tax_before_credits": "675.00",
+    "credits": "675.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "taxpayer_tax_credit": "900.00",
+      "railroad_retirement": "10000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 15,000.00 + railroad retirement annuity (person 0) 10,000.00 = 25,000.00. Federal taxable income = 25,000.00 - standard deduction 23,625.00 = 1,375.00 (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (head of household): line 4 federal AGI 25,000.00. Line 5 additions: none, 0.00. Line 6 = 25,000.00 + 0.00 = 25,000.00. Line 7 state tax refund 0.00. Line 8 subtractions: code 78 railroad retirement 10,000.00. Line 9 Utah taxable income = 25,000.00 - 0.00 - 10,000.00 = 15,000.00. Line 10 = 15,000.00 x 0.045 = 675.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 23,625.00; initial credit = 0.06 x min(line 9 15,000.00, cap 23,625.00) = 0.06 x 15,000.00 = 900.00. The form's line 16 is 0.06 x 23,625.00 = 1,417.50; line 9 is under the cap, and 6% of it still exceeds the 4.5% tax, so the form and the projection both reach tax 0. Line 17 base phase-out amount 27,320.00. Line 18 = max(0, 15,000.00 - 27,320.00) = 0.00. Line 19 = 0.00 x 0.013 = 0.000. Line 20 = max(0, 900.00 - 0.000) = 900.000. Line 21 worksheet: line 1 federal AGI 25,000.00; line 2 standard deduction 23,625.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 23,625.00; line 5 = max(0, 25,000.00 - 23,625.00) = 1,375.00. Line 5 is above zero, so not exempt; line 21 blank. Line 22 and TC-40A Part 3: line 20 900.000 = 900.000, limited to the tax 675.00 (nonrefundable, PDF p.11 Line 24), so credits are 675.00. relief_amounts gives each credit's worksheet figure before that limit. Tax = 675.00 - 675.00 = 0.00. Line 9 15,000.00 is under the head of household cap 23,625.00.",
+  "accepted_approximations": [
+    "Utah has no deduction from income, so base.deductions is empty on purpose. The taxpayer tax credit stands in for it: 6% of the capped income, cap = the federal standard deduction for the status, so the credit is 945 single, 1,417.50 head of household, 1,890 joint or qualifying surviving spouse, once income reaches the cap. Below the cap the credit is smaller than the form's, but 6% of income exceeds 4.5% tax either way, so tax is 0 on both. The phase-out (line 19) comes off the credit, after the 6%, as it does after the 4.5% on the Social Security credit. The cap leaves out the federal age 65 and blindness extras, which line 12 includes because it takes federal line 12e; the Utah sources print no amount for them."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:utah_previously_taxed_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

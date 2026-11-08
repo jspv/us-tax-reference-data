@@ -1,0 +1,60 @@
+{
+  "id": "pa_2025_base_joint_wages_investments",
+  "state": "PA",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
+    "section": "PA-40 lines 1a to 12 (form pages 1-2); PDF page 1 and form line 12 rate 3.07 percent; PDF page 9 no standard deduction or exemptions; PDF page 20 Lines 9 and 10; PDF page 21 Lines 11 and 12; PDF page 10 Line 1a; PDF page 14 Line 2; PDF page 15 Line 3; PDF page 17 Line 5 (no distinction between long and short term)",
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 48,
+        "born": "1977-03-09"
+      },
+      {
+        "age": 46,
+        "born": "1979-11-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        },
+        {
+          "amount": "55000.00",
+          "person": 1
+        }
+      ],
+      "interest": "1500.00",
+      "dividends": "2500.00",
+      "short_term_gains": "1000.00",
+      "long_term_gains": "4000.00"
+    },
+    "federal_agi": "134000.00",
+    "federal_taxable_income": "102500.00"
+  },
+  "expected": {
+    "state_agi": "134000.00",
+    "state_taxable_income": "134000.00",
+    "state_tax_before_credits": "4113.80",
+    "credits": "0.00",
+    "state_income_tax": "4113.80"
+  },
+  "worked": "One rate for both spouses, no joint schedule; long and short gains are one class. Federal AGI = wages person 0 70,000.00 + wages person 1 55,000.00 + interest 1,500.00 + dividends 2,500.00 + short-term gains 1,000.00 + long-term gains 4,000.00 = 134,000.00. Federal taxable income = 134,000.00 - standard deduction 31,500.00 = 102,500.00 (given, not tested; the federal senior deduction is ignored). Pennsylvania, as the projection works it: start federal AGI 134,000.00; income after reliefs = 134,000.00. No standard deduction or exemption (PDF page 9), no Line 10 deduction: state taxable income 134,000.00. Tax = 134,000.00 x 0.0307 = 4,113.80. No credit in the projection; state income tax 4,113.80. Form: Line 1a/1c 125,000.00; Line 2 1,500.00; Line 3 2,500.00; Line 5 5,000.00; Line 9 134,000.00; Line 10 0.00; Line 11 134,000.00; Line 12 4,113.80 (the form, in whole dollars, PDF page 4, shows 4,114). Schedule SP: Eligibility Income 134,000.00 is over 15,250.00, so no Tax Forgiveness on the form either.",
+  "accepted_approximations": [
+    "Pennsylvania has no federal starting point: it adds the positive amounts of eight classes (compensation, interest, dividends, business, gains, rents, estates and trusts, gambling). The mapping runs from federal AGI to those classes: start from federal AGI, then take out what the reliefs below exempt. Wages, interest, dividends, gains, business income and rents are taken as federal AGI holds them, in one sum. The differences that remain are listed one by one in the next four entries."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "13850.00",
+    "state_income_tax": "127.25",
+    "state_tax_before_credits": "127.25",
+    "state_taxable_income": "6500.00"
+  },
+  "worked": "Form 511 line 1 Federal AGI 15,775.00 (given; federal senior deduction ignored in the given federal figures). Schedule 511-A line 2 taxable Social Security subtracted 1,925.00. Oklahoma AGI (line 7) = 15,775.00 + 0.00 - 1,925.00 = 13,850.00. Special exemption test: 1 person(s) 65 or older; Federal AGI line 1 15,775.00 against limit 15,000.00: over, none allowed. Line 10 standard deduction 6,350.00; line 11 regular exemptions 1 x 1,000.00 = 1,000.00; special exemptions 0.00. Line 13 Oklahoma taxable income = 13,850.00 - 7,350.00 = 6,500.00. Tax on the single schedule: 1,000.00 x 0.0025 = 2.5000; 1,500.00 x 0.0075 = 11.2500; 1,250.00 x 0.0175 = 21.8750; 1,150.00 x 0.0275 = 31.6250; 1,600.00 x 0.0375 = 60.0000; total 127.2500. Line 14 tax 127.25 (the table row 6,500-6,550 gives 128). Credits 0.00 (not modelled). Income tax 127.25."
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "63000.00",
+    "state_taxable_income": "50235.00",
+    "state_tax_before_credits": "2715.71",
+    "credits": "0.00",
+    "state_income_tax": "2715.71"
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 60,000.00 (given). Schedule S A1 add other-state municipal interest 3,000.00. Kansas municipal interest 2,000.00: not in federal AGI and not added back on A1. Line 2 modifications 3,000.00. Line 3 Kansas AGI 60,000.00 + (3,000.00) = 63,000.00. Line 4 standard deduction 3,605 + 0 age box(es) x 850 = 3,605 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 12,765.00. Line 7 taxable income 63,000.00 - 12,765.00 = 50,235.00. Line 8 tax 23,000 x 5.2% = 1,196.00; (50,235.00 - 23,000) = 27,235.00 x 5.58% = 1519.713000; total 2715.713000. the table row 50,201-50,250 gives 2,715. No credits in the projection: credits 0.00. Tax 2715.71."
+}

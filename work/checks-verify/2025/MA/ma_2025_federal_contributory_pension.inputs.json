@@ -1,0 +1,54 @@
+{
+  "id": "ma_2025_federal_contributory_pension",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "us_ma_contributory_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "PDF p10 Line 4 'What pensions are exempt?' first bullet (contributory pension of the U.S. Government); Tax Treatment of Government Pensions, 'Federal employee contributory pension'; Form 1 lines 2a, 2c, 4, 10-22; tax table PDF p38",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      },
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true,
+          "amount": "50000.00",
+          "person": 0
+        },
+        {
+          "source": "private",
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "45300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.us_ma_contributory_pension"
+  ]
+}

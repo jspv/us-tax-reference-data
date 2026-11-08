@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "37235.00",
+    "state_tax_before_credits": "1990.31",
+    "credits": "0.00",
+    "state_income_tax": "1990.31"
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 50,000.00 (given). employer plan distribution 50,000.00: no subtraction line, stays in Kansas income. Line 2 modifications 0.00. Line 3 Kansas AGI 50,000.00 + (0.00) = 50,000.00. Line 4 standard deduction 3,605 + 0 age box(es) x 850 = 3,605 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 12,765.00. Line 7 taxable income 50,000.00 - 12,765.00 = 37,235.00. Line 8 tax 23,000 x 5.2% = 1,196.00; (37,235.00 - 23,000) = 14,235.00 x 5.58% = 794.313000; total 1990.313000. the table row 37,201-37,250 gives 1,990. No credits in the projection: credits 0.00. Tax 1990.31."
+}

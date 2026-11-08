@@ -1,0 +1,46 @@
+{
+  "id": "id_2025_federal_civil_pension",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_addition",
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45-46 Form 39R instructions Line 8e Part Two (closed list; FERS and PERSI Base Plan don't qualify); PDF p.10 Line 12a; PDF p.11 worksheet line 5 ('born before January 2, 1961'); Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-10-16"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "48000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

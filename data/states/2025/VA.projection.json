@@ -1,0 +1,333 @@
+{
+  "layer": "projection",
+  "state": "VA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/VA.record.json",
+    "sha256": "f42bd56ed4da3f305166e06c95709e7f10c992197b4fba122527e5c33b2a7416"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "5000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "17000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "5000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "17000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "8750",
+          "married_joint": "17500",
+          "married_separate": "8750",
+          "head_of_household": "8750"
+        },
+        "per": "return"
+      },
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "930"
+        },
+        "per": "person"
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "800"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "age_deduction_born_by_1939",
+      "from_record": [
+        "age_deduction_born_by_1939"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1939-01-01"
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "age_deduction_income_based",
+      "from_record": [
+        "age_deduction_income_based"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_after": "1939-01-02",
+        "born_on_or_before": "1961-01-01"
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "minus_taxable_social_security": true
+        },
+        "threshold": {
+          "single": "50000",
+          "head_of_household": "50000",
+          "married_joint": "75000",
+          "married_separate": "75000"
+        },
+        "effect": "dollar_for_dollar"
+      }
+    },
+    {
+      "id": "military_benefits",
+      "from_record": [
+        "military_benefits"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "40000"
+      },
+      "cap_per": "person"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": false,
+      "covers": [
+        "deductions:standard_deduction"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "relief_income_tests",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "disability_income",
+      "from_record": [
+        "disability_income"
+      ],
+      "what": "Subtraction of up to 20,000 a person of disability income reported as wages for permanent and total disability; each spouse takes it or the age deduction, whichever benefits more.",
+      "warn_when": "never"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption",
+        "blind_exemption"
+      ],
+      "what": "Exemptions for dependents (930 each) and blindness (800 a person).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "medal_of_honor",
+      "from_record": [
+        "medal_of_honor"
+      ],
+      "what": "Military retirement income of a Congressional Medal of Honor recipient is subtracted in full.",
+      "warn_when": "has_military_pension"
+    },
+    {
+      "id": "ss_tier1_railroad",
+      "from_record": [
+        "ss_tier1_railroad",
+        "railroad_tier2_other"
+      ],
+      "what": "Railroad Retirement benefits: taxable Tier 1 is subtracted with Social Security (Line 5), and Tier 2 and other Railroad Retirement benefits reported as a taxable pension or annuity are subtracted in full (code 22).",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "retirement_prev_taxed_other_state",
+      "from_record": [
+        "retirement_prev_taxed_other_state"
+      ],
+      "what": "Retirement income whose contributions were taxed by another state (while deductible federally) is subtracted, up to the contributions taxed there.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "military_basic_pay",
+      "from_record": [
+        "military_basic_pay",
+        "national_guard",
+        "combat_zone_pay",
+        "govt_employee_salary"
+      ],
+      "what": "Wage subtractions for military basic pay, Virginia National Guard pay, combat zone pay, and federal or state employees earning 15,000 or less.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_obligations",
+      "from_record": [
+        "us_obligations"
+      ],
+      "what": "Income from U.S. obligations (Treasury bills, notes, bonds, savings bonds and some agencies) is subtracted.",
+      "warn_when": "never"
+    },
+    {
+      "id": "va_obligations",
+      "from_record": [
+        "va_obligations"
+      ],
+      "what": "Interest and gains on Virginia state and municipal obligations are exempt; the projection treats all municipal interest as other-state (taxed).",
+      "warn_when": "never"
+    },
+    {
+      "id": "unemployment_comp",
+      "from_record": [
+        "unemployment_comp",
+        "annuity_death_benefit",
+        "qualified_ltcg"
+      ],
+      "what": "Subtractions for unemployment compensation, lump-sum annuity death benefits paid to a beneficiary, and long-term gains on qualified-business investments made 2010 to 2020.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The income-based age deduction for a married couple where both spouses qualify: Virginia takes the excess of joint AFAGI over 75,000 once from the couple's combined maximum (2 x 12,000) and splits the rest; a per-person evaluation takes the excess from each spouse's 12,000, so twice.",
+      "direction": "overstates_tax",
+      "size": "Up to 5.75% of 12,000 = 690 a year, for a couple with joint AFAGI between 75,000 and 99,000 who both qualify."
+    },
+    {
+      "what": "A married couple filing separately: Virginia tests the income-based age deduction on the joint AFAGI of both spouses; the projection uses the filer's own federal AGI.",
+      "direction": "understates_tax",
+      "size": "Only married-separate returns; up to 690 a year per spouse."
+    },
+    {
+      "what": "AFAGI is taken as federal AGI less taxable Social Security; Virginia also adjusts it for conformity additions and subtractions and takes out taxable Tier 1 Railroad benefits.",
+      "direction": "either",
+      "size": "Nil for most retirees; conformity adjustments are mainly business depreciation items."
+    },
+    {
+      "what": "The standard deduction is held at its 2025 amounts. The booklet says the 2025-2026 increase is scheduled to sunset after 2026 and revert to 3,000 single and 6,000 joint; scheduled changes are a pending feature (tax-reference-data issue #2).",
+      "direction": "understates_tax",
+      "size": "From 2027, if the sunset holds: 5.75% of 11,500 = 661 a year for a couple, 5.75% of 5,750 = 331 for a single filer."
+    },
+    {
+      "what": "The standard deduction is always applied; Virginia requires a filer who itemized federally to itemize on Virginia Schedule A.",
+      "direction": "either",
+      "size": "Depends on the household's itemized deductions; usually larger than the standard deduction for a federal itemizer, so the projection usually overstates tax for them."
+    },
+    {
+      "what": "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied.",
+      "direction": "overstates_tax",
+      "size": "Up to 259 a year for a married couple filing jointly with two incomes."
+    },
+    {
+      "what": "The filing threshold (tax is 0 when VAGI is under 11,950 single or separate, 23,900 joint) is not applied.",
+      "direction": "overstates_tax",
+      "size": "Only very low incomes; the schedule tax there is a few hundred dollars at most."
+    },
+    {
+      "what": "Interest on U.S. Treasury and other exempt U.S. obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "5.75% of the U.S. obligation interest."
+    },
+    {
+      "what": "All municipal interest is treated as other-state (added and taxed); interest on Virginia state and local bonds is exempt.",
+      "direction": "overstates_tax",
+      "size": "5.75% of the Virginia bond interest."
+    },
+    {
+      "what": "The age-65 exemption is applied to anyone 65 or older in the tax year; Virginia's test is age 65 on or before January 1 of the following year, and it is barred with the Credit for Low-Income Individuals (not modelled).",
+      "direction": "either",
+      "size": "Only a person whose 65th birthday is January 1 of the following year."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

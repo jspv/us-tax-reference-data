@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "hi_public_pension": "70000.00"
+    },
+    "state_agi": "25000.00",
+    "state_income_tax": "194.77",
+    "state_tax_before_credits": "194.77",
+    "state_taxable_income": "13912.00"
+  },
+  "worked": "Line 7 federal AGI 95,000.00. Line 13 subtract government/military pensions (hi_public_pension, exempt in full) 70,000.00. Line 20 Hawaii AGI 25,000.00. Line 23 standard deduction 8,800.00; line 25 exemptions 2 personal + 0 age-65 = 2 x 1,144 = 2,288.00. Line 26 taxable income 13,912.00. Line 27 tax by the rate schedule: 13,912.00 x 0.014 = 194.7680; total 194.7680 -> 194.77 (the form uses the Tax Table under 100,000; schedule formula used). Credits: none modelled, 0.00. State income tax 194.77."
+}

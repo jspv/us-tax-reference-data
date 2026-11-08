@@ -1,0 +1,42 @@
+{
+  "id": "ok_2025_deduction_exceeds_income",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "6000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "6000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

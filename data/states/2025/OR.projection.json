@@ -1,0 +1,438 @@
+{
+ "layer": "projection",
+ "state": "OR",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/OR.record.json",
+  "sha256": "7cfd43be5153790cd755bd7d047abd53a8e612f98e1c1ce108745306a08dc4c3"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "4400"
+   },
+   {
+    "rate": "0.0875",
+    "start": "11100"
+   },
+   {
+    "rate": "0.099",
+    "start": "125000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "8800"
+   },
+   {
+    "rate": "0.0875",
+    "start": "22200"
+   },
+   {
+    "rate": "0.099",
+    "start": "250000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "4400"
+   },
+   {
+    "rate": "0.0875",
+    "start": "11100"
+   },
+   {
+    "rate": "0.099",
+    "start": "125000"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0475",
+    "start": "0"
+   },
+   {
+    "rate": "0.0675",
+    "start": "8800"
+   },
+   {
+    "rate": "0.0875",
+    "start": "22200"
+   },
+   {
+    "rate": "0.099",
+    "start": "250000"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "amount": {
+     "single": "2835",
+     "married_joint": "5670",
+     "married_separate": "2835",
+     "head_of_household": "4560",
+     "qualifying_surviving_spouse": "5670"
+    },
+    "per": "return"
+   },
+   {
+    "id": "age_65_additional",
+    "amount": {
+     "single": "1200",
+     "head_of_household": "1200",
+     "married_joint": "1000",
+     "married_separate": "1000",
+     "qualifying_surviving_spouse": "1000"
+    },
+    "per": "person",
+    "min_age": 65
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "railroad_retirement_subtraction",
+   "from_record": [
+    "railroad_retirement_subtraction"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "retirement_income_credit",
+   "from_record": [
+    "retirement_income_credit"
+   ],
+   "form": "credit",
+   "credit_rate": "0.09",
+   "credit_basis": "covered_income",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "military_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "annuity"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62
+   },
+   "cap": {
+    "single": "7500",
+    "married_separate": "7500",
+    "head_of_household": "7500",
+    "qualifying_surviving_spouse": "7500",
+    "married_joint": "15000"
+   },
+   "cap_per": "return",
+   "cap_reduced_by": [
+    "social_security",
+    "railroad_retirement"
+   ],
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "plus_tax_exempt_interest": true,
+     "minus_taxable_social_security": true
+    },
+    "threshold": {
+     "single": "15000",
+     "married_separate": "15000",
+     "head_of_household": "15000",
+     "qualifying_surviving_spouse": "15000",
+     "married_joint": "30000"
+    },
+    "effect": "dollar_for_dollar"
+   },
+   "social_security_basis": "gross"
+  },
+  {
+   "id": "personal_exemption_credit",
+   "from_record": [
+    "personal_exemption_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "256",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi"
+    },
+    "threshold": {
+     "single": "100000",
+     "married_separate": "100000",
+     "head_of_household": "200000",
+     "qualifying_surviving_spouse": "200000",
+     "married_joint": "200000"
+    },
+    "effect": "removes"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "credits",
+   "indexed": true,
+   "covers": [
+    "reliefs:personal_exemption_credit.credit_amount"
+   ]
+  },
+  {
+   "figure": "relief_income_tests",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.income_test"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "federal_tax_liability_subtraction",
+   "from_record": [
+    "federal_tax_liability_subtraction"
+   ],
+   "what": "Federal tax liability subtraction (Form OR-40 line 10): Oregon subtracts the year's federal income tax after credits other than the earned income credit, up to a maximum of 8,500 (4,250 if married filing separately) that falls in steps with federal AGI to 0 at 145,000 (290,000 for joint, head of household and surviving spouse). The projection's yearly facts do not include federal tax, so it is left out; applying the maximum instead would be wrong most for the households paying the least federal tax. A consumer that holds federal tax can apply the smaller of it and the stepped maximum in the record's base.deductions.",
+   "warn_when": "always"
+  },
+  {
+   "id": "federal_pension_subtraction",
+   "from_record": [
+    "federal_pension_subtraction"
+   ],
+   "what": "Federal pension subtraction (code 307): the share of a federal or military pension, and of Thrift Savings Plan withdrawals after retirement, earned before October 1, 1991, as a personal percentage (months of service or retirement points before that date over the total). A projection does not hold it; nothing is subtracted, which is right for anyone with no service before that date.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "special_oregon_medical_subtraction",
+   "from_record": [
+    "special_oregon_medical_subtraction"
+   ],
+   "what": "Special Oregon medical subtraction (code 351): each person who turned 66 by year end subtracts their own medical and dental expenses, up to 1,800, 1,400, 1,000 or 0 by federal AGI, itemizing or not. A projection does not hold medical expenses.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    66,
+    120
+   ]
+  },
+  {
+   "id": "previously_taxed_retirement_contributions",
+   "from_record": [
+    "previously_taxed_retirement_contributions"
+   ],
+   "what": "Subtraction for contributions made while a nonresident and taxed by the other state (code 327), including a public employee fund of another state, recovered from the first distributions. A projection does not hold those contributions.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "previously_taxed_ira_conversion",
+   "from_record": [
+    "previously_taxed_ira_conversion"
+   ],
+   "what": "Subtraction for a Roth conversion that another state taxes (code 348), for someone who moved to Oregon around the conversion.",
+   "warn_when": "never"
+  },
+  {
+   "id": "us_obligations_interest_subtraction",
+   "from_record": [
+    "us_obligations_interest_subtraction"
+   ],
+   "what": "Interest and dividends on U.S. bonds and notes are subtracted (code 315); a projection does not hold this share of interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "us_interest_in_ira_distributions",
+   "from_record": [
+    "us_interest_in_ira_distributions"
+   ],
+   "what": "The part of an IRA or Keogh distribution that is U.S. government interest is subtracted (code 331).",
+   "warn_when": "never"
+  },
+  {
+   "id": "dependent_exemption_credit",
+   "from_record": [
+    "dependent_exemption_credit",
+    "child_disability_exemption_credit"
+   ],
+   "what": "Exemption credit of 256 for each dependent, and another 256 for a dependent child with a qualifying disability.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "blind_additional",
+   "from_record": [
+    "blind_additional",
+    "severe_disability_exemption_credit"
+   ],
+   "what": "Additional standard deduction for blindness (1,200 or 1,000 a person) and the additional 256 exemption credit for severe disability.",
+   "warn_when": "never"
+  },
+  {
+   "id": "or_surplus_kicker_credit",
+   "from_record": [],
+   "what": "Oregon surplus (kicker): for 2025, 9.863 percent of the 2024 Oregon tax, claimed on line 32. Only on an odd-numbered year's return and only if the state declares a surplus, so a long-range projection cannot know it.",
+   "warn_when": "always"
+  },
+  {
+   "id": "or_other_rates_subtractions_credits",
+   "from_record": [],
+   "what": "Reduced rates for a farm liquidation long-term capital gain (the rate is not in the sources) and for qualified business income, farm income averaging, the subtractions for prior-year federal tax and foreign tax, the Oregon income tax refund subtraction, and the other credits.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "The federal tax liability subtraction is not applied (not_modelled). This is the largest gap for most Oregon households.",
+   "direction": "overstates_tax",
+   "size": "8.75% of the subtraction missed: at most 8.75% x 8,500 = 743.75 a year, 371.88 if married filing separately. Example: joint return, federal AGI 120,000, federal tax 6,000: subtraction 6,000, so 525 too much. No error at federal tax of 0, or at federal AGI of 145,000 (290,000 for joint, head of household, surviving spouse) or more, where the maximum is 0; in between the error falls by about 150 a step. The steps themselves are also missed: a Roth conversion that lifts a single filer from 120,000 to 150,000 of federal AGI loses up to 743.75 of subtraction, a cost of that conversion the projection does not show."
+  },
+  {
+   "what": "The standard deduction is always taken. An Oregon filer takes the larger of it and Oregon itemized deductions, and the standard deduction is small, so many households itemize.",
+   "direction": "overstates_tax",
+   "size": "8.75% of the excess: itemized deductions of 15,000 against 5,670 joint, 816.38 a year. This can be larger than the federal tax gap for a household that itemizes."
+  },
+  {
+   "what": "A married person filing separately gets the 2,835 standard deduction here; it is 0 if the spouse itemizes.",
+   "direction": "understates_tax",
+   "size": "2,835 x 8.75% = 248.06 a year."
+  },
+  {
+   "what": "The federal pension subtraction is not applied (not_modelled), so a federal or military pension with service before October 1, 1991 is taxed in full. The retirement income credit then counts the whole pension too, where the worksheet leaves out the part subtracted.",
+   "direction": "overstates_tax",
+   "size": "8.75% of the share: the booklet's example of 40.9% of a 65,000 pension subtracts 26,585, so 2,326.19 a year; a 50,000 pension with all service before that date, 4,375 a year. None for anyone with no federal service before that date. The credit effect runs the other way, at most 1,350 a year."
+  },
+  {
+   "what": "The special Oregon medical subtraction is not applied (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "At most 1,800 x 8.75% = 157.50 a person a year, so 315 on a joint return of two people 66 or older; 87.50 a person at the 1,000 band; nothing over 200,000 (100,000 single or separate)."
+  },
+  {
+   "what": "The kicker is not applied (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "In a year it applies, 9.863% of the prior year's tax for 2025: 986.30 on 10,000 of tax. The percentage is set for each surplus; there may be none."
+  },
+  {
+   "what": "The retirement income credit's income test maps household income to federal AGI plus tax-exempt interest minus taxable Social Security. Household income also counts items a projection does not hold (veterans' and disability pay, gifts, inheritance, insurance proceeds, lottery winnings) and limits a net loss from one source to 1,000.",
+   "direction": "understates_tax",
+   "size": "The credit is at most 9% x 7,500 = 675 a year, 1,350 joint, and only for households with household income under 22,500 (45,000 joint). The error can reach that for a household just over the line."
+  },
+  {
+   "what": "The credit's worksheet takes the smaller of the pension and the limit after both reductions; the relief applies the income test after the cap, so it takes the income reduction from the pension when the pension is below the limit.",
+   "direction": "overstates_tax",
+   "size": "Most when the pension equals the amount left after the reduction: single, no Social Security, household income 18,750, pension 3,750: credit 337.50 by the worksheet, 0 here. At most 337.50 a year, 675 joint."
+  },
+  {
+   "what": "Roth conversions are left out of the credit's covered income (covers_unclear in the record: the booklet counts IRA conversions in household income and lists 'Individual retirement plans' as retirement income, but does not say a conversion is one). The conversion still counts in the income test.",
+   "direction": "overstates_tax",
+   "size": "At most the whole credit, 675 a year, 1,350 joint, only for a converter under the income limits."
+  },
+  {
+   "what": "cap_reduced_by uses all railroad_retirement income; the worksheet reduces the limit by Tier 1 benefits only. Annuity income is treated as an employee annuity plan; the credit's list names no other kind.",
+   "direction": "either",
+   "size": "9% of the Tier 2 or other annuity amount, at most 675 a year, 1,350 joint, and only under the income limits."
+  },
+  {
+   "what": "Each person counts for the 256 exemption credit. On a separate return the spouse's credit needs a spouse with no income.",
+   "direction": "understates_tax",
+   "size": "256 a year at most."
+  },
+  {
+   "what": "The dependent and disability exemption credits and the blindness addition are left out (not_modelled).",
+   "direction": "overstates_tax",
+   "size": "256 for each credit; 1,200 x 8.75% = 105 or 1,000 x 8.75% = 87.50 a person for blindness."
+  },
+  {
+   "what": "Interest on U.S. bonds and notes, and the part of an IRA or Keogh distribution that comes from it, is taxed (the projection cannot tell it from other income).",
+   "direction": "overstates_tax",
+   "size": "8.75% of the interest: 437.50 a year on 5,000 of Treasury interest."
+  },
+  {
+   "what": "All municipal interest is treated as other-state (added and taxed) when a projection cannot tell the bonds apart; interest on Oregon bonds is exempt.",
+   "direction": "overstates_tax",
+   "size": "8.75% of the Oregon bond interest."
+  },
+  {
+   "what": "Previously taxed contributions (code 327) and conversions (code 348) are taxed again here (not_modelled). A person who moved to Oregon may have them, a pension from another state's fund included.",
+   "direction": "overstates_tax",
+   "size": "8.75% of the amount recovered, up to the total previously taxed."
+  },
+  {
+   "what": "The age 65 addition uses age 65 in the year; Oregon's test is 'turned age 65 by January 1' of the next year, so someone born on January 1 qualifies a year sooner.",
+   "direction": "overstates_tax",
+   "size": "105 or 87.50, one year, only for a January 1 birthday."
+  },
+  {
+   "what": "Brackets, the standard deduction and the credit's limits are held flat: the booklet does not say they are indexed, though Pub OR-17 PDF p.143 prints the bracket starts below 125,000 (250,000) and the standard deduction rising each year from 2022 to 2025. The 256 exemption credit is said to be indexed.",
+   "direction": "overstates_tax",
+   "size": "Grows with the years: the 2024 to 2025 changes were worth about 17 of tax single and 33 joint, so about that much more for each year held flat."
+  },
+  {
+   "what": "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge.",
+   "direction": "either",
+   "size": "Under 6 dollars a year."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

@@ -1,0 +1,40 @@
+{
+  "id": "sc_2025_age_65_deduction_at_or_above",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "sc_age_65_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF p.12 'Line q: Age 65 and older deduction' and Worksheet for taxpayer (line q-1) lines 1-4; PDF p.13 Examples 1-5 (Example 1); SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-11-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

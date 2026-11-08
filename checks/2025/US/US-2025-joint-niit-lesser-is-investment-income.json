@@ -1,0 +1,49 @@
+{
+  "id": "US-2025-joint-niit-lesser-is-investment-income",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "High-income couple filing jointly, ages 55 and 53, wages 320,000 plus interest, dividends and gains: MAGI over 250,000 by more than the net investment income, so the tax is on all the investment income; additional Medicare tax on wages over 250,000.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1970-01-30",
+        "age": 55
+      },
+      {
+        "born": "1972-07-04",
+        "age": 53
+      }
+    ],
+    "wages": "320000",
+    "taxable_interest": "10000",
+    "ordinary_dividends": "40000",
+    "qualified_dividends": "35000",
+    "net_long_term_gain": "60000"
+  },
+  "expected": {
+    "agi": "430000.00",
+    "standard_deduction": "31500.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "398500.00",
+    "regular_tax": "72784.00",
+    "net_investment_income_tax": "4180.00",
+    "additional_medicare_tax": "630.00",
+    "total_tax": "77594.00"
+  },
+  "worked": "Filing status: married filing jointly.\nTaxpayer: born 1970-01-30, age 55 at the end of 2025.\nSpouse: born 1972-07-04, age 53 at the end of 2025.\nForm 1040: line 1z wages 320,000; line 2b taxable interest 10,000; line 3a qualified dividends 35,000; line 3b ordinary dividends 40,000; line 7a capital gain 60,000 (Schedule D line 16: net long-term 60,000).\nForm 1040 line 9 total income = 320,000 + 10,000 + 40,000 + 60,000 = 430,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 430,000.\nLine 12e standard deduction = 31,500 (married filing jointly; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 31,500 + 0 = 31,500; line 15 taxable income = 430,000 - 31,500 = 398,500.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 398,500; line 2 = 35,000; line 3 = 60,000 (Schedule D lines 15 and 16 both 60,000); line 4 = 95,000; line 5 = 398,500 - 95,000 = 303,500\n  line 6 = 96,700; line 7 = smaller of 398,500 and 96,700 = 96,700; line 8 = smaller of 303,500 and 96,700 = 96,700; line 9 = 0 taxed at 0%\n  line 10 = smaller of 398,500 and 95,000 = 95,000; line 11 = 0; line 12 = 95,000\n  line 13 = 600,050; line 14 = smaller of 398,500 and 600,050 = 398,500; line 15 = 303,500 + 0 = 303,500; line 16 = 95,000; line 17 = smaller of 95,000 and 95,000 = 95,000\n  line 18 = 15% x 95,000 = 14,250; line 19 = 95,000; line 20 = 95,000 - 95,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 303,500: 10% x 23,850 = 2,385; 12% x (96,950 - 23,850) = 8,772; 22% x (206,700 - 96,950) = 24,145; 24% x (303,500 - 206,700) = 23,232; total 58,534\n  line 23 = 14,250 + 0 + 58,534 = 72,784\n  line 24 (tax on line 1): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 398,500: 10% x 23,850 = 2,385; 12% x (96,950 - 23,850) = 8,772; 22% x (206,700 - 96,950) = 24,145; 24% x (394,600 - 206,700) = 45,096; 32% x (398,500 - 394,600) = 1,248; total 81,646\n  line 25 = smaller of 72,784 and 81,646 = 72,784 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 1 + 2 + 5a = 10,000 interest + 40,000 dividends + 60,000 gain = 110,000 (line 8; no deductions, line 12 = 110,000; pensions, IRA distributions and Social Security are not investment income).\n  line 13 MAGI = 430,000; line 14 = 250,000 (married filing jointly); line 15 = 180,000; line 16 = smaller of 110,000 and 180,000 = 110,000 (the net investment income is the lesser); line 17 = 3.8% x 110,000 = 4,180\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 320,000; line 5 = 250,000 (married filing jointly); line 6 = 70,000; line 7 = 0.9% x 70,000 = 630 (additional Medicare tax).\nTotal tax = 72,784 regular + 4,180 net investment income tax + 630 additional Medicare tax = 77,594.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

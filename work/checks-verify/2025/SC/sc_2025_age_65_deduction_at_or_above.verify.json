@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "410.70",
+    "state_tax_before_credits": "410.70",
+    "state_taxable_income": "17250.00"
+  },
+  "worked": "Single, age 67, wages 50,000 only; no retirement income so p-1 = 0, p-4 = 0. Projection: best_of_group sc_age_65_and_retirement, age 65 entry 15,000 (wages cover it) beats retirement entry 0. Line 1 federal taxable income 32250.00; line 2 additions 0.00; line 3 = 32250.00. q-1 age 65 deduction: 15,000 - p-1 0 - p-4 0 (Example 1): 15000.00 Line 4 subtractions total 15000.00; line 5 SC taxable income 32250.00 - 15000.00 = 17250.00 tax: 0.03 x (17250.00 - 3,560) = 410.70 (line 6; formula on exact income, not the table row midpoint). Credits: none modelled (Two Wage Earner Credit not_modelled; no dependents); credits 0.00. Federal taxable income is given (federal senior deduction ignored per brief). State income tax 410.70."
+}

@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tax-reference-data/schema/federal-check.schema.json",
+  "title": "A hand-worked federal check",
+  "description": "One household worked by hand from the federal publications (Form 1040 instructions and worksheets, Publication 915, Forms 8960 and 8959, CMS and SSA tables, the RMD tables), to prove the figures in data/federal/<year>/US.federal.json. A second person works the same inputs blind (tools/checks_compare.py) and `verified` records the agreement.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "jurisdiction",
+    "tax_year",
+    "kind",
+    "boundary",
+    "tests",
+    "description",
+    "inputs",
+    "expected",
+    "worked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^US-[0-9]{4}-[a-z0-9-]+$"
+    },
+    "jurisdiction": {
+      "const": "US"
+    },
+    "tax_year": {
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "income_tax",
+        "payroll",
+        "irmaa",
+        "rmd"
+      ]
+    },
+    "boundary": {
+      "enum": [
+        "none",
+        "below",
+        "at_or_above"
+      ],
+      "description": "For a group with a threshold or phase-out: whether the household is below it or at or above it."
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Paths of the federal file's groups this case proves, e.g. income_tax.senior_deduction."
+    },
+    "description": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "filing_status"
+      ],
+      "properties": {
+        "filing_status": {
+          "enum": [
+            "single",
+            "married_joint",
+            "married_separate",
+            "head_of_household",
+            "qualifying_surviving_spouse"
+          ]
+        },
+        "lived_with_spouse": {
+          "type": "boolean",
+          "description": "married_separate only: lived with the spouse at any time in the year (Social Security base amounts, IRMAA table)."
+        },
+        "persons": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "born",
+              "age"
+            ],
+            "properties": {
+              "born": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "age": {
+                "type": "integer",
+                "description": "Age at the end of the tax year by the tax rule: a person born on January 1 is treated as a year older."
+              },
+              "blind": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "wages": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "self_employment_income": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "taxable_pensions": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Taxable pensions, annuities and IRA or plan distributions (Form 1040 lines 4b + 5b)."
+        },
+        "social_security_benefits": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Gross benefits (Form SSA-1099 box 5), both spouses together."
+        },
+        "taxable_interest": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "tax_exempt_interest": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "ordinary_dividends": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "qualified_dividends": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Part of ordinary_dividends."
+        },
+        "net_long_term_gain": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "net_short_term_gain": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        },
+        "magi": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "irmaa: modified AGI from the return the premium year looks back to."
+        },
+        "rmd_owner_born": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "rmd_prior_year_end_balance": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+        }
+      },
+      "description": "Only the inputs a case's kind uses. Income tax cases take the standard deduction (no itemizing) and no credits."
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "agi": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Adjusted gross income (Form 1040 line 11)."
+        },
+        "taxable_social_security": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Form 1040 line 6b, by the Publication 915 worksheet."
+        },
+        "standard_deduction": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Basic plus additional standard deduction."
+        },
+        "senior_deduction": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Schedule 1-A senior deduction, total for the return."
+        },
+        "taxable_income": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Form 1040 line 15, floored at 0."
+        },
+        "regular_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Tax on taxable income by the Tax Rate Schedules (never the Tax Table), through the Qualified Dividends and Capital Gain Tax Worksheet when there are qualified dividends or net capital gain; to the cent."
+        },
+        "net_investment_income_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Form 8960."
+        },
+        "additional_medicare_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Form 8959 (on wages and self-employment income)."
+        },
+        "total_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "regular_tax + net_investment_income_tax + additional_medicare_tax."
+        },
+        "social_security_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Employee OASDI tax on wages."
+        },
+        "medicare_tax": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Employee hospital insurance tax on wages (without the additional tax)."
+        },
+        "part_b_monthly_premium": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Total monthly Part B premium including the adjustment."
+        },
+        "part_d_monthly_adjustment": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Monthly Part D income-related adjustment."
+        },
+        "rmd_divisor": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Distribution period used."
+        },
+        "rmd_amount": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Required minimum distribution for the year, to the cent."
+        }
+      }
+    },
+    "worked": {
+      "type": "string",
+      "description": "Line by line, naming each form line or worksheet line and the figure used."
+    },
+    "verified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "by",
+        "on",
+        "result"
+      ],
+      "properties": {
+        "by": {
+          "type": "string"
+        },
+        "on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "result": {
+          "enum": [
+            "agrees",
+            "corrected"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "description": "The second, independent working. A release includes only verified cases."
+    }
+  }
+}

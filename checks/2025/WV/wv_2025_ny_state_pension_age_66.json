@@ -1,0 +1,63 @@
+{
+  "id": "wv_2025_ny_state_pension_age_66",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_other_retirement",
+    "wv_senior_citizen_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 33(a)-(b) Other Retirement Modification, 'Combined amounts of 33a and 33b must not exceed $2,000' (PDF p.5; instructions PDF p.28; PDF p.22); Schedule M line 47 Senior Citizen Deduction columns (a)-(d) (PDF p.6; instructions PDF p.29; example PDF p.30; PDF p.23 'Taxpayers over age 65 or disabled'; Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "22250.00"
+  },
+  "expected": {
+    "state_agi": "32000.00",
+    "state_taxable_income": "30000.00",
+    "state_tax_before_credits": "832.50",
+    "credits": "0.00",
+    "state_income_tax": "832.50",
+    "relief_amounts": {
+      "wv_other_retirement": "0.00",
+      "wv_senior_citizen_deduction": "8000.00"
+    }
+  },
+  "worked": "Single, age 66, a New York State public pension of 40,000 only: no pension line takes it, but line 47 takes any income, so the 8,000 reaches it. filer born 1959-06-30, age 66 at December 31, 2025. Federal AGI (given) = New York State pension 40,000.00 = 40,000.00. Federal taxable income (given, not tested) = 40,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 aged 65 or older = 22,250.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 40,000.00. Schedule M additions lines 51-58 none; IT-140 line 2 0.00. Schedule M Column A: New York State pension 40,000.00: no Schedule M line names another state's pension, so none is subtracted (wv_other_retirement 0.00); line 47 (age 66): column (c) income not on lines 35-46 = 40,000.00, limited to 8,000.00: 8,000.00; column (d) lines 29-34 = 0.00; line 47 = 8,000.00 - 0.00 = 8,000.00; line 49 = 8,000.00. Line 50 total subtractions = 8,000.00. Projection (per person): The filer: Social Security subtraction 0.00; age 65 deduction = lesser of (8,000.00 - military retirement 0.00) and own income 40,000.00 = 8,000.00; best_of_group wv_line_47 keeps the larger, 8,000.00 (wv_senior_citizen_deduction). Projection subtractions total 8,000.00, the same as line 50. IT-140 line 3 subtractions 8,000.00; line 4 West Virginia AGI = 40,000.00 + 0.00 - 8,000.00 = 32,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 1 x 2,000.00 = 2,000.00. Line 7 taxable income = 32,000.00 - 2,000.00 = 30,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 15,000.00 = 444 + 3.33% x 5,000.00 = 166.5; total 832.5 = 832.50. The Tax Table row 29,980 to under 30,040 (PDF p.38 on) gives 833; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 832.50.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wv_fed_law_enforcement_retirement",
+    "state_rule_not_modelled:wv_pbgc",
+    "state_rule_not_modelled:wv_police_fire_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

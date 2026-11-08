@@ -1,0 +1,54 @@
+{
+  "id": "mi_2025_base",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income); no Schedule 1 additions or subtractions; PDF page 3 (rate 4.25%, exemption 5,800)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-02"
+      },
+      {
+        "age": 48,
+        "born": "1977-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        },
+        {
+          "amount": "22000.00",
+          "person": 1
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "113000.00",
+    "federal_taxable_income": "81500.00"
+  },
+  "expected": {
+    "state_agi": "113000.00",
+    "state_taxable_income": "101400.00",
+    "state_tax_before_credits": "4309.50",
+    "credits": "0.00",
+    "state_income_tax": "4309.50"
+  },
+  "worked": "Federal AGI = wages 90,000.00 + 22,000.00 + interest 1,000.00 = 113,000.00. Federal taxable income = 113,000.00 - federal standard deduction (31,500.00) = 81,500.00; given, not tested; the federal senior deduction is ignored. Michigan: line 10 AGI 113,000.00; line 11 additions 0.00; line 13 subtractions 0.00 (both born after 1966, so no retirement subtraction or Michigan Standard Deduction; no Social Security); line 14 income subject to tax 113,000.00; line 9a/15 exemptions 2 x 5,800 = 11,600.00; line 16 taxable income 113,000.00 - 11,600.00 = 101,400.00. MI-1040 line 17 tax = 101,400.00 x 0.0425 = 4,309.50. No credits; state income tax 4,309.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

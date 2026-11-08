@@ -1,0 +1,73 @@
+{
+  "id": "ca_2025_military_retirement_joint_cap_per_return",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "military_retirement_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "PDF page 60 Schedule CA (540) instructions, Line 5a and 5b (Military Retirement Exclusion, federal AGI limit 125,000 / 250,000, 20,000 cap); PDF page 6 and 55 What's New ('capped at $20,000 for ... spouses filing a joint return'); Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-01-20"
+      },
+      {
+        "age": 58,
+        "born": "1967-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        },
+        {
+          "amount": "15000.00",
+          "person": 1,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "133000.00",
+    "federal_taxable_income": "101500.00"
+  },
+  "expected": {
+    "state_agi": "113000.00",
+    "state_taxable_income": "101588.00",
+    "state_tax_before_credits": "3165.06",
+    "credits": "306.00",
+    "state_income_tax": "2859.06",
+    "relief_amounts": {
+      "military_retirement_exclusion": "20000.00"
+    }
+  },
+  "worked": "Married filing jointly, 60 and 58: both spouses receive uniformed-services retirement pay, 18,000 and 15,000 (33,000 together), and spouse 2 has wages 100,000; federal AGI = 133,000, under the 250,000 joint limit. The exclusion is one 20,000 cap for the joint return, not 20,000 each. Form 540 line 13 federal AGI = 133,000.00. Federal taxable income = 133,000.00 - 31,500.00 federal standard deduction = 101,500.00 (given, not tested; the federal senior deduction is ignored). Subtractions: Schedule CA (540) line 5 column B, Military Retirement Exclusion: federal AGI 133,000.00 does not exceed 250,000.00; military retirement pay 33,000.00, capped at 20,000.00 a return = 20,000.00. Schedule CA Part I line 27 column B = 20,000.00 = Form 540 line 14. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 133,000.00 - 20,000.00 = 113,000.00. Line 18 California standard deduction (married filing jointly, PDF page 13 chart) 11,412.00. Line 19 taxable income = 113,000.00 - 11,412.00 = 101,588.00. Tax on 101,588.00 by the projection's brackets: 22,158.00 x 1% = 221.58; 30,370.00 x 2% = 607.40; 30,376.00 x 4% = 1,215.04; 18,684.00 x 6% = 1,121.04; total 3,165.06. Line 31: Tax Rate Schedule Y (PDF page 75), from its printed base, gives 3,165.06. Line 32 exemption credits: federal AGI 133,000.00 is not more than 504,411.00, so no AGI limitation; line 7 personal 2 x 153 = 306.00; line 9 senior 0 x 153 = 0.00; line 32 = 306.00. Line 33 = 3,165.06 - 306.00 = 2,859.06; no other credits (lines 34 to 47 nil), line 48 = 2,859.06. State income tax = 2,859.06.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:military_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

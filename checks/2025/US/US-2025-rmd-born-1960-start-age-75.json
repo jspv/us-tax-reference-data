@@ -1,0 +1,25 @@
+{
+  "id": "US-2025-rmd-born-1960-start-age-75",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "rmd",
+  "boundary": "below",
+  "tests": [
+    "rmd.start_age"
+  ],
+  "description": "IRA owner born in 1960: start age 75, first required year 2035; nothing required in 2025.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1960-02-14",
+    "rmd_prior_year_end_balance": "600000"
+  },
+  "expected": {
+    "rmd_amount": "0.00"
+  },
+  "worked": "IRA owner born 1960-02-14; age attained on the 2025 birthday = 2025 - 1960 = 65. Beneficiary is not a spouse more than 10 years younger, so the Uniform Lifetime Table applies.\nRequired beginning age (IRC 401(a)(9)(C)(v) as amended by SECURE 2.0): born 1960 -> age 75; first distribution year = 1960 + 75 = 2035.\n2025 is before 2035 (age 65 is under 75): no required minimum distribution for 2025; required amount 0.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

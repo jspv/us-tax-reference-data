@@ -1,0 +1,64 @@
+{
+  "id": "md_2025_military_under55_capped_age_54",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement_under_55"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 13 (Form 502SU code u), 15-21; Instruction 13 Line 13 code letter u (PDF page 17); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 54,
+        "born": "1971-08-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50050.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "68050.00",
+    "federal_taxable_income": "52300.00"
+  },
+  "expected": {
+    "state_agi": "55550.00",
+    "state_taxable_income": "49000.00",
+    "state_tax_before_credits": "2275.00",
+    "credits": "0.00",
+    "state_income_tax": "2275.00",
+    "relief_amounts": {
+      "military_retirement_under_55": "12500.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 50,050.00 + military retired pay (you) 18,000.00 = 68,050.00. Federal taxable income = 68,050.00 - standard deduction 15,750.00 = 52,300.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 68,050.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 68,050.00. Form 502SU: code u (you, age 54, under 55): smaller of military retirement 18,000.00 and 12,500.00 = 12,500.00. Line 13 = 12,500.00. Line 14 two-income subtraction: 0.00 (not a joint return). Line 15 total subtractions = Line 13 12,500.00 = 12,500.00. Line 16 Maryland AGI = 68,050.00 - 12,500.00 = 55,550.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 3,350.00. Line 18 net income = 55,550.00 - 3,350.00 = 52,200.00. Line 19 exemptions: Chart 10A at federal AGI 68,050.00 (not over 100,000) gives 3,200.00 each x 1 (Box A) = 3,200.00. Line 20 taxable net income = 52,200.00 - 3,200.00 = 49,000.00. Line 21 tax, Schedule I as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 46,000.00 = 2,185.00; total 2,275.00. (The tax table row 49,000-49,050, PDF page 37, gives 2,276; expected keeps the formula figure.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 2,275.00. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). Age boundary: 54 on December 31, 2025 is 'under the age of 55 on the last day of the taxable year', so the 12,500 limit applies.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:fire_police_injury_payments",
+    "state_rule_not_modelled:pension_exclusion_disabled",
+    "state_rule_not_modelled:ranger_pension_exclusion",
+    "state_rule_not_modelled:state_pension_pickup"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

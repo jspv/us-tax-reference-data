@@ -1,0 +1,64 @@
+{
+  "id": "vt_2025_ss_single_partial",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_social_security_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet, Sections I and II (booklet PDF p.16; IN-112 Instructions PDF p.2); Schedule IN-112 Part I Line 12 (booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-14"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "16000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "43510.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13600.00"
+    },
+    "federal_agi": "57110.00",
+    "federal_taxable_income": "39360.00"
+  },
+  "expected": {
+    "state_agi": "46366.00",
+    "state_taxable_income": "32166.00",
+    "state_tax_before_credits": "1077.56",
+    "credits": "0.00",
+    "state_income_tax": "1077.56",
+    "relief_amounts": {
+      "vt_social_security_exemption": "10744.00"
+    }
+  },
+  "worked": "Federal taxable Social Security: provisional income = other income 43,510.00 + half of benefits 8,000.00 = 51,510.00; 85% x (51,510.00 - 34,000.00) + 4,500.00 = 19,383.50, limited to 85% x 16,000.00 = 13,600.00; taxable 13,600.00. Federal (given, not tested): federal AGI = IRA distribution (person 0) 43,510.00 + taxable Social Security 13,600.00 = 57,110.00. Federal taxable income = 57,110.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 39,360.00 (federal senior deduction ignored). Form IN-111, Single: Line 1 federal AGI 57,110.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Retirement Income Exemption Worksheet (Social Security elected): question 2, AGI 57,110.00 is less than 65,000.00; question 3, not less than 55,000.00, so Section II: Line 4 65,000.00; Line 5 57,110.00; Line 6 = 7,890.00; Line 7 7,890.00 / 10,000 = 0.789, rounded to 0.79; Line 8 0.79; Line 9 13,600.00; Line 10 = 13,600.00 x 0.79 = 10,744.00. The projection's share_phase_out gives the same: 1 - (57,110.00 - 55,000.00) / 10,000 = 0.789, to two decimals 0.79. Line 12 10,744.00. Subtractions: Line 12 retirement benefits (Social Security) 10,744.00; Line 18 total subtractions 10,744.00. Line 19 net modifications = 0.00 - 10,744.00 = -10,744.00. Form IN-111 Line 2 -10,744.00; Line 3 = 57,110.00 + (-10,744.00) = 46,366.00. Line 4 standard deduction 7,650.00 + 1 x 1,250.00 age box(es) = 8,900.00 [person 0 born 1955-02-14 (65 or older: box checked)]. Line 5a-5d personal exemptions 1; Line 5e 1 x 5,300.00 = 5,300.00. Line 6 = 8,900.00 + 5,300.00 = 14,200.00. Line 7 Vermont taxable income = 46,366.00 - 14,200.00 = 32,166.00. Line 8: schedule tax on 32,166.00 (Schedule X, booklet p.46, merged continuous schedule): 3.35% x (32,166.00 - 0.00) = 1,077.56; the tax table (pp.47-51) gives 1077. Federal AGI 57,110.00 is not greater than 150,000.00, so no minimum tax: Line 8 1,077.56. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 1,077.56; Lines 11-13 0.00; Line 14 Vermont income tax 1,077.56.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

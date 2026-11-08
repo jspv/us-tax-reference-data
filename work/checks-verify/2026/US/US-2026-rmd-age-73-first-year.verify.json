@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "rmd_amount": "18867.92",
+    "rmd_divisor": "26.5"
+  },
+  "worked": "Born 1953-08-20: attains 73 in 2026; applicable age 73, so 2026 is a required year. Uniform Lifetime Table age 73: 26.5. RMD = 500000 / 26.5 = 18867.92."
+}

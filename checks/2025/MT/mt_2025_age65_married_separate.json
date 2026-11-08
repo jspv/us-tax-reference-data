@@ -1,0 +1,56 @@
+{
+  "id": "mt_2025_age65_married_separate",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p13 Line 6, $5,660 subtraction for taxpayers 65 and older; Form 2 PDF p1 line 6; record base.deductions age_65_subtraction",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32650.00"
+  },
+  "expected": {
+    "state_agi": "32650.00",
+    "state_taxable_income": "26990.00",
+    "state_tax_before_credits": "1339.21",
+    "credits": "0.00",
+    "state_income_tax": "1339.21",
+    "relief_amounts": {
+      "age_65_subtraction": "5660.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 17,350.00 (15,750.00 + 1 x 1,600.00 for 65 or older) = 32,650.00 (federal senior deduction ignored, although Montana's line 2 would take it). Filing status married filing separately, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 50,000.00; line 2 Form 1040 lines 12e and 13b 17,350.00; line 3 32,650.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 1 x 5,660.00 = 5,660.00; line 7 Montana taxable income 32,650.00 + 0.00 - 0.00 - 5,660.00 = 26,990.00. Page 2 worksheet: line 1 taxable income 26,990.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 5.9% x 26,990.00 = 1,592.41, less 253 = 1,339.41; line 13 = 1,339.41, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 21,100.00 = 991.70; 5.9% x (26,990.00 - 21,100.00 = 5,890.00) = 347.51; bracket tax 1,339.21. Line 9 nonrefundable credits 0.00; line 10 tax after credits 1,339.21. The form gives 1,339.41; expected keeps the projection's 1,339.21, a difference of 0.20 from the table's whole-dollar constant (253 against 253.20).",
+  "accepted_approximations": [
+    "The tables print a whole-dollar constant with the 5.9% rate (253, 506, 380) where the bracket arithmetic gives 253.20, 506.40, 380.40."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mt_elderly_homeowner_renter_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

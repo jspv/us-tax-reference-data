@@ -1,0 +1,52 @@
+{
+  "id": "or_2025_railroad_single",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_subtraction",
+    "age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.82 'Railroad Retirement Board benefits' (subtraction code 330); Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "22000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "42000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement_subtraction"
+  ]
+}

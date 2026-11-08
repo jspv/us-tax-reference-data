@@ -1,0 +1,58 @@
+{
+  "id": "ca_2025_joint_over_one_million",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 16 Line 62 Behavioral Health Services Tax worksheet lines 1 to 5; PDF page 40 Form 540 lines 48, 62 and 64",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-03-03"
+      },
+      {
+        "age": 59,
+        "born": "1966-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "1000000.00",
+          "person": 0
+        },
+        {
+          "amount": "700000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "1700000.00",
+    "federal_taxable_income": "1668500.00"
+  },
+  "expected": {
+    "state_agi": "1700000.00",
+    "state_taxable_income": "1688588.00",
+    "state_tax_before_credits": "176255.42",
+    "credits": "0.00",
+    "state_income_tax": "176255.42",
+    "relief_amounts": {
+      "standard_deduction": "11412.00"
+    }
+  },
+  "worked": "Married filing jointly, 60 and 59: wages 1,000,000 and 700,000; federal AGI = 1,700,000. The projection folds the 1% Behavioral Health Services Tax into 12.3% from 1,000,000 (11.3% + 1%) and 13.3% from 1,485,906 (12.3% + 1%). Form 540 line 13 federal AGI = 1,700,000.00. Federal taxable income = 1,700,000.00 - 31,500.00 federal standard deduction = 1,668,500.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (wages need no adjustment). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 1,700,000.00 - 0.00 = 1,700,000.00. Line 18 California standard deduction (married filing jointly, PDF page 13 chart) 11,412.00. Line 19 taxable income = 1,700,000.00 - 11,412.00 = 1,688,588.00. Tax on 1,688,588.00 by the projection's brackets: 22,158.00 x 1% = 221.58; 30,370.00 x 2% = 607.40; 30,376.00 x 4% = 1,215.04; 32,180.00 x 6% = 1,930.80; 30,364.00 x 8% = 2,429.12; 597,510.00 x 9.3% = 55,568.43; 148,584.00 x 10.3% = 15,304.152; 108,458.00 x 11.3% = 12,255.754; 485,906.00 x 12.3% = 59,766.438; 202,682.00 x 13.3% = 26,956.706; total 176,255.42. Line 11 exemptions: 2 personal x 153 and 0 senior x 153. Federal AGI 1,700,000.00 is more than 504,411.00: the projection removes the personal and senior credits, line 32 = 0.00. The form's AGI Limitation Worksheet (PDF page 14) would give: c = 1,195,589 over 504,411.00; d = 1,195,589 / 2,500 rounded up = 479; e = 479 x 6 = 2874; f = 2 boxes on lines 7 and 9; g = 2874 x 2 = 5748; h = 306; i = 306 - 5748 = 0 (zero or less enters 0); line 32 = 0. Line 33 = 176,255.42 - 0.00 = 176,255.42; no other credits (lines 34 to 47 nil), line 48 = 176,255.42. Form check: Schedule Y (PDF page 75) on 1,688,588.00, as bands without the surtax = 169,369.54 (from the printed base: 169,369.54) (line 31); Behavioral Health Services Tax (PDF page 16, line 62 worksheet) = (1,688,588.00 - 1,000,000.00) x 1% = 6,885.88; line 31 + line 62 = 176,255.42, the same as the folded brackets' 176,255.42. State income tax = 176,255.42.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "ca_2025_base_single_wages_pension",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; Schedule CA (540) line 5 (no adjustment for a private pension, PDF page 60)",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-03-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "94250.00"
+  },
+  "expected": {
+    "state_agi": "110000.00",
+    "state_taxable_income": "104294.00",
+    "state_tax_before_credits": "6137.98",
+    "credits": "153.00",
+    "state_income_tax": "5984.98",
+    "relief_amounts": {}
+  },
+  "worked": "Single, 50: wages 80,000 and a private employer pension 30,000; federal AGI = 80,000 + 30,000 = 110,000. Form 540 line 13 federal AGI = 110,000.00. Federal taxable income = 110,000.00 - 15,750.00 federal standard deduction = 94,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (a private pension needs no adjustment on Schedule CA line 5, PDF page 60). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 110,000.00 - 0.00 = 110,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 110,000.00 - 5,706.00 = 104,294.00. Tax on 104,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 15,182.00 x 8% = 1,214.56; 31,570.00 x 9.3% = 2,936.01; total 6,137.98. Line 31: Tax Rate Schedule X (PDF page 75), from its printed base, gives 6,137.98. Line 32 exemption credits: federal AGI 110,000.00 is not more than 252,203.00, so no AGI limitation; line 7 personal 1 x 153 = 153.00; line 9 senior 0 x 153 = 0.00; line 32 = 153.00. Line 33 = 6,137.98 - 153.00 = 5,984.98; no other credits (lines 34 to 47 nil), line 48 = 5,984.98. State income tax = 5,984.98.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

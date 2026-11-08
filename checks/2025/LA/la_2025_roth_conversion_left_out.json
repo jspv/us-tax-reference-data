@@ -1,0 +1,65 @@
+{
+  "id": "la_2025_roth_conversion_left_out",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "la_retirement_income_exemption_65"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "instructions PDF page 7, code 06E and Worksheet for Code 06E, Lines 1 to 6; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-07-19"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "5000.00",
+          "person": 0
+        }
+      ],
+      "roth_conversion": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "37250.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "37500.00",
+    "state_tax_before_credits": "1125.00",
+    "credits": "0.00",
+    "state_income_tax": "1125.00",
+    "relief_amounts": {
+      "la_retirement_income_exemption_65": "5000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 30,000.00 + IRA distribution (person 0) 5,000.00 + Roth conversion (person 0) 20,000.00 = 55,000.00. Federal taxable income = 55,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 37,250.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. Worksheet for Code 06E (first column): Line 1(a) 5,000.00 (person 0, age 67); Line 2(a) 0.00; Line 3(a) = 5,000.00; Line 4 12,000.00; Line 5(a) lesser of Lines 3 and 4 = 5,000.00. Line 6 = Line 5(a) = 5,000.00, code 06E. Schedule E: Line 1 federal AGI 55,000.00. Line 3 total = 55,000.00. Exempt income: code 06E 5,000.00. Line 4H = 5,000.00. Line 5 Louisiana AGI = 55,000.00 - 5,000.00 = 50,000.00. IT-540 Line 7 (from Schedule E Line 5) 50,000.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 50,000.00 - 12,500.00 = 37,500.00. Line 11 = 37,500.00 x .03 = 1,125.00. Line 12 credits 0.00. Line 13 = 1,125.00. Projection: the Roth conversion is left out of Worksheet Line 1. If Louisiana counts it, Line 1 is 25,000.00, Line 5 is 12,000.00, Line 10 is 30,500.00 and the tax is 915.00, so this overstates tax by 210.00.",
+  "accepted_approximations": [
+    "Roth conversions are left out of the 12,000 retirement income exemption (covers_unclear in the record: the booklet does not name them, though the exemption takes amounts reported on Form 1040 Lines 4b and 5b). If Louisiana counts them, this overstates tax for a converter aged 65 or older."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

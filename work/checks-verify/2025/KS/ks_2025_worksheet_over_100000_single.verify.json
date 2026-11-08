@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "150000.00",
+    "state_taxable_income": "137235.00",
+    "state_tax_before_credits": "7570.31",
+    "credits": "0.00",
+    "state_income_tax": "7570.31"
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 150,000.00 (given). Line 2 modifications 0.00. Line 3 Kansas AGI 150,000.00 + (0.00) = 150,000.00. Line 4 standard deduction 3,605 + 0 age box(es) x 850 = 3,605 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 12,765.00. Line 7 taxable income 150,000.00 - 12,765.00 = 137,235.00. Line 8 tax 23,000 x 5.2% = 1,196.00; (137,235.00 - 23,000) = 114,235.00 x 5.58% = 6374.313000; total 7570.313000. the form's worksheet (PDF page 34) gives 7,570.71 (137,235.00 x 5.58% less 87). No credits in the projection: credits 0.00. Tax 7570.31."
+}

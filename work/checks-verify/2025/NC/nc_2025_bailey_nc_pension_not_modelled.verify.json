@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "state_taxable_income": "28000.00",
+    "state_tax_before_credits": "1190.00",
+    "credits": "0.00",
+    "state_income_tax": "1190.00"
+  },
+  "worked": "D-400 Line 6 federal AGI 40750.00. Line 7 additions 0.00. Schedule S Part B: public pension 40000.00 paid by NC taxed (Bailey not_modelled in the projection). Line 9 deductions 0.00. Line 6 + Line 7 - Line 9 = 40750.00 + 0.00 - 0.00 = 40750.00. Line 11 NC standard deduction (single) 12750.00. Line 14 NC taxable income 40750.00 - 12750.00 = 28000.00. Line 15 tax 28000.00 x 4.25% = 1190.00. Line 16 credits 0.00 (no credits in the projection). Tax 1190.00."
+}

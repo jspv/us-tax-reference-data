@@ -1,0 +1,45 @@
+{
+  "id": "mt_2025_gains_limited_by_age_65",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p17 net long-term capital gains and Line 2; PDF p18 net long-term capital gains rate tables; Form 2 PDF p2 lines 1-13; record capital_gains; Instructions PDF p13 Line 6, $5,660 subtraction for taxpayers 65 and older; Form 2 PDF p1 line 6; record base.deductions age_65_subtraction",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "long_term_gains": "30000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.age_65_subtraction"
+  ]
+}

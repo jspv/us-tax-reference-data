@@ -1,0 +1,49 @@
+{
+  "id": "ri_2025_deductions_mfj_below_phaseout",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "ri_standard_deduction",
+    "ri_personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-15"
+      },
+      {
+        "age": 53,
+        "born": "1972-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "150000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "118500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_personal_exemption",
+    "relief_amounts.ri_standard_deduction"
+  ]
+}

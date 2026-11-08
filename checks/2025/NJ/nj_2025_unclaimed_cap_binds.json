@@ -1,0 +1,63 @@
+{
+  "id": "nj_2025_unclaimed_cap_binds",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_pension_exclusion",
+    "nj_senior_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 16a, 17, 19, 20a, 27, 28a, 28b, 29: Instr PDF p.16 IRA withdrawals, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart, PDF p.22 line 29; GIT-1 & 2 p.22-24; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-04-04"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "interest": "15000.00",
+      "dividends": "10000.00",
+      "long_term_gains": "40000.00"
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "77250.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "18000.00",
+    "state_tax_before_credits": "252.00",
+    "credits": "0.00",
+    "state_income_tax": "252.00",
+    "relief_amounts": {
+      "nj_pension_exclusion": "30000.00",
+      "nj_unclaimed_exclusion": "45000.00",
+      "nj_senior_exemption": "1000.00"
+    }
+  },
+  "worked": "Federal AGI 95,000.00 (IRA distribution 30,000.00 + interest 15,000.00 + dividends 10,000.00 + long-term gains 40,000.00); federal taxable income = 95,000.00 - 17,750.00 federal standard deduction (15,750 single + 2,000 for age 65 or older) = 77,250.00 (given, not tested; the federal senior deduction is ignored). Line 16a 15,000.00 + line 17 10,000.00 + line 19 net gains 40,000.00 + line 20a IRA 30,000.00 = line 27 total income 95,000.00; measure 95,000.00, in the 0-100,000 band (keep share 1). Line 28a: age 70; Line A 30,000.00, Line B 75,000.00; lesser = 30,000.00. Worksheet D: line 1 75,000.00 - line 2 30,000.00 = line 3 45,000.00; lines 4-8 0.00; line 9 = 45,000.00, less than the 65,000.00 of other income, so line 28b = 45,000.00 (projection: room 45,000.00, covered income 65,000.00, lesser 45,000.00). Total exclusions 75,000.00, the single maximum. Line 29 New Jersey gross income = 95,000.00 - 30,000.00 - 45,000.00 = 20,000.00. Line 30 exemptions (line 13): regular 1,000 x 1 + senior 65+ 1,000 x 1 = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 20,000.00 - 2,000.00 = 18,000.00. Line 43 tax, rate schedule Table A (single/separate) as bands: 18,000.00 x 0.014 = 252.00 = 252.00. The booklet's Tax Table (taxable income under 100,000) gives 252 for the 18,000-18,050 row (schedule at the midpoint 18,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 252.00. The IRA was funded only by a rollover from a 401(k), so it has no New Jersey basis (Worksheet C gives nothing excludable).",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

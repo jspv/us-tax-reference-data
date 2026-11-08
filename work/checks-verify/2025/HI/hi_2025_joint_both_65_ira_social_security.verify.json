@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "60000.00",
+    "state_income_tax": "1630.34",
+    "state_tax_before_credits": "1630.34",
+    "state_taxable_income": "46624.00"
+  },
+  "worked": "Line 7 federal AGI 100,850.00. Line 14 subtract Social Security taxed on federal return 40,850.00 (exempt). Line 20 Hawaii AGI 60,000.00. Line 23 standard deduction 8,800.00; line 25 exemptions 2 personal + 2 age-65 = 4 x 1,144 = 4,576.00. Line 26 taxable income 46,624.00. Line 27 tax by the rate schedule: 19,200.00 x 0.014 = 268.8000; 9,600.00 x 0.032 = 307.2000; 9,600.00 x 0.055 = 528.0000; 8,224.00 x 0.064 = 526.3360; total 1,630.3360 -> 1,630.34 (the form uses the Tax Table under 100,000; schedule formula used). Credits: none modelled, 0.00. State income tax 1630.34."
+}

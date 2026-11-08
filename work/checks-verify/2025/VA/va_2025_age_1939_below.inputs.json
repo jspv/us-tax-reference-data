@@ -1,0 +1,53 @@
+{
+  "id": "va_2025_age_1939_below",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "age_deduction_born_by_1939",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 8-9, 11, 12, 14-16; PDF p15 Line 4 Age Deduction and Exemptions; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; PDF p17 (printed Page 11) Taxpayers Age 65 and Older and Line 5; PDF p41 Tax Rate Schedule",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 89,
+        "born": "1936-05-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "2000.00",
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00"
+    },
+    "federal_agi": "8000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.age_deduction_born_by_1939"
+  ]
+}

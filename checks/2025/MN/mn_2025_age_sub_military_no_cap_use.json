@@ -1,0 +1,68 @@
+{
+  "id": "mn_2025_age_sub_military_no_cap_use",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "mn_age_65_subtraction",
+    "mn_military_pension"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1R lines 1-13 and Line 10 table (M1R PDF p.1, p.2); Form M1 instructions PDF p.15; M1M PDF p.5 line 16; Schedule M1M line 25 (M1M PDF p.7 'Line 25 - Military Pension or Retirement Pay'); Form M1 instructions PDF p.26 'Military Pensions'; Schedule M1M line 1 (M1M PDF p.3 'Line 1 - Interest From Municipal Bonds of Another State')",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "2000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "municipal_interest_other_state": "30000.00"
+    },
+    "federal_agi": "14000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "22400.00",
+    "state_taxable_income": "5450.00",
+    "state_tax_before_credits": "291.58",
+    "credits": "0.00",
+    "state_income_tax": "291.58",
+    "relief_amounts": {
+      "mn_military_pension": "12000.00",
+      "mn_age_65_subtraction": "9600.00"
+    }
+  },
+  "worked": "A military pension is not on M1R lines 4-6, so it leaves the 9,600 whole, though it counts in federal AGI. Federal (given, not tested): federal AGI = wages 2,000.00 + pension 12,000.00 = 14,000.00. Federal taxable income = 14,000.00 - 17,750.00 federal standard deduction (15,750 plus 1 x 2,000) = below zero, so 0.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 14,000.00. Schedule M1M line 1 other-state municipal interest 30,000.00; line 10 additions 30,000.00; Form M1 line 2 30,000.00; line 3 = 44,000.00. Schedule M1R: line 1 9,600.00; line 2 0.00 (65 or older); line 3 9,600.00; line 4 0.00; line 5 nontaxable Social Security 0.00 - 0.00 = 0.00; line 6 Railroad Retirement Board benefits 0.00; line 7 0.00; line 8 = 9,600.00. Line 9 14,000.00; line 10 14,500.00; line 11 0.00; line 12 0.00; line 13 = 9,600.00. Schedule M1M line 25 military pension 12,000.00, included in federal AGI. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 9,600.00 + 0.00 + 12,000.00 = 21,600.00 (lines 12, 16, 17, 25). State income before deduction = 44,000.00 - 21,600.00 = 22,400.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00 plus 1 x 2,000 age box(es) = 16,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 16,950.00. Form M1 line 8 total = 16,950.00 + 21,600.00 = 38,550.00; line 9 Minnesota taxable income = 44,000.00 - 38,550.00 = 5,450.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (5,450.00 - 0.00) = 291.575 = 291.575. The tax table (PDF pp.32-38) gives 292; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 291.58.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_foreign_service_retirement",
+    "state_rule_not_modelled:mn_marriage_credit",
+    "state_rule_not_modelled:mn_qualified_public_pension"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

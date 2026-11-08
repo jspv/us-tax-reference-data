@@ -1,0 +1,42 @@
+{
+  "id": "az_2025_long_term_gain_subtraction",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 18 Lines 23 and 24 (25% of net long-term capital gain from assets acquired after December 31, 2011); PDF page 37 worksheet; PDF page 39 Form 140 lines 20-24; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "2000.00",
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "67000.00",
+    "federal_taxable_income": "51250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

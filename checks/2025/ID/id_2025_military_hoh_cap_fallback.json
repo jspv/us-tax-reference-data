@@ -1,0 +1,70 @@
+{
+  "id": "id_2025_military_hoh_cap_fallback",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ret_service_member",
+    "age_65_addition"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45 Form 39R instructions Line 8, 8a-8c and Line 8e first paragraph; PDF p.33 Form 39R Part B lines 8a-8f; PDF p.10 Line 12a; PDF p.11 worksheet line 5 ('born before January 2, 1961'); Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-12-24"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "74375.00"
+  },
+  "expected": {
+    "state_agi": "51784.00",
+    "state_taxable_income": "26159.00",
+    "state_tax_before_credits": "876.46",
+    "credits": "155.00",
+    "state_income_tax": "721.46",
+    "relief_amounts": {
+      "ret_service_member": "48216.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 40,000.00 + military retirement pay (person 0) 60,000.00 = 100,000.00. Federal taxable income = 100,000.00 - 23,625.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 74,375.00 (the federal senior deduction is ignored). Form 40 (filing status head of household): line 7 federal AGI 100,000.00. Line 8 additions 0.00; line 9 = 100,000.00 + 0.00 = 100,000.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8 retirement benefits deduction: line 8a 48,216.00 (the booklet prints no figure for head of household, so the projection's fallback (single)); line 8b railroad benefits received 0.00; line 8c Social Security received (gross, both spouses, Box 5) 0.00; line 8d = 48,216.00 - 0.00 - 0.00, not below zero, = 48,216.00; line 8e (person 0 age 66: 60,000.00 qualifies, age 62 or older) = 60,000.00; line 8f smaller of 8d and 8e = 48,216.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 48,216.00 = 48,216.00. Form 40 line 10 48,216.00; line 11 total adjusted income = 100,000.00 - 48,216.00 = 51,784.00. Line 12a boxes checked 1. Standard Deduction Worksheet: line 1 23,625.00; line 4 23,625.00; line 5 1 x 2,000.00 = 2,000.00; line 6 25,625.00. Line 15 0.00 (no Schedule A); line 16 25,625.00. Line 17 = 51,784.00 - 25,625.00 = 26,159.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 26,159.00. Line 20 worksheet: line 1 26,159.00; line 2 9,622.00; line 3 = 16,537.00; line 4 at 5.3%; line 5 tax = 16,537.00 x 5.3% = 876.461, to the cent 876.46 (the return rounds to whole dollars, PDF p.8, and shows 876; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 876.46. Food Tax Credit Worksheet (Form 40 line 43): 1 x 155.00 = 155.00. State income tax = 876.46 - 155.00 = 721.46. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations). Line 18 would take any federal Schedule 1-A amount, the senior deduction included; it is ignored here and the projection does not subtract it (approximations).",
+  "accepted_approximations": [
+    "The retirement maximum prints for single and joint only. A head of household, qualifying surviving spouse or married filing separately return has no printed figure; the projection gives only the two printed amounts, so such a return needs the fallback a status not given takes for brackets (single; joint for a qualifying surviving spouse).",
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged.",
+    "The federal Schedule 1-A and qualified business income deductions are not subtracted (Form 40 line 18)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:health_insurance_premiums",
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction",
+    "state_rule_not_modelled:ret_csrs_fsrds",
+    "state_rule_not_modelled:ret_idaho_firefighters",
+    "state_rule_not_modelled:ret_service_member_under_62"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

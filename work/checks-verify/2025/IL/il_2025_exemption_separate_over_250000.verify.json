@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "il_personal_exemption": "0.00"
+  },
+  "state_agi": "250100.00",
+  "state_income_tax": "12379.95",
+  "state_tax_before_credits": "12379.95",
+  "state_taxable_income": "250100.00"
+ },
+ "worked": "Form IL-1040, 2025 (married_separate). Federal figures as given. Line 1 federal AGI 250,100.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 total income 250,100.00. Line 5 subtraction 0.00. Lines 6 and 7 0.00. Line 9 Illinois base income (state_agi) 250,100.00 - 0.00 = 250,100.00. Income Exceptions: federal AGI 250,100.00 is greater than 250,000.00, so the Line 10 allowance is zero. Line 10a 0.00. Line 10b 0 person(s) 65 or older x 1,000 = 0.00. Line 10 exemption allowance 0.00. Line 11 net income 250,100.00 - 0.00 = 250,100.00. Line 12 250,100.00 x 0.0495 = 12379.95, to the cent 12,379.95; the form rounds to whole dollars, giving 12,380. Lines 15-18 credits 0.00 (none in the projection). Tax 12,379.95."
+}

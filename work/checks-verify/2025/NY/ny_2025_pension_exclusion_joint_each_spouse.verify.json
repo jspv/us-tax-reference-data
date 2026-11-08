@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "85000.00",
+    "state_taxable_income": "68950.00",
+    "state_tax_before_credits": "3459.75",
+    "credits": "0.00",
+    "state_income_tax": "3459.75",
+    "relief_amounts": {
+      "pension_annuity_exclusion": "35000.00"
+    }
+  },
+  "worked": "Line 19 federal AGI 120000.00 (given). Federal taxable income 88500.00 given, not used (NY starts from federal AGI).\nLine 24 = 120000.00\nPension 30000.00 (private, ) person 0: qualifies for line 29 exclusion if 59 1/2\nemployer_plan_distribution 15000.00 person 1: line 29 eligible if 59 1/2\nPerson 0 born 1963-03-10 reaches 59 1/2 on 2022-09-10: qualifies (projection counts reaching 59 1/2 in the year); eligible 30000.00, exclusion 20000\nPerson 1 born 1963-09-05 reaches 59 1/2 on 2023-03-05: qualifies (projection counts reaching 59 1/2 in the year); eligible 15000.00, exclusion 15000.00\nLine 29 total 35000.00\nLine 32 subtractions 35000.00; line 33 NY AGI = 120000.00 - 35000.00 = 85000.00\nLine 34 standard deduction (married_joint) 16050; line 36 dependents none; line 37/38 taxable income = 85000.00 - 16050 = 68950.00\nRate schedule on 68950.00: 17150 x 0.04 = 686.00; 6450 x 0.045 = 290.250; 4300 x 0.0525 = 225.7500; 41050.00 x 0.055 = 2257.75000; schedule tax 3459.75000\nNY AGI 85000.00 <= 107,650: no recapture worksheet; tax = schedule tax 3459.75\nLine 39 tax as above; credits (household credit etc.) not in projection: 0; state income tax = line 39"
+}

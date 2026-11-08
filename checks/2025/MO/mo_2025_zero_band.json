@@ -1,0 +1,54 @@
+{
+  "id": "mo_2025_zero_band",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "17000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "17000.00",
+    "federal_taxable_income": "1250.00"
+  },
+  "expected": {
+    "state_agi": "17000.00",
+    "state_taxable_income": "1250.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Single, age 45. Federal (given, not tested): federal AGI = wages 17,000.00 = 17,000.00. Federal taxable income = 17,000.00 - standard deduction 15,750.00 = 1,250.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 17,000.00. Line 2 additions 0.00. Line 3 total income 17,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 17,000.00 - 0.00 = 17,000.00. Form MO-1040 Line 8 pension and Social Security exemption 0.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 17,000.00 - 0.00 - 15,750.00 = 1,250.00. Line 29 taxable income 1,250.00. Tax 0.00 (under the 1,313 at 0%). state_agi (after every relief, as the check format defines it) = Line 6 17,000.00 - Line 8 0.00 = 17,000.00; the form's Missouri AGI is Line 6, 17,000.00.",
+  "accepted_approximations": [
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

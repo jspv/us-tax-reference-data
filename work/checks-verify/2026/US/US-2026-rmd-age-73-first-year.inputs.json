@@ -1,0 +1,21 @@
+{
+  "id": "US-2026-rmd-age-73-first-year",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "rmd",
+  "boundary": "at_or_above",
+  "tests": [
+    "rmd.start_age",
+    "rmd.uniform_lifetime_table"
+  ],
+  "description": "IRA owner born in 1953, age 73 in 2026: the first required distribution year.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1953-08-20",
+    "rmd_prior_year_end_balance": "500000"
+  },
+  "asked": [
+    "rmd_amount",
+    "rmd_divisor"
+  ]
+}

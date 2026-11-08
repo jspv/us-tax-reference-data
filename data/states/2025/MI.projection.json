@@ -1,0 +1,387 @@
+{
+  "layer": "projection",
+  "state": "MI",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/MI.record.json",
+    "sha256": "bd3530dfcdd3560a74b6196c8c43a5cf7fbd051b924e75a2cd44bb7bd567d380"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "mi_personal_exemption",
+        "amount": {
+          "all": "5800"
+        },
+        "per": "person"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "pre1946_public",
+      "from_record": [
+        "mi_pre1946_public"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31"
+      }
+    },
+    {
+      "id": "pre1946_private",
+      "from_record": [
+        "mi_pre1946_private"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31"
+      },
+      "cap": {
+        "single": "65897",
+        "married_separate": "65897",
+        "married_joint": "131794"
+      },
+      "cap_per": "return",
+      "cap_reduced_by": [
+        "public_pension",
+        "military_pension",
+        "railroad_retirement"
+      ]
+    },
+    {
+      "id": "born_1946_1966",
+      "from_record": [
+        "mi_ret_1946_1952",
+        "mi_ret_1953_1959",
+        "mi_ret_1959_1966"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1946-01-01",
+        "born_on_or_before": "1966-12-31"
+      },
+      "cap": {
+        "single": "49423",
+        "married_separate": "49423",
+        "married_joint": "98846"
+      },
+      "cap_per": "return",
+      "cap_reduced_by": [
+        "military_pension",
+        "railroad_retirement"
+      ],
+      "best_of_group": "mi_retirement_choice"
+    },
+    {
+      "id": "tier2_standard_deduction",
+      "from_record": [
+        "mi_tier2_std_deduction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1946-01-01",
+        "born_on_or_before": "1952-12-31"
+      },
+      "cap": {
+        "single": "20000",
+        "married_separate": "20000",
+        "married_joint": "40000"
+      },
+      "cap_per": "return",
+      "cap_reduced_by": [
+        "military_pension",
+        "railroad_retirement"
+      ],
+      "best_of_group": "mi_retirement_choice"
+    },
+    {
+      "id": "tier3_standard_deduction",
+      "from_record": [
+        "mi_tier3_std_deduction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income",
+        "public_pension_other_state"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_after": "1953-01-01",
+        "born_on_or_before": "1959-01-01"
+      },
+      "cap": {
+        "single": "20000",
+        "married_separate": "20000",
+        "married_joint": "40000"
+      },
+      "cap_per": "return",
+      "cap_reduced_by": [
+        "military_pension",
+        "railroad_retirement",
+        "social_security"
+      ],
+      "best_of_group": "mi_retirement_choice",
+      "social_security_basis": "taxable"
+    },
+    {
+      "id": "senior_investment_deduction",
+      "from_record": [
+        "mi_senior_investment_deduction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "interest",
+        "dividends",
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "older_spouse",
+        "born_on_or_before": "1945-12-31"
+      },
+      "cap": {
+        "single": "14688",
+        "married_separate": "14688",
+        "married_joint": "29376"
+      },
+      "cap_per": "return",
+      "cap_reduced_by": [
+        "military_pension",
+        "railroad_retirement",
+        "public_pension",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ]
+    },
+    {
+      "id": "military_retirement",
+      "from_record": [
+        "mi_military_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "mi_railroad_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "private_retirement_maximum",
+      "indexed": true,
+      "covers": [
+        "reliefs:pre1946_private.cap",
+        "reliefs:born_1946_1966.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "mi_ssa_exempt_1959_1964",
+      "from_record": [
+        "mi_ssa_exempt_1959_1964",
+        "mi_ssa_exempt_retired_2013",
+        "mi_tier2_std_deduction_1953_ssa"
+      ],
+      "what": "Larger limits for retirement benefits from employment not covered by Social Security (some teachers, police, firefighters, federal workers before 1984).",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "mi_firepolice_public",
+      "from_record": [
+        "mi_firepolice_public",
+        "mi_firepolice_private"
+      ],
+      "what": "Police, fire department, state trooper and county corrections retirement benefits: public benefits fully, private to the born-before-1946 limit, at any age.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "mi_special_exemption",
+      "from_record": [
+        "mi_special_exemption",
+        "mi_disabled_veteran_exemption",
+        "mi_dependent_filer_exemption",
+        "mi_stillbirth_exemption"
+      ],
+      "what": "Exemptions for dependents, disability, disabled veterans, a dependent filer and a stillbirth.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "mi_active_duty_pay",
+      "from_record": [
+        "mi_active_duty_pay"
+      ],
+      "what": "Active-duty military pay is exempt.",
+      "warn_when": "never"
+    },
+    {
+      "id": "mi_us_obligations_interest",
+      "from_record": [
+        "mi_us_obligations_interest"
+      ],
+      "what": "Interest on U.S. government obligations is exempt.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Roth conversions are not in covers: the booklet does not say whether they qualify (covers_unclear in the record). If they do, this overstates tax in a conversion year.",
+      "direction": "overstates_tax",
+      "size": "Up to the state rate times the conversion, for a household inside a capped relief's room."
+    },
+    {
+      "what": "The personal exemption is applied per filer only; dependents' exemptions are not counted.",
+      "direction": "overstates_tax",
+      "size": "4.25% of 5,800 = 246.50 a year per dependent."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "4.25% of the Treasury interest."
+    },
+    {
+      "what": "The Tier 3 deduction is also reduced by exemptions claimed (MI-1040 lines 9a and 9d); not modelled.",
+      "direction": "understates_tax",
+      "size": "4.25% of up to 11,600 for a couple = up to 493 a year, for those taking Tier 3."
+    },
+    {
+      "what": "Michigan's birth-year boundary for the 1959 cohort is printed as both January 1 and January 2, 1959; the record follows the line instructions (January 2).",
+      "direction": "either",
+      "size": "Only a person born on January 1, 1959."
+    },
+    {
+      "what": "For births 1946-1966 Worksheet 3.3 takes 75% of (65,897 / 131,794 less military and railroad retirement); the projection reduces the 49,423 / 98,846 cap by that retirement dollar for dollar, a quarter too much.",
+      "direction": "overstates_tax",
+      "size": "4.25% of 25% of the military or railroad retirement: about 212 a year on 20,000 of it."
+    },
+    {
+      "what": "Michigan counts a person as 67 on the day before the 67th birthday; the Tier 2 and Tier 3 entries are therefore bounded by birth date only (for 2025, born on or before 1959-01-01), not by calendar age.",
+      "direction": "either",
+      "size": "Only a person born on January 1 of the boundary year; exact for 2025."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

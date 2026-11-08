@@ -1,0 +1,55 @@
+{
+  "id": "ga_2025_base",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-04-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "48000.00",
+    "state_tax_before_credits": "2491.20",
+    "credits": "0.00",
+    "state_income_tax": "2491.20"
+  },
+  "worked": "Federal AGI = wages 50,000.00 + private pension 10,000.00 = 60,000.00. Federal taxable income = 60,000.00 - (standard deduction 15,750.00) = 44,250.00 (federal senior deduction ignored; federal figures are given, not tested; Georgia starts from federal AGI). Age 55, under 62 and not disabled: no retirement income exclusion (Schedule 1 page 2 is not completed); the private pension is fully taxed. Schedule 1 additions lines 1-5 none, line 6 = 0.00. Schedule 1 line 13 total subtractions = none = 0.00; line 14 net adjustments = 0.00. Form 500 line 8 federal AGI 60,000.00; line 9 = 0.00; line 10 Georgia AGI = 60,000.00 - 0.00 = 60,000.00. Line 11 standard deduction (single) 12,000.00 (the filer takes the federal standard deduction, so must take Georgia's); line 13 = 60,000.00 - 12,000.00 = 48,000.00; line 14 dependent exemption 0 dependents = 0.00; line 15a = 48,000.00; line 15b NOL 0.00; line 15c = 48,000.00. Line 16 tax = 5.19% x 48,000.00 = 2,491.2000 = 2,491.20; the form rounds to the nearest dollar and gives 2,491; expected uses the unrounded formula to the cent. Line 17 Low Income Credit: federal AGI is not under 20,000, so none; no other credits; credits 0.00; state income tax = 2,491.20.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ga_retirement_exclusion_disabled"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

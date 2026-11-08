@@ -1,0 +1,52 @@
+{
+  "id": "hi_2025_capital_gains_alternative_tax_not_applied",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "PDF page 21 Alternative Tax on Capital Gains; PDF page 35 Tax on Capital Gains Worksheet lines 1-19; Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "300000.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "100000.00"
+    },
+    "federal_agi": "400000.00",
+    "federal_taxable_income": "384250.00"
+  },
+  "expected": {
+    "state_agi": "400000.00",
+    "state_taxable_income": "394456.00",
+    "state_tax_before_credits": "33606.36",
+    "credits": "0.00",
+    "state_income_tax": "33606.36"
+  },
+  "worked": "Single, 55, wages 300,000 and a net long-term capital gain 100,000. Hawaii's alternative tax (smaller of the schedule tax or ordinary tax plus 7.25% of the gain) is not modelled; the projection runs the gain through the brackets. Line 7 federal AGI = wages 300,000.00 + net long-term capital gain 100,000.00 = 400,000.00. Federal taxable income = 400,000.00 - 15,750.00 federal standard deduction = 384,250.00 (given, not tested; the federal senior deduction is ignored). Line 11 total additions = 0.00; line 12 = 400,000.00 + 0.00 = 400,000.00. Line 19 total subtractions = 0.00; line 20 Hawaii AGI = 400,000.00 - 0.00 = 400,000.00. Line 23 standard deduction (single, PDF page 20 table) 4,400.00; line 24 = 400,000.00 - 4,400.00 = 395,600.00. Line 6e exemptions: 1 regular = 1; line 25 = 1 x 1,144.00 = 1,144.00. Line 26 taxable income = 395,600.00 - 1,144.00 = 394,456.00. Line 27 tax, Schedule I (PDF page 50) as bands on 394,456.00: 9,600.00 x 1.4% = 134.40; 4,800.00 x 3.2% = 153.60; 4,800.00 x 5.5% = 264.00; 4,800.00 x 6.4% = 307.20; 12,000.00 x 6.8% = 816.00; 12,000.00 x 7.2% = 864.00; 77,000.00 x 7.6% = 5,852.00; 50,000.00 x 7.9% = 3,950.00; 50,000.00 x 8.25% = 4,125.00; 50,000.00 x 9% = 4,500.00; 50,000.00 x 10% = 5,000.00; 69,456.00 x 11% = 7,640.16; sum = 33,606.36; tax = 33,606.36 (the printed Schedule I with its whole-dollar bases gives 33,606.16; this case uses the bands as numbers). Not applied (not_modelled): the Tax on Capital Gains Worksheet (PDF page 35) would give line 11 = 394,456.00 - 100,000.00 = 294,456.00; line 13 = greater of that or 24,000 = 294,456.00; line 14 = 100,000.00; line 15 tax on 294,456.00 = 22,911.80; line 16 = 100,000.00 x 7.25% = 7,250.00; line 17 = 30,161.80; line 18 schedule tax 33,606.36; line 19 the smaller, 30,161.80. The projection taxes the gain through the schedule, so expected is the line 18 figure, overstated by 3,444.56 (accepted approximation). No credits modelled (refundable food/excise and renters credits, lines 28-29, not claimed): state income tax = 33,606.36.",
+  "accepted_approximations": [
+    "The alternative tax on capital gains is not applied (not_modelled): long-term gains are taxed by the schedules."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:hi_capital_gains_alternative_tax"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

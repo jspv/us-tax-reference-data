@@ -1,0 +1,40 @@
+{
+  "id": "nc_2025_treasury_interest_not_modelled",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 18, Schedule S Part B Line 18 (interest on obligations of the United States, such as treasury notes and bills); PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 48,
+        "born": "1977-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00",
+      "interest": "750.00"
+    },
+    "federal_agi": "44750.00",
+    "federal_taxable_income": "29000.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

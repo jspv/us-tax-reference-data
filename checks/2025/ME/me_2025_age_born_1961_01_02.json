@@ -1,0 +1,54 @@
+{
+  "id": "me_2025_age_born_1961_01_02",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+    "section": "Form 1040ME lines 14-20 (PDF pp.1-2); line 17 Maine Standard Deduction Chart (booklet PDF p.5); line 13 table and line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: base.deductions, booklet PDF page 5 (chart, worksheet, line 13 table), PDF page 6 (exemption phaseout worksheet), PDF page 11 Quick Facts; brackets PDF page 13; line 12a box, 65 or over",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-01-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50010.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50010.00",
+    "federal_taxable_income": "34260.00"
+  },
+  "expected": {
+    "state_agi": "50010.00",
+    "state_taxable_income": "29860.00",
+    "state_tax_before_credits": "1760.95",
+    "credits": "0.00",
+    "state_income_tax": "1760.95",
+    "relief_amounts": {}
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 50,010.00 = 50,010.00. Federal taxable income = 50,010.00 - 15,750.00 standard deduction = 34,260.00 (federal senior deduction ignored). Form 1040ME, single: line 14 federal AGI 50,010.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 0.00; Schedule 1A total = line 15a 0.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 0.00 + railroad retirement 0.00 = 0.00. Schedule 1S line 4 pension income deduction 0.00 (no eligible pension income). Schedule 1S line 27 total subtractions = 0.00 + 0.00 = line 15b 0.00. Line 16 Maine AGI = 50,010.00 + 0.00 - 0.00 = 50,010.00. Line 17 standard deduction (person 0 born 1961-01-02 is 64 at December 31, 2025; 0 box(es) on lines 12a-12d): chart (PDF p.5) 15,000.00 = base 15,000.00 + 0 x 2,000.00; Maine AGI not over 100,000.00, so no worksheet; line 17 = 15,000.00. Line 13 = 1; line 18 exemption = 1 x 5,150.00 = 5,150.00 (Maine AGI not over 333,450.00). Line 19 taxable income = 50,010.00 - 15,000.00 - 5,150.00 = 29,860.00. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (26,800.00 - 0.00) = 1,554.40 + 6.75% x (29,860.00 - 26,800.00) = 206.55 = 1,760.95. The booklet's tax table (PDF pp.12-13) row 29,800.00 to 29,900.00 gives 1,760; expected keeps the schedule formula. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 1,760.95. Born January 2, 1961: 64 at December 31, 2025, so no line 12a box and no additional amount.",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

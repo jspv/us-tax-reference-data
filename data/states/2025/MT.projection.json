@@ -1,0 +1,216 @@
+{
+ "layer": "projection",
+ "state": "MT",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/MT.record.json",
+  "sha256": "c5b6ec0f4363c833fdfe28f89e25e6083d23b51e6dfb619979541ef1dea7589c"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "21100"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "42200"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "21100"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.047",
+    "start": "0"
+   },
+   {
+    "rate": "0.059",
+    "start": "31700"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": "follows",
+  "deductions": [
+   {
+    "id": "age_65_subtraction",
+    "amount": {
+     "all": "5660"
+    },
+    "per": "person",
+    "min_age": 65
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "taxed"
+ },
+ "reliefs": [
+  {
+   "id": "railroad_retirement_subtraction",
+   "from_record": [
+    "railroad_retirement_subtraction"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [
+  {
+   "id": "long_term_gains",
+   "applies_to": "long_term",
+   "treatment": "extra_rate",
+   "value": "-0.018"
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": true,
+   "covers": [
+    "deductions"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "working_military_retiree_subtraction",
+   "from_record": [
+    "working_military_retiree_subtraction"
+   ],
+   "what": "Working military retiree subtraction: the lesser of 50% of military retirement income or Montana source earned income, for five consecutive years (through tax year 2028 for residents before July 1, 2023), subject to residency tests. The earned income limit has no field, and residency dates and the five-year clock are not yearly facts. See approximations for the direction.",
+   "warn_when": "has_military_pension"
+  },
+  {
+   "id": "military_survivor_benefit_subtraction",
+   "from_record": [
+    "military_survivor_benefit_subtraction"
+   ],
+   "what": "Military survivor benefit subtraction: up to 50% of Survivor Benefit Plan payments, for five consecutive years, subject to the same residency tests. A projection cannot tell survivor benefits from other pension income.",
+   "warn_when": "has_military_pension"
+  },
+  {
+   "id": "active_duty_military_salary_subtraction",
+   "from_record": [
+    "active_duty_military_salary_subtraction"
+   ],
+   "what": "Basic, special and incentive pay of active duty servicemembers is subtracted (Schedule I line 12). A projection cannot tell it from other wages.",
+   "warn_when": "never"
+  },
+  {
+   "id": "us_obligation_interest_subtraction",
+   "from_record": [
+    "us_obligation_interest_subtraction"
+   ],
+   "what": "Interest on U.S. government obligations, and mutual fund dividends attributable to it, is subtracted (Schedule I line 9). A projection cannot tell it from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "mt_elderly_homeowner_renter_credit",
+   "from_record": [],
+   "what": "Elderly Homeowner/Renter Credit: refundable, up to 1,150, for age 62 or older with household income under 45,000. Property tax relief outside the record.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    62,
+    120
+   ]
+  },
+  {
+   "id": "mt_earned_income_credit_tribal_income",
+   "from_record": [],
+   "what": "Montana earned income credit (10% of the federal credit) and exempt tribal income (Schedule I line 11) are outside the record.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "Montana taxes long-term gains at two rates, and the format holds one extra rate. Gains run through the ordinary brackets on top of ordinary income and pay an extra rate of -0.018 (4.1% less 5.9%). That is exact for gains above the first bracket, and gives 2.9% where the booklet says 3% for gains inside it. The gains must be limited to taxable income first (Form 2 page 2 line 3).",
+   "direction": "understates_tax",
+   "size": "0.1% of the gains inside the first bracket: at most 21.10 single or separate, 31.70 head of household, 42.20 joint a year. Example: single, ordinary income 10,000, gains 30,000: booklet 1,577.90, projection 1,566.80."
+  },
+  {
+   "what": "The working military retiree and survivor subtractions are left out, because their earned income limit and five-year limit cannot be represented and an uncapped 50% would wrongly reach retirees with no Montana earned income, every year for life.",
+   "direction": "overstates_tax",
+   "size": "5.9% of the subtraction for an eligible person, for at most five consecutive years: up to 5.9% of half the military pension, or of the Montana earned income if less."
+  },
+  {
+   "what": "The tables print a whole-dollar constant with the 5.9% rate (253, 506, 380) where the bracket arithmetic gives 253.20, 506.40, 380.40.",
+   "direction": "understates_tax",
+   "size": "At most 0.40 dollars a year."
+  },
+  {
+   "what": "Montana's base does not deduct the federal qualified business income deduction. A consumer's federal taxable income that deducts it is too low.",
+   "direction": "understates_tax",
+   "size": "5.9% of the qualified business income deduction."
+  },
+  {
+   "what": "The state income tax add-back (Schedule I line 4, Worksheet B) is not applied.",
+   "direction": "understates_tax",
+   "size": "5.9% of the state income tax added back, only for itemizers and only down to the federal standard deduction; or for pass-through entity tax deducted from business income."
+  },
+  {
+   "what": "A projection that cannot tell Montana bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+   "direction": "overstates_tax",
+   "size": "5.9% of the interest from Montana bonds."
+  },
+  {
+   "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "5.9% of the Treasury interest."
+  },
+  {
+   "what": "The booklet prints lower schedules for tax years 2026 and 2027 (House Bill 337): top rate 5.65% then 5.4%, starting at much higher incomes. Growing the 2025 schedule forward does not reproduce them, and the -0.018 extra rate is tied to the 2025 top rate.",
+   "direction": "overstates_tax",
+   "size": "For 2026, single: up to 0.25% of income above 47,500 and 1.2% of income between 21,100 and 47,500."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": [
+  {
+   "value": "-0.018",
+   "how": "difference",
+   "of": [
+    "0.041",
+    "0.059"
+   ],
+   "what": "long-term gains: 4.1% own rate less the 5.9% bracket rate"
+  }
+ ]
+}

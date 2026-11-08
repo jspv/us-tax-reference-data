@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "612.00",
+    "relief_amounts": {
+      "senior_exemption_credit": "306.00",
+      "personal_exemption_credit": "306.00"
+    },
+    "state_agi": "90000.00",
+    "state_income_tax": "1259.38",
+    "state_tax_before_credits": "1871.38",
+    "state_taxable_income": "78588.00"
+  },
+  "worked": "Start: federal AGI 145,250.00 (Form 540 line 13). Schedule CA line 6: taxable Social Security 55,250.00 subtracted (exempt). State AGI (Form 540 line 17) = 145,250.00 - 55,250.00 = 90,000.00. Standard deduction 11,412 (line 18). Taxable income (line 19) = 90,000.00 - 11,412 = 78,588.00. Tax by the rate schedule (line 31; 1% BHST over 1,000,000 folded into the brackets per the projection): 0.01 x (22,158 - 0) = 221.58; 0.02 x (52,528 - 22,158) = 607.40; 0.04 x (78,588.00 - 52,528) = 1,042.40; total 1,871.38. Exemption credits: federal AGI 145,250.00 below 504,411: personal 2 x 153 = 306; senior 2 x 153 = 306. Credits (line 32) = 612. State income tax = 1,871.38 - 612 = 1,259.38. Federal figures given (federal senior deduction ignored)."
+}

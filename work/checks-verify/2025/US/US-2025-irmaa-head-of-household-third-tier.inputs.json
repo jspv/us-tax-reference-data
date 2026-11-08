@@ -1,0 +1,20 @@
+{
+  "id": "US-2025-irmaa-head-of-household-third-tier",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "irmaa",
+  "boundary": "at_or_above",
+  "tests": [
+    "medicare.irmaa",
+    "medicare.part_b"
+  ],
+  "description": "Head of household beneficiary with MAGI 150,000: uses the individual-return column.",
+  "inputs": {
+    "filing_status": "head_of_household",
+    "magi": "150000"
+  },
+  "asked": [
+    "part_b_monthly_premium",
+    "part_d_monthly_adjustment"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "wv_2025_military_under_65",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wv_military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 32 Military Retirement Modification (PDF p.5; instructions PDF p.28; PDF p.22 'Certain State and Federal Retirement Systems'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.wv_military_retirement"
+  ]
+}

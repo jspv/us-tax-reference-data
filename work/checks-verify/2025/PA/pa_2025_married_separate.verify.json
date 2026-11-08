@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "45000.00",
+    "state_tax_before_credits": "1381.50",
+    "credits": "0.00",
+    "state_income_tax": "1381.50"
+  },
+  "worked": "Pennsylvania 2025, projection rules; filing status married_separate (one flat rate for every status). Start: federal AGI 45,000.00 (projection base.starts_from federal_agi; PA-40 Line 9 has no federal start, the mapping is the projection's first approximation). State income (state_agi): 45,000.00 + 0.00 - 0.00 = 45,000.00. Deductions: none (PDF page 9; projection base.deductions empty; no Line 10 item in the inputs). Taxable income (Line 11): 45,000.00. Tax (Line 12): 45,000.00 x 0.0307 = 1381.5, 1,381.50. Credits: 0.00 (no credit relief in the projection; Tax Forgiveness and other credits are not_modelled). State income tax: 1,381.50. The form shows whole dollars (1,382, PDF page 'Rounding Numbers'); the formula result to the cent is the expected figure. Federal figures given, the federal senior deduction ignored."
+}

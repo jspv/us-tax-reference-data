@@ -1,0 +1,56 @@
+{
+  "id": "il_2025_all_retirement_income_no_tax",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_employer_plans",
+    "il_ira",
+    "il_personal_exemption",
+    "il_age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Publication 120 Retirement Income (December 2025), with the 2025 IL-1040 Instructions and Form IL-1040",
+    "section": "Pub 120 PDF page 2 'What retirement income may I subtract', PDF page 3 'What federally taxed income may I not subtract'; Form IL-1040 Line 5; Instructions PDF page 7, Line 5; Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-12-12"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "52250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.il_employer_plans",
+    "relief_amounts.il_ira",
+    "relief_amounts.il_personal_exemption",
+    "relief_amounts.il_age_65_exemption"
+  ]
+}

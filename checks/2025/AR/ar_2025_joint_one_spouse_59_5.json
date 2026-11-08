@@ -1,0 +1,69 @@
+{
+  "id": "ar_2025_joint_one_spouse_59_5",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ar_retirement_exclusion_59_5_plus"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 11 items 12 and 13 and the NOTE (total exemptions from all plans under 12 and 13 cannot exceed 6,000 per taxpayer); PDF page 13 LINE 18A and 18B (public or private employment-related plans, the recipient does not have to be retired; traditional IRA after 59 1/2); record ar_employer_plan_exclusion, ar_traditional_ira_exclusion_59_5; PDF page 13 LINE 16 (premature distributions); PDF page 14 LINE 32",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-09-09"
+      },
+      {
+        "age": 62,
+        "born": "1963-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        },
+        {
+          "amount": "4000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "64000.00",
+    "federal_taxable_income": "32500.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "55060.00",
+    "state_tax_before_credits": "1727.38",
+    "credits": "58.00",
+    "state_income_tax": "1669.38",
+    "relief_amounts": {
+      "ar_retirement_exclusion_59_5_plus": "4000.00"
+    }
+  },
+  "worked": "Joint, 58 and 62. Primary: wages 50,000 and a traditional IRA distribution 10,000 at 58 (premature, no death or disability). Spouse: traditional IRA 4,000 at 62. Only the spouse is over 59 1/2: the spouse's 4,000 is exempt (under the 6,000), the primary's 10,000 is taxable. Federal (given, not tested): federal AGI = wages (primary) 50,000.00 + traditional IRA distribution (primary) 10,000.00 + traditional IRA distribution (spouse) 4,000.00 = 64,000.00. Federal taxable income = 64,000.00 - standard deduction 31,500.00 = 32,500.00 (federal senior deduction ignored). AR1000F, filing status 2 (married filing joint); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 50,000.00. Line 16 premature traditional IRA distribution (primary, age 58, under 59 1/2) 10,000.00, taxable in full (no 6,000 exemption: PDF page 11 item 13, PDF page 13 LINE 18B). Line 18B (spouse, age 62): gross traditional IRA after 59 1/2 4,000.00 = 4,000.00; less the 6,000 exemption: exemption = lesser of 4,000.00 and 6,000.00 = 4,000.00; taxable 0.00. Line 23 total income = 60,000.00; line 24 adjustments 0.00; line 25 AGI = 60,000.00. Projection check: federal AGI 64,000.00 - 6,000 exclusion (ar_retirement_exclusion_59_5_plus) 4,000.00 = state AGI 60,000.00. Line 27 standard deduction (filing status 2) 4,940.00; line 28 net taxable income = 60,000.00 - 4,940.00 = 55,060.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (11,200.00 - 5,600.00) 5,600.00 = 112.00 + 3% x (15,990.00 - 11,200.00) 4,790.00 = 143.70 + 3.4% x (26,400.00 - 15,990.00) 10,410.00 = 353.94 + 3.9% x (55,060.00 - 26,400.00) 28,660.00 = 1,117.74; total 1,727.38. (The Regular Income Tax Table row 55,001-55,101 gives 1,727; expected keeps the schedule.) Line 7A boxes: personal 2 = 2 x 29.00 = 58.00; line 7C and line 34 58.00; line 37 total credits 58.00. Line 38 net tax = 1,727.38 - 58.00 = 1,669.38. Line 32 (10% of the federal additional tax: 10% x 1,000.00 = 100.00) is not added by the projection (approximations). Status 4 is not lower here (the spouse has no taxable Arkansas income).",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "The additional tax on early distributions (10% of the federal Form 5329 additional tax, line 32) is not added."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

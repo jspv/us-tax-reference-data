@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "military_retirement_under_55": "10000.00"
+    },
+    "state_agi": "70550.00",
+    "state_income_tax": "2987.50",
+    "state_tax_before_credits": "2987.50",
+    "state_taxable_income": "64000.00"
+  },
+  "worked": "Filing status single. Line 1 federal AGI 80550.00 (given; federal taxable income 64800.00 given, federal senior deduction ignored). Income items sum to 80550.00 = federal AGI. Code u person 0 (age 48, under 55): military retirement 10000.00, cap 12,500.00, subtract 10000.00. Line 16 Maryland AGI = 80550.00 + additions 0.00 - subtractions 10000.00 = 70550.00. Line 17 standard deduction (flat, single) 3350.00. Chart 10A: federal AGI 80550.00 -> 3200.00 per exemption x 1 = 3200.00. Age 65 exemption (not reduced by AGI): 0 x 1,000.00 = 0.00. Line 19 total exemptions 3200.00. Line 20 taxable net income = 70550.00 - 3350.00 - 3200.00 = 64000.00. Line 21 tax by schedule (single): 0.02 x (1000.00 - 0) = 20.00; 0.03 x (2000.00 - 1000) = 30.00; 0.04 x (3000.00 - 2000) = 40.00; 0.0475 x (64000.00 - 3000) = 2897.50; total 2987.50. State tax before credits 2987.50; credits 0.00; state income tax 2987.50. (County local tax not part of the projection.)"
+}

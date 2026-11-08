@@ -1,0 +1,68 @@
+{
+  "id": "ms_2025_joint_second_spouse_exempt_pension_only",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ms_retirement_income_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.11 Line 46 Total Pensions and Annuities; FAQ 'Is retirement income taxable?'; Instructions PDF p.5 Filing Status for Married Persons",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-04-04"
+      },
+      {
+        "age": 63,
+        "born": "1962-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "MS"
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "33400.00",
+    "state_tax_before_credits": "1029.60",
+    "credits": "0.00",
+    "state_income_tax": "1029.60",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 50,000.00 + public pension paid by MS (person 1) 30,000.00 = 80,000.00. Federal taxable income = 80,000.00 - 31,500.00 federal standard deduction = 48,500.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 1, Married - Combined or Joint Return. Start at federal AGI 80,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Less retirement income 30,000.00 (Line 46: exempt in total; not reported; recipient taken to have met the plan requirements). Line 66 and line 13 Mississippi AGI = 50,000.00. Line 14 standard deduction 4,600.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 12,000.00; line 12 and line 15 = 12,000.00. Line 16 Mississippi taxable income = 50,000.00 - 4,600.00 - 12,000.00 = 33,400.00. Schedule of Tax Computation line 1: first 10,000.00 x 0% = 0.00; line 2: remaining 23,400.00 x 4.4% = 1,029.60; line 4 and line 17 = 1,029.60. Lines 18 and 19 credits 0.00; line 20 = 1,029.60. The form rounds to whole dollars (p.22), which would give 1,030; expected keeps the formula result. Person 1's only income is exempt, so Column B is empty and there is one 10,000 band; projection and return agree.",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ms_nonqualifying_retirement_income"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

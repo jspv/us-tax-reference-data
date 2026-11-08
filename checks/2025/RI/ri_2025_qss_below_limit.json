@@ -1,0 +1,67 @@
+{
+  "id": "ri_2025_qss_below_limit",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_pension_annuity_modification",
+    "ri_social_security_modification"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "56000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "86900.00"
+  },
+  "expected": {
+    "state_agi": "56000.00",
+    "state_taxable_income": "29100.00",
+    "state_tax_before_credits": "1091.25",
+    "credits": "0.00",
+    "state_income_tax": "1091.25",
+    "relief_amounts": {
+      "ri_pension_annuity_modification": "30000.00",
+      "ri_social_security_modification": "34000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 56,000.00 + private pension (person 0) 30,000.00 + taxable Social Security 34,000.00 = 120,000.00. Federal taxable income = 120,000.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 86,900.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 120,000.00. Line 1s, Social Security worksheet: person 0 born 1955-06-15 (age 70). Line 3 federal AGI 120,000.00; line 4 Qualifying widow(er); line 5 born on or before 03/01/1959: yes; line 6 133,750.00; line 7 120,000.00 less than 133,750.00: yes. All persons on the return qualify: line 12 = 1.0000. Line 11 taxable benefits 34,000.00; line 13 = 34,000.00 x 1.0000 = 34,000.00. Line 1t: question 1 born on or before March 1, 1959: person 0 born 1955-06-15 (age 70): yes; question 2 federal AGI 120,000.00 less than or equal to 133,750.00: yes. Table: person 0 line 2 30,000.00, line 3 lesser of that and 50,000.00 = 30,000.00; line 4 = 30,000.00. Line 1y total decreasing modifications = 64,000.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 64,000.00 = -64,000.00; RI-1040 line 2 = -64,000.00. Line 3 modified federal AGI = 120,000.00 + (-64,000.00) = 56,000.00. Standard Deduction and Exemption Worksheets: line 3 56,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 21,800.00 (Qualifying widow(er)). Line 5 = 56,000.00 - 21,800.00 = 34,200.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00. Line 7 taxable income = 34,200.00 - 5,100.00 = 29,100.00. Line 8 tax on 29,100.00 by the schedule as numbers: 29,100.00 x 0.0375 = 1091.250000 = 1,091.25. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 1,091.25. Note: Qualifying widow(er) has the 133,750 limit: 120,000 would fail for a single filer and passes here.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_approximations": []
+}

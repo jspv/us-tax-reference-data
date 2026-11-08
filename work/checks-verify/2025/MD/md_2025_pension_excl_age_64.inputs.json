@@ -1,0 +1,51 @@
+{
+  "id": "md_2025_pension_excl_age_64",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_exclusion",
+    "age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 15-21; Instruction 13 Line 10a condition a (PDF page 15); Instruction 10 (PDF page 13); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-06-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10550.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50550.00",
+    "federal_taxable_income": "34800.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_exclusion"
+  ]
+}

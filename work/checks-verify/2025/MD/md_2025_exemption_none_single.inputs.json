@@ -1,0 +1,41 @@
+{
+  "id": "md_2025_exemption_none_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule I (PDF page 22); Chart 10A row over 150,000 ($0 single); Worksheet Schedules 17A (PDF page 41)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "160000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "144250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

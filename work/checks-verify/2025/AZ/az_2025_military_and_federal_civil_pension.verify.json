@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "az_gov_pension_exclusion": "2500.00",
+      "az_military_retirement_exclusion": "24000.00"
+    },
+    "state_income_tax": "372.50",
+    "state_tax_before_credits": "372.50",
+    "state_taxable_income": "14900.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 75,000.00. Line 29a person 0 own/federal government pension 6,000.00: lesser of amount or 2,500 = 2,500.00. Line 29b uniformed services retired pay, 100% = 24,000.00. Line 35 subtractions 26,500.00; line 37 = 75,000.00 - 26,500.00 = 48,500.00. Box 8 = 1 (ages 66, 63); line 38 = 1 x 2,100 = 2,100.00. Line 42 Arizona AGI = 46,400.00. Line 43 standard deduction 31,500.00; line 45 = 46,400.00 - 31,500.00 = 14,900.00. Line 46 tax = 14,900.00 x 2.5% = 372.50. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 372.50. Federal figures given; federal senior deduction ignored."
+}

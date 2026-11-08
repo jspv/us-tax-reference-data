@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "30624.00",
+    "state_income_tax": "808.52",
+    "state_tax_before_credits": "808.52",
+    "state_taxable_income": "19024.00",
+    "relief_amounts": {
+      "pre1946_private": "5000.00",
+      "senior_investment_deduction": "24376.00"
+    }
+  },
+  "worked": "Joint; older spouse born 1938. Private pension 5,000 -> line 27 5,000.00. Line 28 worksheet: 29,376 - 5,000 = 24,376; interest 40,000 + dividends 10,000 + gains 5,000 = 55,000 -> 24,376.00. Taxable SS 34,000 subtracted. state_agi 94,000 - 34,000 - 5,000 - 24,376 = 30,624.00. Exemptions 11,600. Taxable 19,024.00. Tax 808.52. [check: state_agi 30624.00, taxable 19024.00, tax 808.52; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

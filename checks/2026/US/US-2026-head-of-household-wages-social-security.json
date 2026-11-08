@@ -1,0 +1,44 @@
+{
+  "id": "US-2026-head-of-household-wages-social-security",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Head of household age 62 with wages, qualified dividends and Social Security survivor benefits; the benefits are taxable up to the 85% cap and the dividends sit in the 0% band.",
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "born": "1964-07-19",
+        "age": 62
+      }
+    ],
+    "wages": "40000",
+    "ordinary_dividends": "3000",
+    "qualified_dividends": "3000",
+    "social_security_benefits": "20000"
+  },
+  "expected": {
+    "agi": "60000.00",
+    "taxable_social_security": "17000.00",
+    "standard_deduction": "24150.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "35850.00",
+    "regular_tax": "3588.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "3588.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: head of household.\nTaxpayer: born 1964-07-19, age 62 at the end of 2026.\nForm 1040: line 1z wages 40,000; line 3a qualified dividends 3,000; line 3b ordinary dividends 3,000; line 6a Social Security benefits 20,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 20,000; line 2 = 50% x 20,000 = 10,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 43,000; line 4 (line 2a) = 0\n  line 5 = 10,000 + 43,000 + 0 = 53,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 53,000\n  line 8 (base amount, head of household) = 25,000\n  line 9 = 53,000 - 25,000 = 28,000; line 10 = 9,000 (34,000 adjusted base amount - 25,000); line 11 = 19,000\n  line 12 = smaller of 28,000 and 9,000 = 9,000; line 13 = 4,500; line 14 = smaller of 10,000 and 4,500 = 4,500\n  line 15 = 85% x 19,000 = 16,150; line 16 = 4,500 + 16,150 = 20,650\n  line 17 = 85% x 20,000 = 17,000; line 18 = smaller of 20,650 and 17,000 = 17,000 -> Form 1040 line 6b\nForm 1040 line 9 total income = 40,000 + 3,000 + 17,000 = 60,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 60,000.\nLine 12e standard deduction = 24,150 (head of household; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 24,150 + 0 = 24,150; line 15 taxable income = 60,000 - 24,150 = 35,850.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 35,850; line 2 = 3,000; line 3 = 0 (no Schedule D; Form 1040 line 7a is 0); line 4 = 3,000; line 5 = 35,850 - 3,000 = 32,850\n  line 6 = 66,200; line 7 = smaller of 35,850 and 66,200 = 35,850; line 8 = smaller of 32,850 and 35,850 = 32,850; line 9 = 3,000 taxed at 0%\n  line 10 = smaller of 35,850 and 3,000 = 3,000; line 11 = 3,000; line 12 = 0\n  line 13 = 579,600; line 14 = smaller of 35,850 and 579,600 = 35,850; line 15 = 32,850 + 3,000 = 35,850; line 16 = 0; line 17 = smaller of 0 and 0 = 0\n  line 18 = 15% x 0 = 0; line 19 = 3,000; line 20 = 3,000 - 3,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule Z (head of household) on 32,850: 10% x 17,700 = 1,770; 12% x (32,850 - 17,700) = 1,818; total 3,588\n  line 23 = 0 + 0 + 3,588 = 3,588\n  line 24 (tax on line 1): Tax Rate Schedule Z (head of household) on 35,850: 10% x 17,700 = 1,770; 12% x (35,850 - 17,700) = 2,178; total 3,948\n  line 25 = smaller of 3,588 and 3,948 = 3,588 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 8 and 12 net investment income = 3,000; line 13 MAGI = 60,000; line 14 threshold = 200,000; line 15 = 60,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 40,000; line 5 = 200,000 (head of household); line 6 = 40,000 - 200,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 3,588 regular + 0 net investment income tax + 0 additional Medicare tax = 3,588.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

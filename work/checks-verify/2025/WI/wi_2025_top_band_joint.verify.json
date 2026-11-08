@@ -1,0 +1,10 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "500000.00",
+  "state_income_tax": "27231.07",
+  "state_tax_before_credits": "27231.07",
+  "state_taxable_income": "498600.00"
+ },
+ "worked": "Filing status married_joint; federal_taxable_income given (468500.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 500,000.00. Total subtractions 0.00; Form 1 line 7 Wisconsin income (state_agi) = 500,000.00 - 0.00 = 500,000.00. Line 8 standard deduction: table row for married_joint at least 155,169.00 (projection step over 155169) -> 0.00. Line 10a exemptions 700 x 2 = 1,400.00; line 10b 250 x 0 person(s) 65 or older = 0.00. Line 11 taxable income = 500,000.00 - 0.00 - 1,400.00 - 0.00 = 498,600.00. Line 12 tax, Pub 106 Schedule B (joint): (19,580.00 - 0.00) x 0.035 = 685.30 + (67,300.00 - 19,580.00) x 0.044 = 2,099.68 + (431,060.00 - 67,300.00) x 0.053 = 19,279.28 + (498,600.00 - 431,060.00) x 0.0765 = 5,166.81 = 27,231.07. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 27,231.07."
+}

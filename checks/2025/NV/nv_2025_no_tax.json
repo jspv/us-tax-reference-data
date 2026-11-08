@@ -1,0 +1,45 @@
+{
+  "id": "nv_2025_no_tax",
+  "state": "NV",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+    "section": "'Income Tax in Nevada' page, second sentence of the body text: Nevada has no personal income tax (no state return or form lines exist)",
+    "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-09-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "interest": "3000.00"
+    },
+    "federal_agi": "103000.00",
+    "federal_taxable_income": "87250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 100,000.00 + interest 3,000.00 = 103,000.00. Federal taxable income = 103,000.00 - 15,750.00 single standard deduction = 87,250.00 (given, not tested). Nevada imposes no personal income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00 regardless of income.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

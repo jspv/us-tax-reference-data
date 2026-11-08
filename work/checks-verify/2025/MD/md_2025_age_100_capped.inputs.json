@@ -1,0 +1,44 @@
+{
+  "id": "md_2025_age_100_capped",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "age_100_income",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 13 (Form 502SU code ya), 15-21; Instruction 13 Line 13 code letter ya (PDF page 20); Chart 10A (PDF page 12); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 101,
+        "born": "1924-02-02"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "140050.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "140050.00",
+    "federal_taxable_income": "122300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.age_100_income"
+  ]
+}

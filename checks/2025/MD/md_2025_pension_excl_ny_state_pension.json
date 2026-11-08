@@ -1,0 +1,66 @@
+{
+  "id": "md_2025_pension_excl_ny_state_pension",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_exclusion",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 15-21; Worksheet 13A lines 1-5 (PDF page 14); Instruction 13 Line 10a (PDF page 15); Form 502R page 2 chart; Instruction 10 (PDF page 13); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-07-07"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY"
+        }
+      ],
+      "interest": "1550.00"
+    },
+    "federal_agi": "56550.00",
+    "federal_taxable_income": "38800.00"
+  },
+  "expected": {
+    "state_agi": "16550.00",
+    "state_taxable_income": "9000.00",
+    "state_tax_before_credits": "375.00",
+    "credits": "0.00",
+    "state_income_tax": "375.00",
+    "relief_amounts": {
+      "pension_exclusion": "40000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = public pension paid by NY (you) 40,000.00 + IRA distribution (you) 15,000.00 + interest 1,550.00 = 56,550.00. Federal taxable income = 56,550.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 38,800.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 56,550.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 56,550.00. Worksheet 13A: You (age 66): line 1 qualifying pension 40,000.00; line 2 41,200.00; line 3 Social Security 0.00; line 4 tentative 41,200.00 - 0.00 = 41,200.00; line 5 smaller = 40,000.00. Line 10a = 40,000.00. Line 14 two-income subtraction: 0.00 (not a joint return). Line 15 total subtractions = Line 10a 40,000.00 = 40,000.00. Line 16 Maryland AGI = 56,550.00 - 40,000.00 = 16,550.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 3,350.00. Line 18 net income = 16,550.00 - 3,350.00 = 13,200.00. Line 19 exemptions: Chart 10A at federal AGI 56,550.00 (not over 100,000) gives 3,200.00 each x 1 (Box A) + 1,000.00 x 1 for age 65 or older (Box B, not reduced by the chart) = 4,200.00. Line 20 taxable net income = 13,200.00 - 4,200.00 = 9,000.00. Line 21 tax, Schedule I as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 6,000.00 = 285.00; total 375.00. (The tax table row 9,000-9,050, PDF page 34, gives 376; expected keeps the formula figure.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 375.00. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). Other state's pension: a New York State pension is from a governmental 401(a) employee retirement system; Line 10a sets no Maryland-only limit (unlike code v, PDF page 17), so it qualifies like a Maryland or private pension (projection covers public_pension_other_state). No Social Security in 2025, so the tentative exclusion is the full 41,200 and the 40,000 pension is excluded in full.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:fire_police_injury_payments",
+    "state_rule_not_modelled:pension_exclusion_disabled",
+    "state_rule_not_modelled:ranger_pension_exclusion",
+    "state_rule_not_modelled:state_pension_pickup"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

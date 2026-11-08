@@ -1,0 +1,57 @@
+{
+  "id": "oh_2025_senior_joint_older_spouse_only",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "senior_citizen_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 4 (PDF p.28; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-07-07"
+      },
+      {
+        "age": 61,
+        "born": "1964-09-09"
+      }
+    ],
+    "income": {
+      "interest": "60050.00"
+    },
+    "federal_agi": "60050.00",
+    "federal_taxable_income": "26950.00"
+  },
+  "expected": {
+    "state_agi": "60050.00",
+    "state_taxable_income": "55750.00",
+    "state_tax_before_credits": "1158.75",
+    "credits": "50.00",
+    "state_income_tax": "1108.75",
+    "relief_amounts": {
+      "senior_citizen_credit": "50.00"
+    }
+  },
+  "worked": "Federal AGI = interest 60,050.00 = 60,050.00. Federal taxable income = 60,050.00 - standard deduction 31,500.00 - 1 x 1,600.00 age 65 additional = 26,950.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 60,050.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 60,050.00 + 0.00 - 0.00 = 60,050.00. Line 4: MAGI is line 3 with no business income deduction, 60,050.00, in the band 40,001 to 80,000: 2,150.00 each; 2 exemptions x 2,150.00 = 4,300.00. Line 5 = 60,050.00 - 4,300.00 = 55,750.00. Line 6 taxable business income 0.00. Line 7 = 55,750.00. Line 8a tax: 55,750.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (55,750.00 - 26,050.00 = 29,700.00) = 342.00 + 816.75 = 1,158.75. Schedule of Credits line 1 = 1,158.75. MAGI less exemptions (worksheet PDF p.40) = 60,050.00 - 4,300.00 = 55,750.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: at least one taxpayer is 65 or older at the end of the year; 50.00 per return. Line 10 credits = 0.00 + 50.00 = 50.00. Line 11 = 1,158.75 - 50.00 = 1,108.75. State income tax 1,108.75. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 1,159; expected keeps the formula result. Person 0 is 68, person 1 is 61. No source says how a joint return is tested; the projection gives the credit when the older spouse is 65 or older.",
+  "accepted_approximations": [
+    "The senior citizen credit is given when the older spouse is 65 or older, so a joint return with one spouse 65 gets it. No source says how a joint return is tested."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

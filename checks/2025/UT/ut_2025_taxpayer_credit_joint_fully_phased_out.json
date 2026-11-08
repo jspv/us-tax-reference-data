@@ -1,0 +1,58 @@
+{
+  "id": "ut_2025_taxpayer_credit_joint_fully_phased_out",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "taxpayer_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      },
+      {
+        "age": 38,
+        "born": "1987-03-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        },
+        {
+          "amount": "90000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "190000.00",
+    "federal_taxable_income": "158500.00"
+  },
+  "expected": {
+    "state_agi": "190000.00",
+    "state_taxable_income": "190000.00",
+    "state_tax_before_credits": "8550.00",
+    "credits": "0.00",
+    "state_income_tax": "8550.00",
+    "relief_amounts": {
+      "taxpayer_tax_credit": "0.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 100,000.00 + wages (person 1) 90,000.00 = 190,000.00. Federal taxable income = 190,000.00 - standard deduction 31,500.00 = 158,500.00 (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (married filing jointly): line 4 federal AGI 190,000.00. Line 5 additions: none, 0.00. Line 6 = 190,000.00 + 0.00 = 190,000.00. Line 7 state tax refund 0.00. Line 8 subtractions 0.00. Line 9 Utah taxable income = 190,000.00 - 0.00 - 0.00 = 190,000.00. Line 10 = 190,000.00 x 0.045 = 8,550.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 31,500.00; initial credit = 0.06 x min(line 9 190,000.00, cap 31,500.00) = 0.06 x 31,500.00 = 1,890.00. Line 17 base phase-out amount 36,426.00. Line 18 = max(0, 190,000.00 - 36,426.00) = 153,574.00. Line 19 = 153,574.00 x 0.013 = 1,996.462. Line 20 = max(0, 1,890.00 - 1,996.462) = 0.000. Line 21 worksheet: line 1 federal AGI 190,000.00; line 2 standard deduction 31,500.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 31,500.00; line 5 = max(0, 190,000.00 - 31,500.00) = 158,500.00. Line 5 is above zero, so not exempt; line 21 blank. Line 22 and TC-40A Part 3: line 20 0.000 = 0.000; credits 0.00. Tax = 8,550.00 - 0.00 = 8,550.00. Line 19 exceeds the initial credit, so line 20 is 0.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

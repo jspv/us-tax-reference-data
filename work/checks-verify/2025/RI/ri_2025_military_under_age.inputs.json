@@ -1,0 +1,50 @@
+{
+  "id": "ri_2025_military_under_age",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_military_pension_modification"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF p.10, Schedule M line 1v; Guide PDF p.15; Guide PDF p.15, Section 2 Example #1; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "55000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "85000.00",
+    "federal_taxable_income": "69250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ri_military_pension_modification"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "wi_2025_retirement_67_born_january_1_1959",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_retirement_67"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1959-01-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "16774.00",
+    "state_tax_before_credits": "605.94",
+    "credits": "0.00",
+    "state_income_tax": "605.94",
+    "relief_amounts": {
+      "wi_retirement_67": "20000.00"
+    }
+  },
+  "worked": "Single, born 1959-01-01: 67 on December 31, 2025 by the tax rule (an age is reached the day before the birthday), so 'at least 67 years old as of December 31, 2025' holds. Wages 30,000, IRA 20,000: line 16 is 20,000. Federal (given, not tested): federal AGI = wages (you) 30,000.00 + ira distribution (you) 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 32,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 50,000.00; line 2 Schedule I adjustments 0.00; line 3 50,000.00; line 4 additions 0.00; line 5 50,000.00. Schedule SB: line 16 retirement income subtraction: qualifying income you (age 67): IRA 20,000.00 = 20,000.00; smaller of 20,000.00 and the 24,000.00 cap = 20,000.00; line 50 total 20,000.00. Schedule SB line 17: federal AGI 50,000.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 20,000.00; line 7 Wisconsin income = 50,000.00 - 20,000.00 = 30,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 30,000 to less than 30,500, column Single: 12,276.00 (printed row, at least / less than / single / joint / separate / head of household: 30,000 / 30,500 / 12,276 / 24,707 / 8,595 / 15,111). Line 9 = 30,000.00 - 12,276.00 = 17,724.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 17,724.00 - 950.00 = 16,774.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 2,094.00 = 92.136; total 605.936, rounded once to 605.94. The Tax Table row 16,700 to 16,800 (PDF page 39) gives 605; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 605.94.",
+  "accepted_approximations": [
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

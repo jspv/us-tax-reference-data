@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "15000.00",
+    "state_income_tax": "391.00",
+    "state_tax_before_credits": "391.00",
+    "state_taxable_income": "9200.00",
+    "relief_amounts": {
+      "pre1946_private": "40000.00"
+    }
+  },
+  "worked": "Single born 1944. Private pension 30,000 + IRA 10,000 = 40,000 < 65,897 -> 40,000.00. Line 28: 14,688 - 40,000 -> 0. Taxable SS 20,400 subtracted. state_agi 75,400 - 20,400 - 40,000 = 15,000.00 (interest). Exemption 5,800. Taxable 9,200.00. Tax 391.00. [check: state_agi 15000.00, taxable 9200.00, tax 391.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

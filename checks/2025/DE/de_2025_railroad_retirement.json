@@ -1,0 +1,59 @@
+{
+  "id": "de_2025_railroad_retirement",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "de_railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. §1102(a)(14)",
+    "section": "Instructions PDF p.7 Line 8a Social Security/Railroad Retirement Benefits; Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.5 Line 1; PDF p.8 Line 20a standard deduction table, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. §1102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30050.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "48050.00",
+    "federal_taxable_income": "32300.00"
+  },
+  "expected": {
+    "state_agi": "30050.00",
+    "state_taxable_income": "26800.00",
+    "state_tax_before_credits": "1100.90",
+    "credits": "110.00",
+    "state_income_tax": "990.90",
+    "relief_amounts": {
+      "de_railroad_retirement": "18000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 30,050.00 + Railroad Retirement (Tier 2, taxable) (you) 18,000.00 = 48,050.00. Federal taxable income = 48,050.00 - standard deduction 15,750.00 = 32,300.00 (federal senior deduction ignored). Form PIT-RES (filing status 1 single, Column B): Line 1 federal AGI 48,050.00; Line 2 other states' obligations interest 0.00; Line 3 0.00; Line 4 total 48,050.00. Line 5 U.S. obligations interest 0.00. Line 6 pension exclusion 0.00. Line 7 0.00; Line 8a taxable Railroad Retirement 18,000.00 = 18,000.00; Line 8b 0.00. Line 9 (Lines 5-8b) = 18,000.00. Line 10 = 48,050.00 - 18,000.00 = 30,050.00. Line 11 0.00 (Line 11 worksheet: under 60 and not disabled). Line 12 Delaware AGI = 30,050.00. Line 20a standard deduction (filing status 1) 3,250.00; Line 21 additional standard deduction 0 box(es) for 65 or over x 2,500.00 = 0.00; Line 22 = 3,250.00. Line 23 taxable income = 30,050.00 - 3,250.00 = 26,800.00. Line 24 tax, §1102(a)(14) schedule as numbers: 2.2% x 3,000.00 = 66.00 + 3.9% x 5,000.00 = 195.00 + 4.8% x 10,000.00 = 480.00 + 5.2% x 5,000.00 = 260.00 + 5.55% x 1,800.00 = 99.90; total 1,100.90 (the Division's tax table, not in the sources, would give a row figure; expected keeps the formula). Line 25 0.00; Line 26 = 1,100.90. Line 27a personal credits 1 x 110.00 = 110.00; Line 27b additional credits 0 box(es) for 60 or over x 110.00 = 0.00; Line 32 total non-refundable credits 110.00. Line 33 balance = 1,100.90 - 110.00 = 990.90. Railroad Retirement benefits are not taxable in Delaware: the taxable 18,000.00 in federal AGI is subtracted in full on Line 8a. It is then not also used for the Line 6 pension exclusion (the same income cannot be subtracted twice), so Line 6 is 0.00.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

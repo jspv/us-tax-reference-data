@@ -1,0 +1,50 @@
+{
+  "id": "ca_2025_single_over_one_million",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 16 Line 62 Behavioral Health Services Tax worksheet lines 1 to 5; PDF page 40 Form 540 lines 48, 62 and 64",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-12-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "1200000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "1200000.00",
+    "federal_taxable_income": "1184250.00"
+  },
+  "expected": {
+    "state_agi": "1200000.00",
+    "state_taxable_income": "1194294.00",
+    "state_tax_before_credits": "129677.71",
+    "credits": "0.00",
+    "state_income_tax": "129677.71",
+    "relief_amounts": {
+      "standard_deduction": "5706.00"
+    }
+  },
+  "worked": "Single, 55: wages 1,200,000; federal AGI = 1,200,000. Taxable income over 1,000,000 takes the 1% Behavioral Health Services Tax, which the projection folds into a 13.3% band from 1,000,000. Form 540 line 13 federal AGI = 1,200,000.00. Federal taxable income = 1,200,000.00 - 15,750.00 federal standard deduction = 1,184,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (wages need no adjustment). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 1,200,000.00 - 0.00 = 1,200,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 1,200,000.00 - 5,706.00 = 1,194,294.00. Tax on 1,194,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 15,182.00 x 8% = 1,214.56; 298,755.00 x 9.3% = 27,784.215; 74,292.00 x 10.3% = 7,652.076; 297,182.00 x 11.3% = 33,581.566; 257,047.00 x 12.3% = 31,616.781; 194,294.00 x 13.3% = 25,841.102; total 129,677.71. Line 11 exemptions: 1 personal x 153 and 0 senior x 153. Federal AGI 1,200,000.00 is more than 252,203.00: the projection removes the personal and senior credits, line 32 = 0.00. The form's AGI Limitation Worksheet (PDF page 14) would give: c = 947,797 over 252,203.00; d = 947,797 / 2,500 rounded up = 380; e = 380 x 6 = 2280; f = 1 boxes on lines 7 and 9; g = 2280 x 1 = 2280; h = 153; i = 153 - 2280 = 0 (zero or less enters 0); line 32 = 0. Line 33 = 129,677.71 - 0.00 = 129,677.71; no other credits (lines 34 to 47 nil), line 48 = 129,677.71. Form check: Schedule X (PDF page 75) on 1,194,294.00, as bands without the surtax = 127,734.77 (from the printed base: 127,734.78) (line 31); Behavioral Health Services Tax (PDF page 16, line 62 worksheet) = (1,194,294.00 - 1,000,000.00) x 1% = 1,942.94; line 31 + line 62 = 129,677.71, the same as the folded brackets' 129,677.71; the printed base gives 129,677.72, a cent off from its rounded base; expected uses the bands as numbers. State income tax = 129,677.71.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

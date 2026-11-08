@@ -1,0 +1,50 @@
+{
+  "id": "id_2025_military_at_cap_single",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ret_service_member"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45 Form 39R instructions Line 8, 8a-8c and Line 8e first paragraph; PDF p.33 Form 39R Part B lines 8a-8f; Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-09-21"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "48216.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "78216.00",
+    "federal_taxable_income": "62466.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ret_service_member"
+  ]
+}

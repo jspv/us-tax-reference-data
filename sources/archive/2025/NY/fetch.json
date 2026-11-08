@@ -1,0 +1,42 @@
+[
+  {
+    "state": "NY",
+    "title": "Instructions for Form IT-201 (2025)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+    "retrieved": "2026-11-07T00:41:38.807526+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+    "file": "it201i.pdf",
+    "bytes": 735283,
+    "sha256": "29489d6eed7529bc1388e57a5bf0814e6e6d94d02288c5c83a377d21e3773f72",
+    "archived_url": "https://web.archive.org/web/20260308013008id_/https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  {
+    "state": "NY",
+    "title": "Form IT-201 (2025) Resident Income Tax Return",
+    "url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+    "retrieved": "2026-11-07T00:41:44.052138+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+    "file": "it201_2025_fill_in.pdf",
+    "bytes": 723740,
+    "sha256": "cfe63039ffa4374f5fff67b7d2b37c5bdb802211fac55c69386e8f15c20d3e08",
+    "archived_url": "https://web.archive.org/web/20260214201632id_/https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf"
+  },
+  {
+    "state": "NY",
+    "title": "Information for retired persons (NYS Department of Taxation and Finance)",
+    "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+    "kind": "html",
+    "retrieved": "2026-11-07T00:41:49.242198+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+    "file": "information_for_seniors.html",
+    "bytes": 51223,
+    "sha256": "747974212dcd15e1f80039be0c894e04aa3e884d5bb314f2649422c539f49f53",
+    "text_file": "information_for_seniors.page.txt"
+  }
+]

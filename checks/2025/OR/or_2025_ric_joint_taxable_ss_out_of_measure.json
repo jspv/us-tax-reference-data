@@ -1,0 +1,78 @@
+{
+  "id": "or_2025_ric_joint_taxable_ss_out_of_measure",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_income_credit",
+    "age_65_additional"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Form OR-40 line 11 and Pub OR-17 PDF p.83 'Social Security benefits'; Pub OR-17 PDF p.106-107 'Retirement income' (credit code 811) worksheet lines 1-12; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      },
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "8000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "5000.00",
+          "person": 0
+        },
+        {
+          "amount": "5000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "1555.00",
+      "interest": "22110.00"
+    },
+    "federal_agi": "31665.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "30110.00",
+    "state_taxable_income": "22440.00",
+    "state_tax_before_credits": "1343.50",
+    "credits": "952.10",
+    "state_income_tax": "391.40",
+    "relief_amounts": {
+      "retirement_income_credit": "440.10"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 8,000.00 + taxable interest 22,110.00 + taxable Social Security 1,555.00 = 31,665.00. Social Security gross 10,000.00, federal taxable part 1,555.00 by the federal worksheet. Federal taxable income = 31,665.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age 65 additional = -3,035.00, floored at 0.00 = 0.00 (the federal senior deduction is ignored). Form OR-40 (filing status married filing jointly): line 7 federal AGI 31,665.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 31,665.00 + 0.00 = 31,665.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 1,555.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 1,555.00 + 0.00 + 0.00 = 1,555.00. Line 15 = 31,665.00 - 1,555.00 = 30,110.00. Line 16 itemized 0.00. Line 17 standard deduction 5,670.00 + 2 age 65 box(es) x 1,000.00 = 7,670.00. Line 18 = 7,670.00. Line 19 = 30,110.00 - 7,670.00 = 22,440.00. Line 20: 8,800.00 x 4.75% = 418 + 13,400.00 x 6.75% = 904.5 + 240.00 x 8.75% = 21; total 1343.5, to the cent 1,343.50 (the tax table's J column, row 22,400 to 22,500, gives 1,345; expected keeps the formula). Lines 21-23 0.00. Line 24 = 1,343.50. Line 25 exemption credit: federal AGI 31,665.00 is not more than 200,000.00; 2 x 256.00 = 512.00. Line 27 retirement income credit (code 811) worksheet: line 1 and line 3 retirement income of the eligible individual(s) 8,000.00; line 2 federal pension subtracted 0.00; line 4 15,000.00; line 5 Social Security and railroad 10,000.00; line 6 = 5,000.00; line 7 household income = 31,665.00 - 1,555.00 + 0.00 = 30,110.00; line 8 30,000.00; line 9 = 110.00; line 10 = 5,000.00 - 110.00 = 4,890.00, not below 0; line 11 smaller of 8,000.00 and 4,890.00 = 4,890.00; line 12 = 4,890.00 x 9% = 440.10. Line 28 credits = 512.00 + 440.10 = 952.10. Line 29 and line 31 state income tax = 1,343.50 - 952.10 = 391.40. Code 351 medical subtraction: no medical expenses in the inputs, not modelled. Line 32 kicker comes after this figure and is not applied (not_modelled). Taxable Social Security is taken out of household income, and both spouses' gross benefits reduce the limit.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_pension_subtraction",
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit",
+    "state_rule_not_modelled:previously_taxed_retirement_contributions",
+    "state_rule_not_modelled:special_oregon_medical_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

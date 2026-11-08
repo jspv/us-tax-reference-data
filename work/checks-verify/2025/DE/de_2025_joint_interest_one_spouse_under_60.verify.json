@@ -1,0 +1,16 @@
+{
+  "expected": {
+    "credits": "330.00",
+    "relief_amounts": {
+      "de_pension_excl_60_plus": "2000.00",
+      "de_additional_personal_credit_60": "110.00"
+    },
+    "state_agi": "52000.00",
+    "state_income_tax": "1670.00",
+    "state_tax_before_credits": "2000.00",
+    "state_taxable_income": "43000.00",
+    "relief_amounts.de_pension_excl_60_plus": "2000.00",
+    "relief_amounts.de_additional_personal_credit_60": "110.00"
+  },
+  "worked": "P0 66, P1 57. Interest 4,000 halved: 2,000 each. P0 (60+): eligible retirement income 2,000 -> exclusion 2,000. P1 under 60 with no pension: exclusion 0 (the interest does not count under the under-60 rule). Total 2,000. DE AGI 54,000 - 2,000 = 52,000. Standard 6,500 + age-65 additional 2,500 (P0 only) = 9,000. Taxable 43,000. Tax: 66+195+480+260 = 1,001; 18,000x5.55% = 999; total 2,000.00. Credits: personal 220 + additional 60+ for P0 only 110 = 330. Tax after credits 1,670.00."
+}

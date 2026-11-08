@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "22000.00",
+    "state_taxable_income": "5500.00",
+    "state_tax_before_credits": "294.25",
+    "credits": "0.00",
+    "state_income_tax": "294.25",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "6000.00"
+    }
+  },
+  "worked": "Filing status married_separate; ages [70]. M1 line 1 federal AGI 8,000. M1M line 1 addition, other-state municipal interest: 20,000. Age 65 subtraction (M1R, M1M line 16), oldest person 70: cap 6000 less benefits received 0 and railroad benefits 0 = 6,000; less 50% of AGI over 9000 (50% x 0 = 0) = 6,000. State AGI: 8,000 + 20,000 - 0 military - 0 railroad - 6,000 age 65 - 0 Social Security = 22,000. Standard deduction (M1 line 4): 14950; age addition 1 x 1550 = 1,550; total 16,500. Taxable income (M1 line 9): 22,000 - 16,500 = 5,500. Tax (married_separate schedule, numbers not table): 5,500 x 0.0535 = 294.25; total 294.25 = 294.25. The printed tax table gives 297. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 294.25. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

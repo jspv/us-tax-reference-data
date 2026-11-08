@@ -1,0 +1,52 @@
+{
+  "id": "va_2025_edge_birth_date_1961_joint",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_deduction_income_based",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 8-9, 11, 12, 14-16; PDF p15 Line 4 Age Deduction and Exemptions; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; PDF p17 (printed Page 11) Taxpayers Age 65 and Older and Line 5; PDF p41 Tax Rate Schedule; Spouse Tax Adjustment Worksheet (PDF p18, printed Page 12), not applied by the projection",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      },
+      {
+        "age": 64,
+        "born": "1961-01-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "36900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.age_deduction_income_based"
+  ]
+}

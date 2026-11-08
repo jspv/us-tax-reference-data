@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "40050.00",
+    "state_taxable_income": "31450.00",
+    "state_tax_before_credits": "1171.53",
+    "credits": "171.00",
+    "state_income_tax": "1000.53",
+    "relief_amounts": {
+      "ne_military_retirement_exclusion": "36000.00"
+    }
+  },
+  "worked": "Line 5 federal AGI 76,050.00. Line 6/10 standard deduction 8,600.00 (no 65 box: person 0 age 50). Line 11 76,050.00 - 8,600.00 = 67,450.00. Line 12 0.00. Schedule I line 32 military retirement 36,000.00. Line 13 (Schedule I line 44) 36,000.00. state_agi = 76,050.00 + 0.00 - 36,000.00 = 40,050.00. Line 14 31,450.00. Line 15 schedule: 4,030.00 x 2.46% = 99.138; 20,090.00 x 3.51% = 705.159; 7,330.00 x 5.01% = 367.233; total 1171.530 = 1,171.53. Form figure: the printed table row 31,360-31,460 gives 1,170; expected keeps the schedule result. Line 18 personal exemption credit 1 x 171 = 171.00. Line 35 1,171.53 - 171.00 = 1,000.53. Federal Tax Liability Worksheet (line 35) and Schedule R credit (line 20) are not_modelled and not applied. Federal figures are given; federal senior deduction ignored."
+}

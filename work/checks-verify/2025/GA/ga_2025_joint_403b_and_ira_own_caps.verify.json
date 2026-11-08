@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "45000.00",
+    "state_income_tax": "1089.90",
+    "state_tax_before_credits": "1089.90",
+    "state_taxable_income": "21000.00",
+    "relief_amounts": {
+      "ga_retirement_exclusion_65_plus": "65000.00",
+      "ga_retirement_exclusion_62_64": "25000.00"
+    }
+  },
+  "worked": "Form 500 line 8 federal AGI 135000.00 (given). ga_retirement_exclusion_65_plus person 0 (age 67), Schedule 1 p.2: wages 0.00 limited to 0.00 + employer plan (401(k)/403(b)/457) 90000.00 = 90000.00; lesser of that and 65000.00 = 65000.00. ga_retirement_exclusion_62_64 person 1 (age 63), Schedule 1 p.2: wages 25000.00 limited to 5000.00 + IRA 20000.00 = 25000.00; lesser of that and 35000.00 = 25000.00. Georgia AGI (line 10) = 135000.00 - 90000.00 = 45000.00. Line 11 standard deduction (married_joint) 24000.00; line 15 taxable income = 45000.00 - 24000.00 = 21000.00. Line 16 tax = 21000.00 x 5.19% = 1089.900000 -> 1089.90 (the form rounds to the nearest dollar: 1090). No credits in the projection: credits 0.00; state income tax = 1089.90."
+}

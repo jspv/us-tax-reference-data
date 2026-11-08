@@ -1,0 +1,51 @@
+{
+  "id": "az_2025_gov_pension_below_cap",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "az_gov_pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF pages 19-20 Line 29a (the amount received or 2,500, whichever is less; U.S. Government Service Retirement and Disability Fund); PDF page 39 Form 140 line 29a; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-03-18"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1800.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "41800.00",
+    "federal_taxable_income": "26050.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.az_gov_pension_exclusion"
+  ]
+}

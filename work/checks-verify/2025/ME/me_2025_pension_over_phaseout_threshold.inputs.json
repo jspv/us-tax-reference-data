@@ -1,0 +1,52 @@
+{
+  "id": "me_2025_pension_over_phaseout_threshold",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_income_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27, the Worksheet for Pension Income Deduction lines P1-P10 and the Worksheet for Phaseout of Non-Military Pension Income Deduction lines 1-5 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart and Worksheet for Standard / Itemized Deductions lines 1-8 (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2); income_test width 100,000 (50,000 married filing separately) and share to four decimals from the phaseout worksheet lines 4 and 5 (Schedule 1S PDF p.2)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-03-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "115083.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "155083.00",
+    "federal_taxable_income": "139333.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_income_deduction"
+  ]
+}

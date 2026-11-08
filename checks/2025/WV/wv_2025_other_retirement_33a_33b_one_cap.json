@@ -1,0 +1,74 @@
+{
+  "id": "wv_2025_other_retirement_33a_33b_one_cap",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_other_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 33(a)-(b) Other Retirement Modification, 'Combined amounts of 33a and 33b must not exceed $2,000' (PDF p.5; instructions PDF p.28; PDF p.22); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1500.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "WV",
+          "contributory": true
+        },
+        {
+          "amount": "1500.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "33000.00",
+    "federal_taxable_income": "17250.00"
+  },
+  "expected": {
+    "state_agi": "31000.00",
+    "state_taxable_income": "29000.00",
+    "state_tax_before_credits": "799.20",
+    "credits": "0.00",
+    "state_income_tax": "799.20",
+    "relief_amounts": {
+      "wv_other_retirement": "2000.00"
+    }
+  },
+  "worked": "Single, age 60, a West Virginia Teachers' pension of 1,500 (line 33a) and a federal civil service pension of 1,500 (line 33b): each is under 2,000, but the two share one 2,000. filer born 1965-10-10, age 60 at December 31, 2025. Federal AGI (given) = wages 30,000.00 + West Virginia PERS/Teachers' pension 1,500.00 + federal civil service pension 1,500.00 = 33,000.00. Federal taxable income (given, not tested) = 33,000.00 - standard deduction 15,750.00 = 17,250.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 33,000.00. Schedule M additions lines 51-58 none; IT-140 line 2 0.00. Schedule M Column A: line 33(a) WV Teachers'/PERS 1,500.00, line 33(b) federal retirement 1,500.00; line 33 = lesser of their sum 3,000.00 and 2,000.00 = 2,000.00; line 47: age 60, under 65 and not disabled, none; line 49 = 2,000.00. Line 50 total subtractions = 2,000.00. IT-140 line 3 subtractions 2,000.00; line 4 West Virginia AGI = 33,000.00 + 0.00 - 2,000.00 = 31,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 1 x 2,000.00 = 2,000.00. Line 7 taxable income = 31,000.00 - 2,000.00 = 29,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 15,000.00 = 444 + 3.33% x 4,000.00 = 133.2; total 799.2 = 799.20. The Tax Table row 28,960 to under 29,020 (PDF p.38 on) gives 799; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 799.20.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wv_fed_law_enforcement_retirement",
+    "state_rule_not_modelled:wv_pbgc",
+    "state_rule_not_modelled:wv_police_fire_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

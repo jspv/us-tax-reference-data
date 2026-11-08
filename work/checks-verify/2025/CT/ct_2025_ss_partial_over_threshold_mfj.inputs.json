@@ -1,0 +1,66 @@
+{
+  "id": "ct_2025_ss_partial_over_threshold_mfj",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_full_exempt",
+    "ss_partial_exempt",
+    "military_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF pages 8-9, Schedule 1 Line 41; PDF page 24, Social Security Benefit Adjustment Worksheet ('$100,000 or more? Yes: Complete this worksheet', Lines A-F); PDF page 9, Schedule 1 Line 44; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-03-10"
+      },
+      {
+        "age": 64,
+        "born": "1961-05-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "48000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "103500.00",
+    "federal_taxable_income": "70400.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ss_full_exempt",
+    "relief_amounts.ss_partial_exempt",
+    "relief_amounts.military_retirement"
+  ]
+}

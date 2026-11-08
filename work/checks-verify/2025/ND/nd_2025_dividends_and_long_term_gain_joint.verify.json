@@ -1,0 +1,12 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "2260.54",
+  "state_tax_before_credits": "2260.54",
+  "state_taxable_income": "196900.00",
+  "relief_amounts": {
+   "qualified_dividend_exclusion": "8000.00"
+  }
+ },
+ "worked": "Federal check: AGI 250,000.00 = ira_distribution 200,000.00 + dividends 20,000.00 + long_term_gains 30,000.00; less standard deduction 31,500 + age 1,600 = federal taxable income 216,900.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 216,900.00; no additions (lines 2-3 are 0).\nLine 6 long-term gain exclusion 40% of 30,000.00 = 12,000.00\nLine 13 qualified_dividend_exclusion 40% of 20,000.00 = 8,000.00\nLine 17 total subtractions = 20,000.00\nLine 18 = 216,900.00 - 20,000.00 = 196,900.00\nLine 20 tax: married_joint band 0.0195 on 115,925.00 (over 80,975.00) = 2260.5375000\nLine 20 tax = 2260.5375000 -> 2260.54 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 2260.54.\nMarriage credit (form only, projection leaves it out): line 1 196,900.00, qualified incomes 200,000.00 and 0.00: lower not over 47,550, no credit. Expected follows the projection: credits 0.00. Approximation: The marriage penalty credit is left out.\nInputs give dividends without a qualified split; the projection applies the 40% to all dividends. Approximation: The dividend exclusion is applied to all dividends; the booklet allows it only on qualified dividends (Form 1040 line 3a)."
+}

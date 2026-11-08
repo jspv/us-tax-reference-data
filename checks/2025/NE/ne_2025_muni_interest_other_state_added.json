@@ -1,0 +1,56 @@
+{
+  "id": "ne_2025_muni_interest_other_state_added",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I lines 1 to 3 and 13; booklet PDF page 23 Lines 1 to 3; record muni_interest",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 44,
+        "born": "1981-11-29"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "2000.00",
+      "municipal_interest_other_state": "3000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "63000.00",
+    "state_taxable_income": "54400.00",
+    "state_tax_before_credits": "2350.83",
+    "credits": "171.00",
+    "state_income_tax": "2179.83"
+  },
+  "worked": "Single, 44: wages 60,000, Nebraska bond interest 2,000, other states' bond interest 3,000. Schedule I adds all of it on line 1 and takes the Nebraska part out on line 2, so only the other states' interest is taxed. Federal (given, not tested): federal AGI = wages (you) 60,000.00 = 60,000.00. Municipal interest is not in federal AGI. Federal taxable income = 60,000.00 - standard deduction 15,750.00 = 44,250.00 (federal senior deduction ignored). Form 1040N filing status (1) single, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4c none; line 4 total 1. Line 5 federal AGI 60,000.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 8,600.00; lines 7 to 9 skipped (no federal itemizing); line 10 8,600.00. Line 11 = 60,000.00 - 8,600.00 = 51,400.00. Schedule I line 1 all state and local interest 5,000.00; line 2 Nebraska obligations 2,000.00; line 3 = 3,000.00; line 13 total 3,000.00. Line 12 = 3,000.00. Line 13 adjustments decreasing federal AGI 0.00. Line 14 Nebraska taxable income = 51,400.00 + 3,000.00 - 0.00 = 54,400.00. State income after additions and subtractions (before the deduction) = 60,000.00 + 3,000.00 - 0.00 = 63,000.00. Line 15 tax, schedule as numbers (single column): 2.46% x 4,030.00 = 99.138 + 3.51% x 20,090.00 = 705.159 + 5.01% x 14,750.00 = 738.975 + 5.20% x 15,530.00 = 807.560; total 2,350.832, rounded once to 2,350.83. The Tax Table row 54,360 to 54,460 gives 2,351; expected keeps the schedule. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 2,350.83. Line 18 personal exemption credit = 171 x 1 = 171.00; line 34 171.00. Line 35 = 2,350.83 - 171.00 = 2,179.83. Federal Tax Liability Worksheet (PDF page 17): net adjustments 3,000.00 are under 5,000, but it does not reduce line 35: the federal tax before credits is at least 10% x 44,250.00 = 4,425.00, above worksheet line 2 of 2,179.83.",
+  "accepted_approximations": [
+    "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

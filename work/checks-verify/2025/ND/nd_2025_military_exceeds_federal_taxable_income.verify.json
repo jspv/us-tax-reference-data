@@ -1,0 +1,12 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "0.00",
+  "state_tax_before_credits": "0.00",
+  "state_taxable_income": "0.00",
+  "relief_amounts": {
+   "military_retirement_exclusion": "30000.00"
+  }
+ },
+ "worked": "Federal check: AGI 30,000.00 = pensions 30,000.00; less standard deduction 15,750 + age 2,000 = federal taxable income 12,250.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 12,250.00; no additions (lines 2-3 are 0).\nLine 14 military_retirement_exclusion = 30,000.00\nLine 17 total subtractions = 30,000.00\nLine 18 = 12,250.00 - 30,000.00 = -17,750.00 , floored at 0\nLine 20 tax: 0.00 is within the 0% band of the single schedule (band ends 48,475.00); tax 0.00\nLine 20 tax = 0 -> 0.00 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 0.00."
+}

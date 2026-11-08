@@ -1,0 +1,46 @@
+{
+  "id": "mo_2025_treasury_taxed_other_state_muni_added",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p1 Part 1 Line 1; instructions PDF p12 Line 1; record muni_interest; Form MO-A PDF p1 Part 1 Line 8; instructions PDF p13 Line 8; record us_obligations_interest",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "interest": "5000.00",
+      "us_treasury_interest": "5000.00",
+      "municipal_interest_own_state": "4000.00",
+      "municipal_interest_other_state": "6000.00",
+      "dividends": "2000.00"
+    },
+    "federal_agi": "42000.00",
+    "federal_taxable_income": "26250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

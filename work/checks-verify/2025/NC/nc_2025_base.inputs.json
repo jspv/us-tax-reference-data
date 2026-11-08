@@ -1,0 +1,38 @@
+{
+  "id": "nc_2025_base",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?'",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60750.00",
+    "federal_taxable_income": "45000.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

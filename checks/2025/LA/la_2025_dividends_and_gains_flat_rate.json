@@ -1,0 +1,47 @@
+{
+  "id": "la_2025_dividends_and_gains_flat_rate",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 59,
+        "born": "1966-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "5000.00",
+      "long_term_gains": "15000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "47500.00",
+    "state_tax_before_credits": "1425.00",
+    "credits": "0.00",
+    "state_income_tax": "1425.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 40,000.00 + dividends 5,000.00 + long-term capital gains 15,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 15,750.00 federal standard deduction = 44,250.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. No Schedule E adjustments. IT-540 Line 7 federal AGI 60,000.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 60,000.00 - 12,500.00 = 47,500.00. Line 11 = 47,500.00 x .03 = 1,425.00. Line 12 credits 0.00. Line 13 = 1,425.00. Capital gains get no separate rate or deduction; the gain is not a code 20E business sale.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "state_agi": "58000.00",
+    "state_taxable_income": "33000.00",
+    "state_tax_before_credits": "990.00",
+    "credits": "0.00",
+    "state_income_tax": "990.00",
+    "relief_amounts": {
+      "la_government_pension": "30000.00",
+      "la_retirement_income_exemption_65": "5000.00"
+    }
+  },
+  "worked": "Schedule E Line 1 federal AGI 93,000.00 (given). Line 3 = 93,000.00. Government pension 30,000.00 paid by LA (person 0) exempt in full, code 02E. 06E worksheet person 0 (age 66): L1 35,000.00, L2 30,000.00, L3 5,000.00, L4 12,000.00, L5 lesser = 5,000.00. 06E worksheet person 1 (age 64): under 65, Line 5 none (own L3 8,000.00 gets no exemption). Worksheet Line 6 code 06E = 5,000.00. Line 4H exempt income = gov 30,000.00 + railroad 0.00 + 06E 5,000.00 + 07E 0.00 = 35,000.00. Line 5 Louisiana AGI = 93,000.00 - 35,000.00 = 58,000.00. IT-540 Line 7 58,000.00; Line 8 standard deduction 25,000.00; Line 9D none; Line 10 = 33,000.00. Line 11 = 33,000.00 x .03 = 990.00 (form rounds to the dollar: 990). Line 12 credits 0.00; Line 13 tax 990.00."
+}

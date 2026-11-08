@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "100500.00",
+    "state_taxable_income": "100500.00",
+    "state_tax_before_credits": "4522.50",
+    "credits": "1942.04",
+    "state_income_tax": "2580.46",
+    "relief_amounts": {
+      "social_security_credit": "885.00"
+    }
+  },
+  "worked": "TC-40 line 4 federal AGI 100500.00. Line 5 additions: code 57 other-state municipal interest 0.00 (projection muni treatment other_states_taxed_own_exempt; all other-state interest added). Line 6 total income 100500.00 + 0.00 = 100500.00. Line 8 subtractions: code 78 railroad retirement 0.00 (relief railroad_retirement, exempt_in_full). Line 9 Utah taxable income 100500.00 - 0.00 = 100500.00. Qualified Exempt Taxpayer worksheet: line 1 federal AGI 100500.00; line 2 standard deduction 31500.00; line 3 senior deduction left out by the projection (threshold is the standard deduction only); line 5 = 69000.00: above zero, not exempt. State taxable income 100500.00; line 10 tax 100500.00 x 0.045 = 4522.50. Taxpayer tax credit (projection: 6% of the state income up to the cap 31500.00, the federal standard deduction without the age 65 extras): line 16 0.06 x min(100500.00, 31500.00) = 1890.00; line 17 base 36426.00; line 18 64074.00; line 19 x 0.013 = 832.96; line 20 credit 1057.04. Retirement credit (18): no one born on or before 1952-12-31; 0. Social Security credit (AH): line 1 taxable benefits 25500.00; line 4 x 0.045 = 1147.50; measure (projection: federal AGI plus tax-exempt interest) 100500.00 + 0.00 = 100500.00; line 10 90000.00; line 11 10500.00; line 12 x 0.025 = 262.50; line 13 885.00. Credits: taxpayer tax credit 1057.04 + retirement 0.00 + Social Security 885.00 + military 0.00 = 1942.04; limited to the tax 4522.50: 1942.04 (nonrefundable). Utah income tax 4522.50 - 1942.04 = 2580.46. Federal figures given; federal senior deduction ignored. Amounts to the cent from the formulas; the form's whole-dollar rounding is not used."
+}

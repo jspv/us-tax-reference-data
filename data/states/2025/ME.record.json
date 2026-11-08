@@ -1,0 +1,580 @@
+{
+  "layer": "record",
+  "state": "ME",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Page numbers are the PDF's own (the *.pypdf.txt markers). Documents read: the 2025 Form 1040ME booklet (general instructions with cover page, 13 PDF pages), Form 1040ME, Form 1040ME Schedule 1S (2 PDF pages, with the Worksheet for Pension Income Deduction and the Worksheet for Phaseout of Non-Military Pension Income Deduction on page 2), the Schedule 1S Other Income Subtraction Modifications worksheet (line 26 only) and the Maine Revenue Services Individual Income Tax FAQ (revised April 13, 2026).",
+    "The Worksheet for Pension Income Deduction (lines P1 to P10) and the Worksheet for Phaseout of Non-Military Pension Income Deduction are on Schedule 1S PDF page 2, archived after settlement. The pension rule below is from those worksheets, the Schedule 1S line 4 instructions (booklet page 8), Important Changes for 2025 (page 3) and FAQ items 14 and 15.",
+    "Pension deduction phaseout: Schedule 1S page 2 phaseout worksheet line 3 = federal AGI minus the threshold, line 4 = 100,000 (50,000 married filing separately), line 5 = line 3 / line 4 entered to four decimals ('If one or more, enter 1.0000'); P7 = P5 x line 5 and P8 = P5 - P7. So the non-military deduction keeps 1 - line 5 of itself: income_test.effect share_phase_out with width 100,000 (50,000 separate) and share_decimals 4. Military retirement pay (P9) is not phased out.",
+    "Pension deduction measure: page 3 says federal adjusted gross income; FAQ item 14 says 'based on your filing status and Maine adjusted gross income'. Schedule 1S page 2 phaseout worksheet line 1 settles it: 'Enter your 2025 federal adjusted gross income (Form 1040ME, line 14)'. federal_agi.",
+    "Pension deduction cap: 48,216 each for you and your spouse (page 8; FAQ items 14 and 15). It is reduced by all social security and railroad retirement benefits received, taxable or not; when those benefits exceed 48,216 there is no deduction (FAQ item 15). The reduction does not apply to military retirement pay. Page 8 says 'you and your spouse (if married) may each deduct'; it does not say in words whether each person's cap is reduced only by that person's own benefits. Recorded as per person.",
+    "Other states' government pensions: page 8 says deductible pension income 'includes state and federal pension benefits' and page 8 and FAQ item 14 include eligible deferred compensation plans of 'state and local government'. The word 'state' is not limited to Maine; where Maine alone is meant the same paragraph says so by name (MainePERS). No sentence names a pension paid by another state, and no reciprocity rule, paying-state list or New York rule was found in the booklet, the form, the Schedule 1S worksheet or the FAQ. public_pension_other_state is in covers as a reading, not a printed rule.",
+    "Roth conversions: page 8 says a conversion from one account to another does not qualify, with a traditional IRA converted to a Roth IRA as the example ('The taxpayer, in this case, does not receive a retirement or IRA benefit at the time of conversion'). In not_covered. Benefits from Roth IRAs under IRC section 408A are named as deductible, to the extent included in federal adjusted gross income.",
+    "Early distributions: page 3 excludes 'distributions from an employee retirement plan received prior to age 55' that are not substantially equal periodic payments over the life of the recipient or the joint lives with the designated beneficiary, effective September 24, 2025, whether or not the 10% federal tax applies; page 8 has the same rule under 'Pension benefits that do not qualify'. It tests the payment, not the person, so it is in not_covered and who.other_conditions, not min_age.",
+    "Annuities: the booklet names 'employee annuities' (IRC section 403) on page 8 and the FAQ 'employee annuities'. Annuities bought outside an employer plan are not named.",
+    "Brackets: the booklet prints a tax table (pages 12 and 13) and the 2025 Tax Rate Schedules (page 13). Brackets are the printed schedules. The first schedule is headed 'For Single Individuals and Married Persons Filing Separate Returns', so married_separate repeats single; surviving spouses use the joint schedule. Printed table rows agree with the schedules (single 40,000 to 40,100: 2,448; head of household 40,200 to 40,300: 2,335; joint 51,900 to 52,000: 3,013). The schedule constants (1,554, 4,028; 2,332, 6,041; 3,109, 8,057) are the tax at the bracket starts, rounded to dollars.",
+    "Standard deduction: chart on page 5, base amounts confirmed by Quick Facts on page 11. Single 15,000, 17,000, 19,000; joint or qualifying surviving spouse 30,000, 31,600, 33,200, 34,800, 36,400; separate 15,000, 16,600, 18,200, 19,800, 21,400; head of household 22,500, 24,500, 26,500, by the number of boxes checked on lines 12a to 12d. The additional amounts in the two entries below it are the steps between chart columns (17,000 - 15,000 = 2,000; 24,500 - 22,500 = 2,000; 31,600 - 30,000 = 1,600; 16,600 - 15,000 = 1,600); the booklet does not print them as separate amounts and gives the 65-or-over and blind boxes the same step.",
+    "Standard deduction phaseout: the page 5 worksheet takes line 5 = (Maine AGI - threshold) / line 4, entered to four decimals (one box before the point, four after; 1.0000 if one or more), and line 8 = line 6 x (1 - line 5), where line 6 is the whole chart amount, 65-or-over and blind boxes included. So the base amount and both additions use share_phase_out with width 75,000 (single or separate), 112,500 (head of household) or 150,000 (joint or surviving spouse), all printed on line 4, and share_decimals 4. The deduction reaches zero at Maine AGI of 175,000, 262,500 and 350,050. On the base amount this equals 0.2 per dollar (15,000 / 75,000 = 22,500 / 112,500 = 30,000 / 150,000) except for the four-decimal rounding of the share.",
+    "Itemizing: a filer who itemized federally completes Schedule 2 and uses the standard deduction if Schedule 2 line 7 is less (a nonresident alien must itemize). The page 5 worksheet also applies to itemized deductions. Maine itemized deductions are limited to 36,300, except medical expenses are not subject to the limit (page 11). A filer who used the federal standard deduction must use the Maine one.",
+    "Personal exemption: Form 1040ME line 18 and page 5 multiply line 13 by 5,150; Quick Facts page 11 agrees. Line 13 is 1 for single, married separate (2 if you would claim a federal exemption for your spouse but for its suspension), head of household or qualifying surviving spouse; 2 for married joint; 0 or 1 when a filer may be claimed as a dependent on another return. The phaseout worksheet is on PDF page 6; line 4 is 125,000 (62,500 married separate) and line 5 is entered to four decimals, so share_phase_out with that width and share_decimals 4; the exemption reaches zero 125,000 above the threshold (62,500 married separate).",
+    "Dependents: the booklet prints no dependent deduction. The dependent exemption is a refundable tax credit, recorded in reliefs with its two amounts (rule 7 of the extraction brief needs the amounts recorded; base.deductions would read as a deduction).",
+    "Social Security: Schedule 1S line 3 (page 7) subtracts the taxable amount of social security benefits, and Quick Facts (page 11) says Schedule 1S reports income 'taxable by the federal government but not in Maine'. The same line subtracts railroad retirement tier 1 and tier 2 and Railroad Retirement Board unemployment and sick benefits.",
+    "Military: benefits under a United States military retirement plan, including survivor benefits, are fully exempt (page 8; FAQ item 14). Line 6 also exempts survivor annuities under 10 U.S.C. chapter 73.",
+    "MainePERS: Schedule 1S line 7 is not an exemption of the pension. It subtracts Form 1099-R box 2a minus box 16 on MainePERS benefits, and rollover amounts previously taxed by the state within three years, in total not more than the pick-up contributions previously taxed by Maine. No dollar cap is printed. The booklet prints no test on whether a public plan is contributory. Schedule 1A line 3 adds back 2025 MainePERS contributions shown on a Maine W-2 (an addition, not a relief).",
+    "Capital gains: no rate or general deduction is printed, so capital_gains is empty. Narrow subtractions exist and are not recorded: sale of eligible timberlands (Schedule 1S line 23), and up to 750,000 of gain on transfer of a majority interest in a housing business (page 3; Schedule 1S worksheet line 7).",
+    "Surtaxes: none printed. Recapture: no rule taking back the lower brackets is printed (line 20a is credit recapture, a different thing).",
+    "Indexing: page 3 says the pension deduction phaseout thresholds and the dependent exemption credit phaseout thresholds are adjusted for inflation for tax years beginning after 2025 (the index is not named). Nothing is said of the brackets, the standard deduction, the exemption or the 48,216 cap. The FAQ says 'for tax year 2025' and points to each prior year's worksheet for that year's maximum, which suggests the cap changes but states no rule.",
+    "Other credits and subtractions printed and not recorded as entries: property tax fairness credit (up to 1,000, or 2,000 at 65 or older, page 11), sales tax fairness credit, earned income, child care and adult dependent care credits, credit for income tax paid to other jurisdictions (Schedule A line 14), state and local income tax refunds (line 2), 529 contributions (line 8), and municipal property tax volunteer benefits for persons at least 60, up to 1,465 (line 16).",
+    "Settlement 2026-11-07: base.deductions age-65 and blind phase_out: A recorded the standard-deduction phase-out on both additional amounts, B left it out; page 5 worksheet line 6 enters 'your 2025 standard deduction from the chart above', which includes the boxes, so the additions phase out with it (14 structured differences).",
+    "Settlement 2026-11-07: base.deductions itemized limit: A kept 36,300 in notes, B had an 'other' deduction entry; page 11 prints it as a limit on itemized deductions, not an amount anyone deducts, so it stays in notes (3 structured differences).",
+    "Settlement 2026-11-07: relief for Schedule 1S line 3 who.basis: A said return, B said each_person; page 7 line 3 has no age or person test, so return (6 structured differences).",
+    "Settlement 2026-11-07: pension_income_deduction public_pension_other_state: A and B both said covers_unclear; page 8 says 'state and federal pension benefits' with no limit to Maine, so it is in covers, as a reading (the dispatch's question needs covers, not_covered or not found).",
+    "Settlement 2026-11-07: Schedule 1S line 6 form: A said subtraction, B said exempt_in_full; page 8 says these payments 'are exempt', so exempt_in_full.",
+    "Settlement 2026-11-07: Schedule 1S line 6 overlap: A said cannot_combine_with pension_income_deduction, B put it in not_covered; page 8 says only that the amount 'must exclude any amount included in' the pension deduction, a bar on counting the same dollars twice, not on claiming both, so not_covered.",
+    "Settlement 2026-11-07: military_retirement_exempt not_covered: B listed the service-branch sentence, A had it as a condition; page 8 says who qualifies, so it is in who.other_conditions.",
+    "Settlement 2026-11-07: Schedule 1S line 7 who: B added 'contributory plan', A did not; pages 7 and 8 print no such test and B's own note says so, so dropped.",
+    "Settlement 2026-11-07: standard_deduction phase_out effect: A and B both said other; the worksheet on the base amount is exactly 0.2 per dollar for every filing status (arithmetic in the note above), so phase_out_rate.",
+    "Settlement 2026-11-07: personal_exemption phaseout worksheet cite: A and B both cited page 5; the *.pypdf.txt marker puts it on page 6.",
+    "Settlement 2026-11-07: dependent exemption credit: A and B both kept it in notes only; pages 3, 10 and 11 print the amounts and the extraction brief requires them, so two relief entries.",
+    "Settlement 2026-11-07 (format v1): phase-outs as share_phase_out. The pension income deduction (Schedule 1S page 2 phaseout worksheet lines 3 to 5), the standard deduction and its 65-or-over and blind additions (booklet page 5 worksheet lines 3 to 8) and the personal exemption (page 6 worksheet lines 3 to 8) each keep 1 - line 5 of themselves, line 5 entered to four decimals; width is each worksheet's line 4. This replaces effect 'other' (pension, additions, exemption) and phase_out_rate 0.2 (standard deduction) recorded above."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "26800"
+      },
+      {
+        "rate": "0.0715",
+        "start": "63450"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "53600"
+      },
+      {
+        "rate": "0.0715",
+        "start": "126900"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "26800"
+      },
+      {
+        "rate": "0.0715",
+        "start": "63450"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "40200"
+      },
+      {
+        "rate": "0.0715",
+        "start": "95150"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+      "section": "PDF page 13, 2025 Tax Rate Schedules (single and married separate; head of household; married joint and surviving spouses)",
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "15000",
+          "married_joint": "30000",
+          "married_separate": "15000",
+          "head_of_household": "22500",
+          "qualifying_surviving_spouse": "30000"
+        },
+        "per": "return",
+        "condition": "Used when the filer took the standard deduction on the federal return (a filer who itemized federally completes Schedule 2 and uses the standard deduction if Schedule 2 line 7 is less). Amount shown is with no 65-or-over, blind or spouse boxes checked.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "head_of_household": "150000",
+            "married_joint": "200050",
+            "qualifying_surviving_spouse": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "75000",
+            "married_separate": "75000",
+            "head_of_household": "112500",
+            "married_joint": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "share_decimals": 4,
+          "as_printed": "Worksheet for Standard / Itemized Deductions: line 3 = Maine AGI minus 100,000 (single or married separate), 150,000 (head of household), 200,050 (married joint or qualifying surviving spouse); line 4 = 75,000 (single or married separate), 112,500 (head of household), 150,000 (married joint or qualifying surviving spouse); line 5 = line 3 divided by line 4, 1.0000 if one or more; line 6 = the standard deduction from the chart or Schedule 2 line 7; line 7 = line 6 x line 5; line 8 = line 6 minus line 7. Line 5 is entered to four decimals (one box before the point, four after)."
+        },
+        "cite": {
+          "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+          "section": "PDF page 5, Maine Standard Deduction Chart for line 17 and Worksheet for Standard / Itemized Deductions; note on boxes 12c and 12d; PDF page 11 Quick Facts (base amounts)",
+          "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "age_65_additional_standard_deduction",
+        "what": "age_65_exemption",
+        "amount": {
+          "single": "2000",
+          "married_joint": "1600",
+          "married_separate": "1600",
+          "head_of_household": "2000",
+          "qualifying_surviving_spouse": "1600"
+        },
+        "per": "person",
+        "condition": "Added to the standard deduction for each box checked on Form 1040ME line 12a (you 65 or over) or 12c (spouse 65 or over); the spouse box applies only if you can claim an exemption for your spouse. Amounts are the step between chart columns; the booklet prints chart totals, not a separate additional amount.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "head_of_household": "150000",
+            "married_joint": "200050",
+            "qualifying_surviving_spouse": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "75000",
+            "married_separate": "75000",
+            "head_of_household": "112500",
+            "married_joint": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "share_decimals": 4,
+          "as_printed": "Worksheet for Standard / Itemized Deductions: line 3 = Maine AGI minus 100,000 (single or married separate), 150,000 (head of household), 200,050 (married joint or qualifying surviving spouse); line 4 = 75,000 (single or married separate), 112,500 (head of household), 150,000 (married joint or qualifying surviving spouse); line 5 = line 3 divided by line 4, 1.0000 if one or more; line 6 = the standard deduction from the chart or Schedule 2 line 7; line 7 = line 6 x line 5; line 8 = line 6 minus line 7. Line 5 is entered to four decimals (one box before the point, four after)."
+        },
+        "cite": {
+          "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+          "section": "PDF page 5, Maine Standard Deduction Chart for line 17 and Worksheet for Standard / Itemized Deductions; note on boxes 12c and 12d",
+          "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "blind_additional_standard_deduction",
+        "what": "blind_exemption",
+        "amount": {
+          "single": "2000",
+          "married_joint": "1600",
+          "married_separate": "1600",
+          "head_of_household": "2000",
+          "qualifying_surviving_spouse": "1600"
+        },
+        "per": "person",
+        "condition": "Added to the standard deduction for each box checked on Form 1040ME line 12b (you blind) or 12d (spouse blind); the spouse box applies only if you can claim an exemption for your spouse. Same step as the age 65 boxes in the chart.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "head_of_household": "150000",
+            "married_joint": "200050",
+            "qualifying_surviving_spouse": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "75000",
+            "married_separate": "75000",
+            "head_of_household": "112500",
+            "married_joint": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "share_decimals": 4,
+          "as_printed": "Worksheet for Standard / Itemized Deductions: line 3 = Maine AGI minus 100,000 (single or married separate), 150,000 (head of household), 200,050 (married joint or qualifying surviving spouse); line 4 = 75,000 (single or married separate), 112,500 (head of household), 150,000 (married joint or qualifying surviving spouse); line 5 = line 3 divided by line 4, 1.0000 if one or more; line 6 = the standard deduction from the chart or Schedule 2 line 7; line 7 = line 6 x line 5; line 8 = line 6 minus line 7. Line 5 is entered to four decimals (one box before the point, four after)."
+        },
+        "cite": {
+          "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+          "section": "PDF page 5, Maine Standard Deduction Chart for line 17 and Worksheet for Standard / Itemized Deductions; note on boxes 12c and 12d",
+          "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "5150"
+        },
+        "per": "exemption_claimed",
+        "condition": "Multiplied by the number on Form 1040ME line 13: 1 for single, married separate (2 if you would claim a federal personal exemption for your spouse but for its suspension), head of household or qualifying surviving spouse; 2 for married filing jointly; reduced to 0 or 1 when a filer may be claimed as a dependent on another return.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+          },
+          "threshold": {
+            "single": "333450",
+            "head_of_household": "366750",
+            "married_joint": "400100",
+            "qualifying_surviving_spouse": "400100",
+            "married_separate": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "125000",
+            "head_of_household": "125000",
+            "married_joint": "125000",
+            "qualifying_surviving_spouse": "125000",
+            "married_separate": "62500"
+          },
+          "share_decimals": 4,
+          "as_printed": "Worksheet for Phaseout of Personal Exemption Deduction Amount: line 3 = Maine AGI minus 333,450 (single), 366,750 (head of household), 400,100 (married joint or qualifying surviving spouse), 200,050 (married separate); line 4 = 125,000 (62,500 if married filing separately); line 5 = line 3 divided by line 4, 1.0000 if one or more; line 6 = line 13 x 5,150; line 7 = line 6 x line 5; line 8 = line 6 minus line 7. Line 5 is entered to four decimals (one box before the point, four after)."
+        },
+        "cite": {
+          "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+          "section": "PDF page 5, Line 13 table and Line 18; PDF page 6, Worksheet for Phaseout of Personal Exemption Deduction Amount; PDF page 11 Quick Facts; Form 1040ME page 2 line 18",
+          "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 1040ME (fillable)",
+      "section": "PDF page 1 lines 14 to 17 and PDF page 2 lines 18 to 20: federal AGI (14) plus additions (15a) minus subtractions (15b) is Maine AGI (16); line 16 minus deduction (17) and exemption (18) is taxable income (19)",
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040ME_fillable.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+      "section": "PDF page 7, Schedule 1S line 3: 'If included in federal adjusted gross income, enter the taxable amount of social security benefits issued by the U.S. Government and railroad retirement benefits (tier 1 and tier 2)'; PDF page 11 Quick Facts on Schedule 1S",
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "social_security_railroad_subtraction",
+      "label": "Schedule 1S line 3: taxable social security and railroad retirement benefits",
+      "form": "subtraction",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 7, Schedule 1S line 3 (36 M.R.S. 5122(2)(C))",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "military_retirement_exempt",
+      "label": "Military retirement deduction (Schedule 1S line 4, Pension Income Deduction Worksheet line P9)",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "benefits under a United States military retirement plan, including survivor benefits",
+          "military retirement pay received as a result of service in the United States Army, Navy, Air Force, Marines, Coast Guard, or Space Force"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 8, Schedule 1S line 4, second paragraph: 'fully exempt from Maine income tax'; FAQ item 14 (PDF page 8)",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "military_survivor_annuity_exempt",
+      "label": "Schedule 1S line 6: military annuity payments made to a survivor",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "The deduction must exclude any amount included in the Maine pension income deduction on Form 1040ME, Schedule 1S, line 4."
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "survivor of a deceased member of the military; payments under a survivor benefit plan or reserve component survivor benefit plan under 10 United States Code, Chapter 73"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 8, Schedule 1S line 6 (36 M.R.S. 5122(2)(HH))",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "pension_income_deduction",
+      "label": "Pension income deduction (Schedule 1S line 4; Pension Income Deduction Worksheet line P10)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "ira_distribution",
+        "annuity"
+      ],
+      "not_covered": [
+        "a conversion of benefits from one account to another (for example, a taxpayer converts a traditional IRA to a Roth IRA)",
+        "benefits received from an ineligible deferred compensation plan under IRC section 457(f)",
+        "refunds of excess contributions",
+        "lump-sum distributions included on federal Form 4972",
+        "distributions received prior to age 55 that are not part of a series of equal periodic payments made over the life of the recipient and the recipient's designated beneficiary, whether subject to the additional 10% federal tax on early distributions or not",
+        "disability benefits reported as wages on your federal income tax return",
+        "pick-up contributions received from MainePERS allowed to be deducted on Form 1040ME, Schedule 1S, line 7",
+        "benefits earned by another person, except in the case of a surviving spouse"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "the individual who earned the benefit from prior employment claims it; a widowed spouse receiving survivor's benefits under an eligible pension plan may claim them",
+          "a distribution from an employee retirement plan received before age 55 qualifies only as part of a series of substantially equal periodic payments over the life of the recipient or the joint lives of the recipient and designated beneficiary",
+          "the income must be included in federal adjusted gross income"
+        ]
+      },
+      "cap": {
+        "all": "48216"
+      },
+      "cap_per": "person",
+      "cap_rule": "You and your spouse may each deduct up to 48,216 of eligible pension income included in federal adjusted gross income. The 48,216 cap must be reduced by all social security and railroad retirement benefits received, whether taxable or not; if those benefits exceed 48,216 there is no deduction. The reduction does not apply to military retirement pay. A surviving spouse's total pension deduction may not exceed 48,216. Plans named: state and federal pension benefits; IRC 401(a) (including qualified 401 SIMPLE), 401(k), 403 employee annuities, 408 IRAs, 408A Roth IRAs, 408(k) SIMPLE IRAs, 408(p) SEPs, 457(b) plans.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Worksheet for Phaseout of Non-Military Pension Income Deduction line 1: 'Enter your 2025 federal adjusted gross income (Form 1040ME, line 14)'"
+        },
+        "threshold": {
+          "single": "125000",
+          "married_separate": "125000",
+          "head_of_household": "187500",
+          "married_joint": "250000",
+          "qualifying_surviving_spouse": "250000"
+        },
+        "effect": "share_phase_out",
+        "width": {
+          "single": "100000",
+          "married_separate": "50000",
+          "head_of_household": "100000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000"
+        },
+        "share_decimals": 4,
+        "as_printed": "Worksheet for Phaseout of Non-Military Pension Income Deduction: line 3 = federal AGI minus 125,000 (single or married filing separately), 187,500 (head of household) or 250,000 (married filing jointly or surviving spouse); if zero or less the deduction is not limited. Line 4: 100,000 if single, head of household, married filing jointly or qualifying surviving spouse; 50,000 if married filing separately. Line 5 = line 3 / line 4; 'If one or more, enter 1.0000', so the share is entered to four decimals. Pension Income Deduction Worksheet: P7 = P5 x P6 (line 5); P8 = P5 - P7. So the non-military deduction falls in a straight line to nothing at 225,000 / 287,500 / 350,000 (175,000 separate). Military retirement pay (P9) is not phased out."
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 8, Schedule 1S line 4 (36 M.R.S. 5122(2)(M-2)); PDF page 3, Important Changes for 2025, Pension income deduction; FAQ items 14 and 15 (PDF pages 8 and 9); 2025 Form 1040ME Schedule 1S, PDF page 2: Worksheet for Pension Income Deduction lines P1-P10 and Worksheet for Phaseout of Non-Military Pension Income Deduction lines 1-5 (line 4: 100,000, or 50,000 married filing separately; line 5 to four decimals)",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "mainepers_subtraction",
+      "label": "Schedule 1S line 7: MainePERS pick-up contributions previously taxed by Maine",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "retired after 1988 and receiving retirement benefits from the Maine Public Employees Retirement System"
+        ]
+      },
+      "cap_rule": "Subtract box 16 from box 2a on the MainePERS Form 1099-R. MainePERS rollover amounts previously taxed by the state may be subtracted in the year of the rollover or the following two years; the total over the three years may not exceed the pick-up contributions previously taxed by Maine.",
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 8, Schedule 1S line 7 (36 M.R.S. 5122(2)(E))",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "us_obligation_interest_subtraction",
+      "label": "Schedule 1S line 1: income from direct obligations of the U.S. Government",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 7, Schedule 1S line 1 (36 M.R.S. 5122(2)(A)): Series EE and Series HH Savings bonds, U.S. Treasury bills and notes",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "dependent_exemption_credit",
+      "label": "Dependent exemption tax credit: qualifying child or dependent at least six years of age",
+      "form": "credit",
+      "credit_amount": "305",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "each qualifying child or dependent for whom the filer is eligible to claim the federal child tax credit or the credit for other dependents",
+          "at least six years of age"
+        ]
+      },
+      "cap_rule": "305 for each, refundable for Maine residents and part-year residents; subject to phaseout.",
+      "income_test": {
+        "measure": {
+          "base": "state_agi",
+          "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+        },
+        "threshold": {
+          "single": "100000",
+          "head_of_household": "125000",
+          "married_joint": "150000",
+          "qualifying_surviving_spouse": "150000",
+          "married_separate": "75000"
+        },
+        "effect": "other",
+        "as_printed": "$20 for each $500, or fraction thereof, by which a taxpayer's Maine adjusted gross income exceeds $100,000 for single individuals; $125,000 for individuals filing as heads of households; $150,000 for individuals filing married joint returns or as surviving spouses; or, $75,000 for married individuals filing a separate return."
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 11 Quick Facts; PDF page 3, Important Changes for 2025, Dependent exemption tax credit; PDF page 10, Schedule A line 1",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "dependent_exemption_credit_under_6",
+      "label": "Dependent exemption tax credit: qualifying child or dependent under six years of age",
+      "form": "credit",
+      "credit_amount": "610",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "each qualifying child or dependent for whom the filer is eligible to claim the federal child tax credit or the credit for other dependents",
+          "under six years of age"
+        ]
+      },
+      "cap_rule": "610 for each, refundable for Maine residents and part-year residents; subject to phaseout.",
+      "income_test": {
+        "measure": {
+          "base": "state_agi",
+          "as_printed": "Maine adjusted gross income (Form 1040ME, line 16)"
+        },
+        "threshold": {
+          "single": "100000",
+          "head_of_household": "125000",
+          "married_joint": "150000",
+          "qualifying_surviving_spouse": "150000",
+          "married_separate": "75000"
+        },
+        "effect": "other",
+        "as_printed": "$20 for each $500, or fraction thereof, by which a taxpayer's Maine adjusted gross income exceeds $100,000 for single individuals; $125,000 for individuals filing as heads of households; $150,000 for individuals filing married joint returns or as surviving spouses; or, $75,000 for married individuals filing a separate return."
+      },
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 11 Quick Facts; PDF page 3, Important Changes for 2025, Dependent exemption tax credit; PDF page 10, Schedule A line 1",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Schedule 1A line 1 adds interest from municipal and state bonds other than Maine not included in federal AGI ('bond interest from City of New York but not Portland, Maine'). Schedule 1S line 18 subtracts interest from Maine municipal general obligation bonds, private activity bonds and bonds issued by a Maine airport authority included in federal AGI.",
+    "cite": {
+      "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+      "section": "PDF page 7, Schedule 1A line 1 (36 M.R.S. 5122(1)(A)); PDF page 9, Schedule 1S line 18 (30-A M.R.S. 5772(9) and 6 M.R.S. 179(10))",
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "pension_income_deduction",
+      "indexed": "yes",
+      "index": "Only the phaseout thresholds (125,000, 187,500, 250,000) are adjusted for inflation, for tax years beginning after 2025; the booklet does not name the index. The 48,216 cap is not stated to be indexed.",
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 3, Important Changes for 2025, Pension income deduction: 'For tax years beginning after 2025, the phaseout threshold amounts are adjusted for inflation.'",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "dependent_exemption_credit",
+      "indexed": "yes",
+      "index": "Only the phaseout thresholds are adjusted for inflation, for tax years beginning after 2025; the booklet does not name the index. Applies equally to dependent_exemption_credit_under_6.",
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF page 3, Important Changes for 2025, Dependent exemption tax credit: 'For tax years beginning after 2025, the income phaseout thresholds are adjusted for inflation.'",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "section": "PDF pages 5, 6, 11 and 13: no statement on indexing the brackets, standard deduction, personal exemption or the pension cap",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

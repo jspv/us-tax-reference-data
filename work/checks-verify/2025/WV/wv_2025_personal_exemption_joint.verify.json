@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "86000.00",
+    "state_tax_before_credits": "3306.70",
+    "credits": "0.00",
+    "state_income_tax": "3306.70"
+  },
+  "worked": "Line 1 federal AGI 90000.00 (married_joint). Federal standard deduction and senior deduction ignored: WV starts from federal AGI. Line 2 additions 0; line 3 subtractions 0; line 4 WV AGI = 90000.00 + 0 - 0 = 90000.00. Line 6 exemptions 2 x 2,000 = 4000; line 7 taxable income 90000.00 - 4000 = 86000.00. Tax (rate schedule, exact, no table):   0-10,000 x 0.0222 = 222.0000   10,000-25,000 x 0.0296 = 444.0000   25,000-40,000 x 0.0333 = 499.5000   40,000-60,000 x 0.0444 = 888.0000   60,000-86,000.00 x 0.0482 = 1253.200000 Tax = 3306.700000 -> 3306.70. No credits modelled: credits 0.00; income tax 3306.70."
+}

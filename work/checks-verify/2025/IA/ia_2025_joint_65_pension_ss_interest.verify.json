@@ -1,0 +1,14 @@
+{
+ "expected": {
+  "credits": "120.00",
+  "relief_amounts": {
+   "ia_age_65_credit": "40.00",
+   "ia_personal_credit": "80.00",
+   "ia_ret_excl_age55": "40000.00"
+  },
+  "state_income_tax": "841.40",
+  "state_tax_before_credits": "961.40",
+  "state_taxable_income": "25300.00"
+ },
+ "worked": "Federal AGI 134000.00; federal deduction 34700.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 99300.00. Schedule 1 line 5 column B, Social Security from federal 1040 line 6b: -34000.00. Schedule 1 line 7 column B, private pension of person 0, age 68 (55 or over): -40000.00. Line 3, net Iowa modifications: 0.00 - 74000.00 = -74000.00. Line 4, Iowa taxable income: 99300.00 + -74000.00 = 25300.00. Line 5: 25300.00 x 3.8% = 961.40. Line 8, exemption credits: personal 2 x 40 = 80.00; 65 or older 2 x 20 = 40.00; total 120.00. Line 12: 961.40 - 120.00 = 841.40. Alternate tax 4.3% x (60000.00 - 32000) = 1204.00 is not smaller; the 3.8% tax stands."
+}

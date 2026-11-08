@@ -1,0 +1,43 @@
+{
+  "id": "md_2025_age65_exemption_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_exemption",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule I (PDF page 22); Instruction 10 'EXEMPTIONS ALLOWED' (PDF page 13): 1,000 for age 65 or older on the last day of the year; Form 502 Exemptions Line B",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-10"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2550.00"
+    },
+    "federal_agi": "42550.00",
+    "federal_taxable_income": "24800.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

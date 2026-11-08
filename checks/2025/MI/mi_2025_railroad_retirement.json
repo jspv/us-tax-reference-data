@@ -1,0 +1,62 @@
+{
+  "id": "mi_2025_railroad_retirement",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 11 (PDF page 14: taxable Tier 1 and Tier 2 railroad retirement benefits); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 57,
+        "born": "1968-04-04"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "25000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "39250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "24200.00",
+    "state_tax_before_credits": "1028.50",
+    "credits": "0.00",
+    "state_income_tax": "1028.50",
+    "relief_amounts": {
+      "railroad_retirement": "25000.00"
+    }
+  },
+  "worked": "Federal AGI = taxable railroad retirement 25,000.00 + wages 30,000.00 = 55,000.00. Federal taxable income = 55,000.00 - federal standard deduction (15,750.00) = 39,250.00; given, not tested; the federal senior deduction is ignored. (Railroad Retirement Board annuity, entered with source private.) Michigan: Schedule 1 line 11 railroad retirement 25,000.00 subtracted in full at any age (born 1968, so no other retirement subtraction). Line 14 = 55,000.00 - 25,000.00 = 30,000.00; exemption 5,800.00; line 16 = 24,200.00. MI-1040 line 17 tax = 24,200.00 x 0.0425 = 1,028.50. No credits; state income tax 1,028.50.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mi_firepolice_public",
+    "state_rule_not_modelled:mi_ssa_exempt_1959_1964"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

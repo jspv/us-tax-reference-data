@@ -1,0 +1,593 @@
+{
+  "layer": "projection",
+  "state": "MD",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/MD.record.json",
+    "sha256": "0a29b548ec5c382202ccb201b6c3c6042885ba87c1713e9b00aa04eafb9758b8"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "100000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "125000"
+      },
+      {
+        "rate": "0.055",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "500000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1000000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "175000"
+      },
+      {
+        "rate": "0.055",
+        "start": "225000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "300000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "600000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1200000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "100000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "125000"
+      },
+      {
+        "rate": "0.055",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "500000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "1000"
+      },
+      {
+        "rate": "0.04",
+        "start": "2000"
+      },
+      {
+        "rate": "0.0475",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "150000"
+      },
+      {
+        "rate": "0.0525",
+        "start": "175000"
+      },
+      {
+        "rate": "0.055",
+        "start": "225000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "300000"
+      },
+      {
+        "rate": "0.0625",
+        "start": "600000"
+      },
+      {
+        "rate": "0.065",
+        "start": "1200000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "3350",
+          "married_separate": "3350",
+          "married_joint": "6700",
+          "head_of_household": "6700",
+          "qualifying_surviving_spouse": "6700"
+        },
+        "per": "return"
+      },
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "3200"
+        },
+        "per": "person",
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "married_joint": "150000",
+            "head_of_household": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "single",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "single",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "single",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "100000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_separate",
+              "over": "125000",
+              "amount": "800"
+            },
+            {
+              "status": "married_separate",
+              "over": "150000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "married_joint",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "married_joint",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "head_of_household",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "head_of_household",
+              "over": "200000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "150000",
+              "amount": "1600"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "175000",
+              "amount": "800"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "200000",
+              "amount": "0"
+            }
+          ]
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "ss_rr_exempt",
+      "from_record": [
+        "ss_rr_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pension_exclusion",
+      "from_record": [
+        "pension_exclusion_age_65"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "41200"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "social_security_basis": "gross"
+    },
+    {
+      "id": "military_retirement_55_plus",
+      "from_record": [
+        "military_retirement_55_plus"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 55
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "military_retirement_under_55",
+      "from_record": [
+        "military_retirement_under_55"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 54
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "age_100_income",
+      "from_record": [
+        "age_100_income"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 100
+      },
+      "cap": {
+        "all": "100000"
+      },
+      "cap_per": "person",
+      "all_income_scope": "person"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [
+    {
+      "id": "additional_cap_gain_tax",
+      "applies_to": "all_gains",
+      "treatment": "extra_rate",
+      "value": "0.02",
+      "applies_over": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "all": "350000"
+        },
+        "applies_when": "over"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "capital_gains_threshold",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "capital_gains"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "additional_cap_gain_tax",
+      "from_record": [
+        "additional_cap_gain_tax"
+      ],
+      "what": "Net capital gain from the sale of certain assets is excluded from the additional 2% tax (Form 502CG and Technical Bulletin 58, not in the sources); the projection charges the 2% on every gain once federal AGI is over 350,000.",
+      "warn_when": "income_over",
+      "income_over": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "all": "350000"
+        }
+      }
+    },
+    {
+      "id": "pension_exclusion_disabled",
+      "from_record": [
+        "pension_exclusion_disabled"
+      ],
+      "what": "Pension exclusion before 65 for a person who is totally disabled, or whose spouse is totally disabled (same 41,200 limit less Social Security and railroad retirement).",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "ranger_pension_exclusion",
+      "from_record": [
+        "ranger_pension_exclusion",
+        "public_safety_retirement"
+      ],
+      "what": "Up to 15,000 a year from 55 of retirement income from service as a forest, park or wildlife ranger, or as a correctional, law enforcement, fire, rescue or emergency services employee of the United States, Maryland or a Maryland locality.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "fire_police_injury_payments",
+      "from_record": [
+        "fire_police_injury_payments",
+        "fire_police_survivor_payments"
+      ],
+      "what": "Pension payments to firefighters and police for job-related injuries or disabilities, and to survivors of officers and firefighters killed on duty, are subtracted in full.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "state_pension_pickup",
+      "from_record": [
+        "state_pension_pickup"
+      ],
+      "what": "A Maryland state pension may be reduced by the pickup contributions taxed while working (carried forward until used).",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption",
+        "dependent_age_65_exemption"
+      ],
+      "what": "Exemptions for dependents (3,200 each, doubled for a dependent 65 or over), on the same income step-down.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "blind_exemption",
+      "from_record": [
+        "blind_exemption"
+      ],
+      "what": "1,000 exemption for a filer or spouse who is blind.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_obligations_income",
+      "from_record": [
+        "us_obligations_income"
+      ],
+      "what": "Interest and gains on U.S. government obligations are subtracted (and can raise the exemption, code hh).",
+      "warn_when": "never"
+    },
+    {
+      "id": "two_income_subtraction",
+      "from_record": [
+        "two_income_subtraction"
+      ],
+      "what": "Up to 1,200 subtracted on a joint return when both spouses have income: the smaller of 1,200 and the lower-earning spouse's income.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The additional 2% tax is charged on all net capital gain (short- and long-term, Form 502 Line 1c) when federal AGI is over 350,000. The booklet excludes 'net capital gain from the sale of certain assets' and leaves which assets to Form 502CG and Technical Bulletin 58, neither in the sources, so no exclusion is applied; nor does the booklet say whether short-term gains are part of 'net capital gain income'.",
+      "direction": "overstates_tax",
+      "size": "2% of any excluded gain (or of a short-term gain, if Maryland leaves it out) in a year federal AGI is over 350,000: a 300,000 gain that Form 502CG excludes is overstated by 6,000; nothing when AGI is 350,000 or less."
+    },
+    {
+      "what": "Roth conversions are not in the pension exclusion's covers: the booklet excludes IRAs but does not name conversions (covers_unclear). A conversion from a traditional IRA is IRA income and does not qualify; only a conversion out of a qualified employer plan could, if at all.",
+      "direction": "overstates_tax",
+      "size": "At most the state rate (up to 6.5%) times the unused exclusion room, in a conversion year, for a person 65 or older."
+    },
+    {
+      "what": "Only the standard deduction is applied; a household that itemizes federally may itemize in Maryland (less state and local income taxes, reduced by 7.5% of federal AGI over 200,000).",
+      "direction": "overstates_tax",
+      "size": "The state rate times itemized deductions above 3,350 single or 6,700 joint."
+    },
+    {
+      "what": "The personal exemption is applied per filer only; dependents' exemptions are not counted.",
+      "direction": "overstates_tax",
+      "size": "Up to 4.75% of 3,200 = 152 a year per dependent (6,400 for one 65 or over) at incomes where the full exemption is allowed."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "The state rate times the Treasury interest, plus any exemption the code hh adjustment would restore."
+    },
+    {
+      "what": "The two-income married couple subtraction is not applied.",
+      "direction": "overstates_tax",
+      "size": "At most 1,200 x 4.75% = 57 a year for a joint return with two earners."
+    },
+    {
+      "what": "The centenarian subtraction applies to all income of the person aged 100, but the projection splits joint investment income between spouses as it holds it, not as the booklet would attribute it.",
+      "direction": "either",
+      "size": "Only households with a person 100 or older; at most 6.5% of 100,000 = 6,500 a year."
+    },
+    {
+      "what": "The pension exclusion's covers include every employer-plan distribution; the booklet qualifies only plans under IRC 401(a), 403 and 457(b), which the Form 502R chart says include 401(k), 403(b), governmental 457(b), Thrift Savings and SIMPLE 401(k). A 457(f) plan does not qualify.",
+      "direction": "understates_tax",
+      "size": "Only for an ineligible 457(f) plan; up to 6.5% of the exclusion room."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "pension_income_deduction": "48216.00"
+    },
+    "state_agi": "41800.00",
+    "state_income_tax": "820.70",
+    "state_tax_before_credits": "820.70",
+    "state_taxable_income": "14150.00"
+  },
+  "worked": "Line 14 federal AGI (given): 90,016.00\nPhaseout of non-military pension worksheet (line 1 federal AGI): measure 90,016.00 not over threshold 187,500.00; share lost 0, kept 1.0000\nPension worksheet, person 0: P1 eligible 50,000.00; P2 48,216.00; P3 SS+railroad received 0.00; P4 48,216.00; P5 48,216.00; P6 0; P7 0.00; P8 48,216.00\nSch 1S line 4 pension income deduction (P10): 48,216.00\nLine 15b total subtractions: 48,216.00\nLine 16 Maine AGI: 90,016.00 + 0.00 - 48,216.00 = 41,800.00\nLine 17 chart: 22,500.00 + 0 box(es) 65 or over x 2000 = 22,500.00\nStandard deduction worksheet lines 1-5 (Maine AGI): measure 41,800.00 not over threshold 150,000.00; share lost 0, kept 1.0000\nWorksheet line 7 = 22,500.00 x 0 = 0.00; line 8 standard deduction = 22,500.00\nExemption phaseout worksheet lines 1-5 (Maine AGI): measure 41,800.00 not over threshold 366,750.00; share lost 0, kept 1.0000\nLine 18: 1 x 5,150 = 5,150.00; worksheet line 7 = 5150 x 0 = 0; exemption 5,150.00\nLine 19 taxable income: 41,800.00 - 22,500.00 - 5,150.00 = 14,150.00\nTax (2025 rate schedule, head_of_household): 0.058 x (14,150.00 - 0.00) = 820.7000; total 820.7000 -> 820.70\nCredits: the projection models no credits; 0.00. Federal taxable income is not used (Maine starts from federal AGI); federal senior deduction ignored as given."
+}

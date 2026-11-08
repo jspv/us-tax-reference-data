@@ -1,0 +1,16 @@
+[
+  {
+    "state": "TX",
+    "title": "Texas is open for small business (Comptroller, states Texas has no state income tax)",
+    "url": "https://comptroller.texas.gov/economy/fiscal-notes/industry/2025/small-biz-info/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:40:44.362329+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://comptroller.texas.gov/economy/fiscal-notes/industry/2025/small-biz-info/",
+    "file": "small-biz-info.html",
+    "bytes": 105226,
+    "sha256": "26a94261d083822a451ff8ff868b38c1f2d0ccb3c0031e8009baa3856df6b3b1",
+    "text_file": "small-biz-info.page.txt"
+  }
+]

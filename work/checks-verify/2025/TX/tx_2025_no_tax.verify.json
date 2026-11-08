@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "No personal income tax: the state's own statement, grepped in the archived source text, is the second working; all state lines are 0."
+}

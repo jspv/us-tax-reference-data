@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "607.50",
+    "state_tax_before_credits": "607.50",
+    "state_taxable_income": "24300.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 60,000.00. Line 35 subtractions 0.00; line 37 = 60,000.00 - 0.00 = 60,000.00. Box 8 = 2 (ages 68, 66); line 38 = 2 x 2,100 = 4,200.00. Line 42 Arizona AGI = 55,800.00. Line 43 standard deduction 31,500.00; line 45 = 55,800.00 - 31,500.00 = 24,300.00. Line 46 tax = 24,300.00 x 2.5% = 607.50. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 607.50. Federal figures given; federal senior deduction ignored."
+}

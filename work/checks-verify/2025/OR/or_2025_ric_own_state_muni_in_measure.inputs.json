@@ -1,0 +1,51 @@
+{
+  "id": "or_2025_ric_own_state_muni_in_measure",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.63-64 addition code 158 and PDF p.85-86 subtraction code 317; Pub OR-17 PDF p.106-107 'Retirement income' (credit code 811) worksheet lines 1-12; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "7000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "8000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "municipal_interest_own_state": "2000.00"
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.retirement_income_credit"
+  ]
+}

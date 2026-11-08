@@ -1,0 +1,734 @@
+{
+ "layer": "projection",
+ "state": "NM",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/NM.record.json",
+  "sha256": "9a96b783fc46941c97c8c6b593681e5cede7e74dd6399847cac9f0ffb747d01c"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "5500"
+   },
+   {
+    "rate": "0.043",
+    "start": "16500"
+   },
+   {
+    "rate": "0.047",
+    "start": "33500"
+   },
+   {
+    "rate": "0.049",
+    "start": "66500"
+   },
+   {
+    "rate": "0.059",
+    "start": "210000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "8000"
+   },
+   {
+    "rate": "0.043",
+    "start": "25000"
+   },
+   {
+    "rate": "0.047",
+    "start": "50000"
+   },
+   {
+    "rate": "0.049",
+    "start": "100000"
+   },
+   {
+    "rate": "0.059",
+    "start": "315000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "4000"
+   },
+   {
+    "rate": "0.043",
+    "start": "12500"
+   },
+   {
+    "rate": "0.047",
+    "start": "25000"
+   },
+   {
+    "rate": "0.049",
+    "start": "50000"
+   },
+   {
+    "rate": "0.059",
+    "start": "157500"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "8000"
+   },
+   {
+    "rate": "0.043",
+    "start": "25000"
+   },
+   {
+    "rate": "0.047",
+    "start": "50000"
+   },
+   {
+    "rate": "0.049",
+    "start": "100000"
+   },
+   {
+    "rate": "0.059",
+    "start": "315000"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": "added_back",
+  "deductions": [
+   {
+    "id": "age_65_exemption",
+    "amount": {
+     "all": "8000"
+    },
+    "per": "person",
+    "min_age": 65,
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "married_joint": "30000",
+      "head_of_household": "30000",
+      "qualifying_surviving_spouse": "30000",
+      "single": "18000",
+      "married_separate": "15000"
+     },
+     "effect": "stepped",
+     "steps": [
+      {
+       "status": "married_joint",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_joint",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "married_joint",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_joint",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "married_joint",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_joint",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "married_joint",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_joint",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "head_of_household",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "single",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "18000",
+       "amount": "7000"
+      },
+      {
+       "status": "single",
+       "over": "19500",
+       "amount": "6000"
+      },
+      {
+       "status": "single",
+       "over": "21000",
+       "amount": "5000"
+      },
+      {
+       "status": "single",
+       "over": "22500",
+       "amount": "4000"
+      },
+      {
+       "status": "single",
+       "over": "24000",
+       "amount": "3000"
+      },
+      {
+       "status": "single",
+       "over": "25500",
+       "amount": "2000"
+      },
+      {
+       "status": "single",
+       "over": "27000",
+       "amount": "1000"
+      },
+      {
+       "status": "single",
+       "over": "28500",
+       "amount": "0"
+      },
+      {
+       "status": "married_separate",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "15000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_separate",
+       "over": "16500",
+       "amount": "6000"
+      },
+      {
+       "status": "married_separate",
+       "over": "18000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_separate",
+       "over": "19500",
+       "amount": "4000"
+      },
+      {
+       "status": "married_separate",
+       "over": "21000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_separate",
+       "over": "22500",
+       "amount": "2000"
+      },
+      {
+       "status": "married_separate",
+       "over": "24000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_separate",
+       "over": "25500",
+       "amount": "0"
+      }
+     ]
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_single",
+    "amount": {
+     "single": "2500"
+    },
+    "per": "person",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "single": "20000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.15"
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_joint_hoh",
+    "amount": {
+     "married_joint": "2500",
+     "qualifying_surviving_spouse": "2500",
+     "head_of_household": "2500"
+    },
+    "per": "person",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "married_joint": "30000",
+      "qualifying_surviving_spouse": "30000",
+      "head_of_household": "30000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.10"
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_separate",
+    "amount": {
+     "married_separate": "2500"
+    },
+    "per": "person",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "married_separate": "15000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.20"
+    }
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "relief"
+ },
+ "reliefs": [
+  {
+   "id": "social_security_exemption",
+   "from_record": [
+    "social_security_exemption"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi"
+    },
+    "threshold": {
+     "single": "100000",
+     "married_separate": "75000",
+     "married_joint": "150000",
+     "head_of_household": "150000",
+     "qualifying_surviving_spouse": "150000"
+    },
+    "effect": "removes",
+    "applies_when": "over"
+   }
+  },
+  {
+   "id": "armed_forces_retirement_pay",
+   "from_record": [
+    "armed_forces_retirement_pay"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap": {
+    "all": "30000"
+   },
+   "cap_per": "person"
+  },
+  {
+   "id": "railroad_retirement_exempt",
+   "from_record": [
+    "railroad_retirement_exempt"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return"
+   }
+  },
+  {
+   "id": "centenarian_exemption",
+   "from_record": [
+    "centenarian_exemption"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "min_age": 100
+   },
+   "cannot_combine_with": [
+    "age_65_exemption"
+   ]
+  },
+  {
+   "id": "net_capital_gains_cap",
+   "from_record": [
+    "net_capital_gains_cap",
+    "net_capital_gains_deduction"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cap": {
+    "single": "2500",
+    "married_joint": "2500",
+    "head_of_household": "2500",
+    "qualifying_surviving_spouse": "2500",
+    "married_separate": "1250"
+   },
+   "cap_per": "return"
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "relief_income_tests",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.income_test"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "blind_exemption",
+   "from_record": [
+    "blind_exemption"
+   ],
+   "what": "Table 1 exemption for a person under 65 who is blind for federal income tax purposes; a projection does not know this. A person 65 or older gets the same amount and nothing more for blindness.",
+   "warn_when": "never"
+  },
+  {
+   "id": "certain_dependents_deduction",
+   "from_record": [
+    "certain_dependents_deduction",
+    "low_middle_income_exemption_single",
+    "low_middle_income_exemption_joint_hoh",
+    "low_middle_income_exemption_separate"
+   ],
+   "what": "The 4,000 deduction for each dependent beyond the first (head of household or joint only), and the dependents' share of the low- and middle-income exemption.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "medical_expense_exemption_65",
+   "from_record": [
+    "medical_expense_exemption_65"
+   ],
+   "what": "3,000 exemption at 65 or older with unreimbursed medical care expenses of 28,000 or more in the year; medical spending is not a yearly fact here.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    65,
+    120
+   ]
+  },
+  {
+   "id": "nm_medical_care_credit_property_tax_rebate",
+   "from_record": [],
+   "what": "Refundable medical care credit for persons 65 or older (PIT-RC line 23; its terms are in the PIT-RC instructions, not in the sources), and the property tax rebate at 65 or older with modified gross income of 16,000 or less, at most 250 (125 separate; PIT-RC line 17c).",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    65,
+    120
+   ]
+  },
+  {
+   "id": "us_government_obligation_interest",
+   "from_record": [
+    "us_government_obligation_interest"
+   ],
+   "what": "Interest on U.S. government obligations, and mutual fund dividends attributable to it, is deducted (PIT-ADJ line 9); a projection cannot tell it from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "nm_tax_exempt_interest",
+   "from_record": [
+    "nm_tax_exempt_interest"
+   ],
+   "what": "New Mexico and territorial obligations (PIT-ADJ line 7): muni_interest carries the rule for tax-exempt bonds; federally taxable New Mexico bonds are also deducted and a projection cannot tell them from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "business_sale_gain_deduction",
+   "from_record": [
+    "business_sale_gain_deduction"
+   ],
+   "what": "40% of up to 1,000,000 of net capital gain from the sale of a business allocated to New Mexico, in place of the 2,500 deduction when larger.",
+   "warn_when": "never"
+  },
+  {
+   "id": "indian_country_income",
+   "from_record": [
+    "indian_country_income"
+   ],
+   "what": "Income of an enrolled member of a New Mexico nation, tribe or pueblo earned within its boundaries while domiciled there, including retirement income from employment there.",
+   "warn_when": "never"
+  },
+  {
+   "id": "active_duty_pay_exemption",
+   "from_record": [
+    "active_duty_pay_exemption"
+   ],
+   "what": "Active duty armed forces pay is subtracted (PIT-ADJ line 17); a projection cannot tell it from other wages.",
+   "warn_when": "never"
+  },
+  {
+   "id": "organ_donation_deduction",
+   "from_record": [
+    "organ_donation_deduction",
+    "teacher_school_supplies_deduction"
+   ],
+   "what": "Organ donation expenses up to 10,000 and public school teachers' supplies of 1,000.",
+   "warn_when": "never"
+  },
+  {
+   "id": "nm_other_pit_adj_lines",
+   "from_record": [],
+   "what": "Other PIT-ADJ lines held in the record's notes: Section 529 contributions, net operating loss, Medical Care Savings Account, National Guard reimbursement, refunds of state and local tax, liquor license lessor, cannabis business expenses.",
+   "warn_when": "never"
+  },
+  {
+   "id": "nm_lump_sum_averaging",
+   "from_record": [],
+   "what": "New Mexico averaging on a lump-sum distribution taxed on federal Form 4972 (PIT-1 line 19).",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "nm_other_state_credit_part_year",
+   "from_record": [],
+   "what": "Credit for taxes paid to another state (PIT-1 line 20). Part-year and first-year residence (Schedule PIT-B allocates by a percentage of the tax).",
+   "warn_when": "never"
+  },
+  {
+   "id": "nm_rebates_and_credits",
+   "from_record": [],
+   "what": "Low income comprehensive tax rebate (modified gross income of 36,000 or less), additional county property tax rebate, Working Families Tax Credit, Child Income Tax Credit, child day care credit and business-related credits (PIT-1 lines 21, 24 to 26; PIT-RC).",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "Starts from federal taxable income although the record's base is federal AGI, because New Mexico subtracts the federal standard or itemized deduction (PIT-1 line 12, Form 1040 line 12) and prints no amount of its own. Starting from AGI with no deduction would overstate tax by the whole federal deduction. Form PIT-1 confirms it: line 12 is the only federal deduction it takes, and it has no line for anything the federal return subtracts after line 12, so a consumer's federal taxable income is too low by that amount.",
+   "direction": "understates_tax",
+   "size": "The amount the federal return subtracts after line 12, at the New Mexico rate."
+  },
+  {
+   "what": "The add-back of state and local taxes for itemizers (PIT-1 line 10 and worksheet) is not applied.",
+   "direction": "understates_tax",
+   "size": "Itemizers only; at most itemized deductions less the federal standard deduction."
+  },
+  {
+   "what": "Over 100,000 the printed section is base plus rate, and each base is the table's last row (midpoint 99,950), not the tax at 100,000. A bracket schedule cannot hold that step down, so the schedule gives more than the printed section at every income over 100,000.",
+   "direction": "overstates_tax",
+   "size": "2 single, joint, head of household; 2.50 separate. Example: single at 150,000 is 6,808 by the schedule, 6,806 as printed."
+  },
+  {
+   "what": "The cap of 2,500 applies to all gains; the booklet's net capital gains exclude short-term gains.",
+   "direction": "understates_tax",
+   "size": "At most 2,500 of income, only for a household with no long-term gains."
+  },
+  {
+   "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "A projection that cannot tell New Mexico bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "The age 100 exemption offsets the person's own income; a married centenarian exempts half of all community income and all separate income, and New Mexico is a community property state.",
+   "direction": "either"
+  }
+ ],
+ "recapture": [],
+ "derived_figures": [
+  {
+   "value": "1250",
+   "how": "half",
+   "of": [
+    "2500"
+   ],
+   "what": "Married filing separately: 'one-half of the net capital gains deduction allowed on a joint return'."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "wi_2025_military_and_ira_at_68",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_military_retirement",
+    "wi_retirement_67"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 12 (SB Instructions PDF page 6; Publication 126 PDF pages 5-6 section 4.D); line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; Publication 126 PDF page 8: a distribution excluded under another provision, such as military retirement pay, is not in line 16",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "interest": "30000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "82250.00"
+  },
+  "expected": {
+    "state_agi": "36000.00",
+    "state_taxable_income": "23494.00",
+    "state_tax_before_credits": "901.62",
+    "credits": "0.00",
+    "state_income_tax": "901.62",
+    "relief_amounts": {
+      "wi_military_retirement": "40000.00",
+      "wi_retirement_67": "24000.00"
+    }
+  },
+  "worked": "Single, 68: military retirement pay 40,000, IRA distributions 30,000 and interest 30,000. Line 12 removes the military pay; line 16 takes only income not removed on lines 12-15, so its qualifying income is the IRA 30,000, capped at 24,000. Federal (given, not tested): federal AGI = ira distribution (you) 30,000.00 + military pension paid by federal (you) 40,000.00 + interest 30,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 82,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 100,000.00; line 2 Schedule I adjustments 0.00; line 3 100,000.00; line 4 additions 0.00; line 5 100,000.00. Schedule SB: line 12 military retirement pay = 40,000.00; line 16 retirement income subtraction: qualifying income you (age 68): IRA 30,000.00 = 30,000.00; smaller of 30,000.00 and the 24,000.00 cap = 24,000.00; line 50 total 64,000.00. Schedule SB line 17: federal AGI 100,000.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 64,000.00; line 7 Wisconsin income = 100,000.00 - 64,000.00 = 36,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 36,000 to less than 36,500, column Single: 11,556.00 (printed row, at least / less than / single / joint / separate / head of household: 36,000 / 36,500 / 11,556 / 23,520 / 7,409 / 13,760). Line 9 = 36,000.00 - 11,556.00 = 24,444.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 24,444.00 - 950.00 = 23,494.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 8,814.00 = 387.816; total 901.616, rounded once to 901.62. The Tax Table row 23,400 to 23,500 (PDF page 39) gives 900; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 901.62.",
+  "accepted_approximations": [
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

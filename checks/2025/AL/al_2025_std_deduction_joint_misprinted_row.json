@@ -1,0 +1,61 @@
+{
+  "id": "al_2025_std_deduction_joint_misprinted_row",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8): married filing joint column third row (printed '$25,500 - $26,999', read 26,500 - 26,999) 8,150; Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-04-04"
+      },
+      {
+        "age": 48,
+        "born": "1977-11-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "16500.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "26500.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "26500.00",
+    "state_taxable_income": "15350.00",
+    "state_tax_before_credits": "687.50",
+    "credits": "0.00",
+    "state_income_tax": "687.50"
+  },
+  "worked": "Federal AGI = wages (person 0) 16,500.00 + wages (person 1) 10,000.00 = 26,500.00. Federal taxable income = 26,500.00 - 31,500.00 federal standard deduction = -5,000.00, floored at 0.00 (given, not tested; the federal senior deduction is ignored). Alabama: the projection starts from federal AGI and removes exempt income (Form 40 builds its own lines 5b to 10, which give the same AGI for this household). Form 40 line 10 Alabama AGI = 26,500.00. Line 11 standard deduction (married filing jointly, chart PDF page 9): AL AGI 26,500.00 is over 26,499.00, the band 26,500.00 to 26,999.00, so 8,150.00. The joint column's third row is printed '$25,500 - $26,999'; the rows beside it and the other columns show it is 26,500 - 26,999 (record note), so AGI 26,500 takes that row's 8,150. Line 12 federal income tax deduction: the 2025 federal income tax is 0.00 (federal taxable income 0.00), so 0.00 on the form too. Line 13 personal exemption (married filing jointly) 3,000.00. Line 14 dependent exemption 0.00 (no dependents). Line 15 total deductions = 8,150.00 + 0.00 + 3,000.00 + 0.00 = 11,150.00. Line 16 taxable income = 26,500.00 - 11,150.00 = 15,350.00. Line 17 tax from the derived married filing jointly schedule (2% from 0, 4% from 1,000, 5% from 6,000): (1,000.00 - 0.00) x 0.02 = 20.00 + (6,000.00 - 1,000.00) x 0.04 = 200.00 + (15,350.00 - 6,000.00) x 0.05 = 467.50 = 687.50; the tax table row 15,300-15,400 (married filing jointly column, PDF pages 25 to 30) gives 688. Line 18 net tax due, no credits: 687.50.",
+  "accepted_approximations": [
+    "The brackets are derived from the tax table. Under 100,000 the table taxes each 100-dollar row at its midpoint, rounded; above 100,000 the printed worksheet ((income - 100,000) x .05 + 4,958, or + 4,918 joint) is 2 dollars below the derived brackets."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:al_federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "ks_2025_treasury_interest_not_modelled",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "kansas_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); Schedule S line A12 (ip25 PDF page 21), instructions PDF pages 11-12; tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00",
+      "interest": "750.00"
+    },
+    "federal_agi": "54750.00",
+    "federal_taxable_income": "39000.00"
+  },
+  "expected": {
+    "state_agi": "54750.00",
+    "state_taxable_income": "41985.00",
+    "state_tax_before_credits": "2255.36",
+    "credits": "0.00",
+    "state_income_tax": "2255.36"
+  },
+  "worked": "Federal AGI = wages (you) 50,000.00 + interest 750.00 + U.S. Treasury interest 4,000.00 = 54,750.00. Federal taxable income = 54,750.00 - standard deduction 15,750.00 (15,750.00) = 39,000.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). No Kansas modifications: Schedule S lines A9 and A26 are 0.00, line A27 net modification 0.00 (the K-40 instructions let a filer skip line 2). Form K-40: line 1 federal AGI 54,750.00; line 2 modifications 0.00; line 3 Kansas AGI = 54,750.00 + (0.00) = 54,750.00; line 4 standard deduction (single) 3,605.00; line 5 exemption allowance (1 exemption) 9,160.00, 0 dependents; line 6 total deductions = 3,605.00 + 9,160.00 = 12,765.00; line 7 taxable income = 54,750.00 - 12,765.00 = 41,985.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 23,000.00 = 1,196.00 + 5.58% x (41,985.00 - 23,000.00 = 18,985.00) = 1,059.3630; total 2,255.3630 = 2,255.36. Line 7 is 100,000 or less, so the form reads the tax table: row 41,951-42,000, single, head of household or married filing separate column, PDF page 30, gives 2,255; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 2,255.36. Credits (lines 13-15, 17): none, 0.00; state income tax = 2,255.36. Projection: line A12 is not modelled, so the 4,000.00 stays in. The booklet would subtract it on line A12: line 3 50,750.00, line 7 37,985.00, tax 1,196.00 + 5.58% x 14,985.00 = 2,032.16, which is 223.20 less (5.58% x 4,000.00). The ordinary interest of 750.00 is taxed either way.",
+  "accepted_approximations": [
+    "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

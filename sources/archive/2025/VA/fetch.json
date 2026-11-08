@@ -1,0 +1,28 @@
+[
+  {
+    "state": "VA",
+    "title": "2025 Form 760 Resident Individual Income Tax Instructions",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+    "retrieved": "2026-11-06T22:17:26.831046+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+    "file": "2025-760-instructions.pdf",
+    "bytes": 998626,
+    "sha256": "175a71bbdd7a2cc1a5638ab40dbce89a6367cd844e68729359ab93eab2f04d06",
+    "archived_url": "https://web.archive.org/web/20261028005156id_/https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  {
+    "state": "VA",
+    "title": "2025 Form 760 Resident Individual Income Tax Return",
+    "url": "https://www.tax.virginia.gov/sites/default/files/taxforms/individual-income-tax/2025/760-2025.pdf",
+    "retrieved": "2026-11-06T22:17:32.076229+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.virginia.gov/sites/default/files/taxforms/individual-income-tax/2025/760-2025.pdf",
+    "file": "760-2025.pdf",
+    "bytes": 2146839,
+    "sha256": "bb271a15f9ad173ed900bb23dc7d154c0cb2056bdd05957fb25e5faedbc27575",
+    "archived_url": "https://web.archive.org/web/20260521012658id_/https://www.tax.virginia.gov/sites/default/files/taxforms/individual-income-tax/2025/760-2025.pdf"
+  }
+]

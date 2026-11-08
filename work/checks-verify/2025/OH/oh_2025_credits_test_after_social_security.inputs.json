@@ -1,0 +1,53 @@
+{
+  "id": "oh_2025_credits_test_after_social_security",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_income_credit",
+    "senior_citizen_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; Schedule of Adjustments line 16 (PDF p.20; bundle PDF p.3); Senior Citizens page 'Social Security Benefits'; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 2 (PDF p.28; Table 2 PDF p.44; bundle PDF p.7); Department FAQ 2; Schedule of Credits line 4 (PDF p.28; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-08-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "90050.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "20000.00"
+    },
+    "federal_agi": "110050.00",
+    "federal_taxable_income": "92300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.retirement_income_credit",
+    "relief_amounts.senior_citizen_credit"
+  ]
+}

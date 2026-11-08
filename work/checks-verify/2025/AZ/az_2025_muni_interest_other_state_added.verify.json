@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1181.25",
+    "state_tax_before_credits": "1181.25",
+    "state_taxable_income": "47250.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 60,000.00. Line 15 add non-Arizona municipal interest 3,000.00. Arizona municipal interest 2,000.00 is not in federal AGI and is not added back (muni treatment other_states_taxed_own_exempt). Line 19 = 63,000.00. Line 35 subtractions 0.00; line 37 = 63,000.00 - 0.00 = 63,000.00. Box 8 = 0 (ages 60); line 38 = 0 x 2,100 = 0.00. Line 42 Arizona AGI = 63,000.00. Line 43 standard deduction 15,750.00; line 45 = 63,000.00 - 15,750.00 = 47,250.00. Line 46 tax = 47,250.00 x 2.5% = 1,181.25. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 1,181.25. Federal figures given; federal senior deduction ignored."
+}

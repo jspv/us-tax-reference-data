@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "121900.00",
+    "state_taxable_income": "120000.00",
+    "state_tax_before_credits": "3019.32",
+    "credits": "0.00",
+    "state_income_tax": "3019.32",
+    "relief_amounts": {
+      "senior_citizen_credit": "0.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 121900.00. Line 3 Ohio AGI: 121900.00 + 0.00 - 0.00 = 121900.00. MAGI = Ohio AGI, no business income deduction. Line 4 exemptions: Ohio AGI over 80,000 and under 750,000: 1,900 each; 1 x 1900.00 = 1900.00. Line 5 and line 7: 121900.00 - 1900.00 = 120000.00. Line 8a bracket tax: over 100,000: 2,394.32 + 3.125% x (120000.00 - 100,000) = 3019.3200000 = 3019.32, by formula, no whole-dollar rounding. MAGI less exemptions 120000.00 is not under 100,000. Line 2 retirement income credit: no covered income, 0.00. Line 4 senior citizen credit: older person 70; 65 or older; 0.00. Credits 0.00; state income tax 3019.32 - 0.00 = 3019.32. Exemption credit (line 9) not applied: not_modelled. Federal senior deduction ignored; federal figures given, not tested."
+}

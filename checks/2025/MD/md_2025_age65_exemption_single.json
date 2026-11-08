@@ -1,0 +1,50 @@
+{
+  "id": "md_2025_age65_exemption_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_exemption",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule I (PDF page 22); Instruction 10 'EXEMPTIONS ALLOWED' (PDF page 13): 1,000 for age 65 or older on the last day of the year; Form 502 Exemptions Line B",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-10"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2550.00"
+    },
+    "federal_agi": "42550.00",
+    "federal_taxable_income": "24800.00"
+  },
+  "expected": {
+    "state_agi": "42550.00",
+    "state_taxable_income": "35000.00",
+    "state_tax_before_credits": "1610.00",
+    "credits": "0.00",
+    "state_income_tax": "1610.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (you) 40,000.00 + interest 2,550.00 = 42,550.00. Federal taxable income = 42,550.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 24,800.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 42,550.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 42,550.00. Line 14 two-income subtraction: 0.00 (not a joint return). Line 15 total subtractions 0.00. Line 16 Maryland AGI = 42,550.00 - 0.00 = 42,550.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 3,350.00. Line 18 net income = 42,550.00 - 3,350.00 = 39,200.00. Line 19 exemptions: Chart 10A at federal AGI 42,550.00 (not over 100,000) gives 3,200.00 each x 1 (Box A) + 1,000.00 x 1 for age 65 or older (Box B, not reduced by the chart) = 4,200.00. Line 20 taxable net income = 39,200.00 - 4,200.00 = 35,000.00. Line 21 tax, Schedule I as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 32,000.00 = 1,520.00; total 1,610.00. (The tax table row 35,000-35,050, PDF page 36, gives 1,611; expected keeps the formula figure.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 1,610.00. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). The IRA distribution does not qualify for the pension exclusion (Line 10a: a traditional IRA does not qualify), so Line 10a is 0.00 and the 1,000 age exemption is the only age relief.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

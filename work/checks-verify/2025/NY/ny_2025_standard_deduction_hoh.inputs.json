@@ -1,0 +1,43 @@
+{
+  "id": "ny_2025_standard_deduction_hoh",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 11, Line 34, New York State standard deduction table (head of household 11,200); Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "66375.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.standard_deduction"
+  ]
+}

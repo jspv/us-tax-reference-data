@@ -1,0 +1,42 @@
+[
+  {
+    "state": "MT",
+    "title": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "retrieved": "2026-11-07T01:13:32.409289+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "file": "2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+    "bytes": 2517564,
+    "sha256": "bed29192ae2fb020272962d8629101f05133ca00ccda04bf508c8bf939d2ef98",
+    "archived_url": "https://web.archive.org/web/20260103143907id_/https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  {
+    "state": "MT",
+    "title": "2025 Montana Individual Income Tax Return Form 2",
+    "url": "https://revenuefiles.mt.gov/files/Forms/Montana-Individual-Income-Tax-Return-Form-2/2025_Montana_Individual_Income_Tax_Return_Form_2.pdf",
+    "retrieved": "2026-11-07T01:13:40.817533+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenuefiles.mt.gov/files/Forms/Montana-Individual-Income-Tax-Return-Form-2/2025_Montana_Individual_Income_Tax_Return_Form_2.pdf",
+    "file": "2025_Montana_Individual_Income_Tax_Return_Form_2.pdf",
+    "bytes": 425811,
+    "sha256": "4671aef667749732670c07fd51cbeed6bc824dc6466cfe19597787b3d6ba2b37",
+    "archived_url": "https://web.archive.org/web/20260105211001id_/https://revenuefiles.mt.gov/files/Forms/Montana-Individual-Income-Tax-Return-Form-2/2025_Montana_Individual_Income_Tax_Return_Form_2.pdf"
+  },
+  {
+    "state": "MT",
+    "title": "Montana Tax Simplification Resource Hub (pensions, Social Security, age 65 subtraction)",
+    "url": "https://revenue.mt.gov/montana-tax-simplification-resource-hub",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:13:47.341416+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.mt.gov/montana-tax-simplification-resource-hub",
+    "file": "montana-tax-simplification-resource-hub.html",
+    "bytes": 87937,
+    "sha256": "877bddde69ba5b5316bf500939f64afced4d028358ceb1d5b413be4f458ea95d",
+    "text_file": "montana-tax-simplification-resource-hub.page.txt"
+  }
+]

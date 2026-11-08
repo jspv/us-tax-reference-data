@@ -1,0 +1,59 @@
+{
+  "id": "ok_2025_federal_csrs_gets_line_5",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ok_government_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); Schedule 511-A (form PDF page 45); Schedule 511-A line 5, Oklahoma Government or Federal Civil Service Retirement (PDF page 17); Special exemption and Sixty-five or older (PDF page 9); Schedule 511-A line 3, Federal Civil Service Retirement in Lieu of Social Security (PDF page 17), not_modelled",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-06-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30350.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "30350.00",
+    "federal_taxable_income": "12600.00"
+  },
+  "expected": {
+    "state_agi": "20350.00",
+    "state_taxable_income": "13000.00",
+    "state_tax_before_credits": "429.00",
+    "credits": "0.00",
+    "state_income_tax": "429.00",
+    "relief_amounts": {
+      "ok_government_retirement": "10000.00"
+    }
+  },
+  "worked": "Federal AGI = U.S. civil service pension (you) 30,350.00 = 30,350.00. Federal taxable income = 30,350.00 - standard deduction 17,750.00 (15,750.00 + 1 x 2,000.00 for 65 or older) = 12,600.00 (federal senior deduction ignored; federal figures are given, not tested; Oklahoma starts from federal AGI). Schedule 511-A: line 5: you 30,350.00 in federal AGI, limit 10,000.00, claims 10,000.00; line total 10,000.00; line 18 total subtractions 10,000.00 = 10,000.00. Form 511: line 1 federal AGI 30,350.00; line 2 subtractions 10,000.00; line 3 = 30,350.00 - 10,000.00 = 20,350.00; line 4 out-of-state income 0.00; line 5 20,350.00; line 6 additions 0.00; line 7 Oklahoma AGI 20,350.00; line 8 adjustments 0.00; line 9 20,350.00; line 10 standard deduction (single) 6,350.00; line 11 exemptions: 1 Regular + 0 Special = 1 x 1,000.00 = 1,000.00 (1 person(s) 65 or older; line 1 30,350.00 is over the 15,000.00 limit, so 0 Special); line 12 = 6,350.00 + 1,000.00 = 7,350.00; line 13 taxable income = 20,350.00 - 7,350.00 = 13,000.00; line 14 tax (the projection's brackets as numbers; the booklet prints only a table and worksheets): 0.25% x 1,000.00 = 2.5000 + 0.75% x 1,500.00 = 11.2500 + 1.75% x 1,250.00 = 21.8750 + 2.75% x 1,150.00 = 31.6250 + 3.75% x 2,300.00 = 86.2500 + 4.75% x 5,800.00 = 275.5000; total 429.0000 = 429.00. Line 13 is under 100,000, so the form reads the tax table: row 13,000-13,050, column 'Single or married filing separate', PDF page 28, gives 430; expected keeps the schedule figure. Lines 15-17 credits 0.00; line 18 income tax 429.00. Projection: a federal pension cannot be told from CSRS in lieu of Social Security, so it takes line 5. If this annuity is CSRS paid in lieu of Social Security, the booklet excludes all of it on line 3: Oklahoma AGI 0.00 and tax 0.00, so the projection is 429.00 too high here.",
+  "accepted_approximations": [
+    "The brackets are derived from the printed tax table and the 100,000-and-over worksheets; the booklet prints no schedule. Below 100,000 tax is figured on the exact income, where the booklet taxes each 50-dollar row at its midpoint and rounds. At 100,000 and over the single and separate worksheet starts from 4,562 where the schedule gives 4,561.50.",
+    "CSRS retirement paid in lieu of Social Security gets the 10,000 limit instead of 100% (not_modelled), and that uses up the limit the person's line 6 income would have had."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:csrs_in_lieu_of_ss"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

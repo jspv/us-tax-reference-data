@@ -1,0 +1,56 @@
+{
+  "id": "nm_2025_centenarian_single_interest_dividends",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "centenarian_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF pages 3 to 4, line 12, boxes 12a and 12b; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "interest": "12000.00",
+      "dividends": "8000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_agi": "-17750.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "centenarian_exemption": "50000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 30,000.00 + interest 12,000.00 + dividends 8,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 32,250.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, single. Line 9 federal AGI 50,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 17,750.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 50,000.00 is over the worksheet's printed ceiling 36,667.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 12 age 100 or older (person 0, age 100): all income on this return = 50,000.00; PIT-ADJ line 28 total 50,000.00. Line 17 = 50,000.00 + 0.00 - 17,750.00 - 0.00 - 50,000.00 = -17,750.00, which cannot be less than zero, so 0.00. By the projection: state_agi = federal taxable income 32,250.00 - 50,000.00 = -17,750.00; less base deductions 0.00 gives 0.00. state_agi is left negative: only line 17 is floored. Line 18 tax 0.00. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 0.00. Interest and dividends carry no person in the inputs; on a single return they are the centenarian's own, so they are exempt too.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "de_2025_joint_accounts_booklet_example",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "de_pension_excl_60_plus",
+    "de_additional_personal_credit_60"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. §1102(a)(14)",
+    "section": "Instructions PDF p.6 Line 6 Pension Exclusion (60-or-over worksheet lines 1-4, eligible retirement income, NOTE, Pension Exclusion Example: joint bank and mutual fund accounts, 5,000 interest, 1,000 dividends, 3,000 capital gains 'split equally between the two taxpayers', combined exclusion 17,000); Instructions PDF p.5 Filing Status 3 or 4 and Line 1 (one-half of income from securities and bank accounts titled in joint names); 30 Del. C. §1106(b)(3)f.1.B (joint tenancy retirement income deemed received 1/2 by each); Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.8 Line 20a standard deduction table, Line 21, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. §1102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      },
+      {
+        "age": 61,
+        "born": "1964-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "5000.00",
+      "dividends": "1000.00",
+      "long_term_gains": "3000.00"
+    },
+    "federal_agi": "59000.00",
+    "federal_taxable_income": "27500.00"
+  },
+  "expected": {
+    "state_agi": "42000.00",
+    "state_taxable_income": "35500.00",
+    "state_tax_before_credits": "1583.75",
+    "credits": "440.00",
+    "state_income_tax": "1143.75",
+    "relief_amounts": {
+      "de_pension_excl_60_plus": "17000.00",
+      "de_additional_personal_credit_60": "220.00"
+    }
+  },
+  "worked": "The booklet's own Line 6 example (PDF p.6): the primary taxpayer (person 0) has a 10,000.00 pension, the secondary taxpayer (person 1) none; joint bank and mutual fund accounts earn 5,000.00 interest, 1,000.00 dividends and 3,000.00 capital gains, split equally; both are over 60. Figures the example does not give, chosen here: the ages (63 and 61, both over 60 and under 65, so no Line 21 additional deduction); the pension is a private employer pension; the gains are long-term (Delaware taxes all gains alike, so the term does not matter); and 40,000.00 of wages for the secondary taxpayer, so the return has tax to compute and Line 11 does not apply. Wages are not eligible retirement income, so they do not change the exclusion. Federal (given, not tested): federal AGI = wages (spouse) 40,000.00 + private pension (you) 10,000.00 + interest 5,000.00 + dividends 1,000.00 + capital gains 3,000.00 = 59,000.00. Federal taxable income = 59,000.00 - standard deduction 31,500.00 = 27,500.00 (both under 65; federal senior deduction ignored). Form PIT-RES (filing status 2 joint, Column B): Line 1 federal AGI 59,000.00; Line 2 other states' obligations interest 0.00; Line 3 0.00; Line 4 total 59,000.00. Line 5 U.S. obligations interest 0.00. Line 6 pension exclusion, you (primary, age 63), 60-or-over worksheet: line 1 pension 10,000.00; line 2 eligible retirement income = half the interest 2,500.00 + half the dividends 500.00 + half the gains 1,500.00 = 4,500.00; line 3 = 14,500.00 (the booklet: 10,000+2,500+500+1,500=14,500); line 4 lesser of 14,500.00 and 12,500.00 = 12,500.00. Line 6 pension exclusion, spouse (secondary, age 61): line 1 pension 0.00; line 2 = 2,500.00 + 500.00 + 1,500.00 = 4,500.00; line 3 = 4,500.00; line 4 lesser of 4,500.00 and 12,500.00 = 4,500.00 (the booklet: 4,500). The secondary taxpayer cannot use the 2,000.00 by which the primary exceeds 12,500.00 (booklet). Line 6 total = 12,500.00 + 4,500.00 = 17,000.00, the booklet's combined exclusion (12,500+4,500). For comparison (not the rule): all 9,000.00 of joint income to the primary gives 12,500.00 + 0.00 = 12,500.00; all to the secondary gives 10,000.00 + 9,000.00 = 19,000.00; the booklet splits it half each. Line 7 0.00; Line 8a 0.00; Line 8b 0.00. Line 9 (Lines 5-8b) = 17,000.00. Line 10 = 59,000.00 - 17,000.00 = 42,000.00. Line 11 0.00 (Line 11 worksheet: combined earned income 40,000.00 is not under 5,000, so no). Line 12 Delaware AGI = 42,000.00. Line 20a standard deduction (filing status 2) 6,500.00; Line 21 additional standard deduction 0 boxes for 65 or over = 0.00; Line 22 = 6,500.00. Line 23 taxable income = 42,000.00 - 6,500.00 = 35,500.00. Line 24 tax, §1102(a)(14) schedule as numbers: 2.2% x 3,000.00 = 66.00 + 3.9% x 5,000.00 = 195.00 + 4.8% x 10,000.00 = 480.00 + 5.2% x 5,000.00 = 260.00 + 5.55% x 10,500.00 = 582.75; total 1,583.75 (the Division's tax table, not in the sources, would give a row figure; expected keeps the formula). Line 25 0.00; Line 26 = 1,583.75. Line 27a personal credits 2 x 110.00 = 220.00; Line 27b additional credits 2 boxes for 60 or over x 110.00 = 220.00; Line 32 total non-refundable credits 440.00. Line 33 balance = 1,583.75 - 440.00 = 1,143.75. Boundary null: the primary's exclusion is at the 12,500 cap and the secondary's below it.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

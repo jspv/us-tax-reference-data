@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "184000.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "32402.00",
+    "senior_deduction": "0.00",
+    "standard_deduction": "18150.00",
+    "taxable_income": "165850.00",
+    "taxable_social_security": "34000.00",
+    "total_tax": "32402.00"
+  },
+  "worked": "Form 1040: line 1z wages 0; line 2a tax-exempt interest 0; line 2b taxable interest 0; line 3a qualified dividends 0; line 3b ordinary dividends 0; lines 4b+5b pensions/IRA 150000; line 7a capital gain 0; line 8 other income 0. SS Benefits Worksheet: L1 40000; L2 50% = 20000.0; L3 150000; L4 0; L5 170000.0; L6 adjustments 0; L7 170000.0; L8 base 25000; L9 145000.0; L10 9000 (adjusted base 34000 - base 25000); L11 136000.0; L12 9000; L13 4500; L14 4500; L15 85% x L11 = 115600.000; L16 120100.000; L17 85% x L1 = 34000.00; L18 smaller = 34000.00. Form 1040 line 6b taxable SS 34000.00; line 9 total income = line 11 AGI = 184000.00 (no adjustments). Standard deduction: basic 16100 (single) + 1 box(es) x 2050 (unmarried amount) = 18150. Schedule 1-A Part V: L31 MAGI 184000.00; L32 75000; L33 109000.00; L34 6% = 6540.0000; L35 0; L36a/36b for 1 person(s); L37 0. Form 1040 line 14 = 18150 + 0; line 15 taxable income = max(0, 184000.00 - 18150 - 0) = 165850.00. Form 1040 line 16: tax rate schedule (single) on 165850.00: 0.10 x (12400 - 0) = 1240.00; 0.12 x (50400 - 12400) = 4560.00; 0.22 x (105700 - 50400) = 12166.00; 0.24 x (165850.00 - 105700) = 14436.0000; total 32402.00. Form 8960: L1 interest 0; L2 dividends 0; L5a gain 0; L8/L12 NII 0; L13 MAGI 184000.00; L14 threshold 200000; L15 0.00; L16 smaller 0.00; L17 3.8% = 0.00. Form 8959 Part I: L1/L4 Medicare wages 0; L5 200000; L6 0; L7 0.9% = 0.00. Total tax = 32402.00 + 0.00 + 0.00 = 32402.00."
+}

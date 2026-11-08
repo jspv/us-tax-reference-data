@@ -1,0 +1,63 @@
+{
+  "id": "ct_2025_ira_phased_mfj",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ira_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF pages 24-25, Pension and Annuity Worksheet Lines 1-4 and Phase-Out Table (MFJ, 105,000-109,999: .70); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-06-15"
+      },
+      {
+        "age": 64,
+        "born": "1961-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "65000.00",
+          "person": 1
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "105000.00",
+    "federal_taxable_income": "71900.00"
+  },
+  "expected": {
+    "state_agi": "84000.00",
+    "state_taxable_income": "84000.00",
+    "state_tax_before_credits": "3280.00",
+    "credits": "328.00",
+    "state_income_tax": "2952.00",
+    "relief_amounts": {
+      "ira_subtraction": "21000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 65,000.00 + IRA distributions 40,000.00 = 105,000.00. Federal taxable income = 105,000.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 71,900.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 105,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 105,000.00. Schedule 1 Line 48b IRA (worksheet Line 2: 75% of Line 4b): 40,000.00 x 0.75 = 30,000.00; Phase-Out Table: federal AGI 105,000.00 is 105,000.00 or more, decimal 0.70; 30,000.00 x 0.70 = 21,000.00 -> 21,000.00. Schedule 1 Line 50 total subtractions = 21,000.00; CT-1040 Line 4 = 21,000.00. CT-1040 Line 5 Connecticut AGI = 105,000.00 - 21,000.00 = 84,000.00. Tax Calculation Schedule Line 1 = 84,000.00; Line 2 Table A: Connecticut AGI 84,000.00 is more than 71,000.00, exemption 0.00; Line 3 taxable income = 84,000.00 - 0.00 = 84,000.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 84,000.00: 20,000.00 x 0.02 + 64,000.00 x 0.045 = 400.00 + 2,880.00 = 3,280.00. Line 5 Table C 0.00 (Connecticut AGI 84,000.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 3,280.00. Line 8 Table E decimal 0.10 (Connecticut AGI 84,000.00 is in the band more than 52,000.00); Line 9 = 3,280.00 x 0.10 = 328.00. Line 10 Connecticut income tax = 3,280.00 - 328.00 = 2,952.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Worksheet Line 2 = 75% of the IRA amount; Line 3 decimal .70; Line 4 = Line 2 x Line 3 is the Line 48b subtraction.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

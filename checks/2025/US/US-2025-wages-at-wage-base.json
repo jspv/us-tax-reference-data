@@ -1,0 +1,26 @@
+{
+  "id": "US-2025-wages-at-wage-base",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "payroll",
+  "boundary": "at_or_above",
+  "tests": [
+    "payroll.social_security",
+    "payroll.medicare"
+  ],
+  "description": "Employee with wages exactly at the Social Security wage base.",
+  "inputs": {
+    "filing_status": "single",
+    "wages": "176100"
+  },
+  "expected": {
+    "social_security_tax": "10918.20",
+    "medicare_tax": "2553.45"
+  },
+  "worked": "One employee, one employer, wages 176,100 in 2025.\nSocial Security (OASDI) employee tax: 2025 wage base 176,100; wages subject = smaller of 176,100 and 176,100 = 176,100 (wages are at the base); 6.2% x 176,100 = 10,918.20.\nMedicare (hospital insurance) employee tax: no wage base; 1.45% x 176,100 = 2,553.45 (the 0.9% additional Medicare tax is figured on Form 8959 with the return, not here).",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

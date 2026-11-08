@@ -1,0 +1,63 @@
+{
+  "id": "nm_2025_railroad_retirement_single",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 3, line 10; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-10"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "52250.00"
+  },
+  "expected": {
+    "state_agi": "22250.00",
+    "state_taxable_income": "22250.00",
+    "state_tax_before_credits": "681.75",
+    "credits": "0.00",
+    "state_income_tax": "681.75",
+    "relief_amounts": {
+      "railroad_retirement_exempt": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 40,000.00 + Railroad Retirement benefits (person 0) 30,000.00 = 70,000.00. Federal taxable income = 70,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 52,250.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, single. Line 9 federal AGI 70,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 17,750.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 70,000.00 is over the worksheet's printed ceiling 36,667.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 13 age 65 or older: Table 1 (single) row for federal AGI 70,000.00 gives 0.00 x 1 qualifying = 0.00; line 10 Railroad Retirement benefits, exempt in full = 30,000.00; PIT-ADJ line 28 total 30,000.00. Line 17 = 70,000.00 + 0.00 - 17,750.00 - 0.00 - 30,000.00 = 22,250.00. By the projection: state_agi = federal taxable income 52,250.00 - 30,000.00 = 22,250.00; less base deductions 0.00 gives 22,250.00. Line 18 tax, schedule as numbers: 1.5% x 5,500.00 = 82.5 + 3.2% x 11,000.00 = 352 + 4.3% x 5,750.00 = 247.25; total 681.75, to the cent 681.75. The table row over 22,200 to 22,300 gives 682; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 681.75.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_lump_sum_averaging",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

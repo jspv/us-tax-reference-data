@@ -1,0 +1,904 @@
+{
+ "layer": "record",
+ "state": "NJ",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Settlement 2026-11-07: reliefs pension exclusion covers public_pension_other_state: A put it in covers_unclear, B in covers; the sources' wording settles it for covers, with no paying_states. njit6 (Taxable Retirement Income): 'Taxable pensions include all state and local government, teachers', and federal pensions ... However, if you (and/or your spouse/civil union partner if filing jointly) were 62 or older or disabled, you may be able to use the retirement exclusions to reduce your taxable income.' GIT-1 & 2 p.4: 'State, local government, teachers', and federal pensions are all treated the same as private sector employee pensions and annuities.' Instructions p.15 lists 'Federal, state, and local government, and teachers' pensions' as taxable on line 20a, and p.22: 'You can exclude all or part of the income reported on line 20a'. No source limits 'state' to New Jersey or names a reciprocity rule. Same for the disability-pension entry ('Public or private disability pension benefits').",
+  "Settlement 2026-11-07: New York State pension: A and B both found nothing specific; settled the same way. No source names a New York (or any other state's) pension; New York appears only in the credit for taxes paid to other jurisdictions ('Income From New York', Schedule NJ-COJ) and a nonresident example in GIT-1 & 2. A New York State pension of a New Jersey resident falls under 'all state ... pensions' (njit6): taxable on line 20a, with the line 28a exclusion.",
+  "Settlement 2026-11-07: reliefs pension exclusion covers roth_conversion: A said covers, B said covers_unclear; covers. GIT-1 & 2 p.18 (Roth IRAs): 'If you convert a traditional IRA to a Roth IRA, any amount from the existing IRA that would be taxable if withdrawn must be included in your income on line 20a'; Instructions p.16 (Roth IRA): 'any amount from the existing IRA that would be taxable if withdrawn must be included on line 20a'; Instructions p.22 Line A of the exclusion is 'Amount from line 20a'. The worksheet line takes it (extraction brief rule 4). The booklet does not say the words 'conversion qualifies for the exclusion'.",
+  "Settlement 2026-11-07: pension exclusion split: A wrote one entry (age 62, disability in other_conditions), B two entries (age 62; blind/disabled) with best_of_group and cannot_combine_with. Two entries kept, sharing best_of_group nj_pension_exclusion, because 'age 62 or older or blind/disabled' (Instructions p.22) is an OR test. cannot_combine_with dropped: on a joint return one spouse may qualify by age and the other by disability under the one shared maximum, which a cannot-combine list would forbid.",
+  "Settlement 2026-11-07: pension exclusion income_test steps: A gave keep_share 1 in the first band, B gave amount (the cap) there; A's form kept, the dollar maximum is in cap. Bands and shares agree in both and in Instructions p.22, GIT-1 & 2 p.19 and njit7.",
+  "Settlement 2026-11-07: pension exclusion vs Worksheet D percentages: both readers saw that the line 28a chart (Instructions p.22) prints the upper bands as '% of line 20a' and the Worksheet D and E 'Maximum Exclusion' charts (p.23, p.24) as '% of line 27'. Recorded as printed: line 20a shares on the pension exclusion (also GIT-1 & 2 p.19 'Multiply your taxable pension found on Line 20a ... by the percentage' and njit7), line 27 shares on the unclaimed exclusion's maximum. GIT-1 & 2 p.25 example applies both in one return (pension 6,200, total income 114,000: pension exclusion 3,100; 'Maximum Exclusion $57,000'), so the two charts are two different rules, not a misprint.",
+  "Settlement 2026-11-07: unclaimed exclusion income_test: A said stepped from 100,000 (keep_share of the cap), B said removes over 150,000 with the percentages in cap_rule; B's form kept. Worksheet D (p.23) prints the cliff 'Is income on line 27, NJ-1040 MORE than $150,000? Yes. You are not eligible'; its upper bands are shares of line 27, which a step's keep_share (a share of the relief) cannot hold, so they are in cap_rule.",
+  "Settlement 2026-11-07: military pension who.basis: A each_person, B return; each_person (each person's own military pension is exempt 'regardless of your age or disability status', njit6).",
+  "Settlement 2026-11-07: Social Security and railroad retirement: A had a railroad-only entry, B one entry covering social_security and railroad_retirement; railroad-only kept, Social Security is held in social_security.treatment (exempt).",
+  "Settlement 2026-11-07: capital_gains: A recorded gains from New Jersey and direct federal obligations as exempt (applies_to other), B left capital_gains empty; A's entry kept: Instructions p.10 prints 'Interest and capital gains from (1) obligations of the State of New Jersey ... or (2) direct federal obligations' as exempt income. No other gains preference is printed.",
+  "Settlement 2026-11-07: brackets.derivation: neither reader used it. Added with the 2025 Tax Table (PDF p.56-64): a helper parsed all 2,000 printed rows (0 to 100,000) and the bracket schedule reproduces every one at the row midpoint, rounded to the dollar, for both columns. method is tax_table, not formula: the schema's single formula is checked against both the single and the joint schedule, and New Jersey's constants differ by status (see the next note).",
+  "Rate schedule formula constants as printed ('Multiply Line 42 by' then 'Subtract'), PDF p.65. Table A (single; married/CU partner separate): 0-20,000 x .014 - 0; 20,000-35,000 x .0175 - 70.00; 35,000-40,000 x .035 - 682.50; 40,000-75,000 x .05525 - 1,492.50; 75,000-500,000 x .0637 - 2,126.25; 500,000-1,000,000 x .0897 - 15,126.25; 1,000,000 and over x .1075 - 32,926.25. Table B (married/CU couple joint; head of household; qualifying widow(er)/surviving CU partner): 0-20,000 x .014 - 0; 20,000-50,000 x .0175 - 70.00; 50,000-70,000 x .0245 - 420.00; 70,000-80,000 x .035 - 1,154.50; 80,000-150,000 x .05525 - 2,775.00; 150,000-500,000 x .0637 - 4,042.50; 500,000-1,000,000 x .0897 - 17,042.50; 1,000,000 and over x .1075 - 34,842.50. Every constant equals the tax the recorded brackets give at the band start, except Table B 70,000-80,000: the bands give 1,155.00 there and the printed 1,154.50 gives 0.50 more tax across that band. The Tax Table follows the bands (row 70,100-70,150 prints 1,299; the formula would give 1,299.88, i.e. 1,300), and taxable income under 100,000 must use the Tax Table ('Use this table if your New Jersey taxable income on line 42 is less than $100,000'), so the constant is never the one applied. Both converters print 1,154.50.",
+  "Brackets: the booklet prints two schedules; married_separate repeats Table A and head_of_household repeats Table B because each table is headed with those statuses. Qualifying widow(er)/surviving CU partner also uses Table B. No surtax (10.75% over 1,000,000 is a bracket) and no recapture.",
+  "Line 20a covers 'Retirement income such as pensions, annuities, and certain IRA withdrawals' (Instructions p.15), including 401(k), Keogh, 403(b) and 457 distributions over previously taxed contributions (GIT-1 & 2 pp.14-15). The New Jersey taxable amount can be lower than the federal one: contributions to plans other than 401(k) plans (and to IRAs, 403(b) and 457 plans) were taxed when made and are recovered tax-free by the Three-Year Rule, General Rule or IRA Worksheet C (line 20b). That is the taxable base, not a relief, so it has no entry.",
+  "Pension exclusion, joint returns: in the upper bands the share applies to the qualifying spouse's pension only (GIT-1 & 2 p.21 example: total income 127,000, qualifying spouse's pension 10,000, 'Applicable Pension Exclusion $2,500' = 25%).",
+  "Unclaimed exclusion covers all_income: GIT-1 & 2 p.22-23 'exclude other types of income (wages, interest, dividends, etc.)'; the worksheet puts no income-kind limit on line 9. The amount cannot exceed the qualifying person's income (GIT-1 & 2 p.24 example: maximum 100,000 unused, total income 85,000, unclaimed exclusion 85,000).",
+  "Special Exclusion who.basis is return: the age test is 'You (and/or your spouse, if filing jointly) were 62 or older' (GIT-1 & 2 p.26), and the Social Security test applies to both spouses ('neither spouse can claim'), so it is one amount per return.",
+  "njit7 also prints the exclusion maximums for 2016 and prior to 2020 ('scheduled increases ... over a four-year period, beginning with Tax Year 2017'); not recorded, as this record is 2025. GIT-1 & 2 (January 2026) says 'Line 20a of the 2024 NJ-1040' in its percentage chart; its amounts match the 2025 instructions.",
+  "Nonresidents: njit6 says 'If you are a nonresident, your pension, annuity, and IRA income is not subject to New Jersey Income Tax.' This record is the resident return.",
+  "Standard deduction: the booklet prints no standard deduction. Lines 31-37c (medical expenses over 2% of gross income, alimony paid, qualified conservation contribution, health enterprise zone, alternative business calculation, organ donor, NJBEST, NJCLASS, tuition and similar) and the property tax deduction (line 41) or credit are not recorded: not general deductions, and outside the retirement scope.",
+  "Indexing: nothing in the instructions, GIT-1 & 2 or the two web pages says any figure is adjusted for inflation (not found in the booklet).",
+  "Part-year residents prorate the maximum pension and unclaimed exclusions by months resident (15 days or more counts as a month) when income for the entire year is 100,000 or less; not held in a field.",
+  "Format v1 adoption 2026-11-07: nj_unclaimed_pension_exclusion gets earned_income_limit 3,000 per return (Worksheet D lines 4-8, PDF p.23: wages, net profits from business, partnership and S corporation income, lines 15, 18, 21, 22, each entered as nothing when a loss, PDF p.13 and p.18; 'combined if filing jointly', GIT-1 & 2 p.23). The test was already in who.other_conditions and not_covered."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.035",
+    "start": "35000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "75000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0245",
+    "start": "50000"
+   },
+   {
+    "rate": "0.035",
+    "start": "70000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "80000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "150000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.035",
+    "start": "35000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "75000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.014",
+    "start": "0"
+   },
+   {
+    "rate": "0.0175",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0245",
+    "start": "50000"
+   },
+   {
+    "rate": "0.035",
+    "start": "70000"
+   },
+   {
+    "rate": "0.05525",
+    "start": "80000"
+   },
+   {
+    "rate": "0.0637",
+    "start": "150000"
+   },
+   {
+    "rate": "0.0897",
+    "start": "500000"
+   },
+   {
+    "rate": "0.1075",
+    "start": "1000000"
+   }
+  ],
+  "cite": {
+   "publication": "2025 NJ-1040 Instructions",
+   "section": "PDF p.65 (printed p.63), New Jersey Tax Rate Schedules 2025: Table A (Single; Married/CU partner, filing separate return) and Table B (Married/CU couple, filing joint return; Head of household; Qualifying widow(er)/surviving CU partner), columns 'Over / But not over', 'Multiply Line 42 by', 'Subtract'",
+   "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+   "accessed": "2026-11-07"
+  },
+  "derivation": {
+   "method": "tax_table",
+   "table_rows": [
+    {
+     "status": "single",
+     "income": "10025",
+     "tax": "140"
+    },
+    {
+     "status": "single",
+     "income": "30025",
+     "tax": "455"
+    },
+    {
+     "status": "single",
+     "income": "37025",
+     "tax": "613"
+    },
+    {
+     "status": "single",
+     "income": "45025",
+     "tax": "995"
+    },
+    {
+     "status": "single",
+     "income": "60025",
+     "tax": "1824"
+    },
+    {
+     "status": "single",
+     "income": "76025",
+     "tax": "2717"
+    },
+    {
+     "status": "single",
+     "income": "99975",
+     "tax": "4242"
+    },
+    {
+     "status": "married_joint",
+     "income": "10025",
+     "tax": "140"
+    },
+    {
+     "status": "married_joint",
+     "income": "30025",
+     "tax": "455"
+    },
+    {
+     "status": "married_joint",
+     "income": "45025",
+     "tax": "718"
+    },
+    {
+     "status": "married_joint",
+     "income": "60025",
+     "tax": "1051"
+    },
+    {
+     "status": "married_joint",
+     "income": "72025",
+     "tax": "1366"
+    },
+    {
+     "status": "married_joint",
+     "income": "85025",
+     "tax": "1923"
+    },
+    {
+     "status": "married_joint",
+     "income": "99975",
+     "tax": "2749"
+    },
+    {
+     "status": "married_separate",
+     "income": "39875",
+     "tax": "713"
+    },
+    {
+     "status": "head_of_household",
+     "income": "39875",
+     "tax": "628"
+    }
+   ],
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.56-64 (printed pp.54-62), 2025 New Jersey Tax Table, columns '1 or 3' and '2, 4, or 5'; rows (At least - But less than: tax 1 or 3 / 2, 4, or 5): 10,000-10,050: 140/140; 30,000-30,050: 455/455; 37,000-37,050: 613/578; 39,850-39,900: 713/628 (the booklet's Evans example); 45,000-45,050: 995/718; 60,000-60,050: 1,824/1,051; 72,000-72,050: 2,487/1,366; 76,000-76,050: 2,717/1,506; 85,000-85,050: 3,290/1,923; 99,950-100,000: 4,242/2,749. income is each row's midpoint.",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "state_own",
+  "deductions": [
+   {
+    "id": "nj_regular_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "yourself and your spouse/CU partner (if filing a joint return) or your registered domestic partner",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.8, Line 6 - Regular Exemptions",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_senior_exemption",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "65 or older on the last day of the tax year (born in 1960 or earlier); the spouse on a joint return may also claim it; not for a domestic partner or dependents",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.8, Line 7 - Senior 65+",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_blind_disabled_exemption",
+    "what": "blind_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "blind or disabled on the last day of the tax year; the spouse on a joint return may also claim it; not for a domestic partner or dependents",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.8, Line 8 - Blind or Disabled",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_veteran_exemption",
+    "what": "other",
+    "amount": {
+     "all": "6000"
+    },
+    "per": "person",
+    "condition": "military veteran honorably discharged or released under honorable circumstances from active duty before the last day of the tax year; the spouse on a joint return may also claim it; not for a domestic partner or dependents",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.8, Line 9 - Veteran Exemptions",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_dependent_child_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "1500"
+    },
+    "per": "dependent",
+    "condition": "each child who qualifies as your dependent for federal tax purposes",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.9, Line 10 - Qualified Dependent Children",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_other_dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "1500"
+    },
+    "per": "dependent",
+    "condition": "each other dependent who qualifies as your dependent for federal tax purposes",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.9, Line 11 - Other Dependents",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "nj_college_dependent_exemption",
+    "what": "other",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "dependent",
+    "condition": "additional, for each dependent claimed on line 10 or 11 who is a full-time student under 22 on the last day of the tax year (born 2004 or later) at an accredited college, with half or more of tuition and maintenance paid by you",
+    "cite": {
+     "publication": "2025 NJ-1040 Instructions",
+     "section": "PDF p.9, Line 12 - Dependents Attending Colleges",
+     "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 NJ-1040 Instructions",
+   "section": "PDF p.8-9 Lines 6-13 Exemptions; PDF p.21 Line 27 Total Income; PDF p.22 Line 29 New Jersey Gross Income (line 27 minus line 28c); form NJ-1040 lines 27-30",
+   "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 NJ-1040 Instructions",
+   "section": "PDF p.10, Examples of Exempt (Nontaxable) Income: 'Federal Social Security'; PDF p.15, Line 20a, common types of nontaxable retirement income (do not report on this return): 'Social Security benefits'; also njit6 Nontaxable Retirement Income",
+   "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "nj_pension_exclusion_age62",
+   "label": "Pension/Retirement Exclusion (line 28a): age 62 or older",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Social Security benefits, Railroad Retirement benefits, public or private disability pension benefits until the year you turn 65, and U.S. military pensions and survivor's benefit payments are nontaxable and not reported on line 20a (Instructions p.15)",
+    "Joint filers: 'You cannot exclude the pension income of the spouse who is younger than 62 and not disabled' (Instructions p.22)",
+    "Qualified Roth IRA distributions are not reported at all (GIT-1 & 2 p.18), so there is nothing to exclude"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "max_age": null,
+    "other_conditions": [
+     "age 62 or older on the last day of the tax year (December 31 for calendar-year filers)",
+     "joint return: only the pension, annuity or IRA withdrawal of a spouse who qualifies is excluded; the filing-status maximum still applies"
+    ]
+   },
+   "cap": {
+    "married_joint": "100000",
+    "single": "75000",
+    "head_of_household": "75000",
+    "qualifying_surviving_spouse": "75000",
+    "married_separate": "50000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 28a is the lesser of Line A (amount from line 20a; joint filers enter only the pension income of a spouse who qualifies) and Line B (the chart amount). With line 27 of $0-$100,000 Line B is the filing-status amount held in cap; from $100,001 to $150,000 it is a percentage of line 20a (income_test steps), so the dollar cap no longer applies; over $150,000 no exclusion. One maximum per return, shared by both spouses: 'you can still claim the maximum pension exclusion. However, you can only exclude the pension, annuity, or IRA withdrawal of the spouse who is 62 or older or disabled' (GIT-1 & 2 p.21). Part-year residents with income for the entire year of $0-$100,000 prorate the maximum by months resident; not prorated over $100,000.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Income on line 27, Total Income: 'Add lines 15 through 26 (do not include lines 16b and 20b)' (Instructions p.21); form line 27 'Add lines 15, 16a, 17 through 20a, and 21 through 26'. GIT-1 & 2 and njit7 call it 'total income for the entire year'."
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_joint",
+      "over": "125000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_joint",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "single",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "single",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "head_of_household",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "head_of_household",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "100000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_separate",
+      "over": "125000",
+      "keep_share": "0.125"
+     },
+     {
+      "status": "married_separate",
+      "over": "150000",
+      "keep_share": "0"
+     }
+    ],
+    "as_printed": "'Your income on line 27 is $150,000 or less.' Chart, Income on line 27: $0-$100,000: $100,000 (married/CU couple, joint), $75,000 (single, head of household, qualifying widow(er)/surviving CU partner), $50,000 (married/CU partner, separate); $100,001-$125,000: 50% / 37.5% / 25% of line 20a; $125,001-$150,000: 25% / 18.75% / 12.5% of line 20a. 'Enter on line 28a the lesser of line A or line B.' In the two upper bands keep_share is a share of line 20a (Line A, the qualifying person's pension income), not of the cap."
+   },
+   "best_of_group": "nj_pension_exclusion",
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.22, Line 28a - Pension/Retirement Exclusion, Determining Your Exclusion Amount (Line A, Line B and chart)",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_pension_exclusion_disabled",
+   "label": "Pension/Retirement Exclusion (line 28a): blind or disabled",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Social Security benefits, Railroad Retirement benefits, public or private disability pension benefits until the year you turn 65, and U.S. military pensions and survivor's benefit payments are nontaxable and not reported on line 20a (Instructions p.15)",
+    "Joint filers: 'You cannot exclude the pension income of the spouse who is younger than 62 and not disabled' (Instructions p.22)",
+    "Qualified Roth IRA distributions are not reported at all (GIT-1 & 2 p.18), so there is nothing to exclude"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "other_conditions": [
+     "blind/disabled as defined by Social Security guidelines on the last day of the tax year (the alternative to age 62 for the same exclusion, not a second one)",
+     "joint return: only the pension, annuity or IRA withdrawal of a spouse who qualifies is excluded; the filing-status maximum still applies"
+    ]
+   },
+   "cap": {
+    "married_joint": "100000",
+    "single": "75000",
+    "head_of_household": "75000",
+    "qualifying_surviving_spouse": "75000",
+    "married_separate": "50000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 28a is the lesser of Line A (amount from line 20a; joint filers enter only the pension income of a spouse who qualifies) and Line B (the chart amount). With line 27 of $0-$100,000 Line B is the filing-status amount held in cap; from $100,001 to $150,000 it is a percentage of line 20a (income_test steps), so the dollar cap no longer applies; over $150,000 no exclusion. One maximum per return, shared by both spouses: 'you can still claim the maximum pension exclusion. However, you can only exclude the pension, annuity, or IRA withdrawal of the spouse who is 62 or older or disabled' (GIT-1 & 2 p.21). Part-year residents with income for the entire year of $0-$100,000 prorate the maximum by months resident; not prorated over $100,000.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Income on line 27, Total Income: 'Add lines 15 through 26 (do not include lines 16b and 20b)' (Instructions p.21); form line 27 'Add lines 15, 16a, 17 through 20a, and 21 through 26'. GIT-1 & 2 and njit7 call it 'total income for the entire year'."
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.5"
+     },
+     {
+      "status": "married_joint",
+      "over": "125000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_joint",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "single",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "single",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "head_of_household",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "head_of_household",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "100000",
+      "keep_share": "0.375"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "125000",
+      "keep_share": "0.1875"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "150000",
+      "keep_share": "0"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "100000",
+      "keep_share": "0.25"
+     },
+     {
+      "status": "married_separate",
+      "over": "125000",
+      "keep_share": "0.125"
+     },
+     {
+      "status": "married_separate",
+      "over": "150000",
+      "keep_share": "0"
+     }
+    ],
+    "as_printed": "'Your income on line 27 is $150,000 or less.' Chart, Income on line 27: $0-$100,000: $100,000 (married/CU couple, joint), $75,000 (single, head of household, qualifying widow(er)/surviving CU partner), $50,000 (married/CU partner, separate); $100,001-$125,000: 50% / 37.5% / 25% of line 20a; $125,001-$150,000: 25% / 18.75% / 12.5% of line 20a. 'Enter on line 28a the lesser of line A or line B.' In the two upper bands keep_share is a share of line 20a (Line A, the qualifying person's pension income), not of the cap."
+   },
+   "best_of_group": "nj_pension_exclusion",
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.22, Line 28a - Pension/Retirement Exclusion, qualifications ('age 62 or older or blind/disabled as defined by Social Security guidelines') and chart",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_unclaimed_pension_exclusion",
+   "label": "Other Retirement Income Exclusion (line 28b): Unclaimed Exclusion (Worksheet D)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "not_covered": [
+    "Nothing if income on line 27 is more than $150,000 (Worksheet D)",
+    "Nothing if lines 15, 18, 21 and 22 (wages, net profits from business, distributive share of partnership income, net pro rata share of S corporation income) total more than $3,000 (Worksheet D lines 4-8)",
+    "Joint filers: 'You cannot exclude the income of the spouse who is younger than 62' (Instructions p.22)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "max_age": null,
+    "other_conditions": [
+     "62 or older on the last day of the tax year ('Age Requirement: 62 or older'); disability does not qualify for this exclusion",
+     "wages, net profits from business, distributive share of partnership income and net pro rata share of S corporation income (lines 15, 18, 21, 22; combined if filing jointly) total $3,000 or less",
+     "did not use the entire maximum exclusion on line 28a"
+    ]
+   },
+   "cap": {
+    "married_joint": "100000",
+    "single": "75000",
+    "head_of_household": "75000",
+    "qualifying_surviving_spouse": "75000",
+    "married_separate": "50000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Worksheet D: line 1 maximum exclusion from its chart, line 2 the amount on line 28a, line 3 = line 1 minus line 2; the unclaimed exclusion is line 3. The chart prints, for income on line 27 of $0-$100,000: $100,000 joint, $75,000 single/head of household/qualifying widow(er), $50,000 separate (held in cap); $100,001-$125,000: 50% / 37.5% / 25% of line 27; $125,001-$150,000: 25% / 18.75% / 12.5% of line 27. These upper-band shares are of line 27 (total income), not of line 20a as in the line 28a chart; GIT-1 & 2 p.25 example works it the same way (joint, income $114,000: 'Maximum Pension Exclusion $3,100' = 50% of the $6,200 pension, 'Maximum Exclusion $57,000' = 50% of $114,000, 'Unclaimed Maximum Exclusion $53,900'). Joint return with one spouse 62 or older: applied only to that spouse's income (GIT-1 & 2 p.26 example). Added to any Special Exclusion on line 28b. Part-year residents use Worksheet E (maximum prorated by months resident if income for the entire year is $100,000 or less).",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Income on line 27, Total Income: 'Add lines 15 through 26 (do not include lines 16b and 20b)' (Instructions p.21); form line 27 'Add lines 15, 16a, 17 through 20a, and 21 through 26'. GIT-1 & 2 and njit7 call it 'total income for the entire year'."
+    },
+    "threshold": {
+     "all": "150000"
+    },
+    "effect": "removes",
+    "as_printed": "'Is income on line 27, NJ-1040 MORE than $150,000? Yes. You are not eligible to use any unclaimed portion of your maximum exclusion.' Below that the maximum steps down by the chart (shares of line 27), recorded in cap_rule because a step can't hold a share of the income measure."
+   },
+   "earned_income_limit": {
+    "amount": {
+     "all": "3000"
+    },
+    "per": "return"
+   },
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.22, Line 28b - Other Retirement Income Exclusion, Unclaimed Exclusion; PDF p.23, Worksheet D lines 1-9 and Maximum Exclusion chart (earned_income_limit: lines 4-8, lines 15, 18, 21 and 22 of NJ-1040 added, 'Is the amount on line 8 MORE than $3,000? Yes. You are not eligible to use the unclaimed portion'); GIT-1 & 2 p.23 condition 3 ('Your earned income (combined if filing jointly) ... must be $3,000 or less') and p.25 (joint earned income)",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_special_exclusion",
+   "label": "Other Retirement Income Exclusion (line 28b): Special Exclusion",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "not_covered": [
+    "'Do not claim the Special Exclusion if you (or your spouse if filing jointly) will ever be eligible for Social Security or Railroad Retirement benefits' (Instructions p.22)",
+    "'if you file a joint return and one spouse is covered by either the Social Security or the Railroad Retirement program, neither spouse can claim the special exclusion' (GIT-1 & 2 p.26)"
+   ],
+   "who": {
+    "basis": "return",
+    "min_age": 62,
+    "max_age": null,
+    "other_conditions": [
+     "you (and/or your spouse, if filing jointly) were 62 or older on the last day of the tax year (GIT-1 & 2 p.26, njit7)",
+     "you (and your spouse, if filing jointly) will never be able to receive Social Security or Railroad Retirement benefits because your employer did not participate in either program, but would have been eligible had you fully participated",
+     "claimable whether or not the pension exclusion or the unclaimed exclusion is used"
+    ]
+   },
+   "cap": {
+    "married_joint": "6000",
+    "head_of_household": "6000",
+    "qualifying_surviving_spouse": "6000",
+    "single": "3000",
+    "married_separate": "3000"
+   },
+   "cap_per": "return",
+   "cap_rule": "A fixed amount for the filing status, added to any unclaimed exclusion to give line 28b. No income limit is printed for it: GIT-1 & 2 p.27-28 example, joint, total income $154,000, 'ORIE - Special Exclusion $ 6,000'.",
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.22, Line 28b - Special Exclusion; GIT-1 & 2 p.26-27 Special Exclusion",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_military_pension_exempt",
+   "label": "U.S. Military pensions and survivor's benefit payments (nontaxable)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "not_covered": [
+    "'civil service pensions and annuities are taxable, even if they are based on credit for military service' (njit6); 'Civil Service pensions and annuities, even if based on credit for military service' are listed as taxable on line 20a (Instructions p.15)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "other_conditions": [
+     "regardless of age or disability status (njit6)",
+     "service in the Army, Navy, Air Force, Marine Corps or Coast Guard (njit6)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.15, Line 20a, common types of nontaxable retirement income: 'U.S. Military pensions and survivor's benefit payments'; PDF p.10 Examples of Exempt (Nontaxable) Income; njit6 Nontaxable Retirement Income",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_railroad_retirement_exempt",
+   "label": "Railroad Retirement (Tier 1 and Tier 2) (nontaxable)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null
+   },
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.10, Examples of Exempt (Nontaxable) Income: 'Railroad Retirement (Tier 1 and Tier 2)'; PDF p.15 Line 20a nontaxable list",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nj_disability_pension_exempt",
+   "label": "Public or private disability pension benefits until the year you turn 65 (nontaxable)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": 64,
+    "other_conditions": [
+     "pension payments received because of permanent and total disability (njit6)",
+     "'Beginning with the year you turn 65, the benefits are treated as ordinary pension income' (Instructions p.15)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.15, Line 20a, common types of nontaxable retirement income: 'Public or private disability pension benefits until the year you turn 65'; njit6 Nontaxable Retirement Income",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Taxable: 'Interest from obligations of states and their political subdivisions, other than New Jersey and its political subdivisions'. Exempt: 'Interest and capital gains from (1) obligations of the State of New Jersey or any of its political subdivisions; or (2) direct federal obligations exempt under law, such as U.S. Savings Bonds and Treasury Bills, Notes, and Bonds', reported on line 16b.",
+  "cite": {
+   "publication": "2025 NJ-1040 Instructions",
+   "section": "PDF p.10, New Jersey taxable income also includes; Examples of Exempt (Nontaxable) Income; form line 16b",
+   "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "nj_obligation_gains_exempt",
+   "applies_to": "other",
+   "treatment": "exempt",
+   "value": "0",
+   "condition": "capital gains from obligations of New Jersey or its political subdivisions, or from direct federal obligations exempt under law (U.S. Savings Bonds, Treasury Bills, Notes and Bonds)",
+   "cite": {
+    "publication": "2025 NJ-1040 Instructions",
+    "section": "PDF p.10, Examples of Exempt (Nontaxable) Income: 'Interest and capital gains from (1) obligations of the State of New Jersey ... or (2) direct federal obligations'",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": [],
+ "joint_income": {
+  "rule": "half_each",
+  "cite": {
+   "publication": "GIT-1 & 2, Retirement Income (New Jersey Division of Taxation)",
+   "section": "p.26 example: interest 'from their joint savings account totals $4,000' and $2,000 of it is each spouse's",
+   "url": "https://www.nj.gov/treasury/taxation/pdf/pubs/tgi-ee/git1&2.pdf",
+   "accessed": "2026-11-08"
+  },
+  "notes": "Shown only in a worked example; N.J.S.A. 54A:6-15 does not state a split. It matters only when exactly one spouse is 62 or older (NJ-1040 instructions PDF p.22: 'If only one spouse is 62 or older, only the income of that spouse can be excluded')."
+ }
+}

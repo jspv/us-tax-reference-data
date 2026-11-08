@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "D-400 Line 6 federal AGI 10000.00. Line 7 additions 0.00. Schedule S Part B: none. Line 9 deductions 0.00. Line 6 + Line 7 - Line 9 = 10000.00 + 0.00 - 0.00 = 10000.00. Line 11 NC standard deduction (single) 12750.00. Line 14 NC taxable income 10000.00 - 12750.00 = -2750.00, floored at 0.00 (the form enters the negative figure on Line 14). Line 15 tax 0.00 x 4.25% = 0.00. Line 16 credits 0.00 (no credits in the projection). Tax 0.00."
+}

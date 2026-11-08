@@ -1,0 +1,526 @@
+{
+  "layer": "record",
+  "state": "DE",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: the booklet does not print the rate schedule. Instructions PDF p.8 Line 24 says 'If Line 23 is less than $60,000, use the tax table ... If line 23 is $60,000 or greater, use the tax schedule at the end of the tax table', but neither the table nor the schedule is in the instructions PDF. The schedule is taken from the statute the table is built on: 30 Del. C. §1102(a)(14), 'For taxable years beginning after December 31, 2013, the amount of tax shall be determined as follows: 2.2% of taxable income in excess of $2,000 but not in excess of $5,000; 3.9% ... in excess of $5,000 but not in excess of $10,000; 4.8% ... in excess of $10,000 but not in excess of $20,000; 5.2% ... in excess of $20,000 but not in excess of $25,000; 5.55% ... in excess of $25,000 but not in excess of $60,000; and 6.6% of taxable income in excess of $60,000.' §1102(d)(1) says the Director's tax tables (for tax table income not over $60,000) 'shall be computed on the basis of the rates prescribed by subsection (a)'. The 0% band from 0 to 2,000 is read from 'in excess of $2,000' in the first band; the statute prints no rate below 2,000.",
+    "Brackets, one schedule for every filing status: §1102(a)(14) prints one schedule with no filing-status split, so married_joint repeats single. Instructions PDF p.5 corroborates: 'Generally, separate returns (filing status 3 or 4) will be advantageous if both spouses have Delaware adjusted gross income in excess of $9,400' (joint filers do not get wider bands).",
+    "Brackets confirmed against the agency's own figures: FAQ 'Retirement Information' answer, 'Delaware has a graduated tax rate ranging from 2.2% to 5.55% for income under $60,000, and 6.60% for income of $60,000 or over'; FAQ 'Bonds' answer, 'The maximum income tax rate is 6.60% on income of $60,000 or over'. Both match the statute's lowest (2.2%), highest below 60,000 (5.55%) and top (6.6% over 60,000) rates, and the 60,000 split matches Line 24's table/schedule split. The intermediate band starts (5,000, 10,000, 20,000, 25,000) are printed only in the statute.",
+    "The fetched statute paragraph (a)(14) has no end date ('For taxable years beginning after December 31, 2013'); no later paragraph in §1102 as fetched changes the rates, so it applies to 2025.",
+    "Filing statuses (Form PIT-RES p.1): 1 'Single, Divorced, Widow(er)', 2 Joint, 3 Married & Filing Separate Forms, 4 Married & Filing Combined Separate on this form, 5 Head of Household. A widow(er) files status 1, so qualifying_surviving_spouse takes the status-1 standard deduction.",
+    "Taxable income: Line 23 = Line 12 (Delaware AGI) minus Line 22 (total deductions), per column. Line 1 is federal AGI (Form 1040 Line 11).",
+    "Standard deduction (Line 20a): 3,250 for statuses 1, 3 and 5; 6,500 for status 2; 3,250 in each of Columns A and B for status 4. Additional standard deduction (Line 21): 2,500 per box checked for 65 or over and for blind, 'a maximum of $5,000 per individual', only with the Delaware standard deduction. If one spouse takes the standard deduction the other must (p.5, p.8). Delaware itemized deductions (Form PIT-RSA) may be taken instead, even if the federal standard deduction was claimed (p.7, p.8).",
+    "No personal or dependent exemption deduction is printed. Delaware gives personal credits instead: 110 per exemption (Form PIT-RES p.2 Line 27a 'Enter number of exemptions x $110'; instructions p.8: a joint couple with no dependents enters $220), and 110 more for each of you and your spouse 60 or over on 12/31/2025 (Line 27b). Both are non-refundable (Line 32 'TOTAL NON-REFUNDABLE CREDITS'; Line 33 balance not below 0).",
+    "Pension exclusion (Line 6), source of the pension: the booklet says 'Amounts received as pensions from employers (including pensions of a deceased taxpayer) may qualify for an exclusion' (p.6). It draws no line between a Delaware government pension, a federal civil service pension, another state's government pension and a private pension, and sets no Delaware-only limit. So public_pension, public_pension_other_state and private_pension are in the same entries. No source names New York or any other state's pension; this is read from the absence of a limit, not from a sentence naming other states. FAQ: 'the amount of your pension and 401K income that is taxable for federal purposes is also taxable in Delaware. However, persons 60 years of age or older are entitled to a pension exclusion of up to $12,500'.",
+    "Pension exclusion, military: under 60, a United States military pension has its own 12,500 cap (box on Form PIT-RES p.1 Line 6, 'Column B if You had a Military Pension'). At 60 or over the worksheet takes 'Amount of pension' with no exception, and the under-60 text calls military retirement 'your pension', so military_pension is in the 60-plus entry's covers.",
+    "Pension exclusion, 60 or over: the lesser of 12,500 and (pension + 'eligible retirement income'). Eligible retirement income: 'dividends, capital gains net of capital losses, interest, net rental income from real property and qualified retirement plans (IRC Sec. 4974), such as IRA, 401(k), Keogh plans, and government deferred compensation plans (IRC Sec. 457)' (p.6). A pension is not required: in the booklet's example the secondary taxpayer 'received no pension income' and is 'entitled to a pension exclusion of $4,500' from interest, dividends and gains alone. Income from joint accounts is split equally between spouses (example).",
+    "Pension exclusion, under 60, non-military: '$2,000 or the amount of your pension, whichever is less' (p.6). The booklet does not say whether IRA or 401(k) distributions count for a person under 60. It says 'An early distribution from an IRA or pension fund ... does not qualify for the pension exclusion' and 'only one pension exclusion, even if he or she is receiving more than one pension or other retirement distribution', which suggests a non-early IRA distribution might; not settled, so ira_distribution and employer_plan_distribution stay in covers_unclear.",
+    "Roth conversions are not mentioned anywhere in the sources: covers_unclear on every pension entry. Annuities are not named either (the Line 1 allocation worksheet's 'Taxable pensions and annuities' is a federal line label only): covers_unclear.",
+    "Pension exclusion: one per taxpayer; spouses each get one; one spouse's amount over 12,500 cannot be used by the other (p.6). Age is age on December 31, 2025. Early distributions (1099-R Box 7 code 1, or a federal early-withdrawal penalty on Schedule 2) and employer disability pension reported as wages before minimum retirement age do not qualify (p.6).",
+    "Social Security: exempt. Instructions p.7 Line 8a: 'Social Security and Railroad Retirement benefits are not taxable in Delaware and, therefore, should not be included in taxable income. Enter on Line 8a the total of any taxable payments included on Line 1.' Second documents: p.3 Persons 60 or Over Checklist ('Social Security and Railroad retirement benefits are excluded from Delaware taxable income'); FAQ; Form PIT-RES p.1 Line 8a label.",
+    "Line 11 (Persons 60 or Over or Disabled), p.7 worksheet: two columns with different tests, recorded as two entries. Line 10 is the form's 'Subtract Line 9 from Line 4' (federal AGI plus Lines 2-3, less Lines 5-8b), which is not a measure in the schema list, so base 'other' with the printed text. Head of household is not named in either worksheet column; not stated.",
+    "Higher-education exclusion (Line 8a): distributions from IRAs, 401(k) and 457 plans used the same year for books, tuition or fees of the taxpayer or dependents not yet 26; no dollar cap printed.",
+    "Interest on U.S. obligations is subtracted (Line 5, p.5); Fannie Mae, Freddie Mac, Ginnie Mae, Sallie Mae and IBRD interest is not exempt. Interest on other states' obligations is added (Line 2); Delaware municipal bonds are exempt (FAQ 'Bonds').",
+    "Printed but not recorded (out of scope: not a standard deduction, exemption, retirement or Social Security relief): 529 contribution exclusion (1,000 individual filers with federal AGI under 100,000; 2,000 joint under 200,000) and ABLE contribution exclusion (5,000 individual, 10,000 joint), Line 8b, p.7; credit for tax paid to other states (Line 28, p.9); volunteer firefighter credit 1,000 (Line 29); child care credit 50% of the federal credit (Line 31); earned income credit (Schedule II).",
+    "Lump-sum distributions: §1102(b) imposes a separate tax on the ordinary income portion of a lump-sum distribution, figured on Form PIT-STC (Line 25, p.8); a distribution taxed that way is subtracted on Line 8a. Not recorded as a relief.",
+    "Capital gains: no separate rate or deduction is printed; gains are in federal AGI and count as eligible retirement income at 60 or over.",
+    "No surtax and no recapture of the lower bands is printed in the booklet or in §1102.",
+    "Indexing: neither the booklet nor §1102 says any figure is adjusted for inflation; all not_stated.",
+    "Settlement 2026-11-07: brackets: A said empty lists, B said empty lists (booklet text lacks the table); 30 Del. C. §1102(a)(14) (delcode.delaware.gov, fetch.json) gives 0 / 2.2% from 2,000 / 3.9% from 5,000 / 4.8% from 10,000 / 5.2% from 20,000 / 5.55% from 25,000 / 6.6% from 60,000, matching the FAQ's 2.2%-5.55% under 60,000 and 6.60% at 60,000 or over.",
+    "Settlement 2026-11-07: base.deductions 529 and ABLE exclusions: A recorded them as 'other' deductions, B did not; PDF p.7 Line 8b prints them as contribution subtractions, not a standard deduction or exemption; dropped (out of scope), kept in notes.",
+    "Settlement 2026-11-07: reliefs Personal Credits (Line 27a): A recorded a credit of 110, B described it in notes only; PDF p.8 Line 27a and Form PIT-RES p.2 ('Enter number of exemptions x $110') print it; kept as de_personal_credit.",
+    "Settlement 2026-11-07: reliefs Higher Education (Line 8a) covers_unclear: A said [roth_conversion], B said none; PDF p.7 requires the distribution be 'used in the same tax year to pay for books, tuition or fees', which a conversion is not; dropped.",
+    "Settlement 2026-11-07: reliefs Interest on U.S. Obligations (Line 5): B recorded it, A described it in notes only; PDF p.5 Line 5 says it 'is exempt from Delaware tax'; kept as de_us_obligations_interest.",
+    "Settlement 2026-11-07: reliefs Social Security/RR (Line 8a): A said form subtraction with basis each_person, B said exempt_in_full with basis return; PDF p.7 Line 8a subtracts 'the total of any taxable payments', with no cap and no person test; exempt_in_full, each_person (benefits belong to a person; no effect without a cap).",
+    "Settlement 2026-11-07: reliefs Line 11: A said two entries (single/separate: 2,000, Line 10 of 10,000 or less, earned income under 2,500; joint: 4,000, both spouses 60 or disabled, Line 10 of 20,000 or less, combined earned income under 5,000), B said one entry with basis return and caps by status; PDF p.7 Line 11 worksheet has two columns with different tests; A's two entries, as the brief asks (one entry per branch).",
+    "Settlement 2026-11-07: reliefs pension exclusion 60 or over, annuity: A said covers, B said covers_unclear; PDF p.6 names pensions and the eligible retirement income list, and no annuity; covers_unclear (B).",
+    "Settlement 2026-11-07: reliefs pension exclusion under 60, non-military, annuity: A did not list it, B said covers_unclear; PDF p.6 does not name annuities; covers_unclear (B).",
+    "Settlement 2026-11-07: reliefs pension exclusion (all branches), public_pension_other_state: A said covers_unclear, B said covers_unclear; PDF p.6 'Amounts received as pensions from employers' with no limit to Delaware or federal employers; moved to covers (same entries as Delaware and federal government pensions, brief rule 15a).",
+    "Settlement 2026-11-07: reliefs pension exclusion 60 or over, military_pension: A said covers_unclear, B said covers_unclear; PDF p.6 worksheet line 1 'Amount of pension' has no military exception and the under-60 text calls military retirement 'your pension'; moved to covers.",
+    "Settlement 2026-11-07: reliefs pension exclusion 60 or over, other_conditions: A said 'Exclusion available only if the person receives pension income', B said nothing; the PDF p.6 example gives the secondary taxpayer, who 'received no pension income', an exclusion of $4,500; A's condition dropped.",
+    "Settlement 2026-11-07: reliefs pension exclusion, cannot_combine_with: B listed the other two pension branches on each, A did not; PDF p.6 'Each taxpayer may receive ONLY ONE pension exclusion'; kept (B)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.022",
+        "start": "2000"
+      },
+      {
+        "rate": "0.039",
+        "start": "5000"
+      },
+      {
+        "rate": "0.048",
+        "start": "10000"
+      },
+      {
+        "rate": "0.052",
+        "start": "20000"
+      },
+      {
+        "rate": "0.0555",
+        "start": "25000"
+      },
+      {
+        "rate": "0.066",
+        "start": "60000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.022",
+        "start": "2000"
+      },
+      {
+        "rate": "0.039",
+        "start": "5000"
+      },
+      {
+        "rate": "0.048",
+        "start": "10000"
+      },
+      {
+        "rate": "0.052",
+        "start": "20000"
+      },
+      {
+        "rate": "0.0555",
+        "start": "25000"
+      },
+      {
+        "rate": "0.066",
+        "start": "60000"
+      }
+    ],
+    "cite": {
+      "publication": "Delaware Code Title 30, Chapter 11, Subchapter I, §1102 Imposition and rate of tax",
+      "section": "30 Del. C. §1102(a)(14) (taxable years beginning after December 31, 2013) and §1102(d)(1) (tax tables computed on the subsection (a) rates); confirmed by Personal Income Tax FAQs 'Retirement Information' and 'Bonds' answers (2.2% to 5.55% under $60,000, 6.60% at $60,000 or over) and PIT-RES Instructions PDF p.8 Line 24 (table under $60,000, schedule at $60,000 or more)",
+      "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "de_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "3250",
+          "married_joint": "6500",
+          "married_separate": "3250",
+          "head_of_household": "3250",
+          "qualifying_surviving_spouse": "3250"
+        },
+        "per": "return",
+        "condition": "Elected on Line 20a instead of Delaware itemized deductions; may be elected whatever was done on the federal return. If one spouse (status 3 or 4) takes the standard deduction the other must. Status 4: 3,250 in each of Columns A and B. A widow(er) files status 1 ('Single, Divorced, Widow(er)').",
+        "cite": {
+          "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions; Form PIT-RES 2025",
+          "section": "Instructions PDF p.8 Line 20a Standard Deduction table; PDF p.5 Filing Status 3 and 4; Form PIT-RES p.2 Line 20 ('Filing Statuses 1, 3, & 5 enter $3250 in Column B; Filing Status 2 enter $6500'); Form p.1 filing status 1 label",
+          "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "de_additional_standard_65",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "2500"
+        },
+        "per": "person",
+        "condition": "Age 65 or over on 12/31/2025 and electing the Delaware standard deduction (not allowed with itemized deductions); 2,500 per box checked.",
+        "cite": {
+          "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+          "section": "PDF p.8 Line 21 Additional Standard Deduction, items 1-5; PDF p.3 Persons 60 or Over Checklist; Form PIT-RES p.2 Line 21",
+          "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "de_additional_standard_blind",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "2500"
+        },
+        "per": "person",
+        "condition": "Blind and electing the Delaware standard deduction (not allowed with itemized deductions); with the age-65 amount, a maximum of 5,000 per individual.",
+        "cite": {
+          "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+          "section": "PDF p.8 Line 21 Additional Standard Deduction, items 3-4",
+          "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions; Form PIT-RES 2025",
+      "section": "Instructions PDF p.5 Line 1 Federal Adjusted Gross Income (federal Form 1040, Line 11); Form PIT-RES p.1 Lines 1-12; p.2 Lines 20-23",
+      "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+      "section": "PDF p.7 Line 8a: 'Social Security and Railroad Retirement benefits are not taxable in Delaware ... Enter on Line 8a the total of any taxable payments included on Line 1'; PDF p.3 Persons 60 or Over Checklist; Form PIT-RES p.1 Line 8a; FAQ 'Retirement Information' answer",
+      "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "de_ss_rr_exempt",
+      "label": "Taxable Social Security/RR Retirement Benefits (Line 8a)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.7 Line 8a Social Security/Railroad Retirement Benefits; PDF p.3 Persons 60 or Over Checklist; Form PIT-RES p.1 Line 8a",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_pension_excl_under60_nonmilitary",
+      "label": "Pension Exclusion for Individuals Under 60 (non-military pension)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension"
+      ],
+      "covers_unclear": [
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "An early distribution from an IRA or pension fund for emergency reasons or following a separation from employment; a distribution with 1099-R Box 7 code 1, or one assessed an early withdrawal penalty on federal 1040 Schedule 2",
+        "Disability pension income paid by your employer, reported as wages until minimum retirement age"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 59,
+        "other_conditions": [
+          "Under 60 on December 31, 2025",
+          "Receives a non-military pension"
+        ]
+      },
+      "cap": {
+        "all": "2000"
+      },
+      "cap_per": "person",
+      "cap_rule": "$2,000 or the amount of the pension, whichever is less; only one pension exclusion per taxpayer; spouses who each receive pensions get one each",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_military",
+        "de_pension_excl_60_plus"
+      ],
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.6 Line 6 Pension Exclusion, 'Pension Exclusion for Individuals Under 60' and NOTE; FAQ 'Retirement Information': 'If you are under age 60 and receiving a pension, the exclusion amount is limited to $2,000'",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_pension_excl_under60_military",
+      "label": "Pension Exclusion for Individuals Under 60 (retired from the United States military)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "An early distribution from an IRA or pension fund for emergency reasons or following a separation from employment; a distribution with 1099-R Box 7 code 1, or one assessed an early withdrawal penalty on federal 1040 Schedule 2"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 59,
+        "other_conditions": [
+          "Under 60 on December 31, 2025",
+          "Retired from the United States military and received pension income during the year; military pension box checked on Line 6"
+        ]
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person",
+      "cap_rule": "$12,500 or the amount of the pension, whichever is less; only one pension exclusion per taxpayer",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_nonmilitary",
+        "de_pension_excl_60_plus"
+      ],
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions; Form PIT-RES 2025",
+        "section": "Instructions PDF p.6 Line 6, 'Pension Exclusion for Individuals Under 60'; Form PIT-RES p.1 Line 6 ('Column A if Spouse had a Military Pension', 'Column B if You had a Military Pension')",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_pension_excl_60_plus",
+      "label": "Pension Exclusion, 60 or over (pension plus eligible retirement income)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties"
+      ],
+      "covers_unclear": [
+        "annuity",
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "An early distribution from an IRA or pension fund for emergency reasons or following a separation from employment; a distribution with 1099-R Box 7 code 1, or one assessed an early withdrawal penalty on federal 1040 Schedule 2",
+        "Disability pension income paid by your employer, reported as wages until minimum retirement age"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 60,
+        "other_conditions": [
+          "60 or over on December 31, 2025"
+        ]
+      },
+      "cap": {
+        "all": "12500"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet: amount of pension plus amount of 'eligible retirement income' (dividends, capital gains net of capital losses, interest, net rental income from real property, and qualified retirement plans IRC Sec. 4974 such as IRA, 401(k), Keogh and government deferred compensation plans IRC Sec. 457); enter that total or $12,500, whichever is less. One exclusion per taxpayer; spouses each get one; one spouse's excess over $12,500 cannot be used by the other. Income from joint accounts is split equally between spouses. A pension is not required (example: secondary taxpayer with no pension gets $4,500).",
+      "cannot_combine_with": [
+        "de_pension_excl_under60_nonmilitary",
+        "de_pension_excl_under60_military"
+      ],
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.6 Line 6, 'IF YOU WERE 60 OR OVER' worksheet lines 1-4, definition of eligible retirement income, NOTE and Pension Exclusion Example; FAQ 'Retirement Information' answer",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_line11_single_separate",
+      "label": "Exclusion for Certain Persons 60 and Over or Disabled (single, married filing separate returns)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 60,
+        "other_conditions": [
+          "At least 60 years old, or totally and permanently disabled, on 12/31/2025",
+          "Earned income (wages, tips, farm, or business income) totals less than $2,500"
+        ]
+      },
+      "cap": {
+        "single": "2000",
+        "married_separate": "2000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Enter $2,000 on Line 11 if all three worksheet answers are yes; otherwise nothing",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Line 10 of Form PIT-RES: 'Subtract Line 9 from Line 4' (Line 4 is the total of Lines 1 through 3; Line 9 adds Lines 5 through 8b)"
+        },
+        "threshold": {
+          "single": "10000",
+          "married_separate": "10000"
+        },
+        "effect": "removes",
+        "as_printed": "Is Line 10 $10,000 or less?"
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.7 Line 11 Worksheet, Persons 60 or Over or Disabled (single, married filing separate returns column); Form PIT-RES p.1 Lines 4, 9, 10, 11",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_line11_joint",
+      "label": "Exclusion for Certain Persons 60 and Over or Disabled (married filing joint returns)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Both spouses at least 60 years old, or totally and permanently disabled, on 12/31/2025",
+          "Combined earned income (wages, tips, farm, or business income) is less than $5,000"
+        ]
+      },
+      "cap": {
+        "married_joint": "4000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Enter $4,000 on Line 11 if all three worksheet answers are yes; if only one spouse qualifies, the booklet suggests filing separately (status 3 or 4)",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Line 10 of Form PIT-RES: 'Subtract Line 9 from Line 4'"
+        },
+        "threshold": {
+          "married_joint": "20000"
+        },
+        "effect": "removes",
+        "as_printed": "Is Line 10 $20,000 or less?"
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.7 Line 11 Worksheet, Persons 60 or Over or Disabled (married filing joint returns column) and NOTE",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_higher_education_exclusion",
+      "label": "Higher Education exclusion of retirement plan distributions (Line 8a)",
+      "form": "subtraction",
+      "covers": [
+        "ira_distribution",
+        "employer_plan_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Distribution used in the same tax year to pay books, tuition or fees at an institution of higher education attended by the taxpayer or dependents who have not attained age 26 by 12/31/2025",
+          "Amount included in federal adjusted gross income; attach 1098-T and proof of payment"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.7 Line 8a Higher Education",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_us_obligations_interest",
+      "label": "Interest Received on U.S. Obligations (Line 5)",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Only interest on obligations of which the United States is the primary obligor or that are guaranteed by its full faith and credit; payor identified on federal Schedule B"
+        ]
+      },
+      "not_covered": [
+        "Federal National Mortgage Association (Fannie Mae)",
+        "Federal Home Loan Mortgage Corp.",
+        "Government National Mortgage Association (Ginnie Mae)",
+        "International Bank of Reconstruction and Development",
+        "Student Loan Marketing Association (Sallie Maes)"
+      ],
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.5 Line 5 and 'LINE 5 EXAMPLES' table",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_personal_credit",
+      "label": "Personal Credits (Line 27a)",
+      "form": "credit",
+      "credit_amount": "110",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "$110 per exemption: you, your spouse and each dependent listed on the federal return (a joint couple with no dependents enters $220)",
+          "Not allowed if you are listed as a dependent on another person's federal return",
+          "Non-refundable"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions; Form PIT-RES 2025",
+        "section": "Instructions PDF p.8 Line 27a Personal Credits and example; Form PIT-RES p.2 Line 27a ('Enter number of exemptions x $110')",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "de_additional_personal_credit_60",
+      "label": "Additional Personal Credits, 60 or over (Line 27b)",
+      "form": "credit",
+      "credit_amount": "110",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 60,
+        "other_conditions": [
+          "60 or over on December 31, 2025; $110 per box checked (you and/or your spouse)",
+          "Non-refundable"
+        ]
+      },
+      "cite": {
+        "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "section": "PDF p.9 Line 27b Additional Personal Credits; PDF p.3 Persons 60 or Over Checklist; Form PIT-RES p.2 Line 27b",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on obligations of states other than Delaware or their political subdivisions is added on Line 2; Delaware municipal bonds are tax-exempt to Delaware residents (FAQ 'Bonds'). Interest on U.S. obligations is subtracted on Line 5.",
+    "cite": {
+      "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions; Personal Income Tax FAQs",
+      "section": "Instructions PDF p.5 Line 2 Interest on State and Local Obligations other than Delaware; FAQ 'Bonds' answer",
+      "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": [],
+  "joint_income": {
+    "rule": "half_each",
+    "cite": {
+      "publication": "2025 Delaware Resident Individual Income Tax Instructions (PIT-RES)",
+      "section": "PDF p.5, Filing Status 3 or 4 and Line 1: 'you must each report your own income ... and one-half of the income derived from securities, bank accounts, real estate, etc., which are titled or registered in joint names'; PDF p.6, Line 6 example: joint account income 'would be split equally between the two taxpayers'",
+      "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+      "accessed": "2026-11-08"
+    },
+    "notes": "30 Del. C. 1106(b)(3)f.1.B deems eligible retirement income received as joint tenants or tenants by the entirety received half by each. The couple cannot choose another split."
+  }
+}

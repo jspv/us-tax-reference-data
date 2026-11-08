@@ -1,0 +1,43 @@
+{
+  "id": "US-2025-single-retiree-50-band-tax-exempt-interest",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Single retiree age 68 with Social Security, a pension and tax-exempt interest: the tax-exempt interest counts in the worksheet, and the benefits fall partly in the 85% band.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1957-01-20",
+        "age": 68
+      }
+    ],
+    "taxable_pensions": "18000",
+    "tax_exempt_interest": "2000",
+    "social_security_benefits": "30000"
+  },
+  "expected": {
+    "agi": "23350.00",
+    "taxable_social_security": "5350.00",
+    "standard_deduction": "17750.00",
+    "senior_deduction": "6000.00",
+    "taxable_income": "0.00",
+    "regular_tax": "0.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "0.00"
+  },
+  "worked": "Filing status: single.\nTaxpayer: born 1957-01-20, age 68 at the end of 2025.\nForm 1040: line 2a tax-exempt interest 2,000 (not in income); lines 4b + 5b taxable pensions and IRA distributions 18,000; line 6a Social Security benefits 30,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 30,000; line 2 = 50% x 30,000 = 15,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 18,000; line 4 (line 2a) = 2,000\n  line 5 = 15,000 + 18,000 + 2,000 = 35,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 35,000\n  line 8 (base amount, single) = 25,000\n  line 9 = 35,000 - 25,000 = 10,000; line 10 = 9,000 (34,000 adjusted base amount - 25,000); line 11 = 1,000\n  line 12 = smaller of 10,000 and 9,000 = 9,000; line 13 = 4,500; line 14 = smaller of 15,000 and 4,500 = 4,500\n  line 15 = 85% x 1,000 = 850; line 16 = 4,500 + 850 = 5,350\n  line 17 = 85% x 30,000 = 25,500; line 18 = smaller of 5,350 and 25,500 = 5,350 -> Form 1040 line 6b\nForm 1040 line 9 total income = 18,000 + 5,350 = 23,350; line 10 adjustments 0; line 11a/11b adjusted gross income = 23,350.\nLine 12e standard deduction = 15,750 basic (single) + 1 x 2,000 additional (unmarried amount, one per box checked on line 12d for age 65 or older / blind) = 17,750.\nSchedule 1-A: line 1 = line 11b 23,350; line 3 MAGI = 23,350 (no excluded income).\n  Part V: line 31 = 23,350; line 32 = 75,000; line 33: 23,350 - 75,000 is zero or less, so line 35 = 6,000\n  line 36a (born before January 2, 1961) = 6,000; line 37 = 6,000 -> line 38 -> Form 1040 line 13b\nLine 14 = 17,750 + 6,000 = 23,750; line 15 taxable income = 23,350 - 23,750 = less than zero, so 0.\nForm 1040 line 16 (regular tax): tax on 0 = 0\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 23,350; line 14 threshold = 200,000; line 15 = 23,350 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 0 regular + 0 net investment income tax + 0 additional Medicare tax = 0.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

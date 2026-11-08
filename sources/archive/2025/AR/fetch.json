@@ -1,0 +1,41 @@
+[
+  {
+    "state": "AR",
+    "title": "2025 AR1000F and AR1000NR Instructions",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "retrieved": "2026-11-07T01:00:16.694084+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "file": "2025_AR1000F_and_AR1000NR_Instructions.pdf",
+    "bytes": 3684963,
+    "sha256": "9f24e23cfcfcc35633b288253f6d7e89ec7384f836010619798c105fddbf4857",
+    "archived_url": "https://web.archive.org/web/20260212213307id_/https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  {
+    "state": "AR",
+    "title": "2025 AR1000F Full Year Resident Individual Income Tax Return",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_FullYearResidentIndividualIncomeTaxReturn_1.pdf",
+    "retrieved": "2026-11-07T01:00:22.371597+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_FullYearResidentIndividualIncomeTaxReturn_1.pdf",
+    "file": "2025_AR1000F_FullYearResidentIndividualIncomeTaxReturn_1.pdf",
+    "bytes": 1359685,
+    "sha256": "30265c7d372966307b6086aca5d95a9918202349a42c126d887ba4e6ec3d86b0",
+    "archived_url": "https://web.archive.org/web/20260301130518id_/https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_FullYearResidentIndividualIncomeTaxReturn_1.pdf"
+  },
+  {
+    "state": "AR",
+    "title": "Subject 206 Pensions and Annuities (revised 2/24/2023)",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+    "retrieved": "2026-11-07T01:00:27.647854+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+    "file": "206-PensionsAnnuities.pdf",
+    "bytes": 65691,
+    "sha256": "3573077c87ff4dd081cd4821a069192486124541424b015658d770ab7aeee115",
+    "archived_url": "https://web.archive.org/web/20250120202513id_/https://www.dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf"
+  }
+]

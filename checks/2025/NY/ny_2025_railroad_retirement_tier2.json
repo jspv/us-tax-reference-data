@@ -1,0 +1,55 @@
+{
+  "id": "ny_2025_railroad_retirement_tier2",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Information for retired persons (NYS Department of Taxation and Finance)",
+    "section": "Subtractions, Railroad Retirement benefits (Tier 2 benefits under the Railroad Retirement Act of 1974, subtracted on Form IT-225 code S-122, carried to Form IT-201 line 31); Form IT-201 lines 19, 31-39; IT-201-I PDF page 11 (line 34) and PDF pages 12 and 33 (line 39)",
+    "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-08-08"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "interest": "55000.00",
+      "dividends": "20000.00"
+    },
+    "federal_agi": "105000.00",
+    "federal_taxable_income": "87250.00"
+  },
+  "expected": {
+    "state_agi": "75000.00",
+    "state_taxable_income": "67000.00",
+    "state_tax_before_credits": "3520.00",
+    "credits": "0.00",
+    "state_income_tax": "3520.00",
+    "relief_amounts": {
+      "railroad_retirement": "30000.00"
+    }
+  },
+  "worked": "Single, 66: Railroad Retirement Tier 2 benefits 30,000 (no Tier 1 benefit in this case), taxable interest 55,000 (not U.S. obligations), dividends 20,000. Federal AGI = 30,000 + 55,000 + 20,000 = 105,000. Tier 2 is exempt from state tax under Title 45 U.S.C. and is not line 29 pension income here, since it is subtracted in full. Federal AGI (IT-201 line 19) = 105,000.00. Federal taxable income = 105,000.00 - 15,750.00 federal standard deduction - 1 x 2,000 age-65 addition = 87,250.00 (given, not tested; the federal senior deduction is ignored). Subtraction: line 31 (IT-225 S-122) Tier 2 railroad retirement benefits included in federal AGI, in full 30,000.00. Line 32 total subtractions = 30,000.00. Line 33 New York AGI = 105,000.00 - 30,000.00 = 75,000.00. Line 34 New York standard deduction (single, PDF page 11 table) 8,000.00; line 35 = 75,000.00 - 8,000.00 = 67,000.00; line 36 dependent exemption 0 (no dependents); lines 37/38 taxable income 67,000.00. Rate schedule (PDF page 33, single) on 67,000.00: 8,500.00 x 4% = 340.00; 3,200.00 x 4.5% = 144.00; 2,200.00 x 5.25% = 115.50; 53,100.00 x 5.5% = 2,920.50; schedule tax = 3,520.00 (the printed schedule, with its whole-dollar base 600 at 13,900, gives 3,520.50; this case uses the bands as numbers). NY AGI is 107,650 or less and line 38 is 65,000 or more: the rate schedule applies (PDF page 12, line 39); no recapture worksheet. Line 39 NYS tax = 3,520.00. Credits: none (the household credit, line 40, PDF page 12 tables 1-3, allows no credit above federal AGI of 28,000 single or 32,000 other statuses): state income tax = 3,520.00.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

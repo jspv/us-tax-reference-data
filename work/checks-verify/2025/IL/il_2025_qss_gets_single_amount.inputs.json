@@ -1,0 +1,43 @@
+{
+  "id": "il_2025_qss_gets_single_amount",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8; Line B 'Widowed' for a federal Qualifying Surviving Spouse, Instructions PDF page 6",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 47,
+        "born": "1978-02-17"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "102850.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "102850.00",
+    "federal_taxable_income": "71350.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.il_personal_exemption"
+  ]
+}

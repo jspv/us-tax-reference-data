@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1780.00",
+    "state_tax_before_credits": "1780.00",
+    "state_taxable_income": "35600.00",
+    "relief_amounts": {
+      "other_state_contributory_pension_ny": "0.00"
+    }
+  },
+  "worked": "Start: federal AGI 40000.00. NY contributory pension 25000.00 (person 0, age 55): under 59 1/2, deduction 0. Private pension 15000.00 (person 0): taxed in full. State income = 40000.00 - 0.00 = 40000.00. Personal exemption (single) 4400.00. Taxable income = max(40000.00 - 4400.00, 0) = 35600.00. Tax = 5% x 35600.00 = 1780.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

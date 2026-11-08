@@ -1,0 +1,76 @@
+{
+  "id": "in_2025_civil_service_joint_each_own_cap",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "civil_service_annuity",
+    "age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Schedule 2 line 11 code 601 and PDF pages 19-20 Civil Service Annuity Deduction, with its examples; Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000), line 4 (PDF page 25: 1,000 age 65 or older), line 5 (PDF page 25: 500 age 65 or older and IT-40 line 1 under 40,000, or under 20,000 married filing separately); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-11-11"
+      },
+      {
+        "age": 63,
+        "born": "1962-11-11"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "22000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        },
+        {
+          "amount": "18000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "21900.00"
+  },
+  "expected": {
+    "state_agi": "23000.00",
+    "state_taxable_income": "20000.00",
+    "state_tax_before_credits": "600.00",
+    "credits": "0.00",
+    "state_income_tax": "600.00",
+    "relief_amounts": {
+      "civil_service_annuity": "32000.00"
+    }
+  },
+  "worked": "Federal AGI = federal civil service annuity person 0 22,000.00 + federal civil service annuity person 1 18,000.00 + IRA distribution person 0 15,000.00 = 55,000.00. Federal taxable income = 55,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 age 65 additional = 21,900.00 (given, not tested; the federal senior deduction is ignored; Indiana starts from federal AGI). Form IT-40 line 1 federal AGI 55,000.00. Line 2 add-backs 0.00; line 3 = 55,000.00 + 0.00 = 55,000.00. Civil service annuity person 0 (age 66): cap 16,000.00 less that person's own Social Security received 0.00 and railroad retirement 0.00 = 16,000.00; lesser of the annuity 22,000.00 and 16,000.00 = 16,000.00. Civil service annuity person 1 (age 63): cap 16,000.00 less that person's own Social Security received 0.00 and railroad retirement 0.00 = 16,000.00; lesser of the annuity 18,000.00 and 16,000.00 = 16,000.00. Schedule 2: line 11 code 601 civil service annuity 32,000.00; line 12 total = 32,000.00. IT-40 line 4 = 32,000.00. Line 5 = 55,000.00 - 32,000.00 = 23,000.00. Schedule 3: line 1 2,000.00; line 4 1 x 1,000.00 = 1,000.00; line 5 IT-40 line 1 55,000.00 is not less than 40,000.00: none; line 7 total = 3,000.00. IT-40 line 6 = 3,000.00. Line 7 = 23,000.00 - 3,000.00 = 20,000.00. Line 8 = 20,000.00 x 0.03 = 600.00. No credits; county tax (line 9) is local and out of scope. State income tax 600.00. The cap is per annuitant: 16,000.00 each, 32,000.00 on the return.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:civil_service_annuity_surviving_spouse",
+    "state_rule_not_modelled:disability_retirement_602",
+    "state_rule_not_modelled:renters_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

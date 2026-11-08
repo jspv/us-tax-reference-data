@@ -1,0 +1,35 @@
+{
+  "id": "US-2025-single-gains-in-20-percent-band",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Single filer age 58 with wages 250,000 and a 400,000 long-term gain: part of the gain in the 20% band, net investment income tax on the whole gain, additional Medicare tax on wages over 200,000.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1967-08-08",
+        "age": 58
+      }
+    ],
+    "wages": "250000",
+    "net_long_term_gain": "400000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

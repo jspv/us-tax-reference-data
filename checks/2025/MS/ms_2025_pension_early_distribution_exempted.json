@@ -1,0 +1,64 @@
+{
+  "id": "ms_2025_pension_early_distribution_exempted",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ms_retirement_income_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25); Miss. Admin. Code Title 35 Part III Income and Franchise (Department of Revenue income tax regulations)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.11 Line 46 Total Pensions and Annuities; FAQ 'Is retirement income taxable?'; Miss. Admin. Code Title 35 Part III Subpart 02 Chapter 07 rules 100 and 104 (https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, PDF p.18)",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 42,
+        "born": "1983-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "21700.00",
+    "state_tax_before_credits": "514.80",
+    "credits": "0.00",
+    "state_income_tax": "514.80",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "20000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 30,000.00 + private pension (person 0) 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 15,750.00 federal standard deduction = 34,250.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 5, Single. Start at federal AGI 50,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Less retirement income 20,000.00 (Line 46: exempt in total; not reported; recipient taken to have met the plan requirements). Line 66 and line 13 Mississippi AGI = 30,000.00. Line 14 standard deduction 2,300.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 6,000.00; line 12 and line 15 = 6,000.00. Line 16 Mississippi taxable income = 30,000.00 - 2,300.00 - 6,000.00 = 21,700.00. Schedule of Tax Computation line 1: first 10,000.00 x 0% = 0.00; line 2: remaining 11,700.00 x 4.4% = 514.80; line 4 and line 17 = 514.80. Lines 18 and 19 credits 0.00; line 20 = 514.80. The form rounds to whole dollars (p.22), which would give 515; expected keeps the formula result. Person 0 is 42. Neither the booklet nor the regulation prints an age (regulation rule 104: early distributions from retirement plans do not qualify), and the inputs cannot say whether this is an early or excess distribution (Form 5329). The projection exempts it and warns. If it were early, line 46 would carry 20,000.00 and tax would be 880.00 more.",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+    "Retirement income that does not qualify is exempted here anyway: early or excess distributions under federal law (Form 5329), separation pay, and deferred compensation distributions before retirement age or service requirements; the same holds for IRA, 401(k), 403(b) and 457 payouts taken early (regulation rule 104: early distributions from retirement plans do not qualify; rule 102: deferred compensation only once the person qualifies for other retirement income by minimum age, years of service or other criteria). Neither the booklet nor the regulation prints an age, so a projection cannot test 'met the retirement plan requirements'. Early means before 59 1/2 under federal law, unless a federal exception applies (Form 5329); whether a Roth conversion before 59 1/2 counts as early is not said, and it is exempted too."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ms_nonqualifying_retirement_income"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

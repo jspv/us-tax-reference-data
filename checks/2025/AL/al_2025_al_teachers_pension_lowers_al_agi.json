@@ -1,0 +1,72 @@
+{
+  "id": "al_2025_al_teachers_pension_lowers_al_agi",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "al_public_pension",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "PDF page 7 'Examples of Income You DO NOT Report' (State of Alabama Teachers' Retirement System); PDF page 14 Schedule RS list; Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8); Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-07-01"
+      },
+      {
+        "age": 63,
+        "born": "1962-10-10"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "AL",
+          "contributory": true
+        }
+      ],
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "26900.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "20075.00",
+    "state_tax_before_credits": "923.75",
+    "credits": "0.00",
+    "state_income_tax": "923.75",
+    "relief_amounts": {
+      "al_public_pension": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 1) 30,000.00 + Alabama Teachers' Retirement System pension (person 0) 30,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 26,900.00 (given, not tested; the federal senior deduction is ignored). Alabama: the projection starts from federal AGI and removes exempt income (Form 40 builds its own lines 5b to 10, which give the same AGI for this household). Subtract Alabama Teachers' Retirement System pension (person 0) 30,000.00: State of Alabama Teachers' Retirement System benefits are not reported (PDF page 7 'Examples of Income You DO NOT Report'; PDF page 14). Form 40 line 10 Alabama AGI = 30,000.00. Line 11 standard deduction (married filing jointly, chart PDF page 9): AL AGI 30,000.00 is over 29,999.00, the band 30,000.00 to 30,499.00, so 6,925.00. The chart is read on Alabama AGI (line 10), which leaves out the exempt pension, not on federal AGI 60,000. Line 12 federal income tax deduction: the form subtracts the 2025 federal income tax (worksheet PDF page 31); the projection does not model it (not_modelled, approximation), so 0.00 here. Line 13 personal exemption (married filing jointly) 3,000.00. Line 14 dependent exemption 0.00 (no dependents). Line 15 total deductions = 6,925.00 + 0.00 + 3,000.00 + 0.00 = 9,925.00. Line 16 taxable income = 30,000.00 - 9,925.00 = 20,075.00. Line 17 tax from the derived married filing jointly schedule (2% from 0, 4% from 1,000, 5% from 6,000): (1,000.00 - 0.00) x 0.02 = 20.00 + (6,000.00 - 1,000.00) x 0.04 = 200.00 + (20,075.00 - 6,000.00) x 0.05 = 703.75 = 923.75; the tax table row 20,000-20,100 (married filing jointly column, PDF pages 25 to 30) gives 923. Line 18 net tax due, no credits: 923.75.",
+  "accepted_approximations": [
+    "The federal income tax deduction is not applied (not_modelled).",
+    "The brackets are derived from the tax table. Under 100,000 the table taxes each 100-dollar row at its midpoint, rounded; above 100,000 the printed worksheet ((income - 100,000) x .05 + 4,958, or + 4,918 joint) is 2 dollars below the derived brackets."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:al_federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "110000.00",
+    "state_income_tax": "5260.00",
+    "state_tax_before_credits": "5260.00",
+    "state_taxable_income": "106000.00"
+  },
+  "worked": "Start: federal AGI 110,000.00 (projection starts_from federal_agi). wages person 0 110,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 110,000.00. Standard deduction (single, state AGI 110,000.00 over 35499): 2,500.00. Personal exemption (single): 1,500.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 110,000.00 - 2,500.00 - 1,500.00 = 106,000.00. Tax on 106,000.00 with the single brackets: 0.02 x (500.00 - 0.00) = 10.00; 0.04 x (3,000.00 - 500.00) = 100.00; 0.05 x (106,000.00 - 3,000.00) = 5,150.00; total 5,260.00. Credits: none in the projection: 0.00. State income tax = 5,260.00. Form figure: the booklet 'Over $100,000.00' worksheet gives (106,000 - 100,000) x .05 + 4,958 = 5,258.00, 2.00 below the bracket result (projection approximation on derived brackets)."
+}

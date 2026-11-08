@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "18000.00",
+    "state_taxable_income": "18000.00",
+    "state_tax_before_credits": "552.60",
+    "credits": "0.00",
+    "state_income_tax": "552.60",
+    "relief_amounts": {
+      "pa_public_pension": "52000.00"
+    }
+  },
+  "worked": "Pennsylvania 2025, projection rules; filing status married_joint (one flat rate for every status). Start: federal AGI 90,400.00 (projection base.starts_from federal_agi; PA-40 Line 9 has no federal start, the mapping is the projection's first approximation). Less public pension paid by federal, person 1: 52,000.00 (pa_public_pension, exempt in full). Less taxable Social Security in federal AGI: 20,400.00 (social_security.treatment exempt; the PA-40 has no Social Security line). State income (state_agi): 90,400.00 + 0.00 - 72,400.00 = 18,000.00. Deductions: none (PDF page 9; projection base.deductions empty; no Line 10 item in the inputs). Taxable income (Line 11): 18,000.00. Tax (Line 12): 18,000.00 x 0.0307 = 552.6, 552.60. Credits: 0.00 (no credit relief in the projection; Tax Forgiveness and other credits are not_modelled). State income tax: 552.60. The form shows whole dollars (553, PDF page 'Rounding Numbers'); the formula result to the cent is the expected figure. Federal figures given, the federal senior deduction ignored."
+}

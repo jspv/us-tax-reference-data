@@ -1,0 +1,56 @@
+{
+  "id": "mn_2025_age_born_1961_01_01",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "mn_age_65_standard_addition"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "33050.00",
+    "state_tax_before_credits": "1775.14",
+    "credits": "0.00",
+    "state_income_tax": "1775.14",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "0.00"
+    }
+  },
+  "worked": "Born January 1, 1961: before January 2, 1961, so 65 for 2025; one age box. The age field carries the tax-rule age 65, so the min_age rule gives the form's answer. Federal (given, not tested): federal AGI = wages 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 17,750.00 federal standard deduction (15,750 plus 1 x 2,000) = 32,250.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 50,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 50,000.00. Schedule M1R: line 1 9,600.00; line 2 0.00 (65 or older); line 3 9,600.00; line 4 0.00; line 5 nontaxable Social Security 0.00 - 0.00 = 0.00; line 6 Railroad Retirement Board benefits 0.00; line 7 0.00; line 8 = 9,600.00. Line 9 50,000.00; line 10 14,500.00; line 11 35,500.00; line 12 17,750.00; line 13 = 0.00. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 0.00 + 0.00 + 0.00 = 0.00 (lines 12, 16, 17, 25). State income before deduction = 50,000.00 - 0.00 = 50,000.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00 plus 1 x 2,000 age box(es) = 16,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 16,950.00. Form M1 line 8 total = 16,950.00 + 0.00 = 16,950.00; line 9 Minnesota taxable income = 50,000.00 - 16,950.00 = 33,050.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (32,570.00 - 0.00) = 1,742.495 + 6.80% x (33,050.00 - 32,570.00) = 32.64 = 1,775.135. The tax table (PDF pp.32-38) gives 1,775; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 1,775.14.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

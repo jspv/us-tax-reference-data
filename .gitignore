@@ -1,0 +1,13 @@
+bakeoff/pdf/
+bakeoff/out/
+.venv/
+__pycache__/
+work/**/*.py
+dist/
+!work/public/*.py
+
+# Source documents are pulled on demand (uv run python -m tools.sources pull --year YYYY)
+sources/archive/**/*.pdf
+sources/archive/**/*.html
+sources/archive/**/*.docling.md
+sources/archive/**/*.pypdf.txt

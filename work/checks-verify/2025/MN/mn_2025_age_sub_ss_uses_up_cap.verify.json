@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "state_agi": "19000.00",
+    "state_taxable_income": "2050.00",
+    "state_tax_before_credits": "109.68",
+    "credits": "0.00",
+    "state_income_tax": "109.68",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "0.00",
+      "mn_social_security_simplified": "0.00"
+    }
+  },
+  "worked": "Filing status single; ages [70]. M1 line 1 federal AGI 19,000. M1M line 1 addition, other-state municipal interest: 0. Social Security (M1M line 12): benefits 10,000, taxable 0. Simplified: AGI 19,000 not over 84490, full amount = 0. Alternative (projection): measure AGI + exempt interest 19,000, lesser of cap 4560 and taxable = 0, less 20% of 0 over 69250 = 0. Greater: 0. Age 65 subtraction (M1R, M1M line 16), oldest person 70: cap 9600 less benefits received 10,000 and railroad benefits 0 = -400; less 50% of AGI over 14500 (50% x 4,500 = 2,250) = 0. State AGI: 19,000 + 0 - 0 military - 0 railroad - 0 age 65 - 0 Social Security = 19,000. Standard deduction (M1 line 4): 14950; age addition 1 x 2000 = 2,000; total 16,950. Taxable income (M1 line 9): 19,000 - 16,950 = 2,050. Tax (single schedule, numbers not table): 2,050 x 0.0535 = 109.675; total 109.675 = 109.68. The printed tax table gives 110. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 109.68. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

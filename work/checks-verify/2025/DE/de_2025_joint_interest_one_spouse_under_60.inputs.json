@@ -1,0 +1,51 @@
+{
+  "id": "de_2025_joint_interest_one_spouse_under_60",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "de_pension_excl_60_plus",
+    "de_additional_standard_65",
+    "de_additional_personal_credit_60"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. \u00a71102(a)(14)",
+    "section": "Instructions PDF p.6 Line 6 Pension Exclusion (under-60 rules: 'IF YOU WERE UNDER 60 ... and you receive a non-military pension, your exclusion equals $2,000 or the amount of your pension, whichever is less'; 60-or-over worksheet lines 1-4; eligible retirement income; example: joint account income 'split equally between the two taxpayers', a taxpayer with no pension still gets an exclusion); Instructions PDF p.5 Filing Status 3 or 4 and Line 1 (one-half of income from bank accounts titled in joint names); 30 Del. C. \u00a71106(b)(3)f.1.B; Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.8 Line 20a standard deduction table, Line 21 Additional Standard Deduction, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. \u00a71102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      },
+      {
+        "age": 57,
+        "born": "1968-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "interest": "4000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "20900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.de_pension_excl_60_plus",
+    "relief_amounts.de_additional_personal_credit_60"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "low_middle_income_exemption_joint_hoh": "1000.00"
+    },
+    "state_agi": "18500.00",
+    "state_income_tax": "424.00",
+    "state_tax_before_credits": "424.00",
+    "state_taxable_income": "17500.00"
+  },
+  "worked": "Status married_joint; persons [50, 48]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 50,000.00 less line 12 federal standard deduction 31,500.00 = 18,500.00. state_agi = 18,500.00 + additions 0.00 - subtractions 0.00 = 18,500.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). PIT-1 line 14 worksheet: line 3 = 50,000.00 - 30,000 floored at 0 = 20,000.00; line 5 = x 0.10 = 2,000.00; line 6 = 2,500 - line 5 (not below 0) = 500.00; line 7 exemptions 2 (dependents not modelled); line 8 = 1,000.00. state_taxable_income (PIT-1 line 17) = 18,500.00 - 0.00 - 1,000.00 = 17,500.00. Tax on 17,500.00, married_joint brackets: 0.015 x 8,000.00 = 120.0000; 0.032 x 9,500.00 = 304.0000; total 424.0000, 424.00 to the cent. The printed table gives 422 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

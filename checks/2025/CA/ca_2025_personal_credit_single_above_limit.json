@@ -1,0 +1,50 @@
+{
+  "id": "ca_2025_personal_credit_single_above_limit",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_exemption_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-09-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "340000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "340000.00",
+    "federal_taxable_income": "324250.00"
+  },
+  "expected": {
+    "state_agi": "340000.00",
+    "state_taxable_income": "334294.00",
+    "state_tax_before_credits": "27527.98",
+    "credits": "0.00",
+    "state_income_tax": "27527.98",
+    "relief_amounts": {
+      "personal_exemption_credit": "0.00"
+    }
+  },
+  "worked": "Single, 45: wages 340,000; federal AGI = 340,000, which is 87,797 over the 252,203 limit, beyond the 62,500 range over which the stepped phase-down still leaves part of a 153 credit, so the form and the projection agree. Form 540 line 13 federal AGI = 340,000.00. Federal taxable income = 340,000.00 - 15,750.00 federal standard deduction = 324,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (wages need no adjustment). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 340,000.00 - 0.00 = 340,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 340,000.00 - 5,706.00 = 334,294.00. Tax on 334,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 15,182.00 x 8% = 1,214.56; 261,570.00 x 9.3% = 24,326.01; total 27,527.98. Line 31: Tax Rate Schedule X (PDF page 75), from its printed base, gives 27,527.98. Line 11 exemptions: 1 personal x 153 and 0 senior x 153. Federal AGI 340,000.00 is more than 252,203.00: the projection removes the personal and senior credits, line 32 = 0.00. The form's AGI Limitation Worksheet (PDF page 14) would give: c = 87,797 over 252,203.00; d = 87,797 / 2,500 rounded up = 36; e = 36 x 6 = 216; f = 1 boxes on lines 7 and 9; g = 216 x 1 = 216; h = 153; i = 153 - 216 = 0 (zero or less enters 0); line 32 = 0. Line 33 = 27,527.98 - 0.00 = 27,527.98; no other credits (lines 34 to 47 nil), line 48 = 27,527.98. State income tax = 27,527.98.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

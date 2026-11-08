@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "21256.00",
+    "state_income_tax": "410.38",
+    "state_tax_before_credits": "410.38",
+    "state_taxable_income": "9656.00",
+    "relief_amounts": {
+      "pre1946_public": "45000.00",
+      "pre1946_private": "86794.00"
+    }
+  },
+  "worked": "Joint; older spouse born 1942. Public MI pension 45,000 subtracted in full. Private limit 131,794 reduced by public 45,000 = 86,794; private 70,000 + IRA 30,000 = 100,000 -> 86,794.00. Line 28: 29,376 - 131,794 -> 0. Taxable SS 42,500 subtracted. state_agi 195,550 - 42,500 - 45,000 - 86,794 = 21,256.00. Exemptions 11,600. Taxable 9,656.00. Tax 410.38. [check: state_agi 21256.00, taxable 9656.00, tax 410.38; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

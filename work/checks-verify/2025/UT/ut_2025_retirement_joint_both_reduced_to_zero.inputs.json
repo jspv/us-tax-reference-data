@@ -1,0 +1,53 @@
+{
+  "id": "ut_2025_retirement_joint_both_reduced_to_zero",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (18) Retirement Credit and Retirement Credit Worksheet lines 1 to 10 (PDF p.21)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 75,
+        "born": "1950-04-12"
+      },
+      {
+        "age": 77,
+        "born": "1948-09-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "34000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "34000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "68000.00",
+    "federal_taxable_income": "33300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.retirement_credit"
+  ]
+}

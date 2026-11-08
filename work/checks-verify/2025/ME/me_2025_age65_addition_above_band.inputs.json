@@ -1,0 +1,45 @@
+{
+  "id": "me_2025_age65_addition_above_band",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+    "section": "Form 1040ME lines 14-20 (PDF pp.1-2); line 17 Maine Standard Deduction Chart (booklet PDF p.5); line 13 table and line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: base.deductions, booklet PDF page 5 (chart, worksheet, line 13 table), PDF page 6 (exemption phaseout worksheet), PDF page 11 Quick Facts; brackets PDF page 13; Worksheet for Standard / Itemized Deductions lines 1-8 (booklet PDF p.5)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "150010.00",
+          "person": 0
+        }
+      ],
+      "interest": "30000.00"
+    },
+    "federal_agi": "180010.00",
+    "federal_taxable_income": "162260.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

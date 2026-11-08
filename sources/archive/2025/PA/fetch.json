@@ -1,0 +1,42 @@
+[
+  {
+    "state": "PA",
+    "title": "2025 PA-40 Instructions",
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+    "retrieved": "2026-11-06T17:52:45.651661+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "2025_pa-40in.pdf",
+    "bytes": 883846,
+    "sha256": "e8996504a4302a65055e697ba6301a3e41a411a4802645a5fc5f653f7538c172",
+    "archived_url": "https://web.archive.org/web/20260305105202id_/https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf"
+  },
+  {
+    "state": "PA",
+    "title": "2025 PA-40 Pennsylvania Income Tax Return",
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40.pdf",
+    "retrieved": "2026-11-07T01:38:29.200693+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40.pdf",
+    "method": "browser",
+    "file": "2025_pa-40.pdf",
+    "bytes": 590674,
+    "sha256": "fcd7648601f3ce5a7a258be49c54aa1c604e1c61c1fe9175351451ac6087d8b3",
+    "archived_url": "https://web.archive.org/web/20260213053725id_/https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40.pdf"
+  },
+  {
+    "state": "PA",
+    "title": "PA Personal Income Tax Guide: Gross Compensation (covers retirement, pension, IRA, Social Security treatment)",
+    "url": "https://www.pa.gov/agencies/revenue/forms-and-publications/pa-personal-income-tax-guide/gross-compensation",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:38:34.298451+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.pa.gov/agencies/revenue/forms-and-publications/pa-personal-income-tax-guide/gross-compensation",
+    "file": "gross-compensation.html",
+    "bytes": 872890,
+    "sha256": "2e775c608b3ffe5c307dd390c656a02cab06f883e05a04e018e410a87400bdb5",
+    "text_file": "gross-compensation.page.txt"
+  }
+]

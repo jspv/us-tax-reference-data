@@ -1,0 +1,58 @@
+{
+  "id": "me_2025_joint_one_spouse_65",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_additional_standard_deduction",
+    "pension_income_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27 and the Worksheet for Pension Income Deduction lines P1-P10 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-02-14"
+      },
+      {
+        "age": 60,
+        "born": "1965-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "58900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_income_deduction"
+  ]
+}

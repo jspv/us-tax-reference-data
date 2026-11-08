@@ -1,0 +1,42 @@
+{
+  "id": "US-2026-single-retiree-senior-fully-phased-out",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Single retiree age 72 with a large pension and Social Security: benefits taxable at the 85% cap and the senior deduction fully phased out.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1954-04-04",
+        "age": 72
+      }
+    ],
+    "taxable_pensions": "150000",
+    "social_security_benefits": "40000"
+  },
+  "expected": {
+    "agi": "184000.00",
+    "taxable_social_security": "34000.00",
+    "standard_deduction": "18150.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "165850.00",
+    "regular_tax": "32402.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "32402.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: single.\nTaxpayer: born 1954-04-04, age 72 at the end of 2026.\nForm 1040: lines 4b + 5b taxable pensions and IRA distributions 150,000; line 6a Social Security benefits 40,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 40,000; line 2 = 50% x 40,000 = 20,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 150,000; line 4 (line 2a) = 0\n  line 5 = 20,000 + 150,000 + 0 = 170,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 170,000\n  line 8 (base amount, single) = 25,000\n  line 9 = 170,000 - 25,000 = 145,000; line 10 = 9,000 (34,000 adjusted base amount - 25,000); line 11 = 136,000\n  line 12 = smaller of 145,000 and 9,000 = 9,000; line 13 = 4,500; line 14 = smaller of 20,000 and 4,500 = 4,500\n  line 15 = 85% x 136,000 = 115,600; line 16 = 4,500 + 115,600 = 120,100\n  line 17 = 85% x 40,000 = 34,000; line 18 = smaller of 120,100 and 34,000 = 34,000 -> Form 1040 line 6b\nForm 1040 line 9 total income = 150,000 + 34,000 = 184,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 184,000.\nLine 12e standard deduction = 16,100 basic (single) + 1 x 2,050 additional (unmarried amount, one per box checked on line 12d for age 65 or older / blind) = 18,150.\nSchedule 1-A: line 1 = line 11b 184,000; line 3 MAGI = 184,000 (no excluded income).\n  Part V: line 31 = 184,000; line 32 = 75,000; line 33 = 109,000; line 34 = 6% x 109,000 = 6,540; line 35 = 6,000 - 6,540, zero or less, so 0\n  line 36a (born before January 2, 1962) = 0; line 37 = 0 -> line 38 -> Form 1040 line 13b\nLine 14 = 18,150 + 0 = 18,150; line 15 taxable income = 184,000 - 18,150 = 165,850.\nForm 1040 line 16 (regular tax): Tax Rate Schedule X (single) on 165,850: 10% x 12,400 = 1,240; 12% x (50,400 - 12,400) = 4,560; 22% x (105,700 - 50,400) = 12,166; 24% x (165,850 - 105,700) = 14,436; total 32,402\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 184,000; line 14 threshold = 200,000; line 15 = 184,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 32,402 regular + 0 net investment income tax + 0 additional Medicare tax = 32,402.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

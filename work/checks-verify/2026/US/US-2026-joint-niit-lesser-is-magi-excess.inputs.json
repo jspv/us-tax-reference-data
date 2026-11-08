@@ -1,0 +1,41 @@
+{
+  "id": "US-2026-joint-niit-lesser-is-magi-excess",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax"
+  ],
+  "description": "Couple filing jointly, ages 50 and 49, wages 200,000 plus 80,000 of investment income: MAGI is over 250,000 by less than the investment income, so the tax is on the excess; wages under 250,000, no additional Medicare tax.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1976-03-15",
+        "age": 50
+      },
+      {
+        "born": "1977-12-12",
+        "age": 49
+      }
+    ],
+    "wages": "200000",
+    "taxable_interest": "10000",
+    "ordinary_dividends": "30000",
+    "qualified_dividends": "25000",
+    "net_long_term_gain": "40000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

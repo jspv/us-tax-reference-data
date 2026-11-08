@@ -1,0 +1,37 @@
+{
+  "id": "US-2026-single-retiree-no-taxable-social-security",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Single retiree age 70 with Social Security, a small pension and interest: provisional income under the 25,000 base, so no benefits are taxable; full senior deduction; no taxable income.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1956-12-05",
+        "age": 70
+      }
+    ],
+    "taxable_pensions": "10000",
+    "taxable_interest": "1000",
+    "social_security_benefits": "24000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

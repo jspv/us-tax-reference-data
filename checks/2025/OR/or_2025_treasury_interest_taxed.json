@@ -1,0 +1,55 @@
+{
+  "id": "or_2025_treasury_interest_taxed",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.77-78 subtraction code 315; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "38250.00"
+  },
+  "expected": {
+    "state_agi": "54000.00",
+    "state_taxable_income": "51165.00",
+    "state_tax_before_credits": "4166.94",
+    "credits": "256.00",
+    "state_income_tax": "3910.94"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 50,000.00 + U.S. Treasury interest 4,000.00 = 54,000.00. Federal taxable income = 54,000.00 - 15,750.00 federal standard deduction = 38,250.00 (the federal senior deduction is ignored). Form OR-40 (filing status single): line 7 federal AGI 54,000.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 54,000.00 + 0.00 = 54,000.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 0.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 0.00 + 0.00 + 0.00 = 0.00. Line 15 = 54,000.00 - 0.00 = 54,000.00. Line 16 itemized 0.00. Line 17 standard deduction 2,835.00; no age 65 box. Line 18 = 2,835.00. Line 19 = 54,000.00 - 2,835.00 = 51,165.00. Line 20: 4,400.00 x 4.75% = 209 + 6,700.00 x 6.75% = 452.25 + 40,065.00 x 8.75% = 3505.6875; total 4166.9375, to the cent 4,166.94 (Chart S gives 4,065 + 1,165.00 x 8.75% = 4,167; expected keeps the formula). Lines 21-23 0.00. Line 24 = 4,166.94. Line 25 exemption credit: federal AGI 54,000.00 is not more than 100,000.00; 1 x 256.00 = 256.00. Line 27 retirement income credit: no retirement income, 0.00. Line 28 credits = 256.00 + 0.00 = 256.00. Line 29 and line 31 state income tax = 4,166.94 - 256.00 = 3,910.94. Line 32 kicker comes after this figure and is not applied (not_modelled). The booklet subtracts the 4,000.00 under code 315: the tax would be 350.00 lower. The projection taxes it (approximations).",
+  "accepted_approximations": [
+    "The federal tax liability subtraction is not applied (not_modelled). This is the largest gap for most Oregon households.",
+    "Interest on U.S. bonds and notes, and the part of an IRA or Keogh distribution that comes from it, is taxed (the projection cannot tell it from other income).",
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

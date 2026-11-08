@@ -1,0 +1,61 @@
+{
+  "id": "mi_2025_military_retirement",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 11 (PDF page 14: military retirement benefits due to service in the U.S. Armed Forces or Michigan National Guard); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-09-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "34200.00",
+    "state_tax_before_credits": "1453.50",
+    "credits": "0.00",
+    "state_income_tax": "1453.50",
+    "relief_amounts": {
+      "military_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = military retirement 30,000.00 + wages 40,000.00 = 70,000.00. Federal taxable income = 70,000.00 - federal standard deduction (15,750.00) = 54,250.00; given, not tested; the federal senior deduction is ignored. Michigan: Schedule 1 line 11 U.S. Armed Forces retirement 30,000.00 subtracted in full at any age (the wages are civilian pay, taxed). Line 14 = 70,000.00 - 30,000.00 = 40,000.00; exemption 5,800.00; line 16 = 34,200.00. MI-1040 line 17 tax = 34,200.00 x 0.0425 = 1,453.50. No credits; state income tax 1,453.50.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mi_firepolice_public",
+    "state_rule_not_modelled:mi_ssa_exempt_1959_1964"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

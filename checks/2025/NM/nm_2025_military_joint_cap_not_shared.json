@@ -1,0 +1,71 @@
+{
+  "id": "nm_2025_military_joint_cap_not_shared",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "armed_forces_retirement_pay"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 7, line 24; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      },
+      {
+        "age": 48,
+        "born": "1977-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "45000.00",
+          "person": 0,
+          "source": "military",
+          "military_years_20_or_medical": true
+        },
+        {
+          "amount": "10000.00",
+          "person": 1,
+          "source": "military",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "85000.00",
+    "federal_taxable_income": "53500.00"
+  },
+  "expected": {
+    "state_agi": "13500.00",
+    "state_taxable_income": "13500.00",
+    "state_tax_before_credits": "296.00",
+    "credits": "0.00",
+    "state_income_tax": "296.00",
+    "relief_amounts": {
+      "armed_forces_retirement_pay": "40000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 30,000.00 + armed forces retirement pay (person 0) 45,000.00 + armed forces retirement pay (person 1) 10,000.00 = 85,000.00. Federal taxable income = 85,000.00 - standard deduction 31,500.00 = 53,500.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, married filing jointly. Line 9 federal AGI 85,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 31,500.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 85,000.00 is over the worksheet's printed ceiling 55,000.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 24 armed forces retirement pay (person 0): smaller of 45,000.00 and 30,000.00 = 30,000.00; line 24 armed forces retirement pay (person 1): smaller of 10,000.00 and 30,000.00 = 10,000.00; PIT-ADJ line 28 total 40,000.00. Line 17 = 85,000.00 + 0.00 - 31,500.00 - 0.00 - 40,000.00 = 13,500.00. By the projection: state_agi = federal taxable income 53,500.00 - 40,000.00 = 13,500.00; less base deductions 0.00 gives 13,500.00. Line 18 tax, schedule as numbers: 1.5% x 8,000.00 = 120 + 3.2% x 5,500.00 = 176; total 296, to the cent 296.00. The table row over 13,400 to 13,500 gives 294; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 296.00. The cap is each retiree's: person 0's unused excess does not move to person 1's room. Total 40,000.00, not 55,000.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:nm_lump_sum_averaging"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "US-2026-rmd-age-80",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "rmd",
+  "boundary": "none",
+  "tests": [
+    "rmd.uniform_lifetime_table"
+  ],
+  "description": "IRA owner born in 1946, age 80 in 2026.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1946-05-01",
+    "rmd_prior_year_end_balance": "350000"
+  },
+  "expected": {
+    "rmd_divisor": "20.2",
+    "rmd_amount": "17326.73"
+  },
+  "worked": "IRA owner born 1946-05-01; age attained on the 2026 birthday = 2026 - 1946 = 80. Beneficiary is not a spouse more than 10 years younger, so the Uniform Lifetime Table applies.\nBorn before 1951: the required beginning date passed under the earlier law (age 70 1/2 for anyone born before July 1, 1949; age 72 for anyone born July 1, 1949 through 1950); distributions are required every year, including 2026.\nUniform Lifetime Table (26 CFR 1.401(a)(9)-9(c)), age 80: distribution period 20.2.\nRMD = account balance at December 31, 2025, 350,000 / 20.2 = 17326.7327, rounded to the cent = 17,326.73.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

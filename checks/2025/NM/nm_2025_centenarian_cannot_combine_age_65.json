@@ -1,0 +1,69 @@
+{
+  "id": "nm_2025_centenarian_cannot_combine_age_65",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "centenarian_exemption",
+    "age_65_exemption",
+    "low_middle_income_exemption_joint_hoh"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF pages 3 to 4, line 12, boxes 12a and 12b; PIT-ADJ instructions PDF page 4, line 13; PDF page 5, Table 1; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      },
+      {
+        "age": 88,
+        "born": "1937-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "1000.00",
+          "person": 0
+        },
+        {
+          "amount": "49000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "15300.00"
+  },
+  "expected": {
+    "state_agi": "14300.00",
+    "state_taxable_income": "12300.00",
+    "state_tax_before_credits": "257.60",
+    "credits": "0.00",
+    "state_income_tax": "257.60",
+    "relief_amounts": {
+      "centenarian_exemption": "1000.00",
+      "age_65_exemption": "1000.00",
+      "low_middle_income_exemption_joint_hoh": "1000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 1,000.00 + IRA distribution (person 1) 49,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 15,300.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, married filing jointly. Line 9 federal AGI 50,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 34,700.00. Line 13 dependents 0.00. Line 14 low- and middle-income worksheet: line 1 50,000.00; line 2 30,000.00; line 3 20,000.00; line 4 0.10; line 5 2,000.00; line 6 2,500.00 - 2,000.00 = 500.00; line 7 2 exemption(s); line 8 = 1,000.00. Line 15, PIT-ADJ: line 13 age 65 or older: Table 1 (married filing jointly) row for federal AGI 50,000.00 gives 1,000.00 x 1 qualifying = 1,000.00; line 12 age 100 or older (person 0, age 100): that person's own income = 1,000.00; PIT-ADJ line 28 total 2,000.00. Line 17 = 50,000.00 + 0.00 - 34,700.00 - 1,000.00 - 2,000.00 = 12,300.00. By the projection: state_agi = federal taxable income 15,300.00 - 1,000.00 = 14,300.00; less base deductions 2,000.00 gives 12,300.00. Line 18 tax, schedule as numbers: 1.5% x 8,000.00 = 120 + 3.2% x 4,300.00 = 137.6; total 257.6, to the cent 257.60. The table row over 12,200 to 12,300 gives 256; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 257.60. 'You may not claim the centenarian exemption AND the deduction for 65 and older or blind': Table 1 at AGI 50,000.00 gives 1,000.00, for the 88-year-old only. If both distributions were community income the booklet's exempt amount would be 25,000.00, not 1,000.00. Line 17 would be 0.00 and the tax by the schedule 0.00; expected follows the projection.",
+  "accepted_approximations": [
+    "The age 100 exemption offsets the person's own income; a married centenarian exempts half of all community income and all separate income, and New Mexico is a community property state."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

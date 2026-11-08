@@ -1,0 +1,447 @@
+{
+  "layer": "record",
+  "state": "RI",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Settlement 2026-11-07: reliefs.ri_pension_annuity_modification.income_test.threshold, married_joint and qualifying_surviving_spouse: A said 133500, B said 133750; instructions PDF p.10 line 1t prints 'Married Joint $133,750' and 'Qualifying Widow(er) $133,750'; the Guide prints '$133,500 or less' (PDF p.14) and 133,500 throughout. Settled 133750 from the instructions. The Guide itself says 'check the most current version of the Rhode Island Form RI-1040 and instructions to make sure you are using the correct income limits' (PDF p.14).",
+    "Settlement 2026-11-07: reliefs.ri_social_security_modification.income_test.threshold, married_joint and qualifying_surviving_spouse: A and B both said 133500 from the Guide (PDF p.16), without the worksheet; the worksheet (line 6) prints 'Married filing jointly or qualifying widow(er) - $133,750'. Settled 133750. The statute in the Guide (PDF p.28, (c)(9)(vi)) sets the pension limits equal to the Social Security limits, so one figure for both agrees with the form. 107,000 for the other statuses agrees everywhere.",
+    "Settlement 2026-11-07: social_security.treatment: A said exempt, B said relief; Schedule M line 1s is a subtraction with age and income conditions (worksheet lines 5 and 7), so a person who fails them gets none. Settled relief; the entry ri_social_security_modification says how. Above the limit nothing further is printed: the worksheet says 'Otherwise, STOP, you are not eligible for this modification', and the amount stays in federal AGI, RI's starting point.",
+    "Settlement 2026-11-07: age test (reader flag): instructions PDF p.9-10 line 1t and worksheet line 5 ask 'born on or before' March 1, 1959 (03/01/1959); line 1s and 1t also open 'For those taxpayers who have reached full retirement age', and the Guide (PDF p.12, p.16) prints a full-retirement-age table. The two are one test for 2025, by arithmetic not printed anywhere: 66 and ten months from March 1, 1959 is January 1, 2026, and the Guide's January 1 note reflects reaching an age the day before the birthday, so that person reaches it on December 31, 2025, and a person born March 2, 1959 reaches it in 2026. Recorded as born_on_or_before 1959-03-01 on both reliefs, with the table in other_conditions. The statute (Guide PDF pp.27, 29) says 'attained the age used for calculating full or unreduced Social Security retirement benefits', so the printed date belongs to this tax year only.",
+    "Settlement 2026-11-07: who for Social Security (reader note): B said no March 1, 1959 test is printed for Social Security, because the worksheet was not in the readers' sources; worksheet lines 5, 9 and Step 2 print it. Added born_on_or_before to the entry.",
+    "Settlement 2026-11-07: income limit boundary: Social Security: worksheet line 7 asks 'Is your Federal AGI on line 3 less than the filing status amount', the Guide says 'below' (PDF p.16) and the statute 'less than' (PDF p.29), so applies_when at_or_over. Pension: instructions line 1t asks 'less than or equal to' and the Guide table says 'or less' (PDF p.14), while the Guide's requirement says 'below' (PDF p.4) and the statute 'less than' (PDF p.27); settled from the form's own question, default over (income exactly at the limit keeps the relief).",
+    "Settlement 2026-11-07: brackets.married_separate and head_of_household: A wrote copies of the schedule, B left them out; instructions PDF p.13 prints one worksheet headed 'Use for all filing status types', and the schema gives those statuses only when they have their own schedule. Left out. The rates and bands agree in both converted texts; the subtraction amounts 799.00 and 3,051.46 reproduce the same bands.",
+    "Settlement 2026-11-07: base.deductions phase_out.measure.base: A said state_agi, B said other; instructions PDF p.4 defines line 3, Modified Federal Adjusted Gross Income, as federal AGI combined with RI modifications, Rhode Island's own adjusted income. Settled state_agi.",
+    "Settlement 2026-11-07: phase_out of the standard deduction and exemptions: A and B said effect other because the worksheet was not in their sources; the 2025 Tax Rate Schedule and Worksheets file, added after the readings, prints both worksheets: over 254,250 of line 3, the excess divided by 7,250 and rounded up gives 1, 2, 3 or 4, kept at 0.8000, 0.6000, 0.4000 or 0.2000; 'If the result is more than $29,000, STOP HERE' and the amount is zero. Here effect stays other with the rule in as_printed, because the band edges 261,500, 268,750, 276,000 and 283,250 are computed, not printed, and the validator allows only printed figures in a record; rate 0.2 is the share each band removes, not a phase_out_rate. The projection holds the bands as stepped. The instructions call both 'the Exemption Worksheet on the inside of the back cover'; the file prints a separate Standard Deduction Worksheet with the same steps.",
+    "The worksheets file is final: the January 2026 edition (address folder 2026-01, archived as 2025_20Tax_20Rate_20and_20Worksheets.pdf) prints the same text as the October draft without the 'DRAFT 10/01/2025' watermark (text compared line for line, 2026-11-07). The draft stays archived for the record.",
+    "Tax rate schedule confirmed: the worksheets' 2025 Tax Rate Schedule, 'FOR ALL FILING STATUS TYPES', prints 0 to 79,900 at 3.75%; 79,900 to 181,650 pay 2,996.25 + 4.75%; over 181,650 pay 7,829.38 + 5.99%. Those amounts match the final worksheet's bands (3.75% x 79,900 = 2,996.25; 4.75% x 181,650 - 799.00 = 7,829.375, rounded). No change to brackets.",
+    "Settlement 2026-11-07: reliefs.ri_pension_annuity_modification.cap_rule: both readers wrote 'less any amount claimed under the Military Service Pension Modification' from the Guide (PDF p.9); the form's table (instructions PDF p.10, lines 2 and 3) keeps military pay out of line 2 and takes the lesser of line 2 or 50,000, so military income does not use up the 50,000. The statute's limit (Guide PDF p.28, (11)(iii)) is only that the two modifications together cannot exceed the military pension received. Written from the form.",
+    "Settlement 2026-11-07: reliefs.ri_us_obligation_interest: neither reader recorded it as a relief (both held it in notes); instructions PDF p.9 line 1a prints it. Added, with the income kind interest.",
+    "Settlement 2026-11-07: ri_military_pension_modification and ri_railroad_retirement_exemption: form set to exempt_in_full and who.basis to return (both readers said subtraction, each_person); both are full exemptions with no age test (Guide PDF p.15 'fully exempt'; instructions PDF p.9 line 1d 'the entire amount'), and brief rule 5 uses return when no age counts.",
+    "Other states' government pensions: the Guide lists 'State government pension plans (State of Rhode Island or another state)' and 'Local government pension plans (from within Rhode Island or elsewhere)' as eligible (PDF p.11). A New York State pension is therefore treated like a Rhode Island state pension: taken up to 50,000 if the person passes the age and income tests. New York is not named in the sources, and no rule depends on the paying state, so there is no paying_states entry.",
+    "The pension modification takes what is on federal Form 1040 or 1040-SR line 5b ('whatever you properly include as taxable pension income and/or taxable annuity income on that line', Guide PDF p.7); IRA income on lines 4a/4b does not qualify. Guide example 3 (PDF p.10): money moved from a work plan into an IRA and drawn from the IRA gets no modification. Foreign pension plans are on the Guide's list (PDF p.11); the schema has no income kind for them.",
+    "Roth conversions: not named in the sources. 'No income from a traditional IRA, Roth IRA, SEP-IRA, or any other type of IRA qualifies' (Guide PDF p.5) and 'Completed rollovers' do not qualify, but neither says where a conversion falls, so roth_conversion is in covers_unclear.",
+    "Guide PDF p.7 says military retirement pay qualifies for the pension modification, with 'a restriction from using the same income for both modifications'; instructions PDF p.10 says not to include it on line 1t and the Guide's chart (PDF p.24) marks it 'No'. The income is fully exempt either way.",
+    "H.R. 1 (ADV 2025-20, October 2, 2025; instructions PDF pp.3, 12): Rhode Island decoupled for 2025. Four 'above the line' business items must be added back on RI Schedule HR1 - Individual and Schedule M line 2k, which raises RI income above federal AGI: business interest expense (163(j)), section 174A amortization, depreciation of business assets (179(b)), qualified sound recording production (181). Items the advisory calls below the line ('no tax on tips, no tax on overtime compensation and no tax on car loan interest') 'are not reflected in federal adjusted gross income, which is the starting point of the RI-1040', so nothing is added back and they are simply not allowed. The SALT cap increase has no RI add-back; Rhode Island does not allow federal itemized deductions (PDF p.4). The advisory does not mention the federal senior deduction. It covers 2025 only: 'for tax years beyond 2025' an advisory working group was to report (p.1 footnote).",
+    "A section 174A add-back gives a later decreasing modification of at most twenty percent a year (ADV 2025-20 p.2; instructions PDF p.10 line 1x).",
+    "No age-65 or blindness amount is found in the booklet. Capital gains: nothing printed taxes gains differently from other income (not found in the booklet). Surtaxes and recapture: not found in the booklet.",
+    "Exemptions: Schedule E counts 'Yourself', 'Spouse' and each dependent; the amount is that number times 5,100, zero if someone else can claim you (PDF p.5). The two exemption entries are one 5,100 per exemption; count each person once.",
+    "Credits not recorded: credit for tax paid to another state (Schedule II), RI percentage of allowable federal credit (Schedule I), RI earned income credit (Schedule EIC), RI-1040H Property Tax Relief Credit; its terms are on Form RI-1040H, not in the sources.",
+    "The Guide PDF p.20 example 4 says 'a total of $45,000 in federally taxable pension and annuity income' where its own list adds to 75,000; its result of 70,000 is the per-person rule applied correctly. Not used for any figure.",
+    "The archived file '2025 1041 Schedule M' is the fiduciary (RI-1041) version and was not used for anything; the resident 2025 RI Schedule M was used for line titles."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0375",
+        "start": "0"
+      },
+      {
+        "rate": "0.0475",
+        "start": "79900"
+      },
+      {
+        "rate": "0.0599",
+        "start": "181650"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0375",
+        "start": "0"
+      },
+      {
+        "rate": "0.0475",
+        "start": "79900"
+      },
+      {
+        "rate": "0.0599",
+        "start": "181650"
+      }
+    ],
+    "cite": {
+      "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+      "section": "PDF p.13, Rhode Island Tax Computation Worksheet, 'Use for all filing status types': $0 to $79,900 3.75%; $79,900 to $181,650 4.75% less $799.00; over $181,650 5.99% less $3,051.46. The 2025 Tax Rate Schedule (worksheets file, final January 2026 edition) agrees",
+      "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ri_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "10900",
+          "married_joint": "21800",
+          "qualifying_surviving_spouse": "21800",
+          "married_separate": "10900",
+          "head_of_household": "16350"
+        },
+        "per": "return",
+        "condition": "Rhode Island does not allow the use of federal itemized deductions. Above 254,250 of line 3 the Standard Deduction Worksheet applies: 80%, 60%, 40% or 20% of the amount, zero past 29,000 over.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "RI-1040 line 3, Modified Federal Adjusted Gross Income (line 1 federal AGI combined with line 2 net modifications from RI Schedule M)"
+          },
+          "threshold": {
+            "all": "254250"
+          },
+          "effect": "other",
+          "rate": "0.2",
+          "as_printed": "Instructions: 'However, if line 3 is more than $254,250 see the Exemption Worksheet on the inside of the back cover to compute your exemption amount.' Worksheets (final January 2026 edition; the October draft printed the same), both alike: line 2 modified federal AGI; line 3 'Is the amount on line 2 more than $254,250?' No: use line 1 in full. Line 5 subtract line 4 ($254,250) from line 2. 'If the result is more than $29,000, STOP HERE.' The amount is zero. Line 6 'Divide line 5 by $7,250. If the result is not a whole number, increase it to the next higher whole number'. Line 7: 1 is 0.8000, 2 is 0.6000, 3 is 0.4000, 4 is 0.2000. Line 8 multiply line 1 by line 7."
+        },
+        "cite": {
+          "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+          "section": "PDF p.4, RI-1040 line 4; phase-out from the Standard Deduction Worksheet, 2025 Tax Rate Schedule and Worksheets, PDF p.1, final January 2026 edition",
+          "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ri_personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "5100"
+        },
+        "per": "person",
+        "condition": "Yourself and, on a joint return, your spouse (Schedule E); zero if someone else can claim you on their return. Above 254,250 of line 3 the Exemption Worksheet applies: 80%, 60%, 40% or 20% of the amount, zero past 29,000 over.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "RI-1040 line 3, Modified Federal Adjusted Gross Income (line 1 federal AGI combined with line 2 net modifications from RI Schedule M)"
+          },
+          "threshold": {
+            "all": "254250"
+          },
+          "effect": "other",
+          "rate": "0.2",
+          "as_printed": "Instructions: 'However, if line 3 is more than $254,250 see the Exemption Worksheet on the inside of the back cover to compute your exemption amount.' Worksheets (final January 2026 edition; the October draft printed the same), both alike: line 2 modified federal AGI; line 3 'Is the amount on line 2 more than $254,250?' No: use line 1 in full. Line 5 subtract line 4 ($254,250) from line 2. 'If the result is more than $29,000, STOP HERE.' The amount is zero. Line 6 'Divide line 5 by $7,250. If the result is not a whole number, increase it to the next higher whole number'. Line 7: 1 is 0.8000, 2 is 0.6000, 3 is 0.4000, 4 is 0.2000. Line 8 multiply line 1 by line 7."
+        },
+        "cite": {
+          "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+          "section": "PDF p.5, RI-1040 line 6 and RI Schedule E lines 1a, 1b, 3, 5; phase-out from the Exemption Worksheet, 2025 Tax Rate Schedule and Worksheets, PDF p.1, final January 2026 edition",
+          "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ri_dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "5100"
+        },
+        "per": "dependent",
+        "condition": "Each dependent listed on RI Schedule E. Above 254,250 of line 3 the Exemption Worksheet applies: 80%, 60%, 40% or 20% of the amount, zero past 29,000 over.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "RI-1040 line 3, Modified Federal Adjusted Gross Income (line 1 federal AGI combined with line 2 net modifications from RI Schedule M)"
+          },
+          "threshold": {
+            "all": "254250"
+          },
+          "effect": "other",
+          "rate": "0.2",
+          "as_printed": "Instructions: 'However, if line 3 is more than $254,250 see the Exemption Worksheet on the inside of the back cover to compute your exemption amount.' Worksheets (final January 2026 edition; the October draft printed the same), both alike: line 2 modified federal AGI; line 3 'Is the amount on line 2 more than $254,250?' No: use line 1 in full. Line 5 subtract line 4 ($254,250) from line 2. 'If the result is more than $29,000, STOP HERE.' The amount is zero. Line 6 'Divide line 5 by $7,250. If the result is not a whole number, increase it to the next higher whole number'. Line 7: 1 is 0.8000, 2 is 0.6000, 3 is 0.4000, 4 is 0.2000. Line 8 multiply line 1 by line 7."
+        },
+        "cite": {
+          "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+          "section": "PDF p.5, RI-1040 line 6 and RI Schedule E lines 2a-2m, 4a-4c, 5; phase-out from the Exemption Worksheet, 2025 Tax Rate Schedule and Worksheets, PDF p.1, final January 2026 edition",
+          "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ri_phaseout_worksheet_step_width",
+        "what": "other",
+        "amount": {
+          "all": "7250"
+        },
+        "per": "return",
+        "condition": "Not a deduction: the printed divisor on line 6 of the Standard Deduction and Exemption Worksheets, held here because no record field holds a band width and the projection's derived_figures need it in the record (the Kansas settlement did the same). Each 7,250 of line 3 over 254,250 removes a further 20%.",
+        "cite": {
+          "publication": "2025 Rhode Island Tax Rate Schedule and Worksheets (final, January 2026)",
+          "section": "PDF p.1, Standard Deduction Worksheet line 6 and Exemption Worksheet line 6",
+          "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/2025%20Tax%20Rate%20and%20Worksheets.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+      "section": "PDF p.1 ('the Rhode Island income tax is based on your federal adjusted gross income'); PDF p.4, RI-1040 lines 1-3",
+      "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "relief",
+    "cite": {
+      "publication": "2025 Modification Worksheet: Taxable Social Security Income Worksheet (booklet page 18)",
+      "section": "Worksheet lines 5, 6, 7 and Step 2; instructions PDF p.9, Schedule M line 1s; Guide PDF p.16, Section 3",
+      "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/Social%20Security%20Worksheet_b.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ri_pension_annuity_modification",
+      "label": "Pension and Annuity Income Modification (RI Schedule M line 1t)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Individual retirement accounts (IRAs): 'No income from a traditional IRA, Roth IRA, SEP-IRA, or any other type of IRA qualifies'",
+        "SIMPLE-IRAs",
+        "Corrective distributions (including earnings) of excess salary deferrals or excess contributions to retirement plans",
+        "Completed direct rollovers from an employer's qualified retirement plan (QRP) to another QRP or to an IRA or simplified employee pension (SEP)",
+        "Military service pension: 'do not include any amount related to a military service pension on this line' (line 1v instead)",
+        "Railroad Retirement benefits (line 1d instead)",
+        "Federally nontaxable pension and annuity income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1959-03-01",
+        "other_conditions": [
+          "Has reached full retirement age as defined by the Social Security Administration (Guide PDF p.12): born 1943-1954: 66; 1955: 66 and two months; 1956: 66 and four months; 1957: 66 and six months; 1958: 66 and eight months; 1959: 66 and ten months; 1960 or later: 67; a person born on January 1 uses the previous year in the table",
+          "For tax year 2025 the form states that age test as a date, born on or before March 1, 1959; a person born that day reaches 66 and ten months on December 31, 2025, so the date is the full-retirement-age test applied to the 2025 tax year",
+          "Tested for each spouse: 'Only retirement income received by the taxpayer born on or before March 1, 1959 qualifies'",
+          "RI filing status must be the same as the federal filing status (Guide PDF p.14)",
+          "Only the taxable amount on federal Form 1040 or 1040-SR line 5b pertaining to pensions and annuities counts"
+        ]
+      },
+      "cap": {
+        "all": "50000"
+      },
+      "cap_per": "person",
+      "cap_rule": "For each person, the lesser of that person's line 5b pension and annuity amount and 50,000 (instructions PDF p.10 table lines 2-4); a joint return may reach 100,000 (Guide PDF p.4). Military pay stays out of line 2, so it does not use up the 50,000; the Guide's 'less any amount claimed under the Military Service Pension Modification' (PDF p.9) is read that way.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal AGI (RI-1040 line 1); for a married couple filing a joint return, the couple's combined federal adjusted gross income"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes",
+        "as_printed": "Instructions line 1t: 'Is your Federal AGI less than or equal to the amount listed below for your filing status? Single $107,000; Married Joint $133,750; Qualifying Widow(er) $133,750; Married Separate $107,000; Head of Household $107,000'. The Guide (PDF p.14) prints '$133,500 or less' for joint and qualifying widow(er)."
+      },
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF pp.9-10, Schedule M line 1t, questions 1 and 2, notes and table lines 1-4; Guide PDF pp.4, 5, 7, 11, 12, 14 and 27-28",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ri_military_pension_modification",
+      "label": "Military Service Pension Modification (RI Schedule M line 1v)",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Military service as defined in 20 C.F.R. 212.2",
+          "No income or age requirement; the pension must be included in federal AGI",
+          "A surviving spouse who has received military pension benefits on behalf of a spouse who served is also eligible"
+        ]
+      },
+      "cap_rule": "No cap: 'The full amount of taxable military service pension income qualifies'. The same income cannot also be claimed for the Pension and Annuity Income Modification.",
+      "cite": {
+        "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+        "section": "PDF p.15, Section 2; instructions PDF p.10, Schedule M line 1v; PDF p.28, R.I. Gen. Laws 44-30-12(c)(11)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ri_social_security_modification",
+      "label": "Modification for taxable Social Security income (RI Schedule M line 1s)",
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "not_covered": [
+        "Railroad Retirement benefits: 'Do not include amounts from Railroad Retirement Benefits on this worksheet'"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1959-03-01",
+        "other_conditions": [
+          "Has reached full retirement age as defined by the Social Security Administration (Guide PDF p.12): born 1943-1954: 66; 1955: 66 and two months; 1956: 66 and four months; 1957: 66 and six months; 1958: 66 and eight months; 1959: 66 and ten months; 1960 or later: 67; a person born on January 1 uses the previous year in the table",
+          "For tax year 2025 the form states that age test as a date, born on or before March 1, 1959; a person born that day reaches 66 and ten months on December 31, 2025, so the date is the full-retirement-age test applied to the 2025 tax year",
+          "Worksheet line 5 asks whether either spouse qualifies; when only one does, the amount is limited to that person's share of the benefits (worksheet lines 8-12; Guide PDF p.25)",
+          "Some portion of the Social Security benefits is subject to federal income tax (Guide PDF p.16)",
+          "RI filing status must be the same as the federal filing status (Guide PDF p.14)"
+        ]
+      },
+      "cap_rule": "No cap. Modification = federal taxable benefits (Form 1040 line 6b) times the eligible percentage: 1.0000 when the filer and any spouse both qualify, otherwise the qualifying person's benefits divided by total benefits on line 6a (worksheet lines 8-13).",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal AGI from RI-1040 or RI-1040NR, line 1 (worksheet line 3)"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "Worksheet line 7: 'Is your Federal AGI on line 3 less than the filing status amount on line 6?' Line 6: 'Single or head of household - $107,000; Married filing separately - $107,000; Married filing jointly or qualifying widow(er) - $133,750'. 'Otherwise, STOP, you are not eligible for this modification.' The Guide (PDF p.16) prints 'married filing jointly or qualifying widow - $133,500'."
+      },
+      "cite": {
+        "publication": "2025 Modification Worksheet: Taxable Social Security Income Worksheet (booklet page 18)",
+        "section": "Worksheet Step 1 lines 1-7 and Step 2 lines 8-13; instructions PDF p.9, Schedule M line 1s; Guide PDF pp.16, 25 and 29",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/Social%20Security%20Worksheet_b.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ri_railroad_retirement_exemption",
+      "label": "Railroad Retirement benefits (RI Schedule M line 1d)",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "No cap: 'the entire amount of Railroad Retirement benefits included in gross income for federal income tax purposes are exempt from state income taxes'.",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.9, Schedule M line 1d",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ri_us_obligation_interest",
+      "label": "Income from obligations of the United States Government (RI Schedule M line 1a)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "No cap; reduced by any investment interest on the obligation taken as a federal itemized deduction. A schedule showing the source and amount must be submitted.",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.9, Schedule M line 1a",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Schedule M line 2a adds back income from obligations of any state or its political subdivisions other than Rhode Island; the Guide says interest from Rhode Island municipal bonds 'is free of federal and Rhode Island income tax'.",
+    "cite": {
+      "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+      "section": "PDF p.10, Schedule M line 2a; Guide PDF p.19, Example 2",
+      "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "yes",
+      "index": "Annual inflationary adjustment by the Division of Taxation",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.1, What's New for Tax Year 2025: income tax brackets",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "ri_standard_deduction",
+      "indexed": "yes",
+      "index": "Annual inflationary adjustment, of the amounts and of the phaseout amount; the 7,250 band width and 29,000 are not said to be adjusted",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.1, What's New for Tax Year 2025: standard deduction amounts; standard deduction and exemption phaseout amount",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "ri_personal_exemption",
+      "indexed": "yes",
+      "index": "Annual inflationary adjustment, of the amount and of the phaseout amount; the 7,250 band width and 29,000 are not said to be adjusted",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.1, What's New for Tax Year 2025: exemption amount; standard deduction and exemption phaseout amount",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "ri_dependent_exemption",
+      "indexed": "yes",
+      "index": "Annual inflationary adjustment, of the amount and of the phaseout amount; the 7,250 band width and 29,000 are not said to be adjusted",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.1, What's New for Tax Year 2025: exemption amount; standard deduction and exemption phaseout amount",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "ri_pension_annuity_modification",
+      "indexed": "yes",
+      "index": "The federal AGI limits only, by the consumer price index, rounded down to a multiple of 50 (25 for married filing separately), and set equal to the Social Security limits. The 50,000 cap is a fixed statutory amount raised by law (15,000, 20,000, 50,000); nothing printed says it is indexed.",
+      "cite": {
+        "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+        "section": "PDF p.4 footnotes 2-3; PDF pp.27-28, (c)(9)(i)-(vi); instructions PDF p.1",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "ri_social_security_modification",
+      "indexed": "yes",
+      "index": "The federal AGI limits, by the consumer price index, rounded down to a multiple of 50 (25 for married filing separately)",
+      "cite": {
+        "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+        "section": "PDF p.29, (c)(8)(ii)-(v); instructions PDF p.1",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "section": "PDF p.1, What's New for Tax Year 2025, the list of adjusted amounts",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

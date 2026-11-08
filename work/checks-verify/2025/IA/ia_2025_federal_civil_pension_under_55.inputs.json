@@ -1,0 +1,53 @@
+{
+  "id": "ia_2025_federal_civil_pension_under_55",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ia_ret_excl_age55",
+    "ia_military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12; Schedule 1 line 7, PDF p.67-68 and form PDF p.5; Retirement Income Tax Guidance, 'Who qualifies'; Schedule 1 line 4, PDF p.67; Military Retirement Pay, PDF p.90; form PDF p.5",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "54250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ia_personal_credit",
+    "relief_amounts.ia_ret_excl_age55"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "me_2025_pension_phaseout_past_end",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_income_deduction",
+    "military_retirement_exempt",
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27, the Worksheet for Pension Income Deduction lines P1-P10 and the Worksheet for Phaseout of Non-Military Pension Income Deduction lines 1-5 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart and Worksheet for Standard / Itemized Deductions lines 1-8 (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2); income_test width 100,000 (50,000 married filing separately) and share to four decimals from the phaseout worksheet lines 4 and 5 (Schedule 1S PDF p.2)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-02-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "165010.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "225010.00",
+    "federal_taxable_income": "207260.00"
+  },
+  "expected": {
+    "state_agi": "205010.00",
+    "state_taxable_income": "199860.00",
+    "state_tax_before_credits": "13781.59",
+    "credits": "0.00",
+    "state_income_tax": "13781.59",
+    "relief_amounts": {
+      "military_retirement_exempt": "20000.00",
+      "pension_income_deduction": "0.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 165,010.00 + military pension (person 0) 20,000.00 + IRA distribution (person 0) 40,000.00 = 225,010.00. Federal taxable income = 225,010.00 - 15,750.00 standard deduction - 1 x 2,000.00 for 65 or older = 207,260.00 (federal senior deduction ignored). Form 1040ME, single: line 14 federal AGI 225,010.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 0.00; Schedule 1A total = line 15a 0.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 0.00 + railroad retirement 0.00 = 0.00. Worksheet for Phaseout of Non-Military Pension Income Deduction (Schedule 1S PDF p.2): line 1 federal AGI 225,010.00; line 2 125,000.00; line 3 100,010.00; line 4 100,000.00; line 5 = 100,010.00 / 100,000.00 = 1.0001, one or more, so 1.0000. Pension Income Deduction Worksheet (taxpayer column, person 0, age 66): P1 eligible non-military pension income 40,000.00; P2 48,216.00; P3 Social Security and railroad benefits received 0.00; P4 = 48,216.00 - 0.00 = 48,216.00; P5 smaller of P1 and P4 = 40,000.00; P6 1.0000; P7 = 40,000.00 x 1.0000 = 40,000.00; P8 = 0.00; P9 military retirement pay 20,000.00; P10 = 20,000.00. Schedule 1S line 4 = P10 total 20,000.00 (non-military 0.00 + military 20,000.00). Schedule 1S line 27 total subtractions = 0.00 + 20,000.00 = line 15b 20,000.00. Line 16 Maine AGI = 225,010.00 + 0.00 - 20,000.00 = 205,010.00. Line 17 (person 0 born 1959-02-10 is 66 at December 31, 2025; 1 box(es)): Worksheet for Standard/Itemized Deductions (PDF p.5): line 1 205,010.00; line 2 100,000.00; line 3 105,010.00; line 4 75,000.00; line 5 = 1.400133..., one or more, so 1.0000; line 6 chart amount 17,000.00; line 7 = 17,000.00 x 1.0000 = 17,000.00; line 8 = 0.00. Projection (share kept 1 - 1.0000 = 0.0000): base 15,000.00 x 0.0000 = 0.00 + additional 65-or-over 1 x 2,000.00 x 0.0000 = 0.00 = 0.00, the same. Line 17 = 0.00. Line 13 = 1; line 18 exemption = 1 x 5,150.00 = 5,150.00 (Maine AGI not over 333,450.00). Line 19 taxable income = 205,010.00 - 0.00 - 5,150.00 = 199,860.00. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (26,800.00 - 0.00) = 1,554.40 + 6.75% x (63,450.00 - 26,800.00) = 2,473.875 + 7.15% x (199,860.00 - 63,450.00) = 9,753.315 = 13,781.59. The printed schedule (PDF p.13) with its whole-dollar constant 4,028.00 gives 13,781.32; expected keeps the bracket tax computed in full. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 13,781.59. Military retirement pay (P9) is not phased out: it is exempt in full while the non-military deduction is gone.",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mainepers_subtraction",
+    "state_rule_not_modelled:me_property_tax_fairness_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

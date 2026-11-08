@@ -1,0 +1,83 @@
+[
+  {
+    "state": "MA",
+    "title": "2025 Form 1 Instructions",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+    "retrieved": "2026-11-06T17:52:21.476192+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "2025-form-1-instructions.pdf",
+    "bytes": 637936,
+    "sha256": "f99acc9db3a4c83da890b7e2a26fd310f1a0ec6fa9e2744e4f975e32f64dd2cd",
+    "archived_url": "https://web.archive.org/web/20260923040540id_/https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  {
+    "state": "MA",
+    "title": "2025 Form 1 Massachusetts Resident Income Tax Return",
+    "url": "https://www.mass.gov/doc/2025-form-1-massachusetts-resident-income-tax-return/download",
+    "retrieved": "2026-11-07T01:02:13.611668+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.mass.gov/doc/2025-form-1-massachusetts-resident-income-tax-return/download",
+    "file": "2025-form-1-massachusetts-resident-income-tax-return.pdf",
+    "bytes": 558273,
+    "sha256": "0bb62498fda14b515084b83fb4467f379f17d08a712f6390b1cd2fceecb04a07",
+    "archived_url": "https://web.archive.org/web/20260911192930id_/https://www.mass.gov/doc/2025-form-1-massachusetts-resident-income-tax-return/download"
+  },
+  {
+    "state": "MA",
+    "title": "Differences between MA and federal tax law for personal income",
+    "url": "https://www.mass.gov/info-details/differences-between-ma-and-federal-tax-law-for-personal-income",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:02:18.721122+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.mass.gov/info-details/differences-between-ma-and-federal-tax-law-for-personal-income",
+    "file": "differences-between-ma-and-federal-tax-law-for-personal-income.html",
+    "bytes": 227087,
+    "sha256": "adaab504f53ded4e1f755fc3f2411ec24005ff07fca4c11906e5fcc49deb9164",
+    "text_file": "differences-between-ma-and-federal-tax-law-for-personal-income.page.txt"
+  },
+  {
+    "state": "MA",
+    "title": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States",
+    "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:32:34.866124+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+    "file": "tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states.html",
+    "bytes": 195607,
+    "sha256": "a6962ca616c03ac590b7807ef68da626d66c6384ca6b0686373238ae46845574",
+    "text_file": "tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states.page.txt"
+  },
+  {
+    "state": "MA",
+    "title": "Tax Treatment of Out-of-State Government Pensions for MA Residents",
+    "url": "https://www.mass.gov/info-details/tax-treatment-of-out-of-state-government-pensions-for-ma-residents",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:32:40.719201+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.mass.gov/info-details/tax-treatment-of-government-pensions",
+    "file": "tax-treatment-of-out-of-state-government-pensions-for-ma-residents.html",
+    "bytes": 230469,
+    "sha256": "ce73392fb904bdcd69416a8f41f951e3d696599d662fd40d670836f053122f27",
+    "text_file": "tax-treatment-of-out-of-state-government-pensions-for-ma-residents.page.txt"
+  },
+  {
+    "state": "MA",
+    "title": "Letter Ruling 81-91: New York State Contributory Pension",
+    "url": "https://www.mass.gov/letter-ruling/letter-ruling-81-91-new-york-state-contributory-pension",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:32:46.695530+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.mass.gov/letter-ruling/letter-ruling-81-91-new-york-state-contributory-pension",
+    "file": "letter-ruling-81-91-new-york-state-contributory-pension.html",
+    "bytes": 195521,
+    "sha256": "643414e9df969f9a5759b592ca2d8cc71427d38ff98f4e226388e94361c74b78",
+    "text_file": "letter-ruling-81-91-new-york-state-contributory-pension.page.txt"
+  }
+]

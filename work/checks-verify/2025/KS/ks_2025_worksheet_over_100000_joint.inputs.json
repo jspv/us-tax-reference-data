@@ -1,0 +1,50 @@
+{
+  "id": "ks_2025_worksheet_over_100000_joint",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "kansas_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 56,
+        "born": "1969-09-19"
+      },
+      {
+        "age": 55,
+        "born": "1970-10-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "150000.00",
+          "person": 0
+        },
+        {
+          "amount": "100000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "250000.00",
+    "federal_taxable_income": "218500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

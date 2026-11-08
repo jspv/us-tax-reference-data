@@ -1,0 +1,69 @@
+{
+  "id": "wi_2025_ny_state_pension_67",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_retirement_67"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Publication 126 PDF page 4 section 3 (a pension for services in another state is taxed as on the federal return) and PDF page 11 section J (a section 414(d) government plan is a qualified retirement plan); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 69,
+        "born": "1956-12-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": false
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "19800.00"
+    },
+    "federal_agi": "59800.00",
+    "federal_taxable_income": "42050.00"
+  },
+  "expected": {
+    "state_agi": "16000.00",
+    "state_taxable_income": "1490.00",
+    "state_tax_before_credits": "52.15",
+    "credits": "0.00",
+    "state_income_tax": "52.15",
+    "relief_amounts": {
+      "wi_retirement_67": "24000.00"
+    }
+  },
+  "worked": "Single, 69, Wisconsin resident: New York State and Local Retirement System pension 40,000, Social Security 24,000. Wisconsin taxes another state's government pension as on the federal return (no exemption, no reciprocity), and it counts toward line 16 as a government plan: line 16 is 24,000 (the cap). Federal (given, not tested): federal AGI = public pension paid by NY (you) 40,000.00 + taxable Social Security 19,800.00 (gross 24,000.00; provisional income 40,000.00 + half of 24,000.00 = 52,000.00; taxable Social Security 19,800.00) = 59,800.00. Federal taxable income = 59,800.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 42,050.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 59,800.00; line 2 Schedule I adjustments 0.00; line 3 59,800.00; line 4 additions 0.00; line 5 59,800.00. Schedule SB: line 4 Social Security adjustment = 19,800.00; line 16 retirement income subtraction: qualifying income you (age 69): pension 40,000.00 = 40,000.00; smaller of 40,000.00 and the 24,000.00 cap = 24,000.00; line 50 total 43,800.00. Schedule SB line 17: federal AGI 59,800.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 43,800.00; line 7 Wisconsin income = 59,800.00 - 43,800.00 = 16,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 16,000 to less than 16,500, column Single: 13,560.00 (printed row, at least / less than / single / joint / separate / head of household: 16,000 / 16,500 / 13,560 / 25,110 / 11,364 / 17,520). Line 9 = 16,000.00 - 13,560.00 = 2,440.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 2,440.00 - 950.00 = 1,490.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 1,490.00 = 52.15; total 52.15, rounded once to 52.15. The Tax Table row 1,400 to 1,500 (PDF page 38) gives 51; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 52.15.",
+  "accepted_approximations": [
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

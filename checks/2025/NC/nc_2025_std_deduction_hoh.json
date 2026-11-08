@@ -1,0 +1,46 @@
+{
+  "id": "nc_2025_std_deduction_hoh",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nc_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?'",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-11-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "55125.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55125.00",
+    "federal_taxable_income": "31500.00"
+  },
+  "expected": {
+    "state_taxable_income": "36000.00",
+    "state_tax_before_credits": "1530.00",
+    "credits": "0.00",
+    "state_income_tax": "1530.00"
+  },
+  "worked": "Federal AGI = wages 55,125.00. No qualifying child is claimed for the federal child tax credit in this case. Federal taxable income = 55,125.00 - 23,625.00 federal standard deduction = 31,500.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 55,125.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 55,125.00. Line 9 deductions (Schedule S Part B) 0.00. Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (head_of_household) 19,125.00. Line 12a = Lines 9 + 10 + 11 = 19,125.00; Line 12b = Line 8 - Line 12a = 36,000.00. Line 14 NC taxable income (full-year resident) = 36,000.00. Line 15 tax = 36,000.00 x 0.0425 = 1,530.00. Line 16 credits 0.00; Line 17 income tax = 1,530.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

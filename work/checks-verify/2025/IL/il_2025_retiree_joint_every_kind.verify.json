@@ -1,0 +1,17 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "il_government_pension": "30000.00",
+   "il_employer_plans": "30000.00",
+   "il_ira": "40000.00",
+   "il_personal_exemption": "5700.00",
+   "il_age_65_exemption": "2000.00"
+  },
+  "state_agi": "57700.00",
+  "state_income_tax": "2475.00",
+  "state_tax_before_credits": "2475.00",
+  "state_taxable_income": "50000.00"
+ },
+ "worked": "Form IL-1040, 2025 (married_joint). Federal figures as given. Line 1 federal AGI 191,700.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 total income 191,700.00. Line 5 subtraction 134,000.00: government pension 30,000.00 (il_government_pension); employer plans 30,000.00 (il_employer_plans); IRA and Roth conversion 40,000.00 (il_ira); federally taxed Social Security 34,000.00 (the taxed part, not the gross). Lines 6 and 7 0.00. Line 9 Illinois base income (state_agi) 191,700.00 - 134,000.00 = 57,700.00. Income Exceptions: federal AGI 191,700.00 is not greater than 500,000.00, so the Line 10 allowance is allowed. Line 10a 5,700.00. Line 10b 2 person(s) 65 or older x 1,000 = 2,000.00. Line 10 exemption allowance 7,700.00. Line 11 net income 57,700.00 - 7,700.00 = 50,000.00. Line 12 50,000.00 x 0.0495 = 2475, to the cent 2,475.00. Lines 15-18 credits 0.00 (none in the projection). Tax 2,475.00."
+}

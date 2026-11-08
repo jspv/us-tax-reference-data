@@ -1,0 +1,620 @@
+{
+ "layer": "record",
+ "state": "ID",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Settlement 2026-11-07: reliefs (retirement benefits deduction, civil service, firefighters, police): who.min_age: A said 62 with the age 65 test in other_conditions, B said 65 with the age 62 test in other_conditions; PDF p.45 Part One says 'The recipients must be at least age 65 or be classified as disabled and be at least age 62'. Written as one branch per test: min_age 65 in each plan's entry, and one entry for ages 62 to 64 and classified as disabled.",
+  "Settlement 2026-11-07: base.deductions age 65 and blind amounts: qualifying_surviving_spouse: A left it out, B said 1600; PDF p.11 worksheet line 5 says '$1,600 ($2,000 if single or head of household)', so every other status is 1,600.",
+  "Settlement 2026-11-07: reliefs (retirement benefits deduction): best_of_group: A gave all four entries one group, B none; PDF p.33 line 8e is one total of qualifying benefits against one maximum, not a choice between entries, so no group; cap_rule says the maximum is shared.",
+  "Settlement 2026-11-07: reliefs (U.S. government interest): A recorded it, B put it in notes only; PDF p.43 Line 3 says 'Idaho doesn't tax interest income you received from U.S. government obligations'. Kept.",
+  "Settlement 2026-11-07: reliefs (retired service members): both wrote one entry; PDF p.45 line 8e lists three alternatives. Split into age 62 or older (a test a projection can apply) and under 62 (disabled, or employed with enough income to file).",
+  "Settlement 2026-11-07: indexing of the retirement maximum: A and B both said not_stated; the web page says 'Each year the state recalculates the maximum allowed' and PDF p.45 says 'The maximum amounts you can deduct for 2025 are'. Recorded as yes, with the basis not stated: the figure moves every year, though the page does not name the measure.",
+  "Settlement 2026-11-07: Form 39R Part B line 8 is on PDF p.33 (A cited p.34).",
+  "Settlement 2026-11-07: added, neither reader recorded them: line 18 (qualified business income and federal Schedule 1-A deductions, PDF p.11), health insurance premiums including Medicare B and D (PDF p.48-49), the Food Tax Credit (PDF p.13-14) and the Idaho Child Tax Credit (PDF p.11-12).",
+  "Tax computation: PDF p.11 Line 20 worksheet: Idaho taxable income minus 4,811 (single, married filing separately) or 9,622 (married filing jointly, head of household, qualifying surviving spouse), times 5.3%, zero if zero or less. Recorded as a 0% band to that amount, then 5.3%. A qualifying surviving spouse uses the married_joint schedule. Form 43 prints the same worksheet.",
+  "No tax table is printed and the two starting amounts are printed themselves, so brackets.derivation is not used.",
+  "PDF p.4: 'Effective January 1, 2025, the individual income tax rate is 5.3%.'",
+  "Idaho starts from federal adjusted gross income (Form 40 line 7, PDF p.29). PDF p.4: 'Idaho conforms to the IRC as of January 1, 2026', with exceptions.",
+  "No personal or dependent exemption is found in the booklet: Form 40 lines 11 to 19 (PDF p.30) have none. The per-person amounts are the Food Tax Credit and the Idaho Child Tax Credit.",
+  "Standard deduction or itemized: Form 40 line 17 subtracts the larger of line 15 (federal itemized deductions less state and local income or general sales taxes) or line 16. A person who must itemize: married filing separately with a spouse who itemizes (PDF p.10).",
+  "Age 65 amount: worksheet line 5 (PDF p.11) reads 'born before January 2, 1961, or blind'; line 12a (PDF p.10) says someone whose 65th birthday was January 1, 2026 may count as 65 on December 31, 2025.",
+  "Retirement benefits deduction: PDF p.45 Part Two says the benefits 'must be one of the following': CSRS/FSRDS annuities with eligibility established before 1984, Idaho Firefighters (PERSI FRF), Police Officers of an Idaho City. Retired service members have their own test on line 8e. The list is closed; the web page says 'Only a very few Idaho pensions qualify'.",
+  "Retirement benefits deduction, maximum by status: PDF p.33 and p.45 print single 48,216 and married filing jointly 72,324 only. No amount is printed for head of household, qualifying surviving spouse or married filing separately; those caps are left out, not assumed.",
+  "Married filing separately: the bar is printed in Part One, under 'all other retirees'. For retired service members the booklet states no filing-status test; recorded as printed.",
+  "Private pensions: PDF p.6 lists 'Pensions and annuities' in gross income; the seniors web page says 'By federal law, Idaho taxes your pension if you're an Idaho resident or part-year resident.' No Idaho subtraction covers them.",
+  "IRA distributions, employer-plan distributions and Roth conversions: not found in the booklet as covered by any Idaho subtraction; no entry is written. They reach Idaho income through federal adjusted gross income (Form 40 line 7). The word Roth is not printed in the sources.",
+  "Pensions paid by other states' governments (public_pension_other_state), New York State included: not found in the booklet or either web page. No sentence names them, and they are not in the closed Part Two list, so no relief entry covers them. PDF p.45: 'their qualified retirement benefits must be one of the following'.",
+  "Social Security: Form 39R Part B line 7 subtracts the portion taxable on the federal return (PDF p.33, p.44); PDF p.56, Form 39NR Line 5: 'Idaho doesn't tax Social Security or Social Security equivalent benefits'; seniors web page: 'While potentially taxable on your federal return, these aren't taxable in Idaho.'",
+  "The retirement deduction maximum is reduced by Social Security benefits received (gross, Box 5 of Form SSA-1099), separately from the line 7 subtraction of the taxable part.",
+  "Canadian Social Security benefits (OAS, QPP, CPP) are subtracted on line 7 (PDF p.44) and counted on line 8c (PDF p.45); the schema has no income kind for them, so no covers list names them.",
+  "Municipal bonds: Form 39R Part A line 3 (PDF p.42) adds back interest and dividends from municipal bonds of other states, their counties and cities, and from foreign obligations. No add-back is printed for Idaho bonds; that they are exempt is by omission plus 'Don't include the interest income from Idaho municipal securities'.",
+  "Capital gains: other gains are taxed at the one rate; only the 60% deduction for qualified Idaho property differs (PDF p.46).",
+  "Permanent Building Fund tax: 10 a return, on anyone required to file, with exceptions for those receiving Idaho public assistance and the legally blind (Form 40 line 31, PDF p.12, p.30). No field holds it.",
+  "Line 19 long-term care insurance premiums (PDF p.49) and Line 15 home for the aged or developmentally disabled (1,000 each, at most three, PDF p.47) are deductions for spending; not recorded, as they are neither income nor retirement rules.",
+  "Credit for income tax paid to other states (Form 40 line 21, PDF p.11): not recorded; it applies when both Idaho and another state tax the same income.",
+  "Other additions and subtractions outside a retirement projection (energy devices, adoption, Idaho college savings, medical savings accounts, active-duty military pay earned outside Idaho) are not recorded.",
+  "Settlement 2026-11-07 (format v1): the Food Tax Credit is refundable. Form 40 enters it on line 43 under 'Payments and Other Credits', added into line 50 with withholding and estimated payments; line 55 pays out line 50 above line 41, the total tax (PDF p.31). The instructions put Line 43 under the same heading (PDF p.13) and let a person 65 or older whom Idaho does not require to file claim it on Form 24 (PDF p.14)."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "4811"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "9622"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "4811"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.053",
+    "start": "9622"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+   "section": "PDF p.11, Form 40 instructions Line 20 Tax worksheet lines 2-5; p.4 What's New, Tax Rate Reduction",
+   "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "15750",
+     "married_separate": "15750",
+     "head_of_household": "23625",
+     "married_joint": "31500",
+     "qualifying_surviving_spouse": "31500"
+    },
+    "per": "return",
+    "condition": "Taken when larger than federal itemized deductions less state and local income or general sales taxes (Form 40 lines 13 to 17). Must itemize if married filing separately and the spouse itemizes. Zero for a nonresident alien not from India.",
+    "cite": {
+     "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+     "section": "PDF p.10, Standard Deduction Worksheet line 1; p.30 Form 40 'Standard Deduction for Most People' and lines 15-17",
+     "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "age_65_addition",
+    "what": "age_65_exemption",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1600",
+     "married_separate": "1600",
+     "qualifying_surviving_spouse": "1600"
+    },
+    "per": "exemption_claimed",
+    "condition": "Per box checked on Form 40 line 12a (yourself, spouse), age 65 or older; added to the standard deduction (worksheet lines 5-6). Worksheet wording: born before January 2, 1961.",
+    "cite": {
+     "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+     "section": "PDF p.11, Standard Deduction Worksheet line 5; p.10 Line 12a; p.30 Form 40 line 12a",
+     "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "blind_addition",
+    "what": "blind_exemption",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1600",
+     "married_separate": "1600",
+     "qualifying_surviving_spouse": "1600"
+    },
+    "per": "exemption_claimed",
+    "condition": "Per box checked on Form 40 line 12b (yourself, spouse), blind; added to the standard deduction (worksheet lines 5-6).",
+    "cite": {
+     "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+     "section": "PDF p.11, Standard Deduction Worksheet line 5; p.10 Line 12b; p.30 Form 40 line 12b",
+     "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "dependent_filer_standard_deduction",
+    "what": "other",
+    "amount": {
+     "all": "1350"
+    },
+    "per": "return",
+    "condition": "When someone else can claim the filer as a dependent: the smaller of the filing-status amount or earned income plus 450; 1,350 if earned income is not more than 900.",
+    "cite": {
+     "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+     "section": "PDF p.10-11, Standard Deduction Worksheet lines 2-4",
+     "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+   "section": "PDF p.29 Form 40 line 7; p.30 Form 40 lines 11-19; p.10 Lines 13-16",
+   "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+   "section": "PDF p.44 Form 39R instructions Line 7 ('Deduct the portion of your Social Security benefits ... that's taxable on your federal return'); p.33 Form 39R Part B line 7; p.56 Form 39NR Line 5 ('Idaho doesn't tax Social Security'); seniors web page, Social Security benefits",
+   "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "ss_rrb_subtraction",
+   "label": "Social Security and railroad benefits (Form 39R Part B line 7)",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security",
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Deducts the portion that is taxable on the federal return"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.44-45, Form 39R instructions Line 7; p.33 Form 39R Part B line 7; p.56 Form 39NR Line 5",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_csrs_fsrds",
+   "label": "Retirement benefits deduction: Civil Service Employees (CSRS, FSRDS), age 65 or older",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Retirement annuities paid to a retired federal employee under the Federal Employees Retirement System (FERS) don't qualify for the deduction (CSA-1099 account number first digit 7 or 9; if 8, only the portion paid from CSRS qualifies)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "Retirement annuity paid by the U.S. Civil Service Retirement System (CSRS), the Foreign Service Retirement and Disability System (FSRDS), or the offset programs of these two systems; the employee must have established eligibility before 1984",
+     "If married, must file jointly: 'If you're married, you can't claim this deduction if you file separately'",
+     "An unremarried widow or widower of a pensioner who receives qualifying survivor benefits might be eligible if the age/disability requirements are met"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45-46, Form 39R instructions Line 8e Part One and Part Two, Civil Service Employees; p.33 Form 39R Part B line 8",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_idaho_firefighters",
+   "label": "Retirement benefits deduction: Idaho Firefighters, age 65 or older",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Benefits paid out of the PERSI Base Plan don't qualify for the deduction"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "Retirement benefits paid by the Public Employee Retirement System of Idaho (PERSI) relating to the Firefighters Retirement Fund (a 1099R account number with the FRF designation might qualify)",
+     "If married, must file jointly: 'If you're married, you can't claim this deduction if you file separately'",
+     "An unremarried widow or widower of a pensioner who receives qualifying survivor benefits might be eligible if the age/disability requirements are met"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.46, Form 39R instructions Line 8e Part Two, Idaho Firefighters; p.45 Part One; p.33 Form 39R Part B line 8",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_idaho_police",
+   "label": "Retirement benefits deduction: Police Officers of an Idaho City, age 65 or older",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Benefits paid out of the PERSI Base Plan don't qualify for the deduction"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "Retirement benefits paid from the Police Retirement Fund that no longer admits new members and, on January 1, 2012, was administered by an Idaho city or PERSI, or benefits PERSI paid relating to Idaho police officer employment not included in the federal Social Security retirement system (for example the city funds of Coeur d'Alene, Lewiston and Pocatello, and the old Idaho Falls Police Retirement Fund, IFP designation)",
+     "If married, must file jointly: 'If you're married, you can't claim this deduction if you file separately'",
+     "An unremarried widow or widower of a pensioner who receives qualifying survivor benefits might be eligible if the age/disability requirements are met"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.46, Form 39R instructions Line 8e Part Two, Police Officers of an Idaho City; p.45 Part One; p.33 Form 39R Part B line 8",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_disabled_62_to_64",
+   "label": "Retirement benefits deduction: classified as disabled, ages 62 to 64, the same listed plans",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Retirement annuities paid to a retired federal employee under the Federal Employees Retirement System (FERS) don't qualify for the deduction (CSA-1099 account number first digit 7 or 9; if 8, only the portion paid from CSRS qualifies)",
+    "Benefits paid out of the PERSI Base Plan don't qualify for the deduction"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "max_age": 64,
+    "other_conditions": [
+     "Classified as disabled means: recognized as disabled by the Social Security Administration, the Railroad Retirement Board or the Office of Management and Budget; a veteran of a U.S. war with a service-connected disability rating of 10% or more; a veteran of a U.S. war with a nonservice-connected disability pension; or a person with a physician-certified permanent disability with no expectation of improvement",
+     "The benefits must be one of those in the Part Two list: Retirement annuity paid by the U.S. Civil Service Retirement System (CSRS), the Foreign Service Retirement and Disability System (FSRDS), or the offset programs of these two systems; the employee must have established eligibility before 1984; Retirement benefits paid by the Public Employee Retirement System of Idaho (PERSI) relating to the Firefighters Retirement Fund (a 1099R account number with the FRF designation might qualify); Retirement benefits paid from the Police Retirement Fund that no longer admits new members and, on January 1, 2012, was administered by an Idaho city or PERSI, or benefits PERSI paid relating to Idaho police officer employment not included in the federal Social Security retirement system (for example the city funds of Coeur d'Alene, Lewiston and Pocatello, and the old Idaho Falls Police Retirement Fund, IFP designation)",
+     "If married, must file jointly: 'If you're married, you can't claim this deduction if you file separately'",
+     "An unremarried widow or widower of a pensioner who receives qualifying survivor benefits might be eligible if the age/disability requirements are met"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45-46, Form 39R instructions Line 8e Part One (disabled) and Part Two; p.33 Form 39R Part B line 8",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_service_member_62_plus",
+   "label": "Idaho Retirement Benefits Deduction for Retired Service Members, age 62 or older",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 62,
+    "other_conditions": [
+     "A surviving spouse who receives the deceased spouse's pension might qualify if the same criteria are met and has not remarried (web page, Federal pensions and the deduction)"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45, Form 39R instructions Line 8e first paragraph; p.33 Form 39R Part B line 8; web page Idaho Retirement Benefits Deduction, Federal pensions and the deduction",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ret_service_member_under_62",
+   "label": "Idaho Retirement Benefits Deduction for Retired Service Members, under age 62",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 61,
+    "other_conditions": [
+     "Either classified as disabled (any age), or employed during the year and received sufficient income from such employment to be required to file a federal return",
+     "A surviving spouse who receives the deceased spouse's pension might qualify if the same criteria are met and has not remarried (web page, Federal pensions and the deduction)"
+    ]
+   },
+   "cap": {
+    "single": "48216",
+    "married_joint": "72324"
+   },
+   "cap_per": "return",
+   "cap_rule": "Form 39R line 8: line 8a (single 48,216; married filing jointly 72,324) minus line 8b (federal Railroad Retirement benefits received) and line 8c (Social Security benefits received, Box 5 of Form SSA-1099, plus Canadian Social Security benefits included in federal taxable income), not below zero; benefits of both spouses reduce the maximum. Line 8f, the deduction, is the smaller of that result and line 8e, the qualifying retirement benefits included in federal income. There is one line 8a maximum for the return, shared by every retirement benefits deduction entry: line 8e is one total, not a choice between entries.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.45, Form 39R instructions Line 8e first paragraph; p.33 Form 39R Part B line 8",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_government_interest_subtraction",
+   "label": "Interest from U.S. Government Obligations (Form 39R Part B line 3)",
+   "form": "subtraction",
+   "covers": [
+    "interest"
+   ],
+   "not_covered": [
+    "Idaho taxes interest income received from the Federal National Mortgage Association (FNMA) and the Government National Mortgage Association (GNMA)",
+    "Mutual fund interest only for the portion attributable to direct U.S. government obligations, which the fund must identify"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.43, Form 39R instructions Part B Line 3; p.33 Form 39R Part B line 3",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "qbi_and_schedule_1a_deduction",
+   "label": "Qualified Business Income and Federal Schedule 1-A Deductions (Form 40 line 18)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "The amount is federal Form 1040 or 1040-SR lines 13a and 13b added together; the booklet prints no amounts or limits of its own"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.11, Form 40 instructions Line 18; p.30 Form 40 lines 18-19",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "health_insurance_premiums",
+   "label": "Health Insurance Premiums (Form 39R Part B line 18)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "not_covered": [
+    "Premiums paid through a cafeteria plan or other salary-reduction arrangement",
+    "Premiums already deducted as a business expense, including self-employed health insurance premiums deducted in arriving at federal adjusted gross income",
+    "Employer-required Social Security Medicare A"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "The amount is premiums paid for health insurance for the filer, spouse and dependents, if not already deducted or excluded from income",
+     "Medicare B, D or both count if voluntarily enrolled; Medicare A counts if voluntarily enrolled or not covered under Social Security"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.48-49, Form 39R instructions Line 18; p.34 Form 39R Part B line 18",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "food_tax_credit",
+   "label": "Food Tax Credit (Form 40 line 43)",
+   "form": "credit",
+   "credit_amount": "155",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "The filer, spouse and qualifying dependents each count; not if someone else can claim the filer as a dependent",
+     "Or the actual sales tax paid on food, up to 250 each, with receipts",
+     "Not for any month in which the person received federal food stamp assistance, was incarcerated or lived illegally in the United States"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.13-14, Form 40 instructions Line 43 and Food Tax Credit Worksheet; p.4 What's New; p.31 Form 40 lines 43, 50 and 55 (Payments and Other Credits: the credit is paid out above the tax)",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "idaho_child_tax_credit",
+   "label": "Idaho Child Tax Credit (Form 40 line 24)",
+   "form": "credit",
+   "credit_amount": "205",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "For each qualifying child, age 16 or under as of December 31, 2025"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.11-12, Form 40 instructions Line 24 and Child Tax Credit Worksheet line 2",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest and dividends from municipal bonds of other states, their counties and cities, and from foreign obligations are added back; no add-back is printed for Idaho bonds.",
+  "cite": {
+   "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+   "section": "PDF p.42, Form 39R instructions Part A Line 3; p.33 Form 39R Part A line 3",
+   "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "idaho_property_gain_deduction",
+   "applies_to": "other",
+   "treatment": "deduction_share",
+   "value": "0.6",
+   "condition": "60% of the capital gain net income from the sale of qualified Idaho property: real property held at least 12 months; tangible personal property used in a revenue-producing enterprise held at least 12 months; cattle and horses held at least 24 months, other breeding livestock 12 months; timber held at least 24 months; certain sales of partnership interests. Gains from the sale of stocks, goodwill and other intangibles don't qualify.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.46, Form 39R instructions Line 10; p.33 Form 39R Part B line 10",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.4 and p.11: the rate and the worksheet amounts; nothing on indexing",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "standard_deduction",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.10, Standard Deduction Worksheet: nothing on indexing",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_csrs_fsrds",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_idaho_firefighters",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_idaho_police",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_disabled_62_to_64",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_service_member_62_plus",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "ret_service_member_under_62",
+   "indexed": "yes",
+   "index": "The state recalculates the maximum each year; the measure is not stated",
+   "cite": {
+    "publication": "Idaho Retirement Benefits Deduction (Idaho State Tax Commission web page)",
+    "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
+    "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

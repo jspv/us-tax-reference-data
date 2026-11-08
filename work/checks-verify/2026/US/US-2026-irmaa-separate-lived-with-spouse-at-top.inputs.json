@@ -1,0 +1,21 @@
+{
+  "id": "US-2026-irmaa-separate-lived-with-spouse-at-top",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "irmaa",
+  "boundary": "at_or_above",
+  "tests": [
+    "medicare.irmaa",
+    "medicare.part_b"
+  ],
+  "description": "Married beneficiary filing separately who lived with the spouse, MAGI exactly at the separate table's top limit ('greater than or equal to').",
+  "inputs": {
+    "filing_status": "married_separate",
+    "lived_with_spouse": true,
+    "magi": "391000"
+  },
+  "asked": [
+    "part_b_monthly_premium",
+    "part_d_monthly_adjustment"
+  ]
+}

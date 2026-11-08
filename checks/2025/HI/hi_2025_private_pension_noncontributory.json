@@ -1,0 +1,57 @@
+{
+  "id": "hi_2025_private_pension_noncontributory",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "hi_private_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "PDF page 13, Line 13 Pensions (Employer-Funded Pension Plans, items (1) and (2)); Form N-11 line 13; Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-04-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "36000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "interest": "4000.00",
+      "dividends": "10000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_agi": "14000.00",
+    "state_taxable_income": "7312.00",
+    "state_tax_before_credits": "102.37",
+    "credits": "0.00",
+    "state_income_tax": "102.37",
+    "relief_amounts": {
+      "hi_private_pension": "36000.00"
+    }
+  },
+  "worked": "Single, 70: a private employer's defined benefit pension 36,000 received upon retirement, to which the employee did not contribute (line 13 item (2)), excluded in full; interest 4,000, dividends 10,000. Age-65 exemption claimed. Line 7 federal AGI = private employer defined benefit pension 36,000.00 + interest 4,000.00 + dividends 10,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age-65 addition = 32,250.00 (given, not tested; the federal senior deduction is ignored). Line 11 total additions = 0.00; line 12 = 50,000.00 + 0.00 = 50,000.00. Line 13 pensions taxed federally but not taxed by Hawaii (private employer-funded plan, item (2)) 36,000.00. Line 19 total subtractions = 36,000.00; line 20 Hawaii AGI = 50,000.00 - 36,000.00 = 14,000.00. Line 23 standard deduction (single, PDF page 20 table) 4,400.00; line 24 = 14,000.00 - 4,400.00 = 9,600.00. Line 6e exemptions: 1 regular + 1 age 65 or over = 2; line 25 = 2 x 1,144.00 = 2,288.00. Line 26 taxable income = 9,600.00 - 2,288.00 = 7,312.00. Line 27 tax, Schedule I (PDF page 50) as bands on 7,312.00: 7,312.00 x 1.4% = 102.368; sum = 102.368, to the cent 102.37; tax = 102.37 (Form N-11 line 27 uses the Tax Table below 100,000 of taxable income (PDF page 20, Line 27): the table row 7,300 to 7,350 gives 103; this case uses the bands as numbers). No credits modelled (refundable food/excise and renters credits, lines 28-29, not claimed): state income tax = 102.37.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:hi_private_pension_exclusion_ratio"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

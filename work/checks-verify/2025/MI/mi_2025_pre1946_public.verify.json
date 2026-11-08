@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "12000.00",
+    "state_income_tax": "263.50",
+    "state_tax_before_credits": "263.50",
+    "state_taxable_income": "6200.00",
+    "relief_amounts": {
+      "pre1946_public": "70000.00",
+      "senior_investment_deduction": "0.00"
+    }
+  },
+  "worked": "Single born 1940. MI public pension 70,000 subtracted in full (no cap on public benefits). Line 28 worksheet: 14,688 - line 27 70,000 -> 0. Taxable SS 20,400 subtracted. state_agi 102,400 - 20,400 - 70,000 = 12,000.00 (interest). Exemption 5,800. Taxable 6,200.00. Tax 263.50. [check: state_agi 12000.00, taxable 6200.00, tax 263.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

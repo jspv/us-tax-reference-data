@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "29174.09",
+    "state_income_tax": "454.99",
+    "state_tax_before_credits": "454.99",
+    "state_taxable_income": "13424.09",
+    "relief_amounts": {
+      "business_income_deduction": "8000.00"
+    }
+  },
+  "worked": "Filing status single; persons ages [50]. Federal AGI 37174.09 (given). business_income_deduction (MO-A Part 1 Line 17, projection share 0.2 of self-employment income): 0.2 x 40000.00 = 8000.000 Missouri AGI (state_agi) = 37174.09 + additions 0 - subtractions 8000.000 = 29174.090 Deductions (MO-1040 Lines 14-15): standard 15750 + age 65 2000 x 0 = 0 + head of household/QSS exemption 0 = 15750 Taxable income = 29174.090 - 15750 = 13424.090 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2626 - 1313) = 26.26; 0.025 x (3939 - 2626) = 32.825; 0.03 x (5252 - 3939) = 39.39; 0.035 x (6565 - 5252) = 45.955; 0.04 x (7878 - 6565) = 52.52; 0.045 x (9191 - 7878) = 59.085; 0.047 x (13424.090 - 9191) = 198.955230; sum 454.990230 -> 454.99 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 454.99"
+}

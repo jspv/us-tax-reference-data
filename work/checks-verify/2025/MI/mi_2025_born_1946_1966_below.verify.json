@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "20000.00",
+    "state_income_tax": "603.50",
+    "state_tax_before_credits": "603.50",
+    "state_taxable_income": "14200.00",
+    "relief_amounts": {
+      "born_1946_1966": "30000.00"
+    }
+  },
+  "worked": "Single born 1962. Private pension 30,000 < 49,423 limit -> subtraction 30,000.00. state_agi 50,000 - 30,000 = 20,000.00 (wages). Exemption 5,800. Taxable 14,200.00. Tax 603.50. [check: state_agi 20000.00, taxable 14200.00, tax 603.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

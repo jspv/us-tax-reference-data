@@ -1,0 +1,54 @@
+{
+  "id": "oh_2025_treasury_interest_taxed",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Adjustments line 26 (PDF p.22, not applied by the projection)",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-07-07"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "56000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "57850.00",
+    "state_tax_before_credits": "1216.50",
+    "credits": "0.00",
+    "state_income_tax": "1216.50"
+  },
+  "worked": "Federal AGI = wages person 0 56,000.00 + U.S. Treasury interest 4,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 15,750.00 = 44,250.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 60,000.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 60,000.00 + 0.00 - 0.00 = 60,000.00. Line 4: MAGI is line 3 with no business income deduction, 60,000.00, in the band 40,001 to 80,000: 2,150.00 each; 1 exemption x 2,150.00 = 2,150.00. Line 5 = 60,000.00 - 2,150.00 = 57,850.00. Line 6 taxable business income 0.00. Line 7 = 57,850.00. Line 8a tax: 57,850.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (57,850.00 - 26,050.00 = 31,800.00) = 342.00 + 874.50 = 1,216.50. Schedule of Credits line 1 = 1,216.50. MAGI less exemptions (worksheet PDF p.40) = 60,000.00 - 2,150.00 = 57,850.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 1,216.50 - 0.00 = 1,216.50. State income tax 1,216.50. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 1,217; expected keeps the formula result. The form deducts the 4,000.00 on Schedule of Adjustments line 26 (PDF p.22): line 3 56,000.00, line 7 53,850.00, tax 1,106.50, 110.00 less. Expected follows the projection, which does not apply the deduction.",
+  "accepted_approximations": [
+    "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

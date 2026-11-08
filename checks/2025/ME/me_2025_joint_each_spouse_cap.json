@@ -1,0 +1,86 @@
+{
+  "id": "me_2025_joint_each_spouse_cap",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_income_deduction",
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27 and the Worksheet for Pension Income Deduction lines P1-P10 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2); Schedule 1A line 1 (booklet PDF p.7)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-04-02"
+      },
+      {
+        "age": 66,
+        "born": "1959-10-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "55000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "30016.00",
+      "municipal_interest_own_state": "3000.00",
+      "municipal_interest_other_state": "4000.00"
+    },
+    "federal_agi": "139016.00",
+    "federal_taxable_income": "104316.00"
+  },
+  "expected": {
+    "state_agi": "70800.00",
+    "state_taxable_income": "27300.00",
+    "state_tax_before_credits": "1583.40",
+    "credits": "0.00",
+    "state_income_tax": "1583.40",
+    "relief_amounts": {
+      "pension_income_deduction": "38216.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 55,000.00 + IRA distribution (person 1) 20,000.00 + taxable interest 30,016.00 + taxable Social Security 34,000.00 = 139,016.00. Taxable Social Security on gross benefits 40,000.00: federal worksheet: other income 105,016.00 + half of benefits 20,000.00 = provisional income 125,016.00; over 32,000.00 by 93,016.00; line 11 81,016.00, line 14 6,000.00, line 16 81,016.00 x 85% + 6,000.00 = 74,863.60; 85% of benefits 34,000.00; taxable 34,000.00. Municipal interest (Maine 3,000.00, other states 4,000.00) is tax-exempt federally and not in federal AGI. Federal taxable income = 139,016.00 - 31,500.00 standard deduction - 2 x 1,600.00 for 65 or older = 104,316.00 (federal senior deduction ignored). Form 1040ME, married filing jointly: line 14 federal AGI 139,016.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 4,000.00 (Maine bond interest 3,000.00 is not added); Schedule 1A total = line 15a 4,000.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 34,000.00 + railroad retirement 0.00 = 34,000.00. Pension Income Deduction Worksheet (taxpayer column, person 0, age 68): P1 eligible non-military pension income 55,000.00; P2 48,216.00; P3 Social Security and railroad benefits received 30,000.00; P4 = 48,216.00 - 30,000.00 = 18,216.00; P5 smaller of P1 and P4 = 18,216.00; P6/P7 not needed (federal AGI 139,016.00 not over 250,000.00); P8 = 18,216.00; P9 military retirement pay 0.00; P10 = 18,216.00. Pension Income Deduction Worksheet (spouse column, person 1, age 66): P1 eligible non-military pension income 20,000.00; P2 48,216.00; P3 Social Security and railroad benefits received 10,000.00; P4 = 48,216.00 - 10,000.00 = 38,216.00; P5 smaller of P1 and P4 = 20,000.00; P6/P7 not needed (federal AGI 139,016.00 not over 250,000.00); P8 = 20,000.00; P9 military retirement pay 0.00; P10 = 20,000.00. Schedule 1S line 4 = P10 total 38,216.00 (non-military 38,216.00 + military 0.00). Schedule 1S line 27 total subtractions = 34,000.00 + 38,216.00 = line 15b 72,216.00. Line 16 Maine AGI = 139,016.00 + 4,000.00 - 72,216.00 = 70,800.00. Line 17 standard deduction (person 0 born 1957-04-02 is 68 at December 31, 2025; person 1 born 1959-10-30 is 66 at December 31, 2025; 2 box(es) on lines 12a-12d): chart (PDF p.5) 33,200.00 = base 30,000.00 + 2 x 1,600.00; Maine AGI not over 200,050.00, so no worksheet; line 17 = 33,200.00. Line 13 = 2; line 18 exemption = 2 x 5,150.00 = 10,300.00 (Maine AGI not over 400,100.00). Line 19 taxable income = 70,800.00 - 33,200.00 - 10,300.00 = 27,300.00. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (27,300.00 - 0.00) = 1,583.40 = 1,583.40. The booklet's tax table (PDF pp.12-13) row 27,300.00 to 27,400.00 gives 1,586; expected keeps the schedule formula. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 1,583.40. Each spouse's 48,216 cap is reduced only by that spouse's own benefits (projection reading; Schedule 1S worksheet has a taxpayer and a spouse column).",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars.",
+    "The cap is reduced per person by that person's own social security and railroad benefits, taxable or not. Page 8 says each spouse has a cap and that it is reduced, but the worksheet that would show whose benefits reduce whose cap is not saved."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mainepers_subtraction",
+    "state_rule_not_modelled:me_property_tax_fairness_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

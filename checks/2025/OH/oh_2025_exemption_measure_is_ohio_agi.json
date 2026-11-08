@@ -1,0 +1,62 @@
+{
+  "id": "oh_2025_exemption_measure_is_ohio_agi",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; Schedule of Adjustments line 16 (PDF p.20; bundle PDF p.3); Senior Citizens page 'Social Security Benefits'; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-07-19"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "34050.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "12000.00"
+    },
+    "federal_agi": "46050.00",
+    "federal_taxable_income": "30300.00"
+  },
+  "expected": {
+    "state_agi": "34050.00",
+    "state_taxable_income": "31650.00",
+    "state_tax_before_credits": "496.00",
+    "credits": "0.00",
+    "state_income_tax": "496.00",
+    "relief_amounts": {
+      "personal_exemption": "2400.00"
+    }
+  },
+  "worked": "Federal AGI = wages person 0 34,050.00 + taxable Social Security 12,000.00 = 46,050.00. Federal taxable income = 46,050.00 - standard deduction 15,750.00 = 30,300.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 46,050.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: line 16 taxable Social Security 12,000.00; line 47 total 12,000.00; line 2b 12,000.00. Line 3 Ohio AGI = 46,050.00 + 0.00 - 12,000.00 = 34,050.00. Line 4: MAGI is line 3 with no business income deduction, 34,050.00, in the band 40,000 or less: 2,400.00 each; 1 exemption x 2,400.00 = 2,400.00. Line 5 = 34,050.00 - 2,400.00 = 31,650.00. Line 6 taxable business income 0.00. Line 7 = 31,650.00. Line 8a tax: 31,650.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (31,650.00 - 26,050.00 = 5,600.00) = 342.00 + 154.00 = 496.00. Schedule of Credits line 1 = 496.00. MAGI less exemptions (worksheet PDF p.40) = 34,050.00 - 2,400.00 = 31,650.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 496.00 - 0.00 = 496.00. State income tax 496.00. Federal AGI of 46,050.00 would give 2,150; the exemption reads MAGI, which is Ohio AGI after the Social Security deduction, 34,050.00, so 2,400. Person is 63: no senior credit.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "306.00",
+    "relief_amounts": {
+      "military_retirement_exclusion": "20000.00"
+    },
+    "state_agi": "113000.00",
+    "state_income_tax": "2859.06",
+    "state_tax_before_credits": "3165.06",
+    "state_taxable_income": "101588.00"
+  },
+  "worked": "Start: federal AGI 133,000.00 (Form 540 line 13). Military Retirement Exclusion: federal AGI 133,000.00 not over 250,000; military pay 33,000.00, capped at 20,000 per return -> 20,000 subtracted (Schedule CA line 5b col B). State AGI (Form 540 line 17) = 133,000.00 - 20,000 = 113,000.00. Standard deduction 11,412 (line 18). Taxable income (line 19) = 113,000.00 - 11,412 = 101,588.00. Tax by the rate schedule (line 31; 1% BHST over 1,000,000 folded into the brackets per the projection): 0.01 x (22,158 - 0) = 221.58; 0.02 x (52,528 - 22,158) = 607.40; 0.04 x (82,904 - 52,528) = 1,215.04; 0.06 x (101,588.00 - 82,904) = 1,121.04; total 3,165.06. Exemption credits: federal AGI 133,000.00 below 504,411: personal 2 x 153 = 306; senior 0 x 153 = 0. Credits (line 32) = 306. State income tax = 3,165.06 - 306 = 2,859.06. Federal figures given (federal senior deduction ignored)."
+}

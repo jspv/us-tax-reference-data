@@ -1,0 +1,76 @@
+{
+  "id": "or_2025_ric_joint_shares_one_cap",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.106-107 'Retirement income' (credit code 811) worksheet lines 1-12; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-06-15"
+      },
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "12110.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "10000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "34110.00",
+    "federal_taxable_income": "1010.00"
+  },
+  "expected": {
+    "state_agi": "34110.00",
+    "state_taxable_income": "27440.00",
+    "state_tax_before_credits": "1781.00",
+    "credits": "1492.10",
+    "state_income_tax": "288.90",
+    "relief_amounts": {
+      "retirement_income_credit": "980.10"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 1) 12,110.00 + private pension (person 0) 12,000.00 + private pension (person 1) 10,000.00 = 34,110.00. Federal taxable income = 34,110.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 1,010.00 (the federal senior deduction is ignored). Form OR-40 (filing status married filing jointly): line 7 federal AGI 34,110.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 34,110.00 + 0.00 = 34,110.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 0.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 0.00 + 0.00 + 0.00 = 0.00. Line 15 = 34,110.00 - 0.00 = 34,110.00. Line 16 itemized 0.00. Line 17 standard deduction 5,670.00 + 1 age 65 box(es) x 1,000.00 = 6,670.00. Line 18 = 6,670.00. Line 19 = 34,110.00 - 6,670.00 = 27,440.00. Line 20: 8,800.00 x 4.75% = 418 + 13,400.00 x 6.75% = 904.5 + 5,240.00 x 8.75% = 458.5; total 1781, to the cent 1,781.00 (the tax table's J column, row 27,400 to 27,500, gives 1,782; expected keeps the formula). Lines 21-23 0.00. Line 24 = 1,781.00. Line 25 exemption credit: federal AGI 34,110.00 is not more than 200,000.00; 2 x 256.00 = 512.00. Line 27 retirement income credit (code 811) worksheet: line 1 and line 3 retirement income of the eligible individual(s) 22,000.00; line 2 federal pension subtracted 0.00; line 4 15,000.00; line 5 Social Security and railroad 0.00; line 6 = 15,000.00; line 7 household income = 34,110.00 - 0.00 + 0.00 = 34,110.00; line 8 30,000.00; line 9 = 4,110.00; line 10 = 15,000.00 - 4,110.00 = 10,890.00, not below 0; line 11 smaller of 22,000.00 and 10,890.00 = 10,890.00; line 12 = 10,890.00 x 9% = 980.10. Line 28 credits = 512.00 + 980.10 = 1,492.10. Line 29 and line 31 state income tax = 1,781.00 - 1,492.10 = 288.90. Line 32 kicker comes after this figure and is not applied (not_modelled).",
+  "accepted_approximations": [
+    "The federal tax liability subtraction is not applied (not_modelled). This is the largest gap for most Oregon households.",
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_pension_subtraction",
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit",
+    "state_rule_not_modelled:previously_taxed_retirement_contributions"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

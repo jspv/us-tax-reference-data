@@ -1,0 +1,71 @@
+{
+  "id": "nj_2025_edge_ny_state_pension",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "nj_pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.15 line 20a ('Federal, state, and local government, and teachers' pensions' taxable), njit6 Taxable Retirement Income ('all state and local government ... pensions'), GIT-1 & 2 p.4, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart, PDF p.22 line 29 (line 27 of exactly $100,000 is in the $0-$100,000 column); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-05-05"
+      },
+      {
+        "age": 59,
+        "born": "1966-01-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": false
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "68500.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "595.00",
+    "credits": "0.00",
+    "state_income_tax": "595.00",
+    "relief_amounts": {
+      "nj_pension_exclusion": "60000.00"
+    }
+  },
+  "worked": "Federal AGI 100,000.00 (spouse 1 New York State retirement system pension 60,000.00 + spouse 2 wages 40,000.00); federal taxable income = 100,000.00 - 31,500.00 federal standard deduction = 68,500.00 (given, not tested; the federal senior deduction is ignored). A New York State pension of a New Jersey resident is taxable like any other state's government pension (no reciprocity rule; New York does not tax it for a nonresident, so there is no credit for tax paid to another jurisdiction). Line 15 wages 40,000.00 + line 20a pension 60,000.00 = line 27 total income 100,000.00; measure 100,000.00, exactly 100,000.00, which is still the $0-$100,000 column (keep share 1). Line 28a: only spouse 1 (64) qualifies; Line A = his pension 60,000.00, Line B 100,000.00; lesser = 60,000.00. Line 28b: wages 40,000 over 3,000, so no unclaimed exclusion; projection 0.00 (no covered interest, dividends or gains). Line 29 New Jersey gross income = 100,000.00 - 60,000.00 - 0.00 = 40,000.00. Line 30 exemptions (line 13): regular 1,000 x 2 (nobody is 65 or older, so no senior exemption) = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 40,000.00 - 2,000.00 = 38,000.00. Line 43 tax, rate schedule Table B (joint/head of household/qualifying widow(er)) as bands: 20,000.00 x 0.014 = 280.00 + 18,000.00 x 0.0175 = 315.00 = 595.00. The booklet's Tax Table (taxable income under 100,000) gives 595 for the 38,000-38,050 row (schedule at the midpoint 38,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 595.00. The pension is treated as noncontributory (Tier 1-2 member), so line 20a equals the federal taxable amount. One dollar more of line 27 (100,001, the next chart column) would cut the exclusion to 50% x 60,000 = 30,000.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_pension_exclusion_disabled",
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

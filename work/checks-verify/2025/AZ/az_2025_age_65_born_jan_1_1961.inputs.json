@@ -1,0 +1,47 @@
+{
+  "id": "az_2025_age_65_born_jan_1_1961",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 11 Box 8 NOTE ('born 1/1/1961 ... considered to be age 65 at the end of 2025'); Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "state": "AK",
+    "title": "Personal Income Tax (states Alaska has no individual income tax)",
+    "url": "https://tax.alaska.gov/programs/programs/index.aspx?10001",
+    "kind": "html",
+    "retrieved": "2026-11-07T00:59:52.051695+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.alaska.gov/programs/programs/index.aspx?10001",
+    "file": "index.html",
+    "bytes": 18684,
+    "sha256": "dd33171965ca776313c8253ba67a51db011cd374d22191a7d24810539b4bff3f",
+    "text_file": "index.page.txt"
+  }
+]

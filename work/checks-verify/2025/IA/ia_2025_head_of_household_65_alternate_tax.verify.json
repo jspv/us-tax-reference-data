@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "60.00",
+  "relief_amounts": {
+   "ia_age_65_credit": "20.00",
+   "ia_personal_credit": "40.00"
+  },
+  "state_income_tax": "700.00",
+  "state_tax_before_credits": "760.00",
+  "state_taxable_income": "20000.00"
+ },
+ "worked": "Federal AGI 45625.00; federal deduction 25625.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 20000.00. Line 3, net Iowa modifications: 0.00 - 0.00 = 0.00. Line 4, Iowa taxable income: 20000.00 + 0.00 = 20000.00. Line 5: 20000.00 x 3.8% = 760.00. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 1 x 20 = 20.00; total 60.00. Line 12: 760.00 - 60.00 = 700.00. Form difference (not_modelled): head of household enters 2 personal credits, a further 40. Form difference (approximation): alternate tax 4.3% x (45625.00 - 32000) = 585.88, less than 760.00. The projection does not apply it."
+}

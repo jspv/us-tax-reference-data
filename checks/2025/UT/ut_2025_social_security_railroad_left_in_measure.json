@@ -1,0 +1,73 @@
+{
+  "id": "ut_2025_social_security_railroad_left_in_measure",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "social_security_credit",
+    "railroad_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (AH) Social Security Benefits Credit and Social Security Credit Worksheet lines 1 to 13 (PDF p.23); (78) Railroad Retirement Income (PDF p.20)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "27000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "74000.00",
+    "federal_taxable_income": "56250.00"
+  },
+  "expected": {
+    "state_agi": "44000.00",
+    "state_taxable_income": "44000.00",
+    "state_tax_before_credits": "1980.00",
+    "credits": "874.77",
+    "state_income_tax": "1105.23",
+    "relief_amounts": {
+      "social_security_credit": "265.00",
+      "railroad_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = railroad retirement annuity (person 0) 30,000.00 + private pension (person 0) 27,000.00 + taxable Social Security 17,000.00 (benefits 20,000.00, from the federal worksheet) = 74,000.00. Federal taxable income = 74,000.00 - standard deduction 15,750.00 - 1 x 2,000 age 65 additional = 56,250.00 (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (single): line 4 federal AGI 74,000.00. Line 5 additions: none, 0.00. Line 6 = 74,000.00 + 0.00 = 74,000.00. Line 7 state tax refund 0.00. Line 8 subtractions: code 78 railroad retirement 30,000.00. Line 9 Utah taxable income = 74,000.00 - 0.00 - 30,000.00 = 44,000.00. Line 10 = 44,000.00 x 0.045 = 1,980.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 15,750.00; initial credit = 0.06 x min(line 9 44,000.00, cap 15,750.00) = 0.06 x 15,750.00 = 945.00. The form's line 12 takes federal line 12e, 17,750.00 with the age 65 additional, so its line 16 is 1,065.00, line 20 729.77; the expected figures follow the projection's cap. Line 17 base phase-out amount 18,213.00. Line 18 = max(0, 44,000.00 - 18,213.00) = 25,787.00. Line 19 = 25,787.00 x 0.013 = 335.231. Line 20 = max(0, 945.00 - 335.231) = 609.769. Line 21 worksheet: line 1 federal AGI 74,000.00; line 2 standard deduction 15,750.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 15,750.00; line 5 = max(0, 74,000.00 - 15,750.00) = 58,250.00. Line 5 is above zero, so not exempt; line 21 blank. TC-40A Part 3: Social Security Credit Worksheet: line 1 17,000.00; line 2 0.00; line 3 17,000.00; line 4 = 17,000.00 x 0.045 = 765.00; line 5 line 9 44,000.00; line 6 code 57 0.00; line 7 44,000.00; line 8 tax-exempt interest 0.00; line 9 44,000.00. The projection's measure is federal AGI plus tax-exempt interest, 74,000.00 + 0.00 = 74,000.00, which leaves the line 8 subtraction in; the expected figures use 74,000.00. Line 10 54,000.00; line 11 = max(0, 74,000.00 - 54,000.00) = 20,000.00; line 12 = 20,000.00 x 0.025 = 500.00; line 13 = max(0, 765.00 - 500.00) = 265.00. The worksheet's own line 13, from line 9 44,000.00, is 765.00. Line 22 and TC-40A Part 3: line 20 609.769 + AH 265.000 = 874.769; credits 874.77. Tax = 1,980.00 - 874.77 = 1,105.23. The form, with line 12 at federal 12e, gives tax 485.23; expected follows the projection. The worksheet's line 5 is after code 78; the projection's measure is not, so expected follows the projection and the approximation is listed. Expected lines are the formula results rounded to the cent at the end (half up); the three-decimal figures above are unrounded.",
+  "accepted_approximations": [
+    "Utah has no deduction from income, so base.deductions is empty on purpose. The taxpayer tax credit stands in for it: 6% of the capped income, cap = the federal standard deduction for the status, so the credit is 945 single, 1,417.50 head of household, 1,890 joint or qualifying surviving spouse, once income reaches the cap. Below the cap the credit is smaller than the form's, but 6% of income exceeds 4.5% tax either way, so tax is 0 on both. The phase-out (line 19) comes off the credit, after the 6%, as it does after the 4.5% on the Social Security credit. The cap leaves out the federal age 65 and blindness extras, which line 12 includes because it takes federal line 12e; the Utah sources print no amount for them.",
+    "The Social Security credit's measure maps to federal AGI plus tax-exempt interest. The worksheet takes line 9, removes the code 57 addition and adds all tax-exempt interest. That is the mapped measure less lines 7 and 8, so it leaves subtractions in: U.S. obligation interest, railroad retirement, a state tax refund. State taxable income plus tax-exempt interest was rejected: it counts added-back municipal interest twice."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:utah_previously_taxed_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

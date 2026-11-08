@@ -1,0 +1,53 @@
+{
+  "id": "wv_2025_line47_social_security_smaller",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_social_security",
+    "wv_senior_citizen_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 34 Social Security Benefits, 100% at or under the AGI limit and 65% above it for 2025 (PDF p.5; instructions PDF p.28; PDF p.17; Tax Division Social Security Modification page); Schedule M line 47 Senior Citizen Deduction columns (a)-(d) (PDF p.6; instructions PDF p.29; example PDF p.30; PDF p.23 'Taxpayers over age 65 or disabled'; Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-08-08"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "6000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "3000.00"
+    },
+    "federal_agi": "33000.00",
+    "federal_taxable_income": "15250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.wv_social_security",
+    "relief_amounts.wv_senior_citizen_deduction"
+  ]
+}

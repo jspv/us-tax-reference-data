@@ -1,0 +1,42 @@
+[
+  {
+    "state": "AL",
+    "title": "2025 Form 40 Instruction Booklet",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+    "retrieved": "2026-11-07T00:59:58.613299+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+    "file": "25f40bk.pdf",
+    "bytes": 2892056,
+    "sha256": "7871a80bd580dff9bbfe0fd8252664bfd2394d3c51bd98199cdd5162a4b46699",
+    "archived_url": "https://web.archive.org/web/20260215043446id_/https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  {
+    "state": "AL",
+    "title": "2025 Form 40 Individual Income Tax Return (print only)",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40blk.pdf",
+    "retrieved": "2026-11-07T01:00:03.983208+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40blk.pdf",
+    "file": "25f40blk.pdf",
+    "bytes": 253658,
+    "sha256": "c001efc5771c1c2ce1da95e57c6a4c4e82cdf529e75024adc6be6cc81927cfe8",
+    "archived_url": "https://web.archive.org/web/20260215052605id_/https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40blk.pdf"
+  },
+  {
+    "state": "AL",
+    "title": "Income Exempt from Alabama Income Taxation",
+    "url": "https://www.revenue.alabama.gov/individual-corporate/income-exempt-from-alabama-income-taxation/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:00:09.162198+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.revenue.alabama.gov/individual-corporate/income-exempt-from-alabama-income-taxation/",
+    "file": "income-exempt-from-alabama-income-taxation.html",
+    "bytes": 313955,
+    "sha256": "a2ef21d469a0bbb748579309dd7fa8a33befc0302834ae64539fcef434b90fb4",
+    "text_file": "income-exempt-from-alabama-income-taxation.page.txt"
+  }
+]

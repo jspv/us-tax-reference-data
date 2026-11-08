@@ -1,0 +1,61 @@
+{
+  "id": "la_2025_gov_pension_lasers_under_65",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "la_government_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "section": "instructions PDF page 7, code 02E; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-08-19"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "LA"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "7500.00",
+    "state_tax_before_credits": "225.00",
+    "credits": "0.00",
+    "state_income_tax": "225.00",
+    "relief_amounts": {
+      "la_government_pension": "40000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 20,000.00 + Louisiana State Employees' Retirement System pension (person 0) 40,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 15,750.00 federal standard deduction = 44,250.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. Schedule E: Line 1 federal AGI 60,000.00. Line 3 total = 60,000.00. Exempt income: code 02E Louisiana State Employees' Retirement System pension 40,000.00. Line 4H = 40,000.00. Line 5 Louisiana AGI = 60,000.00 - 40,000.00 = 20,000.00. IT-540 Line 7 (from Schedule E Line 5) 20,000.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 20,000.00 - 12,500.00 = 7,500.00. Line 11 = 7,500.00 x .03 = 225.00. Line 12 credits 0.00. Line 13 = 225.00. Code 02E has no age test, income test or cap: the whole benefit is exempt at 62.",
+  "accepted_approximations": [
+    "Every public_pension is treated as exempt. Louisiana exempts only its listed systems (codes 02E, 03E, 05E) and federal retirement systems (code 04E); a Louisiana government pension from a system not on the list would fall in the 12,000 exemption instead."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

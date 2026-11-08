@@ -1,0 +1,70 @@
+{
+  "id": "ca_2025_senior_credit_joint_one_spouse_65",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "senior_exemption_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 12 Line 9 ('each spouse/RDP 65 years of age or older')",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-03-01"
+      },
+      {
+        "age": 62,
+        "born": "1963-07-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "76900.00"
+  },
+  "expected": {
+    "state_agi": "110000.00",
+    "state_taxable_income": "98588.00",
+    "state_tax_before_credits": "2985.06",
+    "credits": "459.00",
+    "state_income_tax": "2526.06",
+    "relief_amounts": {
+      "senior_exemption_credit": "153.00"
+    }
+  },
+  "worked": "Married filing jointly, 66 and 62: only the older spouse is 65 by December 31, 2025, so one senior credit. Private pension 40,000 and IRA distribution 20,000 (person 0, no California basis difference), wages 50,000 (person 1); federal AGI = 40,000 + 20,000 + 50,000 = 110,000. Form 540 line 13 federal AGI = 110,000.00. Federal taxable income = 110,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age-65 addition = 76,900.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (pension and IRA amounts are the same for California here (Schedule CA lines 4 and 5, PDF pages 59-60), wages need none). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 110,000.00 - 0.00 = 110,000.00. Line 18 California standard deduction (married filing jointly, PDF page 13 chart) 11,412.00. Line 19 taxable income = 110,000.00 - 11,412.00 = 98,588.00. Tax on 98,588.00 by the projection's brackets: 22,158.00 x 1% = 221.58; 30,370.00 x 2% = 607.40; 30,376.00 x 4% = 1,215.04; 15,684.00 x 6% = 941.04; total 2,985.06. Line 31: the form uses the Tax Table for taxable income of 100,000 or less; the row 98,551-98,650 gives 2,986 (formula result kept in expected). Line 32 exemption credits: federal AGI 110,000.00 is not more than 504,411.00, so no AGI limitation; line 7 personal 2 x 153 = 306.00; line 9 senior 1 x 153 = 153.00; line 32 = 459.00. Line 33 = 2,985.06 - 459.00 = 2,526.06; no other credits (lines 34 to 47 nil), line 48 = 2,526.06. State income tax = 2,526.06.",
+  "accepted_approximations": [
+    "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

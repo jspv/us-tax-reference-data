@@ -1,0 +1,70 @@
+{
+  "layer": "record",
+  "state": "NH",
+  "tax_year": 2025,
+  "has_income_tax": false,
+  "notes": [
+    "The source is a Department of Revenue Administration press release. The Interest and Dividends Tax was New Hampshire's only tax on income (on interest and dividends); the release says taxpayers are no longer required to pay it for tax periods beginning on or after January 1, 2025. The brackets, surtaxes, deductions and reliefs are therefore empty.",
+    "Prior law (note only, not applicable to 2025): the release says the tax was 3% for periods ending on or after December 31, 2024, and applied only to periods through 2024; periods on or before December 31, 2024 remain subject to audit and collection.",
+    "The source prints no standard deduction, personal or dependent exemption, or other income-tax deduction (it describes no income tax in force for 2025).",
+    "Social Security treatment: not stated in the source; not found in the source.",
+    "The release does not mention pensions or retirement income; not found in the source.",
+    "Municipal bond interest treatment: not stated in the source; not found in the source.",
+    "Capital gains: the source prints no rate or treatment for gains; not found in the source.",
+    "The release is dated January 23, 2025 and is recorded as tax year 2025 as dispatched."
+  ],
+  "brackets": {
+    "single": [],
+    "married_joint": [],
+    "cite": {
+      "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+      "section": "press release, first paragraph: \"For tax periods beginning on or after January 1, 2025, New Hampshire taxpayers are no longer required to pay the state’s Interest and Dividends Tax.\"",
+      "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "none",
+    "deductions": [],
+    "cite": {
+      "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+      "section": "press release, first paragraph: \"For tax periods beginning on or after January 1, 2025, New Hampshire taxpayers are no longer required to pay the state’s Interest and Dividends Tax.\"",
+      "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+      "section": "press release text: no statement on this topic",
+      "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+      "section": "press release text: no statement on this topic",
+      "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+        "section": "press release text: no statement on this topic",
+        "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

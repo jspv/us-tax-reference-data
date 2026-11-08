@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "az_gov_pension_exclusion": "5000.00"
+    },
+    "state_income_tax": "285.00",
+    "state_tax_before_credits": "285.00",
+    "state_taxable_income": "11400.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 50,000.00. Line 29a person 0 own/federal government pension 30,000.00: lesser of amount or 2,500 = 2,500.00. Line 29a person 1 own/federal government pension 20,000.00: lesser of amount or 2,500 = 2,500.00. Line 29a total (each spouse on own cap) 5,000.00. Line 35 subtractions 5,000.00; line 37 = 50,000.00 - 5,000.00 = 45,000.00. Box 8 = 1 (ages 67, 64); line 38 = 1 x 2,100 = 2,100.00. Line 42 Arizona AGI = 42,900.00. Line 43 standard deduction 31,500.00; line 45 = 42,900.00 - 31,500.00 = 11,400.00. Line 46 tax = 11,400.00 x 2.5% = 285.00. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 285.00. Federal figures given; federal senior deduction ignored."
+}

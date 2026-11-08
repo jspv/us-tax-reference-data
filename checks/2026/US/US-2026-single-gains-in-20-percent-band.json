@@ -1,0 +1,41 @@
+{
+  "id": "US-2026-single-gains-in-20-percent-band",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Single filer age 58 with wages 250,000 and a 400,000 long-term gain: part of the gain in the 20% band, net investment income tax on the whole gain, additional Medicare tax on wages over 200,000.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1968-08-08",
+        "age": 58
+      }
+    ],
+    "wages": "250000",
+    "net_long_term_gain": "400000"
+  },
+  "expected": {
+    "agi": "650000.00",
+    "standard_deduction": "16100.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "633900.00",
+    "regular_tax": "115724.00",
+    "net_investment_income_tax": "15200.00",
+    "additional_medicare_tax": "450.00",
+    "total_tax": "131374.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: single.\nTaxpayer: born 1968-08-08, age 58 at the end of 2026.\nForm 1040: line 1z wages 250,000; line 7a capital gain 400,000 (Schedule D line 16: net long-term 400,000).\nForm 1040 line 9 total income = 250,000 + 400,000 = 650,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 650,000.\nLine 12e standard deduction = 16,100 (single; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 16,100 + 0 = 16,100; line 15 taxable income = 650,000 - 16,100 = 633,900.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 633,900; line 2 = 0; line 3 = 400,000 (Schedule D lines 15 and 16 both 400,000); line 4 = 400,000; line 5 = 633,900 - 400,000 = 233,900\n  line 6 = 49,450; line 7 = smaller of 633,900 and 49,450 = 49,450; line 8 = smaller of 233,900 and 49,450 = 49,450; line 9 = 0 taxed at 0%\n  line 10 = smaller of 633,900 and 400,000 = 400,000; line 11 = 0; line 12 = 400,000\n  line 13 = 545,500; line 14 = smaller of 633,900 and 545,500 = 545,500; line 15 = 233,900 + 0 = 233,900; line 16 = 311,600; line 17 = smaller of 400,000 and 311,600 = 311,600\n  line 18 = 15% x 311,600 = 46,740; line 19 = 311,600; line 20 = 400,000 - 311,600 = 88,400; line 21 = 20% x 88,400 = 17,680\n  line 22 (tax on line 5): Tax Rate Schedule X (single) on 233,900: 10% x 12,400 = 1,240; 12% x (50,400 - 12,400) = 4,560; 22% x (105,700 - 50,400) = 12,166; 24% x (201,775 - 105,700) = 23,058; 32% x (233,900 - 201,775) = 10,280; total 51,304\n  line 23 = 46,740 + 17,680 + 51,304 = 115,724\n  line 24 (tax on line 1): Tax Rate Schedule X (single) on 633,900: 10% x 12,400 = 1,240; 12% x (50,400 - 12,400) = 4,560; 22% x (105,700 - 50,400) = 12,166; 24% x (201,775 - 105,700) = 23,058; 32% x (256,225 - 201,775) = 17,424; 35% x (633,900 - 256,225) = 132,186.25; total 190,634.25\n  line 25 = smaller of 115,724 and 190,634.25 = 115,724 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 1 + 2 + 5a = 0 interest + 0 dividends + 400,000 gain = 400,000 (line 8; no deductions, line 12 = 400,000; pensions, IRA distributions and Social Security are not investment income).\n  line 13 MAGI = 650,000; line 14 = 200,000 (single); line 15 = 450,000; line 16 = smaller of 400,000 and 450,000 = 400,000 (the net investment income is the lesser); line 17 = 3.8% x 400,000 = 15,200\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 250,000; line 5 = 200,000 (single); line 6 = 50,000; line 7 = 0.9% x 50,000 = 450 (additional Medicare tax).\nTotal tax = 115,724 regular + 15,200 net investment income tax + 450 additional Medicare tax = 131,374.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

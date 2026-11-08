@@ -1,0 +1,63 @@
+{
+  "id": "nm_2025_ss_surviving_spouse_at_limit",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "social_security_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 7, line 25, Table 2 and Examples 1 and 2; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-02-14"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "116000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "116900.00"
+  },
+  "expected": {
+    "state_agi": "82900.00",
+    "state_taxable_income": "82900.00",
+    "state_tax_before_credits": "3285.30",
+    "credits": "0.00",
+    "state_income_tax": "3285.30",
+    "relief_amounts": {
+      "social_security_exemption": "34000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 116,000.00 + taxable Social Security (85% of gross 40,000.00) 34,000.00 = 150,000.00. Federal taxable income = 150,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 additional for age 65 or older = 116,900.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, surviving spouse. Line 9 federal AGI 150,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 33,100.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 150,000.00 is over the worksheet's printed ceiling 55,000.00 for this status, so the worksheet is not completed. Line 15, PIT-ADJ: line 13 age 65 or older: Table 1 (surviving spouse) row for federal AGI 150,000.00 gives 0.00 x 1 qualifying = 0.00; line 25 Social Security: federal AGI 150,000.00 does not exceed the Table 2 maximum 150,000.00 (surviving spouse), so the 34,000.00 included in AGI is exempt = 34,000.00; PIT-ADJ line 28 total 34,000.00. Line 17 = 150,000.00 + 0.00 - 33,100.00 - 0.00 - 34,000.00 = 82,900.00. By the projection: state_agi = federal taxable income 116,900.00 - 34,000.00 = 82,900.00; less base deductions 0.00 gives 82,900.00. Line 18 tax, joint column as numbers: 1.5% x 8,000.00 = 120 + 3.2% x 17,000.00 = 544 + 4.3% x 25,000.00 = 1,075 + 4.7% x 32,900.00 = 1,546.3; total 3,285.3, to the cent 3,285.30. The rate table's joint column is also the surviving spouse's (footnote on every table page). The table row over 82,800 to 82,900 gives 3,283; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 3,285.30. Surviving spouse is in Table 2's 150,000 row; AGI exactly at the limit keeps the exemption.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_lump_sum_averaging",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

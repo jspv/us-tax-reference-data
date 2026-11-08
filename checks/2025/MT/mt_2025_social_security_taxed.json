@@ -1,0 +1,61 @@
+{
+  "id": "mt_2025_social_security_taxed",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions; Montana Tax Simplification Resource Hub",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Hub 'Montana Taxable Income Calculation'; Form 2 PDF p3 lines 8-24 print no Social Security subtraction; record social_security; Instructions PDF p13 Line 6, $5,660 subtraction for taxpayers 65 and older; Form 2 PDF p1 line 6; record base.deductions age_65_subtraction",
+    "url": "https://revenue.mt.gov/montana-tax-simplification-resource-hub"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13850.00"
+    },
+    "federal_agi": "43850.00",
+    "federal_taxable_income": "26100.00"
+  },
+  "expected": {
+    "state_agi": "26100.00",
+    "state_taxable_income": "20440.00",
+    "state_tax_before_credits": "960.68",
+    "credits": "0.00",
+    "state_income_tax": "960.68",
+    "relief_amounts": {
+      "age_65_subtraction": "5660.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 30,000.00 + taxable Social Security 13,850.00 = 43,850.00. Federal taxable income = 43,850.00 - standard deduction 17,750.00 (15,750.00 + 1 x 2,000.00 for 65 or older) = 26,100.00 (federal senior deduction ignored, although Montana's line 2 would take it). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 43,850.00; line 2 Form 1040 lines 12e and 13b 17,750.00; line 3 26,100.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 1 x 5,660.00 = 5,660.00; line 7 Montana taxable income 26,100.00 + 0.00 - 0.00 - 5,660.00 = 20,440.00. Page 2 worksheet: line 1 taxable income 20,440.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 4.7% x 20,440.00 = 960.68; line 13 = 960.68, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 20,440.00 = 960.68. Line 9 nonrefundable credits 0.00; line 10 tax after credits 960.68. Federal taxable Social Security: provisional income 30,000.00 + 50% x 30,000.00 = 45,000.00; 85% x (45,000.00 - 34,000.00) = 9,350.00 + 4,500.00 = 13,850.00, under the limit 85% x 30,000.00 = 25,500.00. Montana taxes it to the extent it is in federal taxable income; no line subtracts it.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mt_elderly_homeowner_renter_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

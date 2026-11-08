@@ -1,0 +1,63 @@
+{
+  "id": "nd_2025_military_retirement",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Line 14 - Military retirement benefit exclusion; PDF p.4 Military Retirement Benefit Exclusion; Form ND-1 line 14; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "130000.00",
+    "federal_taxable_income": "114250.00"
+  },
+  "expected": {
+    "state_taxable_income": "84250.00",
+    "state_tax_before_credits": "697.61",
+    "credits": "0.00",
+    "state_income_tax": "697.61",
+    "relief_amounts": {
+      "military_retirement_exclusion": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 100,000.00 + military retirement (person 0) 30,000.00 = 130,000.00. Federal taxable income = 130,000.00 - standard deduction 15,750.00 = 114,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 114,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 114,250.00. Subtractions: line 14 military retirement benefit exclusion 30,000.00. Line 17 total subtractions = 30,000.00. Line 18 North Dakota taxable income = 114,250.00 - 30,000.00 = 84,250.00. Line 19 = 84,250.00. Line 20 tax: 1.95% x (84,250.00 - 48,475.00) = 1.95% x 35,775.00 = 697.6125, to the cent 697.61; the Tax Table row 84,250 to 84,300 gives 698; expected uses the bracket formula on the exact income. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 697.61.",
+  "accepted_approximations": [
+    "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit",
+    "state_rule_not_modelled:peace_officer_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

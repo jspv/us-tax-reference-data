@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "27500.00",
+  "state_income_tax": "17.15",
+  "state_tax_before_credits": "17.15",
+  "state_taxable_income": "490.00",
+  "relief_amounts": {
+   "wi_retirement_5000": "2000.00"
+  }
+ },
+ "worked": "Filing status married_joint; federal_taxable_income given (0.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 29,500.00. Schedule SB line 17 (wi_retirement_5000): federal AGI 29,500.00 < 30,000.00; each person 65 or older, up to 5,000 of own covered income, applied to the full covered income without first removing line 16 (projection approximation): person 0 (age 66) covered 1,000.00 -> 1,000.00; person 1 (age 65) covered 1,000.00 -> 1,000.00; total 2,000.00. Total subtractions 2,000.00; Form 1 line 7 Wisconsin income (state_agi) = 29,500.00 - 2,000.00 = 27,500.00. Line 8 standard deduction: table row for married_joint at least 0.00 (projection step over 0) -> 25,110.00. Line 10a exemptions 700 x 2 = 1,400.00; line 10b 250 x 2 person(s) 65 or older = 500.00. Line 11 taxable income = 27,500.00 - 25,110.00 - 1,400.00 - 500.00 = 490.00. Line 12 tax, Pub 106 Schedule B (joint): (490.00 - 0.00) x 0.035 = 17.15 = 17.15. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 17.15."
+}

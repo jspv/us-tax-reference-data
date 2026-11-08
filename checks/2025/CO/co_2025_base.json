@@ -1,0 +1,47 @@
+{
+  "id": "co_2025_base",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104 lines 1, 10-13 (PDF p.8 Line 1; p.10 Lines 10-13); tax rate 4.4% (PDF p.10 Line 13); tax table (PDF p.34-35) and over-50,000 worksheet (PDF p.35); record brackets cite",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "expected": {
+    "state_taxable_income": "64250.00",
+    "state_tax_before_credits": "2827.00",
+    "credits": "0.00",
+    "state_income_tax": "2827.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 80,000.00 = 80,000.00. Federal taxable income = 80,000.00 - standard deduction 15,750.00 = 64,250.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 64,250.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 80,000.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 64,250.00. DR 0104AD: No subtractions (no Social Security, pension, military or railroad income). Line 22 subtotal = 0.00; DR 0104 line 11 = 0.00. Line 12 Colorado taxable income = 64,250.00 - 0.00 = 64,250.00. Line 13 tax = 4.4% x 64,250.00 = 2,827.00 (taxable income over 50,000: the PDF p.35 worksheet multiplies by .044, same figure). No credits claimed: 0.00. Colorado income tax 2,827.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:co_ss_under_55_survivor"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "vt_2025_ss_single_partial",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "vt_social_security_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Retirement Income Exemption Worksheet, Sections I and II (booklet PDF p.16; IN-112 Instructions PDF p.2); Schedule IN-112 Part I Line 12 (booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-14"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "16000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "43510.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13600.00"
+    },
+    "federal_agi": "57110.00",
+    "federal_taxable_income": "39360.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.vt_social_security_exemption"
+  ]
+}

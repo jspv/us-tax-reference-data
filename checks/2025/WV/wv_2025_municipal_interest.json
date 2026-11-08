@@ -1,0 +1,51 @@
+{
+  "id": "wv_2025_municipal_interest",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 52 interest on other states' bonds (PDF p.6); record muni_interest; IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-11-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "3000.00",
+      "municipal_interest_other_state": "2000.00"
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "expected": {
+    "state_agi": "42000.00",
+    "state_taxable_income": "40000.00",
+    "state_tax_before_credits": "1165.50",
+    "credits": "0.00",
+    "state_income_tax": "1165.50"
+  },
+  "worked": "Single, age 50, wages, West Virginia bond interest 3,000 and other states' bond interest 2,000: only the other states' interest is added (muni_interest other_states_taxed_own_exempt). filer born 1975-11-30, age 50 at December 31, 2025. Federal AGI (given) = wages 40,000.00 = 40,000.00 (municipal interest is not in federal AGI). Federal taxable income (given, not tested) = 40,000.00 - standard deduction 15,750.00 = 24,250.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 40,000.00. Schedule M line 52 interest on other states' bonds 2,000.00; West Virginia bond interest 3,000.00 is not added (not in federal AGI and not on line 52); line 59 total additions 2,000.00; IT-140 line 2 2,000.00. Schedule M Column A: line 47: age 50, under 65 and not disabled, none; line 49 = 0.00. Line 50 total subtractions = 0.00. IT-140 line 3 subtractions 0.00; line 4 West Virginia AGI = 40,000.00 + 2,000.00 - 0.00 = 42,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 1 x 2,000.00 = 2,000.00. Line 7 taxable income = 42,000.00 - 2,000.00 = 40,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 15,000.00 = 444 + 3.33% x 15,000.00 = 499.5; total 1165.5 = 1,165.50. The Tax Table row 40,000 to under 40,050 (PDF p.38 on) gives 1,167; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 1,165.50.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

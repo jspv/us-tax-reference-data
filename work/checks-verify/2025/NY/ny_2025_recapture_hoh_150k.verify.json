@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "150000.00",
+    "state_taxable_income": "138800.00",
+    "state_tax_before_credits": "8207.61",
+    "credits": "0.00",
+    "state_income_tax": "8207.61"
+  },
+  "worked": "Line 19 federal AGI 150000.00 (given). Federal taxable income 126375.00 given, not used (NY starts from federal AGI).\nLine 24 = 150000.00\nLine 32 subtractions 0; line 33 NY AGI = 150000.00 - 0 = 150000.00\nLine 34 standard deduction (head_of_household) 11200; line 36 dependents none; line 37/38 taxable income = 150000.00 - 11200 = 138800.00\nRate schedule on 138800.00: 12800 x 0.04 = 512.00; 4850 x 0.045 = 218.250; 3250 x 0.0525 = 170.6250; 86750 x 0.055 = 4771.250; 31150.00 x 0.06 = 1869.0000; schedule tax 7541.1250\nNY AGI 150000.00 > 107,650; recapture entry starts_over 107650, full_rate 0.06 (chosen by taxable income 138800.00); full_rate x TI = 8328.0000; phase-in share = min(1, (150000.00 - 107650) / 50000) = 0.847; tax = 7541.1250 + (8328.0000 - 7541.1250) x 0.847 = 8207.6081250 -> 8207.61 (recapture 666.48)\nLine 39 tax as above; credits (household credit etc.) not in projection: 0; state income tax = line 39"
+}

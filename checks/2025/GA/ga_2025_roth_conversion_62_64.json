@@ -1,0 +1,60 @@
+{
+  "id": "ga_2025_roth_conversion_62_64",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ga_retirement_exclusion_62_64"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 1 'Retirement income' (PDF p.21); Retirement Income Exclusion notes (PDF p.24: Social Security, Railroad Retirement, exempt interest and other income 'not taxable to Georgia' left out, and lottery or gambling income; items allocated to the owner); Schedule 1 page 2 lines 1-17 and footnote (PDF p.48; 2025GA500.pdf p.8): lines 1-5 earned income limited to the 5,000 Maximum Earned Income, lines 6-14 unearned retirement income (line 11 'Taxable IRA Distributions', line 12 'Taxable Pensions'), line 16 maximum allowable exclusion 35,000 (62-64) or 65,000 (65 or older), line 17 the lesser of lines 15 and 16; Form 500 Line 8 starts from federal AGI (PDF p.16); PDF p.12 Individual Retirement Accounts: 'The provisions concerning taxability and conversion from a traditional IRA to a Roth IRA are the same for Georgia and the Internal Revenue Service', so the taxable conversion is a taxable IRA distribution on line 11; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11; record cite: ga_retirement_exclusion_62_64 / ga_retirement_exclusion_65_plus (maintainer decision 2026-11-07: 401(k), 403(b) and 457 payouts and Roth conversions are covered)",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-25"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "roth_conversion": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "25000.00",
+    "state_taxable_income": "13000.00",
+    "state_tax_before_credits": "674.70",
+    "credits": "0.00",
+    "state_income_tax": "674.70",
+    "relief_amounts": {
+      "ga_retirement_exclusion_62_64": "35000.00"
+    }
+  },
+  "worked": "Federal AGI = private pension 10,000.00 + Roth conversion 50,000.00 (all taxable: pre-tax traditional IRA money) = 60,000.00. Federal taxable income = 60,000.00 - (standard deduction 15,750.00) = 44,250.00 (federal senior deduction ignored; federal figures are given, not tested; Georgia starts from federal AGI). Georgia follows the federal treatment of a conversion (PDF p.12), so the taxable conversion is a taxable IRA distribution, Schedule 1 page 2 line 11 (maintainer decision 2026-11-07: covered). Schedule 1 page 2 (taxpayer, age 63: 35,000 branch): lines 1-3 earned income 0.00; line 4 maximum earned income 5,000.00; line 5 lesser of lines 3 and 4 = 0.00; line 11 taxable IRA distributions (Roth conversion) 50,000.00, line 12 taxable pensions 10,000.00; line 14 = 60,000.00; line 15 = 0.00 + 60,000.00 = 60,000.00; line 16 maximum allowable exclusion 35,000.00; line 17 lesser of lines 15 and 16 = 35,000.00. The pension uses 10,000.00 of the room; the conversion fills the other 25,000.00 (35,000.00 - 10,000.00) and its remaining 25,000.00 stays taxed. Compared with leaving the conversion out of the worksheet (exclusion 10,000.00), Georgia tax is lower by 5.19% x 25,000.00 = 1,297.50. Schedule 1 additions lines 1-5 none, line 6 = 0.00. Schedule 1 line 13 total subtractions = line 7a retirement income exclusion 35,000.00 = 35,000.00; line 14 net adjustments = 0.00 - 35,000.00 = -35,000.00. Form 500 line 8 federal AGI 60,000.00; line 9 = -35,000.00; line 10 Georgia AGI = 60,000.00 - 35,000.00 = 25,000.00. Line 11 standard deduction (single) 12,000.00 (the filer takes the federal standard deduction, so must take Georgia's); line 13 = 25,000.00 - 12,000.00 = 13,000.00; line 14 dependent exemption 0 dependents = 0.00; line 15a = 13,000.00; line 15b NOL 0.00; line 15c = 13,000.00. Line 16 tax = 5.19% x 13,000.00 = 674.7000 = 674.70; the form rounds to the nearest dollar and gives 675; expected uses the unrounded formula to the cent. Line 17 Low Income Credit: federal AGI is not under 20,000, so none; no other credits; credits 0.00; state income tax = 674.70.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ga_retirement_exclusion_disabled"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

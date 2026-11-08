@@ -1,0 +1,438 @@
+{
+ "layer": "projection",
+ "state": "WV",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/WV.record.json",
+  "sha256": "64d38a33eb991e89bdf686097210cd8f6c234e3fa3fc519332be6bf5a4704b08"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "10000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "25000"
+   },
+   {
+    "rate": "0.0444",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "60000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "10000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "25000"
+   },
+   {
+    "rate": "0.0444",
+    "start": "40000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "60000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0222",
+    "start": "0"
+   },
+   {
+    "rate": "0.0296",
+    "start": "5000"
+   },
+   {
+    "rate": "0.0333",
+    "start": "12500"
+   },
+   {
+    "rate": "0.0444",
+    "start": "20000"
+   },
+   {
+    "rate": "0.0482",
+    "start": "30000"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "wv_personal_exemption",
+    "amount": {
+     "all": "2000"
+    },
+    "per": "person"
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "relief"
+ },
+ "reliefs": [
+  {
+   "id": "wv_military_retirement",
+   "from_record": [
+    "wv_military_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "wv_other_retirement",
+   "from_record": [
+    "wv_other_retirement"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cap": {
+    "all": "2000"
+   },
+   "cap_per": "person"
+  },
+  {
+   "id": "wv_railroad_retirement",
+   "from_record": [
+    "wv_railroad_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "wv_social_security",
+   "from_record": [
+    "wv_social_security"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi"
+    },
+    "threshold": {
+     "single": "50000",
+     "married_separate": "50000",
+     "head_of_household": "50000",
+     "qualifying_surviving_spouse": "50000",
+     "married_joint": "100000"
+    },
+    "effect": "stepped",
+    "steps": [
+     {
+      "status": "single",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "single",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "married_separate",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_separate",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "head_of_household",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "head_of_household",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "qualifying_surviving_spouse",
+      "over": "50000",
+      "keep_share": "0.65"
+     },
+     {
+      "status": "married_joint",
+      "over": "0",
+      "keep_share": "1"
+     },
+     {
+      "status": "married_joint",
+      "over": "100000",
+      "keep_share": "0.65"
+     }
+    ]
+   },
+   "best_of_group": "wv_line_47"
+  },
+  {
+   "id": "wv_senior_citizen_deduction",
+   "from_record": [
+    "wv_senior_citizen_deduction"
+   ],
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "needs_input": [
+    "pension_source"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65
+   },
+   "cap": {
+    "all": "8000"
+   },
+   "cap_per": "person",
+   "cap_reduced_by": [
+    "military_pension"
+   ],
+   "best_of_group": "wv_line_47"
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  },
+  {
+   "figure": "relief_caps",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.cap"
+   ]
+  },
+  {
+   "figure": "relief_income_tests",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.income_test"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "wv_fed_law_enforcement_retirement",
+   "from_record": [
+    "wv_fed_law_enforcement_retirement"
+   ],
+   "what": "Retirement of a federal law enforcement officer or fireman is not taxed (line 30). A projection does not know this service, so the pension gets only the 2,000 of line 33.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "wv_police_fire_retirement",
+   "from_record": [
+    "wv_police_fire_retirement"
+   ],
+   "what": "Retirement from a West Virginia state or local police, deputy sheriffs' or firemen's system is not taxed (line 31). A projection does not know this service, so the pension gets only the 2,000 of line 33.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "wv_pbgc",
+   "from_record": [
+    "wv_pbgc"
+   ],
+   "what": "PBGC Modification (line 45): the benefit lost when a defined benefit plan terminated and its guarantor pays less is subtracted. A projection does not hold the benefit the plan would have paid.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "wv_disability_deduction",
+   "from_record": [
+    "wv_disability_deduction"
+   ],
+   "what": "Line 47 for a person under 65 certified as permanently and totally disabled: the same 8,000 as the senior deduction. A projection does not know disability.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_surviving_spouse_deduction",
+   "from_record": [
+    "wv_surviving_spouse_deduction"
+   ],
+   "what": "Surviving spouse deduction (line 48): a one-time subtraction of up to 8,000, shared with line 47, the year after the death of a spouse who was 65 or disabled.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_surviving_spouse_exemption",
+   "from_record": [
+    "wv_surviving_spouse_exemption"
+   ],
+   "what": "One additional 2,000 exemption for a surviving spouse for the two years after the year of death.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_dependent_exemption",
+   "from_record": [
+    "wv_dependent_exemption"
+   ],
+   "what": "2,000 exemption for each dependent.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "wv_zero_exemption_amount",
+   "from_record": [
+    "wv_zero_exemption_amount"
+   ],
+   "what": "500 on line 6 when zero exemptions are claimed. Applies to a filer another person claims as a dependent, not to the households a projection holds.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_low_income_earned_income_exclusion",
+   "from_record": [
+    "wv_low_income_earned_income_exclusion"
+   ],
+   "what": "Low-Income Earned Income Exclusion (line 5): the smaller of federal AGI, earned income or 10,000 (5,000 married filing separately), only with federal AGI at or under that maximum.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_family_tax_credit",
+   "from_record": [
+    "wv_family_tax_credit"
+   ],
+   "what": "Family Tax Credit: a percentage of the tax by family size and Modified Federal AGI, 100% up to 21,150 for a couple and 15,650 for one person, and none over 23,850 and 18,350. A low-income credit.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_us_wv_obligations",
+   "from_record": [
+    "wv_us_wv_obligations"
+   ],
+   "what": "Interest or dividends on U.S. obligations, and West Virginia bonds subject to federal tax, are subtracted (line 29). A projection cannot tell them from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "wv_active_duty_military_pay",
+   "from_record": [
+    "wv_active_duty_military_pay",
+    "wv_active_military_separation"
+   ],
+   "what": "Active duty military pay of a called-up Guard or Reserve member (line 36) and in the year of separation (line 37). A projection does not know these wages.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "Line 47 takes that person's lines 29 through 34 off the 8,000, so together they come to the higher of the two. The format cannot say that: cap_reduced_by takes off benefits received, and line 34 is only the taxable benefits at 65% or 100%. So the Social Security subtraction and the age 65 deduction share a best_of_group, each person's larger one counting, with the 8,000 reduced by military retirement. That is exact for Social Security and military retirement. Line 33 stays outside the group because a person under 65 keeps it alongside Social Security, and a whole public pension can't be taken off the 8,000 when only 2,000 of it is on line 33.",
+   "direction": "understates_tax",
+   "size": "Only for a person 65 or older with a line 33 pension whose Social Security and military lines add to under 8,000: the deduction is too large by up to the line 33 amount. At most 2,000 x 4.82% = 96 a year for each person. None once those lines reach 8,000."
+  },
+  {
+   "what": "The 2025 rule is held in later years. The Tax Division page says the share above the AGI limit becomes 100% in tax year 2026. Scheduled changes are a pending feature (tax-reference-data issue #2).",
+   "direction": "overstates_tax",
+   "size": "Only above the AGI limit. Single, AGI 80,000, taxable benefits 30,000: 19,500 is subtracted here and 30,000 from 2026, so 10,500 x 4.82% = 506 too much tax a year."
+  },
+  {
+   "what": "A pension from a West Virginia police, deputy sheriffs' or firemen's system, or a federal law enforcement or fire pension, is treated as a line 33 pension (not_modelled entries).",
+   "direction": "overstates_tax",
+   "size": "Nearly the whole pension's tax. A 40,000 pension: 38,000 stays taxed, up to 1,832 a year at 4.82%. For a person 65 or older the 8,000 deduction taken here offsets up to 386 of that."
+  },
+  {
+   "what": "Line 33 is applied to every public_pension. The booklet names only the West Virginia Teachers' and Public Employees' systems and Federal Retirement.",
+   "direction": "understates_tax",
+   "size": "At most 2,000 x 4.82% = 96 a year for each person with another West Virginia public pension."
+  },
+  {
+   "what": "Line 47 column (c) leaves out income on lines 35 to 46, such as railroad retirement. The projection offsets the person's own income without that test.",
+   "direction": "understates_tax",
+   "size": "Only for a person 65 or older with under 8,000 of other income who also has such income. At most 386 a year."
+  },
+  {
+   "what": "Interest on U.S. obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "All municipal bond interest is treated as from other states (added and taxed); West Virginia's own bonds are not added.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet.",
+   "direction": "either",
+   "size": "About 2 dollars at most: rows are up to 100 wide."
+  },
+  {
+   "what": "The Family Tax Credit is not applied (not_modelled entry).",
+   "direction": "overstates_tax",
+   "size": "Only under 23,850 of Modified Federal AGI for a couple or 18,350 for one person, where the tax is small. A couple under 65 at 21,150 with no subtractions shows 434 of tax and owes none."
+  },
+  {
+   "what": "The disability deduction, the surviving spouse deduction and exemption, and the Low-Income Earned Income Exclusion are not applied (not_modelled entries).",
+   "direction": "overstates_tax",
+   "size": "8,000 x 4.82% = 386 for a year of the disability or surviving spouse deduction; 2,000 x 4.82% = 96 for a year of the exemption; the exclusion is under 482."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

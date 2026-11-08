@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "al_public_pension": "40000.00"
+    },
+    "state_agi": "22000.00",
+    "state_income_tax": "835.00",
+    "state_tax_before_credits": "835.00",
+    "state_taxable_income": "17500.00"
+  },
+  "worked": "Start: federal AGI 82,400.00 (projection starts_from federal_agi). Subtraction: taxable Social Security 20,400.00 (social_security exempt; booklet: Social Security not reported) -> 62,000.00. Subtraction: person 0 public_pension 40,000.00 exempt in full (al_public_pension) -> 22,000.00. ira_distribution person 0 20,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 22,000.00. Standard deduction (single, state AGI 22,000.00 over 0): 3,000.00. Personal exemption (single): 1,500.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 22,000.00 - 3,000.00 - 1,500.00 = 17,500.00. Tax on 17,500.00 with the single brackets: 0.02 x (500.00 - 0.00) = 10.00; 0.04 x (3,000.00 - 500.00) = 100.00; 0.05 x (17,500.00 - 3,000.00) = 725.00; total 835.00. Credits: none in the projection: 0.00. State income tax = 835.00."
+}

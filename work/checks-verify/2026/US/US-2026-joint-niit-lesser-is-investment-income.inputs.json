@@ -1,0 +1,43 @@
+{
+  "id": "US-2026-joint-niit-lesser-is-investment-income",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "High-income couple filing jointly, ages 55 and 53, wages 320,000 plus interest, dividends and gains: MAGI over 250,000 by more than the net investment income, so the tax is on all the investment income; additional Medicare tax on wages over 250,000.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1971-01-30",
+        "age": 55
+      },
+      {
+        "born": "1973-07-04",
+        "age": 53
+      }
+    ],
+    "wages": "320000",
+    "taxable_interest": "10000",
+    "ordinary_dividends": "40000",
+    "qualified_dividends": "35000",
+    "net_long_term_gain": "60000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

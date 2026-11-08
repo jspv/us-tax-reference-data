@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "medicare_tax": "1740.00",
+    "social_security_tax": "7440.00"
+  },
+  "worked": "OASDI: 0.062 x min(wages 120000, wage base 184500) = 7440.00. HI: 0.0145 x wages 120000 (no base) = 1740.00."
+}

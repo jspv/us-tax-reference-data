@@ -1,0 +1,39 @@
+{
+  "id": "nh_2025_no_tax",
+  "state": "NH",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+    "section": "Press release: for tax periods beginning on or after January 1, 2025, taxpayers are no longer required to pay the Interest and Dividends Tax (no state return or form lines exist)",
+    "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

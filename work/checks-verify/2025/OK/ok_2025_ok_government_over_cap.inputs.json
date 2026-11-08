@@ -1,0 +1,45 @@
+{
+  "id": "ok_2025_ok_government_over_cap",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ok_government_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); Schedule 511-A (form PDF page 45); Schedule 511-A line 5, Oklahoma Government or Federal Civil Service Retirement (PDF page 17)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-03-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "35350.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "OK"
+        }
+      ]
+    },
+    "federal_agi": "35350.00",
+    "federal_taxable_income": "19600.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ok_government_retirement"
+  ]
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "state": "OR",
+    "title": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "retrieved": "2026-11-07T01:37:52.588952+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+    "method": "browser",
+    "file": "form-or-40-inst_101-040-1_2025.pdf",
+    "bytes": 2736358,
+    "sha256": "4ee45bad719499e2b69977b0db15de75ed063ac631b151fdefe3db081fa1eaeb",
+    "archived_url": "https://web.archive.org/web/20260419180153id_/https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf"
+  },
+  {
+    "state": "OR",
+    "title": "2025 Form OR-40 Oregon Individual Income Tax Return for Full-year Residents",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf",
+    "retrieved": "2026-11-07T01:37:57.819380+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf",
+    "method": "browser",
+    "file": "form-or-40_101-040_2025.pdf",
+    "bytes": 194550,
+    "sha256": "eaa5ca450083c7717e46846ce69d1b71ea64bcc58ae48d7f9c25ed9c8e9a56e6",
+    "archived_url": "https://web.archive.org/web/20260419031453id_/https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf"
+  },
+  {
+    "state": "OR",
+    "title": "2025 Schedule OR-ASC and OR-ASC-NP Instructions (federal pension subtraction and other adjustments)",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/sch_or-asc_or-asc-np-inst_101-063-1_2025.pdf",
+    "retrieved": "2026-11-07T01:38:02.961599+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.oregon.gov/dor/forms/FormsPubs/sch_or-asc_or-asc-np-inst_101-063-1_2025.pdf",
+    "method": "browser",
+    "file": "sch_or-asc_or-asc-np-inst_101-063-1_2025.pdf",
+    "bytes": 276809,
+    "sha256": "ba2f85d0116a6970e9fa04662804aab57a08fc495af913a53a701c3078fe5ed9"
+  },
+  {
+    "state": "OR",
+    "title": "2025 Publication OR-17, Oregon Individual Income Tax Guide (retirement income, Social Security)",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "retrieved": "2026-11-07T01:38:08.156002+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+    "method": "browser",
+    "file": "publication-or-17_101-431_2025.pdf",
+    "bytes": 7117439,
+    "sha256": "3ccfb6b46d9e221cefa0f3f867d0799bb53192005486b90446d9205f2b9cc7f6"
+  },
+  {
+    "state": "OR",
+    "title": "Oregon DOR Personal Income Tax page (states Oregon does not tax Social Security or Railroad Retirement benefits)",
+    "url": "https://www.oregon.gov/dor/programs/individuals/pages/pit.aspx",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:38:13.590109+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.oregon.gov/dor/programs/individuals/pages/pit.aspx",
+    "file": "pit.html",
+    "bytes": 618447,
+    "sha256": "cd669cc2190513b3e66103aa87f0755830bdf36414691aa6528353ba8de79489",
+    "text_file": "pit.page.txt"
+  }
+]

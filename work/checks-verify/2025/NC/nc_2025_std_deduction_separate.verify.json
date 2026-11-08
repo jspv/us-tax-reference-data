@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "1615.00",
+    "credits": "0.00",
+    "state_income_tax": "1615.00"
+  },
+  "worked": "D-400 Line 6 federal AGI 50750.00. Line 7 additions 0.00. Schedule S Part B: none. Line 9 deductions 0.00. Line 6 + Line 7 - Line 9 = 50750.00 + 0.00 - 0.00 = 50750.00. Line 11 NC standard deduction (married_separate) 12750.00. Line 14 NC taxable income 50750.00 - 12750.00 = 38000.00. Line 15 tax 38000.00 x 4.25% = 1615.00. Line 16 credits 0.00 (no credits in the projection). Tax 1615.00."
+}

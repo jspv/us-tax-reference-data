@@ -1,0 +1,56 @@
+{
+  "id": "oh_2025_muni_interest_own_state_not_in_measure",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; line 18 Ohio public obligations (PDF pp.20-21); MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 47,
+        "born": "1978-10-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "38050.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "4000.00"
+    },
+    "federal_agi": "38050.00",
+    "federal_taxable_income": "22300.00"
+  },
+  "expected": {
+    "state_agi": "38050.00",
+    "state_taxable_income": "35650.00",
+    "state_tax_before_credits": "606.00",
+    "credits": "0.00",
+    "state_income_tax": "606.00",
+    "relief_amounts": {
+      "personal_exemption": "2400.00"
+    }
+  },
+  "worked": "Federal AGI = wages person 0 38,050.00 = 38,050.00. Tax-exempt municipal interest is not in federal AGI. Federal taxable income = 38,050.00 - standard deduction 15,750.00 = 22,300.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 38,050.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Ohio municipal interest 4,000.00 is neither in federal AGI nor added, so nothing is deducted on line 18. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 38,050.00 + 0.00 - 0.00 = 38,050.00. Line 4: MAGI is line 3 with no business income deduction, 38,050.00, in the band 40,000 or less: 2,400.00 each; 1 exemption x 2,400.00 = 2,400.00. Line 5 = 38,050.00 - 2,400.00 = 35,650.00. Line 6 taxable business income 0.00. Line 7 = 35,650.00. Line 8a tax: 35,650.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (35,650.00 - 26,050.00 = 9,600.00) = 342.00 + 264.00 = 606.00. Schedule of Credits line 1 = 606.00. MAGI less exemptions (worksheet PDF p.40) = 38,050.00 - 2,400.00 = 35,650.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 606.00 - 0.00 = 606.00. State income tax 606.00. Ohio municipal interest is in neither federal AGI nor Ohio AGI, so MAGI stays under 40,000 and the exemption stays 2,400.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

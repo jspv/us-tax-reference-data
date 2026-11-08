@@ -1,0 +1,56 @@
+{
+  "id": "ms_2025_deductions_surviving_spouse",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "ms_standard_deduction",
+    "ms_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.5 Line 2 Married - Spouse Died in 2025",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "18500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "33400.00",
+    "state_tax_before_credits": "1029.60",
+    "credits": "0.00",
+    "state_income_tax": "1029.60",
+    "relief_amounts": {
+      "ms_standard_deduction": "4600.00",
+      "ms_personal_exemption": "12000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 31,500.00 federal standard deduction = 18,500.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 1 amounts (the form prints no status for a surviving spouse after the year of death; the projection uses married_joint). Start at federal AGI 50,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Line 66 and line 13 Mississippi AGI = 50,000.00. Line 14 standard deduction 4,600.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 12,000.00; line 12 and line 15 = 12,000.00. Line 16 Mississippi taxable income = 50,000.00 - 4,600.00 - 12,000.00 = 33,400.00. Schedule of Tax Computation line 1: first 10,000.00 x 0% = 0.00; line 2: remaining 23,400.00 x 4.4% = 1,029.60; line 4 and line 17 = 1,029.60. Lines 18 and 19 credits 0.00; line 20 = 1,029.60. The form rounds to whole dollars (p.22), which would give 1,030; expected keeps the formula result. The form's 12,000 and 4,600 are for the year of death only. In a later year the survivor would have the single amounts (taxable 41,700.00, tax 1,394.80, which is 365.20 more) or head of family with the dependent (taxable 37,100.00, tax 1,192.40, which is 162.80 more); expected follows the projection.",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+    "A federal qualifying surviving spouse uses the married_joint amounts. The booklet's only such status is 'Married - Spouse Died 2025', for the year of death; it prints none for later years, when the survivor would have the single or head of family amounts."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

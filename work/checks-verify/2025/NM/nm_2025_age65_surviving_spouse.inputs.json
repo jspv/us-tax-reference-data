@@ -1,0 +1,47 @@
+{
+  "id": "nm_2025_age65_surviving_spouse",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption",
+    "low_middle_income_exemption_joint_hoh"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 4, line 13; PDF page 5, Table 1; PIT-ADJ instructions PDF page 1, line 1; PDF page 2, line 7; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-10"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "33000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "municipal_interest_other_state": "20000.00"
+    },
+    "federal_agi": "33000.00",
+    "federal_taxable_income": "-100.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.age_65_exemption",
+    "relief_amounts.low_middle_income_exemption_joint_hoh"
+  ]
+}

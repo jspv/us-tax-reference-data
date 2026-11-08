@@ -1,0 +1,65 @@
+{
+  "id": "ny_2025_pension_exclusion_joint_one_qualifies",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_annuity_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF pages 9-10, Line 29 (59 1/2 before January 1, 2025; Married taxpayers: each spouse's own income, no unused part of the spouse's exclusion); Form IT-201 line 29; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-02-14"
+      },
+      {
+        "age": 57,
+        "born": "1968-11-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "25000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "125000.00",
+    "federal_taxable_income": "91900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_annuity_exclusion"
+  ]
+}

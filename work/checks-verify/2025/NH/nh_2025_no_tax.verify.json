@@ -1,0 +1,2 @@
+{"expected":{"credits":"0.00","state_income_tax":"0.00","state_tax_before_credits":"0.00","state_taxable_income":"0.00"},
+"worked":"NH has no personal income tax for 2025 (projection has_income_tax false, no brackets, no base deductions, no reliefs). Federal AGI 92000.00 and wages 90000.00 plus interest 2000.00 are not taxed by the state. State taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00. Federal taxable income 76250.00 = 92000.00 - 15750.00 is consistent."}

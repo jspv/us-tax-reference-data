@@ -1,0 +1,994 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tax-reference-data/schema/record.schema.json",
+  "title": "Layer 1, the record: what one jurisdiction's publication says, for one tax year",
+  "description": "Faithful to the booklet, structured enough to compare two independent readings. Every amount and rate is a string holding a decimal number; every item carries a cite naming the PDF page and line. Simplifications for a consumer belong in layer 2 (projection.schema.json), never here. See docs/design.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "layer",
+    "state",
+    "tax_year",
+    "has_income_tax",
+    "brackets",
+    "surtaxes",
+    "base",
+    "social_security",
+    "reliefs",
+    "muni_interest",
+    "capital_gains",
+    "indexing",
+    "recapture"
+  ],
+  "properties": {
+    "layer": {
+      "const": "record"
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "tax_year": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "has_income_tax": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Judgement calls, and anything the booklet says that no field holds."
+    },
+    "brackets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "single",
+        "married_joint",
+        "cite"
+      ],
+      "properties": {
+        "single": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/bracket_list"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "derivation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "method",
+            "table_rows"
+          ],
+          "description": "When the booklet prints a tax table or a formula instead of a bracket schedule (South Carolina), the bracket starts are derived and this holds the printed evidence the validator re-computes; the bracket figures need not be printed themselves.",
+          "properties": {
+            "method": {
+              "enum": [
+                "tax_table",
+                "formula",
+                "tax_table_and_formula"
+              ]
+            },
+            "table_rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "income",
+                  "tax"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "single",
+                      "married_joint",
+                      "married_separate",
+                      "head_of_household",
+                      "all"
+                    ]
+                  },
+                  "income": {
+                    "$ref": "#/$defs/amount",
+                    "description": "The taxable income the row's tax is computed at (a table row's midpoint)."
+                  },
+                  "tax": {
+                    "$ref": "#/$defs/amount"
+                  }
+                }
+              }
+            },
+            "formula": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "over",
+                "rate",
+                "minus"
+              ],
+              "properties": {
+                "over": {
+                  "$ref": "#/$defs/amount"
+                },
+                "rate": {
+                  "$ref": "#/$defs/amount"
+                },
+                "minus": {
+                  "$ref": "#/$defs/amount"
+                }
+              },
+              "description": "Printed 'rate x income minus constant' for income of at least 'over'."
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            }
+          }
+        }
+      },
+      "description": "Empty lists for a state with no income tax; a flat tax is one bracket from 0. Give married_separate or head_of_household only when the booklet prints its own schedule for them. There is no qualifying_surviving_spouse key: that status uses married_joint in every state seen so far; a state that prints its own schedule for it would add the key."
+    },
+    "surtaxes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "rate",
+          "over",
+          "measure",
+          "cite"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "over": {
+            "$ref": "#/$defs/by_status"
+          },
+          "measure": {
+            "$ref": "#/$defs/measure"
+          },
+          "cite": {
+            "$ref": "#/$defs/cite"
+          }
+        }
+      },
+      "description": "Extra rates on income over a threshold (Massachusetts 4% over 1,083,150)."
+    },
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "starts_from",
+        "deductions",
+        "cite"
+      ],
+      "properties": {
+        "starts_from": {
+          "enum": [
+            "federal_agi",
+            "federal_taxable_income",
+            "state_own",
+            "none"
+          ],
+          "description": "none only when has_income_tax is false."
+        },
+        "deductions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "what",
+              "amount",
+              "per",
+              "cite"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "what": {
+                "enum": [
+                  "standard_deduction",
+                  "personal_exemption",
+                  "dependent_exemption",
+                  "age_65_exemption",
+                  "blind_exemption",
+                  "other"
+                ]
+              },
+              "amount": {
+                "$ref": "#/$defs/by_status"
+              },
+              "per": {
+                "enum": [
+                  "return",
+                  "person",
+                  "dependent",
+                  "exemption_claimed"
+                ]
+              },
+              "condition": {
+                "type": "string",
+                "description": "When it applies, in plain words (only if the federal standard deduction is taken; age 65 or older)."
+              },
+              "phase_out": {
+                "$ref": "#/$defs/income_test"
+              },
+              "cite": {
+                "$ref": "#/$defs/cite"
+              }
+            }
+          }
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "federal_senior_deduction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "treatment",
+            "cite"
+          ],
+          "properties": {
+            "treatment": {
+              "enum": [
+                "follows",
+                "added_back",
+                "not_stated"
+              ]
+            },
+            "cite": {
+              "$ref": "#/$defs/cite"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "description": "For a state that starts from federal taxable income: what the booklet or statute says about the federal senior deduction (P.L. 119-21). See the projection schema."
+        }
+      }
+    },
+    "social_security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "treatment",
+        "cite"
+      ],
+      "properties": {
+        "treatment": {
+          "enum": [
+            "exempt",
+            "taxed",
+            "relief",
+            "not_stated"
+          ],
+          "description": "exempt or taxed only when a booklet line, worksheet or statement says so (a subtraction line for taxable Social Security counts as exempt); not_stated when nothing found says either. relief: partly exempt or a credit; the relief entries covering social_security say how."
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        }
+      }
+    },
+    "reliefs": {
+      "type": "array",
+      "description": "One entry per branch of a rule: a state whose rule differs by birth year, by public or private income, or by kind of employment has one entry for each, with its own conditions. Entries the filer chooses between share a best_of_group.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "form",
+          "covers",
+          "who",
+          "cite"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The booklet's own name for it (Retirement Income Exclusion; Tier 2 Michigan Standard Deduction)."
+          },
+          "form": {
+            "enum": [
+              "subtraction",
+              "credit",
+              "exempt_in_full"
+            ]
+          },
+          "credit_rate": {
+            "$ref": "#/$defs/amount",
+            "description": "For a credit figured as a share of the covered income (Utah 4.5%)."
+          },
+          "credit_amount": {
+            "$ref": "#/$defs/amount",
+            "description": "For a credit of a fixed amount (Utah 450)."
+          },
+          "covers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/income_type"
+            },
+            "description": "The kinds of income it applies to. A kind is listed only when the booklet names it or a worksheet line takes it."
+          },
+          "covers_unclear": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/income_type"
+            },
+            "description": "Kinds the booklet doesn't settle either way (often roth_conversion)."
+          },
+          "not_covered": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "What the booklet says does not qualify, in its words (457 plans; unmatched employee 401(k) contributions)."
+          },
+          "who": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "basis"
+            ],
+            "properties": {
+              "basis": {
+                "enum": [
+                  "each_person",
+                  "older_spouse",
+                  "return"
+                ],
+                "description": "Whose age or birth year the test uses, and so how often the relief applies."
+              },
+              "min_age": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Lowest age that qualifies, in years, inclusive; 59.5 for 59 and a half."
+              },
+              "max_age": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "description": "Highest age that qualifies, inclusive: 'under 65' is 64, Georgia's 62 to 64 tier is min 62, max 64."
+              },
+              "born_on_or_after": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "born_on_or_before": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "other_conditions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Tests a projection may not know (permanently disabled; Social Security-exempt employment; retired by 2013-01-01; fire, police or corrections)."
+              }
+            }
+          },
+          "cap": {
+            "$ref": "#/$defs/by_status",
+            "description": "Left out when there is no cap."
+          },
+          "cap_per": {
+            "enum": [
+              "person",
+              "return"
+            ]
+          },
+          "cap_rule": {
+            "type": "string",
+            "description": "How the cap is shared or reduced (75% of the private maximum; less military and railroad retirement; at most 5,000 of it from earned income)."
+          },
+          "sub_limits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "income",
+                "amount"
+              ],
+              "properties": {
+                "income": {
+                  "$ref": "#/$defs/income_type"
+                },
+                "amount": {
+                  "$ref": "#/$defs/by_status"
+                }
+              }
+            },
+            "description": "Part of the cap reserved to or limited for one kind of income (Georgia: at most 5,000 of earned income)."
+          },
+          "income_test": {
+            "$ref": "#/$defs/income_test"
+          },
+          "cannot_combine_with": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "best_of_group": {
+            "$ref": "#/$defs/id",
+            "description": "Entries with the same group are alternatives; the filer takes the most beneficial."
+          },
+          "cite": {
+            "$ref": "#/$defs/cite"
+          },
+          "credit_basis": {
+            "enum": [
+              "covered_income",
+              "tax"
+            ],
+            "description": "What credit_rate is a share of: the covered income (Utah 4.5% of benefits) or the state tax itself (Connecticut's personal tax credit)."
+          },
+          "paying_states": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^([A-Z]{2}|federal)$"
+            },
+            "description": "For a relief covering public_pension_other_state that depends on which government pays the pension (Massachusetts mirrors what the paying state does for Massachusetts pensions; TIR 95-9): the two-letter codes it applies to. Left out: any other state."
+          },
+          "share": {
+            "$ref": "#/$defs/amount",
+            "description": "The share of the covered income the relief applies to, before any cap or income test (Connecticut: 0.75 of IRA distributions; 0.5 of Teachers' Retirement System income). Left out: all of it."
+          },
+          "all_income_scope": {
+            "enum": [
+              "return",
+              "person"
+            ],
+            "description": "For covers ['all_income']: what income the amount offsets. 'return' (the default): the return's whole state income, any person's (South Carolina's age 65 deduction). 'person': only the qualifying person's own income (Maryland's subtraction for people 100 or older)."
+          },
+          "keeps_taxable": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "share",
+              "of_lesser_of"
+            ],
+            "properties": {
+              "share": {
+                "$ref": "#/$defs/amount"
+              },
+              "of_lesser_of": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "enum": [
+                    "social_security_gross",
+                    "federal_ss_worksheet_line_9"
+                  ]
+                }
+              }
+            },
+            "description": "What the worksheet keeps taxed (Connecticut Social Security above the limits: 25% of the lesser of gross benefits and federal worksheet Line 9). Mirrors the projection field."
+          },
+          "applies_over": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "measure",
+              "threshold"
+            ],
+            "properties": {
+              "measure": {
+                "$ref": "#/$defs/measure"
+              },
+              "threshold": {
+                "$ref": "#/$defs/by_status"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ]
+              }
+            },
+            "description": "The rule applies only when the measure is over the threshold. Mirrors the projection field."
+          },
+          "earned_income_limit": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "amount",
+              "per"
+            ],
+            "properties": {
+              "amount": {
+                "$ref": "#/$defs/by_status"
+              },
+              "per": {
+                "enum": [
+                  "return",
+                  "person"
+                ]
+              }
+            },
+            "description": "The relief applies only when earned income (wages plus self-employment) is at or under amount: the return's total (per return; New Jersey's unclaimed exclusion, 3,000 combined on a joint return) or each qualifying person's own (per person). List it in requires."
+          }
+        }
+      }
+    },
+    "muni_interest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "treatment",
+        "cite"
+      ],
+      "properties": {
+        "treatment": {
+          "enum": [
+            "other_states_taxed_own_exempt",
+            "all_exempt",
+            "all_taxed",
+            "other",
+            "not_stated"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        }
+      }
+    },
+    "capital_gains": {
+      "type": "array",
+      "description": "Treatment that differs from ordinary income. Empty when gains are taxed like other income.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "applies_to",
+          "treatment",
+          "value",
+          "cite"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "applies_to": {
+            "enum": [
+              "short_term",
+              "long_term",
+              "collectibles",
+              "all_gains",
+              "other"
+            ]
+          },
+          "treatment": {
+            "enum": [
+              "own_rate",
+              "deduction_share",
+              "exempt",
+              "other"
+            ]
+          },
+          "value": {
+            "$ref": "#/$defs/amount",
+            "description": "The rate (own_rate) or share deducted (deduction_share); 0 for exempt."
+          },
+          "condition": {
+            "type": "string"
+          },
+          "cite": {
+            "$ref": "#/$defs/cite"
+          },
+          "applies_over": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "measure",
+              "threshold"
+            ],
+            "properties": {
+              "measure": {
+                "$ref": "#/$defs/measure"
+              },
+              "threshold": {
+                "$ref": "#/$defs/by_status"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ]
+              }
+            },
+            "description": "The rule applies only when the measure is over the threshold (Maryland's 2% when federal AGI is more than 350,000)."
+          }
+        }
+      }
+    },
+    "indexing": {
+      "type": "array",
+      "description": "One entry per figure the booklet (or the statute) says something about, plus one with figure 'all_other' when nothing is said about the rest.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "figure",
+          "indexed"
+        ],
+        "properties": {
+          "figure": {
+            "type": "string",
+            "minLength": 1,
+            "description": "An id from this file (a surtax, deduction or relief id), 'brackets', or 'all_other'."
+          },
+          "indexed": {
+            "enum": [
+              "yes",
+              "no",
+              "not_stated"
+            ]
+          },
+          "index": {
+            "type": "string",
+            "description": "What it is indexed to, when stated."
+          },
+          "cite": {
+            "$ref": "#/$defs/cite"
+          }
+        }
+      }
+    },
+    "recapture": {
+      "type": "array",
+      "description": "A rule that takes back the benefit of the lower brackets above an income level, so the schedule's own arithmetic is not the final tax (New York's tax computation worksheets).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "measure",
+          "starts_over",
+          "effect",
+          "cite"
+        ],
+        "properties": {
+          "measure": {
+            "$ref": "#/$defs/measure"
+          },
+          "starts_over": {
+            "$ref": "#/$defs/by_status"
+          },
+          "phase_in_width": {
+            "$ref": "#/$defs/amount",
+            "description": "Income over which the benefit is taken back in full (0 for all at once)."
+          },
+          "full_over": {
+            "$ref": "#/$defs/by_status",
+            "description": "Income above which all taxable income is taxed at one rate."
+          },
+          "full_rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "effect": {
+            "enum": [
+              "flat_top_rate_on_all_income",
+              "phase_out_lower_brackets",
+              "other"
+            ]
+          },
+          "as_printed": {
+            "type": "string"
+          },
+          "cite": {
+            "$ref": "#/$defs/cite"
+          }
+        }
+      }
+    },
+    "joint_income": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule",
+        "cite"
+      ],
+      "properties": {
+        "rule": {
+          "enum": [
+            "half_each",
+            "by_ownership",
+            "not_stated"
+          ]
+        },
+        "cite": {
+          "$ref": "#/$defs/cite"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "description": "What the publication says about dividing jointly held income between spouses for per-person rules; see the projection schema."
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "amount": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+    },
+    "cite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication",
+        "section",
+        "url",
+        "accessed"
+      ],
+      "properties": {
+        "publication": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1,
+          "description": "PDF page and the line, worksheet or code section; never just the title."
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "accessed": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      }
+    },
+    "bracket_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rate",
+          "start"
+        ],
+        "properties": {
+          "rate": {
+            "$ref": "#/$defs/amount"
+          },
+          "start": {
+            "$ref": "#/$defs/amount"
+          },
+          "base": {
+            "$ref": "#/$defs/amount",
+            "description": "Printed tax on income up to this band's start. When present it replaces the sum of the lower bands: tax on income above start is base + rate x (income - start). Income exactly at start stays in the band below. Used where a state's table steps up at a threshold (Ohio)."
+          }
+        }
+      }
+    },
+    "by_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "all": {
+          "$ref": "#/$defs/amount"
+        },
+        "single": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_joint": {
+          "$ref": "#/$defs/amount"
+        },
+        "married_separate": {
+          "$ref": "#/$defs/amount"
+        },
+        "head_of_household": {
+          "$ref": "#/$defs/amount"
+        },
+        "qualifying_surviving_spouse": {
+          "$ref": "#/$defs/amount"
+        }
+      },
+      "description": "An amount per filing status; 'all' when the booklet gives one amount for every status."
+    },
+    "income_type": {
+      "enum": [
+        "wages",
+        "self_employment",
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "railroad_retirement",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion",
+        "annuity",
+        "social_security",
+        "interest",
+        "dividends",
+        "capital_gains",
+        "rent_and_royalties",
+        "other_income",
+        "all_income"
+      ],
+      "description": "ira_distribution and employer_plan_distribution include required minimum distributions. public_pension is a government pension of this state or the federal government; public_pension_other_state is another state's or its localities'. all_income: the relief applies against any income (an age deduction), not to one kind."
+    },
+    "measure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "base"
+      ],
+      "properties": {
+        "base": {
+          "enum": [
+            "federal_agi",
+            "federal_taxable_income",
+            "state_agi",
+            "state_taxable_income",
+            "household_income",
+            "other"
+          ]
+        },
+        "plus_tax_exempt_interest": {
+          "type": "boolean"
+        },
+        "minus_own_state_muni_interest": {
+          "type": "boolean"
+        },
+        "minus_taxable_social_security": {
+          "type": "boolean"
+        },
+        "as_printed": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The booklet's own definition, word for word where short."
+        }
+      }
+    },
+    "income_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "measure",
+        "threshold",
+        "effect"
+      ],
+      "properties": {
+        "measure": {
+          "$ref": "#/$defs/measure"
+        },
+        "threshold": {
+          "$ref": "#/$defs/by_status"
+        },
+        "effect": {
+          "enum": [
+            "dollar_for_dollar",
+            "other",
+            "phase_out_rate",
+            "removes",
+            "share_phase_out",
+            "stepped"
+          ]
+        },
+        "rate": {
+          "$ref": "#/$defs/amount",
+          "description": "For phase_out_rate: the reduction per dollar over the threshold (Utah 0.025)."
+        },
+        "as_printed": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "description": "For effect 'stepped': the bands, lowest first. Each says how much of the relief is kept for income over 'over' (up to the next band): keep_share (a decimal, 0.85 keeps 85%) or amount (the relief's amount there).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "over"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "single",
+                  "married_joint",
+                  "married_separate",
+                  "head_of_household",
+                  "qualifying_surviving_spouse",
+                  "all"
+                ]
+              },
+              "over": {
+                "$ref": "#/$defs/amount"
+              },
+              "keep_share": {
+                "$ref": "#/$defs/amount"
+              },
+              "amount": {
+                "$ref": "#/$defs/amount"
+              },
+              "applies_when": {
+                "enum": [
+                  "over",
+                  "at_or_over"
+                ],
+                "description": "For this band's lower edge; default over."
+              },
+              "rate": {
+                "$ref": "#/$defs/amount",
+                "description": "A decimal rate for this band where the relief is a share of tax (Connecticut Table E: 0.75), so it is not read as dollars."
+              }
+            }
+          }
+        },
+        "applies_when": {
+          "enum": [
+            "over",
+            "at_or_over"
+          ],
+          "description": "Default over: income exactly at the threshold keeps the full relief (California's military exclusion: AGI 'must not exceed' 125,000). at_or_over: the rule cuts in at the threshold itself ('75,000 or more')."
+        },
+        "width": {
+          "$ref": "#/$defs/by_status",
+          "description": "For effect share_phase_out: the income band over which the relief falls in a straight line to nothing. The share kept is 1 - (measure - threshold) / width, not below 0 (Maine's pension deduction: 100,000, 50,000 married filing separately)."
+        },
+        "share_decimals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6,
+          "description": "For effect share_phase_out: the form rounds the share to this many decimals, half up unless the record says otherwise (Maine: 4; Vermont: 2). Left out: the exact share."
+        }
+      },
+      "description": "Applies when the measure is over (strictly greater than) the threshold, unless applies_when says at_or_over. Record the statute's own figure; never shift it (a consumer compares income to the cent). share_phase_out: the relief is multiplied by the share kept, 1 - (measure - threshold) / width, floored at 0 and rounded to share_decimals if given."
+    }
+  }
+}

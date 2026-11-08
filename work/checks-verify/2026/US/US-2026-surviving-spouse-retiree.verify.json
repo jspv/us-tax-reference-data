@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "90500.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "5213.60",
+    "senior_deduction": "5070.00",
+    "standard_deduction": "33850.00",
+    "taxable_income": "51580.00",
+    "taxable_social_security": "25500.00",
+    "total_tax": "5213.60"
+  },
+  "worked": "Form 1040: line 1z wages 0; line 2a tax-exempt interest 0; line 2b taxable interest 0; line 3a qualified dividends 4000; line 3b ordinary dividends 5000; lines 4b+5b pensions/IRA 60000; line 7a capital gain 0; line 8 other income 0. SS Benefits Worksheet: L1 30000; L2 50% = 15000.0; L3 65000; L4 0; L5 80000.0; L6 adjustments 0; L7 80000.0; L8 base 25000; L9 55000.0; L10 9000 (adjusted base 34000 - base 25000); L11 46000.0; L12 9000; L13 4500; L14 4500; L15 85% x L11 = 39100.000; L16 43600.000; L17 85% x L1 = 25500.00; L18 smaller = 25500.00. Form 1040 line 6b taxable SS 25500.00; line 9 total income = line 11 AGI = 90500.00 (no adjustments). Standard deduction: basic 32200 (married_joint) + 1 box(es) x 1650 (married/surviving spouse amount) = 33850. Schedule 1-A Part V: L31 MAGI 90500.00; L32 75000; L33 15500.00; L34 6% = 930.0000; L35 5070.0000; L36a/36b for 1 person(s); L37 5070.0000. Form 1040 line 14 = 33850 + 5070.0000; line 15 taxable income = max(0, 90500.00 - 33850 - 5070.0000) = 51580.00. QDCG Tax Worksheet: L1 51580.0000; L2 4000; L3 0; L4 4000; L5 47580.0000; L6 98900; L7 51580.0000; L8 47580.0000; L9 (0%) 4000.0000; L10 4000; L11 4000.0000; L12 0.0000; L13 613700; L14 51580.0000; L15 51580.0000; L16 0; L17 0.0000; L18 15% = 0.000000; L19 4000.0000; L20 0.0000; L21 20% = 0.000000; L22 schedule tax on 47580.0000: 0.10 x (24800 - 0) = 2480.00; 0.12 x (47580.0000 - 24800) = 2733.600000 = 5213.60; L23 5213.60; L24 schedule tax on 51580.0000 = 5693.60; L25 smaller = 5213.60. Form 8960: L1 interest 0; L2 dividends 5000; L5a gain 0; L8/L12 NII 5000; L13 MAGI 90500.00; L14 threshold 250000; L15 0.00; L16 smaller 0.00; L17 3.8% = 0.00. Form 8959 Part I: L1/L4 Medicare wages 0; L5 200000; L6 0; L7 0.9% = 0.00. Total tax = 5213.60 + 0.00 + 0.00 = 5213.60."
+}

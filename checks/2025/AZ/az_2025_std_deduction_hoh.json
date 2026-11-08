@@ -1,0 +1,46 @@
+{
+  "id": "az_2025_std_deduction_hoh",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 44,
+        "born": "1981-02-07"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "53625.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "53625.00",
+    "federal_taxable_income": "30000.00"
+  },
+  "expected": {
+    "state_taxable_income": "30000.00",
+    "state_tax_before_credits": "750.00",
+    "credits": "0.00",
+    "state_income_tax": "750.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 53,625.00 = 53,625.00. Federal taxable income = 53,625.00 - 23,625.00 federal standard deduction = 30,000.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 53,625.00; line 13 small business income 0.00; line 14 = 53,625.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 53,625.00 + 0.00 = 53,625.00. Subtractions lines 24-34: none. Line 35 = 53,625.00 - 0.00 = 53,625.00; line 36 other subtractions 0.00; line 37 = 53,625.00. Line 38 age 65 or over: box 8 = 0 x 2,100.00 = 0.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 53,625.00 - 0.00 = 53,625.00. Line 43 standard deduction (head of household) 23,625.00; line 44 0.00. Line 45 Arizona taxable income = 53,625.00 - 23,625.00 = 30,000.00. Line 46 tax = 30,000.00 x 2.5% = 750.00. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 53,625.00, over the maximum for the status). Line 52 balance of tax 750.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

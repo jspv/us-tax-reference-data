@@ -1,0 +1,56 @@
+{
+  "id": "vt_2025_age_born_1961_01_02",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46); age box: 'born before Jan. 2, 1961' (PDF pp.10-11 Line 4)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-01-02"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "70020.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70020.00",
+    "federal_taxable_income": "54270.00"
+  },
+  "expected": {
+    "state_agi": "70020.00",
+    "state_taxable_income": "57070.00",
+    "state_tax_before_credits": "2161.12",
+    "credits": "0.00",
+    "state_income_tax": "2161.12"
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 70,020.00 = 70,020.00. Federal taxable income = 70,020.00 - 15,750.00 federal standard deduction = 54,270.00 (federal senior deduction ignored). Form IN-111, Single: Line 1 federal AGI 70,020.00. Schedule IN-112 Part I: Line 1 all state and local obligation interest 0.00; Line 2 Vermont obligations 0.00; Line 3 = 0.00; Line 4 0.00; Line 6 total additions 0.00. Subtractions: Lines 7-16c all 0.00; Line 18 total subtractions 0.00. Line 19 net modifications = 0.00 - 0.00 = 0.00. Form IN-111 Line 2 0.00; Line 3 = 70,020.00 + (0.00) = 70,020.00. Line 4 standard deduction 7,650.00 (no age box) [person 0 born 1961-01-02 (not born before Jan. 2, 1961: no box)]. Line 5a-5d personal exemptions 1; Line 5e 1 x 5,300.00 = 5,300.00. Line 6 = 7,650.00 + 5,300.00 = 12,950.00. Line 7 Vermont taxable income = 70,020.00 - 12,950.00 = 57,070.00. Line 8: schedule tax on 57,070.00 (Schedule X, booklet p.46, merged continuous schedule): 3.35% x (49,400.00 - 0.00) = 1,654.90 + 6.6% x (57,070.00 - 49,400.00) = 506.22 = 2,161.12; the tax table (pp.47-51) gives 2160. Federal AGI 70,020.00 is not greater than 150,000.00, so no minimum tax: Line 8 2,161.12. Line 9 0.00 (no Schedule IN-119 items; Credit for the Elderly or the Disabled not modelled); Line 10 2,161.12; Lines 11-13 0.00; Line 14 Vermont income tax 2,161.12.",
+  "accepted_approximations": [
+    "The rate schedule is one continuous schedule: the printed rows that restart at 75,000 are merged and printed base taxes, rounded to the dollar, are not used. Below 75,000 the booklet uses tax tables in 100 dollar rows."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:vt_elderly_disabled_credit",
+    "state_rule_not_modelled:vt_medical_expenses_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

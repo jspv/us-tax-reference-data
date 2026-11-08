@@ -1,0 +1,57 @@
+{
+  "id": "nj_2025_unclaimed_joint_interest_one_spouse_62",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_regular_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026)",
+    "section": "Form NJ-1040 lines 16a, 27, 28a, 28b, 28c, 29: Instr PDF p.12 line 16a, PDF p.21 line 27, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b ('If you are filing jointly and only one spouse is 62 or older, only the income of that spouse can be excluded. You cannot exclude the income of the spouse who is younger than 62.') and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart and 'Joint filers: If only one spouse is 62 or older, only the income of that spouse can be excluded.', PDF p.22 lines 28c and 29; GIT-1 & 2 p.25 'Only One Spouse Qualifies for Exclusion' conditions 1-3 and p.25-26 example (joint savings interest 4,000 counted 2,000 to the spouse aged 63); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-04-12"
+      },
+      {
+        "age": 60,
+        "born": "1965-09-30"
+      }
+    ],
+    "income": {
+      "interest": "80000.00"
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "595.00",
+    "credits": "0.00",
+    "state_income_tax": "595.00",
+    "relief_amounts": {
+      "nj_unclaimed_exclusion": "40000.00"
+    }
+  },
+  "worked": "Federal AGI 80,000.00 (interest from a joint account); federal taxable income = 80,000.00 - 31,500.00 federal standard deduction = 48,500.00 (given, not tested; both under 65; the federal senior deduction is ignored). No wages, no pensions. The joint account's interest counts half to each spouse, as in the Division's example (GIT-1 & 2 p.26: joint savings interest of 4,000 is 2,000 to the 63-year-old and 2,000 to the 58-year-old): 40,000.00 to spouse 1 (64) and 40,000.00 to spouse 2 (60). Line 15 wages 0.00; line 16a taxable interest 80,000.00; line 20a pensions 0.00; line 27 total income 80,000.00 (projection: federal AGI 80,000.00 less taxable Social Security 0.00); measure 80,000.00, in the 0-100,000 band (keep share 1). Line 28a: Line A pension income of the qualifying spouse 0.00, Line B 100,000.00 joint; lesser = 0.00. Worksheet D: line 27 is not more than 150,000; line 1 maximum exclusion (joint, 0-100,000) 100,000.00; line 2 (line 28a) 0.00; line 3 = 100,000.00, more than 0; line 4 (line 15) 0.00 + line 5 (line 18) 0.00 + line 6 (line 21) 0.00 + line 7 (line 22) 0.00 = line 8 0.00, not more than 3,000; line 9 unclaimed exclusion 100,000.00 available. Only one spouse is 62 or older, so only that spouse's income can be excluded (line 28b, Worksheet D note; GIT-1 & 2 p.25 condition 3): spouse 1's income is the 40,000.00 half of the interest; spouse 2's 40,000.00 cannot be excluded (60, not disabled). Line 28b = lesser of 100,000.00 and 40,000.00 = 40,000.00 (as in the GIT-1 & 2 example, where only 3,500 of 94,000 unused could be used). Line 28c = 0.00 + 40,000.00 = 40,000.00. Line 29 New Jersey gross income = 80,000.00 - 40,000.00 = 40,000.00. Line 30 exemptions (line 13): regular 1,000 x 2 (nobody is 65 or older, so no senior exemption) = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 40,000.00 - 2,000.00 = 38,000.00. Line 43 tax, rate schedule Table B (joint/head of household/qualifying widow(er)) as bands: 20,000.00 x 0.014 = 280.00 + 18,000.00 x 0.0175 = 315.00 = 595.00. The booklet's Tax Table (taxable income under 100,000) gives 595 for the 38,000-38,050 row (schedule at the midpoint 38,025 = 595.44, rounded); expected keeps the exact schedule result. No credits. State income tax = 595.00. For comparison (not the rule): all the interest to spouse 1 would exclude 80,000.00 (tax 0.00); all to spouse 2, nothing (taxable 78,000.00). Boundary below: 40,000.00 is under the 100,000 joint maximum and line 27 is under 100,000.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_pension_exclusion_disabled",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

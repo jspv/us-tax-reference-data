@@ -1,0 +1,61 @@
+{
+  "id": "ut_2025_federal_civil_pension_no_military_credit",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "military_retirement_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (AJ) Military Retirement Credit (PDF p.23) and worksheet lines 1 and 2 (PDF p.24); Line 8 subtractions, a closed list (PDF p.10)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "60000.00",
+    "state_tax_before_credits": "2700.00",
+    "credits": "401.77",
+    "state_income_tax": "2298.23",
+    "relief_amounts": {
+      "military_retirement_credit": "0.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 30,000.00 + public pension paid by federal (person 0) 30,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 15,750.00 = 44,250.00 (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (single): line 4 federal AGI 60,000.00. Line 5 additions: none, 0.00. Line 6 = 60,000.00 + 0.00 = 60,000.00. Line 7 state tax refund 0.00. Line 8 subtractions 0.00. Line 9 Utah taxable income = 60,000.00 - 0.00 - 0.00 = 60,000.00. Line 10 = 60,000.00 x 0.045 = 2,700.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 15,750.00; initial credit = 0.06 x min(line 9 60,000.00, cap 15,750.00) = 0.06 x 15,750.00 = 945.00. Line 17 base phase-out amount 18,213.00. Line 18 = max(0, 60,000.00 - 18,213.00) = 41,787.00. Line 19 = 41,787.00 x 0.013 = 543.231. Line 20 = max(0, 945.00 - 543.231) = 401.769. Line 21 worksheet: line 1 federal AGI 60,000.00; line 2 standard deduction 15,750.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 15,750.00; line 5 = max(0, 60,000.00 - 15,750.00) = 44,250.00. Line 5 is above zero, so not exempt; line 21 blank. Line 22 and TC-40A Part 3: line 20 401.769 = 401.769; credits 401.77. Tax = 2,700.00 - 401.77 = 2,298.23. Military retirement pay 'does not include ... non-military federal retirement' (PDF p.23), so no AJ and no subtraction. Expected lines are the formula results rounded to the cent at the end (half up); the three-decimal figures above are unrounded.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:utah_previously_taxed_retirement"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

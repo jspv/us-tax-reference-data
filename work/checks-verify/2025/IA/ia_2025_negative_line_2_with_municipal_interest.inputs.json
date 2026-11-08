@@ -1,0 +1,41 @@
+{
+  "id": "ia_2025_negative_line_2_with_municipal_interest",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12; Line 2, PDF p.9-10; Schedule 1 line 1 column A, PDF p.64",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "5000.00"
+    },
+    "federal_agi": "10000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ia_personal_credit"
+  ]
+}

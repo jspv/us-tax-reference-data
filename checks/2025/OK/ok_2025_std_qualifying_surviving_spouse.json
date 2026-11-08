@@ -1,0 +1,52 @@
+{
+  "id": "ok_2025_std_qualifying_surviving_spouse",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); table footnote 'This column must also be used by a Qualified Surviving Spouse' (PDF page 38)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "13500.00"
+  },
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "31300.00",
+    "state_tax_before_credits": "1109.75",
+    "credits": "0.00",
+    "state_income_tax": "1109.75"
+  },
+  "worked": "Federal AGI = wages (you) 45,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 31,500.00 = 13,500.00 (federal senior deduction ignored; federal figures are given, not tested; Oklahoma starts from federal AGI). Form 511: line 1 federal AGI 45,000.00; line 2 subtractions 0.00; line 3 = 45,000.00 - 0.00 = 45,000.00; line 4 out-of-state income 0.00; line 5 45,000.00; line 6 additions 0.00; line 7 Oklahoma AGI 45,000.00; line 8 adjustments 0.00; line 9 45,000.00; line 10 standard deduction (qualifying surviving spouse) 12,700.00; line 11 exemptions: 1 Regular + 0 Special = 1 x 1,000.00 = 1,000.00 (line 1 is over every limit the booklet prints, so no Special exemption whichever limit a qualifying surviving spouse would have); line 12 = 12,700.00 + 1,000.00 = 13,700.00; line 13 taxable income = 45,000.00 - 13,700.00 = 31,300.00; line 14 tax (the projection's brackets as numbers; the booklet prints only a table and worksheets): 0.25% x 2,000.00 = 5.0000 + 0.75% x 3,000.00 = 22.5000 + 1.75% x 2,500.00 = 43.7500 + 2.75% x 2,300.00 = 63.2500 + 3.75% x 4,600.00 = 172.5000 + 4.75% x 16,900.00 = 802.7500; total 1,109.7500 = 1,109.75. Line 13 is under 100,000, so the form reads the tax table: row 31,300-31,350, column 'Married filing joint or head of household', PDF page 30, gives 1,111; expected keeps the schedule figure. Lines 15-17 credits 0.00; line 18 income tax 1,109.75. The table's footnote sends a Qualified Surviving Spouse to the second column, and line 10 gives 12,700.00, but there is one Regular exemption: one person. No dependents in the inputs, though this status needs a dependent child; the form would add 1,000.00 for each.",
+  "accepted_approximations": [
+    "The brackets are derived from the printed tax table and the 100,000-and-over worksheets; the booklet prints no schedule. Below 100,000 tax is figured on the exact income, where the booklet taxes each 50-dollar row at its midpoint and rounds. At 100,000 and over the single and separate worksheet starts from 4,562 where the schedule gives 4,561.50.",
+    "The blind and dependent exemptions and the credits are left out (not_modelled)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

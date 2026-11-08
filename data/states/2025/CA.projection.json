@@ -1,0 +1,466 @@
+{
+  "layer": "projection",
+  "state": "CA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/CA.record.json",
+    "sha256": "530186d9dcc4208950cbf23a948a8d051794fa9707ac1c40eb7492087ca165f2"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "11079"
+      },
+      {
+        "rate": "0.04",
+        "start": "26264"
+      },
+      {
+        "rate": "0.06",
+        "start": "41452"
+      },
+      {
+        "rate": "0.08",
+        "start": "57542"
+      },
+      {
+        "rate": "0.093",
+        "start": "72724"
+      },
+      {
+        "rate": "0.103",
+        "start": "371479"
+      },
+      {
+        "rate": "0.113",
+        "start": "445771"
+      },
+      {
+        "rate": "0.123",
+        "start": "742953"
+      },
+      {
+        "rate": "0.133",
+        "start": "1000000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "22158"
+      },
+      {
+        "rate": "0.04",
+        "start": "52528"
+      },
+      {
+        "rate": "0.06",
+        "start": "82904"
+      },
+      {
+        "rate": "0.08",
+        "start": "115084"
+      },
+      {
+        "rate": "0.093",
+        "start": "145448"
+      },
+      {
+        "rate": "0.103",
+        "start": "742958"
+      },
+      {
+        "rate": "0.113",
+        "start": "891542"
+      },
+      {
+        "rate": "0.123",
+        "start": "1000000"
+      },
+      {
+        "rate": "0.133",
+        "start": "1485906"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "11079"
+      },
+      {
+        "rate": "0.04",
+        "start": "26264"
+      },
+      {
+        "rate": "0.06",
+        "start": "41452"
+      },
+      {
+        "rate": "0.08",
+        "start": "57542"
+      },
+      {
+        "rate": "0.093",
+        "start": "72724"
+      },
+      {
+        "rate": "0.103",
+        "start": "371479"
+      },
+      {
+        "rate": "0.113",
+        "start": "445771"
+      },
+      {
+        "rate": "0.123",
+        "start": "742953"
+      },
+      {
+        "rate": "0.133",
+        "start": "1000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.01",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "22173"
+      },
+      {
+        "rate": "0.04",
+        "start": "52530"
+      },
+      {
+        "rate": "0.06",
+        "start": "67716"
+      },
+      {
+        "rate": "0.08",
+        "start": "83805"
+      },
+      {
+        "rate": "0.093",
+        "start": "98990"
+      },
+      {
+        "rate": "0.103",
+        "start": "505208"
+      },
+      {
+        "rate": "0.113",
+        "start": "606251"
+      },
+      {
+        "rate": "0.123",
+        "start": "1000000"
+      },
+      {
+        "rate": "0.133",
+        "start": "1010417"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "5706",
+          "married_joint": "11412",
+          "married_separate": "5706",
+          "head_of_household": "11412",
+          "qualifying_surviving_spouse": "11412"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "railroad_retirement_subtraction",
+      "from_record": [
+        "railroad_retirement_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "military_retirement_exclusion",
+      "from_record": [
+        "military_retirement_exclusion"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "return",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "125000",
+          "married_separate": "125000",
+          "head_of_household": "125000",
+          "married_joint": "250000",
+          "qualifying_surviving_spouse": "250000"
+        },
+        "effect": "removes"
+      }
+    },
+    {
+      "id": "personal_exemption_credit",
+      "from_record": [
+        "personal_exemption_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "153",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "removes"
+      }
+    },
+    {
+      "id": "senior_exemption_credit",
+      "from_record": [
+        "senior_exemption_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "153",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "252203",
+          "married_separate": "252203",
+          "married_joint": "504411",
+          "qualifying_surviving_spouse": "504411",
+          "head_of_household": "378310"
+        },
+        "effect": "removes"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "behavioral_health_services_tax",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "surtaxes"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "exemption_credits",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs:personal_exemption_credit",
+        "reliefs:senior_exemption_credit"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "relief_income_tests",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "military_retirement_exclusion",
+      "from_record": [
+        "military_retirement_exclusion"
+      ],
+      "what": "Department of Defense Survivor Benefit Plan annuity payments share the Military Retirement Exclusion (up to 20,000 a return, federal AGI limits 125,000 / 250,000); the projection covers only military retirement pay, as it can't tell a Survivor Benefit Plan annuity from other annuities.",
+      "warn_when": "has_military_pension"
+    },
+    {
+      "id": "blind_exemption_credit",
+      "from_record": [
+        "blind_exemption_credit"
+      ],
+      "what": "Blind exemption credit of 153 for each spouse who is visually impaired, reduced above the same federal AGI amounts as the other exemption credits.",
+      "warn_when": "never"
+    },
+    {
+      "id": "dependent_exemption_credit",
+      "from_record": [
+        "dependent_exemption_credit"
+      ],
+      "what": "Dependent exemption credit of 475 for each dependent, reduced by 6 for each 2,500 (1,250 married filing separately) of federal AGI over 252,203 / 504,411 / 378,310.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "us_obligations_interest",
+      "from_record": [
+        "us_obligations_interest"
+      ],
+      "what": "Interest on U.S. savings bonds, Treasury bills, notes and bonds and other U.S. obligations (and qualifying mutual-fund exempt-interest dividends) is subtracted (Schedule CA line 2, column B).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The exemption credits' AGI limitation is a stepped phase-down (each credit loses 6 for each 2,500 of federal AGI, or part of it, over 252,203 single and married filing separately, 504,411 joint and qualifying surviving spouse, 378,310 head of household; 1,250 steps when filing separately). The projection has no field for unprinted step amounts, so it removes the personal and senior credits at the threshold.",
+      "direction": "overstates_tax",
+      "size": "Only for federal AGI within 62,500 above the threshold (31,250 filing separately): up to 147 a credit just over it, falling by 6 a step to nil. A joint couple both 65 at AGI 505,000 is charged 588 (4 x 147) too much."
+    },
+    {
+      "what": "A qualifying surviving spouse gets 2 personal exemption credits (Form 540 line 7, status 5); a per-person evaluation gives one.",
+      "direction": "overstates_tax",
+      "size": "153 a year for a qualifying surviving spouse below the AGI limit."
+    },
+    {
+      "what": "The Military Retirement Exclusion is applied every year; the booklet says it is for taxable years beginning before 2030-01-01. Scheduled changes are a pending feature (tax-reference-data issue #2).",
+      "direction": "understates_tax",
+      "size": "From 2030: the marginal rate x up to 20,000, about 1,860 at 9.3%."
+    },
+    {
+      "what": "The Behavioral Health Services Tax (1% of taxable income over 1,000,000) is folded into the brackets for every status, so in the projection it is part of the tax that credits can reduce; on Form 540 it is added on line 62 after credits.",
+      "direction": "understates_tax",
+      "size": "Nil for the exemption credits (they are gone well below 1,000,000 of AGI); only matters for other credits a projection does not model."
+    },
+    {
+      "what": "The standard deduction is always applied; California allows itemized deductions instead (Form 540 line 18, Schedule CA Part II), which differ from the federal ones and are limited above federal AGI of 252,203 / 504,411 / 378,310.",
+      "direction": "either",
+      "size": "Depends on the household's California itemized deductions (mortgage interest, property tax, charity); for an itemizer usually larger than 5,706 / 11,412, so the projection then overstates tax."
+    },
+    {
+      "what": "IRA and pension distributions are taken at their federal taxable amount; California may tax a different amount when California IRA basis differs from federal (Schedule CA line 4, FTB Pub. 1005), including on a Roth conversion.",
+      "direction": "either",
+      "size": "Nil for most households; only where IRA contributions were deducted differently for California and federal purposes."
+    },
+    {
+      "what": "Interest on U.S. Treasury and other U.S. obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the Treasury interest: 9.3% of 10,000 is 930 a year."
+    },
+    {
+      "what": "A projection that cannot tell California bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the interest from California state and local obligations."
+    },
+    {
+      "what": "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic.",
+      "direction": "either",
+      "size": "Under 5 dollars a year (half a row times at most 9.3%)."
+    },
+    {
+      "what": "The senior exemption credit counts a person whose 65th birthday is on January 1 of the next year as 65; an age-at-year-end test misses that one year.",
+      "direction": "overstates_tax",
+      "size": "153 once, for a person born on January 1."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "0.133",
+      "how": "sum",
+      "of": [
+        "0.123",
+        "0.01"
+      ],
+      "what": "12.3% top bracket plus the 1% Behavioral Health Services Tax over 1,000,000 of taxable income, folded into the brackets (single and married filing separately from 1,000,000; joint from 1,485,906; head of household from 1,010,417)"
+    },
+    {
+      "value": "0.123",
+      "how": "sum",
+      "of": [
+        "0.113",
+        "0.01"
+      ],
+      "what": "11.3% bracket plus the 1% surtax, for joint (1,000,000 to 1,485,906) and head of household (1,000,000 to 1,010,417)"
+    }
+  ]
+}

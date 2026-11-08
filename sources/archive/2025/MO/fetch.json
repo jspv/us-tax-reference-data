@@ -1,0 +1,68 @@
+[
+  {
+    "state": "MO",
+    "title": "2025 Form MO-1040 Instructions",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf",
+    "retrieved": "2026-11-07T01:12:44.995970+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf",
+    "file": "MO-1040_20Instructions_2025.pdf",
+    "bytes": 1881288,
+    "sha256": "99b1d607e1c9c7623ecf3cd7a8f6fba2a732861dcb54164cc7e7e3a82c5df540",
+    "archived_url": "https://web.archive.org/web/20260105220115id_/https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  {
+    "state": "MO",
+    "title": "2025 Form MO-1040 Individual Income Tax Return (fillable)",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Fillable%20Calculating_2025.pdf",
+    "retrieved": "2026-11-07T01:12:50.837684+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.mo.gov/forms/MO-1040%20Fillable%20Calculating_2025.pdf",
+    "file": "MO-1040_20Fillable_20Calculating_2025.pdf",
+    "bytes": 2371179,
+    "sha256": "912b43015ea273d93b0c25fe6268d1415496fbadbb048a97783849c5dd2a8c91",
+    "archived_url": "https://web.archive.org/web/20260116115845id_/https://dor.mo.gov/forms/MO-1040%20Fillable%20Calculating_2025.pdf"
+  },
+  {
+    "state": "MO",
+    "title": "2025 Form MO-A Individual Income Tax Adjustments (Part 3 pension and Social Security)",
+    "url": "https://dor.mo.gov/forms/MO-A_2025.pdf",
+    "retrieved": "2026-11-07T01:12:56.442309+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.mo.gov/forms/MO-A_2025.pdf",
+    "file": "MO-A_2025.pdf",
+    "bytes": 1232623,
+    "sha256": "2d52de8d4b29c28f0b9f2228a22ae644fb3b23bc1117e23e154f7090c61a481a",
+    "archived_url": "https://web.archive.org/web/20260105220136id_/https://dor.mo.gov/forms/MO-A_2025.pdf"
+  },
+  {
+    "state": "MO",
+    "title": "2025 Missouri Income Tax Reference Guide",
+    "url": "https://dor.mo.gov/forms/4711_2025.pdf",
+    "retrieved": "2026-11-07T01:13:01.803583+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.mo.gov/forms/4711_2025.pdf",
+    "file": "4711_2025.pdf",
+    "bytes": 350940,
+    "sha256": "ea9c1c6032414ab805fcd4dfd46c8d7d8e8f578099a9055b2e9e7302f7f1d314",
+    "archived_url": "https://web.archive.org/web/20260207200901id_/https://dor.mo.gov/forms/4711_2025.pdf"
+  },
+  {
+    "state": "MO",
+    "title": "Pension FAQs",
+    "url": "https://dor.mo.gov/faq/taxation/individual/pension.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:13:07.025688+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.mo.gov/faq/taxation/individual/pension.html",
+    "file": "pension.html",
+    "bytes": 76109,
+    "sha256": "4ab72958b4ec1caf4f6fcade8939575eee7053ea571bd8038b0ec4d096323086",
+    "text_file": "pension.page.txt"
+  }
+]

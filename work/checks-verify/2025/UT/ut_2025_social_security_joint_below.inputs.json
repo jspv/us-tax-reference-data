@@ -1,0 +1,64 @@
+{
+  "id": "ut_2025_social_security_joint_below",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "social_security_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (AH) Social Security Benefits Credit and Social Security Credit Worksheet lines 1 to 13 (PDF p.23)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      },
+      {
+        "age": 65,
+        "born": "1960-02-02"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "20000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "85500.00",
+    "federal_taxable_income": "50800.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.social_security_credit"
+  ]
+}

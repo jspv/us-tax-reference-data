@@ -1,0 +1,51 @@
+{
+  "id": "de_2025_railroad_retirement",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "de_railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. \u00a71102(a)(14)",
+    "section": "Instructions PDF p.7 Line 8a Social Security/Railroad Retirement Benefits; Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.5 Line 1; PDF p.8 Line 20a standard deduction table, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. \u00a71102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30050.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "48050.00",
+    "federal_taxable_income": "32300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.de_railroad_retirement"
+  ]
+}

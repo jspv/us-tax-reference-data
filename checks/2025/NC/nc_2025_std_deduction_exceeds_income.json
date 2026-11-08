@@ -1,0 +1,46 @@
+{
+  "id": "nc_2025_std_deduction_exceeds_income",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nc_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?'; PDF page 14, Line 14 (negative NC taxable income is entered as negative) and Line 15 (zero tax when taxable income is zero or less)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-07-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "10000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 10,000.00. Federal taxable income = 10,000.00 - 15,750.00 federal standard deduction = 0.00 (the federal figure is negative and is entered as zero) (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 10,000.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 10,000.00. Line 9 deductions (Schedule S Part B) 0.00. Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (single) 12,750.00. Line 12a = Lines 9 + 10 + 11 = 12,750.00; Line 12b = Line 8 - Line 12a = -2,750.00. Line 14 NC taxable income (full-year resident) = -2,750.00. Line 15: NC taxable income is zero or less, so the tax is 0.00. Line 16 credits 0.00; Line 17 income tax = 0.00. The form enters the negative amount on Line 14 with the negative circle filled; a consumer that floors taxable income at zero shows 0.00, with the same 0.00 tax. Floored at 0 for the expected value (checks brief rule 5a); the form's Line 14 shows -2750.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

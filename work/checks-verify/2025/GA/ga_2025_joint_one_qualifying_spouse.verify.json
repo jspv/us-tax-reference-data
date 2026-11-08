@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "90000.00",
+    "state_income_tax": "3425.40",
+    "state_tax_before_credits": "3425.40",
+    "state_taxable_income": "66000.00",
+    "relief_amounts": {
+      "ga_retirement_exclusion_65_plus": "40000.00"
+    }
+  },
+  "worked": "Form 500 line 8 federal AGI 130000.00 (given). ga_retirement_exclusion_65_plus person 1 (age 65), Schedule 1 p.2: wages 0.00 limited to 0.00 + private pension 40000.00 = 40000.00; lesser of that and 65000.00 = 40000.00. Georgia AGI (line 10) = 130000.00 - 40000.00 = 90000.00. Line 11 standard deduction (married_joint) 24000.00; line 15 taxable income = 90000.00 - 24000.00 = 66000.00. Line 16 tax = 66000.00 x 5.19% = 3425.400000 -> 3425.40 (the form rounds to the nearest dollar: 3425). No credits in the projection: credits 0.00; state income tax = 3425.40."
+}

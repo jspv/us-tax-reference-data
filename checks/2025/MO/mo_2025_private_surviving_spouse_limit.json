@@ -1,0 +1,72 @@
+{
+  "id": "mo_2025_private_surviving_spouse_limit",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "private_pension_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Instructions PDF p8 Line 15 additional exemption 1,400; Form MO-A PDF p3 Part 3 Section C; instructions PDF p17 Section C Lines 1-2 and Worksheet for Lines 1 and 2; Reference Guide PDF p9; record social_security_retirement_subtraction; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-03-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "21000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "48000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "18950.00"
+    },
+    "federal_agi": "45950.00",
+    "federal_taxable_income": "14450.00"
+  },
+  "expected": {
+    "state_agi": "41950.00",
+    "state_taxable_income": "9050.00",
+    "state_tax_before_credits": "249.69",
+    "credits": "0.00",
+    "state_income_tax": "249.69",
+    "relief_amounts": {
+      "private_pension_subtraction": "4000.00"
+    }
+  },
+  "worked": "Qualifying widow(er), age 58. A qualifying widow(er) has the 25,000 limit, not the 32,000 of a combined return, though the deduction is the joint 31,500. Age 58 on survivor benefits, so the Social Security is taxed but still comes out of the income test. Federal taxable Social Security: other income 27,000.00 + half of benefits 24,000.00 = provisional 51,000.00; 85% x (51,000.00 - 34,000.00) + 4,500.00 = 18,950.00. Federal (given, not tested): federal AGI = wages 21,000.00 + pensions 6,000.00 + taxable Social Security 18,950.00 = 45,950.00. Federal taxable income = 45,950.00 - standard deduction 31,500.00 = 14,450.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 45,950.00. Line 2 additions 0.00. Line 3 total income 45,950.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 45,950.00 - 0.00 = 45,950.00. MO-A Part 3 Section C (Y, age 58): Line 1 18,950.00; Line 3 0.00 (under 62 at December 31, no exemption; the benefit stays taxed). Section C Line 4 total 0.00. Section B: Line 1 45,950.00; Line 2 18,950.00; Line 3 27,000.00; Line 4 25,000.00; Line 5 2,000.00; Line 6Y 6,000.00, Line 7Y 6,000.00; Line 8 6,000.00; Line 9 4,000.00. Form MO-1040 Line 8 pension and Social Security exemption 4,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 31,500.00. Line 15 additional exemption 1,400.00. Line 26 subtotal 45,950.00 - 4,000.00 - 32,900.00 = 9,050.00. Line 29 taxable income 9,050.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 1,172.00 = 52.74; total 249.69 = 249.69. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 250; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 45,950.00 - Line 8 4,000.00 = 41,950.00; the form's Missouri AGI is Line 6, 45,950.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

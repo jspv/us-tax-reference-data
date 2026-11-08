@@ -1,0 +1,267 @@
+{
+  "layer": "projection",
+  "state": "IN",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/IN.record.json",
+    "sha256": "c971efbce2f38b0c7e3809c7be9793247849b3fa9d4e65787f41e1d59975da8a"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "person"
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "person",
+        "min_age": 65
+      },
+      {
+        "id": "age_65_additional_exemption",
+        "amount": {
+          "all": "500"
+        },
+        "per": "person",
+        "min_age": 65,
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi"
+          },
+          "threshold": {
+            "single": "40000",
+            "married_joint": "40000",
+            "head_of_household": "40000",
+            "qualifying_surviving_spouse": "40000",
+            "married_separate": "20000"
+          },
+          "effect": "removes",
+          "applies_when": "at_or_over"
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "social_security_railroad_deduction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "civil_service_annuity",
+      "from_record": [
+        "civil_service_annuity_age_62"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "paying_states": [
+        "federal"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 62
+      },
+      "cap": {
+        "all": "16000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "cap_reduction": "from_lesser_of_income_and_cap",
+      "social_security_basis": "gross"
+    },
+    {
+      "id": "military_retirement",
+      "from_record": [
+        "military_retirement_632"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "civil_service_annuity_surviving_spouse",
+      "from_record": [
+        "civil_service_annuity_surviving_spouse"
+      ],
+      "what": "Civil service annuity deduction for a surviving spouse, who has no age requirement. A projection cannot tell a survivor annuity from the person's own annuity.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "disability_retirement_602",
+      "from_record": [
+        "disability_retirement_602"
+      ],
+      "what": "Disability retirement deduction of up to 5,200 per person, for someone permanently and totally disabled at retirement with Schedule IT-2440 signed by a doctor.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption",
+        "additional_dependent_child_exemption",
+        "additional_dependent_child_exemption_first_year",
+        "private_school_deduction"
+      ],
+      "what": "Exemptions for dependents (1,000 each), the additional exemption for certain dependent children (1,500, or 3,000 the first year) and the private school or homeschool deduction (1,000 per child).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "blind_exemption",
+      "from_record": [
+        "blind_exemption"
+      ],
+      "what": "1,000 exemption for a filer or spouse who is legally blind; a projection does not know this.",
+      "warn_when": "never"
+    },
+    {
+      "id": "renters_deduction",
+      "from_record": [
+        "renters_deduction",
+        "homeowners_property_tax_deduction"
+      ],
+      "what": "Renter's deduction (up to 3,000, or 1,500 married filing separately) and homeowner's property tax deduction (up to 2,500, or 1,250 married filing separately); a projection does not hold rent or Indiana property tax paid.",
+      "warn_when": "always"
+    },
+    {
+      "id": "military_service_deduction",
+      "from_record": [
+        "military_service_deduction",
+        "national_guard_reserve_621"
+      ],
+      "what": "Deductions for active duty military pay and for National Guard and reserve pay; a projection cannot tell military pay from other wages.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_government_interest_deduction",
+      "from_record": [
+        "us_government_interest_deduction"
+      ],
+      "what": "Interest on direct U.S. government obligations is deducted (Schedule 2 line 4); a projection cannot tell it from other interest.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The surviving spouse branch of the civil service annuity deduction is not applied (not_modelled): a survivor under 62 gets no deduction.",
+      "direction": "overstates_tax",
+      "size": "Up to 3% of 16,000 = 480 a year."
+    },
+    {
+      "what": "The disability retirement deduction is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 3% of 5,200 = 156 a year per person."
+    },
+    {
+      "what": "All municipal bond interest is treated as from other states and taxed; Indiana's own obligations are not added back, nor are other states' obligations held or acquired before Jan. 1, 2012.",
+      "direction": "overstates_tax",
+      "size": "3% of that interest."
+    },
+    {
+      "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "3% of the Treasury interest."
+    },
+    {
+      "what": "Renter's and homeowner's deductions are not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 3% of 3,000 = 90 a year (renter) or 3% of 2,500 = 75 a year (homeowner)."
+    },
+    {
+      "what": "Dependent exemptions and the private school deduction are not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "30 a year per dependent, plus 45 (90 the first year) for a qualifying child."
+    },
+    {
+      "what": "The Unified Tax Credit for the Elderly, a refundable low-income credit outside the record's scope (record notes), is not applied.",
+      "direction": "overstates_tax",
+      "size": "At most 140 a year, and only with federal AGI under 10,000."
+    },
+    {
+      "what": "Indiana starts from federal AGI as of Jan. 1, 2023 (the Internal Revenue Code then in effect; Indiana does not currently follow P.L. 119-21); the projection uses the household's current federal AGI and applies no Schedule 1 add-backs other than municipal interest.",
+      "direction": "either",
+      "size": "Usually none for retirement income; can matter for business items (bonus depreciation, section 179) the projection does not model."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

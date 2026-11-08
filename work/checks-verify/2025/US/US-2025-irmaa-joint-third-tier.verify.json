@@ -1,0 +1,7 @@
+{
+  "expected": {
+    "part_b_monthly_premium": "370.00",
+    "part_d_monthly_adjustment": "35.30"
+  },
+  "worked": "CMS 2025 IRMAA table, column married_joint (filing status married_joint), MAGI 300000 (2023 return): tier over 266000 up to 334000; Part B total 370.00, Part D adjustment 35.30."
+}

@@ -1,0 +1,60 @@
+{
+  "id": "mi_2025_senior_investment_below",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "senior_investment_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 28 and its worksheet lines 1-8 (PDF page 17: born prior to 1946, maximum 14,688 single); PDF page 3 General Information; MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 81,
+        "born": "1944-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13850.00",
+      "interest": "6000.00",
+      "dividends": "3000.00",
+      "long_term_gains": "1000.00"
+    },
+    "federal_agi": "43850.00",
+    "federal_taxable_income": "26100.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "14200.00",
+    "state_tax_before_credits": "603.50",
+    "credits": "0.00",
+    "state_income_tax": "603.50",
+    "relief_amounts": {
+      "senior_investment_deduction": "10000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 20,000.00 + interest 6,000.00 + dividends 3,000.00 + long-term gains 1,000.00 + taxable Social Security 13,850.00 (gross 30,000.00; provisional income 45,000.00: 0.85 x 11,000.00 + 4,500.00 = 13,850.00, under 85% of gross) = 43,850.00. Federal taxable income = 43,850.00 - federal standard deduction (15,750 + 1 x 2,000 age 65 or older = 17,750.00) = 26,100.00; given, not tested; the federal senior deduction is ignored. Michigan (born 1944): Schedule 1 line 14 Social Security 13,850.00. No retirement benefits, so line 27 0.00. Line 28 worksheet: line 1 14,688.00; lines 2-4 0.00; line 5 0.00; line 6 14,688.00; line 7 interest, dividends and gains 6,000.00 + 3,000.00 + 1,000.00 = 10,000.00; line 8 smaller 10,000.00 to Schedule 1 line 28. Wages stay taxed. Subtractions 23,850.00. Line 14 = 43,850.00 - 23,850.00 = 20,000.00; exemption 5,800.00; line 16 = 14,200.00. MI-1040 line 17 tax = 14,200.00 x 0.0425 = 603.50. No credits; state income tax 603.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

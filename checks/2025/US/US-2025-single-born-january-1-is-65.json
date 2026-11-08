@@ -1,0 +1,40 @@
+{
+  "id": "US-2025-single-born-january-1-is-65",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Single filer born January 1, 1961: by the tax rule 65 at the end of 2025 (reaches 65 the day before the birthday), so the additional standard deduction and the full senior deduction apply.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1961-01-01",
+        "age": 65
+      }
+    ],
+    "wages": "60000"
+  },
+  "expected": {
+    "agi": "60000.00",
+    "standard_deduction": "17750.00",
+    "senior_deduction": "6000.00",
+    "taxable_income": "36250.00",
+    "regular_tax": "4111.50",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "4111.50"
+  },
+  "worked": "Filing status: single.\nTaxpayer: born 1961-01-01, age 65 at the end of 2025.\nForm 1040: line 1z wages 60,000.\nForm 1040 line 9 total income = 60,000 = 60,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 60,000.\nLine 12e standard deduction = 15,750 basic (single) + 1 x 2,000 additional (unmarried amount, one per box checked on line 12d for age 65 or older / blind) = 17,750.\nSchedule 1-A: line 1 = line 11b 60,000; line 3 MAGI = 60,000 (no excluded income).\n  Part V: line 31 = 60,000; line 32 = 75,000; line 33: 60,000 - 75,000 is zero or less, so line 35 = 6,000\n  line 36a (born before January 2, 1961) = 6,000; line 37 = 6,000 -> line 38 -> Form 1040 line 13b\nLine 14 = 17,750 + 6,000 = 23,750; line 15 taxable income = 60,000 - 23,750 = 36,250.\nForm 1040 line 16 (regular tax): Tax Rate Schedule X (single) on 36,250: 10% x 11,925 = 1,192.50; 12% x (36,250 - 11,925) = 2,919; total 4,111.50\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 60,000; line 14 threshold = 200,000; line 15 = 60,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 60,000; line 5 = 200,000 (single); line 6 = 60,000 - 200,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 4,111.50 regular + 0 net investment income tax + 0 additional Medicare tax = 4,111.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

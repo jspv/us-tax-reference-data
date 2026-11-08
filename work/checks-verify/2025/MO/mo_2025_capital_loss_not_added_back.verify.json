@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "37000.00",
+    "state_income_tax": "822.81",
+    "state_tax_before_credits": "822.81",
+    "state_taxable_income": "21250.00",
+    "relief_amounts": {
+      "capital_gain_subtraction": "0.00"
+    }
+  },
+  "worked": "Filing status single; persons ages [60]. Federal AGI 37000.00 (given). capital_gain_subtraction (MO-A Part 1 Line 18, exempt in full, net gain floored at 0): max(0, -3000.00) = 0 Missouri AGI (state_agi) = 37000.00 + additions 0 - subtractions 0.0 = 37000.00 Deductions (MO-1040 Lines 14-15): standard 15750 + age 65 2000 x 0 = 0 + head of household/QSS exemption 0 = 15750 Taxable income = 37000.00 - 15750 = 21250.00 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2626 - 1313) = 26.26; 0.025 x (3939 - 2626) = 32.825; 0.03 x (5252 - 3939) = 39.39; 0.035 x (6565 - 5252) = 45.955; 0.04 x (7878 - 6565) = 52.52; 0.045 x (9191 - 7878) = 59.085; 0.047 x (21250.00 - 9191) = 566.77300; sum 822.80800 -> 822.81 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 822.81"
+}

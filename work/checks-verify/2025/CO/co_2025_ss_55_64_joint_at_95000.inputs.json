@@ -1,0 +1,53 @@
+{
+  "id": "co_2025_ss_55_64_joint_at_95000",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "co_ss_55_64_full"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5), joint federal AGI 'did not exceed $95,000' (exactly 95,000 qualifies); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-06-30"
+      },
+      {
+        "age": 58,
+        "born": "1967-04-04"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "69500.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "63500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_ss_55_64_full"
+  ]
+}

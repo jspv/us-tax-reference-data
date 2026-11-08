@@ -1,0 +1,26 @@
+{
+  "id": "US-2025-irmaa-joint-third-tier",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "irmaa",
+  "boundary": "at_or_above",
+  "tests": [
+    "medicare.irmaa",
+    "medicare.part_b"
+  ],
+  "description": "Beneficiary filing jointly with MAGI 300,000.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "magi": "300000"
+  },
+  "expected": {
+    "part_b_monthly_premium": "370.00",
+    "part_d_monthly_adjustment": "35.30"
+  },
+  "worked": "Premium year 2025; the income-related adjustment uses MAGI from the 2023 tax return (two years back): 300,000 (adjusted gross income plus tax-exempt interest).\nCMS 2025 Medicare Parts A & B premiums fact sheet, Part B table, the joint tax return column: 300,000 is greater than 266,000 and less than or equal to 334,000.\nPart B: standard premium 185.00 + income-related adjustment 185.00 = total monthly premium 370.00.\nPart D table, same row: monthly income-related adjustment 35.30 (added to the plan premium).",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

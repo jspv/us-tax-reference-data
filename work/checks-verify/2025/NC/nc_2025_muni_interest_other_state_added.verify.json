@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "state_taxable_income": "40000.00",
+    "state_tax_before_credits": "1700.00",
+    "credits": "0.00",
+    "state_income_tax": "1700.00"
+  },
+  "worked": "D-400 Line 6 federal AGI 50750.00. Schedule S Line 1: interest on other states' obligations 2000.00 added (muni_interest other_states_taxed_own_exempt); NC-bond interest 3000.00 not in federal AGI and not added. Line 7 additions 2000.00. Schedule S Part B: none. Line 9 deductions 0.00. Line 6 + Line 7 - Line 9 = 50750.00 + 2000.00 - 0.00 = 52750.00. Line 11 NC standard deduction (single) 12750.00. Line 14 NC taxable income 52750.00 - 12750.00 = 40000.00. Line 15 tax 40000.00 x 4.25% = 1700.00. Line 16 credits 0.00 (no credits in the projection). Tax 1700.00."
+}

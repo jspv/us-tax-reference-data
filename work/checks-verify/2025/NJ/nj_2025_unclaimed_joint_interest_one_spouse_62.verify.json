@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "nj_unclaimed_exclusion": "40000.00"
+    },
+    "state_agi": "40000.00",
+    "state_income_tax": "595.00",
+    "state_tax_before_credits": "595.00",
+    "state_taxable_income": "38000.00",
+    "relief_amounts.nj_unclaimed_exclusion": "40000.00"
+  },
+  "worked": "Line 27 = 80,000 (0-100,000 band, joint max 100,000). Only P0 (64) is 62+; joint interest 80,000 halved, 40,000 attributed to P0. No pension, line 28a = 0. Worksheet D: line 1 = 100,000; line 3 = 100,000; earned income 0 (<=3,000); unclaimed exclusion limited to qualifying spouse's income = 40,000 (28b). Line 29 = 40,000. Exemptions: regular 2x1,000 = 2,000; no 65+ exemption. Taxable 38,000. Tax joint: 20,000x1.4%=280; 18,000x1.75%=315; total 595.00. No credits."
+}

@@ -1,0 +1,452 @@
+{
+  "layer": "record",
+  "state": "NC",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Settlement 2026-11-07: reliefs (Bailey, Schedule S Line 20): A wrote two entries (defined benefit plans covering public_pension and military_pension; the state's 401(k) and 457 plans covering employer_plan_distribution), B wrote one entry covering all three; PDF page 18, Line 20 gives each branch its own test (five or more years of creditable service as of August 12, 1989 for the defined benefit plans; contributed or contracted to contribute before August 12, 1989 for the state 401(k) and 457 plans), so A's two entries are kept, one per branch with its own conditions.",
+    "Settlement 2026-11-07: reliefs (US obligation interest, Schedule S Line 18): who.basis: A said each_person, B said return; PDF page 18, Line 18 has no test on either spouse (it deducts the interest received on the return), so return.",
+    "Settlement 2026-11-07: muni_interest.treatment: both readers said other; the booklet's lines settle it: the starting point is federal AGI (PDF page 12, Line 6), which leaves out tax-exempt interest, and Schedule S Part A ('only add items that are not included in federal adjusted gross income') adds back only interest on obligations of states other than NC (PDF page 17, Line 1), expressly not the part of mutual-fund exempt-interest dividends from obligations of NC or its political subdivisions. No line adds NC's own obligation interest back, so it stays out of NC income: other_states_taxed_own_exempt.",
+    "Settlement 2026-11-07: nc_child_deduction.phase_out: both readers wrote effect other with the table in as_printed; recorded as effect stepped with the Child Deduction Table's rows as steps (PDF page 13), the threshold being the AGI up to which the full 3,000 applies.",
+    "Settlement 2026-11-07: the 'may or may not be excluded depending on rulings in the Bailey case' sentence (PDF page 18, Line 20) is moved from A's not_covered to this note: it does not say the benefits do not qualify.",
+    "Flat rate: the booklet prints one rate, 4.25%, for tax year 2025 (PDF page 7, 'What is the Tax Rate?'; PDF page 14, Line 15); recorded as one bracket from 0 for single and married_joint. No separate schedules for other statuses are printed.",
+    "Starting point is federal AGI as of January 1, 2023 (PDF page 17); the booklet says NC does not conform to the federal standard deduction, itemized deductions or Schedule 1-A deductions.",
+    "Standard deduction: married filing separately 12,750 only if the spouse does not claim itemized deductions, else 0; zero for anyone not eligible for the federal standard deduction (PDF page 14). Qualifying widow(er)/surviving spouse shares the married filing jointly row (25,500). The same amounts are printed in the filing requirements chart (PDF page 6).",
+    "The booklet says there is no additional NC standard deduction for age 65 or older or blind (PDF page 14), so no age_65 or blind entries are given.",
+    "Personal and dependent exemptions: not found in the booklet; none recorded. The Child Deduction (D-400 Line 10) is the only per-child amount and is recorded as an 'other' deduction per dependent; qualifying child means one for whom a federal child tax credit was allowed (IRC section 24).",
+    "NC itemized deductions (Schedule A, PDF page 20) are an alternative to the standard deduction on Line 11 and are not recorded as a figure: mortgage interest plus real estate tax limited to 20,000 combined (real estate tax at most 10,000, 5,000 if married filing separately), charitable, medical over 7.5% of federal AGI, claim-of-right repayment.",
+    "Social Security and railroad retirement: Schedule S Line 19 (PDF page 18; form line on Schedule S page 3) deducts the Title 2 Social Security and Tier 1 or Tier 2 railroad retirement benefits included in federal AGI (railroad benefits include railroad unemployment and sickness benefits), and the instruction says the benefits are not subject to state income tax; treatment exempt.",
+    "Bailey (Line 20) covers retirees or beneficiaries of retirees of NC, its local governments and the US government (including military); military_pension is in the defined benefit entry because the booklet says US government retirees 'including military'. Benefits paid to former teachers and state employees of other states are not covered (public_pension_other_state is not listed). Whether the plan is contributory is not stated and is not a test.",
+    "Bailey and uniformed-services lines are not best_of_group alternatives; the booklet says only that retirement income deducted on Line 20 may not also be deducted on Line 21 (PDF page 19), recorded as cannot_combine_with.",
+    "No age or income limit or dollar cap is printed on any retirement subtraction; cap left out.",
+    "Roth conversions, IRA distributions and private pensions: not found in the booklet as covered by any retirement subtraction; no general retirement or age exclusion found in the booklet.",
+    "Other Schedule S lines (state or local income tax refund Line 17, business-related additions and deductions, tribal income, pass-through entity items, NOL lines and others) are not recorded as reliefs: not retirement or base related.",
+    "Capital gains: not found in the booklet any rate or deduction that differs from ordinary income; list left empty (absence, not a statement that none exists). Line 26 deducts gain on exempt NC obligations issued before July 1, 1995 where the issuing law exempts it.",
+    "Indexing: the booklet says nothing about inflation adjustment of the rate, standard deduction or child deduction; all recorded not_stated.",
+    "No surtax or recapture rule found in the booklet."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 D-401 Individual Income Tax Instructions",
+      "section": "PDF page 7, 'What is the Tax Rate?'; PDF page 14, Line 15 - North Carolina Income Tax",
+      "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "nc_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "12750",
+          "married_joint": "25500",
+          "qualifying_surviving_spouse": "25500",
+          "married_separate": "12750",
+          "head_of_household": "19125"
+        },
+        "per": "return",
+        "condition": "Only if eligible for the federal standard deduction (otherwise zero). Married filing separately: 12,750 if the spouse does not claim itemized deductions, 0 if the spouse claims itemized deductions. Taken instead of NC itemized deductions (Form D-400 Schedule A). No additional amount for age 65 or older or blind.",
+        "cite": {
+          "publication": "2025 D-401 Individual Income Tax Instructions",
+          "section": "PDF page 14, Line 11 - NC Standard Deduction Chart",
+          "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "nc_child_deduction",
+        "what": "other",
+        "amount": {
+          "single": "3000",
+          "married_separate": "3000",
+          "head_of_household": "3000",
+          "married_joint": "3000",
+          "qualifying_surviving_spouse": "3000"
+        },
+        "per": "dependent",
+        "condition": "Per qualifying child for whom a federal child tax credit was allowed (IRC section 24 qualifying child). The amount is the most per child; it steps down with federal AGI per the Child Deduction Table (phase_out.steps).",
+        "phase_out": {
+          "measure": {
+            "base": "federal_agi",
+            "as_printed": "Federal adjusted gross income (From D-400, Line 6)"
+          },
+          "threshold": {
+            "single": "20000",
+            "married_separate": "20000",
+            "head_of_household": "30000",
+            "married_joint": "40000",
+            "qualifying_surviving_spouse": "40000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "married_joint",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "married_joint",
+              "over": "40000",
+              "amount": "2500"
+            },
+            {
+              "status": "married_joint",
+              "over": "60000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_joint",
+              "over": "80000",
+              "amount": "1500"
+            },
+            {
+              "status": "married_joint",
+              "over": "100000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_joint",
+              "over": "120000",
+              "amount": "500"
+            },
+            {
+              "status": "married_joint",
+              "over": "140000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "40000",
+              "amount": "2500"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "60000",
+              "amount": "2000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "80000",
+              "amount": "1500"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "100000",
+              "amount": "1000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "120000",
+              "amount": "500"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "140000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "30000",
+              "amount": "2500"
+            },
+            {
+              "status": "head_of_household",
+              "over": "45000",
+              "amount": "2000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "60000",
+              "amount": "1500"
+            },
+            {
+              "status": "head_of_household",
+              "over": "75000",
+              "amount": "1000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "90000",
+              "amount": "500"
+            },
+            {
+              "status": "head_of_household",
+              "over": "105000",
+              "amount": "0"
+            },
+            {
+              "status": "single",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "single",
+              "over": "20000",
+              "amount": "2500"
+            },
+            {
+              "status": "single",
+              "over": "30000",
+              "amount": "2000"
+            },
+            {
+              "status": "single",
+              "over": "40000",
+              "amount": "1500"
+            },
+            {
+              "status": "single",
+              "over": "50000",
+              "amount": "1000"
+            },
+            {
+              "status": "single",
+              "over": "60000",
+              "amount": "500"
+            },
+            {
+              "status": "single",
+              "over": "70000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "0",
+              "amount": "3000"
+            },
+            {
+              "status": "married_separate",
+              "over": "20000",
+              "amount": "2500"
+            },
+            {
+              "status": "married_separate",
+              "over": "30000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_separate",
+              "over": "40000",
+              "amount": "1500"
+            },
+            {
+              "status": "married_separate",
+              "over": "50000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_separate",
+              "over": "60000",
+              "amount": "500"
+            },
+            {
+              "status": "married_separate",
+              "over": "70000",
+              "amount": "0"
+            }
+          ],
+          "as_printed": "Child Deduction Table, deduction amount per qualifying child by federal AGI. Married Filing Jointly/Qualifying Widow(er)/Surviving Spouse: up to $40,000 = $3,000; over $40,000 - up to $60,000 = $2,500; over $60,000 - up to $80,000 = $2,000; over $80,000 - up to $100,000 = $1,500; over $100,000 - up to $120,000 = $1,000; over $120,000 - up to $140,000 = $500; over $140,000 = $0. Head of Household: up to $30,000 = $3,000; over $30,000 - up to $45,000 = $2,500; over $45,000 - up to $60,000 = $2,000; over $60,000 - up to $75,000 = $1,500; over $75,000 - up to $90,000 = $1,000; over $90,000 - up to $105,000 = $500; over $105,000 = $0. Single/Married Filing Separately: up to $20,000 = $3,000; over $20,000 - up to $30,000 = $2,500; over $30,000 - up to $40,000 = $2,000; over $40,000 - up to $50,000 = $1,500; over $50,000 - up to $60,000 = $1,000; over $60,000 - up to $70,000 = $500; over $70,000 = $0."
+        },
+        "cite": {
+          "publication": "2025 D-401 Individual Income Tax Instructions",
+          "section": "PDF page 13, Line 10 - Child Deduction, Child Deduction Worksheet and Child Deduction Table",
+          "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 D-401 Individual Income Tax Instructions",
+      "section": "PDF page 12, Line 6 - Federal Adjusted Gross Income; PDF page 17, Instructions for Form D-400 Schedule S, opening paragraph (federal AGI as of January 1, 2023); PDF page 14, Line 11",
+      "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 D-401 Individual Income Tax Instructions",
+      "section": "PDF page 18, Schedule S Part B Line 19: 'Social Security and railroad retirement benefits are not subject to state income tax'; Form D-400 Schedule S page 3, Line 19",
+      "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ss_rrb_subtraction",
+      "label": "Taxable Portion of Social Security and Railroad Retirement Benefits (Schedule S, Line 19)",
+      "form": "subtraction",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 D-401 Individual Income Tax Instructions",
+        "section": "PDF page 18, Schedule S Part B Line 19; Form D-400 Schedule S page 3, Line 19",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "us_obligations_interest",
+      "label": "Interest Income From Obligations of the United States or United States' Possessions (Schedule S, Line 18)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 D-401 Individual Income Tax Instructions",
+        "section": "PDF page 18, Schedule S Part B Line 18 (US savings bonds, treasury notes and bills, etc.); Form D-400 Schedule S page 2, Line 18",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "bailey_defined_benefit",
+      "label": "Retirement Benefits Received by Vested NC State Government, NC Local Government, or Federal Government Retirees, i.e. Bailey Settlement (Schedule S, Line 20): defined benefit plans",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "not_covered": [
+        "The exclusion does not apply to local government §457 plans or to §403(b) annuity plans",
+        "The exclusion does not apply to retirement benefits paid to former teachers and state employees of other states and their political subdivisions"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "retiree (or beneficiary of a retiree) of the State of North Carolina or its local governments, or a United States government retiree (including military)",
+          "benefits from certain defined benefit plans, such as the NC Teachers' and State Employees' Retirement System, the NC Local Governmental Employees' Retirement System, the NC Consolidated Judicial Retirement System, the Federal Employees' Retirement System, or the US Civil Service Retirement System",
+          "the retiree had five or more years of creditable service as of August 12, 1989"
+        ]
+      },
+      "cannot_combine_with": [
+        "uniformed_services_retirement"
+      ],
+      "cite": {
+        "publication": "2025 D-401 Individual Income Tax Instructions",
+        "section": "PDF page 18, Schedule S Part B Line 20; Form D-400 Schedule S page 3, Line 20",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "bailey_state_401k_457",
+      "label": "Retirement Benefits Received by Vested NC State Government, NC Local Government, or Federal Government Retirees, i.e. Bailey Settlement (Schedule S, Line 20): the state's 401(k) and 457 plans",
+      "form": "subtraction",
+      "covers": [
+        "employer_plan_distribution"
+      ],
+      "not_covered": [
+        "The exclusion does not apply to local government §457 plans or to §403(b) annuity plans"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "retirement benefits received from the state's §401(k) and §457 plans",
+          "the retiree had contributed or contracted to contribute to the plan prior to August 12, 1989"
+        ]
+      },
+      "cannot_combine_with": [
+        "uniformed_services_retirement"
+      ],
+      "cite": {
+        "publication": "2025 D-401 Individual Income Tax Instructions",
+        "section": "PDF page 18, Schedule S Part B Line 20; Form D-400 Schedule S page 3, Line 20",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "uniformed_services_retirement",
+      "label": "Certain Retirement Benefits Received by a Retired Member of the United States Uniformed Services Not Deducted on Line 20 (Schedule S, Line 21)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "severance payments received by a person due to separation under 10 U.S.C. Chapter 61"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "retired member of the United States Uniformed Services who served at least 20 years in the Uniformed Service or who was medically retired from the Uniformed Service, for payments received from the United States government in 2025",
+          "Survivor Benefit Plan payments to a beneficiary of such a retired member also qualify",
+          "retirement income deducted on Line 20 under Bailey may not also be deducted on Line 21"
+        ]
+      },
+      "cannot_combine_with": [
+        "bailey_defined_benefit",
+        "bailey_state_401k_457"
+      ],
+      "cite": {
+        "publication": "2025 D-401 Individual Income Tax Instructions",
+        "section": "PDF pages 18-19, Schedule S Part B Line 21; Form D-400 Schedule S page 3, Line 21",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Federal AGI is the starting point and leaves out tax-exempt interest; Schedule S Line 1 adds back interest on obligations of states and political subdivisions other than NC if not included in federal AGI, including exempt-interest dividends from mutual funds except to the extent they represent interest from obligations of NC or its political subdivisions. No line adds back NC's own obligation interest. Line 26 deducts gain on exempt NC obligations issued before July 1, 1995 where the issuing law exempts the gain.",
+    "cite": {
+      "publication": "2025 D-401 Individual Income Tax Instructions",
+      "section": "PDF page 12, Line 6; PDF page 17, Schedule S Part A heading and Line 1; PDF page 19, Schedule S Part B Line 26; Form D-400 Schedule S page 2, Part A heading and Line 1",
+      "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "nc_standard_deduction",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "nc_child_deduction",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

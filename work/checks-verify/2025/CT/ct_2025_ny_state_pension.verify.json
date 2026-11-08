@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "78.65",
+    "state_agi": "32000.00",
+    "state_income_tax": "526.35",
+    "state_tax_before_credits": "605.00",
+    "state_taxable_income": "19000.00",
+    "relief_amounts": {
+      "pension_annuity_subtraction": "30000.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 62000.00 (filing status single). Pension and Annuity Worksheet Line 1 62000.00: under the threshold (75000), worksheet not completed.   Pensions/annuities on Line 5b less military/railroad: 30000.00 x 1 = 30000.00 (Line 48b). Schedule 1 subtractions total 30000.00; Connecticut AGI (Line 5) = 62000.00 - 30000.00 = 32000.00. Table A personal exemption at Connecticut AGI 32000.00: 13000. Taxable income (Line 3) = 19000.00 -> 19000.00. Table B (single schedule) on 19000.00: 10000 x 0.02 = 200.00; 9000.00 x 0.045 = 405.00; tax 605.00. Tables C and D: Connecticut AGI is not over the first recapture start for this status, so 0 (and the projection does not compute their amounts anyway). Table E decimal at Connecticut AGI 32000.00: 0.13; credit = 605.00 x 0.13 = 78.65. Connecticut income tax = 605.00 - 78.65 = 526.35."
+}

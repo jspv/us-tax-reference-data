@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "vt_military_retirement_exemption": "0.00"
+  },
+  "state_agi": "175000.00",
+  "state_income_tax": "7159.35",
+  "state_tax_before_credits": "7159.35",
+  "state_taxable_income": "149100.00"
+ },
+ "worked": "Filing status married_joint; IN-111 Line 1 federal AGI 175,000.00 (federal taxable income 143500.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 13, Military Retirement Income Exemption Worksheet: share = 1 - (175,000.00 - 125,000.00) / 50,000.00 = 0.000000, rounded 2 dp 0.00; exemption 60,000.00 x 0.00 = 0.00 (claimed alongside one other exclusion, booklet Line 13). IN-112 Line 19 net modification = 0.00 - 0.00; IN-111 Line 3 state AGI = 175,000.00 + 0.00 - 0.00 = 175,000.00. Line 4 standard deduction 15,300.00 + 1,250 x 0 (born before Jan. 2, 1961) = 15,300.00; Line 5e exemptions 2 x 5,300 = 10,600.00; Line 6 = 25,900.00. Line 7 taxable income = 175,000.00 - 25,900.00 = 149,100.00. Rate schedule (married_joint): 3.3500% x (82,500.00 - 0.00) = 2763.7500; 6.600% x (149,100.00 - 82,500.00) = 4395.60000; total 7159.35000. Line 8 minimum tax: federal AGI 175,000.00 > 150,000, so the greater of 3% x 175,000.00 = 5,250.00 (no U.S. obligations interest) and schedule tax 7,159.35: 7,159.35. No credits modelled: credits 0.00; state income tax 7,159.35."
+}

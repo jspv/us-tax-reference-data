@@ -1,0 +1,67 @@
+{
+  "id": "ca_2025_exemption_credits_joint_phase_down",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_exemption_credit",
+    "senior_exemption_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 39 Form 540 line 7 (box 2: enter 2) and line 9",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-04"
+      },
+      {
+        "age": 67,
+        "born": "1958-08-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "250000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "170000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "interest": "60000.00",
+      "dividends": "40000.00"
+    },
+    "federal_agi": "520000.00",
+    "federal_taxable_income": "485300.00"
+  },
+  "expected": {
+    "state_agi": "520000.00",
+    "state_taxable_income": "508588.00",
+    "state_tax_before_credits": "40175.96",
+    "credits": "0.00",
+    "state_income_tax": "40175.96",
+    "relief_amounts": {
+      "personal_exemption_credit": "0.00",
+      "senior_exemption_credit": "0.00"
+    }
+  },
+  "worked": "Married filing jointly, both 67: private pensions 250,000 and 170,000, interest 60,000 (not U.S. obligations), dividends 40,000; federal AGI = 250,000 + 170,000 + 60,000 + 40,000 = 520,000, which is 15,589 over the 504,411 joint limit (inside the phase-down range). Form 540 line 13 federal AGI = 520,000.00. Federal taxable income = 520,000.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age-65 addition = 485,300.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (private pensions need no adjustment on line 5, PDF page 60). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 520,000.00 - 0.00 = 520,000.00. Line 18 California standard deduction (married filing jointly, PDF page 13 chart) 11,412.00. Line 19 taxable income = 520,000.00 - 11,412.00 = 508,588.00. Tax on 508,588.00 by the projection's brackets: 22,158.00 x 1% = 221.58; 30,370.00 x 2% = 607.40; 30,376.00 x 4% = 1,215.04; 32,180.00 x 6% = 1,930.80; 30,364.00 x 8% = 2,429.12; 363,140.00 x 9.3% = 33,772.02; total 40,175.96. Line 31: Tax Rate Schedule Y (PDF page 75), from its printed base, gives 40,175.96. Line 11 exemptions: 2 personal x 153 and 2 senior x 153. Federal AGI 520,000.00 is more than 504,411.00: the projection removes the personal and senior credits, line 32 = 0.00. The form's AGI Limitation Worksheet (PDF page 14) would give: c = 15,589 over 504,411.00; d = 15,589 / 2,500 rounded up = 7; e = 7 x 6 = 42; f = 4 boxes on lines 7 and 9; g = 42 x 4 = 168; h = 612; i = 612 - 168 = 444 (zero or less enters 0); line 32 = 444. Line 33 = 40,175.96 - 0.00 = 40,175.96; no other credits (lines 34 to 47 nil), line 48 = 40,175.96. State income tax = 40,175.96. Expected follows the projection (credits removed at the limit); on the form the 4 credits would come to 444, not 0, so the form's tax would be 444.00 lower. This is the accepted phase-down approximation.",
+  "accepted_approximations": [
+    "The exemption credits' AGI limitation is a stepped phase-down (each credit loses 6 for each 2,500 of federal AGI, or part of it, over 252,203 single and married filing separately, 504,411 joint and qualifying surviving spouse, 378,310 head of household; 1,250 steps when filing separately). The projection has no field for unprinted step amounts, so it removes the personal and senior credits at the threshold."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

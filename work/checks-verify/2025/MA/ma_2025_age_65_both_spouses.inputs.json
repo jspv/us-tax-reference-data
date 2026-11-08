@@ -1,0 +1,63 @@
+{
+  "id": "ma_2025_age_65_both_spouses",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_exemption",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "Form 1 lines 2a, 2c (age 65 or over before 2026, 700 each spouse, PDF p10 Line 2c), 4, 9 (Schedule X line 2 worksheet, PDF p20), 10-22; Social Security not taxed (PDF p10 Line 4 note)",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      },
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "private",
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "85500.00",
+    "federal_taxable_income": "50800.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

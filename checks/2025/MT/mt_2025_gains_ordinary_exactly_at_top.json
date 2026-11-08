@@ -1,0 +1,49 @@
+{
+  "id": "mt_2025_gains_ordinary_exactly_at_top",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p17 net long-term capital gains and Line 2; PDF p18 net long-term capital gains rate tables; Form 2 PDF p2 lines 1-13; record capital_gains",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "36850.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "10000.00"
+    },
+    "federal_agi": "46850.00",
+    "federal_taxable_income": "31100.00"
+  },
+  "expected": {
+    "state_agi": "31100.00",
+    "state_taxable_income": "31100.00",
+    "state_tax_before_credits": "1401.70",
+    "credits": "0.00",
+    "state_income_tax": "1401.70"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 36,850.00 + long-term gains 10,000.00 = 46,850.00. Federal taxable income = 46,850.00 - standard deduction 15,750.00 = 31,100.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 46,850.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 31,100.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 31,100.00 + 0.00 - 0.00 - 0.00 = 31,100.00. Page 2 worksheet: line 1 31,100.00; line 2 net long-term gains 10,000.00; line 3 lesser 10,000.00; line 4 ordinary income 31,100.00 - 10,000.00 = 21,100.00; line 5 21,100.00; line 6 21,100.00 - 21,100.00 = 0.00, zero or less, so 0.00; line 7 lesser of lines 3 and 6 = 0.00; line 8 3% x 0.00 = 0.00; line 9 10,000.00 - 0.00 = 10,000.00; line 10 4.1% x 10,000.00 = 410.00; line 11 0.00 + 410.00 = 410.00; line 12 ordinary income tax on 21,100.00: 5.9% x 21,100.00 = 1,244.90, less 253 = 991.90; line 13 410.00 + 991.90 = 1,401.90, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 21,100.00 = 991.70; 5.9% x (31,100.00 - 21,100.00 = 10,000.00) = 590.00; bracket tax 1,581.70. Gains limited to taxable income: lesser of 10,000.00 and 31,100.00 = 10,000.00; extra rate -1.8% x 10,000.00 = -180.00; 1,581.70 - 180.00 = 1,401.70. Line 9 nonrefundable credits 0.00; line 10 tax after credits 1,401.70. The form gives 1,401.90; expected keeps the projection's 1,401.70, a difference of 0.20 from the table's whole-dollar constant (253 against 253.20). Ordinary income is exactly 21,100: line 6 is 0.00 and all the gains pay 4.1%.",
+  "accepted_approximations": [
+    "The tables print a whole-dollar constant with the 5.9% rate (253, 506, 380) where the bracket arithmetic gives 253.20, 506.40, 380.40."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

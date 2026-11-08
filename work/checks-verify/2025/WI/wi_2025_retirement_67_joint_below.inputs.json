@@ -1,0 +1,68 @@
+{
+  "id": "wi_2025_retirement_67_joint_below",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_retirement_67"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 4 (SB Instructions PDF page 2); line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-15"
+      },
+      {
+        "age": 68,
+        "born": "1957-10-10"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "WI",
+          "contributory": true
+        }
+      ],
+      "interest": "40000.00",
+      "social_security_gross": [
+        {
+          "amount": "26000.00",
+          "person": 0
+        },
+        {
+          "amount": "14000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "109000.00",
+    "federal_taxable_income": "74300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.wi_retirement_67"
+  ]
+}

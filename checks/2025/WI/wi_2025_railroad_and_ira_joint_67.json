@@ -1,0 +1,75 @@
+{
+  "id": "wi_2025_railroad_and_ira_joint_67",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_railroad_retirement",
+    "wi_retirement_67"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 15 (SB Instructions PDF page 7; Publication 126 PDF page 5 section 4.A); line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 69,
+        "born": "1956-04-04"
+      },
+      {
+        "age": 67,
+        "born": "1958-09-09"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "18000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "22000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "interest": "45000.00"
+    },
+    "federal_agi": "85000.00",
+    "federal_taxable_income": "50300.00"
+  },
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "21360.00",
+    "state_tax_before_credits": "763.62",
+    "credits": "0.00",
+    "state_income_tax": "763.62",
+    "relief_amounts": {
+      "wi_railroad_retirement": "22000.00",
+      "wi_retirement_67": "18000.00"
+    }
+  },
+  "worked": "Married filing jointly, 69 and 67: you railroad retirement 22,000; spouse IRA distributions 18,000; interest 45,000. Line 15 removes the railroad retirement in full; line 16 takes income not removed on lines 12-15, so only the IRA 18,000 (under the 48,000 joint cap, both spouses 67). Federal (given, not tested): federal AGI = ira distribution (spouse) 18,000.00 + public railroad retirement paid by federal (you) 22,000.00 + interest 45,000.00 = 85,000.00. Federal taxable income = 85,000.00 - standard deduction 31,500.00 + 2 x 1,600.00 = 50,300.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 85,000.00; line 2 Schedule I adjustments 0.00; line 3 85,000.00; line 4 additions 0.00; line 5 85,000.00. Schedule SB: line 15 railroad retirement = 22,000.00; line 16 retirement income subtraction: qualifying income you (age 69): none = 0.00; spouse (age 67): IRA 18,000.00 = 18,000.00; smaller of 18,000.00 and the 48,000.00 cap = 18,000.00; line 50 total 40,000.00. Schedule SB line 17: federal AGI 85,000.00 is not less than 30,000.00, so no 5,000 subtraction. Form 1 line 6 40,000.00; line 7 Wisconsin income = 85,000.00 - 40,000.00 = 45,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 45,000 to less than 45,500, column Married filing jointly: 21,740.00 (printed row, at least / less than / single / joint / separate / head of household: 45,000 / 45,500 / 10,476 / 21,740 / 5,629 / 11,734). Line 9 = 45,000.00 - 21,740.00 = 23,260.00. Line 10a 2 x 700 = 1,400.00; line 10b 2 x 250 = 500.00; line 10c 1,900.00. Line 11 taxable income = 23,260.00 - 1,900.00 = 21,360.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 19,580.00 = 685.30 + 4.4% x 1,780.00 = 78.32; total 763.62, rounded once to 763.62. The Tax Table row 21,300 to 21,400 (PDF page 39) gives 763; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 763.62.",
+  "accepted_approximations": [
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

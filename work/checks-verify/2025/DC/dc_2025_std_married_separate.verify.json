@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "90500.00",
+    "state_income_tax": "4817.50",
+    "state_tax_before_credits": "4817.50",
+    "state_taxable_income": "75500.00"
+  },
+  "worked": "Filing status married_separate. Line 4 federal AGI 90,500.00. Additions Line 5-6: none. Line 7 = 90,500.00. Subtractions Line 15: none. Line 16 DC AGI = 90,500.00 - 0.00 = 90,500.00. G-1 a basic standard deduction 15,000.00; persons: born 1970-10-10 age 55; 0 born before 1961-01-02 (65+) x 1,600.00 = 0.00; G-1 h total 15,000.00. Line 19 taxable income = 90,500.00 - 15,000.00 = 75,500.00. Tax rate schedule (Calculation I): 10,000.00 x 0.04 = 400.00; 30,000.00 x 0.06 = 1,800.00; 20,000.00 x 0.065 = 1,300.00; 15,500.00 x 0.085 = 1,317.50; total 4,817.50 (the form uses the 50-dollar tax table at or under 100,000; schedule result used). Credits: none in the projection, 0.00. DC tax = 4,817.50. Federal senior deduction ignored (federal figures given)."
+}

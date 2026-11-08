@@ -1,0 +1,69 @@
+{
+  "id": "mo_2025_private_test_ignores_gains",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "private_pension_subtraction",
+    "capital_gain_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction; Form MO-A PDF p2 Part 1 Line 18; instructions PDF p16 Line 18; record capital_gains capital_gain_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "19000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "5000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "short_term_gains": "10000.00",
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "38250.00"
+  },
+  "expected": {
+    "state_agi": "19000.00",
+    "state_taxable_income": "3250.00",
+    "state_tax_before_credits": "41.86",
+    "credits": "0.00",
+    "state_income_tax": "41.86",
+    "relief_amounts": {
+      "capital_gain_subtraction": "30000.00",
+      "private_pension_subtraction": "5000.00"
+    }
+  },
+  "worked": "Single, age 60. All gains are subtracted on Part 1 Line 18, so they are out of Line 6 and do not count against the limit; the projection's measure is federal AGI less capital_gain_subtraction (measure.minus_reliefs). Federal AGI 54,000 would be over it. Federal (given, not tested): federal AGI = wages 19,000.00 + pensions 5,000.00 + short-term gains 10,000.00 + long-term gains 20,000.00 = 54,000.00. Federal taxable income = 54,000.00 - standard deduction 15,750.00 = 38,250.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 54,000.00. Line 2 additions 0.00. Line 3 total income 54,000.00. Line 4 subtractions: MO-A Part 1 Line 18 capital gain (federal Line 7a 30,000.00) 30,000.00 (capital_gain_subtraction); total 30,000.00. Line 6 Missouri adjusted gross income 54,000.00 - 30,000.00 = 24,000.00. Section B: Line 1 24,000.00; Line 2 0.00; Line 3 24,000.00; Line 4 25,000.00; Line 5 0.00; Line 6Y 5,000.00, Line 7Y 5,000.00; Line 8 5,000.00; Line 9 5,000.00. Projection measure: federal AGI 54,000.00 - capital_gain_subtraction 30,000.00 - taxable Social Security 0.00 = 24,000.00, not over 25,000.00. Form MO-1040 Line 8 pension and Social Security exemption 5,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 24,000.00 - 5,000.00 - 15,750.00 = 3,250.00. Line 29 taxable income 3,250.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 624.00 = 15.6; total 41.86 = 41.86. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 42; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 24,000.00 - Line 8 5,000.00 = 19,000.00; the form's Missouri AGI is Line 6, 24,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

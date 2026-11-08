@@ -1,0 +1,37 @@
+{
+  "layer": "projection",
+  "state": "FL",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/FL.record.json",
+    "sha256": "b9d081683ff737f45e6b5c433c49fa82297a9fddb63d5a174ff8e1745184bf9a"
+  },
+  "has_income_tax": false,
+  "brackets": {
+    "single": [],
+    "married_joint": []
+  },
+  "base": {
+    "starts_from": "none",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "all_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [],
+  "not_modelled": [],
+  "recapture": [],
+  "derived_figures": [],
+  "approximations": [
+    {
+      "what": "No personal income tax (Department of Revenue, Tax Information for New Residents, p.3). Social Security and municipal interest are shown as exempt because nothing is taxed.",
+      "direction": "either",
+      "size": "None: there is no state income tax to estimate."
+    }
+  ]
+}

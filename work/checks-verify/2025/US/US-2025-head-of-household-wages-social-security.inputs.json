@@ -1,0 +1,38 @@
+{
+  "id": "US-2025-head-of-household-wages-social-security",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Head of household age 62 with wages, qualified dividends and Social Security survivor benefits; the benefits are taxable up to the 85% cap and the dividends sit in the 0% band.",
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "born": "1963-07-19",
+        "age": 62
+      }
+    ],
+    "wages": "40000",
+    "ordinary_dividends": "3000",
+    "qualified_dividends": "3000",
+    "social_security_benefits": "20000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

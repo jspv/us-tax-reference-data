@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1156.25",
+    "state_tax_before_credits": "1156.25",
+    "state_taxable_income": "46250.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 67,000.00. Line 23 net long-term gain 20,000.00 (projection treats all as acquired after 2011); line 24 subtract 25% = 5,000.00. Short-term gains taxed in full. Line 35 subtractions 5,000.00; line 37 = 67,000.00 - 5,000.00 = 62,000.00. Box 8 = 0 (ages 63); line 38 = 0 x 2,100 = 0.00. Line 42 Arizona AGI = 62,000.00. Line 43 standard deduction 15,750.00; line 45 = 62,000.00 - 15,750.00 = 46,250.00. Line 46 tax = 46,250.00 x 2.5% = 1,156.25. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 1,156.25. Federal figures given; federal senior deduction ignored."
+}

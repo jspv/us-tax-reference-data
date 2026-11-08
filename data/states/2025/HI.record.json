@@ -1,0 +1,531 @@
+{
+  "layer": "record",
+  "state": "HI",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Page numbers cited are PDF page numbers of n11ins.pdf; the booklet's own printed page numbers run two lower from the voter-registration insert on (the Tax Rate Schedules printed as 'page 48' are PDF page 50).",
+    "Brackets: Schedule I is printed for 'Single taxpayers and married filing separate returns', so married_separate repeats the single schedule. Schedule II covers 'Married taxpayers filing joint returns and qualifying surviving spouses'; the schema has no qualifying surviving spouse bracket list, so that status uses the married_joint list. Taxable income under 100,000 must use the Tax Table (PDF pages 38 to 49); the schedules on PDF page 50 are recorded. Checked against the Tax Table example row 23,250 to 23,300 (PDF page 38): 813 single, 399 joint, 524 head of household, which the schedules give at the row midpoint.",
+    "Standard deduction: Hawaii did not adopt the federal increase for 2018 through 2025 (PDF page 20, Line 23). Form line 23 prints 4,400 (status 1 or 3), 8,800 (status 2 or 5), 6,424 (status 4) (Form N-11 page 2). A person who can be claimed as a dependent gets the greater of 500 or earned income, up to the full standard deduction (PDF page 20). A married person filing separately whose spouse itemizes must itemize (PDF page 15).",
+    "Exemptions: 1,144 per exemption on line 6e (PDF page 20, Line 25; Form N-11 page 3 line 25). Line 6e adds the numbers in the 6a to 6d boxes; 6a and 6b each carry an 'Age 65 or over' box, so age 65 or over adds one more 1,144 (Form N-11 page 1; PDF page 9: age 65 or over 'as of January 1, 2026'). The disability table on PDF page 20 agrees (8,144 plus 1,144 is 9,288 for a non-disabled spouse 65 or over). A person who can be claimed as a dependent on another return may not claim an exemption for self (PDF page 20 Caution).",
+    "Disability exemption (blind, deaf or totally disabled, certified on Form N-172): 7,000 per qualifying person in lieu of the 1,144 regular exemption; the person then cannot claim the exemptions for children, other dependents, or for being 65 or older (PDF page 20). Recorded as blind_exemption. Printed maximums: one individual 7,000; taxpayer and spouse (non-disabled spouse under 65) 8,144; non-disabled spouse 65 or over 9,288; both disabled 14,000.",
+    "Itemized deductions: Hawaii did not adopt the federal suspension of the overall limitation. If Hawaii AGI (line 20) exceeds 166,800 (83,400 married filing separately), the Total Itemized Deductions Worksheet reduces them (PDF pages 20 and 34). No schema field holds this; the standard deduction itself has no income phase-out.",
+    "Pensions (line 13, PDF page 13): 'Hawaii does not tax qualifying distributions from an employer-funded pension plan.' To qualify a distribution 'must be paid by a pension plan by reason of retirement, disability, or death'; the plan need not be qualified under IRC section 401. No dollar cap, no age test and no income test are printed. Recorded as three entries by source: public (government) systems, private employer plans, and rollover IRAs that continue a qualifying plan.",
+    "Other states' government pensions: line 13 item (1) reads 'Pension or annuity distributions from a public (i.e., government) retirement system (e.g., federal civil service annuity, military pension, state or county retirement system), unless voluntary contributions were made by an employee under an elective right' (PDF page 13). The test is the kind of payer (a government retirement system), not which government; no state is named and no reciprocity rule is printed. Where the booklet means Hawaii's own plans it names them ('the State of Hawaii Deferred Compensation Plan', PDF page 13; 'the Employees Retirement System', PDF page 11 Line 8). So public_pension_other_state is in covers of the same entry as Hawaii's own and federal pensions, and no paying_states list is written. A New York State pension is a state retirement system pension and falls under item (1). The administrative rule cited there (section 18-235-7-02, HAR) is not in the sources.",
+    "Private pensions: exempt when received upon retirement (including early and disability retirement) from a private employer plan to which the employee did not contribute; 'partially taxed by Hawaii if the employee contributed to the pension plan' (Schedule J figures the taxable amount, not printed in the booklet); distributions at age 73 made to comply with the federal mandatory payout rule qualify whether or not the employee still works full time (PDF page 13). HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 2 to 4) says how much: a 'pension' 'is attributable to employer contribution' (page 3, item (4)); the 'exclusion ratio' is 'the ratio described in subsection (e)(1)' (page 3), built from the three amounts the rule defines: 'employer contribution' (pages 2 and 3), 'pretax employee contribution' (pages 3 and 4) and 'previously taxed contribution' (page 4). A plan wholly funded by the employer is excluded in full; a contributory plan only in its ratio. The Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 2) says pensions are exempt if 'Funded entirely by the employer' and private defined-benefit pensions qualify 'provided the employer funded them and the employee made no contributions'; page 4: 'Portions of pensions funded through employee contributions, are fully taxable'.",
+    "Employer-plan distributions: the line 13 opening names 'an employer-funded profit sharing, defined contribution, or defined benefit plan' as qualifying, so employer_plan_distribution is in the private entry's covers for employer-funded money. 'Distributions from a deferred compensation plan may be partly or fully taxable': 401(k), SARSEP, the Federal Thrift Savings Plan and section 457 plans are deferred compensation; a plan that is partly pension and partly deferred compensation (a 401(k) with a profit-sharing part or an employer match) uses Schedule J (PDF page 13). HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 3 and 4) settles which part: 'pretax employee contribution' means 'voluntary contributions made by the employee under any elective right', naming IRC section 401(k) plans, 408(k)(6) elective salary reduction SEP contributions and section 457 plans, 'even though the IRC may provide that the amounts are considered employer contributions for some purposes'; 'employer contribution' 'does not include any amounts included in pretax employee contribution' (page 2). So the part of a 401(k), 457 or SEP distribution that comes from the employee's deferrals is taxable, and only the employer-funded part (employer match, profit sharing) is excluded, in the exclusion ratio. The Thrift Savings Plan is not named in the rule; the booklet's definition of a deferred compensation plan (the employee chooses to contribute or take cash, PDF page 13) is an elective right. Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 4): '401(k) withdrawals' are 'fully taxable in Hawai‘i'.",
+    "IRAs: self-funded IRAs and annuity plans not funded through a SEP plan 'are considered to be your own investments' and distributions 'may be fully or partly taxable, depending on whether your IRAs include deductible or nondeductible contributions' (PDF page 13); no Hawaii subtraction applies to them. A rollover IRA is a continuation of the original plan: its distributions are exempt when the original plan's would be, taxable when they would be (PDF page 13). HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 3 and 4): contributions to 'individual retirement accounts to which an employer does not contribute' are 'pretax employee contribution', 'see subsection (d)(2) for rollover individual retirement accounts' (subsection (d)(2) is not printed in the amendment). Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 4): 'Traditional IRA ... withdrawals' are 'fully taxable in Hawai‘i'.",
+    "Roth conversions: the two rollover examples on PDF page 13 say a rollover from a regular IRA to a Roth IRA is exempt when the money came from a qualifying employer-funded distribution upon retirement, and taxable when it came from a distribution upon separation from service before retirement. So roth_conversion is in covers of the rollover IRA entry only. A conversion of a self-funded IRA gets no subtraction: it is in federal AGI and no line removes it.",
+    "Early distributions from a pension plan that are subject to the 10% federal penalty tax do not qualify and are taxable (PDF page 13).",
+    "Line 8 (PDF page 11) adds back the excess of state over federal W-2 wages, including for State or County employees in the contributory or hybrid plan of the Employees Retirement System; an addition to wages, not part of the pension subtraction.",
+    "Social Security: line 14 'Social security benefits taxed on federal return' is a subtraction (Form N-11 page 2) and the instructions say 'Hawaii does not tax Social Security or first tier Railroad Retirement Act benefits' (PDF page 13); recorded as exempt. Tier 2 railroad retirement: not found in the booklet.",
+    "Capital gains (PDF pages 21 and 35): 'If you have a net capital gain, you may be able to reduce your tax using the Tax on Capital Gains Worksheet' when taxable income is over 48,000 (24,000 single and married filing separately; 36,000 head of household). The worksheet taxes the ordinary part (line 13: the greater of taxable income less the gain, or 24,000 / 36,000 / 48,000) by the schedules, adds 7.25% of the rest of the gain (line 14), and the tax is the smaller of that and the schedule tax on all taxable income (line 19). The 7.25% is an alternative tax that caps the rate on long-term gain; it is never a higher rate than the schedule. Recorded as treatment 'other' (not 'own_rate', which would tax the gains at 7.25% whatever the schedule gives). Short-term gains are taxed as ordinary income (the worksheet takes the smaller of the net long-term gain and the net capital gain, line 8).",
+    "Out-of-state bond interest is added on line 9; interest on Hawaii bonds, including Hawaii municipal bonds, and on bonds of Puerto Rico, the U.S. Virgin Islands, Guam and American Samoa is not added (PDF page 11). Interest on federal obligations is subtracted on line 18, Hawaii Subtractions Worksheet line a (PDF pages 14 and 33).",
+    "Inflation: the booklet says only that the student loan interest and employer-provided adoption benefit income ranges 'will not be adjusted for inflation' (PDF page 14); it says nothing about indexing of brackets, the standard deduction, exemptions or any other figure, so one all_other entry is not_stated.",
+    "Not found in the booklet: any surtax, any recapture of the lower brackets, any age-based retirement exclusion or deduction other than the extra 1,144 exemption at 65, any dollar limit on the pension exclusion.",
+    "Not recorded (not relief for a kind of retirement or investment income): payments to an individual housing account (line 16; up to 5,000, 10,000 joint, 25,000 lifetime), exceptional trees deduction (line 17, up to 3,000 per tree), the other line 18 items, the refundable food/excise tax credit and the credit for low-income household renters (PDF pages 13 to 21).",
+    "Settlement 2026-11-07: reliefs, line 13 pensions split: A said one public entry (public_pension, public_pension_other_state, military_pension; roth_conversion in covers_unclear) and one private entry (private_pension; employer_plan_distribution, ira_distribution, roth_conversion in covers_unclear); B said a public entry (public_pension, military_pension; public_pension_other_state in covers_unclear), a private entry (private_pension, employer_plan_distribution) and a rollover IRA entry (ira_distribution, roth_conversion); PDF page 13 Line 13 says a government retirement system pension qualifies with no state named, employer-funded profit sharing and defined contribution plans qualify, and the Nontaxable Rollover IRAs example says the amount rolled to a Roth IRA 'is exempt from Hawaii's income tax'. Settled: public entry with public_pension_other_state in covers; private entry with employer_plan_distribution in covers; B's rollover IRA entry kept with roth_conversion in covers.",
+    "Settlement 2026-11-07: reliefs, individual housing account (line 16): A said a subtraction covering all_income with caps 5,000 / 10,000 joint; B said not a relief (notes only); PDF page 14 Line 16 says it is a deduction for cash paid into a home down-payment savings account. Dropped from reliefs: a deduction for a contribution, not relief for a kind of income (as New York's 529 deduction was); kept in notes.",
+    "Settlement 2026-11-07: indexing: A said one all_other entry, not_stated; B said brackets, standard_deduction, personal_exemption and all_other, each not_stated; the booklet says nothing on indexing of any of those figures (PDF pages 14 and 20). One all_other entry kept (extraction brief rule 8: an entry per figure only where the booklet says something).",
+    "Settlement 2026-11-07: capital_gains treatment: A and B both said own_rate 0.0725; PDF page 35 line 19 says the tax is 'the smaller of line 17 or line 18'. Settled as treatment 'other', value 0.0725, with the worksheet in condition (an alternative tax that caps the gain rate).",
+    "Settlement 2026-11-07: reliefs form: A said subtraction, B said subtraction for the pension and interest lines and exempt_in_full for Social Security; line 13, line 14 and the federal obligation interest subtract the whole qualifying amount with no cap. Written as exempt_in_full for those; the capped reserve pay exclusion stays a subtraction.",
+    "Settlement 2026-11-07 (maintainer decision, docs/decisions.md '401(k)/IRA coverage in GA, HI, MS'): the booklet left open how much of a deferred compensation (401(k), SARSEP, Thrift Savings Plan, 457) or contributory plan distribution is taxed ('may be partly or fully taxable', PDF page 13). Two Department of Taxation sources were added: HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf; PDF page numbers of that file) and the Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf; PDF page numbers). They settle it: a distribution is excluded only in the exclusion ratio of employer contributions; 401(k), 457 and SEP salary-reduction deferrals and IRAs the employer did not fund are pretax employee contributions, taxable; a rollover IRA keeps the character of what was rolled in (PDF page 13). The amendment amends only subsection (c), the definitions: the ratio itself is in subsection (e)(1), which it does not print; the decision reads it as employer contributions over employer plus pretax employee plus previously taxed contributions, the three amounts subsection (c) defines. No covers or covers_unclear changed (the settled record had no covers_unclear); the not_covered and other_conditions texts of the three line 13 entries now cite the rule."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "9600"
+      },
+      {
+        "rate": "0.055",
+        "start": "14400"
+      },
+      {
+        "rate": "0.064",
+        "start": "19200"
+      },
+      {
+        "rate": "0.068",
+        "start": "24000"
+      },
+      {
+        "rate": "0.072",
+        "start": "36000"
+      },
+      {
+        "rate": "0.076",
+        "start": "48000"
+      },
+      {
+        "rate": "0.079",
+        "start": "125000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "175000"
+      },
+      {
+        "rate": "0.09",
+        "start": "225000"
+      },
+      {
+        "rate": "0.10",
+        "start": "275000"
+      },
+      {
+        "rate": "0.11",
+        "start": "325000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "19200"
+      },
+      {
+        "rate": "0.055",
+        "start": "28800"
+      },
+      {
+        "rate": "0.064",
+        "start": "38400"
+      },
+      {
+        "rate": "0.068",
+        "start": "48000"
+      },
+      {
+        "rate": "0.072",
+        "start": "72000"
+      },
+      {
+        "rate": "0.076",
+        "start": "96000"
+      },
+      {
+        "rate": "0.079",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "350000"
+      },
+      {
+        "rate": "0.09",
+        "start": "450000"
+      },
+      {
+        "rate": "0.10",
+        "start": "550000"
+      },
+      {
+        "rate": "0.11",
+        "start": "650000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "9600"
+      },
+      {
+        "rate": "0.055",
+        "start": "14400"
+      },
+      {
+        "rate": "0.064",
+        "start": "19200"
+      },
+      {
+        "rate": "0.068",
+        "start": "24000"
+      },
+      {
+        "rate": "0.072",
+        "start": "36000"
+      },
+      {
+        "rate": "0.076",
+        "start": "48000"
+      },
+      {
+        "rate": "0.079",
+        "start": "125000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "175000"
+      },
+      {
+        "rate": "0.09",
+        "start": "225000"
+      },
+      {
+        "rate": "0.10",
+        "start": "275000"
+      },
+      {
+        "rate": "0.11",
+        "start": "325000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "14400"
+      },
+      {
+        "rate": "0.055",
+        "start": "21600"
+      },
+      {
+        "rate": "0.064",
+        "start": "28800"
+      },
+      {
+        "rate": "0.068",
+        "start": "36000"
+      },
+      {
+        "rate": "0.072",
+        "start": "54000"
+      },
+      {
+        "rate": "0.076",
+        "start": "72000"
+      },
+      {
+        "rate": "0.079",
+        "start": "187500"
+      },
+      {
+        "rate": "0.0825",
+        "start": "262500"
+      },
+      {
+        "rate": "0.09",
+        "start": "337500"
+      },
+      {
+        "rate": "0.10",
+        "start": "412500"
+      },
+      {
+        "rate": "0.11",
+        "start": "487500"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form N-11 Instructions",
+      "section": "PDF page 50, 2025 Tax Rate Schedules I (single and married filing separate), II (married joint and qualifying surviving spouse), III (unmarried heads of household); use when taxable income is 100,000 or more, Tax Table below that (PDF pages 20 and 21, Line 27; Tax Table PDF pages 38 to 49)",
+      "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "4400",
+          "married_joint": "8800",
+          "married_separate": "4400",
+          "head_of_household": "6424",
+          "qualifying_surviving_spouse": "8800"
+        },
+        "per": "return",
+        "condition": "Taken instead of itemizing; a person who can be claimed as a dependent gets the greater of 500 or earned income, up to the full amount for the filing status.",
+        "cite": {
+          "publication": "2025 Form N-11 Instructions",
+          "section": "PDF page 20, Line 23 Standard Deduction table; Form N-11 page 2 line 23 (4,400 / 8,800 / 6,424)",
+          "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "1144"
+        },
+        "per": "exemption_claimed",
+        "condition": "One for yourself and one for your spouse (lines 6a, 6b); not allowed for yourself if you can be claimed as a dependent on another person's return.",
+        "cite": {
+          "publication": "2025 Form N-11 Instructions",
+          "section": "PDF page 20, Line 25 Regular Exemptions: 'Residents are allowed $1,144 for each exemption they can claim'; PDF page 9 Lines 6a and 6b; Form N-11 page 3 line 25",
+          "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "1144"
+        },
+        "per": "dependent",
+        "condition": "Children (line 6c) and other dependents (line 6d), each with a social security number; counted in line 6e.",
+        "cite": {
+          "publication": "2025 Form N-11 Instructions",
+          "section": "PDF page 20, Line 25 Regular Exemptions; PDF page 9 Lines 6c, 6d and 6e; Form N-11 page 1 line 6e",
+          "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "1144"
+        },
+        "per": "person",
+        "condition": "Age 65 or over as of January 1, 2026, for the filer (line 6a) or the spouse (line 6b); counted as an additional exemption in line 6e; not available to a person who claims the disability exemption.",
+        "cite": {
+          "publication": "2025 Form N-11 Instructions",
+          "section": "PDF page 9, Lines 6a and 6b ('age 65 or over as of January 1, 2026'); Form N-11 page 1 lines 6a, 6b, 6e; PDF page 20 Line 25 (disability table 9,288 less 8,144)",
+          "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "disability_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "7000"
+        },
+        "per": "person",
+        "condition": "Blind, deaf or totally disabled, certified on Form N-172 before filing; replaces the 1,144 regular exemption and bars the exemptions for children, other dependents and age 65 or older.",
+        "cite": {
+          "publication": "2025 Form N-11 Instructions",
+          "section": "PDF page 20, Line 25 Blind, Deaf, or Totally Disabled: 'may be allowed a Disability Exemption of $7,000'",
+          "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form N-11 Instructions",
+      "section": "Form N-11 page 2 line 7 Federal adjusted gross income, lines 8 to 20 (Hawaii additions and subtractions, line 20 Hawaii AGI), lines 22 to 26; PDF page 11 Line 7",
+      "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form N-11 Instructions",
+      "section": "PDF page 13, Line 14 Social Security Benefits: 'Hawaii does not tax Social Security or first tier Railroad Retirement Act benefits'; Form N-11 page 2 line 14 'Social security benefits taxed on federal return' is a subtraction",
+      "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "hi_public_pension_exclusion",
+      "label": "Pensions taxed federally but not taxed by Hawaii (line 13): pension or annuity distributions from a public (government) retirement system",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "military_pension"
+      ],
+      "not_covered": [
+        "Distributions where 'voluntary contributions were made by an employee under an elective right'",
+        "Early distributions from a pension plan that are subject to the 10% federal penalty tax 'do not qualify and are taxable'",
+        "Deferred compensation plans, including the Federal Thrift Savings Plan and section 457 plans like the State of Hawaii Deferred Compensation Plan: 'may be partly or fully taxable'; contributions to section 457 plans are 'pretax employee contribution' (HAR 18-235-7-03, Department of Taxation amendment effective 1/1/98, 98ann02a.pdf page 4), so the part of a 457 distribution from the employee's deferrals is taxable"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Paid by the retirement system by reason of retirement, disability, or death",
+          "No voluntary contributions made by the employee under an elective right (section 18-235-7-02, HAR); HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 3 and 4) calls such contributions 'pretax employee contribution' and leaves them out of 'employer contribution'"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 13, Line 13 Pensions, opening paragraph ('from a government retirement system (e.g., federal civil service, military pension, state or county retirement system)'), Nontaxable Distributions, Employer-Funded Pension Plans item (1); Form N-11 page 2 line 13",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "hi_private_pension_exclusion",
+      "label": "Pensions taxed federally but not taxed by Hawaii (line 13): distributions from an employer-funded private pension, profit sharing or defined contribution plan",
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension",
+        "employer_plan_distribution"
+      ],
+      "not_covered": [
+        "Distributions from a private employer pension plan received upon retirement 'are partially taxed by Hawaii if the employee contributed to the pension plan' (Schedule J); HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf page 3): excluded only in the exclusion ratio of employer contribution (subsection (e)(1)); Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 4): 'Portions of pensions funded through employee contributions, are fully taxable'",
+        "Deferred compensation plans (401(k) plans, SARSEP plans, the Federal Thrift Savings Plan, section 457 plans): 'may be partly or fully taxable'; hybrid plans (a 401(k) with a profit sharing component or employer match) use Schedule J. HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 3 and 4): contributions to IRC section 401(k) plans, 408(k)(6) elective salary reduction SEP contributions and section 457 plans are 'pretax employee contribution', not employer contribution, so the part of the distribution from the employee's deferrals is taxable; only the employer-funded part (employer match, profit sharing) is excluded, in the exclusion ratio. Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 4): '401(k) withdrawals' are 'fully taxable'",
+        "A distribution 'not paid upon retirement, disability, or death' (for example upon separation from service before retirement)",
+        "Early distributions from a pension plan that are subject to the 10% federal penalty tax 'do not qualify and are taxable'"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Received upon retirement (including early retirement and disability retirement), disability, or death",
+          "Employer-funded: excluded in the exclusion ratio of employer contribution to employer, pretax employee and previously taxed contribution (HAR 18-235-7-03, Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 2 to 4; the ratio is in subsection (e)(1), not printed there): a plan the employee did not contribute to is excluded in full, a contributory plan is partly taxed (Schedule J)",
+          "Distributions at age 73 made to comply with the federal mandatory payout rule qualify whether or not the employee is still working full time"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 13, Line 13 Pensions, opening paragraph ('an employer-funded profit sharing, defined contribution, or defined benefit plan'), Employer-Funded Pension Plans items (2) and (3), Early Distributions, Deferred Compensation Plans, Hybrid Plans; Form N-11 page 2 line 13",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "hi_rollover_ira_exclusion",
+      "label": "Nontaxable Rollover IRAs (line 13)",
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution",
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Retirement vehicles you fund yourself, such as annuity plans and IRAs not funded through a SEP plan, 'are considered to be your own investments' and distributions 'may be fully or partly taxable'; HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98, 98ann02a.pdf pages 3 and 4): contributions to 'individual retirement accounts to which an employer does not contribute' are 'pretax employee contribution'; Department of Taxation Tax Review Commission presentation of 2026-07-14 (2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf page 4): 'Traditional IRA ... withdrawals' are 'fully taxable'",
+        "Taxable Rollover IRAs: a rollover IRA whose original plan's distributions would be taxable (the example: a lump sum received upon separation from service before retirement), including the amount rolled over to a Roth IRA"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "The IRA holds money rolled over from an employer-funded plan whose distribution would itself have qualified (paid upon retirement, disability or death, no employee contributions)",
+          "A rollover IRA keeps the character of the money rolled in: it 'is treated as a continuation of the original plan that provided the money that is rolled over' (PDF page 13, Nontaxable and Taxable Rollover IRAs); money rolled in from 401(k), 457 or SEP salary-reduction deferrals is pretax employee contribution (HAR 18-235-7-03, Department of Taxation amendment effective 1/1/98, 98ann02a.pdf page 4) and stays taxable"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 13, Line 13 Pensions, Nontaxable Rollover IRAs and its example ('the amount rolled over to the Roth IRA is exempt from Hawaii's income tax'); Annuity Plans; Taxable Rollover IRAs and its example",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "hi_social_security_exempt",
+      "label": "Social security benefits taxed on federal return (line 14)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Railroad retirement: first tier Railroad Retirement Act benefits only are named"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 13, Line 14 Social Security Benefits; Form N-11 page 2 line 14",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "hi_military_reserve_pay_exclusion",
+      "label": "Military Reserve or Hawaii National Guard Duty Pay Exclusion (line 15)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Member of the reserve components of the army, navy, air force, marine corps or coast guard of the United States, or the Hawaii national guard, paid as compensation for performance of duty as such"
+        ]
+      },
+      "cap": {
+        "all": "8636"
+      },
+      "cap_per": "person",
+      "cap_rule": "The smaller of 8,636 or the pay shown in Box 16 of the Form W-2 from the reserve component; on a joint return the exclusions of both spouses who qualify are added.",
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 13, Line 15 (continues on PDF page 14); Form N-11 page 2 line 15 'First $8,636'",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "hi_federal_obligation_interest",
+      "label": "Interest on federal obligations, including U.S. Savings Bonds (line 18, Hawaii Subtractions Worksheet line a)",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Interest on federal obligations, including Treasury bills and notes and U.S. Savings Bonds, reported on the federal return; less any amount on federal Form 8815 line 14"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 14, Line 18 Interest on Federal Obligations, Including U.S. Savings Bonds; PDF page 33 Hawaii Subtractions Worksheet line a",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on bonds of another state or its counties, cities or political subdivisions (including interest distributions from a mutual fund investing in them) is added on line 9; interest on Hawaii bonds, including Hawaii municipal bonds, and on bonds of Puerto Rico, the U.S. Virgin Islands, Guam and American Samoa is not added.",
+    "cite": {
+      "publication": "2025 Form N-11 Instructions",
+      "section": "PDF page 11, Line 9 Interest on Out-of-State Bonds, Including Municipal Bonds; Form N-11 page 2 line 9",
+      "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "hi_capital_gains_alternative_tax",
+      "applies_to": "long_term",
+      "treatment": "other",
+      "value": "0.0725",
+      "condition": "Alternative tax, used only when it is smaller: when taxable income is over 24,000 (single, married filing separately), 36,000 (head of household) or 48,000 (married filing jointly, qualifying surviving spouse), the Tax on Capital Gains Worksheet taxes the greater of (taxable income less the net capital gain) or that amount by the schedules (line 13 and 15), adds 7.25% of the rest of the gain (lines 14 and 16), and the tax is the smaller of that sum and the schedule tax on all taxable income (line 19). The gain is the smaller of the Hawaii net long-term capital gain and the Hawaii net capital gain (line 8). Not used at or below those taxable incomes.",
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF page 21, Alternative Tax on Capital Gains; PDF page 35, Tax on Capital Gains Worksheet lines 1 to 19 (line 16: 'Multiply line 14 by 7.25% (.0725)'; line 19: 'Enter the smaller of line 17 or line 18'); Form N-11 page 3 line 27a",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Form N-11 Instructions",
+        "section": "PDF pages 11 to 21 and 50: no statement that brackets, the standard deduction, exemptions or any other Hawaii figure is adjusted for inflation (PDF page 14 says only that the student loan interest and adoption benefit ranges will not be)",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

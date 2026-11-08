@@ -1,0 +1,51 @@
+{
+  "id": "wi_2025_age_65_exemption_single",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_age_65_exemption",
+    "wi_personal_exemption",
+    "wi_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 4 (SB Instructions PDF page 2); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "interest": "10000.00",
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "11300.00"
+    },
+    "federal_agi": "41300.00",
+    "federal_taxable_income": "23550.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

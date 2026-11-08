@@ -1,0 +1,52 @@
+{
+  "id": "nc_2025_military_under_20_years_assumed",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "uniformed_services_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF pages 18-19, Schedule S Part B Line 21 (Uniformed Services retirement: at least 20 years of service or medically retired; may not also be deducted on Line 20); Form D-400 Schedule S page 3, Line 21; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15; maintainer assumption (docs/decisions.md 2026-11-07) that every military pension meets the Line 21 test",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-07-14"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": false,
+          "vested_by_1989_08_12": false
+        }
+      ],
+      "wages": [
+        {
+          "amount": "40750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70750.00",
+    "federal_taxable_income": "55000.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.uniformed_services_retirement"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "30000.00",
+    "state_income_tax": "1028.50",
+    "state_tax_before_credits": "1028.50",
+    "state_taxable_income": "24200.00",
+    "relief_amounts": {
+      "railroad_retirement": "25000.00"
+    }
+  },
+  "worked": "Single born 1968. Line 11 railroad retirement 25,000 exempt. state_agi 55,000 - 25,000 = 30,000.00. Exemption 5,800. Taxable 24,200.00. Tax 1,028.50. [check: state_agi 30000.00, taxable 24200.00, tax 1028.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "state": "NH",
+    "title": "Repeal of NH Interest and Dividends Tax Now in Effect",
+    "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:12:50.871866+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "nh-repeal-interest-dividends.pdf",
+    "bytes": 164444,
+    "sha256": "2a787999d82c167952894655893aa1ff5d1251e1617ad89bfe82f36e86ecb3b7"
+  },
+  {
+    "state": "NH",
+    "title": "Press release 2025-02-12: 2025 tax updates and filing guidance",
+    "url": "https://www.revenue.nh.gov/sites/g/files/ehbemt736/files/documents/2025-tax-updates-guidance-press-release-02122025.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:19:47.108265+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "2025-tax-updates-guidance-press-release-02122025.pdf",
+    "bytes": 93879,
+    "sha256": "3bbe3527aa975af8879c1e31d3ee8463c327a2d33d8ac3c3501cb8730e6a2cd6"
+  }
+]

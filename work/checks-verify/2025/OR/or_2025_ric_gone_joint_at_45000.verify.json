@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "512.00",
+    "relief_amounts": {
+      "retirement_income_credit": "0.00"
+    },
+    "state_agi": "44990.00",
+    "state_income_tax": "2221.00",
+    "state_tax_before_credits": "2733.00",
+    "state_taxable_income": "38320.00"
+  },
+  "worked": "Line 7 federal AGI 44990.00 (start: projection base.starts_from federal_agi). Oregon municipal interest 10.00: not in federal AGI, not added (code 317 subtracts only what is in federal income). Federal tax liability subtraction (line 10): not_modelled, not applied. Oregon income after additions and subtractions (state_agi) 44990.00. Line 17 standard deduction 5670.00 + age 65 addition 1 x 1000.00 = 6670.00. Line 19 taxable income 44990.00 - 6670.00 = 38320.00. Line 20 tax, schedule J: 8800.00 x 0.0475 = 418; 13400.00 x 0.0675 = 904.5; 16120.00 x 0.0875 = 1410.5; total 2733 = 2733.00. Line 25 exemption credit: federal AGI 44990.00 is not over 200000.00: 2 x 256 = 512.00. Code 811 line 3 covered income of those 62 or older: 16000.00 (pension 16000.00 person 0). Line 4 limit 15000.00; less Social Security 0.00 and railroad 0.00 = 15000.00; smaller of covered and that = 15000.00. Income measure: federal AGI 44990.00 + tax-exempt interest 10.00 - taxable Social Security 0.00 = 45000.00; over 30000.00 by 15000.00. Projection: 15000.00 - 15000.00 = 0.00 (not below 0); x 9% = 0.00. Credits 512.00 + 0.00 = 512.00: 512.00. State income tax 2733.00 - 512.00 = 2221.00. Federal senior deduction ignored; federal figures as given."
+}

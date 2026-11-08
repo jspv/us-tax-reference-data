@@ -1,0 +1,77 @@
+{
+  "id": "ct_2025_ss_partial_over_threshold_mfj",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_full_exempt",
+    "ss_partial_exempt",
+    "military_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF pages 8-9, Schedule 1 Line 41; PDF page 24, Social Security Benefit Adjustment Worksheet ('$100,000 or more? Yes: Complete this worksheet', Lines A-F); PDF page 9, Schedule 1 Line 44; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-03-10"
+      },
+      {
+        "age": 64,
+        "born": "1961-05-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "48000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "103500.00",
+    "federal_taxable_income": "70400.00"
+  },
+  "expected": {
+    "state_agi": "55500.00",
+    "state_taxable_income": "39500.00",
+    "state_tax_before_credits": "1277.50",
+    "credits": "127.75",
+    "state_income_tax": "1149.75",
+    "relief_amounts": {
+      "ss_full_exempt": "0.00",
+      "ss_partial_exempt": "18000.00",
+      "military_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal Social Security Benefits Worksheet: Line 1 benefits 30,000.00; Line 2 half 15,000.00; Line 3 other income 78,000.00; Line 4 tax-exempt interest 0.00; Line 5 = 93,000.00; Line 6 adjustments 0.00; Line 7 = 93,000.00; Line 8 base 32,000.00; Line 9 = 93,000.00 - 32,000.00 = 61,000.00; Line 10 12,000.00; Line 11 = 49,000.00; Line 12 lesser of Lines 9 and 10 = 12,000.00; Line 13 half 6,000.00; Line 14 lesser of Lines 2 and 13 = 6,000.00; Line 15 = 49,000.00 x 0.85 = 41,650.00; Line 16 = 47,650.00; Line 17 = 30,000.00 x 0.85 = 25,500.00; Line 18 taxable benefits, the lesser of Lines 16 and 17 = 25,500.00. Federal AGI = wages 48,000.00 + military retirement pay 30,000.00 + taxable Social Security 25,500.00 = 103,500.00. Federal taxable income = 103,500.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 70,400.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 103,500.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 103,500.00. Schedule 1 Line 41 Social Security benefit adjustment: federal AGI 103,500.00 is 100,000.00 or more, so ss_full_exempt does not apply (0.00) and the Social Security Benefit Adjustment Worksheet (ss_partial_exempt) is completed: Line A = federal worksheet Line 1 = 30,000.00; Line B = federal worksheet Line 9 = 61,000.00; Line C lesser of A and B = 30,000.00 (Line A); Line D = 30,000.00 x 0.25 = 7,500.00; Line E taxable benefits (federal worksheet Line 18) = 25,500.00; Line F = 25,500.00 - 7,500.00 = 18,000.00 -> 18,000.00. Schedule 1 Line 44 military retirement pay: fully exempt, no income test -> 30,000.00. Schedule 1 Line 50 total subtractions = 48,000.00; CT-1040 Line 4 = 48,000.00. CT-1040 Line 5 Connecticut AGI = 103,500.00 - 48,000.00 = 55,500.00. Tax Calculation Schedule Line 1 = 55,500.00; Line 2 Table A: exemption 16,000.00 at Connecticut AGI 55,500.00; Line 3 taxable income = 55,500.00 - 16,000.00 = 39,500.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 39,500.00: 20,000.00 x 0.02 + 19,500.00 x 0.045 = 400.00 + 877.50 = 1,277.50. Line 5 Table C 0.00 (Connecticut AGI 55,500.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 1,277.50. Line 8 Table E decimal 0.10 at Connecticut AGI 55,500.00; Line 9 = 1,277.50 x 0.10 = 127.75. Line 10 Connecticut income tax = 1,277.50 - 127.75 = 1,149.75 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Line A (gross benefits) is the lesser.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit",
+    "state_rule_not_modelled:teachers_pension_50"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

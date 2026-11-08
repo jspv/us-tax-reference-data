@@ -1,0 +1,50 @@
+{
+  "id": "in_2025_military_no_age_test",
+  "state": "IN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+    "section": "Schedule 2 line 11 code 632 and PDF page 22 Military Retirement Income and/or Survivor's Benefits Deduction; settlement conflict: the web page's age 60 test ('Updated for 2023') is not used, the 2025 booklet governs; Schedule 3 line 1 (PDF page 24: joint 2,000, all other filers 1,000); Form IT-40 lines 1-8 (PDF page 1; line 8 'multiply line 7 by 3% (.03)'); booklet PDF page 8 Line 1; PDF pages 5-6 rounding",
+    "url": "https://forms.in.gov/Download.aspx?id=16915"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "36000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "86000.00",
+    "federal_taxable_income": "70250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.military_retirement"
+  ]
+}

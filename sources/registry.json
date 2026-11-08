@@ -1,0 +1,1470 @@
+{
+  "AK": {
+    "agency": "Alaska Department of Revenue, Tax Division",
+    "forms_page_url": "https://tax.alaska.gov/programs/forms.aspx",
+    "sources": [
+      {
+        "title": "Personal Income Tax (states Alaska has no individual income tax)",
+        "url": "https://tax.alaska.gov/programs/programs/index.aspx?10001",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Page text: 'The State of Alaska currently does not have an individual income tax.' No booklet or form exists; no retirement-specific page needed. forms_page_url was returned by search but not opened separately."
+  },
+  "AL": {
+    "agency": "Alabama Department of Revenue",
+    "forms_page_url": "https://www.revenue.alabama.gov/forms/",
+    "sources": [
+      {
+        "title": "2025 Form 40 Instruction Booklet",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 40 Individual Income Tax Return (print only)",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40blk.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Income Exempt from Alabama Income Taxation",
+        "url": "https://www.revenue.alabama.gov/individual-corporate/income-exempt-from-alabama-income-taxation/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Form 25f40blk.pdf address came from the agency forms listing via WebFetch; my curl range request returned a truncated body so I confirmed only the listing, not the PDF bytes. Exempt-income page is undated (not explicitly 2025). Rule 810-3-19 PDFs (2021 uploads) not included."
+  },
+  "AR": {
+    "agency": "Arkansas Department of Finance and Administration",
+    "forms_page_url": "https://www.dfa.arkansas.gov/office/taxes/income-tax-administration/individual-income-tax/forms/2025-tax-forms/",
+    "sources": [
+      {
+        "title": "2025 AR1000F and AR1000NR Instructions",
+        "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 AR1000F Full Year Resident Individual Income Tax Return",
+        "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_FullYearResidentIndividualIncomeTaxReturn_1.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Subject 206 Pensions and Annuities (revised 2/24/2023)",
+        "url": "https://www.dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Instruction PDF opened but WebFetch could not read text, so tax year is from the agency's 2025 forms page listing and the filename. Subject 206 is dated 2023, not confirmed current for 2025; no 2025-specific retirement page found."
+  },
+  "AZ": {
+    "agency": "Arizona Department of Revenue",
+    "forms_page_url": "https://azdor.gov/forms/individual",
+    "sources": [
+      {
+        "title": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Identifying Other Taxable Income (Social Security, pensions, military retirement subtractions)",
+        "url": "https://azdor.gov/individuals/income-tax-filing-assistance/identifying-other-taxable-income",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Booklet includes the Form 140 return; I did not find a separate standalone 2025 140 form PDF address (a fillable-form page exists at azdor.gov/forms/individual/form-140-resident-personal-income-tax-form-fillable, not opened). Retirement page is undated (search snippet suggested it is old); verify content covers 2025."
+  },
+  "CA": {
+    "agency": "California Franchise Tax Board",
+    "forms_page_url": "https://www.ftb.ca.gov/forms/",
+    "sources": [
+      {
+        "title": "2025 Form 540 Personal Income Tax Booklet",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule CA (540) California Adjustments - Residents",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-ca.pdf",
+        "kind": "pdf",
+        "unverified_until_fetched": true
+      }
+    ],
+    "finder_notes": "All ftb.ca.gov URLs (forms, Schedule CA (540), retirement pages) returned HTTP 403 to WebFetch, even the registry's own 540 booklet, so nothing could be opened. Candidates seen only in search results, NOT verified: https://www.ftb.ca.gov/forms/2025/2025-540-ca.pdf (Schedule CA (540))."
+  },
+  "CO": {
+    "agency": "Colorado Department of Revenue",
+    "forms_page_url": "https://tax.colorado.gov/forms-in-number-order",
+    "sources": [
+      {
+        "title": "2025 DR 0104 Booklet",
+        "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 DR 0104AD Subtractions from Income",
+        "url": "https://tax.colorado.gov/sites/default/files/documents/DR0104AD_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Income Tax Topics: Social Security, Pensions and Annuities",
+        "url": "https://tax.colorado.gov/income-tax-topics-social-security-pensions-and-annuities",
+        "kind": "html"
+      },
+      {
+        "title": "Income Tax Topics: Social Security, Pensions and Annuities (revised January 2025)",
+        "url": "https://tax.colorado.gov/sites/default/files/documents/ITT_Social_Security_Pensions_and_Annuities_Jan_2025.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "WebFetch opened all three (HTTP 403 from curl, but WebFetch succeeded for the booklet, DR 0104AD and topic page). Found no alternate official host: cdor.colorado.gov and www.colorado.gov/tax redirect to the same 403 site; revenue.colorado.gov does not resolve. Standalone 2025 DR 0104 return PDF (tax.colorado.gov/sites/default/files/documents/DR0104_2025.pdf) appeared in search but was not opened, so omitted; it is also in the booklet. Topic page undated."
+  },
+  "CT": {
+    "agency": "Connecticut Department of Revenue Services",
+    "forms_page_url": "https://portal.ct.gov/drs/drs-forms/current-year-forms/individual-income-tax-forms",
+    "sources": [
+      {
+        "title": "2025 Form CT-1040 Instructions",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form CT-1040 Connecticut Resident Income Tax Return",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/ct-1040_1225.pdf",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "DC": {
+    "agency": "District of Columbia Office of Tax and Revenue",
+    "forms_page_url": "https://otr.cfo.dc.gov/page/individual-income-tax-forms-0",
+    "sources": [
+      {
+        "title": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 D-40 Individual Income Tax Return",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Form_0002_030526.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Booklet PDF address came from the agency's 2025 D-40 booklet page and opened as a PDF. No DC retirement-income page or publication found for 2025 (only old booklets and the D-2440 disability form); the booklet itself covers pension and Social Security subtractions."
+  },
+  "DE": {
+    "agency": "Delaware Division of Revenue",
+    "forms_page_url": "https://revenue.delaware.gov/personal-income-tax-forms/",
+    "sources": [
+      {
+        "title": "2025 PIT-RES Resident Individual Income Tax Return Instructions",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PIT-RES Resident Individual Income Tax Return (form)",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/PIT-RES_2025-01_PaperInteractiveIPM.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Personal Income Tax FAQs (pension exclusion, Social Security)",
+        "url": "https://revenue.delaware.gov/frequently-asked-questions/personal-income-tax-faqs/",
+        "kind": "html"
+      },
+      {
+        "title": "Delaware Code Title 30, Chapter 11, Subchapter I (§1102 rates of tax)",
+        "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Both PDFs opened via WebFetch as binary PDF (curl is blocked by a WAF); text unreadable so titles come from the agency forms page listing. The form PDF reported as 1 page, which looks short for PIT-RES, so confirm. No pension-specific agency page or PDF found; the FAQ is the only retirement source and is undated."
+  },
+  "FL": {
+    "agency": "Florida Department of Revenue",
+    "forms_page_url": "https://floridarevenue.com/taxes/Pages/default.aspx",
+    "sources": [
+      {
+        "title": "Tax Information for New Residents (GT-800025)",
+        "url": "https://floridarevenue.com/Forms_library/current/brochure/gt800025.pdf",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "GA": {
+    "agency": "Georgia Department of Revenue",
+    "forms_page_url": "https://dor.georgia.gov/documents/forms",
+    "sources": [
+      {
+        "title": "2025 IT-511 Individual Income Tax Booklet",
+        "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Georgia Form 500 (Rev. 07/09/25) with Schedule 1 incl. retirement exclusion",
+        "url": "https://apps.dor.ga.gov/FillableForms/webpdf/examples/2025GA500.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Georgia DOR Retirees FAQ (retirement exclusion, Social Security)",
+        "url": "https://dor.georgia.gov/retirees-faq",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Retirees FAQ may be old (undated); dollar amounts are only in the IT-511 booklet already in the registry. Form 500 PDF is on Georgia DOR's apps.dor.ga.gov host."
+  },
+  "HI": {
+    "agency": "Hawaii Department of Taxation",
+    "forms_page_url": "https://tax.hawaii.gov/forms/a1_b1_1income/",
+    "sources": [
+      {
+        "title": "2025 Form N-11 Instructions",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form N-11 Resident Income Tax Return (fillable)",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11_f.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Department of Taxation amendment to HAR 18-235-7-03 Exclusion of pension income (pretax employee contribution, exclusion ratio), effective 1/1/98",
+        "url": "https://files.hawaii.gov/tax/news/announce/1990_2003/98ann02a.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Department of Taxation, Tax Review Commission presentation 2026-07-14: Pension Income Taxation (IRA and 401(k) withdrawals fully taxable)",
+        "url": "https://files.hawaii.gov/tax/stats/trc/docs2025/2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Both PDFs opened. No Hawaii agency page about retirement or Social Security taxation found; searches returned only a 1996 TIR and 1998 rule titles (not opened). The n11_f/n11ins addresses are under 'current' and will change when 2026 forms replace them."
+  },
+  "IA": {
+    "agency": "Iowa Department of Revenue",
+    "forms_page_url": "https://revenue.iowa.gov/forms/common-forms/individual-income-tax",
+    "sources": [
+      {
+        "title": "2025 Expanded Instructions (IA 1040)",
+        "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 IA 1040 Iowa Individual Income Tax Return",
+        "url": "https://revenue.iowa.gov/media/4400/download?inline=",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 IA 1040 Schedule 1 expanded instructions (line 7 pension/retirement exclusion)",
+        "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/ia-1040-schedule-1",
+        "kind": "html"
+      },
+      {
+        "title": "Retirement Income Tax Guidance (page dated March 13, 2025)",
+        "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/retirement-income-tax-guidance",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Iowa has no separate printed booklet; the Expanded Instructions PDF is the instruction document. Schedule 1 is part of the IA 1040 form PDF (media/4400). Retirement guidance page says it will be updated, so 2025 currency is not fully confirmed. Old tax.iowa.gov URLs redirect to revenue.iowa.gov."
+  },
+  "ID": {
+    "agency": "Idaho State Tax Commission",
+    "forms_page_url": "https://tax.idaho.gov/taxes/income-tax/individual-income/forms/",
+    "sources": [
+      {
+        "title": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+        "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Idaho Retirement Benefits Deduction",
+        "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
+        "kind": "html"
+      },
+      {
+        "title": "Income Tax for Seniors and Retirees",
+        "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/specific-guidance-for-individual-income-tax/specific-guidance-for-individuals-seniors-and-retirees/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Booklet opened; the Form 40 return itself is inside it (no separate Form 40 PDF address found or opened). The 2025 Form 39R schedule (tax.idaho.gov/document-mngr/forms_EFO00088/) was seen in search but not opened. Retirement pages are undated, treated as current."
+  },
+  "IL": {
+    "agency": "Illinois Department of Revenue",
+    "forms_page_url": "https://tax.illinois.gov/forms.html",
+    "sources": [
+      {
+        "title": "2025 IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form IL-1040 Individual Income Tax Return",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M Other Additions and Subtractions for Individuals",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Publication 120 Retirement Income (December 2025)",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/pubs/documents/pub-120.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Pub-120 Retirement Income (HTML page, December 2025)",
+        "url": "https://tax.illinois.gov/research/publications/pubs/retirement-income.html",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule IL-E/EITC (exemption, dependents)",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-il-e-eic.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Complete."
+  },
+  "IN": {
+    "agency": "Indiana Department of Revenue",
+    "forms_page_url": "https://www.in.gov/dor/tax-forms/individual/current/",
+    "sources": [
+      {
+        "title": "2025 IT-40 Full-Year Resident Individual Income Tax Booklet",
+        "url": "https://forms.in.gov/Download.aspx?id=16915",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form IT-40",
+        "url": "https://forms.in.gov/Download.aspx?id=16914",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 IT-40 Schedule 1 Add-Backs",
+        "url": "https://forms.in.gov/Download.aspx?id=16932",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 IT-40 Schedule 2 Deductions (Social Security/railroad retirement, civil service annuity, military retirement)",
+        "url": "https://forms.in.gov/Download.aspx?id=16933",
+        "kind": "pdf"
+      },
+      {
+        "title": "Indiana DOR: Deductions (civil service annuity, Social Security, military retirement)",
+        "url": "https://www.in.gov/dor/i-am-a/individual/deductions",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule 3: Exemptions",
+        "url": "https://forms.in.gov/Download.aspx?id=16936",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "PDFs opened (binary). No Indiana page found specifically on retirement/pension/IRA taxation; the deductions page is the closest, and its tax-year currency was not confirmed. Income Tax Information Bulletin #26 (in.gov/dor/files/ib26.pdf) opened but its year/topic not confirmed, so omitted."
+  },
+  "KS": {
+    "agency": "Kansas Department of Revenue",
+    "forms_page_url": "https://www.ksrevenue.gov/forms-ii.html",
+    "sources": [
+      {
+        "title": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form K-40",
+        "url": "https://www.ksrevenue.gov/pdf/k-4025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule S Supplemental Schedule (Part A subtractions incl. Social Security, KPERS)",
+        "url": "https://www.ksrevenue.gov/pdf/schs25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Frequently Asked Questions About Individual Income Tax (Social Security and pensions)",
+        "url": "https://www.ksrevenue.gov/faqs-taxii.html",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "No Kansas publication devoted to retirement income found; the Schedule S help page and FAQ are the closest. Their tax-year currency was not confirmed. Two HTML pages dropped 2026-11-07: incomebook25 and the Schedule S help page carried older-year text."
+  },
+  "KY": {
+    "agency": "Kentucky Department of Revenue",
+    "forms_page_url": "https://revenue.ky.gov/Get-Help/Pages/Forms.aspx",
+    "sources": [
+      {
+        "title": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+        "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule P Pension Income Exclusion",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20P%20(2025).pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 740 Kentucky Individual Income Tax Return",
+        "url": "https://revenue.ky.gov/Forms/740%20(2025).pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule ITC Kentucky Individual Tax Credit Schedule",
+        "url": "https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "The 2025 Form 740 appears to be inside the packet PDF; no separate standalone 2025 Form 740 PDF was found. No Kentucky page specifically about retirement income taxation found. Forms page opened via curl (not WebFetch)."
+  },
+  "LA": {
+    "agency": "Louisiana Department of Revenue",
+    "forms_page_url": "https://revenue.louisiana.gov/tax-forms/individuals/",
+    "sources": [
+      {
+        "title": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form IT-540 Louisiana Resident Income Tax Return",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540WEB-BC-2025-F.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Louisiana Resident Income Tax Return and Instructions page",
+        "url": "https://revenue.louisiana.gov/tax-forms/individuals/it-540-1-1-25/",
+        "kind": "html"
+      },
+      {
+        "title": "FAQ: list of retirement system benefits that may be excluded from Louisiana income tax",
+        "url": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/individual-income-tax/is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Retirement exclusions are on the IT-540 itself (no separate schedule found). Forms and FAQ pages opened; the FAQ's 2025 currency was not confirmed. Another instruction file (IT540i WEB(2025)D11.pdf) exists but was not opened."
+  },
+  "MA": {
+    "agency": "Massachusetts Department of Revenue",
+    "forms_page_url": "https://www.mass.gov/lists/2025-massachusetts-personal-income-tax-forms-and-instructions",
+    "sources": [
+      {
+        "title": "2025 Form 1 Instructions",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 1 Massachusetts Resident Income Tax Return",
+        "url": "https://www.mass.gov/doc/2025-form-1-massachusetts-resident-income-tax-return/download",
+        "kind": "pdf",
+        "unverified_until_fetched": true
+      },
+      {
+        "title": "Differences between MA and federal tax law for personal income",
+        "url": "https://www.mass.gov/info-details/differences-between-ma-and-federal-tax-law-for-personal-income",
+        "kind": "html",
+        "unverified_until_fetched": true
+      },
+      {
+        "title": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States",
+        "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+        "kind": "html"
+      },
+      {
+        "title": "Tax Treatment of Out-of-State Government Pensions for MA Residents",
+        "url": "https://www.mass.gov/info-details/tax-treatment-of-out-of-state-government-pensions-for-ma-residents",
+        "kind": "html"
+      },
+      {
+        "title": "Letter Ruling 81-91: New York State Contributory Pension",
+        "url": "https://www.mass.gov/letter-ruling/letter-ruling-81-91-new-york-state-contributory-pension",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Every michigan.gov / mass.gov / ftb.ca.gov address returned HTTP 403 to WebFetch (including addresses already in the registry), so none could be opened and none are recorded. Candidates seen in search only, NOT verified: https://www.mass.gov/doc/2025-form-1-massachusetts-resident-income-tax-return/download ; https://www.mass.gov/info-details/differences-between-ma-and-federal-tax-law-for-personal-income"
+  },
+  "MD": {
+    "agency": "Comptroller of Maryland",
+    "forms_page_url": "https://services.marylandcomptroller.gov/taxes/en/2025-individual-income-tax-forms?id=kb_article_view&sysparm_article=KB0010134",
+    "sources": [
+      {
+        "title": "2025 Maryland State and Local Tax Forms and Instructions (Resident Booklet)",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 502R Retirement Income",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502r.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 502 Resident Income Tax Return",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/forms/2025/502.pdf",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "ME": {
+    "agency": "Maine Revenue Services",
+    "forms_page_url": "https://www.maine.gov/revenue/tax-return-forms/individual-income-tax-2025",
+    "sources": [
+      {
+        "title": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 1040ME (fillable)",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040ME_fillable.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 1040ME Schedule 1S Other Income Subtractions worksheet",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_sch1_other_sub_mods_wksht_fillable.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Maine Revenue Services Individual Income Tax FAQ (pension income deduction)",
+        "url": "https://www.maine.gov/revenue/faq/individual-income-tax",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule 1S with the Pension Income Deduction Worksheet",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "WebFetch returned 403 for maine.gov; all Maine URLs were opened with curl (HTTP 200, PDF/HTML). A standalone 2025 Schedule 1S PDF was not located (the 'other subtractions' worksheet is a Schedule 1S attachment; pension deduction line is in the general instructions). Gen instructions content was seen via search snippet, not read. No Maine page specifically on retirement income found beyond the FAQ."
+  },
+  "MI": {
+    "agency": "Michigan Department of Treasury",
+    "forms_page_url": "https://www.michigan.gov/taxes/iit",
+    "sources": [
+      {
+        "title": "2025 MI-1040 Forms and Instructions",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 4884 (Retirement and Pension Schedule) instructions",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/4884-Instr.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits)",
+        "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+        "kind": "html",
+        "unverified_until_fetched": true
+      }
+    ],
+    "finder_notes": "Every michigan.gov / mass.gov / ftb.ca.gov address returned HTTP 403 to WebFetch (including addresses already in the registry), so none could be opened and none are recorded. Candidates seen in search only, NOT verified: TY2025/4884.pdf, TY2025/Schedule-1-Instr.pdf under https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/ ; https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1 (RAB 2026-1 retirement and pension)."
+  },
+  "MN": {
+    "agency": "Minnesota Department of Revenue",
+    "forms_page_url": "https://www.revenue.state.mn.us/form-search?search_text=m1",
+    "sources": [
+      {
+        "title": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form M1 Individual Income Tax",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2026-03/m1-25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M1M Income Additions and Subtractions (Social Security subtraction line 12)",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M1QPEN Qualified Public Pension Subtraction",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1qpen-25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Social Security Benefit Subtraction",
+        "url": "https://www.revenue.state.mn.us/social-security-benefit-subtraction",
+        "kind": "html"
+      },
+      {
+        "title": "Qualified Public Pension Subtraction",
+        "url": "https://www.revenue.state.mn.us/public-pension-subtraction",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "m1-inst-25 and m1qpen-25 and M1 form opened via curl (HTTP 200 PDF); an earlier 2026-07 path for the instructions returned 404, the 2026-10 path works. Minnesota revises 2025 files in place, so dated paths may change. Forms page is a search page."
+  },
+  "MO": {
+    "agency": "Missouri Department of Revenue",
+    "forms_page_url": "https://dor.mo.gov/forms/index.php?category=&formName=mo-1040",
+    "sources": [
+      {
+        "title": "2025 Form MO-1040 Instructions",
+        "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form MO-1040 Individual Income Tax Return (fillable)",
+        "url": "https://dor.mo.gov/forms/MO-1040%20Fillable%20Calculating_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form MO-A Individual Income Tax Adjustments (Part 3 pension and Social Security)",
+        "url": "https://dor.mo.gov/forms/MO-A_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Missouri Income Tax Reference Guide",
+        "url": "https://dor.mo.gov/forms/4711_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Pension FAQs",
+        "url": "https://dor.mo.gov/faq/taxation/individual/pension.html",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Instructions, reference guide opened with WebFetch; MO-1040 form, MO-A, pension FAQ and forms page opened via curl. Pension FAQ 2025 currency not confirmed."
+  },
+  "MS": {
+    "agency": "Mississippi Department of Revenue",
+    "forms_page_url": "https://www.dor.ms.gov/forms-resources/form-search",
+    "sources": [
+      {
+        "title": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 80-105 Resident Return (Rev. 09/25)",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80105258%201.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Individual Income Tax Frequently Asked Questions (retirement income, Social Security)",
+        "url": "https://www.dor.ms.gov/individual/individual-income-tax-frequently-asked-questions",
+        "kind": "html"
+      },
+      {
+        "title": "Mississippi Administrative Code Title 35 Part III Income and Franchise (DOR finalized regulations; Subpart 02 Chapter 07 retirement allowances, page 18)",
+        "url": "https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Form 80-105 opened via curl (HTTP 200 PDF). No separate retirement schedule exists (exemption is on the return); the dor.ms.gov Resident Return page (node/5527) only linked the 2020 form. FAQ 2025 currency not confirmed."
+  },
+  "MT": {
+    "agency": "Montana Department of Revenue",
+    "forms_page_url": "https://revenue.mt.gov/forms/",
+    "sources": [
+      {
+        "title": "2025 Montana Individual Income Tax Return (Form 2) Instructions",
+        "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Montana Individual Income Tax Return Form 2",
+        "url": "https://revenuefiles.mt.gov/files/Forms/Montana-Individual-Income-Tax-Return-Form-2/2025_Montana_Individual_Income_Tax_Return_Form_2.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Montana Tax Simplification Resource Hub (pensions, Social Security, age 65 subtraction)",
+        "url": "https://revenue.mt.gov/montana-tax-simplification-resource-hub",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "PDFs came back as binary/encrypted content; year taken from file name. Form 2 PDF address came from the agency's listing page path on host revenuefiles.mt.gov. Overview-of-changes PDF opened but its year was not confirmed so not recorded. No dedicated retirement publication found besides the simplification hub."
+  },
+  "NC": {
+    "agency": "North Carolina Department of Revenue",
+    "forms_page_url": "https://www.ncdor.gov/taxes-forms/individual-income-tax/individual-income-tax-forms-instructions",
+    "sources": [
+      {
+        "title": "2025 D-401 Individual Income Tax Instructions",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form D-400 Schedule S (Supplemental Schedule)",
+        "url": "https://www.ncdor.gov/2025-d-400-schedule-s-web-fill-version/open",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "ND": {
+    "agency": "North Dakota Office of State Tax Commissioner",
+    "forms_page_url": "https://www.tax.nd.gov/forms",
+    "sources": [
+      {
+        "title": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form ND-1",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28702-form-nd-1-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule ND-1SA Statutory Adjustments",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule ND-1TC (other credits)",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28742-schedule-nd-1tc-2025.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "No agency page specifically on retirement/Social Security taxation found. The military service members guideline PDF opened but is not general retirement guidance (not recorded). Social Security and military retirement exclusions are lines 14-15 of ND-1 per the form."
+  },
+  "NE": {
+    "agency": "Nebraska Department of Revenue",
+    "forms_page_url": "https://revenue.nebraska.gov/about/forms/individual-income-tax-forms",
+    "sources": [
+      {
+        "title": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025)",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 1040N Nebraska Individual Income Tax Return",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 1040N Schedule I (Social Security and other adjustments)",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N_Schs.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Forms page opened by WebFetch only as text summary (not confirmed independently). No standalone agency page on retirement/Social Security taxation found; the booklet covers it."
+  },
+  "NH": {
+    "agency": "New Hampshire Department of Revenue Administration",
+    "forms_page_url": "https://www.revenue.nh.gov/",
+    "sources": [
+      {
+        "title": "Repeal of NH Interest and Dividends Tax Now in Effect",
+        "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect",
+        "kind": "html",
+        "unverified_until_fetched": true
+      },
+      {
+        "title": "Press release 2025-02-12: 2025 tax updates and filing guidance",
+        "url": "https://www.revenue.nh.gov/sites/g/files/ehbemt736/files/documents/2025-tax-updates-guidance-press-release-02122025.pdf",
+        "kind": "pdf",
+        "unverified_until_fetched": true
+      }
+    ],
+    "finder_notes": "Every revenue.nh.gov address returned HTTP 403 to WebFetch and to curl, so none could be opened and none are recorded. Search found candidates (not verified): /news-and-media/interest-dividends-tax-repeal, /news-and-media/repeal-nh-interest-and-dividends-tax-now-effect, and the 2025-001 technical information release PDF on repeal. Watch: DRA fiscal note on HB 503 (2025) would reinstate a 5% interest and dividends tax for periods ending on or after 2025-12-31; status not verified."
+  },
+  "NJ": {
+    "agency": "New Jersey Division of Taxation",
+    "forms_page_url": "https://www.nj.gov/treasury/taxation/prntgit.shtml",
+    "sources": [
+      {
+        "title": "2025 NJ-1040 Instructions",
+        "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form NJ-1040 Resident Income Tax Return",
+        "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Retirement Income Exclusions",
+        "url": "https://www.nj.gov/treasury/taxation/njit7.shtml",
+        "kind": "html"
+      },
+      {
+        "title": "GIT-1 & 2 Tax Topic Bulletin (pensions and annuities), January 2026",
+        "url": "https://www.nj.gov/treasury/taxation/pdf/pubs/tgi-ee/git1&2.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Division of Taxation: NJ Income Tax, Retirement Income",
+        "url": "https://www.nj.gov/treasury/taxation/njit6.shtml",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Retirement exclusion lines are within the NJ-1040 and its instructions; no separate schedule. GIT-1 (Rev. 12/18) also opened but is older so not recorded. The Retiring in New Jersey guide is dated April 2022 and was not opened."
+  },
+  "NM": {
+    "agency": "New Mexico Taxation and Revenue Department",
+    "forms_page_url": "https://www.tax.newmexico.gov/individuals/online-services-overview/personal-income-tax-forms/",
+    "sources": [
+      {
+        "title": "2025 PIT-1 Personal Income Tax Return Instructions",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Instructions for 2025 PIT-ADJ",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Social Security Income Tax Exemption",
+        "url": "https://www.tax.newmexico.gov/social-security-income-tax-exemption/",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Tax Rate Table (Tax Look Up Table)",
+        "url": "https://realfile.tax.newmexico.gov/2025trt.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PIT-1 Personal Income Tax Return",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-1.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PIT-ADJ Schedule of Additions, Deductions and Exemptions",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-adj.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PIT-RC Rebate and Credit Schedule",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-rc.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PIT-B Allocation and Apportionment",
+        "url": "https://realfile.tax.newmexico.gov/2025pit-b.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "Could not find an address for the 2025 PIT-1 return form itself or the PIT-ADJ schedule (forms page loads them dynamically). No page specifically on pension/IRA taxation found. Social Security page is general (begins tax year 2022)."
+  },
+  "NV": {
+    "agency": "Nevada Department of Taxation",
+    "forms_page_url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+    "sources": [
+      {
+        "title": "Income Tax in Nevada",
+        "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Page states Nevada imposes no state income tax on individuals and no tax on salaries, wages or similar compensation. No dated 2025 publication found; the FAQ page opened but does not mention income tax."
+  },
+  "NY": {
+    "agency": "New York State Department of Taxation and Finance",
+    "forms_page_url": "https://www.tax.ny.gov/forms/",
+    "sources": [
+      {
+        "title": "Instructions for Form IT-201 (2025)",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Form IT-201 (2025) Resident Income Tax Return",
+        "url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Information for retired persons (NYS Department of Taxation and Finance)",
+        "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+        "kind": "html"
+      }
+    ]
+  },
+  "OH": {
+    "agency": "Ohio Department of Taxation",
+    "forms_page_url": "https://tax.ohio.gov/home/forms",
+    "sources": [
+      {
+        "title": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Ohio IT 1040 bundle (return, Schedule of Adjustments, Schedule of Credits)",
+        "url": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2025/1040-bundle-original-fi.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Senior Citizens and Ohio Income Taxes (Social Security, pensions, IRA)",
+        "url": "https://tax.ohio.gov/individual/file-now/senior-citizens-and-ohio-income-tax",
+        "kind": "html"
+      },
+      {
+        "title": "Income - Retirement Income (Department FAQ)",
+        "url": "https://tax.ohio.gov/help-center/faqs/income-retirement-income/income-retirement-income",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "WebFetch got 404 for several tax.ohio.gov pages that curl opened with HTTP 200 (forms page, senior page, bundle PDF), so those were verified with curl; booklet verified by WebFetch binary. Senior page is undated; may not be tied to 2025."
+  },
+  "OK": {
+    "agency": "Oklahoma Tax Commission",
+    "forms_page_url": "https://oklahoma.gov/tax/helpcenter/income-tax.html",
+    "sources": [
+      {
+        "title": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet, includes Schedule 511-A)",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Help Center: Individual Income Tax (Social Security and retirement exclusions)",
+        "url": "https://oklahoma.gov/tax/helpcenter/income-tax.html",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Packet bundles instructions, Form 511 and Schedule 511-A in one PDF, so no separate form/schedule address. Help center page is undated."
+  },
+  "OR": {
+    "agency": "Oregon Department of Revenue",
+    "forms_page_url": "https://www.oregon.gov/dor/forms/Pages/default.aspx",
+    "sources": [
+      {
+        "title": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form OR-40 Oregon Individual Income Tax Return for Full-year Residents",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40_101-040_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule OR-ASC and OR-ASC-NP Instructions (federal pension subtraction and other adjustments)",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/sch_or-asc_or-asc-np-inst_101-063-1_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Publication OR-17, Oregon Individual Income Tax Guide (retirement income, Social Security)",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Oregon DOR Personal Income Tax page (states Oregon does not tax Social Security or Railroad Retirement benefits)",
+        "url": "https://www.oregon.gov/dor/programs/individuals/pages/pit.aspx",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "All opened. PDFs came back as binary so titles/years rest on the search-result titles and file names (2025 in names). Schedule OR-ASC-NP instructions page text could not be read to confirm it carries the federal pension subtraction; the separate OR-ASC schedule form itself was not located. Form OR-40 PDF metadata date looked old (2024) but search title says 2025."
+  },
+  "PA": {
+    "agency": "Pennsylvania Department of Revenue",
+    "forms_page_url": "https://www.pa.gov/agencies/revenue",
+    "sources": [
+      {
+        "title": "2025 PA-40 Instructions",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 PA-40 Pennsylvania Income Tax Return",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "PA Personal Income Tax Guide: Gross Compensation (covers retirement, pension, IRA, Social Security treatment)",
+        "url": "https://www.pa.gov/agencies/revenue/forms-and-publications/pa-personal-income-tax-guide/gross-compensation",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "No dedicated agency retirement-income page found; the guide chapter is the closest (ongoing guide, not year-stamped). REV-581 (opened, 2023 one-page PDF) title unreadable so not added. Guide's retirement-plan bulletins 2005-03/2005-05 not opened."
+  },
+  "RI": {
+    "agency": "Rhode Island Division of Taxation",
+    "forms_page_url": "https://tax.ri.gov/forms/individual-tax-forms/personal-income-tax-forms",
+    "sources": [
+      {
+        "title": "2025 RI-1040 Resident booklet (returns and instructions)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 RI-1040 Schedule M (modifications incl. Social Security and pension)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/2025%201041%20Schedule%20M_w.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 RI Schedule M (resident)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/2025%20RI%20Schedule%20M_w.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Social Security Worksheet",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/Social%20Security%20Worksheet_b.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "ADV 2025-20: H.R. 1 Rhode Island decoupling guidance",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-10/ADV_2025_20_H.R._1_RI-Decoupling-Guidance.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Tax Rate and Worksheets (standard deduction and exemption worksheets)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-10/2025%20Tax%20Rate%20and%20Worksheets_d.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Tax Rate and Worksheets (final, January 2026; standard deduction and exemption worksheets, tax rate schedule)",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/2025%20Tax%20Rate%20and%20Worksheets.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "All opened as binary PDFs. The forms page returned 403 to WebFetch but 200 via curl with a browser user agent. 2025 1040WE (wage/withholding form, file 2025_1040WE_v2_bd.pdf, DRAFT 10/01/2025 watermark) was opened but is a draft layout, so not listed. The resident return form is inside the booklet; no separate stand-alone RI-1040 PDF found."
+  },
+  "SC": {
+    "agency": "South Carolina Department of Revenue",
+    "forms_page_url": "https://dor.sc.gov/forms",
+    "sources": [
+      {
+        "title": "2025 SC1040 Individual Income Tax Instructions",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "SCDOR Information Letter #26-4 (Revised), Jan 30 2026: 2025 federal changes South Carolina does not adopt",
+        "url": "https://dor.sc.gov/sites/dor/files/policies/IL26-4(revised).pdf",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "SD": {
+    "agency": "South Dakota Department of Revenue",
+    "forms_page_url": "https://dor.sd.gov/individuals/taxes/",
+    "sources": [
+      {
+        "title": "Taxes | South Dakota Department of Revenue (states SD does not impose a state income tax)",
+        "url": "https://dor.sd.gov/individuals/taxes/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Taxes page opened and quoted. A January 2026 sales/use tax guide PDF (dor.sd.gov/media/kavh1fzg/2026-1_sales-use-tax-guide.pdf) also states no personal income tax but was not opened, so not recorded. No income tax forms exist."
+  },
+  "TN": {
+    "agency": "Tennessee Department of Revenue",
+    "forms_page_url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+    "sources": [
+      {
+        "title": "Hall Income Tax (repealed for tax periods beginning January 1, 2021 or later)",
+        "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "WebFetch got 403 on tn.gov and revenue.support.tn.gov; the Hall page opened via curl with a browser user agent and its text confirms the repeal. The department's explicit 'no income tax on wages / Social Security, pensions not taxed' help articles (revenue.support.tn.gov HIT-18, GEN-34) returned 403 even via curl, so not recorded."
+  },
+  "TX": {
+    "agency": "Texas Comptroller of Public Accounts",
+    "forms_page_url": "https://comptroller.texas.gov/taxes/",
+    "sources": [
+      {
+        "title": "Texas is open for small business (Comptroller, states Texas has no state income tax)",
+        "url": "https://comptroller.texas.gov/economy/fiscal-notes/industry/2025/small-biz-info/",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Opened. Comptroller Taxes page opened but does not itself mention personal income tax. The 1996 STAR letter (star.comptroller.texas.gov/view/9610803L) stating no individual income tax was not opened, so not recorded."
+  },
+  "US": {
+    "agency": "U.S. federal government (IRS, CMS, SSA, Treasury)",
+    "forms_page_url": "https://www.irs.gov/forms-instructions",
+    "sources": [
+      {
+        "title": "4 U.S.C. 114, Limitation on State income taxation of certain pension income (U.S. Code, 2024 edition)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title4/pdf/USCODE-2024-title4-chap4-sec114.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Rev. Proc. 2024-40, 2025 inflation adjustments (tax rate schedules, standard deduction, other adjusted amounts)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-24-40.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Instructions for Form 1040 and 1040-SR (2025), includes the Schedule 1-A instructions",
+        "url": "https://www.irs.gov/pub/irs-prior/i1040gi--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule 1-A (Form 1040), Additional Deductions (tips, overtime, car loan interest, senior deduction); no separate instructions, they are in the Form 1040 instructions",
+        "url": "https://www.irs.gov/pub/irs-prior/f1040s1a--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Publication 915 (2025), Social Security and Equivalent Railroad Retirement Benefits",
+        "url": "https://www.irs.gov/pub/irs-prior/p915--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Instructions for Form 8960, Net Investment Income Tax",
+        "url": "https://www.irs.gov/pub/irs-prior/i8960--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Instructions for Form 8959, Additional Medicare Tax",
+        "url": "https://www.irs.gov/pub/irs-prior/i8959--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "IRS Notice 2024-80, 2025 amounts relating to retirement plans and IRAs",
+        "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Publication 590-B (2025), Distributions from Individual Retirement Arrangements (IRAs), includes RMD life expectancy tables (Appendix B)",
+        "url": "https://www.irs.gov/pub/irs-prior/p590b--2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "26 CFR 1.401(a)(9)-9, Life expectancy and distribution period tables (eCFR)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-26?part=1&section=1.401(a)(9)-9",
+        "kind": "html"
+      },
+      {
+        "title": "CMS fact sheet: 2025 Medicare Parts A & B Premiums and Deductibles (includes Part B and Part D income-related monthly adjustment amount tables)",
+        "url": "https://www.cms.gov/newsroom/fact-sheets/2025-medicare-parts-b-premiums-and-deductibles",
+        "kind": "html"
+      },
+      {
+        "title": "SSA 2025 Cost-of-Living Adjustment (COLA) Fact Sheet (contribution and benefit base, earnings test)",
+        "url": "https://www.ssa.gov/news/assets/materials/press/factsheets/colafacts2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "SSA 2025 Cost-of-Living Adjustment (COLA) Fact Sheet, web page version",
+        "url": "https://www.ssa.gov/news/en/cola/factsheets/2025.html",
+        "kind": "html"
+      },
+      {
+        "title": "Public Law 119-21 (One Big Beautiful Bill Act), enrolled text (govinfo)",
+        "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "26 U.S.C. 1 (U.S. Code, 2024 edition, govinfo): Tax imposed: rate schedules and inflation adjustment (1(f), 1(h), 1(j))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 63 (U.S. Code, 2024 edition, govinfo): Taxable income defined: standard deduction (63(c), 63(f))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 151 (U.S. Code, 2024 edition, govinfo): Allowance of deductions for personal exemptions (151(d))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partV-sec151.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 86 (U.S. Code, 2024 edition, govinfo): Social security and tier 1 railroad retirement benefits",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 1411 (U.S. Code, 2024 edition, govinfo): Net investment income tax",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2A-sec1411.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 164 (U.S. Code, 2024 edition, govinfo): Taxes (164(b)(6) state and local tax limit)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVI-sec164.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 219 (U.S. Code, 2024 edition, govinfo): Retirement savings (IRA limit 219(b)(5))",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 402 (U.S. Code, 2024 edition, govinfo): Taxability of beneficiary of employees' trust (402(g) elective deferral limit)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 414 (U.S. Code, 2024 edition, govinfo): Definitions and special rules (414(v) catch-up contributions)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 408 (U.S. Code, 2024 edition, govinfo): Individual retirement accounts (408(d)(8) qualified charitable distributions)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 408A (U.S. Code, 2024 edition, govinfo): Roth IRAs (408A(c)(3) contribution limit phase-out)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 401 (U.S. Code, 2024 edition, govinfo): Qualified pension, profit-sharing, and stock bonus plans (401(a)(9) required beginning date)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 223 (U.S. Code, 2024 edition, govinfo): Health savings accounts",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 3101 (U.S. Code, 2024 edition, govinfo): Rate of tax (FICA employee; 3101(b)(2) additional Medicare tax)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 1401 (U.S. Code, 2024 edition, govinfo): Rate of tax (self-employment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 430 (U.S. Code, 2024 edition, govinfo): Adjustment of contribution and benefit base",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec430.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 1395r (U.S. Code, 2024 edition, govinfo): Amount of premiums for individuals enrolled under Part B (1395r(i) income-related adjustment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 1395w-113 (U.S. Code, 2024 edition, govinfo): Premiums; late enrollment penalty (Part D income-related adjustment)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 CFR 408.27 Rounding of monthly premium (eCFR)",
+        "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-42?part=408&section=408.27",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Federal sources for tax years 2025 and 2026. IRS PDFs use the prior-year archive address (irs.gov/pub/irs-prior/<name>--2025.pdf) where one exists; each was opened and the title page confirmed as the 2025 edition. Schedule 1-A has no separate instructions: they are in the Form 1040 instructions. CMS fact sheet carries the Part B and Part D IRMAA tables. The 26 U.S.C. and 42 U.S.C. sections on uscode.house.gov could not be registered: the site was in a temporary format and every view.xhtml address returned 404 on 2026-11-07. The 4 U.S.C. 114 source is kept from an earlier entry. Tax year 2026 sources are in registry.2026.json."
+  },
+  "UT": {
+    "agency": "Utah State Tax Commission",
+    "forms_page_url": "https://tax.utah.gov/forms/",
+    "sources": [
+      {
+        "title": "2025 TC-40 Instructions",
+        "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "TC-40 Utah Individual Income Tax Return (current)",
+        "url": "https://files.tax.utah.gov/tax/forms/current/tc-40.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "TC-40A Supplemental Schedule (current)",
+        "url": "https://files.tax.utah.gov/tax/forms/current/tc-40a.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 TC-40A instructions: Retirement Credit (18) and Social Security Benefits Credit (AH)",
+        "url": "https://incometax.utah.gov/tc-40a/",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Utah income tax credits list",
+        "url": "https://incometax.utah.gov/credits",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "PDFs are under /current/ with no year in the text I could read (metadata modified mid-2025). TC-40C retirement schedule only exists as a 2020 version, not added."
+  },
+  "VA": {
+    "agency": "Virginia Department of Taxation",
+    "forms_page_url": "https://www.tax.virginia.gov/individual-income-tax-forms",
+    "sources": [
+      {
+        "title": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Form 760 Resident Individual Income Tax Return",
+        "url": "https://www.tax.virginia.gov/sites/default/files/taxforms/individual-income-tax/2025/760-2025.pdf",
+        "kind": "pdf"
+      }
+    ]
+  },
+  "VT": {
+    "agency": "Vermont Department of Taxes",
+    "forms_page_url": "https://tax.vermont.gov/all-forms",
+    "sources": [
+      {
+        "title": "Tax Year 2025 Vermont Income Tax Return Booklet (IN-111, IN-112 etc.)",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Instructions IN-111",
+        "url": "https://tax.vermont.gov/document/2025-111-instructions",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Form IN-111 Vermont Income Tax Return",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule IN-112 Tax Adjustments and Credits",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule IN-112 Instructions (Social Security and retirement income exemption worksheets)",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Seniors and Retirees (Social Security and retirement income exemptions)",
+        "url": "https://tax.vermont.gov/individuals/seniors-and-retirees",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule IN-153 Capital Gains Exclusion",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-153-2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule IN-119 Economic Incentive and Elderly Credits",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-119-2025.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "All opened. Seniors page names no tax year and its thresholds ($50k/$65k) differ from the 2025 IN-112 instruction worksheet ($55k-$65k single, $70k-$80k joint per search snippet), so prefer the IN-112 instructions for 2025. The IN-111 instructions URL is an HTML landing page that links the PDF (IN-111-Instr-2025.pdf, direct PDF URL not opened)."
+  },
+  "WA": {
+    "agency": "Washington Department of Revenue",
+    "forms_page_url": "https://dor.wa.gov/forms-publications/forms-name-i",
+    "sources": [
+      {
+        "title": "Income tax (Washington does not currently have an individual income tax)",
+        "url": "https://dor.wa.gov/taxes-rates/income-tax",
+        "kind": "html"
+      },
+      {
+        "title": "Capital gains tax (standard deduction $278,000 for 2025; retirement accounts and real estate exempt)",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "kind": "html"
+      },
+      {
+        "title": "New tiered rates for Washington's capital gains tax (7% to $1M, 9.9% above, from tax year 2025)",
+        "url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+        "kind": "html"
+      },
+      {
+        "title": "Do you owe capital gains tax?",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax/do-you-owe-capital-gains-tax",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "All opened. No separate capital gains instruction PDF or form PDF found; returns are filed online. The income tax page also says a 9.9% tax on AGI over $1 million starts January 1, 2028 (SB 6346), irrelevant to 2025. forms_page_url is the 'Forms by name: I' index, not a dedicated capital gains forms page."
+  },
+  "WI": {
+    "agency": "Wisconsin Department of Revenue",
+    "forms_page_url": "https://www.revenue.wi.gov/Pages/Individuals/income.aspx",
+    "sources": [
+      {
+        "title": "2025 I-111 Form 1 Instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 I-010 Form 1, Wisconsin income tax",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule SB (subtractions from income) ",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule SB Instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Publication 126, How Your Retirement Benefits Are Taxed (1/26)",
+        "url": "https://www.revenue.wi.gov/DOR%20Publications/pb126.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Wisconsin Tax Information for Retirees, Publication 106",
+        "url": "https://www.revenue.wi.gov/DOR%20Publications/pb106.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Wisconsin Taxation of Social Security and Pension Benefits (FAQ)",
+        "url": "https://www.revenue.wi.gov/Pages/FAQS/pcs-retired.aspx",
+        "kind": "html"
+      },
+      {
+        "title": "2025 Schedule AD Instructions (additions)",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleAD-Inst.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule AD",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleAD.pdf",
+        "kind": "pdf"
+      }
+    ],
+    "finder_notes": "All opened. PDFs returned as binary so the Schedule SB form PDF title (2025-ScheduleSB.pdf) is inferred from file name and was not read; pb106 date/year could not be confirmed (may be older than 2025; pb126 is dated 1/26 per search title). The department's Forms page /Pages/Individuals/Forms.aspx returned 404, so forms_page_url is the Individual Income Tax page which links Form 1 and the 2025 instructions page."
+  },
+  "WV": {
+    "agency": "West Virginia State Tax Department",
+    "forms_page_url": "https://tax.wv.gov/individuals",
+    "sources": [
+      {
+        "title": "2025 IT-140 Personal Income Tax Forms and Instructions",
+        "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "2025 Schedule M (Modifications to Federal AGI)",
+        "url": "https://tax.wv.gov/Documents/PIT/2025/it140.Schedule-M.2025.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "Social Security Modification (65% decreasing modification for tax year 2025)",
+        "url": "https://tax.wv.gov/Individuals/SeniorCitizens/Pages/SeniorCitizenSocialSecurityModification.aspx",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "All opened. Schedule M PDF is encrypted/binary so its content was not read. The stand-alone 2025 IT-140 return PDF (it140.2025.pdf) was not located; the return is inside the booklet. The Senior Citizens Tax Credit page (/Individuals/SeniorCitizens/Pages/SeniorCitizensTaxCredit.aspx) was listed on the individuals page but not opened."
+  },
+  "WY": {
+    "agency": "State of Wyoming (Department of Revenue has no income tax division)",
+    "forms_page_url": "https://revenue.wyo.gov/",
+    "sources": [
+      {
+        "title": "State of Wyoming - About Wyoming (states Wyoming has no individual or corporate income tax)",
+        "url": "https://www.wyo.gov/about-wyoming",
+        "kind": "html"
+      }
+    ],
+    "finder_notes": "Gap: the Wyoming Department of Revenue site (revenue.wyo.gov home and admin-faqs, both opened) never states that there is no income tax; its divisions are excise, mineral, property tax. The only statement found is on the state portal wyo.gov, not the tax agency."
+  }
+}

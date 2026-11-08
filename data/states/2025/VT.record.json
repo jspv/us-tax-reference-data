@@ -1,0 +1,688 @@
+{
+ "layer": "record",
+ "state": "VT",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Starting point: federal AGI (IN-111 Line 1) plus net Schedule IN-112 modifications (Line 2), less the standard deduction and personal exemptions (Lines 4-7). Vermont Taxable Income is on Line 7.",
+  "Government pension of another state, and a New York State pension in particular: New York is not named anywhere in the sources and no reciprocity rule is printed. The only wording is the worksheet's 'a contributory annuity, pension, endowment, or retirement system of the U.S. government or a state government, including the Civil Service Retirement System'. public_pension_other_state is in covers of vt_other_retirement_exemption. Without that exemption (a plan that is not contributory, or earnings covered by Social Security) it stays in federal AGI with no subtraction line.",
+  "Vermont's own and federal government pensions: no general relief. Only the same worksheet wording (Vermont's as 'a state government', federal as 'the U.S. government', including the Civil Service Retirement System). Local government pensions are not named: not found in the booklet.",
+  "Private pensions, IRA distributions, employer-plan distributions and Roth conversions: no subtraction line for them on Schedule IN-112 (booklet PDF page 23, Lines 7-16) and no relief in any document. The booklet does not say in a sentence that they are taxed; they stay in federal AGI, IN-111 Line 1. The word Roth appears only in the household income instructions for the property tax and renter credits (PDF page 43). Roth conversions: not found in the booklet.",
+  "Social Security: partly exempt by election. 'You can choose to exempt your taxable social security income' (worksheet question 1). A filer over the AGI limits, or one who elects another exemption, has no other subtraction for it, and the Seniors and Retirees page speaks of benefits 'taxable in Vermont'.",
+  "Only one of the Social Security, CSRS and other-systems exemptions per return. The military exemption is outside that limit: Line 13 lets a filer electing it 'claim one additional exclusion, if eligible, enumerated by 32 V.S.A. 5830e'. Railroad Retirement (Line 14) is a separate line in full. The statute itself is not in the sources.",
+  "The IN-112 instructions and the booklet print the same retirement worksheet word for word.",
+  "Tax tables: taxable income under 75,000 uses the tables on PDF pages 47-51. All 750 printed rows, four columns each, were computed at their midpoint from the schedule rates: every row is within 2 dollars of the schedule, and the only row over 1 dollar is the first (0 to 100, printed 0). The rows are not recorded because the schedule is itself printed.",
+  "Minimum tax: when federal AGI is greater than 150,000, Line 8 is the higher of 3% of federal AGI less interest from U.S. obligations, or the schedule tax (PDF pages 11 and 46). The test is on federal AGI; the base of the 3% takes off the interest.",
+  "Additions to Vermont tax not held by any field (IN-119 Lines 1-5, booklet PDF page 11 Line 9): 24% of federal tax on qualified plans including IRA, HSA and MSA, of recapture of the federal investment tax credit, and of tax on lump-sum distributions from federal Form 4972. Self-employment income also pays the Child Care Contribution of 0.11% (IN-111 Line 21, booklet PDF page 12).",
+  "Medical Expenses Deduction (Schedule IN-112 Line 11, booklet PDF page 33): medical and dental expense from federal Schedule A Line 4, less non-allowable expenses such as retirement community fees, less IN-111 Line 6. No field holds it. Student loan interest subtraction (Line 16, not over AGI 200,000 joint or 120,000 others).",
+  "Credits on the forms not recorded as reliefs: Tax-Deductible Charitable Contribution (5% of the first 20,000, IN-111 Line 13), credit for income tax paid to another state (Schedule IN-117), Child and Dependent Care Credit (72% of federal), Child Tax Credit (1,000 per child born 2019-2025, phased down above AGI 125,000), Earned Income Tax Credit (38% of federal with a qualifying child), Veteran Tax Credit (250, phased out from AGI 25,000 to 30,000), and the IN-119 Part II business credits. Property Tax Credit and Renter Credit are separate claims on household income.",
+  "Indexing: the booklet never uses the word inflation. The only statement is on the Seniors and Retirees page, for the additional age and blind amount. That page's amount is stale for 2025 (see below), but the sentence is the only source, so it is recorded with its cite.",
+  "Civil unions follow married status (worksheet note; Schedules Y-1 and Y-2). Qualifying Widow(er) uses the joint schedule and joint standard deduction, but the retirement worksheet puts 'surviving spouse' with the 55,000 and 65,000 limits.",
+  "The separate IN-111 instructions page could not be fetched (HTTP 403); the booklet's line instructions were read in its place. Reader notes that Schedules IN-153 and IN-119 were missing are out of date: both are in the sources now and are used here.",
+  "Page conflict (the page carries no date, only 'Copyright 2026' in the footer): Social Security exemption full up to AGI 65,000 joint or 50,000 others, ending at 75,000 or 60,000. The 2025 worksheet gives 70,000 or 55,000, ending at 80,000 or 65,000. The worksheet governs.",
+  "Page conflict: CSRS and other systems limited to joint filers who 'earned $75,000 or less' and others '$60,000 or less'. The 2025 worksheet gives under 80,000 or 65,000. The worksheet governs.",
+  "Page conflict: additional deduction for age or blindness $1,000, and the filer 'must also have qualified and received the deduction at the federal level'. The 2025 booklet prints $1,250 for each standard deduction box checked on federal Form 1040. The booklet governs.",
+  "Page conflict: 'A taxpayer can only claim one' of Social Security, Military Retirement, CSRS or Other Retirement System. The 2025 Line 13 instructions let a filer using the military exemption claim one more. The booklet governs.",
+  "Page conflict: military exemption of 'the first $10,000', below 'the thresholds for the Social Security exemption'. The 2025 Line 13 and worksheet exempt all of it up to AGI 125,000, ending at 175,000. The booklet governs.",
+  "Settlement 2026-11-07: brackets: A merged the rows at 75,000, B kept them with their base tax; booklet PDF page 46 prints the rows and the worked example (85,000 joint: base 2,764 plus 165 is 2,929), so the printed rows are kept.",
+  "Settlement 2026-11-07: vt_dependent_exemption: A folded dependents into the personal exemption, B wrote them apart; booklet PDF page 11 Line 5c counts them apart and the schema has a kind for them, so kept apart.",
+  "Settlement 2026-11-07: recapture full_rate: A said 0.03, B left it out; booklet PDF page 11 Line 8 prints 3%, kept.",
+  "Settlement 2026-11-07: covers of the other-systems exemption: A put public_pension_other_state in covers_unclear, B in covers; booklet PDF page 16 says 'a state government' with no limit to Vermont, and the same documents write 'Vermont' or 'non-Vermont' when they mean it (IN-112 Instructions PDF page 1, 'A Vermont obligation is one from the state of Vermont or a Vermont municipality'), so covers.",
+  "Settlement 2026-11-07: annuity in covers of the other-systems exemption: A listed it, B did not; booklet PDF page 16 names only an annuity of the U.S. government or a state government, which is a public pension kind, so annuity is dropped and the words stay in other_conditions.",
+  "Settlement 2026-11-07: income_test.effect of the retirement and military exemptions: A said phase_out_rate with 0.0001 and 0.00002, B said other; booklet PDF pages 16-17 multiply the exemption by a rounded fraction, a share, while phase_out_rate means a reduction per dollar, so other, with the printed ends of the fraction in steps.",
+  "Settlement 2026-11-07: vt_authority_bond_interest: A recorded it, B only in notes; IN-112 Instructions PDF page 4 Line 15 prints it as exempt, kept as a relief.",
+  "Settlement 2026-11-07: cap_per and who.basis of the 10,000 exemptions: both readers said return, A with a doubt; booklet PDF page 16 prints one amount for every status, one election and one line, and no per-spouse wording, so return. The contributory and Social Security tests fall on the income, not on a person.",
+  "Settlement 2026-11-07: capital_gains: both readers left it empty because Schedule IN-153 was missing; IN-153 is now in the sources and prints the 5,000 flat exclusion, the 40% exclusion to 350,000, and the 40% of federal taxable income limit, all recorded.",
+  "Settlement 2026-11-07: vt_elderly_disabled_credit: both readers left it out for want of Schedule IN-119; IN-119 Part I Lines 8, 11 and 12 print 24% of the federal Schedule R credit, recorded as a relief.",
+  "Format v1 2026-11-07: income_test of the Social Security, CSRS, other-systems and military exemptions: effect other with the two printed ends in steps becomes share_phase_out, width 10,000 (retirement worksheet Line 7, booklet PDF page 16) or 50,000 (military worksheet Line 7, PDF page 17), share_decimals 2 ('round to the second decimal place'). This replaces the 2026-11-07 settlement of effect other, which was chosen only because the schema then had no straight-line share."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0335",
+    "start": "0"
+   },
+   {
+    "rate": "0.066",
+    "start": "49400",
+    "base": "1655"
+   },
+   {
+    "rate": "0.066",
+    "start": "75000",
+    "base": "3345"
+   },
+   {
+    "rate": "0.076",
+    "start": "119700",
+    "base": "6295"
+   },
+   {
+    "rate": "0.0875",
+    "start": "249700",
+    "base": "16175"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0335",
+    "start": "0"
+   },
+   {
+    "rate": "0.0335",
+    "start": "75000",
+    "base": "2513"
+   },
+   {
+    "rate": "0.066",
+    "start": "82500",
+    "base": "2764"
+   },
+   {
+    "rate": "0.076",
+    "start": "199450",
+    "base": "10482"
+   },
+   {
+    "rate": "0.0875",
+    "start": "304000",
+    "base": "18428"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0335",
+    "start": "0"
+   },
+   {
+    "rate": "0.066",
+    "start": "41250",
+    "base": "1382"
+   },
+   {
+    "rate": "0.066",
+    "start": "75000",
+    "base": "3609"
+   },
+   {
+    "rate": "0.076",
+    "start": "99725",
+    "base": "5241"
+   },
+   {
+    "rate": "0.0875",
+    "start": "152000",
+    "base": "9214"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0335",
+    "start": "0"
+   },
+   {
+    "rate": "0.066",
+    "start": "66200",
+    "base": "2218"
+   },
+   {
+    "rate": "0.066",
+    "start": "75000",
+    "base": "2799"
+   },
+   {
+    "rate": "0.076",
+    "start": "171000",
+    "base": "9135"
+   },
+   {
+    "rate": "0.0875",
+    "start": "276850",
+    "base": "17179"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Vermont Income Tax Return Booklet",
+   "section": "PDF page 46, 2025 Vermont Tax Rate Schedules X, Y-1, Y-2 and Z; tax tables PDF pages 47-51",
+   "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "vt_standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "7650",
+     "married_joint": "15300",
+     "married_separate": "7650",
+     "head_of_household": "11450",
+     "qualifying_surviving_spouse": "15300"
+    },
+    "per": "return",
+    "condition": "Form IN-111 Line 4 says to see the instructions if the filer or spouse checked any standard deduction boxes on federal Form 1040, page 1 (the extra amounts below). The booklet prints no itemized deduction.",
+    "cite": {
+     "publication": "2025 Vermont Income Tax Return Booklet",
+     "section": "PDF page 11, standard deduction chart; PDF page 19 (Form IN-111) filing status boxes",
+     "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "vt_age_65_additional",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "1250"
+    },
+    "per": "person",
+    "condition": "Born before Jan. 2, 1961: an additional $1,250 for each standard deduction box checked on federal Form 1040. Chart totals: single 8,900 (1 box) / 10,150 (2); joint or Qualifying Widow(er) 16,550 / 17,800 / 19,050 / 20,300 (1-4); separate 8,900 / 10,150 / 11,400 / 12,650 (1-4); head of household 12,700 / 13,950 (1-2).",
+    "cite": {
+     "publication": "2025 Vermont Income Tax Return Booklet",
+     "section": "PDF page 10, Line 4, and PDF page 11, chart",
+     "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "vt_blind_additional",
+    "what": "blind_exemption",
+    "amount": {
+     "all": "1250"
+    },
+    "per": "person",
+    "condition": "Blind: an additional $1,250 for each standard deduction box checked on federal Form 1040 (same chart as the age amount).",
+    "cite": {
+     "publication": "2025 Vermont Income Tax Return Booklet",
+     "section": "PDF page 10, Line 4, and PDF page 11, chart",
+     "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "vt_personal_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "5300"
+    },
+    "per": "exemption_claimed",
+    "condition": "Line 5a: the filer if no one can claim them as a dependent. Line 5b: the spouse or civil union partner if no one can claim them; not for Qualifying Widow(er) or Married Filing Separately.",
+    "cite": {
+     "publication": "2025 Vermont Income Tax Return Booklet",
+     "section": "PDF page 11, Lines 5a-5e; PDF page 19 (Form IN-111), Line 5e",
+     "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "vt_dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "5300"
+    },
+    "per": "dependent",
+    "condition": "Line 5c: dependents other than the filer or spouse claimed on federal Form 1040.",
+    "cite": {
+     "publication": "2025 Vermont Income Tax Return Booklet",
+     "section": "PDF page 11, Lines 5c-5e",
+     "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Form IN-111",
+   "section": "PDF page 1, Lines 1-7",
+   "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "2025 Vermont Income Tax Return Booklet",
+   "section": "PDF page 16, Retirement Income Exemption Worksheet, question 1, question 3, Section II Lines 9-10; second check Schedule IN-112 Line 12 and the Seniors and Retirees web page, Exemption for Social Security Benefits",
+   "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "vt_social_security_exemption",
+   "label": "Retirement Benefits Exempt from Vermont Taxation: Social Security election (Schedule IN-112, Part I, Line 12)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "taxable Social Security benefits reported on federal Form 1040, Line 6b",
+     "only one exclusion per taxable year: \"You may only elect one exclusion per taxable year\" (worksheet, Section II)"
+    ]
+   },
+   "cap_rule": "No dollar cap: the full amount from federal Form 1040, Line 6b, multiplied by the Line 8 fraction when AGI is in the phase-out range (Lines 9-10).",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Adjusted Gross Income (AGI) on Form IN-111, Line 1 (federal Form 1040, Line 11a)"
+    },
+    "threshold": {
+     "married_joint": "70000",
+     "single": "55000",
+     "married_separate": "55000",
+     "head_of_household": "55000",
+     "qualifying_surviving_spouse": "55000"
+    },
+    "effect": "share_phase_out",
+    "applies_when": "over",
+    "width": {
+     "all": "10000"
+    },
+    "share_decimals": 2,
+    "as_printed": "Worksheet: full exemption if AGI is less than $70,000 (married filing jointly) or less than $55,000 (single, head of household, surviving spouse, married filing separately). Between $70,000-$80,000 and $55,000-$65,000 the exemption is multiplied by Line 8: (Line 4 minus AGI) divided by $10,000, rounded to the second decimal place, not greater than 1, where Line 4 is $80,000 (joint) or $65,000 (all other filing statuses). AGI of $80,000 or more (joint) or $65,000 or more (others): no exemption. At AGI of exactly 70,000 or 55,000 Line 8 is 1, so the printed 'less than' and the schema's 'over' give the same amount. (Line 4 - AGI) / 10,000 is the same number as 1 - (AGI - threshold) / 10,000, since Line 4 is the threshold plus 10,000: a straight-line share, width 10,000 (the printed divisor), rounded to two decimals (the worksheet's example: .481 rounds to .48)."
+   },
+   "cannot_combine_with": [
+    "vt_csrs_exemption",
+    "vt_other_retirement_exemption"
+   ],
+   "best_of_group": "vt_retirement_election",
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF page 16, Retirement Income Exemption Worksheet, Sections I and II; same worksheet in Schedule IN-112 Instructions PDF page 2; Schedule IN-112 Part I Line 12 (booklet PDF page 23)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_csrs_exemption",
+   "label": "Exemption for Civil Service Retirement System (CSRS) (Schedule IN-112, Part I, Line 12)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "benefits based on earnings that were subject to Social Security tax withholding: \"the second exemption only applies to benefits that are based on earnings not covered by the Social Security Act (i.e., earnings that were not subject to the Social Security tax withholding)\""
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "federal Civil Service Retirement System income",
+     "contributory plan (the worksheet names the Civil Service Retirement System as one of the contributory systems)",
+     "benefits based on earnings not covered by the Social Security Act (not subject to Social Security tax withholding)",
+     "only one exclusion per taxable year: \"You may only elect one exclusion per taxable year\" (worksheet, Section II)"
+    ]
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Lesser of the eligible retirement income received from that source or 10,000 (worksheet question 3 and Line 11), multiplied by the Line 8 fraction when AGI is in the phase-out range (Line 12). One figure for every filing status and one worksheet and one Schedule IN-112 Line 12 per return; no wording gives each spouse a separate 10,000.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Adjusted Gross Income (AGI) on Form IN-111, Line 1 (federal Form 1040, Line 11a)"
+    },
+    "threshold": {
+     "married_joint": "70000",
+     "single": "55000",
+     "married_separate": "55000",
+     "head_of_household": "55000",
+     "qualifying_surviving_spouse": "55000"
+    },
+    "effect": "share_phase_out",
+    "applies_when": "over",
+    "width": {
+     "all": "10000"
+    },
+    "share_decimals": 2,
+    "as_printed": "Worksheet: full exemption if AGI is less than $70,000 (married filing jointly) or less than $55,000 (single, head of household, surviving spouse, married filing separately). Between $70,000-$80,000 and $55,000-$65,000 the exemption is multiplied by Line 8: (Line 4 minus AGI) divided by $10,000, rounded to the second decimal place, not greater than 1, where Line 4 is $80,000 (joint) or $65,000 (all other filing statuses). AGI of $80,000 or more (joint) or $65,000 or more (others): no exemption. At AGI of exactly 70,000 or 55,000 Line 8 is 1, so the printed 'less than' and the schema's 'over' give the same amount. (Line 4 - AGI) / 10,000 is the same number as 1 - (AGI - threshold) / 10,000, since Line 4 is the threshold plus 10,000: a straight-line share, width 10,000 (the printed divisor), rounded to two decimals (the worksheet's example: .481 rounds to .48)."
+   },
+   "cannot_combine_with": [
+    "vt_social_security_exemption",
+    "vt_other_retirement_exemption"
+   ],
+   "best_of_group": "vt_retirement_election",
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF page 16, Retirement Income Exemption Worksheet, question 1, question 3, Section II Lines 11-12; Seniors and Retirees web page, Exemption for Civil Service Retirement System (CSRS), for the separate heading only",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_other_retirement_exemption",
+   "label": "Exemption for Other Eligible Retirement Systems (Schedule IN-112, Part I, Line 12)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state"
+   ],
+   "not_covered": [
+    "benefits based on earnings that were subject to Social Security tax withholding: \"the second exemption only applies to benefits that are based on earnings not covered by the Social Security Act (i.e., earnings that were not subject to the Social Security tax withholding)\""
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "contributory plan",
+     "\"a contributory annuity, pension, endowment, or retirement system of the U.S. government or a state government\"; local government plans are not named",
+     "benefits based on earnings not covered by the Social Security Act (not subject to Social Security tax withholding)",
+     "only one exclusion per taxable year: \"You may only elect one exclusion per taxable year\" (worksheet, Section II)"
+    ]
+   },
+   "cap": {
+    "all": "10000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Lesser of the eligible retirement income received from that source or 10,000 (worksheet question 3 and Line 11), multiplied by the Line 8 fraction when AGI is in the phase-out range (Line 12). One figure for every filing status and one worksheet and one Schedule IN-112 Line 12 per return; no wording gives each spouse a separate 10,000.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Adjusted Gross Income (AGI) on Form IN-111, Line 1 (federal Form 1040, Line 11a)"
+    },
+    "threshold": {
+     "married_joint": "70000",
+     "single": "55000",
+     "married_separate": "55000",
+     "head_of_household": "55000",
+     "qualifying_surviving_spouse": "55000"
+    },
+    "effect": "share_phase_out",
+    "applies_when": "over",
+    "width": {
+     "all": "10000"
+    },
+    "share_decimals": 2,
+    "as_printed": "Worksheet: full exemption if AGI is less than $70,000 (married filing jointly) or less than $55,000 (single, head of household, surviving spouse, married filing separately). Between $70,000-$80,000 and $55,000-$65,000 the exemption is multiplied by Line 8: (Line 4 minus AGI) divided by $10,000, rounded to the second decimal place, not greater than 1, where Line 4 is $80,000 (joint) or $65,000 (all other filing statuses). AGI of $80,000 or more (joint) or $65,000 or more (others): no exemption. At AGI of exactly 70,000 or 55,000 Line 8 is 1, so the printed 'less than' and the schema's 'over' give the same amount. (Line 4 - AGI) / 10,000 is the same number as 1 - (AGI - threshold) / 10,000, since Line 4 is the threshold plus 10,000: a straight-line share, width 10,000 (the printed divisor), rounded to two decimals (the worksheet's example: .481 rounds to .48)."
+   },
+   "cannot_combine_with": [
+    "vt_social_security_exemption",
+    "vt_csrs_exemption"
+   ],
+   "best_of_group": "vt_retirement_election",
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF page 16, Retirement Income Exemption Worksheet, question 1, question 3, Section II Lines 11-12; same wording on the Seniors and Retirees web page, Exemption for Other Eligible Retirement Systems",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_military_retirement_exemption",
+   "label": "Military Retirement Income Exemption (Schedule IN-112, Part I, Line 13)",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "military retirement or military survivor benefit income reported on federal Form 1040, Line 5b (1099-R from the Defense Finance and Accounting Service)",
+     "new for tax year 2025 (Act 71, signed June 25, 2025)",
+     "\"Taxpayers electing to utilize the Military Retirement Income Exemption may claim one additional exclusion, if eligible, enumerated by 32 V.S.A. 5830e\": it combines with one Line 12 election"
+    ]
+   },
+   "cap_rule": "No dollar cap: all taxable military retirement and survivor benefit income on federal Form 1040, Line 5b, multiplied by the Line 8 fraction when AGI is in the phase-out range (Lines 9-10).",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Adjusted Gross Income (AGI) on Form IN-111, Line 1 (federal Form 1040, Line 11a)"
+    },
+    "threshold": {
+     "all": "125000"
+    },
+    "effect": "share_phase_out",
+    "applies_when": "over",
+    "width": {
+     "all": "50000"
+    },
+    "share_decimals": 2,
+    "as_printed": "'For taxpayers of any filing status with adjusted gross income equal to or less than $125,000, all military retirement and survivor benefit income is exempt.' Over $125,000 and less than $175,000: exemption = taxable military retirement income multiplied by (175,000 minus AGI) divided by $50,000, rounded to the second decimal place, not greater than 1. 'No exemption is available for taxpayers of any filing status with adjusted gross income equal to or greater than $175,000.' (175,000 - AGI) / 50,000 is the same number as 1 - (AGI - 125,000) / 50,000: a straight-line share, width 50,000 (the printed divisor), rounded to two decimals (the worksheet's example: .481 rounds to .48)."
+   },
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF page 17, Military Retirement Income Exemption Worksheet, questions 1-3 and Lines 4-10; PDF page 33, Line 13; same text in Schedule IN-112 Instructions PDF pages 3-4",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_railroad_retirement",
+   "label": "Railroad Retirement income (Schedule IN-112, Part I, Line 14)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Regular Railroad Retirement Benefits (Tier 1) and Supplemental Railroad Annuity Payments (Tier 2) received in 2025",
+     "if Social Security includes Tier 1 or Tier 2 benefits, only the portion included in federal AGI"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule IN-112 Instructions",
+    "section": "PDF page 4, Line 14; booklet PDF page 33",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_us_obligations_interest",
+   "label": "Interest Income from U.S. Obligations (Schedule IN-112, Part I, Line 7)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "interest from U.S. government obligations (such as U.S. Treasury bonds, bills, and notes)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule IN-112 Instructions",
+    "section": "PDF page 1, Line 7",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_authority_bond_interest",
+   "label": "Bond/Note Interest Income (Schedule IN-112, Part I, Line 15)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "bond or note of the Vermont Student Assistance Corporation, Build America, the Vermont Telecommunications Authority or the Vermont Public Power Supply Authority",
+     "only to the extent included in federal AGI"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule IN-112 Instructions",
+    "section": "PDF page 4, Line 15",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_capital_gains_flat_cap",
+   "label": "Capital Gains Exclusion, Part I Flat Exclusion (Schedule IN-153 Line 9; Schedule IN-112 Line 8)",
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "not_covered": [
+    "Federal Schedule D Line 18 and Line 19 amounts are taken off (IN-153 Lines 2a to 4); investment interest on federal Form 4952 is taken off (Lines 5 to 8)"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cap": {
+    "all": "5000"
+   },
+   "cap_per": "return",
+   "cap_rule": "\"Enter the smaller of Line 8 or $5,000.\" Line 19 is the greater of this and the percentage exclusion (Line 18); Line 21 is the smaller of Line 19 or 40% of federal taxable income (Line 20).",
+   "best_of_group": "vt_capital_gains_exclusion",
+   "cite": {
+    "publication": "2025 Schedule IN-153",
+    "section": "PDF page 1, Part I Lines 1-9; PDF page 2, Part III Lines 19-21",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-153-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_capital_gains_percentage_cap",
+   "label": "Capital Gains Exclusion, Part II Percentage Exclusion (Schedule IN-153 Line 18; Schedule IN-112 Line 8)",
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "share": "0.4",
+   "not_covered": [
+    "the sale of assets held for three years or less",
+    "Real estate or portion of real estate used as a primary or nonprimary home",
+    "Depreciable personal property (except for farm property or standing timber)",
+    "Stocks or bonds publicly traded or traded on an exchange or any other financial instruments"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "net adjusted capital gain from assets held for more than three years, less the three kinds on Lines 13a-13c (Line 15); \"Use this section only if you have eligible gains\""
+    ]
+   },
+   "cap": {
+    "all": "350000"
+   },
+   "cap_per": "return",
+   "cap_rule": "\"Multiply Line 17 by 40%; enter result or $350,000, whichever is less.\" Line 19 is the greater of this and the flat exclusion (Line 9); Line 21 is the smaller of Line 19 or 40% of federal taxable income (Line 20).",
+   "best_of_group": "vt_capital_gains_exclusion",
+   "cite": {
+    "publication": "2025 Schedule IN-153",
+    "section": "PDF page 2, Part II Lines 10-18 and Part III Lines 19-21",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-153-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_elderly_disabled_credit",
+   "label": "Credit for the Elderly or the Disabled (Schedule IN-119, Part I, Lines 8, 11 and 12)",
+   "form": "credit",
+   "credit_rate": "0.24",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "a federal Credit for the Elderly or the Disabled on federal Schedule R"
+    ]
+   },
+   "cap_rule": "The credit is 24% of the federal Schedule R credit (IN-119 Lines 8, 11 and 12), taken off Vermont tax through IN-119 Line 15 and Form IN-111 Line 9; Form IN-111 Line 10 cannot go below zero. credit_rate is a share of the federal credit, which neither credit_basis value describes, so credit_basis is left out.",
+   "cite": {
+    "publication": "2025 Schedule IN-119",
+    "section": "PDF page 1, Part I Lines 8, 11, 12, 14, 15; booklet PDF page 11, Line 9; Seniors and Retirees web page, Elderly or Permanently Disabled Tax Credit",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-119-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest and dividend income from non-Vermont state and local obligations exempted from federal taxable income is taxable in Vermont (Schedule IN-112 Lines 1-3). A Vermont obligation is one from the state of Vermont or a Vermont municipality; Line 2 takes it back out of the addition.",
+  "cite": {
+   "publication": "2025 Schedule IN-112 Instructions",
+   "section": "PDF page 1, Lines 1 through 3",
+   "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-112-Instr-2025.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "vt_capital_gains_flat_exclusion",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "1",
+   "condition": "All of the net adjusted capital gain, the smaller of federal Schedule D Line 15 or 16 less Lines 18 and 19 and Form 4952 investment interest, up to 5,000 (held as a cap in vt_capital_gains_flat_cap). The greater of this and the percentage exclusion, then no more than 40% of federal taxable income.",
+   "cite": {
+    "publication": "2025 Schedule IN-153",
+    "section": "PDF page 1, Part I Lines 1-9; PDF page 2, Part III Lines 19-21",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-153-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "vt_capital_gains_percentage_exclusion",
+   "applies_to": "other",
+   "treatment": "deduction_share",
+   "value": "0.4",
+   "condition": "40% of eligible gain on assets held more than three years, up to 350,000 (held as a cap in vt_capital_gains_percentage_cap); homes, depreciable personal property except farm property or standing timber, and publicly traded stocks, bonds or other financial instruments are not eligible. The greater of this and the flat exclusion, then no more than 40% of federal taxable income.",
+   "cite": {
+    "publication": "2025 Schedule IN-153",
+    "section": "PDF page 2, Part II Lines 10-18, Part III Lines 19-21",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-153-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "vt_age_65_additional",
+   "indexed": "yes",
+   "index": "\"The amount will be adjusted annually for inflation.\" (the page gives $1,000, the 2025 booklet $1,250)",
+   "cite": {
+    "publication": "Vermont Department of Taxes, Seniors and Retirees (web page)",
+    "section": "Additional Vermont Standard Deduction for Seniors and the Blind, or Both",
+    "url": "https://tax.vermont.gov/individuals/seniors-and-retirees",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "vt_blind_additional",
+   "indexed": "yes",
+   "index": "\"The amount will be adjusted annually for inflation.\" (the page gives $1,000, the 2025 booklet $1,250)",
+   "cite": {
+    "publication": "Vermont Department of Taxes, Seniors and Retirees (web page)",
+    "section": "Additional Vermont Standard Deduction for Seniors and the Blind, or Both",
+    "url": "https://tax.vermont.gov/individuals/seniors-and-retirees",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF pages 10-11 and 46: indexing not found in the booklet",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": [
+  {
+   "measure": {
+    "base": "federal_agi",
+    "minus_own_state_muni_interest": false,
+    "as_printed": "Test: federal AGI, IN-111 Line 1, greater than $150,000. Base of the 3%: federal AGI less interest from U.S. obligations."
+   },
+   "starts_over": {
+    "all": "150000"
+   },
+   "full_rate": "0.03",
+   "effect": "other",
+   "as_printed": "Taxpayers who have a federal Adjusted Gross Income (AGI) greater than $150,000 must pay a minimum Vermont tax of 3% of federal AGI. If your federal AGI, Line 1, is greater than $150,000, enter the amount that is higher: 1) 3% of your federal AGI less interest from U.S. obligations, or 2) tax calculated on Vermont Taxable Income, Line 7, using the applicable tax rate schedule.",
+   "cite": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "PDF page 11, Line 8; PDF page 46 note",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ]
+}

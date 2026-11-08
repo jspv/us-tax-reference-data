@@ -1,0 +1,452 @@
+{
+  "layer": "projection",
+  "state": "HI",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/HI.record.json",
+    "sha256": "606b2e7a809e6aec0acf453ddde04f83c1c81c969b68b7f9a8a73630d4e0ce60"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "9600"
+      },
+      {
+        "rate": "0.055",
+        "start": "14400"
+      },
+      {
+        "rate": "0.064",
+        "start": "19200"
+      },
+      {
+        "rate": "0.068",
+        "start": "24000"
+      },
+      {
+        "rate": "0.072",
+        "start": "36000"
+      },
+      {
+        "rate": "0.076",
+        "start": "48000"
+      },
+      {
+        "rate": "0.079",
+        "start": "125000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "175000"
+      },
+      {
+        "rate": "0.09",
+        "start": "225000"
+      },
+      {
+        "rate": "0.10",
+        "start": "275000"
+      },
+      {
+        "rate": "0.11",
+        "start": "325000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "19200"
+      },
+      {
+        "rate": "0.055",
+        "start": "28800"
+      },
+      {
+        "rate": "0.064",
+        "start": "38400"
+      },
+      {
+        "rate": "0.068",
+        "start": "48000"
+      },
+      {
+        "rate": "0.072",
+        "start": "72000"
+      },
+      {
+        "rate": "0.076",
+        "start": "96000"
+      },
+      {
+        "rate": "0.079",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "350000"
+      },
+      {
+        "rate": "0.09",
+        "start": "450000"
+      },
+      {
+        "rate": "0.10",
+        "start": "550000"
+      },
+      {
+        "rate": "0.11",
+        "start": "650000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "9600"
+      },
+      {
+        "rate": "0.055",
+        "start": "14400"
+      },
+      {
+        "rate": "0.064",
+        "start": "19200"
+      },
+      {
+        "rate": "0.068",
+        "start": "24000"
+      },
+      {
+        "rate": "0.072",
+        "start": "36000"
+      },
+      {
+        "rate": "0.076",
+        "start": "48000"
+      },
+      {
+        "rate": "0.079",
+        "start": "125000"
+      },
+      {
+        "rate": "0.0825",
+        "start": "175000"
+      },
+      {
+        "rate": "0.09",
+        "start": "225000"
+      },
+      {
+        "rate": "0.10",
+        "start": "275000"
+      },
+      {
+        "rate": "0.11",
+        "start": "325000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.014",
+        "start": "0"
+      },
+      {
+        "rate": "0.032",
+        "start": "14400"
+      },
+      {
+        "rate": "0.055",
+        "start": "21600"
+      },
+      {
+        "rate": "0.064",
+        "start": "28800"
+      },
+      {
+        "rate": "0.068",
+        "start": "36000"
+      },
+      {
+        "rate": "0.072",
+        "start": "54000"
+      },
+      {
+        "rate": "0.076",
+        "start": "72000"
+      },
+      {
+        "rate": "0.079",
+        "start": "187500"
+      },
+      {
+        "rate": "0.0825",
+        "start": "262500"
+      },
+      {
+        "rate": "0.09",
+        "start": "337500"
+      },
+      {
+        "rate": "0.10",
+        "start": "412500"
+      },
+      {
+        "rate": "0.11",
+        "start": "487500"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "4400",
+          "married_joint": "8800",
+          "married_separate": "4400",
+          "head_of_household": "6424",
+          "qualifying_surviving_spouse": "8800"
+        },
+        "per": "return"
+      },
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "1144"
+        },
+        "per": "person"
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "1144"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "hi_public_pension",
+      "from_record": [
+        "hi_public_pension_exclusion"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "hi_private_pension",
+      "from_record": [
+        "hi_private_pension_exclusion"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "private_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "hi_railroad_retirement",
+      "from_record": [
+        "hi_social_security_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "hi_capital_gains_alternative_tax",
+      "from_record": [
+        "hi_capital_gains_alternative_tax"
+      ],
+      "what": "Alternative tax on capital gains (Tax on Capital Gains Worksheet): when taxable income is over 24,000 single or married filing separately, 36,000 head of household, 48,000 joint, the net long-term gain above the greater of the ordinary income or that amount may be taxed at 7.25%, and the tax is the smaller of that computation and the schedule tax. The projection's capital_gains field holds a fixed extra rate, deducted share or exemption, not a smaller-of cap, so gains run through the brackets.",
+      "warn_when": "has_long_term_gains"
+    },
+    {
+      "id": "hi_employer_plan_exclusion_ratio",
+      "from_record": [
+        "hi_private_pension_exclusion"
+      ],
+      "what": "The exclusion ratio of HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98): a private plan distribution is excluded only in the ratio of employer contributions to employer plus pretax employee plus previously taxed contributions. 401(k), 457 and SEP salary-reduction deferrals are pretax employee contributions and taxable; employer matching and profit-sharing money is excluded. A projection does not know a plan's employer-funded share, so employer_plan_distribution (401(k), 403(b), 457, Thrift Savings Plan) is taxed in full, which overstates tax by the employer-funded share; and a private pension is excluded in full even when the employee contributed (pension_contributory is asked only for public plans), which understates tax by the employee-funded share.",
+      "warn_when": "has_retirement_account_distribution"
+    },
+    {
+      "id": "hi_private_pension_exclusion_ratio",
+      "from_record": [
+        "hi_private_pension_exclusion"
+      ],
+      "what": "The exclusion ratio of HAR 18-235-7-03 (Department of Taxation amendment effective 1/1/98): a private plan distribution is excluded only in the ratio of employer contributions to employer plus pretax employee plus previously taxed contributions. 401(k), 457 and SEP salary-reduction deferrals are pretax employee contributions and taxable; employer matching and profit-sharing money is excluded. A projection does not know a plan's employer-funded share, so employer_plan_distribution (401(k), 403(b), 457, Thrift Savings Plan) is taxed in full, which overstates tax by the employer-funded share; and a private pension is excluded in full even when the employee contributed (pension_contributory is asked only for public plans), which understates tax by the employee-funded share.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "hi_rollover_ira_exclusion",
+      "from_record": [
+        "hi_rollover_ira_exclusion"
+      ],
+      "what": "A rollover IRA keeps the character of the money rolled in (booklet line 13, Nontaxable Rollover IRAs; HAR 18-235-7-03): money from a qualifying employer-funded plan stays exempt, also when converted to a Roth IRA; money from 401(k), 457 or SEP salary-reduction deferrals, and IRAs the employer did not fund, are pretax employee contributions and taxable. A projection does not know where IRA money came from, so every IRA distribution and Roth conversion is taxed, which overstates tax by the employer-funded money in it.",
+      "warn_when": "has_retirement_account_distribution"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption"
+      ],
+      "what": "Dependent exemption of 1,144 per child or other dependent (line 6c, 6d).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "disability_exemption",
+      "from_record": [
+        "disability_exemption"
+      ],
+      "what": "Disability exemption of 7,000 per blind, deaf or totally disabled person certified on Form N-172, in lieu of the 1,144 exemption and the age-65 exemption.",
+      "warn_when": "never"
+    },
+    {
+      "id": "hi_military_reserve_pay_exclusion",
+      "from_record": [
+        "hi_military_reserve_pay_exclusion"
+      ],
+      "what": "First 8,636 of military reserve or Hawaii national guard duty pay per member is excluded (line 15).",
+      "warn_when": "never"
+    },
+    {
+      "id": "hi_federal_obligation_interest",
+      "from_record": [
+        "hi_federal_obligation_interest"
+      ],
+      "what": "Interest on U.S. obligations (Treasury bills and notes, U.S. Savings Bonds) is subtracted (line 18).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The alternative tax on capital gains is not applied (not_modelled): long-term gains are taxed by the schedules.",
+      "direction": "overstates_tax",
+      "size": "Up to 3.75 points (11% top rate against 7.25%) on gains in the top band. A single filer with 400,000 of taxable income including 100,000 of long-term gain: schedule tax 34,216, worksheet tax 30,716, overstated by 3,500. Small or nothing where the gain sits in the 7.6% band or below."
+    },
+    {
+      "what": "Employer-plan distributions (employer_plan_distribution: 401(k), 403(b), 457, Thrift Savings Plan) are taxed in full. HAR 18-235-7-03 excludes their employer-funded share, in the exclusion ratio of employer contributions to employer plus pretax employee plus previously taxed contributions; the projection does not know that share. The employee's own deferrals are pretax employee contributions and are rightly taxed.",
+      "direction": "overstates_tax",
+      "size": "The Hawaii rate on the employer-funded share, e.g. employer matching or profit-sharing money; nothing for a plan funded only by the employee's deferrals. Example: a single retiree whose 401(k) was funded by a 6% deferral and a 3% employer match (exclusion ratio 3/9, one third) withdraws 30,000 on top of 60,000 of other taxable income: 10,000 is excludable and is taxed at 7.6%, overstating tax by 760 a year (1,100 in the 11% band). The Department of Taxation's 2026-07-14 Tax Review Commission presentation calls 401(k) withdrawals fully taxable, so in practice the overstatement may be less."
+    },
+    {
+      "what": "IRA distributions and Roth conversions are taxed in full, including money rolled over from a qualifying employer-funded plan, which keeps its exclusion (booklet line 13, Nontaxable Rollover IRAs; HAR 18-235-7-03). IRAs the employer did not fund and rolled-over 401(k), 457 or SEP deferrals are pretax employee contributions and are rightly taxed.",
+      "direction": "overstates_tax",
+      "size": "The Hawaii rate on the employer-funded money withdrawn or converted. Example (the booklet's): a 50,000 Roth conversion of an IRA holding a lump sum from an employer-funded profit-sharing plan paid upon retirement is fully exempt; for a joint couple with 100,000 of other taxable income it is taxed at 7.6%, overstating tax by 3,800. A rollover of a 401(k) with a one-third employer match overstates by a third of that, about 1,267. Nothing for an IRA funded by the owner's own contributions."
+    },
+    {
+      "what": "A private pension is excluded in full. HAR 18-235-7-03 excludes a contributory private pension only in its exclusion ratio (the booklet: 'partially taxed by Hawaii if the employee contributed', Schedule J); the projection cannot tell a contributory private plan (pension_contributory is asked only for public plans), so it treats every private pension as wholly employer-funded. A private defined benefit pension wholly funded by the employer is excluded in full, as the rule says.",
+      "direction": "understates_tax",
+      "size": "The Hawaii rate on the employee-funded share. Example: a 30,000 private defined benefit pension in which the employee made 20% of the contributions (exclusion ratio 0.8): about 6,000 is taxable; for a single filer with 50,000 of other taxable income it falls in the 7.6% band, understating tax by about 456 a year. Nothing for a plan the employee did not contribute to."
+    },
+    {
+      "what": "Government and private pensions are exempt whatever the age; early distributions subject to the 10% federal penalty tax, and government plan distributions from voluntary employee contributions under an elective right, are taxable and are not separated.",
+      "direction": "understates_tax",
+      "size": "The Hawaii rate on such distributions; rare for a retiree drawing a pension upon retirement."
+    },
+    {
+      "what": "Railroad retirement is exempt in full; the booklet names only first tier Railroad Retirement Act benefits, and Tier 2 is not stated.",
+      "direction": "understates_tax",
+      "size": "The Hawaii rate on Tier 2 benefits, if Hawaii taxes them."
+    },
+    {
+      "what": "The standard deduction is always taken; Hawaii itemized deductions (and their limit above 166,800 of Hawaii AGI) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "The Hawaii rate on the amount by which itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "The standard deduction is applied to a married person filing separately whose spouse itemizes, who must itemize.",
+      "direction": "either",
+      "size": "The Hawaii rate on the difference between 4,400 and that person's itemized deductions."
+    },
+    {
+      "what": "Dependent exemptions are not applied (dependents not modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 11% of 1,144 per dependent, about 126 a year."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations and savings bonds is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "The Hawaii rate on the Treasury interest."
+    },
+    {
+      "what": "Military reserve and Hawaii national guard duty pay is taxed (the exclusion is not modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 11% of 8,636 per member, about 950 a year."
+    },
+    {
+      "what": "A projection that cannot tell Hawaii bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "The Hawaii rate on interest from Hawaii (and Puerto Rico, U.S. Virgin Islands, Guam, American Samoa) obligations."
+    },
+    {
+      "what": "The age-65 exemption uses the projection's age test (65 or older in the year); the booklet's test is age 65 or over as of January 1 of the following year.",
+      "direction": "either",
+      "size": "At most one 1,144 exemption in the year a person turns 65, about 126."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

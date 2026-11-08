@@ -1,0 +1,62 @@
+{
+  "id": "mn_2025_age_sub_joint_phase_out",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "mn_age_65_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1R lines 1-13 and Line 10 table (M1R PDF p.1, p.2); Form M1 instructions PDF p.15; M1M PDF p.5 line 16; Schedule M1M line 1 (M1M PDF p.3 'Line 1 - Interest From Municipal Bonds of Another State')",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      },
+      {
+        "age": 68,
+        "born": "1957-02-02"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "22000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "30000.00"
+    },
+    "federal_agi": "22000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "42000.00",
+    "state_taxable_income": "9000.00",
+    "state_tax_before_credits": "481.50",
+    "credits": "0.00",
+    "state_income_tax": "481.50",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "10000.00"
+    }
+  },
+  "worked": "Joint, both 65 or older, line 10 is 18,000. Federal (given, not tested): federal AGI = IRA distribution 22,000.00 = 22,000.00. Federal taxable income = 22,000.00 - 34,700.00 federal standard deduction (31,500 plus 2 x 1,600) = below zero, so 0.00 (federal senior deduction ignored). Form M1, married filing jointly: line 1 federal AGI 22,000.00. Schedule M1M line 1 other-state municipal interest 30,000.00; line 10 additions 30,000.00; Form M1 line 2 30,000.00; line 3 = 52,000.00. Schedule M1R: line 1 12,000.00; line 2 0.00 (65 or older); line 3 12,000.00; line 4 0.00; line 5 nontaxable Social Security 0.00 - 0.00 = 0.00; line 6 Railroad Retirement Board benefits 0.00; line 7 0.00; line 8 = 12,000.00. Line 9 22,000.00; line 10 18,000.00; line 11 4,000.00; line 12 2,000.00; line 13 = 10,000.00. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 10,000.00 + 0.00 + 0.00 = 10,000.00 (lines 12, 16, 17, 25). State income before deduction = 52,000.00 - 10,000.00 = 42,000.00. Standard Deduction Table for Line 4 (PDF p.13): base 29,900.00 plus 2 x 1,550 age box(es) = 33,000.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 33,000.00. Form M1 line 8 total = 33,000.00 + 10,000.00 = 43,000.00; line 9 Minnesota taxable income = 52,000.00 - 43,000.00 = 9,000.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (9,000.00 - 0.00) = 481.50 = 481.50. The tax table (PDF pp.32-38) gives 484; expected keeps the schedule formula. Line 16 credits 0.00 (the joint-filer Schedule M1C credit is not in the sources and is not applied); state income tax 481.50.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table.",
+    "The Schedule M1C credit for joint filers is not applied because its amount is not in the sources."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

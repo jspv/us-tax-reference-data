@@ -1,0 +1,54 @@
+{
+  "id": "ms_2025_roth_conversion_exempt",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ms_retirement_income_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25); Miss. Admin. Code Title 35 Part III Income and Franchise (Department of Revenue income tax regulations)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.11 Line 46 Total Pensions and Annuities; FAQ 'Is retirement income taxable?'; Miss. Admin. Code Title 35 Part III Subpart 02 Chapter 07 rules 100, 101, 103 and 104 (https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, PDF p.18)",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-06-06"
+      }
+    ],
+    "income": {
+      "roth_conversion": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "50000.00"
+    }
+  },
+  "worked": "Federal AGI = Roth conversion (person 0) 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 15,750.00 federal standard deduction = 34,250.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 5, Single. Start at federal AGI 50,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Less retirement income 50,000.00 (exempt in total, as the projection reads regulation rule 101: the taxable amount of a conversion is income from the traditional IRA, and rule 100 exempts it; rule 103 governs payouts from a Roth IRA, not conversions into one; no Mississippi source names conversions). Line 66 and line 13 Mississippi AGI = 0.00. Line 14 standard deduction 2,300.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 6,000.00; line 12 and line 15 = 6,000.00. Line 16 Mississippi taxable income = 0.00 - 2,300.00 - 6,000.00 = -8,300.00 on the formula; floored at 0.00 (the form enters 0). Schedule of Tax Computation lines 1 to 4 and line 17 = 0.00. Lines 18 and 19 credits 0.00; line 20 = 0.00. If the Department treated the conversion as not a retirement allowance, Mississippi taxable income would be 50,000.00 - 2,300.00 - 6,000.00 = 41,700.00 and tax 4.4% x 31,700.00 = 1,394.80 (the figure this case had before the 2026-11-07 decision).",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+    "Roth conversions are exempted on the regulation's rule 101, 'all income from ... Individual Retirement Accounts': the taxable amount of a conversion is income from the traditional IRA. No Mississippi source names conversions. If the Department treats a conversion as not a retirement allowance, this understates tax in a conversion year."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

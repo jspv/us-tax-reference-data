@@ -1,0 +1,44 @@
+{
+  "id": "il_2025_treasury_interest_not_modelled",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule M Instructions, with the 2025 IL-1040 Instructions and Form IL-1040",
+    "section": "Schedule M Instructions PDF page 3, Line 22; Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 53,
+        "born": "1972-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50850.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00"
+    },
+    "federal_agi": "54850.00",
+    "federal_taxable_income": "39100.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.il_personal_exemption"
+  ]
+}

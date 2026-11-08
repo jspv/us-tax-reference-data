@@ -1,0 +1,65 @@
+{
+  "id": "mi_2025_railroad_reduces_pre1946_private",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "railroad_retirement",
+    "pre1946_private"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 11 (PDF page 14: taxable Tier 1 and Tier 2 railroad retirement subtracted); PDF page 19 'NOTE: Private pension limits for all filers are reduced by ... Railroad retirement' from Schedule 1 line 11; Form 4884 Section A Line 10 (PDF page 21); line 28 worksheet lines 1-8 (PDF page 17); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 84,
+        "born": "1941-07-07"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "10000.00"
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "62250.00"
+  },
+  "expected": {
+    "state_agi": "14103.00",
+    "state_taxable_income": "8303.00",
+    "state_tax_before_credits": "352.88",
+    "credits": "0.00",
+    "state_income_tax": "352.88",
+    "relief_amounts": {
+      "railroad_retirement": "20000.00",
+      "pre1946_private": "45897.00",
+      "senior_investment_deduction": "0.00"
+    }
+  },
+  "worked": "Federal AGI = taxable railroad retirement 20,000.00 + private pension 50,000.00 + interest 10,000.00 = 80,000.00. Federal taxable income = 80,000.00 - federal standard deduction (15,750 + 1 x 2,000 age 65 or older = 17,750.00) = 62,250.00; given, not tested; the federal senior deduction is ignored. (The railroad retirement is entered as a Railroad Retirement Board annuity with source private; it is not a Michigan or federal civil-service pension.) Michigan: Schedule 1 line 11 railroad retirement 20,000.00 subtracted in full. Section A (born 1941): line 9 65,897.00; line 10 railroad 20,000.00; room 65,897.00 - 20,000.00 = 45,897.00; public 0.00; private 50,000.00; smaller 45,897.00 to line 27. Line 28 worksheet: line 1 14,688.00 - (line 2 20,000.00 + line 3 45,897.00) < 0, so 0.00. Subtractions 65,897.00. Line 14 = 80,000.00 - 65,897.00 = 14,103.00; exemption 5,800.00; line 16 = 8,303.00. MI-1040 line 17 tax = 8,303.00 x 0.0425 = 352.8775, to the cent 352.88 (the form, in whole dollars, gives 353). No credits; state income tax 352.88.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mi_firepolice_public",
+    "state_rule_not_modelled:mi_ssa_exempt_1959_1964"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

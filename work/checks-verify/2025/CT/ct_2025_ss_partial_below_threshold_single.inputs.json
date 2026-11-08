@@ -1,0 +1,52 @@
+{
+  "id": "ct_2025_ss_partial_below_threshold_single",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_full_exempt",
+    "ss_partial_exempt"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 8, Schedule 1 Line 41 (single, Line 1 less than 75,000: enter federally taxable benefits); PDF page 24, Social Security Benefit Adjustment Worksheet first question ('$75,000 or more? No: Do not complete this worksheet'); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "43500.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "29575.00"
+    },
+    "federal_agi": "73075.00",
+    "federal_taxable_income": "55325.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ss_full_exempt",
+    "relief_amounts.ss_partial_exempt"
+  ]
+}

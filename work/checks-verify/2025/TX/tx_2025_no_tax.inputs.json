@@ -1,0 +1,39 @@
+{
+  "id": "tx_2025_no_tax",
+  "state": "TX",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Texas is open for small business (Fiscal Notes, 2025), Texas Comptroller of Public Accounts",
+    "section": "'Texas is small-business friendly by the numbers' figure, under '0%': Texas has no personal income tax (no state return or form lines exist)",
+    "url": "https://comptroller.texas.gov/economy/fiscal-notes/industry/2025/small-biz-info/"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-11-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "120000.00",
+          "person": 0
+        }
+      ],
+      "interest": "4000.00"
+    },
+    "federal_agi": "124000.00",
+    "federal_taxable_income": "108250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

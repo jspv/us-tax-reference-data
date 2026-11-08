@@ -1,0 +1,204 @@
+{
+  "layer": "record",
+  "state": "WA",
+  "tax_year": 2025,
+  "has_income_tax": false,
+  "notes": [
+    "The Income tax page, Washington Department of Revenue, says \"Washington does not currently have an individual income tax.\" The brackets, surtaxes and reliefs are therefore empty, and starts_from is none.",
+    "The page carries no tax year; it was retrieved 2026-11-07 and is recorded as tax year 2025 as dispatched. The capital gains figures are dated in the sources themselves (2025).",
+    "Out of scope for 2025, noted only: the same page says that beginning Jan. 1, 2028 a new 9.9% income tax will apply to individuals and married couples filing jointly with annual adjusted gross income exceeding $1 million, first return due in 2029 (Senate Bill 6346, 2026 Legislature). It is not recorded in brackets or surtaxes.",
+    "The sources print no income-tax standard deduction, personal or dependent exemption. The only deductions printed belong to the capital gains tax and are in base.deductions with that stated in their condition, because the schema has no other place for them.",
+    "Pensions (another state's government, New York State in particular; Washington's own; federal; private), IRA and employer-plan distributions, Roth conversions: not found in the sources, which name no such income. No reliefs are written because the sources print no income tax to relieve. public_pension_other_state appears nowhere.",
+    "Social Security treatment: not stated in the source; not found in the source. Never inferred from the absence of an income tax.",
+    "Municipal bond interest treatment: not stated in the source; not found in the source.",
+    "Capital gains: Washington taxes the sale or exchange of long-term capital assets through a separate excise tax (ESSB 5096, RCW 82.87), printed as \"a 7% tax on the sale or exchange of long-term capital assets such as stocks, bonds, business interests, or other investments and tangible assets.\" \"This tax only applies to individuals.\" \"The tax only applies to gains allocated to Washington state.\" It is recorded in capital_gains and base.deductions.",
+    "Capital gains rates: wa_cg_first_million holds the printed 7% and wa_cg_over_million_additional the printed additional 2.9%. The notice's rate table also prints 9.9% for the band from $1,000,001; the projection carries 9.9% in derived_figures as 0.07 + 0.029, which agrees with that table row. The notice prints one $1 million figure and does not say whether a married couple has a different one.",
+    "Short-term capital gains: the sources describe a tax on long-term capital assets; they do not say how short-term gains are treated. Not found in the sources.",
+    "Other exempt assets printed in the Capital gains tax page's Exemptions list (no schema field; listed here in its words): \"Assets subject to condemnation, or sold or exchanged under imminent threat of condemnation.\"; \"Certain livestock related to farming or ranching.\"; \"Assets used in a trade or business to the extent those assets are depreciable under Title 26 U.S.C. Sec. 167(a)(1) of the internal revenue code or qualify for expensing under Title 26 U.S.C. Sec. 179 of the internal revenue code.\"; \"Timber, timberlands, and dividends and distributions from real estate investment trusts derived from gains from the sale or exchange of timber or timberlands.\"; \"Commercial fishing privileges.\"; \"Goodwill received from the sale of a franchised auto dealership.\"",
+    "Qualified family-owned small business deduction: \"The long-term capital gain from an individual’s sale of all or substantially all of a qualified family-owned small business.\" It has no fixed amount, so it is not in base.deductions. The Do you owe page's Updated Amounts table prints \"QFOSB Max Income\" of 11,095,000 for 2025; the sources do not say how that limit is tested.",
+    "Which retirement accounts qualify for the exemption: the Capital gains tax page says \"certain retirement accounts\"; the Do you owe page says \"investments held in individual retirement accounts\". The sources give no fuller list. This exemption concerns the capital gains tax on assets held in the account; the sources say nothing about distributions from such accounts.",
+    "Credits against the capital gains tax (no schema field): a business and occupation (B&O) tax credit, \"Expired Dec. 31, 2025. Available for tax years 2022-2024.\"; a Washington capital gains tax credit equal to B&O tax paid on a sale or exchange also subject to the tax, \"Available starting with tax year 2025.\"; and a credit for \"any legally imposed income or excise tax paid by the individual to another taxing jurisdiction on capital gains derived from capital assets within the other taxing jurisdiction to the extent such capital gains are included in the individual's Washington capital gains.\"",
+    "Who may owe it (the Do you owe page, \"for informational purposes only and is not binding upon the department\"): long-term capital gains reported on federal Schedule D; and gains from intangible assets while domiciled in Washington at the time of sale, or from tangible personal property located in Washington when sold, or living in Washington more than 183 days during the taxable year; and Washington long-term capital gains above the standard deduction after all exemptions. The schema has no field for this test.",
+    "The sources are web pages without page numbers; each cite names the page and the heading or list where the sentence sits.",
+    "Settlement 2026-11-07: base.deductions amount for what=other: A said 111000 (its charitable deduction), B said 278000 (its standard deduction); the two entries are different deductions paired by the comparison. Capital gains tax page, Deductions, prints both; both kept under their own ids.",
+    "Settlement 2026-11-07: wa_cg_standard_deduction.what: A said standard_deduction, B said other; the Capital gains tax page, Deductions, says \"The standard deduction for 2025 is $278,000.\" and the Do you owe page's table is headed \"Standard Deduction\". Recorded as standard_deduction, per return, with its condition saying it is for the capital gains tax only.",
+    "Settlement 2026-11-07: wa_cg_charitable_deduction: A recorded it per return, B left it in notes; the Capital gains tax page, Deductions, prints it twice as \"per year per individual\", so it is kept as an entry, per person.",
+    "Settlement 2026-11-07: indexing of the charitable deduction: A said yes, B had no entry; the Capital gains tax page says \"These amounts are adjusted for inflation annually.\" Kept.",
+    "Settlement 2026-11-07: real estate: A recorded real estate generally plus entity interests, B only entity interests and said real estate was not listed by name; the Capital gains tax page's Exemptions list prints \"Real estate.\" and then the entity item as separate items. Recorded as two entries in those words.",
+    "Settlement 2026-11-07: the rate over $1 million: A and B both recorded own_rate 0.099; the notice prints \"a 7% tax, plus an additional 2.9% tax\", so the entry holds the printed 0.029 and the projection derives 0.099."
+  ],
+  "brackets": {
+    "single": [],
+    "married_joint": [],
+    "cite": {
+      "publication": "Income tax, Washington Department of Revenue",
+      "section": "Income tax page, opening statement: \"Washington does not currently have an individual income tax.\"",
+      "url": "https://dor.wa.gov/taxes-rates/income-tax",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "none",
+    "deductions": [
+      {
+        "id": "wa_cg_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "all": "278000"
+        },
+        "per": "return",
+        "condition": "Capital gains tax only, not an income-tax deduction (Washington has no individual income tax). The page gives the 2025 amount and then says of the 2024 amount that it is \"per year per individual, married couple, or domestic partnership\".",
+        "cite": {
+          "publication": "Capital gains tax, Washington Department of Revenue",
+          "section": "Exemptions, deductions, and credits, Deductions, first item: \"The standard deduction for 2025 is $278,000.\"; also Do you owe capital gains tax?, Updated Amounts table, Standard Deduction, 2025",
+          "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "wa_cg_charitable_deduction",
+        "what": "other",
+        "amount": {
+          "all": "111000"
+        },
+        "per": "person",
+        "condition": "Capital gains tax only. \"Charitable donations in excess of $278,000 for 2025 per year per individual. The charitable donations deduction cannot exceed $111,000 for 2025 per year per individual.\" The amount here is that maximum; the 278000 threshold is in this condition because the amount holds one figure.",
+        "cite": {
+          "publication": "Capital gains tax, Washington Department of Revenue",
+          "section": "Exemptions, deductions, and credits, Deductions, third item; also Do you owe capital gains tax?, Updated Amounts table, Charitable Donation Threshold and Max Deduction Amount, 2025",
+          "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "Income tax, Washington Department of Revenue",
+      "section": "Income tax page, opening statement: \"Washington does not currently have an individual income tax.\"",
+      "url": "https://dor.wa.gov/taxes-rates/income-tax",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Income tax, Washington Department of Revenue",
+      "section": "page text: no statement on this topic",
+      "url": "https://dor.wa.gov/taxes-rates/income-tax",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "not_stated",
+    "note": "Not found in the sources.",
+    "cite": {
+      "publication": "Income tax, Washington Department of Revenue",
+      "section": "page text: no statement on this topic",
+      "url": "https://dor.wa.gov/taxes-rates/income-tax",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "wa_cg_first_million",
+      "applies_to": "long_term",
+      "treatment": "own_rate",
+      "value": "0.07",
+      "condition": "Washington's excise tax on long-term capital gains, not an income tax. The first $1 million in taxable Washington capital gains, beginning with tax year 2025.",
+      "cite": {
+        "publication": "New tiered rates for Washington's capital gains tax (special notice, June 30, 2025), Washington Department of Revenue",
+        "section": "What are the rates?: \"Your first $1 million in taxable Washington capital gains is subject to tax at a rate of 7%.\"; rate table row 7%, $1 up to $1,000,000",
+        "url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "wa_cg_over_million_additional",
+      "applies_to": "long_term",
+      "treatment": "other",
+      "value": "0.029",
+      "condition": "Additional rate on top of the 7%, on the amount of Washington capital gains exceeding $1 million only, beginning with tax year 2025. The notice's rate table shows the two together as 9.9% from $1,000,001.",
+      "cite": {
+        "publication": "New tiered rates for Washington's capital gains tax (special notice, June 30, 2025), Washington Department of Revenue",
+        "section": "What are the rates?: \"Any amount of Washington capital gains exceeding $1 million is subject to a 7% tax, plus an additional 2.9% tax.\"; rate table row 9.9%, $1,000,001 and up",
+        "url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "wa_cg_real_estate_exempt",
+      "applies_to": "long_term",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "The sale or exchange of \"Real estate.\" is exempt from the Washington capital gains tax.",
+      "cite": {
+        "publication": "Capital gains tax, Washington Department of Revenue",
+        "section": "Exemptions, deductions, and credits, Exemptions, first item: \"Real estate.\"; also Do you owe capital gains tax?, Amount: \"all exemptions, such as real estate or investments held in individual retirement accounts\"",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "wa_cg_real_estate_entity_exempt",
+      "applies_to": "long_term",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "\"Interests in a privately-held entity to the extent that the capital gain or loss from such sale or exchange is directly attributable to the real estate owned directly by such entity.\"",
+      "cite": {
+        "publication": "Capital gains tax, Washington Department of Revenue",
+        "section": "Exemptions, deductions, and credits, Exemptions, second item",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "wa_cg_retirement_accounts_exempt",
+      "applies_to": "long_term",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "\"Assets held in certain retirement accounts.\" The Do you owe page's example is \"investments held in individual retirement accounts\"; the sources give no fuller list of accounts.",
+      "cite": {
+        "publication": "Capital gains tax, Washington Department of Revenue",
+        "section": "Exemptions, deductions, and credits, Exemptions, third item; also Do you owe capital gains tax?, Amount",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "wa_cg_standard_deduction",
+      "indexed": "yes",
+      "index": "inflation, annually; the index is not named",
+      "cite": {
+        "publication": "Capital gains tax, Washington Department of Revenue",
+        "section": "Exemptions, deductions, and credits, Deductions, first item: \"The standard deduction amount is adjusted for inflation annually.\"; Background: \"The department adjusts the deduction annually for inflation.\"",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "wa_cg_charitable_deduction",
+      "indexed": "yes",
+      "index": "inflation, annually; the index is not named",
+      "cite": {
+        "publication": "Capital gains tax, Washington Department of Revenue",
+        "section": "Exemptions, deductions, and credits, Deductions, third item: \"These amounts are adjusted for inflation annually.\"",
+        "url": "https://dor.wa.gov/taxes-rates/other-taxes/capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "New tiered rates for Washington's capital gains tax (special notice, June 30, 2025), Washington Department of Revenue",
+        "section": "page text: no statement on indexing the $1 million threshold or anything else",
+        "url": "https://dor.wa.gov/forms-publications/publications-subject/special-notices/new-tiered-rates-washingtons-capital-gains-tax",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

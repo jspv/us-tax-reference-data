@@ -1,0 +1,41 @@
+{
+  "id": "or_2025_age_65_single",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+    "section": "Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "22250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

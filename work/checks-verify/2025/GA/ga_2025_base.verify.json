@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "60000.00",
+    "state_income_tax": "2491.20",
+    "state_tax_before_credits": "2491.20",
+    "state_taxable_income": "48000.00"
+  },
+  "worked": "Form 500 line 8 federal AGI 60000.00 (given). Georgia AGI (line 10) = 60000.00 - 0.00 = 60000.00. Line 11 standard deduction (single) 12000.00; line 15 taxable income = 60000.00 - 12000.00 = 48000.00. Line 16 tax = 48000.00 x 5.19% = 2491.200000 -> 2491.20 (the form rounds to the nearest dollar: 2491). No credits in the projection: credits 0.00; state income tax = 2491.20."
+}

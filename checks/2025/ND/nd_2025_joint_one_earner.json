@@ -1,0 +1,51 @@
+{
+  "id": "nd_2025_joint_one_earner",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "Married Filing Jointly schedule, 1.95% band; PDF p.16 Line 22; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-03-03"
+      },
+      {
+        "age": 48,
+        "born": "1977-08-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "160000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "128500.00"
+  },
+  "expected": {
+    "state_taxable_income": "128500.00",
+    "state_tax_before_credits": "926.74",
+    "credits": "0.00",
+    "state_income_tax": "926.74"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 160,000.00 = 160,000.00. Federal taxable income = 160,000.00 - standard deduction 31,500.00 = 128,500.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 128,500.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 128,500.00. Subtractions lines 5-16: none; line 17 = 0.00. Line 18 North Dakota taxable income = 128,500.00 - 0.00 = 128,500.00. Line 19 = 128,500.00. Line 20 tax: 1.95% x (128,500.00 - 80,975.00) = 1.95% x 47,525.00 = 926.7375, to the cent 926.74; taxable income is 100,000 or more, so the form itself uses the schedule (PDF p.29). Lines 21-23 credits: line 22 marriage penalty credit: qualified income after lines 8 and 15 is 160,000.00 and 0.00; the lower is not more than 47,550.00, so none. Expected credits 0.00. Line 25 net tax = 926.74.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

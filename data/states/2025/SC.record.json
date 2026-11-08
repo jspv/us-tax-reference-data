@@ -1,0 +1,646 @@
+{
+  "layer": "record",
+  "state": "SC",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: the booklet prints no bracket schedule. It prints a tax table in 50-dollar rows below 7,000 and 100-dollar rows from 7,000 to 100,000 (packet PDF pp.48-51), one table for every filing status, and for 100,000 or more 'Multiply the amount on line 5 by 6%; Subtract $642' ('Use this Tax Rate Schedule for any filing status claimed on the SC1040', packet PDF p.51). Packet PDF p.5: 'the top marginal Individual Income Tax rate changed to 6%'.",
+    "Derived schedule (brackets.derivation): 0% from 0, 3% from 3,560, 6% from 17,840, the same for every filing status. Method: every one of the 1,069 printed table rows (50 to 99,900) is reproduced exactly, after rounding to the dollar, by the tax at the row's midpoint; the formula's constant 642 equals 0.03 x (3,560 + 17,840), so the schedule also gives 6% of income minus 642 exactly at 100,000 and above. The table alone fixes the lower threshold only to 3,559-3,566 and the upper to 17,818-17,857; taking the printed 642 as exact fixes their sum at 21,400, and 3,560 / 17,840 is the pair in that set on round tens. Any pair in the set gives the same table to the dollar. 3,560, 17,840 and the 3% rate are not printed in the booklet.",
+    "Derivation table rows are recorded with status 'all' because the booklet prints one table for every filing status (the validator checks each row against both the single and married_joint schedules). Their incomes are row midpoints, which the booklet does not print (the row's 'At least' and 'But less than' are printed).",
+    "Base: South Carolina starts from federal taxable income (SC1040 line 1, Instructions PDF p.5); a federal taxable income below zero is entered as zero and the negative amount is subtracted on line r. The booklet prints no South Carolina standard deduction and no personal exemption. Printed deductions: the dependent exemption of 4,930 for each dependent (line w) and 4,930 for each dependent under age 6 (line t), claimed in addition to line w.",
+    "The age 65 and older deduction (15,000 against any South Carolina income) is recorded as a relief (covers all_income), not a base deduction, because the booklet reduces it by the retirement and military retirement deductions.",
+    "How the retirement and age 65 deductions combine (Instructions PDF pp.12-13, worksheets for lines q-1 and q-2 and Examples 1-5): the age 65 deduction is 15,000 less the person's own retirement deduction (p-1 or p-2) and own military retirement deduction (p-4 or p-5), not below zero, so for a person 65 or older the own retirement deduction plus the age 65 deduction cannot exceed 15,000 (Example 2: 10,000 on p-1 and 5,000 on q-1; Example 3: 'The maximum allowed deduction for 2025 is $15,000'). The military retirement deduction is not capped and may exceed 15,000, leaving no age 65 amount (Example 4: 36,000 on p-4 and nothing on q-1). Surviving spouse deductions (p-3, p-6) do not reduce the age 65 deduction.",
+    "Retirement deduction 'under age 65' is written as max_age 64 (the oldest age reached that is still under 65) plus the booklet's words in other_conditions; the 65-or-older branch is 'age 65 or older during the tax year', min_age 65.",
+    "Surviving spouse retirement deduction (line p-3): the 3,000 or 10,000 limit turns on the age the deceased spouse would have reached had they lived, not the survivor's age, so no min_age or max_age is set on those entries; the age test is in other_conditions.",
+    "Qualified retirement income is 'income from plans defined in IRC 401, 403, 408, and 457, and all public employee retirement plans of the federal, state, and local governments, including individual retirement plans, Keogh plans, and military retirement' (Instructions PDF p.11). Because 'all' public employee plans of state governments are named, without limiting them to South Carolina, public_pension_other_state is in covers. Military retirement is in the definition, so military_pension is in covers of the retirement deduction entries; the full military deduction (p-4/p-5) reduces the own-plan cap.",
+    "Roth conversions: the booklet does not say whether a conversion is qualified retirement income; roth_conversion is in covers_unclear on the retirement deduction entries.",
+    "Social Security: line o subtracts Social Security (Title 2 of the Social Security Act) and railroad retirement taxed on the federal return (Instructions PDF p.10; SC1040 line o, packet PDF p.46), and PDF p.11 says Social Security and railroad retirement income 'are not taxed by South Carolina'. Treatment exempt.",
+    "Municipal interest: line d adds back federally exempt interest from obligations of states and political subdivisions other than South Carolina (Instructions PDF p.6); nothing is added back for South Carolina obligations. The booklet does not say in words that South Carolina's own bonds are exempt; the treatment is inferred from the add-back being limited to other states.",
+    "Capital gains: line i deducts 44% of net capital gain (net long-term capital gain over net short-term capital loss), long-term holding period as federal (Instructions PDF p.8). No separate rate.",
+    "Two Wage Earner Credit (line 12): .007 of the lesser of 50,000 or the lower-earning spouse's South Carolina qualified earned income, at most 350, married filing jointly only (Instructions PDF pp.17-18). Recorded with cap under married_joint only because no other filing status may claim it.",
+    "Indexing: the booklet says nothing about inflation adjustment of any figure; the 2025 dependent exemption is described only as an 'Increase In South Carolina Dependent Exemption' to 4,930 (packet PDF p.5). All entries not_stated.",
+    "Recapture and surtaxes: none found in the booklet (empty lists mean none found, not that the booklet says there are none). The 6%-minus-642 formula is the ordinary schedule written as one line, not a recapture.",
+    "Printed but not recorded as reliefs (out of scope: not retirement or Social Security relief, or a credit other than those): volunteer deduction 6,000 per qualifying volunteer (line j); subsistence allowance 16 per workday for law enforcement, firefighters and EMS (line s); SC College Investment Program and Tuition Prepayment contributions (line k); consumer protection services up to 300 / 1,000 (line u); special needs adoption 2,000 per year per child, Palmetto ABLE, Catastrophe Savings Account and preceptor items (line v); Child and Dependent Care Credit 7% of the federal expense, at most 210 for one child or 420 for two or more (line 11); state tax refund (line f); out-of-state income and losses (lines b, h); state tax addback for itemizers (line a); active trade or business income at a flat 3% by election (line l, line 8, I-335); 2.5% extra tax on excess Catastrophe Savings Account withdrawals (line 9); lump-sum distribution tax (line 7, SC4972).",
+    "Settlement 2026-11-07: brackets: A and B each recorded only 6% from 100,000 and described the table in notes; packet PDF pp.48-51 (tax table) and p.51 (6% minus 642) give the full schedule 0% / 3% from 3,560 / 6% from 17,840, recorded with brackets.derivation (six table rows and the formula).",
+    "Settlement 2026-11-07: sc_retirement_under_65 who.max_age: A said 65, B left it out (other_conditions only); Instructions PDF p.10 says 'An individual who is under age 65 may claim a retirement deduction up to $3,000'; written as max_age 64 (age reached, at most 64) with the words kept in other_conditions.",
+    "Settlement 2026-11-07: retirement deduction covers_unclear: A listed roth_conversion only, B also public_pension_other_state; Instructions PDF p.11 names 'all public employee retirement plans of the federal, state, and local governments', so public_pension_other_state is moved into covers; roth_conversion stays unclear (conversions not mentioned).",
+    "Settlement 2026-11-07: surviving spouse retirement deduction (line p-3): A set min_age 65 / max_age 65 on the deceased spouse's would-be age, B set no ages; Instructions PDF p.10 ('based on the age of the deceased spouse if they were alive') and p.11 worksheet line 1; no ages set (they are not the survivor's age), test in other_conditions.",
+    "Settlement 2026-11-07: surviving spouse retirement deduction covers: A included military_pension, B left it out; Instructions PDF p.11 defines qualified retirement income to include military retirement and says only that the p-3 deduction is not reduced by the p-6 military deduction; military_pension kept in covers.",
+    "Settlement 2026-11-07: military retirement deduction: A had two entries (own service p-4/p-5, each person; surviving spouse p-6, per return), B one entry for p-4 to p-6; Instructions PDF p.12 treats p-6 separately ('in addition to any retirement deductions claimed on the taxpayer's own retirement income'; does not reduce line q); A's two entries kept.",
+    "Settlement 2026-11-07: Two Wage Earner Credit: only B recorded it (cap 350, no rate); Instructions PDF pp.17-18 print '.007 of the lesser of $50,000 or the South Carolina qualified earned income of the spouse with the lower' income, credit at most 350; kept, with credit_rate 0.007 and credit_basis covered_income added.",
+    "Settlement 2026-11-07: one-sided B entries dropped as out of scope (printed, but not retirement or Social Security relief): volunteer deduction (line j), subsistence allowance (line s), college savings (line k), special needs adoption (line v), Child and Dependent Care Credit (line 11); listed in notes.",
+    "Settlement 2026-11-07: cannot_combine_with between the under-65 and 65-or-older branches: B listed them, A did not; the age tests already separate the branches for each person, and the list could be read as one spouse's deduction blocking the other's, so it is left out."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3560"
+      },
+      {
+        "rate": "0.06",
+        "start": "17840"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3560"
+      },
+      {
+        "rate": "0.06",
+        "start": "17840"
+      }
+    ],
+    "cite": {
+      "publication": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+      "section": "PDF pp.48-51 '2025 South Carolina Individual Income Tax Tables' (one table for all filing statuses, income under 100,000); PDF p.51 '2025 Tax Rate Schedule for taxable income of $100,000 or more' (multiply line 5 by 6%, subtract $642; any filing status); PDF p.5 'Reduction In Income Tax Rates' (top rate 6%). Bracket starts derived, see derivation",
+      "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+      "accessed": "2026-11-06"
+    },
+    "derivation": {
+      "method": "tax_table_and_formula",
+      "table_rows": [
+        {
+          "status": "all",
+          "income": "3525",
+          "tax": "0"
+        },
+        {
+          "status": "all",
+          "income": "3625",
+          "tax": "2"
+        },
+        {
+          "status": "all",
+          "income": "10050",
+          "tax": "195"
+        },
+        {
+          "status": "all",
+          "income": "17850",
+          "tax": "429"
+        },
+        {
+          "status": "all",
+          "income": "50050",
+          "tax": "2361"
+        },
+        {
+          "status": "all",
+          "income": "99950",
+          "tax": "5355"
+        }
+      ],
+      "formula": {
+        "over": "100000",
+        "rate": "0.06",
+        "minus": "642"
+      },
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+        "section": "Tax table rows (At least / But less than / Your tax is): 3,500-3,550 $0 (PDF p.48); 3,600-3,650 $2 (p.48); 10,000-10,100 $195 (p.48); 17,800-17,900 $429 (p.48); 50,000-50,100 $2,361 (p.49); 99,900-100,000 $5,355 (p.51); income given is the row midpoint. Formula: PDF p.51 Tax Rate Schedule, line 5 x 6% minus $642 for $100,000 or more",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_taxable_income",
+    "federal_senior_deduction": {
+      "treatment": "added_back",
+      "cite": {
+        "publication": "SCDOR Information Letter #26-4 (Revised)",
+        "section": "PDF p.1: '2. Senior Deduction' is among the 2025 federal changes South Carolina does not adopt; SC1040 Instructions PDF p.3 (conformity 'as amended through December 31, 2024') and PDF p.7 Line e ('Add back any federal deductions resulting from IRC sections that South Carolina does not adopt')",
+        "url": "https://dor.sc.gov/sites/dor/files/policies/IL26-4(revised).pdf",
+        "accessed": "2026-11-08"
+      },
+      "notes": "For 2026 onward South Carolina starts from federal AGI (Act 110; SCDOR Information Letter #26-20)."
+    },
+    "deductions": [
+      {
+        "id": "sc_dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "4930"
+        },
+        "per": "dependent",
+        "condition": "each eligible dependent claimed on the federal return, qualifying children and qualifying relatives; the number must equal the federal count",
+        "cite": {
+          "publication": "2025 SC1040 Individual Income Tax Instructions",
+          "section": "PDF p.16 'Line w: South Carolina dependent exemption' and Worksheet for South Carolina dependent exemption line 1; PDF p.4 Dependent Exemption checkboxes",
+          "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "sc_dependent_under_6",
+        "what": "other",
+        "amount": {
+          "all": "4930"
+        },
+        "per": "dependent",
+        "condition": "each dependent claimed on the federal return who had not reached age 6 by December 31 of the tax year; claimed on line t in addition to the line w exemption",
+        "cite": {
+          "publication": "2025 SC1040 Individual Income Tax Instructions",
+          "section": "PDF p.13 'Line t: Dependents under 6 years of age'; PDF p.14 Worksheet for dependent under age 6 line 1",
+          "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 SC1040 Individual Income Tax Instructions",
+      "section": "PDF p.5 'Line 1: Federal Taxable Income'; PDF p.13 Line r; SC1040 lines 1 to 5 (packet PDF p.46)",
+      "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 SC1040 Individual Income Tax Instructions",
+      "section": "PDF p.10 'Line o: Social Security and/or railroad retirement if taxed on your federal return'; PDF p.11 ('Social Security income, and railroad retirement income do not qualify because these items are not taxed by South Carolina'); SC1040 line o, packet PDF p.46",
+      "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "sc_retirement_under_65",
+      "label": "Retirement deduction (line p-1 taxpayer, line p-2 spouse), under age 65",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "disability retirement income due to total and permanent disability (deducted on line g)",
+        "Social Security income",
+        "railroad retirement income",
+        "any portion of qualified retirement income received this tax year that resulted in a federal premature withdrawal penalty",
+        "retirement income deducted on line v (Reserve or National Guard retirement for inactive time)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": null,
+        "max_age": 64,
+        "other_conditions": [
+          "under age 65 ('An individual who is under age 65 may claim a retirement deduction up to $3,000')",
+          "original owner of the qualified retirement account; only qualified withdrawals from the person's own plan (line p-1 taxpayer, line p-2 spouse)"
+        ]
+      },
+      "cap": {
+        "all": "3000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheets for line p-1 and p-2: the lesser of (the age-based maximum less the person's own military retirement deduction on line p-4 or p-5, not below zero) and the person's own qualified retirement income included in the federal form (taxable IRA distributions, pensions, and annuities). Income deducted on line g or line v is not counted. The amount taken reduces the person's age 65 and older deduction (line q).",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 'Line p-1 through line p-3: Retirement deduction'; PDF p.11 qualified retirement income definition and Worksheets for taxpayer (line p-1) and spouse (line p-2)",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_retirement_65_or_older",
+      "label": "Retirement deduction (line p-1 taxpayer, line p-2 spouse), age 65 or older",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "disability retirement income due to total and permanent disability (deducted on line g)",
+        "Social Security income",
+        "railroad retirement income",
+        "any portion of qualified retirement income received this tax year that resulted in a federal premature withdrawal penalty",
+        "retirement income deducted on line v (Reserve or National Guard retirement for inactive time)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65,
+        "max_age": null,
+        "other_conditions": [
+          "age 65 or older during the tax year",
+          "original owner of the qualified retirement account; only qualified withdrawals from the person's own plan (line p-1 taxpayer, line p-2 spouse)"
+        ]
+      },
+      "cap": {
+        "all": "10000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheets for line p-1 and p-2: the lesser of (the age-based maximum less the person's own military retirement deduction on line p-4 or p-5, not below zero) and the person's own qualified retirement income included in the federal form (taxable IRA distributions, pensions, and annuities). Income deducted on line g or line v is not counted. The amount taken reduces the person's age 65 and older deduction (line q).",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 'Line p-1 through line p-3: Retirement deduction'; PDF p.11 qualified retirement income definition and Worksheets for line p-1 and p-2; PDF p.13 Example 2",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_retirement_surviving_under_65",
+      "label": "Surviving spouse retirement deduction (line p-3), deceased spouse under age 65 had they lived",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "disability retirement income due to total and permanent disability (deducted on line g)",
+        "Social Security income",
+        "railroad retirement income",
+        "any portion of qualified retirement income received this tax year that resulted in a federal premature withdrawal penalty",
+        "retirement income deducted on line v (Reserve or National Guard retirement for inactive time)"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "surviving spouse receiving qualified retirement income on behalf of a deceased spouse, as a surviving spouse",
+          "the age tested is the age the deceased spouse would have reached had they lived: under 65",
+          "calculated separately for each deceased spouse; statement of each deceased spouse's date of birth attached"
+        ]
+      },
+      "cap": {
+        "all": "3000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet for surviving spouse (line p-3): per deceased spouse, the lesser of the maximum for the deceased spouse's age had they lived and the qualified retirement income received as surviving spouse included in the federal form (taxable IRA distributions, pensions, and annuities); separate calculations for more than one deceased spouse are added. In addition to the survivor's own retirement deduction; not reduced by the surviving spouse military retirement deduction (line p-6); does not reduce the age 65 and older deduction.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 Line p-3; PDF p.11 Worksheet for surviving spouse (line p-3) and the paragraphs before it",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_retirement_surviving_65_or_older",
+      "label": "Surviving spouse retirement deduction (line p-3), deceased spouse age 65 or older had they lived",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "disability retirement income due to total and permanent disability (deducted on line g)",
+        "Social Security income",
+        "railroad retirement income",
+        "any portion of qualified retirement income received this tax year that resulted in a federal premature withdrawal penalty",
+        "retirement income deducted on line v (Reserve or National Guard retirement for inactive time)"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "surviving spouse receiving qualified retirement income on behalf of a deceased spouse, as a surviving spouse",
+          "the age tested is the age the deceased spouse would have reached had they lived: 65 or older",
+          "calculated separately for each deceased spouse; statement of each deceased spouse's date of birth attached"
+        ]
+      },
+      "cap": {
+        "all": "10000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet for surviving spouse (line p-3): per deceased spouse, the lesser of the maximum for the deceased spouse's age had they lived and the qualified retirement income received as surviving spouse included in the federal form (taxable IRA distributions, pensions, and annuities); separate calculations for more than one deceased spouse are added. In addition to the survivor's own retirement deduction; not reduced by the surviving spouse military retirement deduction (line p-6); does not reduce the age 65 and older deduction.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 Line p-3; PDF p.11 Worksheet for surviving spouse (line p-3) and the paragraphs before it",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_military_retirement",
+      "label": "Military retirement deduction (line p-4 taxpayer, line p-5 spouse)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "income that is subject to a penalty for premature distribution",
+        "retirement benefits received for service in the National Guard or Reserves due to inactive time (subtracted on line v)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": null,
+        "max_age": null,
+        "other_conditions": [
+          "taxable income from a qualified military retirement plan related to the person's own military service (line p-4 taxpayer, line p-5 spouse)"
+        ]
+      },
+      "cap_rule": "No cap: 'Beginning with tax year 2022, individuals may deduct all military retirement income included in their South Carolina taxable income.' The amount taken reduces the retirement deduction (p-1, p-2) and the age 65 and older deduction (q-1, q-2); it may exceed 15,000 (Example 4).",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.12 'Line p-4 through line p-6: Military retirement deduction'; PDF p.13 Examples 3-5",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_military_retirement_surviving",
+      "label": "Surviving spouse military retirement deduction (line p-6)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "income that is subject to a penalty for premature distribution"
+      ],
+      "who": {
+        "basis": "return",
+        "min_age": null,
+        "max_age": null,
+        "other_conditions": [
+          "surviving spouse receiving military retirement income on behalf of a deceased spouse; includes a retirement benefit plan and dependent indemnity compensation received due to the deceased spouse's military service",
+          "apply the deduction in the same manner that it was applied to the deceased spouse"
+        ]
+      },
+      "cap_rule": "No cap printed; calculated separately for each deceased spouse and added; in addition to any retirement deductions on the taxpayer's own retirement income; does not reduce the p-3 deduction or the age 65 and older deduction.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.12 Line p-6 and the surviving spouse paragraphs; PDF p.11 ('Do not reduce the surviving spouse retirement deduction by any surviving spouse military retirement deduction taken')",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_age_65_deduction",
+      "label": "Age 65 and older deduction (line q-1 taxpayer, line q-2 spouse)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65,
+        "max_age": null,
+        "other_conditions": [
+          "resident taxpayer; entitled beginning in the tax year the taxpayer reaches age 65",
+          "line q-1 is the taxpayer whose name appears first on the return, line q-2 the spouse named second"
+        ]
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "15,000 less the person's own retirement deduction (line p-1 or p-2) and less the person's own military retirement deduction (line p-4 or p-5), not below zero; so own retirement plus age 65 deductions are at most 15,000 a person. Surviving spouse deductions on p-3 or p-6 do not reduce it.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.12 'Line q: Age 65 and older deduction' and Worksheet for taxpayer (line q-1); PDF p.13 Worksheet for spouse (line q-2) and Examples 1-5",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_social_security_railroad",
+      "label": "Social Security and/or railroad retirement if taxed on your federal return (line o)",
+      "form": "subtraction",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "only the amount taxed on the federal return"
+        ]
+      },
+      "cap_rule": "No cap printed; the Social Security (Title 2 of the Social Security Act) or railroad retirement taxed on the federal return.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 Line o; PDF p.11 ('not taxed by South Carolina'); SC1040 line o, packet PDF p.46",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_disability_retirement",
+      "label": "Total and permanent disability retirement income (line g)",
+      "form": "subtraction",
+      "covers": [
+        "other_income"
+      ],
+      "not_covered": [
+        "third-party sick pay reported on a W-2"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": null,
+        "max_age": null,
+        "other_conditions": [
+          "totally and permanently disabled and unable to be substantially gainfully employed",
+          "receiving income from a disability retirement plan that was taxed on the federal return",
+          "eligible for the homestead exemption under SC Code Section 12-37-250",
+          "physician's statement attached",
+          "a surviving spouse may take it only for amounts received in the year the disabled spouse died"
+        ]
+      },
+      "cap_rule": "Limited to payments received from retirement plans; income deducted here is not counted in the line p-1 or p-2 worksheets.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.8 'Line g: Total and permanent disability retirement income'",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_guard_reserve_pay",
+      "label": "Certain nontaxable National Guard or Reserve pay (line n)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": null,
+        "max_age": null,
+        "other_conditions": [
+          "member of the National Guard or Reserves"
+        ]
+      },
+      "cap_rule": "All inactive duty pay for weekend drills and other inactive duty training; plus up to 15 days of annual training pay (National Guard and active duty Reserve), or up to 14 days plus up to two days of travel (inactive duty Reserve); full-time Active Guard and Reserve: up to 15 days of annual training and up to 24 days of weekend drills (a maximum of 39 days) at the daily rate. Not for pay included in retirement income.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.10 'Line n: Certain nontaxable National Guard or Reserve pay'",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_guard_reserve_retirement",
+      "label": "Reserve and National Guard retirement income for inactive service (line v)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": null,
+        "max_age": null,
+        "other_conditions": [
+          "retirement income paid by the US government for service in the Reserves or National Guard (not full-time)"
+        ]
+      },
+      "cap_rule": "Excludable share = (inactive Reserve time + inactive National Guard time) / total military time (active and inactive), times total taxable military retirement income shown on the federal return; the entire stipend paid by South Carolina for National Guard service is deductible. Income deducted here is not counted in the p-1 or p-2 worksheets.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.15 Worksheet for military retirement exclusion and the line v bullet that follows",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_us_obligation_interest",
+      "label": "Interest from US obligations (line m)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "not_covered": [
+        "interest from Federal Home Loan Mortgage Corporation (Freddie Mac)",
+        "interest from Federal National Mortgage Association (Fannie Mae)",
+        "interest from Government National Mortgage Association (Ginnie Mae)"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "US obligations include savings bonds, treasury notes, and treasury bills; the interest reported on the federal return.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.9 'Line m: Interest from US obligations'; PDF p.10 list of obligations taxable for state purposes",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "sc_two_wage_earner_credit",
+      "label": "Two Wage Earner Credit (line 12)",
+      "form": "credit",
+      "credit_rate": "0.007",
+      "credit_basis": "covered_income",
+      "covers": [
+        "wages",
+        "self_employment"
+      ],
+      "not_covered": [
+        "interest",
+        "dividends",
+        "Social Security benefits",
+        "IRA distributions",
+        "retirement plan or annuity benefits",
+        "deferred compensation",
+        "any amount your spouse paid you"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "married filing jointly; not allowed for Single, Married Filing Separately or Head of Household",
+          "both spouses have earned income taxed to South Carolina; qualified earned income of each must be above zero"
+        ]
+      },
+      "cap": {
+        "married_joint": "350"
+      },
+      "cap_per": "return",
+      "cap_rule": "Credit = .007 x the lesser of 50,000 or the South Carolina qualified earned income of the spouse with the lower qualified earned income (earned income taxed to South Carolina less the deductible part of self-employment tax, self-employment SEP, simple and qualified plans, self-employment health insurance deduction, IRA deduction and repayment of sub-pay); not more than 350. Nonrefundable.",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.17 'Line 12: Two Wage Earner Credit'; PDF p.18 earned income table, example and Worksheet for Two Wage Earner Credit lines 6-7",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Line d adds back interest exempt on the federal return from obligations of states and political subdivisions other than South Carolina (for a mutual fund, the out-of-state share); the booklet does not state outright that South Carolina obligations are exempt.",
+    "cite": {
+      "publication": "2025 SC1040 Individual Income Tax Instructions",
+      "section": "PDF p.6 'Line d: Interest income'",
+      "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "sc_net_capital_gain_deduction",
+      "applies_to": "long_term",
+      "treatment": "deduction_share",
+      "value": "0.44",
+      "condition": "net capital gain (net long-term capital gain over net short-term capital loss) included in taxable income; South Carolina holding period as federal; installment sale income and capital gain distributions qualify if the more than one year holding period is met",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Instructions",
+        "section": "PDF p.8 'Line i: Net capital gain deduction'; PDF p.9 example; SC1040 line i '44% of net capital gains held for more than one year', packet PDF p.46",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+        "section": "PDF pp.48-51 tax tables and rate schedule; no mention of inflation adjustment",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "sc_dependent_exemption",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
+        "section": "PDF p.5 'Increase In South Carolina Dependent Exemption'; the booklet does not say the 4,930 is adjusted for inflation",
+        "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

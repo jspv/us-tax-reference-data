@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "28000.00",
+    "state_income_tax": "697.00",
+    "state_tax_before_credits": "697.00",
+    "state_taxable_income": "16400.00",
+    "relief_amounts": {
+      "tier2_standard_deduction": "40000.00"
+    }
+  },
+  "worked": "Joint; older spouse born 1948 (Tier 2). Worksheet 2: 40,000, no line 11 / line 14 reductions -> 40,000; covered income wages 30,000 + IRA 8,000 + interest 20,000 + dividends 10,000 = 68,000 -> 40,000.00. Alternative Worksheet 3.3: IRA 8,000 -> 8,000; Tier 2 is better. Taxable SS 34,000 subtracted. state_agi 102,000 - 34,000 - 40,000 = 28,000.00. Exemptions 11,600. Taxable 16,400.00. Tax 697.00. [check: state_agi 28000.00, taxable 16400.00, tax 697.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

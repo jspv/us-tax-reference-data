@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "50050.00",
+    "state_taxable_income": "37450.00",
+    "state_tax_before_credits": "1235.64",
+    "credits": "171.00",
+    "state_income_tax": "1064.64"
+  },
+  "worked": "Line 5 federal AGI 50,050.00. Line 6/10 standard deduction 12,600.00 (no 65 box: person 0 age 38). Line 11 50,050.00 - 12,600.00 = 37,450.00. Line 12 0.00. Line 13 0.00. state_agi = 50,050.00 + 0.00 - 0.00 = 50,050.00. Line 14 37,450.00. Line 15 schedule: 7,510.00 x 2.46% = 184.746; 29,940.00 x 3.51% = 1050.894; total 1235.640 = 1,235.64. Form figure: the printed table row 37,360-37,460 gives 1,234; expected keeps the schedule result. Line 18 personal exemption credit 1 x 171 = 171.00. Line 35 1,235.64 - 171.00 = 1,064.64. Federal Tax Liability Worksheet (line 35) and Schedule R credit (line 20) are not_modelled and not applied. Federal figures are given; federal senior deduction ignored."
+}

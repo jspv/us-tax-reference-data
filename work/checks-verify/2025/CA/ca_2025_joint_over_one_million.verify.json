@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "standard_deduction": "11412.00"
+    },
+    "state_agi": "1700000.00",
+    "state_income_tax": "176255.42",
+    "state_tax_before_credits": "176255.42",
+    "state_taxable_income": "1688588.00"
+  },
+  "worked": "Start: federal AGI 1,700,000.00 (Form 540 line 13). State AGI (Form 540 line 17) = 1,700,000.00 - 0 = 1,700,000.00. Standard deduction 11,412 (line 18). Taxable income (line 19) = 1,700,000.00 - 11,412 = 1,688,588.00. Tax by the rate schedule (line 31; 1% BHST over 1,000,000 folded into the brackets per the projection): 0.01 x (22,158 - 0) = 221.58; 0.02 x (52,528 - 22,158) = 607.40; 0.04 x (82,904 - 52,528) = 1,215.04; 0.06 x (115,084 - 82,904) = 1,930.80; 0.08 x (145,448 - 115,084) = 2,429.12; 0.093 x (742,958 - 145,448) = 55,568.43; 0.103 x (891,542 - 742,958) = 15,304.15; 0.113 x (1,000,000 - 891,542) = 12,255.75; 0.123 x (1,485,906 - 1,000,000) = 59,766.44; 0.133 x (1,688,588.00 - 1,485,906) = 26,956.71; total 176,255.42. Exemption credits: federal AGI 1,700,000.00 at or over 504,411: the projection removes the personal and senior credits (approximation); the form's AGI Limitation Worksheet would give ceil((1,700,000.00-504,411)/2,500)=479 steps x 6 = 2874 off each credit -> 0 each x 2 credits = 0. Credits (line 32) = 0. State income tax = 176,255.42 - 0 = 176,255.42. Federal figures given (federal senior deduction ignored)."
+}

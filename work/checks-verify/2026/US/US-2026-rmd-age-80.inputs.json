@@ -1,0 +1,20 @@
+{
+  "id": "US-2026-rmd-age-80",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "rmd",
+  "boundary": "none",
+  "tests": [
+    "rmd.uniform_lifetime_table"
+  ],
+  "description": "IRA owner born in 1946, age 80 in 2026.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1946-05-01",
+    "rmd_prior_year_end_balance": "350000"
+  },
+  "asked": [
+    "rmd_amount",
+    "rmd_divisor"
+  ]
+}

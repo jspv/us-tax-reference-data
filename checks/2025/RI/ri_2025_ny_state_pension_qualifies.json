@@ -1,0 +1,60 @@
+{
+  "id": "ri_2025_ny_state_pension_qualifies",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_pension_annuity_modification"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Guide PDF p.11: 'State government pension plans (State of Rhode Island or another state)'; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "42250.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "4000.00",
+    "state_tax_before_credits": "150.00",
+    "credits": "0.00",
+    "state_income_tax": "150.00",
+    "relief_amounts": {
+      "ri_pension_annuity_modification": "40000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 20,000.00 + public pension (NY) (person 0) 40,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 15,750.00 standard deduction - 1 x 2,000.00 age 65+ = 42,250.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 60,000.00. Line 1t: question 1 born on or before March 1, 1959: person 0 born 1955-06-15 (age 70): yes; question 2 federal AGI 60,000.00 less than or equal to 107,000.00: yes. Table: person 0 line 2 40,000.00, line 3 lesser of that and 50,000.00 = 40,000.00; line 4 = 40,000.00. Line 1y total decreasing modifications = 40,000.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 40,000.00 = -40,000.00; RI-1040 line 2 = -40,000.00. Line 3 modified federal AGI = 60,000.00 + (-40,000.00) = 20,000.00. Standard Deduction and Exemption Worksheets: line 3 20,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 10,900.00 (Single). Line 5 = 20,000.00 - 10,900.00 = 9,100.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00. Line 7 taxable income = 9,100.00 - 5,100.00 = 4,000.00. Line 8 tax on 4,000.00 by the schedule as numbers: 4,000.00 x 0.0375 = 150.000000 = 150.00. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 150.00. Note: A New York State pension gets the same treatment as a Rhode Island one; no rule turns on the paying state.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_approximations": []
+}

@@ -1,0 +1,67 @@
+{
+  "id": "sc_2025_railroad_retirement",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "sc_railroad_retirement",
+    "sc_retirement_under_65"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF p.10 'Line o: Social Security and/or railroad retirement if taxed on your federal return'; PDF p.11 ('railroad retirement income do[es] not qualify ... not taxed by South Carolina'); SC1040 line o, packet PDF p.46; Instructions PDF pp.10-11 'Line p-1 through line p-3: Retirement deduction', qualified retirement income definition and Worksheet for taxpayer (line p-1) lines 1-5; SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_taxable_income": "14250.00",
+    "state_tax_before_credits": "320.70",
+    "credits": "0.00",
+    "state_income_tax": "320.70",
+    "relief_amounts": {
+      "sc_railroad_retirement": "20000.00",
+      "sc_retirement_under_65": "0.00"
+    }
+  },
+  "worked": "Federal AGI = wages 30,000.00 + railroad retirement (Tier 2, taxed federally as a pension) 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 (15,750.00 single) = 34,250.00 (federal senior deduction ignored, federal figures given, not tested). SC1040 line 1 federal taxable income 34,250.00; additions lines a-e none, line 2 = 0.00; line 3 = 34,250.00. Line o: railroad retirement taxed on the federal return, 20,000.00, subtracted in full. Line p-1 worksheet (age 62): line 4 qualified retirement income 0.00, because railroad retirement does not qualify (Instructions PDF p.11), so p-1 = 0.00 even though 3,000 is available. Line 4 total subtractions = o 20,000.00 = 20,000.00. Line 5 South Carolina income subject to tax = 34,250.00 - 20,000.00 = 14,250.00. Line 6 tax = 3% x (14,250.00 - 3,560.00) = 3% x 10,690.00 = 320.70; the printed table (row 14,200 to 14,300, figured at the row midpoint) gives 321; expected uses the bracket formula on the exact income. Line 12 Two Wage Earner Credit: not modelled (warning), 0.00; it is for joint filers only, so 0 anyway. Line 14 credits 0.00; line 15 state income tax = 320.70.",
+  "accepted_approximations": [
+    "The bracket starts 3,560 and 17,840 are derived from the printed tax table and the 6%-minus-642 formula; the table fixes them only to 3,559-3,566 and 17,818-17,857. Tax below 100,000 is figured on the exact income, where the booklet uses the table row's midpoint."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:sc_disability_retirement",
+    "state_rule_not_modelled:sc_retirement_surviving_under_65",
+    "state_rule_not_modelled:sc_two_wage_earner_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,12 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "ia_ret_excl_age55": "50000.00"
+  },
+  "state_income_tax": "0.00",
+  "state_tax_before_credits": "0.00",
+  "state_taxable_income": "0.00"
+ },
+ "worked": "Federal AGI 50000.00; federal deduction 17750.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 32250.00. Schedule 1 line 7 column B, private pension of person 0, age 67 (55 or over): -50000.00. Line 3, net Iowa modifications: 0.00 - 50000.00 = -50000.00. Line 4, Iowa taxable income: 32250.00 + -50000.00 = -17750.00 (negative on the form; floored at 0.00). Line 5: 0.00 x 3.8% = 0.00. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 1 x 20 = 20.00; total 60.00. Credits are limited to the tax: 0.00 used; line 12 enters zero if negative (PDF p.18). Line 12: 0.00 - 0.00 = 0.00. Form difference (approximation): income base 0.00 is at or under 24000, exempt on the form (PDF p.11), tax 0. The projection does not apply the exemption. The single filers' tax reduction (41-146) is not applied; its terms are not in the sources."
+}

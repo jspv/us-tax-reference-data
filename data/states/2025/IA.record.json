@@ -1,0 +1,479 @@
+{
+ "layer": "record",
+ "state": "IA",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Settlement 2026-11-07: muni_interest.treatment: A said other_states_taxed_own_exempt, B said other; PDF p.64 line 1 adds all state and municipal interest 'unless specifically exempt' and exempts only 'certain Iowa state and municipal securities' (a printed list), so other.",
+  "Settlement 2026-11-07: personal, age-65, blind and dependent amounts: A said base.deductions (four entries), B said credit reliefs; PDF p.8, PDF p.18 line 12 and the form (Step 3, line 8, subtracted from tax) say credits against tax, so credit reliefs with credit_amount and credit_basis tax; base.deductions is empty.",
+  "Settlement 2026-11-07: personal credit count: A said per exemption claimed, B said one return entry with the count in cap_rule; PDF p.8 gives 1 for status 1, 3, 5 and 2 for status 2 and 4. Written as a per-person credit plus an extra head of household credit, so a joint return gets two (one each) and head of household gets two.",
+  "Settlement 2026-11-07: age-65 credit date: B said born_on_or_before 1961-01-01, A said age only; PDF p.8 prints an age test ('65 or older on or before January 1, 2026'), not a birth date, so min_age 65 with the words in other_conditions; B's date dropped as derived.",
+  "Settlement 2026-11-07: protection-occupation survivor covers: A said public_pension, B said all retirement kinds; PDF p.68 says the 'Pension income must come from a retirement plan provided for under one of the following Iowa Code sections', so public_pension only, and another state's plan is not covered in this branch.",
+  "Settlement 2026-11-07: public_pension_other_state in the age 55, disabled and survivor entries: A and B said covers_unclear; PDF p.67 line 7 says 'a governmental or other pension or retirement plan' with no limit by payer (the only Iowa-only limit in line 7 is on the protection-occupation branch, PDF p.68), so covers. No sentence names another state's pension or New York.",
+  "Settlement 2026-11-07: health insurance deduction (A only): kept; PDF p.72-73 prints it. Income test at_or_over 100,000 ('less than $100,000' eligible, '$100,000 or more' not).",
+  "Settlement 2026-11-07: disability income exclusion (A only): kept, re-cited to the booklet; PDF p.75 prints it; form subtraction because it excludes 'a portion'.",
+  "Settlement 2026-11-07: interest on federal securities (neither reader's entry, both in notes): added as a relief; PDF p.64 line 1 column B and the Line 2 column B dividends sentence print it.",
+  "Rate: IA 1040 line 5 'Multiply line 4 by 3.8%' (form PDF p.2); 'Iowa now has a flat tax rate of 3.8%' (PDF p.3 and p.12). One rate for every filing status, so one schedule; no married_separate or head_of_household schedule is printed.",
+  "Starting point: Iowa taxable income (line 4) = federal taxable income from federal 1040 line 15 (line 2) + net Iowa modifications (line 3, Schedule 1 line 21). If federal taxable income is zero, line 2 is federal AGI less lines 1d and 1e and federal 1040 line 13b, and it can be negative (PDF p.9-10).",
+  "Standard deduction: the booklet prints no Iowa standard deduction amount; the federal standard or itemized deduction is already inside line 2. Exemptions are the Step 3 credits, recorded as reliefs.",
+  "Social Security: exempt. Schedule 1 line 5 column B subtracts the amount from federal 1040 line 6b (form PDF p.5); 'Iowa does not tax Social Security benefits' (PDF p.67).",
+  "Retirement exclusion: no dollar cap and no income test printed in the booklet, the Schedule 1 web page or the guidance page. Roth conversion income is named as qualifying (PDF p.68; guidance page). Roth IRAs are also named on the guidance page.",
+  "Federal civilian pensions: line 7 does not name them. PDF p.90 denies CSRS and FERS only the military exemption (line 4). They are read as 'governmental' under line 7, so public_pension in the 55, disabled and survivor entries.",
+  "Other states' government pensions: not named in the booklet; read as covered from the words 'governmental or other pension or retirement plan' (see the settlement line). Iowa's only income tax reciprocal agreement is with Illinois and covers wages and salaries only (PDF p.87); it has no pension rule.",
+  "Low-income exemption (PDF p.10-11; not held by a field): after adding back the items on PDF p.10, exempt from Iowa tax at 9,000 or less for single (24,000 if 65 or older on 12/31/25), less than 5,000 for a single filer claimed as a dependent; 13,500 or less for joint, head of household and qualifying surviving spouse (32,000 if you or your spouse was 65 or older on 12/31/25); married filing separately 9,000 or less with 13,500 or less combined. The p.5 filing test gives separate filers 24,000 at 65 or older; p.11's exemption text does not.",
+  "Alternate tax (PDF p.12-13; not held by a field): every status except single may take the smaller of the 3.8% tax and 4.3% of (the income base less 13,500, or 32,000 if 65 or older). The worksheet line 2 prints '12/31/2024' where other pages print 12/31/25. Not a recapture: it can only lower the tax.",
+  "Tax reduction: single taxpayers not claimed as a dependent 'may owe less tax' using the Income Tax Reduction Worksheet (41-146) (PDF p.18); its terms are not in the sources.",
+  "Capital gains: the Iowa capital gain deduction (Schedule 1 line 16, PDF p.74) needs form IA 100; its terms are not found in the sources, so no capital_gains entry. Gains are otherwise taxed at the flat rate.",
+  "Farm tenancy income exclusion (Schedule 1 line 18, PDF p.74): retired farmers meeting ten-year tests may exclude income from a farm tenancy agreement; form IA 125. Not held as a relief; recorded here only.",
+  "Lump-sum tax (PDF p.13): 25% of the federal tax from form 4972 for Iowa residents, but not if the recipient is disabled, 55 or older, or an eligible survivor. Not held by a field.",
+  "National Guard or reserve members called to duty: a withdrawal from a qualified retirement account is not subject to Iowa income tax (PDF p.90; entered on Schedule 1 line 4). Recorded here only.",
+  "Local surtaxes: school district and county EMS surtaxes (form line 19, a percentage of line 18 from a list) are local and not in surtaxes; percentages are not in the sources.",
+  "Recapture: none found in the booklet; empty list. Indexing: the words indexed, inflation and cost-of-living do not appear for any figure here; not_stated."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.038",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.038",
+    "start": "0"
+   }
+  ],
+  "cite": {
+   "publication": "2025 IA 1040 Iowa Individual Income Tax Return",
+   "section": "PDF p.2, Step 5 line 5 'Multiply line 4 by 3.8%'; expanded instructions PDF p.3 and p.12 'Iowa now has a flat tax rate of 3.8%'",
+   "url": "https://revenue.iowa.gov/media/4400/download?inline=",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": {
+   "treatment": "follows",
+   "cite": {
+    "publication": "Iowa 2025 IA 1040 Expanded Instructions (4435)",
+    "section": "PDF p.3, Line 1f: the senior deduction 'does not directly affect the calculation of Iowa taxable income as the deduction is already included in your federal taxable income'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-08"
+   },
+   "notes": "Iowa adds it back only inside the low-income exemption, alternate tax, tax reduction and health insurance deduction computations (PDF p.3, p.9)."
+  },
+  "deductions": [],
+  "cite": {
+   "publication": "2025 IA 1040 Iowa Individual Income Tax Return",
+   "section": "PDF p.2, Step 4 lines 2 to 4: federal taxable income from federal 1040 line 15, plus net Iowa modifications",
+   "url": "https://revenue.iowa.gov/media/4400/download?inline=",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Expanded Instructions (IA 1040)",
+   "section": "PDF p.67, Schedule 1 Line 5: 'Iowa does not tax Social Security benefits'; form PDF p.5 Schedule 1 line 5 column B",
+   "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "ia_ret_excl_age55",
+   "label": "Retirement income exclusion (Schedule 1 line 7): 55 years of age or older",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "annuity"
+   ],
+   "not_covered": [
+    "Nonqualified deferred compensation plans",
+    "Nonqualified annuities - Most nonqualified annuity distributions will report a code of “D” in box 7 on federal form 1099-R"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 55,
+    "other_conditions": [
+     "The income recipient is 55 years of age or older on December 31, 2025",
+     "For married couples the exclusion applies only to retirement income attributable to a spouse who meets a condition; if both do, all eligible retirement income may be excluded (Retirement Income Tax Guidance, 'Who qualifies')"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.67-68, Schedule 1 Line 7: IRA/Pension/Railroad Retirement Income; form PDF p.5 Schedule 1 line 7",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_ret_excl_disabled",
+   "label": "Retirement income exclusion (Schedule 1 line 7): disabled",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "annuity"
+   ],
+   "not_covered": [
+    "Nonqualified deferred compensation plans",
+    "Nonqualified annuities - Most nonqualified annuity distributions will report a code of “D” in box 7 on federal form 1099-R"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "The income recipient is disabled (any age)",
+     "For married couples the exclusion applies only to retirement income attributable to a spouse who meets a condition; if both do, all eligible retirement income may be excluded (Retirement Income Tax Guidance, 'Who qualifies')"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.67-68, Schedule 1 Line 7: IRA/Pension/Railroad Retirement Income; form PDF p.5 Schedule 1 line 7",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_ret_excl_survivor",
+   "label": "Retirement income exclusion (Schedule 1 line 7): surviving spouse or survivor with an insurable interest",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "annuity"
+   ],
+   "not_covered": [
+    "Nonqualified deferred compensation plans",
+    "Nonqualified annuities - Most nonqualified annuity distributions will report a code of “D” in box 7 on federal form 1099-R"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "A surviving spouse or a survivor having an insurable interest in an individual who would have qualified for the exclusion in 2025 on the basis of age or disability",
+     "A survivor other than the surviving spouse has an insurable interest if a son, daughter, mother, or father of the annuitant or pensioner (Retirement Income Tax Guidance, 'Who qualifies')"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.67-68, Schedule 1 Line 7: IRA/Pension/Railroad Retirement Income; form PDF p.5 Schedule 1 line 7",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_ret_excl_protection_survivor",
+   "label": "Retirement income exclusion (Schedule 1 line 7): surviving spouse, protection occupation, sheriff, firefighter or police pension",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Pension income must come from a retirement plan provided for under one of the following Iowa Code sections: 97A, 97B.49B, 97B.49C, 410, 411",
+    "Nonqualified deferred compensation plans",
+    "Nonqualified annuities - Most nonqualified annuity distributions will report a code of “D” in box 7 on federal form 1099-R"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "A surviving spouse who receives amounts from a deceased spouse's pension, regardless if the deceased spouse was 55 years of age or older or disabled",
+     "The pension was from employment in a protection occupation, or as a sheriff, deputy sheriff, firefighter, or police officer"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.68, Schedule 1 Line 7, item 4 and 'For tax years beginning on or after January 1, 2024'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_railroad_retirement",
+   "label": "Railroad retirement income (Schedule 1 line 7)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Regardless of age or disability status; the amount included in federal taxable income"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.68, Schedule 1 Line 7: 'Include in this deduction the total amount of railroad retirement income that is included in federal taxable income regardless of age or disability status'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_military_retirement",
+   "label": "Military Retirement Income (Schedule 1 line 4)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "not_covered": [
+    "Retirement pay received from other sources, including the Office of Personnel Management (OPM)",
+    "Retirement pay resulting from participation in the Civil Service Retirement System (CSRS) or the Federal Employees Retirement System (FERS)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Retirement pay for military service in the United States Armed Forces, the Armed Forces Military Reserve, or the National Guard, without regard for age or disability",
+     "Only military retirement pay received from the Defense Finance and Accounting Service (DFAS), or a similar source"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.67, Schedule 1 Line 4; PDF p.90, Military Retirement Pay; form PDF p.5 Schedule 1 line 4",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_personal_credit",
+   "label": "Personal Credit (IA 1040 Step 3 line a)",
+   "form": "credit",
+   "credit_amount": "40",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "1 credit for single, married filing separately or qualifying surviving spouse; 2 for married filing jointly (one each). The head of household's second credit is ia_head_of_household_credit",
+     "A dependent filing their own return may claim it even if claimed on another person's Iowa return",
+     "Non-refundable: line 12 (line 7 less line 11) is entered as zero if less than zero"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8, Step 3 a. Personal Credit; PDF p.18 line 12; form PDF p.1 Step 3 line a 'x $40'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_head_of_household_credit",
+   "label": "Personal Credit, extra credit for head of household (IA 1040 Step 3 line a)",
+   "form": "credit",
+   "credit_amount": "40",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Filing status 4, head of household: 'you are eligible for an extra credit and should enter 2'"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8, Step 3 a. Personal Credit; form PDF p.1 Step 3 line a",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_age_65_credit",
+   "label": "Additional Personal Credit: 65 or older (IA 1040 Step 3 line b)",
+   "form": "credit",
+   "credit_amount": "20",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "65 or older on or before January 1, 2026",
+     "The spouse's credit only on a joint return (status 2)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8, Step 3 b. Additional Personal Credit; form PDF p.1 Step 3 line b 'x $20'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_blind_credit",
+   "label": "Additional Personal Credit: blind (IA 1040 Step 3 line b)",
+   "form": "credit",
+   "credit_amount": "20",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Blind on December 31, 2025",
+     "The spouse's credit only on a joint return (status 2)"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8, Step 3 b. Additional Personal Credit; form PDF p.1 Step 3 line b 'x $20'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_dependent_credit",
+   "label": "Dependents credit (IA 1040 Step 3 line c)",
+   "form": "credit",
+   "credit_amount": "40",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "40 for each dependent claimed for federal income tax purposes"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8, Step 3 c. Dependents; form PDF p.1 Step 3 line c 'x $40'",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_health_insurance_deduction",
+   "label": "Health Insurance Deduction (Schedule 1 line 15)",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "65 years of age or older",
+     "The amount is 100% of health and dental insurance premiums paid with post-tax funds, including Medicare B supplemental and Medicare D insurance; it is not a fixed figure",
+     "Long-term nursing home coverage premiums paid with post-tax dollars qualify regardless of age",
+     "Reduced by any premium reimbursement from Health Reimbursement Arrangements; amounts already deducted for federal taxable income do not count"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Health Insurance Taxable Income Worksheet line 3: Iowa taxable income (IA 1040 line 4) plus the federal itemized or standard deduction to the extent it does not exceed federal adjusted gross income, federal personal exemption deduction, Federal Qualifying Business Income Deduction, Social Security income on federal 1040 line 6b, pensions or other retirement income from a source not taxable in Iowa (Schedule 1 lines 4 and 7), and the health insurance deduction itself"
+    },
+    "threshold": {
+     "all": "100000"
+    },
+    "effect": "removes",
+    "applies_when": "at_or_over",
+    "as_printed": "If line 3 is less than $100,000 and you are age 65 or older you are eligible ... If line 3 is $100,000 or more you are NOT eligible. Calculated without regard to filing status."
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.72-74, Schedule 1 Line 15: Health Insurance Deduction; PDF p.73 Health Insurance Taxable Income Worksheet",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_disability_income_exclusion",
+   "label": "Disability income exclusion (Schedule 1 line 19h; form IA 2440)",
+   "form": "subtraction",
+   "covers": [
+    "other_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 64,
+    "other_conditions": [
+     "Received disability pay; not yet 65 when the tax year ended; retired on disability and totally and permanently disabled when retired",
+     "On January 1, 2025 had not yet reached the age when the employer's retirement program would have required retirement",
+     "Excludes 'a portion' of the disability pay; the amount is set on form IA 2440, which is not in the sources. A doctor's statement must accompany each year's return"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.75, Schedule 1 Line 19 h. Disability income exclusion",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "ia_federal_securities_income",
+   "label": "Interest from federal securities and other listed obligations (Schedule 1 line 1 column B) and dividends attributable to direct federal securities (line 2 column B)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "Interest from repurchase agreements of U.S. Government securities",
+    "The obligations listed as 'not considered federal securities' (PDF p.66)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Dividends: only that portion of net dividends from a mutual fund, investment trust or regulated investment company attributable to direct federal securities, and only with a statement from the fund giving the percentage"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.64-66, Schedule 1 Line 1 Column B and its list of exempt obligations; PDF p.67, Schedule 1 Line 2 Column B",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other",
+  "note": "Interest from state and municipal securities is added (Schedule 1 line 1 column A) unless specifically exempt from Iowa tax; only a printed list of Iowa issues is exempt, so an Iowa bond not on the list is taxed. Bonds of Guam, Puerto Rico and the Virgin Islands are exempt through column B (PDF p.65; held in ia_federal_securities_income). Dividends from funds investing in state and municipal bonds are added (line 2 column A).",
+  "cite": {
+   "publication": "2025 Expanded Instructions (IA 1040)",
+   "section": "PDF p.64, Schedule 1 Line 1 Column A and list; PDF p.65, Column B list; PDF p.67, Schedule 1 Line 2 Column A",
+   "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Expanded Instructions (IA 1040)",
+    "section": "PDF p.8 Step 3 and PDF p.12 line 5: no indexing statement found",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline=",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": []
+}

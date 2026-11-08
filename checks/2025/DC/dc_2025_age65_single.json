@@ -1,0 +1,62 @@
+{
+  "id": "dc_2025_age65_single",
+  "state": "DC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "additional_standard_age65"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "section": "D-40 Lines 4-7, 15-20; booklet PDF page 19 Line 4; PDF page 20 Lines 16-17 and Calculation I/Tax Rate Schedule; Schedule S Calculation G-1 lines a-h (PDF page 51); standard deduction PDF pages 4 and 13 (record base.deductions cite); additional standard deduction for age 65, born before January 2, 1961 (PDF pages 4, 13, 51; record additional_standard_age65 cite); pensions and IRA distributions taxed in federal AGI (PDF page 19 Line 4)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-10"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "12000.00",
+          "person": 0
+        }
+      ],
+      "interest": "3000.00"
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "27250.00"
+  },
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "28000.00",
+    "state_tax_before_credits": "1480.00",
+    "credits": "0.00",
+    "state_income_tax": "1480.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (you) 12,000.00 + private pension (you) 30,000.00 + interest 3,000.00 = 45,000.00. Federal taxable income = 45,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 27,250.00 (federal senior deduction ignored). D-40 (single): Line 4 federal AGI 45,000.00. Line 5 franchise tax 0.00. Line 6 other additions 0.00 (no other-state municipal interest). Line 7 = 45,000.00 + 0.00 + 0.00 = 45,000.00. Line 10 0.00 (no Social Security or railroad retirement). Lines 8, 9, 11, 12, 13 0.00. Line 14 Schedule I Calculation B Line 16 0.00. Line 15 total subtractions = 0.00. Line 16 DC AGI = 45,000.00 - 0.00 = 45,000.00. Line 17 standard (same as federal). Line 18 from Schedule S Calculation G-1: line a basic 15,000.00; lines b and d age 65 (born before January 2, 1961): you age 70 (born 1955-03-10) counts; line f 1; line g 2,000.00 x 1 = 2,000.00; line h 15,000.00 + 2,000.00 = 17,000.00. Line 19 DC taxable income = 45,000.00 - 17,000.00 = 28,000.00. Line 20 tax, Calculation I rate schedule as numbers: 4% x 10,000.00 = 400.00 + 6% x 18,000.00 = 1,080.00; total 1,480.00. (Taxable income is 100,000 or less, so the form reads the tax table: row 28,000-28,049, PDF page 96, gives 1,482; expected keeps the formula figure.) Lines 21-23 credits 0.00; Line 24 = 1,480.00.",
+  "accepted_approximations": [
+    "Tax on taxable income of 100,000 or less comes from the tax tables (50-dollar rows); the projection uses the rate schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:government_survivor_benefits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

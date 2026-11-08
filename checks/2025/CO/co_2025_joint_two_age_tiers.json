@@ -1,0 +1,70 @@
+{
+  "id": "co_2025_joint_two_age_tiers",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "co_pension_65_plus",
+    "co_pension_55_64"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 4 / line 6 Pension and Annuity Subtraction (PDF p.18-19 Line 4 bullets; p.19-20 Line 6; DR 0104AD p.1 lines 4 and 6) (each spouse's own age as of December 31, 2025; line 4 primary, line 6 secondary); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-01"
+      },
+      {
+        "age": 63,
+        "born": "1962-09-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ],
+      "interest": "40000.00"
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "66900.00"
+  },
+  "expected": {
+    "state_taxable_income": "22900.00",
+    "state_tax_before_credits": "1007.60",
+    "credits": "0.00",
+    "state_income_tax": "1007.60",
+    "relief_amounts": {
+      "co_pension_55_64": "20000.00",
+      "co_pension_65_plus": "24000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (you) 30,000.00 + IRA distribution (spouse) 30,000.00 + interest 40,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 additional for age 65 or older = 66,900.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 66,900.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 100,000.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 66,900.00. DR 0104AD: Line 4 (primary taxpayer, age 66, 65 or older): taxable pension, annuity and IRA income 30,000.00; limit 24,000.00 minus line 3 0.00 = 24,000.00; subtraction = smaller of 30,000.00 and 24,000.00 = 24,000.00. Line 6 (secondary taxpayer, age 63, at least 55 but not yet 65): taxable pension, annuity and IRA income 30,000.00; limit 20,000.00 minus line 5 0.00 = 20,000.00; subtraction = smaller of 30,000.00 and 20,000.00 = 20,000.00. Line 22 subtotal = 44,000.00; DR 0104 line 11 = 44,000.00. Line 12 Colorado taxable income = 66,900.00 - 44,000.00 = 22,900.00. Line 13 tax = 4.4% x 22,900.00 = 1,007.60 (the tax table row over 22,800.00 but not over 22,900.00, PDF p.34, gives 1,005.00; expected keeps the formula figure). No credits claimed: 0.00. Colorado income tax 1,007.60. Whose age counts: each spouse's own age sets their own limit (66: 24,000; 63: 20,000); the older spouse's age does not lift the younger spouse's limit, and the spouses' unused limits are not pooled.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income at 4.4%; below 50,000 the booklet uses the tax table, which taxes each 100-dollar row at its midpoint and rounds to the dollar."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:co_pension_under_55_survivor",
+    "state_rule_not_modelled:co_pera_dpsrs_1984_1986"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "nj_2025_unclaimed_below",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 16a, 17, 20a, 27, 28a, 28b, 29: Instr PDF p.10 and p.15 (Social Security not taxable), PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart, PDF p.22 line 29; GIT-1 & 2 p.22-23; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-08-19"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NJ",
+          "contributory": false
+        }
+      ],
+      "interest": "6000.00",
+      "dividends": "4000.00",
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "20400.00"
+    },
+    "federal_agi": "70400.00",
+    "federal_taxable_income": "54650.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_pension_exclusion",
+    "relief_amounts.nj_unclaimed_exclusion"
+  ]
+}

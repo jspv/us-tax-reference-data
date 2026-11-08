@@ -1,0 +1,52 @@
+{
+  "id": "ar_2025_recapture_start_94701",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ar_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 34 Regular Income Tax Table rows 94,701-95,001 and PLEASE NOTE (\"For $100,001 and over, your tax is $3,809 + 3.9% of the excess over $100,000\"); record recapture starts_over 94,701",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "97220.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "97220.00",
+    "federal_taxable_income": "81470.00"
+  },
+  "expected": {
+    "state_agi": "97220.00",
+    "state_taxable_income": "94750.00",
+    "state_tax_before_credits": "3275.29",
+    "credits": "29.00",
+    "state_income_tax": "3246.29"
+  },
+  "worked": "Single, 45: wages 97,220, net taxable income 94,750, just over the recapture start (94,701). Federal (given, not tested): federal AGI = wages (primary) 97,220.00 = 97,220.00. Federal taxable income = 97,220.00 - standard deduction 15,750.00 = 81,470.00 (federal senior deduction ignored). AR1000F, filing status 1 (single); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 97,220.00. Line 23 total income = 97,220.00; line 24 adjustments 0.00; line 25 AGI = 97,220.00. Projection check: federal AGI 97,220.00 = state AGI 97,220.00. Line 27 standard deduction (filing status 1) 2,470.00; line 28 net taxable income = 97,220.00 - 2,470.00 = 94,750.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (11,200.00 - 5,600.00) 5,600.00 = 112.00 + 3% x (15,990.00 - 11,200.00) 4,790.00 = 143.70 + 3.4% x (26,400.00 - 15,990.00) 10,410.00 = 353.94 + 3.9% x (94,750.00 - 26,400.00) 68,350.00 = 2,665.65; total 3,275.29. Line 7A boxes: personal 1 = 1 x 29.00 = 29.00; line 7C and line 34 29.00; line 37 total credits 29.00. Line 38 net tax = 3,275.29 - 29.00 = 3,246.29. The table row 94,701-94,801 prints 3,296, which is 20.71 above the schedule (3.9% x 94,750.00 - 419.96 = 3,275.29) because the recapture starts here (the previous row 94,601-94,701 prints 3,271, on the schedule). The projection does not compute the recapture (approximations, understates tax), so expected is the schedule tax 3,275.29; the form gives 3,296 - 29 = 3,267 net.",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "Recapture not computed: the record's recapture entry says only where it starts (net taxable income 94,701, every filing status). From there to about 97,850 the table adds about 10 cents of tax per dollar on top of 3.9%; above that the tax is about 330 higher than this schedule gives ('$3,809 + 3.9% of the excess over $100,000')."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

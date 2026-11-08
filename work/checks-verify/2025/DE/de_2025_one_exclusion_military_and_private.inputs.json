@@ -1,0 +1,56 @@
+{
+  "id": "de_2025_one_exclusion_military_and_private",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "de_pension_excl_under60_military",
+    "de_pension_excl_under60_nonmilitary"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. \u00a71102(a)(14)",
+    "section": "Instructions PDF p.6 Line 6 Pension Exclusion (under-60 rules, 60-or-over worksheet lines 1-4, eligible retirement income, NOTE, example); Form PIT-RES p.1 Line 6 military pension box; Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.5 Line 1; PDF p.8 Line 20a standard deduction table, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. \u00a71102(a)(14) (record brackets cite)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30050.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "14000.00",
+          "person": 0,
+          "source": "military"
+        },
+        {
+          "amount": "3000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "47050.00",
+    "federal_taxable_income": "31300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.de_pension_excl_under60_military"
+  ]
+}

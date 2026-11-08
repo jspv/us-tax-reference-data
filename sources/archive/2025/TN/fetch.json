@@ -1,0 +1,16 @@
+[
+  {
+    "state": "TN",
+    "title": "Hall Income Tax (repealed for tax periods beginning January 1, 2021 or later)",
+    "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T13:12:50.702038+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "hall-income-tax.html",
+    "bytes": 60862,
+    "sha256": "7a2ec2b47046dd45d6fbb64f75c150d4eb196ac3f6b65af1ac4ec82c7055b7f4",
+    "text_file": "hall-income-tax.page.txt"
+  }
+]

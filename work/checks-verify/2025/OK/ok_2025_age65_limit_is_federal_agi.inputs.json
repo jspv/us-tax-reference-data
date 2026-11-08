@@ -1,0 +1,44 @@
+{
+  "id": "ok_2025_age65_limit_is_federal_agi",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption",
+    "other_retirement_income"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); Schedule 511-A (form PDF page 45); Schedule 511-A line 6, Other Retirement Income (PDF page 17); Special exemption and Sixty-five or older (PDF page 9)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-01-17"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "18350.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "18350.00",
+    "federal_taxable_income": "600.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.other_retirement_income"
+  ]
+}

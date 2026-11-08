@@ -1,0 +1,18 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "18000.00",
+    "state_income_tax": "18.74",
+    "state_tax_before_credits": "18.74",
+    "state_taxable_income": "2250.00",
+    "relief_amounts": {
+      "capital_gain_subtraction": "6000.00",
+      "military_retirement_subtraction": "12000.00",
+      "railroad_retirement_exempt": "6000.00",
+      "business_income_deduction": "2000.00",
+      "social_security_retirement_subtraction": "15300.00",
+      "private_pension_subtraction": "6000.00"
+    }
+  },
+  "worked": "Filing status single; persons ages [63]. Federal AGI 64300.00 (given). Taxable Social Security 15300.00 split by each person's share of benefits (MO-A Section C worksheet): person 0: 15300.00 x 18000.00/18000.00 = 15300.00 capital_gain_subtraction (MO-A Part 1 Line 18, exempt in full, net gain floored at 0): max(0, 6000.00) = 6000.00 military_retirement_subtraction (MO-A Part 1 Line 10, in full, no cap): 12000.00 railroad_retirement_exempt (MO-A Part 1 Line 11, in full): 6000.00 business_income_deduction (MO-A Part 1 Line 17, projection share 0.2 of self-employment income): 0.2 x 10000.00 = 2000.000 Addition: other states' municipal interest 1000.00 (MO-A Part 1 Line 1); Missouri bond interest 2000.00 stays exempt. Person 0 group mo_social_security_or_public_pension: public pension min(0, 47633) = 0; Social Security exemption 15300.00; keep the larger: social_security_retirement_subtraction 15300.00. (Form MO-A Section A Line 4 = Line 2 less Line 3, so pension + SS together = the larger.) Private pension (MO-A Section B): covered per person ['6000.00'] (private pensions, annuities, IRA and plan distributions; Roth conversions not covered; railroad not included), each limited to 6000: ['6000.00'], Line 8 total 6000.00. Line 1-3 measure: federal AGI 64300.00 + other-state muni 1000.00 - taxable SS 15300.00 - gains 6000.00 - military 12000.00 - railroad 6000.00 - business 2000.000 = 24000.000; limit 25000; Line 5 excess (over strictly) 0; Line 9 = max(0, 6000.00 - 0) = 6000.00 (excess taken once off the total). Missouri AGI (state_agi) = 64300.00 + additions 1000.00 - subtractions 47300.000 = 18000.000 Deductions (MO-1040 Lines 14-15): standard 15750 + age 65 2000 x 0 = 0 + head of household/QSS exemption 0 = 15750 Taxable income = 18000.000 - 15750 = 2250.000 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2250.000 - 1313) = 18.74000; sum 18.74000 -> 18.74 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 18.74"
+}

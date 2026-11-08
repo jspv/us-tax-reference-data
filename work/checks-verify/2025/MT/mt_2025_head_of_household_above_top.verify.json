@@ -1,0 +1,10 @@
+{
+ "expected": {
+  "state_agi": "76000.00",
+  "state_taxable_income": "76000.00",
+  "state_tax_before_credits": "4103.60",
+  "credits": "0.00",
+  "state_income_tax": "4103.60"
+ },
+ "worked": "Federal AGI 99,625.00 (given); federal taxable income 76,000.00 (given, standard deduction, no federal senior deduction). Form 2 line 3 = 76,000.00 (floored at 0). Line 4 additions (Schedule I line 1, other states' bonds) 0.00. Line 5 subtractions (Schedule I lines 22-23, Railroad Retirement Board benefits) 0.00. State income before line 6: 76,000.00. Line 6 age 65 subtraction: 0 x 5,660.00 = 0.00. Line 7: 76,000.00 - 0.00 = 76,000.00. Bracket tax (head_of_household): 31,700.00 x 4.7% = 1,489.90; (76,000.00 - 31,700.00) x 5.9% = 2,613.70; total 4,103.60. Line 8: 4,103.60. Form's table prints a whole-dollar constant, so its tax is 0.20-0.40 higher in the top band; the bracket arithmetic is used. Credits 0.00 (no credit in the projection; Elderly Homeowner/Renter Credit and EITC not modelled). State income tax 4,103.60."
+}

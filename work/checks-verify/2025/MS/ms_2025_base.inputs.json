@@ -1,0 +1,39 @@
+{
+  "id": "ms_2025_base",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

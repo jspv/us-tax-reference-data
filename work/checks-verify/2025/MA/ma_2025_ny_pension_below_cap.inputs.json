@@ -1,0 +1,50 @@
+{
+  "id": "ma_2025_ny_pension_below_cap",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "other_state_contributory_pension_ny"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States (Massachusetts DOR, 01/10/1996)",
+    "section": "Department's Position After Pariser: amount rule and New York's subtraction as quoted ('not in excess of twenty thousand dollars', age 59 1/2); 2025 Form 1 Instructions PDF p10 Line 4 second bullet and PDF p22-23 Schedule Y Line 13; Form 1 lines 2a, 2c, 4, 15-22",
+    "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true,
+          "amount": "15000.00",
+          "person": 0
+        },
+        {
+          "source": "private",
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "29250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.other_state_contributory_pension_ny"
+  ]
+}

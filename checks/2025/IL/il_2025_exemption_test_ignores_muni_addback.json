@@ -1,0 +1,54 @@
+{
+  "id": "il_2025_exemption_test_ignores_muni_addback",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 Line 2; Instructions PDF page 7, Line 2; Schedule M Instructions PDF page 4, Lines 34 and 35; Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-02-25"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "245050.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "10000.00"
+    },
+    "federal_agi": "245050.00",
+    "federal_taxable_income": "229300.00"
+  },
+  "expected": {
+    "state_agi": "255050.00",
+    "state_taxable_income": "252200.00",
+    "state_tax_before_credits": "12483.90",
+    "credits": "0.00",
+    "state_income_tax": "12483.90",
+    "relief_amounts": {
+      "il_personal_exemption": "2850.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 245,050.00 = 245,050.00. Federal taxable income = 245,050.00 - standard deduction 15,750.00 = 229,300.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 245,050.00. Line 2 federally tax-exempt interest 10,000.00. Line 3 other additions 0.00. Line 4 = 255,050.00. Line 5 0.00. Lines 6 and 7 0.00. Line 8 = 0.00. Line 9 base income = 255,050.00 - 0.00 = 255,050.00. Income Exceptions: federal AGI 245,050.00 is not greater than 250,000.00, so the allowance stands. Line 10a 2,850.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 2,850.00. Line 11 net income = 255,050.00 - 2,850.00 = 252,200.00. Line 12 tax = 252,200.00 x 4.95% = 12,483.9000. The form takes whole dollars only and would show 12,484.00; expected uses the formula to the cent. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 12,483.90. Line 4 is over 250,000.00, but the test reads federal AGI, which is 245,050.00, so the allowance stands.",
+  "accepted_approximations": [
+    "All municipal bond interest is taxed. Illinois adds back all federally tax-exempt interest and exempts only listed obligations (Schedule M Lines 34 and 35), which a projection cannot tell from others."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

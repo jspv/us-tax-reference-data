@@ -1,0 +1,46 @@
+{
+  "id": "mt_2025_muni_other_state_after_line_3_floor",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p21 Schedule I Part I Line 1; Form 2 PDF p3 line 1; record muni_interest; Form 2 PDF p1 lines 3 and 7 ('If zero or less, enter 0'); Instructions PDF p13 Line 7",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "8000.00"
+    },
+    "federal_agi": "10000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "8000.00",
+    "state_taxable_income": "8000.00",
+    "state_tax_before_credits": "376.00",
+    "credits": "0.00",
+    "state_income_tax": "376.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 10,000.00 = 10,000.00. Municipal interest is not in federal AGI. Federal taxable income = 10,000.00 - standard deduction 15,750.00 = -5,750.00, floored at 0.00 (Form 2 line 3 does the same) (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 1 other-state bond interest 8,000.00; line 7 additions 8,000.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 10,000.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 0.00; line 4 8,000.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 0.00 + 8,000.00 - 0.00 - 0.00 = 8,000.00. Page 2 worksheet: line 1 taxable income 8,000.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 4.7% x 8,000.00 = 376.00; line 13 = 376.00, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 8,000.00 = 376.00. Line 9 nonrefundable credits 0.00; line 10 tax after credits 376.00. Line 3 is floored at 0.00 before the addition on line 4, so the 5,750.00 of federal deduction above income is lost and does not offset the addition: 10,000.00 - 15,750.00 is -5,750.00, entered as 0.00, then 8,000.00 is added. An unfloored start would give 2,250.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

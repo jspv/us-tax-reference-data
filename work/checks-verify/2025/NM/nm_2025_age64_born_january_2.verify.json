@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "age_65_exemption": "0.00",
+      "low_middle_income_exemption_single": "1750.00"
+    },
+    "state_agi": "9250.00",
+    "state_income_tax": "146.50",
+    "state_tax_before_credits": "146.50",
+    "state_taxable_income": "7500.00"
+  },
+  "worked": "Status single; persons [64]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 25,000.00 less line 12 federal standard deduction 15,750.00 = 9,250.00. state_agi = 9,250.00 + additions 0.00 - subtractions 0.00 = 9,250.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). Age 64 (born January 2, 1961): no Table 1 exemption. PIT-1 line 14 worksheet: line 3 = 25,000.00 - 20,000 floored at 0 = 5,000.00; line 5 = x 0.15 = 750.00; line 6 = 2,500 - line 5 (not below 0) = 1,750.00; line 7 exemptions 1 (dependents not modelled); line 8 = 1,750.00. state_taxable_income (PIT-1 line 17) = 9,250.00 - 0.00 - 1,750.00 = 7,500.00. Tax on 7,500.00, single brackets: 0.015 x 5,500.00 = 82.5000; 0.032 x 2,000.00 = 64.0000; total 146.5000, 146.50 to the cent. The printed table gives 145 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

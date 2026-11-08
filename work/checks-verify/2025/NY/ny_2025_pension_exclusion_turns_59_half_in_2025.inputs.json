@@ -1,0 +1,49 @@
+{
+  "id": "ny_2025_pension_exclusion_turns_59_half_in_2025",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_annuity_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 9, Line 29 (If you became 59 1/2 during 2025, enter only the amount you received after you became 59 1/2); Form IT-201 line 29; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 59,
+        "born": "1966-03-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "98000.00",
+    "federal_taxable_income": "82250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_annuity_exclusion"
+  ]
+}

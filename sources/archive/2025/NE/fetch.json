@@ -1,0 +1,41 @@
+[
+  {
+    "state": "NE",
+    "title": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025)",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf",
+    "retrieved": "2026-11-07T01:14:20.504117+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf",
+    "file": "f_Individual_Income_Tax_Booklet.pdf",
+    "bytes": 1637893,
+    "sha256": "c3aff5d0f5b99141ae3f69ad9c701bd18e172ef0d17ea641537712638dd57419",
+    "archived_url": "https://web.archive.org/web/20261009193647id_/https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  {
+    "state": "NE",
+    "title": "2025 Form 1040N Nebraska Individual Income Tax Return",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N.pdf",
+    "retrieved": "2026-11-07T01:14:25.879134+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N.pdf",
+    "file": "f_1040N.pdf",
+    "bytes": 608936,
+    "sha256": "db5850008b04901cce2a467707cc8db19e0f9194548d610247403ae8a9e078a3",
+    "archived_url": "https://web.archive.org/web/20261014013317id_/https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N.pdf"
+  },
+  {
+    "state": "NE",
+    "title": "2025 Form 1040N Schedule I (Social Security and other adjustments)",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N_Schs.pdf",
+    "retrieved": "2026-11-07T01:14:31.217206+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N_Schs.pdf",
+    "file": "f_1040N_Schs.pdf",
+    "bytes": 257936,
+    "sha256": "a96fcd78d7413b2e6677bb363dddb75bb2ed91b90d6f24a87da821160441a75b",
+    "archived_url": "https://web.archive.org/web/20261108001930id_/https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N_Schs.pdf"
+  }
+]

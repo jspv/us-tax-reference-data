@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "45000.00",
+    "state_taxable_income": "26490.00",
+    "state_tax_before_credits": "1390.74",
+    "credits": "0.00",
+    "state_income_tax": "1390.74"
+  },
+  "worked": "Filing status head_of_household. K-40 line 1 federal AGI 45,000.00 (given). IRA distribution 45,000.00: no subtraction line, stays in Kansas income. Line 2 modifications 0.00. Line 3 Kansas AGI 45,000.00 + (0.00) = 45,000.00. Line 4 standard deduction 6,180 + 1 age box(es) x 850 = 7,030 (worksheet PDF page 6). Line 5 exemption 11,480. Line 6 18,510.00. Line 7 taxable income 45,000.00 - 18,510.00 = 26,490.00. Line 8 tax 23,000 x 5.2% = 1,196.00; (26,490.00 - 23,000) = 3,490.00 x 5.58% = 194.742000; total 1390.742000. the table row 26,451-26,500 gives 1,390. No credits in the projection: credits 0.00. Tax 1390.74."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "ma_2025_age_65_one_spouse",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "Form 1 line 2c (PDF p10 Line 2c: 'age 65 or over before January 1, 2026'; spouse counted separately), lines 2a, 2g, 4, 10-22",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-12-31"
+      },
+      {
+        "age": 64,
+        "born": "1961-03-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "private",
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "16900.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

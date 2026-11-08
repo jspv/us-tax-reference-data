@@ -1,0 +1,77 @@
+{
+  "id": "az_2025_railroad_and_social_security_joint",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement",
+    "age_65_exemption",
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 20 Line 30; PDF page 39 Form 140 line 30; PDF page 11 Box 8; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-01"
+      },
+      {
+        "age": 68,
+        "born": "1957-10-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "18000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "27200.00"
+    },
+    "federal_agi": "85200.00",
+    "federal_taxable_income": "50500.00"
+  },
+  "expected": {
+    "state_taxable_income": "4300.00",
+    "state_tax_before_credits": "107.50",
+    "credits": "0.00",
+    "state_income_tax": "107.50",
+    "relief_amounts": {
+      "railroad_retirement": "18000.00"
+    }
+  },
+  "worked": "Federal AGI = railroad retirement (Tier 2) annuity (person 0) 18,000.00 + IRA distribution (person 1) 40,000.00 + taxable Social Security 27,200.00 = 85,200.00. Taxable Social Security 27,200.00 is the federal taxable amount given (gross 20,000.00 + 12,000.00). Federal taxable income = 85,200.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age 65 additional = 50,500.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 85,200.00; line 13 small business income 0.00; line 14 = 85,200.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 85,200.00 + 0.00 = 85,200.00. Subtractions: line 30 taxable Social Security 27,200.00 + railroad retirement 18,000.00 = 45,200.00. Line 35 = 85,200.00 - 45,200.00 = 40,000.00; line 36 other subtractions 0.00; line 37 = 40,000.00. Line 38 age 65 or over: box 8 = 2 x 2,100.00 = 4,200.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 40,000.00 - 4,200.00 = 35,800.00. Line 43 standard deduction (married filing joint) 31,500.00; line 44 0.00. Line 45 Arizona taxable income = 35,800.00 - 31,500.00 = 4,300.00. Line 46 tax = 4,300.00 x 2.5% = 107.50. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 40,000.00, over the maximum for the status). Line 52 balance of tax 107.50.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:other_exemption"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

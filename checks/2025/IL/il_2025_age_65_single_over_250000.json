@@ -1,0 +1,52 @@
+{
+  "id": "il_2025_age_65_single_over_250000",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "il_personal_exemption",
+    "il_age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8; Line 10b, Instructions PDF page 8 and Form IL-1040 PDF page 1",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-03-29"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "250001.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "250001.00",
+    "federal_taxable_income": "232251.00"
+  },
+  "expected": {
+    "state_agi": "250001.00",
+    "state_taxable_income": "250001.00",
+    "state_tax_before_credits": "12375.05",
+    "credits": "0.00",
+    "state_income_tax": "12375.05",
+    "relief_amounts": {
+      "il_personal_exemption": "0.00",
+      "il_age_65_exemption": "0.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 250,001.00 = 250,001.00. Federal taxable income = 250,001.00 - standard deduction 15,750.00 - additional amount for 1 person(s) 65 or older 2,000.00 = 232,251.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 250,001.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 = 250,001.00. Line 5 0.00. Lines 6 and 7 0.00. Line 8 = 0.00. Line 9 base income = 250,001.00 - 0.00 = 250,001.00. Income Exceptions: federal AGI 250,001.00 is greater than 250,000.00, so the whole Line 10 allowance is removed. Line 10a 0.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 0.00. Line 11 net income = 250,001.00 - 0.00 = 250,001.00. Line 12 tax = 250,001.00 x 4.95% = 12,375.0495 = 12,375.05 to the cent. The form takes whole dollars only and would show 12,375.00; expected uses the formula to the cent. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 12,375.05.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

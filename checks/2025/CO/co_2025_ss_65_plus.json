@@ -1,0 +1,60 @@
+{
+  "id": "co_2025_ss_65_plus",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_ss_65_plus"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5), 65 or older ('the entire amount'); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-03-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "11300.00"
+    },
+    "federal_agi": "41300.00",
+    "federal_taxable_income": "23550.00"
+  },
+  "expected": {
+    "state_taxable_income": "12250.00",
+    "state_tax_before_credits": "539.00",
+    "credits": "0.00",
+    "state_income_tax": "539.00",
+    "relief_amounts": {
+      "co_ss_65_plus": "11300.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 30,000.00 + taxable Social Security 11,300.00 = 41,300.00. Taxable Social Security on gross benefits 24,000.00 (you): federal SS worksheet (given): half of benefits 12,000.00 + other income 30,000.00 = 42,000.00; less 25,000.00 = 17,000.00; line 11 = 8,000.00; line 13 = half of smaller of 17,000.00 and 9,000.00 = 4,500.00; line 14 = 4,500.00; line 15 = 85% x 8,000.00 = 6,800.00; line 16 = 11,300.00; 85% of benefits = 20,400.00; taxable Social Security = 11,300.00. Federal taxable income = 41,300.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 23,550.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 23,550.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 41,300.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 23,550.00. DR 0104AD: Line 3 (primary taxpayer, age 70, 65 or older): entire taxable Social Security 11,300.00. Line 22 subtotal = 11,300.00; DR 0104 line 11 = 11,300.00. Line 12 Colorado taxable income = 23,550.00 - 11,300.00 = 12,250.00. Line 13 tax = 4.4% x 12,250.00 = 539.00 (the tax table row over 12,200.00 but not over 12,300.00, PDF p.34, gives 539.00; expected keeps the formula figure). No credits claimed: 0.00. Colorado income tax 539.00.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income at 4.4%; below 50,000 the booklet uses the tax table, which taxes each 100-dollar row at its midpoint and rounds to the dollar."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

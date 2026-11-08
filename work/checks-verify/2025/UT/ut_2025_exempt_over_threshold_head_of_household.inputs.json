@@ -1,0 +1,44 @@
+{
+  "id": "ut_2025_exempt_over_threshold_head_of_household",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "qualified_exempt_taxpayer"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); Line 21 and Qualified Exempt Taxpayer Worksheet lines 1 to 5 (PDF pp.10-11); (57) Municipal Bond Interest (PDF p.18); (71) Utah Municipal Bonds (PDF p.19)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "30000.00"
+    },
+    "federal_agi": "24000.00",
+    "federal_taxable_income": "375.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.qualified_exempt_taxpayer"
+  ]
+}

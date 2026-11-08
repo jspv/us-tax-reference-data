@@ -1,0 +1,56 @@
+[
+  {
+    "state": "LA",
+    "title": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+    "retrieved": "2026-11-07T01:09:33.785781+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+    "file": "IT540i-WEB-2025-Revised-7-26.pdf",
+    "bytes": 854765,
+    "sha256": "b301af5be15b42c50f92c8849f36ab251ed84ca509858927775857f84967fbe2",
+    "archived_url": "https://web.archive.org/web/20261108001532id_/https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf"
+  },
+  {
+    "state": "LA",
+    "title": "2025 Form IT-540 Louisiana Resident Income Tax Return",
+    "url": "https://dam.ldr.la.gov/taxforms/IT540WEB-BC-2025-F.pdf",
+    "retrieved": "2026-11-07T01:09:39.483392+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dam.ldr.la.gov/taxforms/IT540WEB-BC-2025-F.pdf",
+    "file": "IT540WEB-BC-2025-F.pdf",
+    "bytes": 476286,
+    "sha256": "e6b029c3a113b55f308c4b58fc1d67b5f4eb26079b2247290483fa9673a0cd09",
+    "archived_url": "https://web.archive.org/web/20260412060831id_/https://dam.ldr.la.gov/taxforms/IT540WEB-BC-2025-F.pdf"
+  },
+  {
+    "state": "LA",
+    "title": "2025 Louisiana Resident Income Tax Return and Instructions page",
+    "url": "https://revenue.louisiana.gov/tax-forms/individuals/it-540-1-1-25/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:09:44.727260+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.louisiana.gov/tax-forms/individuals/it-540-1-1-25/",
+    "file": "it-540-1-1-25.html",
+    "bytes": 58932,
+    "sha256": "28c2234e5f73b1be2a68ce4ebd31505819555e315634e7fe393cb0f412de59a9",
+    "text_file": "it-540-1-1-25.page.txt"
+  },
+  {
+    "state": "LA",
+    "title": "FAQ: list of retirement system benefits that may be excluded from Louisiana income tax",
+    "url": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/individual-income-tax/is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax/",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:09:50.386467+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/individual-income-tax/is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax/",
+    "file": "is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax.html",
+    "bytes": 93906,
+    "sha256": "e04191710b426afd7bf06cb9ca90f3ea5e350b82b7aa336eed3fd80e9a2e779d",
+    "text_file": "is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax.page.txt"
+  }
+]

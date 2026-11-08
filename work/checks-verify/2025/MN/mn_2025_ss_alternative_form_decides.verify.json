@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "state_agi": "145000.00",
+    "state_taxable_income": "112000.00",
+    "state_tax_before_credits": "6925.51",
+    "credits": "0.00",
+    "state_income_tax": "6925.51",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "0.00",
+      "mn_social_security_simplified": "0.00"
+    }
+  },
+  "worked": "Filing status married_joint; ages [70, 68]. M1 line 1 federal AGI 145,000. M1M line 1 addition, other-state municipal interest: 0. Social Security (M1M line 12): benefits 80,000, taxable 68,000. Simplified: AGI 145,000 over 144,320, keep share 0 = 0. Alternative (projection): measure AGI + exempt interest 145,000, lesser of cap 5840 and taxable = 5,840, less 20% of 56,370 over 88630 = 0. Greater: 0. Age 65 subtraction (M1R, M1M line 16), oldest person 70: cap 12000 less benefits received 80,000 and railroad benefits 0 = -68,000; less 50% of AGI over 18000 (50% x 127,000 = 63,500) = 0. State AGI: 145,000 + 0 - 0 military - 0 railroad - 0 age 65 - 0 Social Security = 145,000. Standard deduction (M1 line 4): 29900; age addition 2 x 1550 = 3,100; total 33,000. Taxable income (M1 line 9): 145,000 - 33,000 = 112,000. Tax (married_joint schedule, numbers not table): 47,620 x 0.0535 = 2,547.67; 64,380 x 0.068 = 4,377.84; total 6,925.51 = 6925.51. Credits: none in the projection (Schedule M1C credit not modelled): 0.00. Tax after credits 6925.51. Form against projection: Worksheet for line 12 itself would give 166 (step 19 total income less taxable benefits plus 50% of benefits, lesser of reduced cap and taxable). With the M1R, line 12 and line 4 differences only: taxable 111,834, tax 6914.22. Expected above follows the projection as the brief says. The form rounds to whole dollars; expected follows the formulas to the cent."
+}

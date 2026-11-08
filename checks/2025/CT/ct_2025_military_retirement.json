@@ -1,0 +1,66 @@
+{
+  "id": "ct_2025_military_retirement",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 9, Schedule 1 Line 44; PDF page 10 ('Military retirement pay ... fully exempt'); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      },
+      {
+        "age": 57,
+        "born": "1968-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "95000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "155000.00",
+    "federal_taxable_income": "123500.00"
+  },
+  "expected": {
+    "state_agi": "95000.00",
+    "state_taxable_income": "95000.00",
+    "state_tax_before_credits": "3775.00",
+    "credits": "377.50",
+    "state_income_tax": "3397.50",
+    "relief_amounts": {
+      "military_retirement": "60000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 95,000.00 + military retirement pay 60,000.00 = 155,000.00. Federal taxable income = 155,000.00 - 31,500.00 standard deduction = 123,500.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 155,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 155,000.00. Schedule 1 Line 44 military retirement pay: fully exempt, no income test -> 60,000.00. Schedule 1 Line 50 total subtractions = 60,000.00; CT-1040 Line 4 = 60,000.00. CT-1040 Line 5 Connecticut AGI = 155,000.00 - 60,000.00 = 95,000.00. Tax Calculation Schedule Line 1 = 95,000.00; Line 2 Table A: Connecticut AGI 95,000.00 is more than 71,000.00, exemption 0.00; Line 3 taxable income = 95,000.00 - 0.00 = 95,000.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 95,000.00: 20,000.00 x 0.02 + 75,000.00 x 0.045 = 400.00 + 3,375.00 = 3,775.00. Line 5 Table C 0.00 (Connecticut AGI 95,000.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 3,775.00. Line 8 Table E decimal 0.10 (Connecticut AGI 95,000.00 is in the band more than 52,000.00); Line 9 = 3,775.00 x 0.10 = 377.50. Line 10 Connecticut income tax = 3,775.00 - 377.50 = 3,397.50 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Federal AGI 155,000 is past the end of the Line 48b phase-out (150,000 MFJ); military retirement pay is subtracted in full anyway on Line 44 and is not part of the Line 48b worksheet.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit",
+    "state_rule_not_modelled:teachers_pension_50"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

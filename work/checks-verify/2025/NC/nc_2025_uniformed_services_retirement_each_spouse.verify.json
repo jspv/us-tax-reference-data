@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "state_taxable_income": "15500.00",
+    "state_tax_before_credits": "658.75",
+    "credits": "0.00",
+    "state_income_tax": "658.75",
+    "relief_amounts": {
+      "uniformed_services_retirement": "54000.00"
+    }
+  },
+  "worked": "D-400 Line 6 federal AGI 95000.00. Line 7 additions 0.00. Schedule S Part B: Line 21 Uniformed Services retirement 54000.00 (relief uniformed_services_retirement, exempt_in_full, each person; maintainer assumption 2026-11-07 that every military pension meets the 20-year/medical test). Line 9 deductions 54000.00. Line 6 + Line 7 - Line 9 = 95000.00 + 0.00 - 54000.00 = 41000.00. Line 11 NC standard deduction (married_joint) 25500.00. Line 14 NC taxable income 41000.00 - 25500.00 = 15500.00. Line 15 tax 15500.00 x 4.25% = 658.75. Line 16 credits 0.00 (no credits in the projection). Tax 658.75."
+}

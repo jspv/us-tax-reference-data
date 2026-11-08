@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "55000.00",
+  "state_income_tax": "1301.65",
+  "state_tax_before_credits": "1301.65",
+  "state_taxable_income": "33588.00",
+  "relief_amounts": {
+   "wi_retirement_67": "20000.00"
+  }
+ },
+ "worked": "Filing status married_joint; federal_taxable_income given (41900.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 75,000.00. Schedule SB line 16 (wi_retirement_67): persons 67 or older at 12/31/2025: [0] (ages [68, 64]); their covered retirement income (pensions not military/railroad, IRA, plan distributions) = 20,000.00; cap 48,000.00 per return -> 20,000.00. Joint return with one spouse 67: projection applies the 48,000 joint cap to that spouse's own income (approximation); Wisconsin would allow 24,000. Schedule SB line 17 (wi_retirement_5000): federal AGI 75,000.00 is not less than 30,000.00: no subtraction (0). Total subtractions 20,000.00; Form 1 line 7 Wisconsin income (state_agi) = 75,000.00 - 20,000.00 = 55,000.00. Line 8 standard deduction: table row for married_joint at least 55,000.00 (projection step over 55000) -> 19,762.00. Line 10a exemptions 700 x 2 = 1,400.00; line 10b 250 x 1 person(s) 65 or older = 250.00. Line 11 taxable income = 55,000.00 - 19,762.00 - 1,400.00 - 250.00 = 33,588.00. Line 12 tax, Pub 106 Schedule B (joint): (19,580.00 - 0.00) x 0.035 = 685.30 + (33,588.00 - 19,580.00) x 0.044 = 616.35 = 1,301.65. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 1,301.65."
+}

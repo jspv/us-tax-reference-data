@@ -1,0 +1,56 @@
+{
+  "id": "ar_2025_age_65_credits_below",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "ar_age_65_credit",
+    "ar_65_special_credit",
+    "ar_personal_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 12 LINE 7A 'Any taxpayer age 65 or over not claiming a retirement income exemption on line 18 is eligible for an additional $29 (per taxpayer) tax credit'; record ar_65_special_credit",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-08-08"
+      }
+    ],
+    "income": {
+      "interest": "9500.00",
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00"
+    },
+    "federal_agi": "9500.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "9500.00",
+    "state_taxable_income": "7030.00",
+    "state_tax_before_credits": "28.60",
+    "credits": "28.60",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Single, 70, interest 9,500 and Social Security 20,000. Federal taxable Social Security: provisional income 9,500.00 + 50% x 20,000.00 = 19,500.00, under the 25,000 base, so 0.00. No line 18 income, so the 65 Special box applies (the 6,000 exclusions would be 0). Federal (given, not tested): federal AGI = taxable Social Security 0.00 + interest 9,500.00 = 9,500.00. Federal taxable income = 9,500.00 - standard deduction 15,750.00 - 1 x 2,000.00 for 65 or older = -8,250.00, floored at 0.00 (federal senior deduction ignored). AR1000F, filing status 1 (single); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 10 interest 9,500.00. Social Security (federal taxable 0.00) has no line on the AR1000F: exempt (PDF page 11 item 8). Line 23 total income = 9,500.00; line 24 adjustments 0.00; line 25 AGI = 9,500.00. Projection check: federal AGI 9,500.00 = state AGI 9,500.00. Line 27 standard deduction (filing status 1) 2,470.00; line 28 net taxable income = 9,500.00 - 2,470.00 = 7,030.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (7,030.00 - 5,600.00) 1,430.00 = 28.60; total 28.60. (The Regular Income Tax Table row 7,001-7,101 gives 29; expected keeps the schedule.) Line 7A boxes: personal 1, 65 or over 1, 65 Special 1 = 3 x 29.00 = 87.00; line 7C and line 34 87.00; line 37 total credits 87.00. Line 38 net tax = 28.60 - 87.00, below zero, so 0.00 (credits are not refundable: 28.60 of the 87.00 is used; expected credits shows the amount used). Not applied by the projection (approximations): the Low Income Tax Tables (PDF page 28; AGI under 17,500 single) and the Additional Tax Credit for Qualified Individuals (PDF page 25, 60 at net taxable income up to 26,500); the result is 0.00 either way here because the 29 credits already exceed the tax.",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "The Low Income Tax Tables (lower tax, standard deduction built in, for adjusted gross income under cut-offs such as 17,500 single and 29,000 joint with one or no dependents) and the Additional Tax Credit for Qualified Individuals (up to 60 per person at net taxable income up to 27,600) are not applied. The low income tables are not open to anyone taking the 6,000 exclusion or the military exemptions."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

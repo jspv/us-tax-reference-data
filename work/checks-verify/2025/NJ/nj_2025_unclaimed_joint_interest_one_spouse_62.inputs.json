@@ -1,0 +1,43 @@
+{
+  "id": "nj_2025_unclaimed_joint_interest_one_spouse_62",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_regular_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026)",
+    "section": "Form NJ-1040 lines 16a, 27, 28a, 28b, 28c, 29: Instr PDF p.12 line 16a, PDF p.21 line 27, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b ('If you are filing jointly and only one spouse is 62 or older, only the income of that spouse can be excluded. You cannot exclude the income of the spouse who is younger than 62.') and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart and 'Joint filers: If only one spouse is 62 or older, only the income of that spouse can be excluded.', PDF p.22 lines 28c and 29; GIT-1 & 2 p.25 'Only One Spouse Qualifies for Exclusion' conditions 1-3 and p.25-26 example (joint savings interest 4,000 counted 2,000 to the spouse aged 63); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-04-12"
+      },
+      {
+        "age": 60,
+        "born": "1965-09-30"
+      }
+    ],
+    "income": {
+      "interest": "80000.00"
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_unclaimed_exclusion"
+  ]
+}

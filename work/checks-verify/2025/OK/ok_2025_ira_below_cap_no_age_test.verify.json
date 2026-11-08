@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "30350.00",
+    "state_income_tax": "904.00",
+    "state_tax_before_credits": "904.00",
+    "state_taxable_income": "23000.00",
+    "relief_amounts": {
+      "other_retirement_income": "6000.00"
+    }
+  },
+  "worked": "Form 511 line 1 Federal AGI 36,350.00 (given; federal senior deduction ignored in the given federal figures). Schedule 511-A line 6 person 0: retirement income 6,000.00, limit 10,000.00 less person's line 5 pension 0.00 = 10,000.00; allowed 6,000.00. Oklahoma AGI (line 7) = 36,350.00 + 0.00 - 6,000.00 = 30,350.00. Line 10 standard deduction 6,350.00; line 11 regular exemptions 1 x 1,000.00 = 1,000.00; special exemptions 0.00. Line 13 Oklahoma taxable income = 30,350.00 - 7,350.00 = 23,000.00. Tax on the single schedule: 1,000.00 x 0.0025 = 2.5000; 1,500.00 x 0.0075 = 11.2500; 1,250.00 x 0.0175 = 21.8750; 1,150.00 x 0.0275 = 31.6250; 2,300.00 x 0.0375 = 86.2500; 15,800.00 x 0.0475 = 750.5000; total 904.0000. Line 14 tax 904.00 (the table row 23,000-23,050 gives 905). Credits 0.00 (not modelled). Income tax 904.00."
+}

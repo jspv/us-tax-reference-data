@@ -1,0 +1,72 @@
+[
+  {
+    "state": "KY",
+    "title": "2025 Kentucky Individual Income Tax Forms (Form 740 packet with instructions)",
+    "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T02:00:45.917979+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "740_Packet_Instructions.pdf",
+    "bytes": 1300690,
+    "sha256": "cdb8e571c09f306961d5cb62154f8b57bd67f6ee50376b443647376b5667f421",
+    "archived_url": "https://web.archive.org/web/20261108001457id_/https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf"
+  },
+  {
+    "state": "KY",
+    "title": "2025 Schedule M Federal AGI Modifications (line 9 pension income exclusion)",
+    "url": "https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T02:00:46.088979+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "Schedule_M__2025_.pdf",
+    "bytes": 366921,
+    "sha256": "bb5c6adda7bb43dd2a00c2bb97a36980b95b08cdb3f51296ab7fc5333bb113ee",
+    "archived_url": "https://web.archive.org/web/20260109141840id_/https://revenue.ky.gov/Forms/Schedule%20M%20(2025).pdf"
+  },
+  {
+    "state": "KY",
+    "title": "2025 Schedule P Pension Income Exclusion",
+    "url": "https://revenue.ky.gov/Forms/Schedule%20P%20(2025).pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T02:00:46.284710+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "Schedule_P__2025_.pdf",
+    "bytes": 266941,
+    "sha256": "d2f45bc66d512da8234f8459225099a3f009d5a43d1c7ac6145bdce8118b75c6",
+    "archived_url": "https://web.archive.org/web/20260306112800id_/https://revenue.ky.gov/Forms/Schedule%20P%20(2025).pdf"
+  },
+  {
+    "state": "KY",
+    "title": "2025 Form 740 Kentucky Individual Income Tax Return",
+    "url": "https://revenue.ky.gov/Forms/740%20(2025).pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T14:32:24.687790+00:00",
+    "ok": true,
+    "method": "plain_http",
+    "note": "the headless browser fetch got HTTP 403 on 2026-11-07; downloaded the same day with curl sending a desktop Chrome user agent",
+    "file": "740_2025.pdf",
+    "bytes": 302364,
+    "sha256": "cb68242eb8351dcd909425cd8edc032ef3169f7eaa86f17fa3ac6c1cb4136ca2",
+    "archived_url": "https://web.archive.org/web/20260106125922id_/https://revenue.ky.gov/Forms/740%20(2025).pdf"
+  },
+  {
+    "state": "KY",
+    "title": "2025 Schedule ITC Kentucky Individual Tax Credit Schedule",
+    "url": "https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T14:32:24.842718+00:00",
+    "ok": true,
+    "method": "plain_http",
+    "note": "the headless browser fetch got HTTP 403 on 2026-11-07; downloaded the same day with curl sending a desktop Chrome user agent",
+    "file": "Schedule_ITC_2025.pdf",
+    "bytes": 455362,
+    "sha256": "48b763b31d57bd601b475633a7f6780983311070ec107129b1fd13abfc98919b",
+    "archived_url": "https://web.archive.org/web/20260313001744id_/https://revenue.ky.gov/Forms/Schedule%20ITC%20(2025).pdf"
+  }
+]

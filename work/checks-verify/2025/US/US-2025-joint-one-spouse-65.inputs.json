@@ -1,0 +1,41 @@
+{
+  "id": "US-2025-joint-one-spouse-65",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Married couple filing jointly, ages 67 and 62, with wages, a pension and Social Security: one additional standard deduction, one senior deduction (MAGI under 150,000), benefits taxable at the 85% cap.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1958-02-11",
+        "age": 67
+      },
+      {
+        "born": "1963-06-25",
+        "age": 62
+      }
+    ],
+    "wages": "50000",
+    "taxable_pensions": "40000",
+    "social_security_benefits": "25000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

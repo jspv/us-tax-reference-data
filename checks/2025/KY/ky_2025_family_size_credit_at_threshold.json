@@ -1,0 +1,50 @@
+{
+  "id": "ky_2025_family_size_credit_at_threshold",
+  "state": "KY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ky_family_size_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Kentucky Form 740 packet with instructions (Kentucky Department of Revenue), with 2025 Form 740, Schedule M, Schedule P and Schedule ITC",
+    "section": "Form 740 (2025) page 1 lines 5-19 and page 2 lines 20-22 (740_2025.pdf PDF pp.1-2); packet PDF p.13 Line 5, Lines 6-9 (Kentucky AGI), Line 10 'Nonitemizers, enter the standard deduction of $3,270 ... If filing a joint return, only one $3,270 standard deduction is allowed', Line 11, Line 12 'Multiply line 11 by four percent (.04)'; packet PDF p.3 'For 2025, the standard deduction is $3,270' and 'the tax rate for individual income tax is 4%'; Schedule ITC (2025) PDF p.2 Section B line 1 (taxpayer) and line 5 (spouse) 'If you were 65 on or before 12/31/2025, enter 40'; Form 740 lines 16-18 (line 18: if line 17 is larger than line 16, enter zero); packet PDF p.14 Line 17; Schedule ITC (2025) PDF p.2 Section C Family Size Tax Credit Table (family size one: not over 15,650 100% ... over 20,815 0; family size two: not over 21,150 100% ... over 28,130 0); packet PDF p.26 Worksheet for Computation of Modified Gross Income lines (a)-(j) and Section C family size definitions; packet PDF p.11 Modified Gross Income; packet PDF p.14 Line 20 and Line 21 (MGI 42,760 or less); Form 740 page 2 lines 20-22 (line 21: line 19 times the decimal from Schedule ITC)",
+    "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 41,
+        "born": "1984-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "15650.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "15650.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "15650.00",
+    "state_taxable_income": "12380.00",
+    "state_tax_before_credits": "495.20",
+    "credits": "495.20",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "ky_family_size_tax_credit": "495.20"
+    }
+  },
+  "worked": "Single, 41, wages exactly 15,650 (family size one): the table's first row is 'is not over 15,650', so MGI equal to the threshold still gets 100%. Federal (given, not tested): federal AGI = wages (person 0) 15,650.00 = 15,650.00. Federal taxable income = 15,650.00 - standard deduction 15,750.00 = -100.00 floored at 0.00 (federal senior deduction ignored). Form 740, Filing Status 1 (single). Line 5 federal AGI 15,650.00. Line 6 additions 0.00; line 7 = 15,650.00. Schedule M line 17 total subtractions 0.00; Form 740 line 8 0.00. Line 9 Kentucky AGI = 15,650.00 - 0.00 = 15,650.00. Line 10 standard deduction 3,270.00; line 11 taxable income = 15,650.00 - 3,270.00 = 12,380.00. Line 12 tax = 12,380.00 x 0.04 = 495.20; lines 13 and 15 0.00; line 14 and line 16 495.20. No one is 65 or older: line 17 0.00; line 18 = line 16. Line 19 = 495.20. Modified gross income worksheet: (a) 15,650.00; (c) non-Kentucky municipal interest 0.00; (e) 15,650.00; (f) Kentucky AGI 15,650.00; (i) 15,650.00; (j) greater = 15,650.00. Line 20 family size 1 (single, no qualifying children); Schedule ITC Section C table: MGI 15,650.00 is not over 15,650, so 100% (1.00); line 21 = 495.20 x 1 = 495.20. Line 22 = 495.20 - 495.20 = 0.00. Credits = 0.00 + 495.20 = 495.20; state income tax 0.00. The form enters whole dollars; expected keeps the formula result to the cent.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

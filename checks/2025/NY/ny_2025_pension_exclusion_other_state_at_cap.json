@@ -1,0 +1,69 @@
+{
+  "id": "ny_2025_pension_exclusion_other_state_at_cap",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_annuity_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 9, Line 29 ($20,000 limit regardless of the source; periodic payments; IRA payments); Form IT-201 line 15 and line 27 (Social Security); Form IT-201 line 29; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-01-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "85000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "PA",
+          "contributory": true
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "120500.00",
+    "federal_taxable_income": "102750.00"
+  },
+  "expected": {
+    "state_agi": "75000.00",
+    "state_taxable_income": "67000.00",
+    "state_tax_before_credits": "3520.00",
+    "credits": "0.00",
+    "state_income_tax": "3520.00",
+    "relief_amounts": {
+      "pension_annuity_exclusion": "20000.00"
+    }
+  },
+  "worked": "Single, 67: Pennsylvania state (PSERS) pension 85,000, IRA distribution 10,000, Social Security 30,000 gross. Federal taxable Social Security: provisional income 85,000 + 10,000 + 15,000 = 110,000; 85% x 30,000 = 25,500 is the lesser figure, so 25,500 taxable. Federal AGI = 85,000 + 10,000 + 25,500 = 120,500. Federal AGI (IT-201 line 19) = 120,500.00. Federal taxable income = 120,500.00 - 15,750.00 federal standard deduction - 1 x 2,000 age-65 addition = 102,750.00 (given, not tested; the federal senior deduction is ignored). Subtraction: line 27 taxable Social Security (exempt in full) 25,500.00. Subtraction: line 29 pension and annuity income exclusion: Pennsylvania state pension 85,000 + IRA 10,000 = 95,000, limited to 20,000 20,000.00. Line 32 total subtractions = 45,500.00. Line 33 New York AGI = 120,500.00 - 45,500.00 = 75,000.00. Line 34 New York standard deduction (single, PDF page 11 table) 8,000.00; line 35 = 75,000.00 - 8,000.00 = 67,000.00; line 36 dependent exemption 0 (no dependents); lines 37/38 taxable income 67,000.00. Rate schedule (PDF page 33, single) on 67,000.00: 8,500.00 x 4% = 340.00; 3,200.00 x 4.5% = 144.00; 2,200.00 x 5.25% = 115.50; 53,100.00 x 5.5% = 2,920.50; schedule tax = 3,520.00 (the printed schedule, with its whole-dollar base 600 at 13,900, gives 3,520.50; this case uses the bands as numbers). NY AGI is 107,650 or less and line 38 is 65,000 or more: the rate schedule applies (PDF page 12, line 39); no recapture worksheet. Line 39 NYS tax = 3,520.00. Credits: none (the household credit, line 40, PDF page 12 tables 1-3, allows no credit above federal AGI of 28,000 single or 32,000 other statuses): state income tax = 3,520.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:gov_pension_ira_rollover"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

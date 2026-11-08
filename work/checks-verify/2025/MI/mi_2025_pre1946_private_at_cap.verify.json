@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "18103.00",
+    "state_income_tax": "522.88",
+    "state_tax_before_credits": "522.88",
+    "state_taxable_income": "12303.00",
+    "relief_amounts": {
+      "pre1946_private": "65897.00"
+    }
+  },
+  "worked": "Single born 1939. Private pension 50,000 + IRA 30,000 = 80,000 > 65,897 -> line 27 65,897.00. Line 28: 14,688 - 65,897 -> 0. Taxable SS 30,600 subtracted. state_agi 114,600 - 30,600 - 65,897 = 18,103.00. Exemption 5,800. Taxable 12,303.00. Tax 522.8775 -> 522.88. [check: state_agi 18103.00, taxable 12303.00, tax 522.88; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

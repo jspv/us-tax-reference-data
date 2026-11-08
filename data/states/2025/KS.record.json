@@ -1,0 +1,635 @@
+{
+  "layer": "record",
+  "state": "KS",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Settlement 2026-11-07: disabled veteran exemption per: A said exemption_claimed, B said person; ip25 PDF page 2 says 'for each qualified disabled veteran' and PDF page 6 says 'Enter the number of disabled veterans, multiply by $2,320'; settled per person.",
+    "Settlement 2026-11-07: line A14 entries: A said five entries with employer_plan_distribution inside the federal and military entries, B said one Kansas-and-federal entry covering public_pension and annuity plus a military entry; ip25 PDF page 12 line A14 lists plans by payer and names Thrift Savings Plans; settled with separate federal, military, Kansas and Regents entries and Thrift Savings Plans in their own entry, so that employer_plan_distribution is not read as covering every employer plan.",
+    "Settlement 2026-11-07: U.S. obligation interest who.basis: A said each_person, B said return; ip25 PDF pages 11-12 line A12 tests neither spouse; settled return.",
+    "Settlement 2026-11-07: one-sided line A25 KPERS lump sum: B recorded a relief, A left it in notes; ip25 PDF page 13 line A25 prints it; kept as kpers_lump_sum_subtraction. The comparison paired this entry with A's Kansas plans entry only because both read public_pension; they are different rules.",
+    "Settlement 2026-11-07: qualifying surviving spouse: neither reader recorded it; ip25 PDF page 6 says 'If your federal filing status is Qualifying Widow(er) with Dependent Child, check the Head of Household box', so the head of household amounts are given for that status.",
+    "Settlement 2026-11-07: form: both readers wrote subtraction; written exempt_in_full (uncapped, no income test; line A14's heading says 'specifically exempt'); the comparison treats the two alike.",
+    "Brackets: the 2025 Tax Computation Worksheet (ip25 PDF page 34) prints 5.2% on $0-$23,000 and 5.58% on $23,001 and over less $87 for 'Single, Head of Household, or Married Filing Separate', and 5.2% on $0-$46,000 and 5.58% on $46,001 and over less $175 for Married Filing Joint. The one group schedule is given for each of its three statuses. Line 8 (PDF page 7): the Tax Tables apply to taxable income of $100,000 or less; the worksheet applies above that.",
+    "Brackets: brackets.derivation holds printed table rows only; the formula field takes one formula and Kansas prints two (0.0558 x income - 87 single group; 0.0558 x income - 175 joint), so both stay in this note. All 2,000 printed table rows (PDF pages 27-34) were re-computed at their midpoints: none is more than 0.50 from the schedule in either column. The subtraction amounts are the rate difference rounded (0.0038 x 23,000 = 87.40; 0.0038 x 46,000 = 174.80); they are not a recapture.",
+    "Qualifying surviving spouse brackets: the schema has no bracket list for this status; ip25 PDF page 6 sends it to the Head of Household box, so it uses the single group schedule (23,000), not the joint one.",
+    "Age 65 and blind amounts are not printed on their own; the worksheet on ip25 PDF page 6 prints totals by boxes checked, held here as the standard_deduction_worksheet entries. Derived steps: single 4,455 - 3,605 = 850, 5,305 - 4,455 = 850; head of household 7,030 - 6,180 = 850, 7,880 - 7,030 = 850; joint 8,940 - 8,240 = 700, 9,640 - 8,940 = 700, 10,340 - 9,640 = 700, 11,040 - 10,340 = 700; separate 4,820 - 4,120 = 700, 5,520 - 4,820 = 700, 6,220 - 5,520 = 700, 6,920 - 6,220 = 700. The provenance check finds 850 and 700 elsewhere in the booklet by coincidence; the worksheet totals are the evidence.",
+    "Second check of the derived steps: the filing thresholds on ip25 PDF page 3 equal standard deduction plus exemption and rise by the same steps: single 12,765 / 13,615 / 14,465; joint 26,560 / 27,260 / 27,960 / 28,660 / 29,360; head of household 17,660 / 18,510 / 19,360 (17,660 = 6,180 + 9,160 + 2,320, which also confirms the additional exemption); separate 13,280 / 13,980 / 14,680.",
+    "The instructions say 'over 65' and the worksheet says '65 or older' (ip25 PDF page 6); the worksheet is the operative text, read as 65 or older.",
+    "Social Security: ip25 PDF page 11 line A10 subtracts 'social security benefits received in 2025 under the Social Security Act (including SSI) to the extent these benefits are included in your federal AGI', with no income test. The FAQ agrees: 'Effective for all taxable years commencing after December 31, 2023, social security benefits that are included in federal adjusted gross income are not subject to Kansas income tax.' The $75,000 test it mentions is for years before 2024.",
+    "Pensions from other states' governments, New York State's among them: not found in the booklet. Line A14 (ip25 PDF page 12) says 'Enter total amount of benefits received from the following plans that was included in your federal AGI' and its list names federal, railroad and Kansas plans only. No line names another state's plan, so no entry covers public_pension_other_state and such a pension stays in Kansas income through federal AGI. The booklet does not say in words that these pensions are taxed. The FAQ says a resident must 'report all income to Kansas, regardless of where it was earned'.",
+    "Line A25's sentence 'You may not subtract the amount of your income reported to another state' limits the line A25 subtractions; it says nothing about pensions paid by another state, and is not evidence on them.",
+    "Private pensions, IRA distributions, employer-plan distributions and Roth conversions: not found in the booklet as a subtraction, apart from the Thrift Savings Plan, KPERS rollover and Regents entries. The word Roth and conversions are not mentioned. They follow federal AGI; ip25 PDF page 6 sends only 'income that is taxable at the federal level but not taxable to Kansas' to Schedule S. The booklet prints no taxed-or-exempt sentence for them, and no age or amount relief.",
+    "Kansas plans named on line A14 (ip25 PDF page 12): Kansas Public Employees' Retirement (KPERS) annuities; Kansas Police and Firemen's Retirement System pensions; distributions from Police and Fire Department retirement plans for the city of Overland Park; Kansas Teachers' Retirement annuities; Kansas Highway Patrol pensions; Kansas Justices and Judges Retirement System annuities; Board of Public Utilities pensions; amounts received by retired employees of Washburn University under the university's retirement plan; certain pensions received from Kansas first class cities that are not covered by KPERS. The federal bullet reads 'Federal Civil Service Retirement or Disability Fund payments'.",
+    "Line 11 of Form K-40 (ip25 PDF page 7): a resident adds 13% of the federal tax on a lump sum distribution (Form 4972). The schema has no field for this.",
+    "Line A2 (ip25 PDF page 11): current KPERS, Police and Firemen's and Justices and Judges members add their salary contributions back to income.",
+    "Municipal interest: Kansas obligations issued after 12/31/87 and the listed Kansas bonds are not added back on line A1; earlier Kansas issues are not named as exempt. Gain on Kansas Turnpike and Electrical Generation Revenue bonds is subtracted on line A25.",
+    "Capital gains: not found in the booklet as a rate or deduction that differs from ordinary income, so capital_gains is empty. No surtax or recapture is printed.",
+    "Indexing: the booklet says nothing about inflation adjustment of any figure (searched inflation, indexed, cost of living in the booklet and the FAQ); recorded not_stated. The FAQ's 'for tax year 2024, and all tax years thereafter' on exemptions states when an amount took effect, not whether it grows.",
+    "Not recorded as reliefs, outside this record's scope: line 13 credit for taxes paid to other states; line 14 child and dependent care credit (50% of the federal credit); line 17 earned income credit (17% of the federal credit); the business and investment credits on line 15; line A15 nonresident military pay; line A16 and A21 529 and ABLE contributions; line A17 recruitment bonuses; the Homestead, K-40PT and K-40SVR property tax refunds (PDF page 5).",
+    "Stale sources, not used: scheduleS_A.page.txt is 2007 text (a $50,000 Social Security test and 2007 line numbers). incomebook25.page.txt is titled 2025 and mostly carries 2025 amounts, but line A10 still reads 'received in 2024' and it has a '2024 TAX COMPUTATION WORKSHEET' heading. All figures here come from the 2025 PDFs (ip25, k-4025, schs25) and the FAQ."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "46000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+      "section": "PDF page 34, 2025 Tax Computation Worksheet; PDF page 7, LINE 8",
+      "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+      "accessed": "2026-11-07"
+    },
+    "derivation": {
+      "method": "tax_table_and_formula",
+      "table_rows": [
+        {
+          "status": "single",
+          "income": "10025.5",
+          "tax": "521"
+        },
+        {
+          "status": "single",
+          "income": "22975.5",
+          "tax": "1195"
+        },
+        {
+          "status": "single",
+          "income": "23025.5",
+          "tax": "1197"
+        },
+        {
+          "status": "single",
+          "income": "60025.5",
+          "tax": "3262"
+        },
+        {
+          "status": "single",
+          "income": "99975.5",
+          "tax": "5491"
+        },
+        {
+          "status": "married_joint",
+          "income": "10025.5",
+          "tax": "521"
+        },
+        {
+          "status": "married_joint",
+          "income": "45975.5",
+          "tax": "2391"
+        },
+        {
+          "status": "married_joint",
+          "income": "46025.5",
+          "tax": "2393"
+        },
+        {
+          "status": "married_joint",
+          "income": "60025.5",
+          "tax": "3175"
+        },
+        {
+          "status": "married_joint",
+          "income": "99975.5",
+          "tax": "5404"
+        },
+        {
+          "status": "head_of_household",
+          "income": "92425.5",
+          "tax": "5070"
+        },
+        {
+          "status": "married_separate",
+          "income": "92425.5",
+          "tax": "5070"
+        }
+      ],
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF pages 27-34, 2025 Kansas Tax Table (rows 10,001-10,050; 22,951-23,000; 23,001-23,050; 45,951-46,000; 46,001-46,050; 60,001-60,050; 92,401-92,450; 99,951-100,000; income is each row's midpoint)",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "kansas_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "3605",
+          "married_joint": "8240",
+          "married_separate": "4120",
+          "head_of_household": "6180",
+          "qualifying_surviving_spouse": "6180"
+        },
+        "per": "return",
+        "condition": "'For most people'; the filer may itemize on Kansas Schedule A instead, whichever is to the filer's advantage, even if not itemizing federally; married filers on separate returns must use the same method",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, LINE 4 Kansas Standard Deduction (also PDF page 2 Important Information)",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "standard_deduction_worksheet_one_box",
+        "what": "other",
+        "amount": {
+          "single": "4455",
+          "married_joint": "8940",
+          "married_separate": "4820",
+          "head_of_household": "7030",
+          "qualifying_surviving_spouse": "7030"
+        },
+        "per": "return",
+        "condition": "The worksheet total entered on line 4 in place of the standard deduction when one box is checked (each of filer 65 or older, filer blind, spouse 65 or older, spouse blind is one box). It replaces the standard deduction; it is not added to it.",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "standard_deduction_worksheet_two_boxes",
+        "what": "other",
+        "amount": {
+          "single": "5305",
+          "married_joint": "9640",
+          "married_separate": "5520",
+          "head_of_household": "7880",
+          "qualifying_surviving_spouse": "7880"
+        },
+        "per": "return",
+        "condition": "The worksheet total entered on line 4 in place of the standard deduction when two boxes are checked (each of filer 65 or older, filer blind, spouse 65 or older, spouse blind is one box). It replaces the standard deduction; it is not added to it.",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "standard_deduction_worksheet_three_boxes",
+        "what": "other",
+        "amount": {
+          "married_joint": "10340",
+          "married_separate": "6220"
+        },
+        "per": "return",
+        "condition": "The worksheet total entered on line 4 in place of the standard deduction when three boxes are checked (each of filer 65 or older, filer blind, spouse 65 or older, spouse blind is one box). It replaces the standard deduction; it is not added to it.",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "standard_deduction_worksheet_four_boxes",
+        "what": "other",
+        "amount": {
+          "married_joint": "11040",
+          "married_separate": "6920"
+        },
+        "per": "return",
+        "condition": "The worksheet total entered on line 4 in place of the standard deduction when four boxes are checked (each of filer 65 or older, filer blind, spouse 65 or older, spouse blind is one box). It replaces the standard deduction; it is not added to it.",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "age_65_additional_standard_deduction",
+        "what": "age_65_exemption",
+        "amount": {
+          "single": "850",
+          "married_joint": "700",
+          "married_separate": "700",
+          "head_of_household": "850",
+          "qualifying_surviving_spouse": "850"
+        },
+        "per": "person",
+        "condition": "Derived, not printed: the step between worksheet totals for one box (filer or spouse 65 or older). Standard deduction only; the arithmetic is in notes",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind (amounts derived from the totals by boxes checked)",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "blind_additional_standard_deduction",
+        "what": "blind_exemption",
+        "amount": {
+          "single": "850",
+          "married_joint": "700",
+          "married_separate": "700",
+          "head_of_household": "850",
+          "qualifying_surviving_spouse": "850"
+        },
+        "per": "person",
+        "condition": "Derived, not printed: the step between worksheet totals for one box (filer or spouse blind). Standard deduction only; the arithmetic is in notes",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, WORKSHEET - Standard Deduction for People 65 or Older and/or Blind (amounts derived from the totals by boxes checked)",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "personal_exemption_allowance",
+        "what": "personal_exemption",
+        "amount": {
+          "single": "9160",
+          "married_joint": "18320",
+          "married_separate": "9160",
+          "head_of_household": "9160",
+          "qualifying_surviving_spouse": "9160"
+        },
+        "per": "return",
+        "condition": "Exemption allowance for the filer, and the spouse on a joint return (2 exemptions)",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 2 Important Information; PDF page 6 Exemptions and Dependents",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "head_of_household_additional_exemption",
+        "what": "other",
+        "amount": {
+          "head_of_household": "2320",
+          "qualifying_surviving_spouse": "2320"
+        },
+        "per": "return",
+        "condition": "Additional exemption when the filing status is Head of Household",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 6, Exemptions and Dependents: 'If your filing status is Head of Household, you are allowed an additional exemption of $2,320'",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "2320"
+        },
+        "per": "dependent",
+        "condition": "Each dependent claimed on the federal return; enter 0 if claimed as a dependent by another taxpayer",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 2 Important Information; PDF page 6 Exemptions and Dependents",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "child_born_exemption",
+        "what": "other",
+        "amount": {
+          "all": "2320"
+        },
+        "per": "exemption_claimed",
+        "condition": "Additional exemption for each dependent child born in the tax year",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 2 Additional Exemptions; PDF page 6 Dependent Children",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "stillbirth_exemption",
+        "what": "other",
+        "amount": {
+          "all": "2320"
+        },
+        "per": "exemption_claimed",
+        "condition": "The birth of a child in the tax year that does not result in a live birth",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 2 Additional Exemptions; PDF page 6 Stillborn Births",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "disabled_veteran_exemption",
+        "what": "other",
+        "amount": {
+          "all": "2320"
+        },
+        "per": "person",
+        "condition": "Each qualified disabled veteran: honorably discharged, certified by the VA as receiving disability compensation at the 100% rate, the disability permanent and sustained through military action or accident or from disease contracted in active service",
+        "cite": {
+          "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+          "section": "PDF page 2 Additional Exemptions and Personal Exemption for Disabled Veterans; PDF page 6 Disabled Veteran",
+          "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+      "section": "PDF page 20, Form K-40 line 1 (Federal adjusted gross income); PDF pages 6-7, lines 1 to 7",
+      "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+      "section": "PDF page 11, LINE A10; second document: FAQ, 'Are Social Security benefits taxable to Kansas?'",
+      "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "social_security_subtraction",
+      "label": "Schedule S line A10: Social Security Benefits",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Only benefits included in federal AGI; no entry if the benefit is not subject to federal income tax"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 11, LINE A10; Schedule S line A10, PDF page 21",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "federal_government_retirement",
+      "label": "Schedule S line A14: federal government retirement benefits",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Federal Civil Service fund payments and any other amounts received as retirement benefits from employment by the federal government",
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), first bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "military_retirement",
+      "label": "Schedule S line A14: retirement benefits for service in the United States Armed Forces",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), first bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "thrift_savings_plans",
+      "label": "Schedule S line A14: Thrift Savings Plans",
+      "form": "exempt_in_full",
+      "covers": [
+        "employer_plan_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Only Thrift Savings Plans, as amounts received as retirement benefits from employment by the federal government or for service in the United States Armed Forces; no other employer plan is named",
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), first bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "railroad_retirement_subtraction",
+      "label": "Schedule S line A14: plans administered by the U.S. Railroad Retirement Board",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "U.S. Railroad Retirement Benefits, tier I, tier II, dual vested benefits and supplemental annuities",
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), second bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "kansas_public_retirement",
+      "label": "Schedule S line A14: Kansas public retirement plans",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Only the Kansas plans line A14 names; the full list is in notes",
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), third to last bullets",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "regents_annuity_contracts",
+      "label": "Schedule S line A14: retirement annuity contracts for State Board of Regents employees",
+      "form": "exempt_in_full",
+      "covers": [
+        "annuity"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Income from retirement annuity contracts purchased for faculty and others employed by the State Board of Regents or by educational institutions under its management, with their direct contributions or through salary reduction plans",
+          "Included in federal AGI (line A14 subtracts only what federal AGI holds)"
+        ]
+      },
+      "not_covered": [
+        "when these Regents retirement benefits are rolled into an unrelated retirement plan and distributions are taken from these unrelated retirement plans, said distributions are subject to Kansas Income Tax (FAQ)"
+      ],
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 12, LINE A14 (Retirement benefits specifically exempt from Kansas Income Tax), Regents bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "kpers_rollover_withdrawals",
+      "label": "Schedule S line A11: KPERS Lump Sum distributions exempt from Kansas Income Tax",
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution",
+        "employer_plan_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Only amounts withdrawn from a qualified retirement account, with earnings, to the extent originally received as a KPERS lump sum payment at retirement and rolled over, and included in federal AGI"
+        ]
+      },
+      "not_covered": [
+        "income originally received from retirement annuity contracts purchased for faculty and others employed by the State Board of Regents or by educational institutions under its management",
+        "a pension received from any Kansas first class city that is not covered by KPERS"
+      ],
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 11, LINE A11",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "kpers_lump_sum_subtraction",
+      "label": "Schedule S line A25: KPERS Lump Sum Distributions",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Employee terminated KPERS employment after 7/1/84 and elected a lump sum; subtract the withdrawn accumulated contributions or partial lump-sum payments to the extent included in federal AGI"
+        ]
+      },
+      "not_covered": [
+        "the amount of your income reported to another state"
+      ],
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF page 13, LINE A25, second bullet",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "us_government_interest_subtraction",
+      "label": "Schedule S line A12: Interest on U.S. Government obligations",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest",
+        "dividends"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Interest or dividend income from obligations or securities of the United States and its possessions, included in federal AGI, reduced by related expenses"
+        ]
+      },
+      "not_covered": [
+        "Federal National Mortgage Association (FNMA); Government National Mortgage Association (GNMA); Federal Home Loan Mortgage Corporation (FHLMC)",
+        "the part of a mutual fund distribution not attributable to the exempt federal obligations"
+      ],
+      "cite": {
+        "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+        "section": "PDF pages 11-12, LINE A12",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on any state or municipal obligations is added back (line A1), except obligations of Kansas or a Kansas political subdivision issued after 12/31/87 and Board of Regents, Electrical Generation Revenue, Industrial Revenue, Kansas Highway, Kansas Turnpike Authority and Urban Renewal bonds. Reduced by related expenses. For a fund holding both, only the Kansas bonds are exempt.",
+    "cite": {
+      "publication": "2025 Complete Income Tax Instruction Booklet (ip25)",
+      "section": "PDF page 11, LINE A1",
+      "url": "https://www.ksrevenue.gov/pdf/ip25.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

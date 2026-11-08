@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Single born 1958-10-01 (Tier 3; 67 by 2025). Worksheet 2: 20,000 - taxable SS 0 = 20,000 (projection does not subtract the 5,800 exemption; booklet line 11 would be 14,200); covered income IRA 3,000 + interest 6,000 = 9,000 -> 9,000 (Worksheet 3.3 alternative: 3,000). state_agi 0.00. Exemption 5,800 -> taxable floored at 0.00. Tax 0.00 (same under the booklet's figure). [check: state_agi 0.00, taxable 0.00, tax 0.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

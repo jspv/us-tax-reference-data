@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "nj_military_pension_exempt": "30000.00"
+    },
+    "state_agi": "50000.00",
+    "state_income_tax": "770.00",
+    "state_tax_before_credits": "770.00",
+    "state_taxable_income": "48000.00"
+  },
+  "worked": "Start: federal AGI 80,000.00 (projection base.starts_from federal_agi). NJ income before exclusions (line 27 proxy) = 80,000.00 - 0.00 + 0.00 = 80,000.00. Persons: person 0 age 60 (born 1965-08-08) under 62, person 1 age 55 (born 1970-02-02) under 62. nj_military_pension_exempt (exempt_in_full, any age): military pension 30,000.00 excluded. Income test measure = federal AGI 80,000.00 + tax-exempt interest 0.00 - taxable SS 0.00 = 80,000.00; stepped keep_share for married_joint = 1 (bands apply strictly over 100,000 / 125,000 / 150,000). nj_pension_exclusion: no one 62 or older, 0.00. nj_unclaimed_exclusion: no one 62 or older, 0.00. State AGI (line 29) = 80,000.00 - 30,000.00 - 0.00 - 0.00 - 0.00 = 50,000.00. Exemptions: regular 1,000 x 2 = 2,000.00; senior 65+ 1,000 x 0 = 0.00. Taxable income = 50,000.00 - 2,000.00 = 48,000.00. Tax (rate schedule, exact): 20,000.00 x 0.014 = 280; 28,000.00 x 0.0175 = 490; total 770.000000 -> 770.00 (The NJ Tax Table would round to a 50-dollar row midpoint; the projection uses the exact schedule.) Credits: none modelled, 0.00. State income tax = tax before credits. Federal figures given; federal senior deduction ignored as the brief directs."
+}

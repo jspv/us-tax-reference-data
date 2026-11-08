@@ -1,0 +1,51 @@
+{
+  "id": "il_2025_exemption_joint_between_limits",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 53,
+        "born": "1972-01-30"
+      },
+      {
+        "age": 52,
+        "born": "1973-11-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "250000.00",
+          "person": 0
+        },
+        {
+          "amount": "150000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "400000.00",
+    "federal_taxable_income": "368500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.il_personal_exemption"
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "layer": "projection",
+  "state": "MA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/MA.record.json",
+    "sha256": "961c5a814ac89a516ee215dc091c0b68c56769e74514ac9395de03d52bff0f6d"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.05",
+        "start": "0"
+      },
+      {
+        "rate": "0.09",
+        "start": "1083150"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.05",
+        "start": "0"
+      },
+      {
+        "rate": "0.09",
+        "start": "1083150"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "single": "4400",
+          "married_separate": "4400",
+          "head_of_household": "6800",
+          "married_joint": "8800"
+        },
+        "per": "return"
+      },
+      {
+        "id": "age_65_exemption",
+        "amount": {
+          "all": "700"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "us_ma_contributory_pension",
+      "from_record": [
+        "us_ma_contributory_pension"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "needs_input": [
+        "pension_source",
+        "pension_contributory"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "military_pension",
+      "from_record": [
+        "military_noncontributory_pension"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "railroad_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "other_state_contributory_pension_ny",
+      "from_record": [
+        "other_state_contributory_pension_ny"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension_other_state"
+      ],
+      "needs_input": [
+        "pension_source",
+        "pension_contributory"
+      ],
+      "paying_states": [
+        "NY"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [
+    {
+      "id": "short_term_gains",
+      "applies_to": "short_term",
+      "treatment": "extra_rate",
+      "value": "0.035"
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "ma_4pct_surtax",
+      "indexed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "other_state_contributory_pension",
+      "from_record": [
+        "other_state_contributory_pension",
+        "other_state_contributory_pension_no_income_tax"
+      ],
+      "what": "A contributory public pension from a state other than New York: deductible up to what that state would exclude for a Massachusetts public pension, or in full if that state has no income tax (TIR 95-9). The amount depends on the other state's law and the sources name no state but New York, so it is not computed: the pension is taxed in full.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption",
+        "blind_exemption"
+      ],
+      "what": "Exemptions for dependents (1,000 each) and blindness (2,200).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "retirement_contribution_deduction",
+      "from_record": [
+        "retirement_contribution_deduction"
+      ],
+      "what": "Deduction of up to 2,000 a person for Social Security and Medicare paid from wages.",
+      "warn_when": "never"
+    },
+    {
+      "id": "rental_deduction",
+      "from_record": [
+        "rental_deduction",
+        "student_loan_interest_deduction"
+      ],
+      "what": "Deductions for rent paid on a Massachusetts home and for student loan interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "firefighter_police_incapacity_exclusion",
+      "from_record": [
+        "firefighter_police_incapacity_exclusion"
+      ],
+      "what": "Exclusion for a firefighter or police officer incapacitated in the line of duty.",
+      "warn_when": "never"
+    },
+    {
+      "id": "collectibles_gains",
+      "from_record": [
+        "collectibles_gains",
+        "collectibles_long_term_deduction"
+      ],
+      "what": "Collectibles gains: 12% rate with a 50% deduction.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Roth conversions are not in covers: the booklet does not say whether they qualify (covers_unclear in the record). If they do, this overstates tax in a conversion year.",
+      "direction": "overstates_tax",
+      "size": "Up to the state rate times the conversion, for a household inside a capped relief's room."
+    },
+    {
+      "what": "Massachusetts builds its own income definition; the projection starts from federal AGI.",
+      "direction": "either",
+      "size": "Small for most retirees; differences include federal deductions Massachusetts doesn't allow."
+    },
+    {
+      "what": "IRA and employer-plan withdrawals are taxed in full; Massachusetts taxes them only above contributions already taxed by Massachusetts (the booklet's basis rule).",
+      "direction": "overstates_tax",
+      "size": "5% of the Massachusetts basis recovered each year; larger for someone who contributed while living in Massachusetts."
+    },
+    {
+      "what": "The wage deduction for Social Security and Medicare paid is not applied.",
+      "direction": "overstates_tax",
+      "size": "Up to 5% of 2,000 = 100 a year per working person."
+    },
+    {
+      "what": "New York State contributory pension: the 59 1/2 age test is applied by age in the tax year; the sources don't say on what date it is measured (New York's own rule decides).",
+      "direction": "either",
+      "size": "Only the year a person turns 59 1/2: up to 5% of 20,000 = 1,000."
+    },
+    {
+      "what": "Part-year residents moving from New York: the deduction is reduced by any amount New York excluded in the same year; the projection assumes a full-year resident.",
+      "direction": "understates_tax",
+      "size": "Only in the move year."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "0.09",
+      "how": "sum",
+      "of": [
+        "0.05",
+        "0.04"
+      ],
+      "what": "5% rate plus the 4% surtax over 1,083,150, folded into the brackets"
+    },
+    {
+      "value": "0.035",
+      "how": "difference",
+      "of": [
+        "0.085",
+        "0.05"
+      ],
+      "what": "short-term gains: 8.5% own rate less the 5% bracket rate"
+    }
+  ]
+}

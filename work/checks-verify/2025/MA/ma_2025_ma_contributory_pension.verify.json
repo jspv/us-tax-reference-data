@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1245.00",
+    "state_tax_before_credits": "1245.00",
+    "state_taxable_income": "24900.00",
+    "relief_amounts": {
+      "us_ma_contributory_pension": "45000.00"
+    }
+  },
+  "worked": "Start: federal AGI 75000.00. MA contributory public pension 45000.00 (person 0) exempt in full. ira_distribution 30000.00 (person 0): taxed in full. State income = 75000.00 - 45000.00 = 30000.00. Personal exemption (single) 4400.00. Age 65 exemption 700 x 1 = 700.00. Taxable income = max(30000.00 - 5100.00, 0) = 24900.00. Tax = 5% x 24900.00 = 1245.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

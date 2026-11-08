@@ -1,0 +1,45 @@
+{
+  "id": "tn_2025_no_tax",
+  "state": "TN",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Hall Income Tax, Tennessee Department of Revenue",
+    "section": "Hall Income Tax page: the Hall income tax was repealed for tax periods beginning on or after January 1, 2021 (no state return or form lines exist)",
+    "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 90,000.00 + interest 2,000.00 = 92,000.00. Federal taxable income = 92,000.00 - 15,750.00 single standard deduction = 76,250.00 (given, not tested). Tennessee's Hall income tax (on interest and dividends) was repealed for periods beginning January 1, 2021 or later, so there is no 2025 state income tax and the interest changes nothing: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

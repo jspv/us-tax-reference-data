@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "50000.00",
+    "state_income_tax": "1328.80",
+    "state_tax_before_credits": "1328.80",
+    "state_taxable_income": "40200.00"
+  },
+  "worked": "Start: federal AGI 75500.00 (projection base.starts_from federal_agi; MS Form 80-105 builds its own income, lines 38-66, approximation). Subtraction: taxable Social Security 25500.00 (social_security exempt). State AGI = 75500.00 + 0.00 - 25500.00 = 50000.00. Standard deduction (single) 2300.00; personal exemption 6000.00; age 65 exemption 1500.00 x 1 person(s) aged 65+ (ages [70]) = 1500.00. Taxable income = 50000.00 - 2300.00 - 6000.00 - 1500.00 = 40200.00. Tax = 0% on first 10,000 (one band on the return total) + 4.4% x 30200.00 = 1328.80. No credits. Federal figures given; federal senior deduction ignored."
+}

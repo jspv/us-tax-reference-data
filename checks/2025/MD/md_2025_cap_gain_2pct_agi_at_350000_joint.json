@@ -1,0 +1,54 @@
+{
+  "id": "md_2025_cap_gain_2pct_agi_at_350000_joint",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 1c, 16-21, 20a, 21b; PDF page 4 'Additional 2% Tax on Net Capital Gain Income and Form 502CG' (federal AGI in excess of $350,000); PDF page 21 Line 20a; PDF page 22 Line 21b ('Multiply the amount on Line 20a by .02') and Tax Rate Schedules I and II; PDF page 21 Instruction 16 standard deduction; Exemption Amount Chart 10A (PDF pages 12-13); record additional_cap_gain_tax and additional_cap_gain_tax_agi_threshold",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 57,
+        "born": "1968-05-10"
+      },
+      {
+        "age": 55,
+        "born": "1970-09-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "250000.00",
+          "person": 0
+        }
+      ],
+      "long_term_gains": "100000.00"
+    },
+    "federal_agi": "350000.00",
+    "federal_taxable_income": "318500.00"
+  },
+  "expected": {
+    "state_agi": "350000.00",
+    "state_taxable_income": "343300.00",
+    "state_tax_before_credits": "17562.25",
+    "credits": "0.00",
+    "state_income_tax": "17562.25"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 250,000.00 + long-term gain 100,000.00 = 350,000.00. Federal taxable income = 350,000.00 - standard deduction 31,500.00 = 318,500.00 (no one 65 or older; federal senior deduction ignored). Form 502 Line 1 federal AGI 350,000.00; Line 1c capital gain 100,000.00 (federal Form 1040 Line 7a, short- and long-term together). Lines 2-6 additions 0.00; Line 7 total 350,000.00. Lines 8-15 subtractions 0.00 (Line 14 two-income subtraction 0.00: the wages and the stock are person 0's alone; person 1 has no income). Line 16 Maryland AGI 350,000.00. Line 17 standard deduction 6,700.00. Line 18 net income 343,300.00. Line 19 exemptions: Chart 10A at federal AGI 350,000.00 (over 200,000.00) gives 0.00 for you and your spouse. Line 20 taxable net income 343,300.00. Line 21 tax, Schedule II as numbers: 2% x 1,000.00 = 20.00; 3% x 1,000.00 = 30.00; 4% x 1,000.00 = 40.00; 4.75% x 147,000.00 = 6,982.50; 5% x 25,000.00 = 1,250.00; 5.25% x 50,000.00 = 2,625.00; 5.5% x 75,000.00 = 4,125.00; 5.75% x 43,300.00 = 2,489.75; total 17,562.25. Line 20a: federal AGI 350,000.00 is not more than 350,000 (the test is 'more than $350,000 on Line 1'), so no Form 502CG and Line 20a is 0.00, even though Line 1c shows 100,000.00 of gain. Line 21b = 0.00. Maryland tax (Lines 21 through 21b) = 17,562.25. Lines 22-26 credits 0.00. Maryland state tax 17,562.25. Local tax (Lines 28-33) out of scope.",
+  "accepted_approximations": [],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "ga_2025_military_below",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ga_military_exclusion_base"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 2 'Military Retirement Income' (PDF pp.21-22); Schedule 1 page 3 'Do I Qualify' box and lines 1-8 (PDF p.49; 2025GA500.pdf p.9): line 2 base military exclusion 17,500, line 3 lesser of lines 1 and 2, stop if Georgia earned income is less than 17,501; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ]
+    },
+    "federal_agi": "52000.00",
+    "federal_taxable_income": "36250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "28000.00",
+    "state_tax_before_credits": "1453.20",
+    "credits": "0.00",
+    "state_income_tax": "1453.20",
+    "relief_amounts": {
+      "ga_military_exclusion_base": "12000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 40,000.00 + military retirement 12,000.00 = 52,000.00. Federal taxable income = 52,000.00 - (standard deduction 15,750.00) = 36,250.00 (federal senior deduction ignored; federal figures are given, not tested; Georgia starts from federal AGI). Schedule 1 page 3 (age 50, under 62, so qualifies): line 1 taxable military retirement 12,000.00; line 2 base military exclusion 17,500.00; line 3 lesser = 12,000.00; taxable military retirement is less than 17,501, so stop: line 7b = 12,000.00. No retirement income exclusion (under 62). Schedule 1 additions lines 1-5 none, line 6 = 0.00. Schedule 1 line 13 total subtractions = line 7b military retirement income exclusion 12,000.00 = 12,000.00; line 14 net adjustments = 0.00 - 12,000.00 = -12,000.00. Form 500 line 8 federal AGI 52,000.00; line 9 = -12,000.00; line 10 Georgia AGI = 52,000.00 - 12,000.00 = 40,000.00. Line 11 standard deduction (single) 12,000.00 (the filer takes the federal standard deduction, so must take Georgia's); line 13 = 40,000.00 - 12,000.00 = 28,000.00; line 14 dependent exemption 0 dependents = 0.00; line 15a = 28,000.00; line 15b NOL 0.00; line 15c = 28,000.00. Line 16 tax = 5.19% x 28,000.00 = 1,453.2000 = 1,453.20; the form rounds to the nearest dollar and gives 1,453; expected uses the unrounded formula to the cent. Line 17 Low Income Credit: federal AGI is not under 20,000, so none; no other credits; credits 0.00; state income tax = 1,453.20.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ga_military_exclusion_additional",
+    "state_rule_not_modelled:ga_retirement_exclusion_disabled"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

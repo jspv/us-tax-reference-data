@@ -1,0 +1,437 @@
+{
+ "layer": "record",
+ "state": "ND",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "North Dakota taxable income starts from federal taxable income (Form ND-1 line 1b; line 18 subtracts line 17 from line 4b). PDF p.4: 'The starting point for computing North Dakota taxable income perpetually conforms to the computation of federal taxable income.' The federal standard deduction is therefore already inside the starting figure. Form ND-1 line 1a asks for federal AGI, but the tax is not computed from it.",
+  "The booklet prints no North Dakota standard deduction, personal exemption, dependent exemption, age-65 amount or blindness amount. base.deductions holds only the three 'other' deductions it does print.",
+  "Line 1b (PDF p.13): a federal taxable income below zero is entered as the negative number, not 0; line 18 is floored at 0.",
+  "Brackets: the schedules (PDF p.29) are headed for North Dakota taxable income of 100,000 or more; below that the Tax Table (PDF pp.22-28) applies, in 50-dollar rows rounded to whole dollars. Spot checks at the row midpoint agree with the schedule: 48,500-48,550 single 1; 81,000-81,050 joint 1; 40,500-40,550 separate 1; 65,000-65,050 head of household 1; 99,950-100,000 single 1,004, joint 371, separate 1,160, head of household 683. Qualifying surviving spouse uses the joint schedule (PDF p.29 heading).",
+  "Misprint corrected: PDF p.29, joint schedule, second row prints 'amount over $ 80.975' with a period. The rendered PDF page shows the period, so it is in the booklet itself and not a conversion error. 80,975 is used: the same page prints 80,975 in the Over and But Not Over columns; 4,233.45 = 1.95% of (298,075 - 80,975) exactly; the Tax Table first shows joint tax of 1 in the row 81,000-81,050.",
+  "Marriage penalty credit (line 22; PDF p.16 worksheet, PDF p.17 qualified income): recorded as a relief. Rendered PDF p.16 shows 15,750.00 preprinted on worksheet line 5 and 312.00 on line 13, Maximum credit. The worksheet's result is a difference of schedule taxes, which no schema field can compute, so the formula is in cap_rule.",
+  "Worked from the printed figures, not printed themselves: worksheet line 12 first turns positive when the lower qualified income passes 48,250 (for joint income in the 1.95% band), above the printed 47,550 gate, which fits the booklet's warning that meeting the conditions 'may not produce a credit'. Where both single computations and the joint computation are all in the 1.95% band the result is 311.51, so the 312 maximum binds only at higher incomes.",
+  "Pensions from other states' governments: not found in the booklet. No line, worksheet or sentence names them. A New York State pension is not mentioned; New York appears nowhere in the sources. With no subtraction line it stays in federal taxable income (line 1b). Only the peace officer exclusion could reach one, and the booklet does not settle that (covers_unclear).",
+  "North Dakota's own and federal government pensions, private pensions, IRA distributions, employer-plan distributions and annuities: no general subtraction or exemption is printed. The booklet does not say in so many words that they are taxed; they are part of federal taxable income and no line removes them. The only retirement subtractions printed are lines 8 (railroad), 9 (peace officer), 14 (military) and 15 (Social Security).",
+  "Roth conversions: not found in the booklet. No rule mentions conversions.",
+  "Lump-sum distributions are an addition: Schedule ND-1SA line 1 adds back the amount from federal Form 4972, line 6 plus line 10, for a distribution from a qualified retirement plan elected onto that form, unless received while a nonresident (Schedule ND-1SA PDF p.2).",
+  "Peace officer exclusion (line 9, PDF p.14): recorded as public_pension on the reading that a peace officer's employer plan is a government plan; both readers read it so and the booklet does not say it outright. No cap or age is printed. Years of service in other states count toward the 20, but the booklet does not say a plan of another state qualifies.",
+  "Military retirement exclusion (line 14, PDF pp.4 and 15): no cap or age printed. Federal civil service benefits as a dual status military technician qualify under the same line and stay in this entry as a condition, because they share its rule.",
+  "Railroad line 8 (PDF p.14) also takes taxable unemployment and sick pay from the Railroad Retirement Board. Taxable Tier 1 benefits go on line 8, not line 15; a filer with both splits Form 1040 line 6b by gross benefits (PDF p.15).",
+  "Military pay exclusion (line 11, PDF p.15) is recorded with covers wages because the schema has no military pay kind. Line 10 (Servicemember Civil Relief Act adjustment) is for nonresidents and is not recorded.",
+  "Municipal bond interest: the booklet prints no rule. Line 5 subtracts only U.S. obligation interest and interest exempted from state tax by federal statute. The additions on Form ND-1 lines 2-3 and Schedule ND-1SA lines 1-2 include no municipal interest. Recorded not_stated.",
+  "Not recorded as entries, no field or no figure: credit for income tax paid to another state (line 21, Schedule ND-1CR, not in the sources); other credits (line 23, Schedule ND-1TC, not in the sources); planned gift or endowment adjustment (line 2); S corporation adjustments, renaissance zone, new or expanding business, workforce recruitment and college expense reimbursement (Schedule ND-1SA); farm income averaging (Schedule ND-1FA); sale of a research credit (Schedule ND-1CS).",
+  "Reciprocity (PDF p.8) with Minnesota and Montana covers compensation for services and wages only; it says nothing about pensions.",
+  "Organ donor deduction is recorded per return and the stillborn child deduction per dependent as judgement calls; Schedule ND-1SA says neither outright.",
+  "Indexing: the booklet says nothing about inflation adjustment of any figure.",
+  "Surtaxes and recapture: none found in the booklet.",
+  "Settlement 2026-11-07: brackets rates: A said 0 and 0.025, B said 0.0000 and 0.0250 (8 fields, all four statuses); the same numbers, and PDF p.29 prints 0.00%, 1.95% and 2.50%. Written 0, 0.0195, 0.025.",
+  "Settlement 2026-11-07: college_save_deduction: A recorded it, B left it in notes; PDF p.15 line 12 says 'up to a maximum of $5,000 ($10,000, if married filing jointly)'. Kept, with 5,000 written for every status other than joint.",
+  "Settlement 2026-11-07: organ_donor_deduction: A recorded it, B left it in notes; Schedule ND-1SA PDF p.2 line 6 says 'up to $10,000 of qualified expenses'. Kept.",
+  "Settlement 2026-11-07: stillborn_child_deduction: A recorded it, B left it in notes; Schedule ND-1SA PDF p.2 line 8 says 'enter $5,241 on line 8a'. Kept.",
+  "Settlement 2026-11-07: native_american_exempt_income: A recorded it, B left it in notes; PDF p.14 line 7 prints it. Kept, as exempt_in_full with all_income_scope person.",
+  "Settlement 2026-11-07: peace_officer_retirement_exclusion.covers_unclear: A listed employer_plan_distribution and public_pension_other_state, B only public_pension_other_state; PDF p.14 says 'Only include benefits issued by your employer's retirement plan' without saying which kinds of plan. A kept.",
+  "Settlement 2026-11-07: marriage_penalty_credit: neither reader recorded a relief; A's note gave a maximum of 312.00, B's gave 15,750 on line 13; rendered PDF p.16 shows 15,750.00 on line 5 and 312.00 on line 13. Recorded as a relief.",
+  "Settlement 2026-11-07: form: both readers wrote subtraction for the uncapped, untested exclusions; written exempt_in_full, the same meaning under tools/compare.py. The 40% dividend exclusion stays a subtraction with share."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "48475"
+   },
+   {
+    "rate": "0.025",
+    "start": "244825"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "80975"
+   },
+   {
+    "rate": "0.025",
+    "start": "298075"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "40475"
+   },
+   {
+    "rate": "0.025",
+    "start": "149025"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0",
+    "start": "0"
+   },
+   {
+    "rate": "0.0195",
+    "start": "64950"
+   },
+   {
+    "rate": "0.025",
+    "start": "271450"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+   "section": "PDF p.29, 2025 Tax Rate Schedules; PDF pp.22-28 Tax Table",
+   "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": {
+   "treatment": "follows",
+   "cite": {
+    "publication": "2025 North Dakota Individual Income Tax Booklet",
+    "section": "PDF p.4: North Dakota 'perpetually conforms to the computation of federal taxable income' and lists the 'additional $6,000 for some seniors'; Schedule ND-1SA has no addition for it",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  "deductions": [
+   {
+    "id": "college_save_deduction",
+    "what": "other",
+    "amount": {
+     "single": "5000",
+     "married_joint": "10000",
+     "married_separate": "5000",
+     "head_of_household": "5000",
+     "qualifying_surviving_spouse": "5000"
+    },
+    "per": "return",
+    "condition": "Contribution during the tax year to a North Dakota College SAVE account, up to the amount shown; a rollover from another I.R.C. 529 plan does not qualify.",
+    "cite": {
+     "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+     "section": "PDF p.15, Line 12 - ND College SAVE contribution deduction; Form ND-1 page 1 line 12",
+     "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "stillborn_child_deduction",
+    "what": "other",
+    "amount": {
+     "all": "5241"
+    },
+    "per": "dependent",
+    "condition": "Parent of a child stillborn in 2025, with a Fetal Death Record filed with North Dakota Vital Records, who could have claimed the child as a dependent if born alive.",
+    "cite": {
+     "publication": "2025 Schedule ND-1SA Statutory Adjustments",
+     "section": "PDF p.2, Line 8 - Stillborn child deduction; PDF p.1 line 8a",
+     "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "organ_donor_deduction",
+    "what": "other",
+    "amount": {
+     "all": "10000"
+    },
+    "per": "return",
+    "condition": "Up to this amount of qualified expenses (lost wages not compensated by sick pay; unreimbursed medical expenses not deducted federally) when you or your dependent, while living, donates part or all of a liver, pancreas, kidney, intestine, lung or bone marrow for transplantation.",
+    "cite": {
+     "publication": "2025 Schedule ND-1SA Statutory Adjustments",
+     "section": "PDF p.2, Line 6 - Organ donor deduction; PDF p.1 line 6",
+     "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+   "section": "PDF p.4, Federal Taxable Income - One Big Beautiful Bill Act; PDF p.13, Line 1b; Form ND-1 page 1 lines 1b, 4b, 17, 18",
+   "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+   "section": "PDF p.15, Line 15 - Social security benefit exclusion; Form ND-1 page 1 line 15 subtracts the taxable portion from Form 1040 line 6b",
+   "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "social_security_exclusion",
+   "label": "Social security benefit exclusion",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15, Line 15 - Social security benefit exclusion; Form ND-1 page 1 line 15",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "railroad_retirement_exclusion",
+   "label": "Benefits received from U.S. Railroad Retirement Board",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14, Line 8 - U.S. Railroad Retirement Board benefits; Form ND-1 page 1 line 8",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "military_retirement_exclusion",
+   "label": "Military retirement benefit exclusion",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Retired member of the U.S. armed forces (Army, Navy, Air Force, Marine Corps, Coast Guard) or its reserve components, Army National Guard or Air Force National Guard, or surviving spouse of a deceased retired military service member",
+     "Retirement benefits for federal civil service employment as a dual status military technician under Title 32 or Title 10 also qualify"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15, Line 14 - Military retirement benefit exclusion; PDF p.4 Military Retirement Benefit Exclusion; Form ND-1 page 1 line 14",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "peace_officer_retirement_exclusion",
+   "label": "Licensed peace officer retirement benefits exclusion",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "covers_unclear": [
+    "public_pension_other_state",
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Retired licensed peace officer with a minimum of 20 years of service (years in other states may count) or retired disabled (medically or physically disabled while employed as a licensed peace officer and unable to discharge the person's duties)",
+     "Only benefits issued by the employer's retirement plan, generally Form 1099-R box 2a"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14, Line 9 - Licensed peace officer retirement benefits exclusion; Form ND-1 page 1 line 9",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "military_pay_exclusion",
+   "label": "Military pay exclusion",
+   "form": "exempt_in_full",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Military pay as a member of the U.S. armed forces on active and reserve duty and of the national guard, to the extent included in federal taxable income; not income already entered on line 10"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15, Line 11 - Military pay exclusion; Form ND-1 page 1 line 11",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_obligation_interest",
+   "label": "Interest from U.S. obligations",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "interest income from securities of the Federal Home Loan Mortgage Corporation (Freddie Mac), Federal National Mortgage Association (Fannie Mae), and Government National Mortgage Association (Ginnie Mae)",
+    "interest from a federal income tax refund or repurchase agreement"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Dividends only for the portion of mutual fund dividends attributable to U.S. obligations and other securities whose interest federal statute exempts from state income tax"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14, Line 5 - U.S. obligation interest; Form ND-1 page 1 line 5",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "qualified_dividend_exclusion",
+   "label": "Qualified dividend exclusion",
+   "form": "subtraction",
+   "covers": [
+    "dividends"
+   ],
+   "share": "0.4",
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Qualified dividends from Form 1040 or 1040-SR line 3a; part-year residents and nonresidents use only the portion reported to North Dakota"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15, Line 13 - Qualified dividend exclusion; Form ND-1 page 1 line 13",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "native_american_exempt_income",
+   "label": "Native American's exempt income",
+   "form": "exempt_in_full",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Enrolled member of a federally-recognized Indian tribe who lived on any Indian reservation in North Dakota for all of 2025",
+     "Only income derived from sources on any Indian reservation in North Dakota"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14, Line 7 - Native American's exempt income; PDF p.8 Native Americans",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "marriage_penalty_credit",
+   "label": "Marriage penalty credit",
+   "form": "credit",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Married filing a joint return",
+     "Both spouses have qualified income, and the lower qualified income is more than 47,550",
+     "Qualified income, figured separately for each spouse: wages, salaries and tips (Form 1040 line 1z); net self-employment income (Schedule SE line 3) less the self-employment tax deduction; taxable IRAs, pensions, annuities and Social Security benefits (Form 1040 lines 4b, 5b, 6b); reduced by amounts on Form ND-1 lines 8 and 15"
+    ]
+   },
+   "cap": {
+    "married_joint": "312"
+   },
+   "cap_per": "return",
+   "cap_rule": "Worksheet: line 4 = the smaller qualified income; line 5 = 15,750.00 (preprinted); line 6 = line 4 - line 5; line 7 = Single schedule tax on line 6; line 8 = joint taxable income (line 1) - line 6; line 9 = Single schedule tax on line 8; line 10 = joint schedule tax on line 1; line 11 = line 7 + line 9; line 12 = line 10 - line 11, and if zero or less there is no credit; line 13 Maximum credit = 312.00; line 14 = the smaller of lines 12 and 13. A filer with Schedule ND-1NR multiplies line 14 by the ratio on its line 20.",
+   "income_test": {
+    "measure": {
+     "base": "state_taxable_income",
+     "as_printed": "joint North Dakota taxable income on line 18 of Form ND-1"
+    },
+    "threshold": {
+     "married_joint": "81036"
+    },
+    "effect": "other",
+    "as_printed": "A floor, not a phase-out: the credit requires joint North Dakota taxable income 'more than $81,036'."
+   },
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.16, Line 22 - Marriage penalty credit and Marriage Penalty Credit Worksheet; PDF p.17 qualified income; Form ND-1 page 2 line 22",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "not_stated",
+  "note": "The booklet prints no rule. Line 5 subtracts only U.S. obligation interest and interest exempted by federal statute, and no addition on Form ND-1 or Schedule ND-1SA names municipal interest.",
+  "cite": {
+   "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+   "section": "PDF p.14, Line 5 - U.S. obligation interest; Form ND-1 page 1 lines 2-3; Schedule ND-1SA lines 1-2",
+   "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "long_term_gain_exclusion",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "0.4",
+   "condition": "Net long-term capital gain, including mutual fund capital gain distributions, in federal taxable income: the smaller of Schedule D lines 15 and 16, less any part on Form ND-1 line 7 or 16.",
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14, Line 6 - Net long-term capital gain exclusion; PDF p.15 worksheet line 8",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.29; no statement about inflation adjustment found",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.4 and PDF pp.13-17; no statement about inflation adjustment found",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": []
+}

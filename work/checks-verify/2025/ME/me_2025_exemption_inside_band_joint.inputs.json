@@ -1,0 +1,51 @@
+{
+  "id": "me_2025_exemption_inside_band_joint",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Maine Individual Income Tax Booklet / General Instructions (1040ME)",
+    "section": "Form 1040ME lines 14-20 (PDF pp.1-2); line 17 Maine Standard Deduction Chart and Worksheet for Standard / Itemized Deductions lines 1-8 (booklet PDF p.5); line 13 table and line 18 (PDF p.5); Worksheet for Phaseout of Personal Exemption Deduction Amount lines 1-8 (booklet PDF p.6); 2025 Tax Rate Schedules (PDF p.13). Record cite: base.deductions, booklet PDF page 5 (chart, worksheet line 4 widths 75,000 / 112,500 / 150,000, line 5 to four decimals, line 13 table), PDF page 6 (exemption worksheet line 4 widths 125,000 / 62,500, line 5 to four decimals), PDF page 11 Quick Facts; brackets PDF page 13",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_gen_instr_w_cover_pg.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-01-20"
+      },
+      {
+        "age": 53,
+        "born": "1972-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "300000.00",
+          "person": 0
+        },
+        {
+          "amount": "150100.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "450100.00",
+    "federal_taxable_income": "418600.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

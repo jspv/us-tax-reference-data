@@ -1,0 +1,45 @@
+{
+  "id": "nm_2025_base_surviving_spouse",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "expected": {
+    "state_agi": "48500.00",
+    "state_taxable_income": "48500.00",
+    "state_tax_before_credits": "1674.50",
+    "credits": "0.00",
+    "state_income_tax": "1674.50"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 80,000.00 = 80,000.00. Federal taxable income = 80,000.00 - standard deduction 31,500.00 = 48,500.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, surviving spouse. Line 9 federal AGI 80,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 31,500.00. Line 13 dependents 0.00. Line 14 0.00: federal AGI 80,000.00 is over the worksheet's printed ceiling 55,000.00 for this status, so the worksheet is not completed. Line 15 PIT-ADJ deductions and exemptions 0.00. Line 17 = 80,000.00 + 0.00 - 31,500.00 - 0.00 - 0.00 = 48,500.00. By the projection: state_agi = federal taxable income 48,500.00 = 48,500.00; less base deductions 0.00 gives 48,500.00. Line 18 tax, joint column as numbers: 1.5% x 8,000.00 = 120 + 3.2% x 17,000.00 = 544 + 4.3% x 23,500.00 = 1,010.5; total 1,674.5, to the cent 1,674.50. The rate table's joint column is also the surviving spouse's (footnote on every table page). The table row over 48,400 to 48,500 gives 1,672; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 1,674.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

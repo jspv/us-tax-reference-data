@@ -1,0 +1,55 @@
+{
+  "id": "md_2025_cap_gain_2pct_short_and_long_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 1c, 16-21, 20a, 21b; PDF page 4 'Additional 2% Tax on Net Capital Gain Income and Form 502CG' (federal AGI in excess of $350,000); PDF page 21 Line 20a; PDF page 22 Line 21b ('Multiply the amount on Line 20a by .02') and Tax Rate Schedules I and II; PDF page 21 Instruction 16 standard deduction; Exemption Amount Chart 10A (PDF pages 12-13); record additional_cap_gain_tax and additional_cap_gain_tax_agi_threshold",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-03-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "300350.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "20000.00",
+      "long_term_gains": "80000.00"
+    },
+    "federal_agi": "400350.00",
+    "federal_taxable_income": "384600.00"
+  },
+  "expected": {
+    "state_agi": "400350.00",
+    "state_taxable_income": "397000.00",
+    "state_tax_before_credits": "23212.50",
+    "credits": "0.00",
+    "state_income_tax": "23212.50"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 300,350.00 + short-term gain 20,000.00 + long-term gain 80,000.00 = 400,350.00. Federal taxable income = 400,350.00 - standard deduction 15,750.00 = 384,600.00 (no one 65 or older; federal senior deduction ignored). Form 502 Line 1 federal AGI 400,350.00; Line 1c capital gain 100,000.00 (federal Form 1040 Line 7a, short- and long-term together). Lines 2-6 additions 0.00; Line 7 total 400,350.00. Lines 8-15 subtractions 0.00. Line 16 Maryland AGI 400,350.00. Line 17 standard deduction 3,350.00. Line 18 net income 397,000.00. Line 19 exemptions: Chart 10A at federal AGI 400,350.00 (over 150,000.00) gives 0.00 for you. Line 20 taxable net income 397,000.00. Line 21 tax, Schedule I as numbers: 2% x 1,000.00 = 20.00; 3% x 1,000.00 = 30.00; 4% x 1,000.00 = 40.00; 4.75% x 97,000.00 = 4,607.50; 5% x 25,000.00 = 1,250.00; 5.25% x 25,000.00 = 1,312.50; 5.5% x 100,000.00 = 5,500.00; 5.75% x 147,000.00 = 8,452.50; total 21,212.50. Line 20a net capital gain income subject to additional tax: federal AGI 400,350.00 is more than 350,000 and Line 1c shows capital gain, so Form 502CG applies; the gain (100,000.00, from the sale of listed stock) is taken as wholly subject, the projection applying no exclusion (Form 502CG and Technical Bulletin 58, which list the excluded assets, are not in the sources) = 100,000.00. Line 21b = 100,000.00 x .02 = 2,000.00. Maryland tax (Lines 21 through 21b) = 21,212.50 + 0.00 + 2,000.00 = 23,212.50. Lines 22-26 credits 0.00. Maryland state tax 23,212.50. Local tax (Lines 28-33) out of scope.",
+  "accepted_approximations": [
+    "The additional 2% tax is charged on all net capital gain (short- and long-term, Form 502 Line 1c) when federal AGI is over 350,000. The booklet excludes 'net capital gain from the sale of certain assets' and leaves which assets to Form 502CG and Technical Bulletin 58, neither in the sources, so no exclusion is applied; nor does the booklet say whether short-term gains are part of 'net capital gain income'."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:additional_cap_gain_tax"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

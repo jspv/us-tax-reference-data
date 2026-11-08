@@ -1,0 +1,61 @@
+{
+  "id": "mi_2025_born_1946_1966_below",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "born_1946_1966"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Form 4884 Section D line 19 (PDF page 20 'Recipients born during the period from January 2, 1959 through December 31, 1966': up to 49,423 single; PDF page 22 Line 19); Worksheet 3.3 lines 1-6 (PDF page 25); Schedule 1 line 27; MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-05-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "14200.00",
+    "state_tax_before_credits": "603.50",
+    "credits": "0.00",
+    "state_income_tax": "603.50",
+    "relief_amounts": {
+      "born_1946_1966": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = private pension 30,000.00 + wages 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - federal standard deduction (15,750.00) = 34,250.00; given, not tested; the federal senior deduction is ignored. Michigan (born 1962, not 67, no SSA-exempt benefits: Section D only): Worksheet 3.3 line 1 65,897.00; line 2 0.00; line 3 65,897.00; line 4 x 75% = 49,422.75 (printed as 49,423 on line 19); line 5 benefits 30,000.00; line 6 smaller 30,000.00 to Schedule 1 line 27. Line 14 = 50,000.00 - 30,000.00 = 20,000.00; exemption 5,800.00; line 16 = 14,200.00. MI-1040 line 17 tax = 14,200.00 x 0.0425 = 603.50. No credits; state income tax 603.50.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mi_firepolice_public",
+    "state_rule_not_modelled:mi_ssa_exempt_1959_1964"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

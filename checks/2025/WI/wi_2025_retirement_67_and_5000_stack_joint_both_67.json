@@ -1,0 +1,69 @@
+{
+  "id": "wi_2025_retirement_67_and_5000_stack_joint_both_67",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_retirement_67",
+    "wi_retirement_5000"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); line 17 and the Retirement Income Subtraction Worksheet lines 1-6 (SB Instructions PDF page 8; Publication 126 PDF pages 8-9 section 4.E(2)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-05-01"
+      },
+      {
+        "age": 67,
+        "born": "1958-08-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "500.00",
+          "person": 0
+        },
+        {
+          "amount": "500.00",
+          "person": 1
+        }
+      ],
+      "interest": "28900.00"
+    },
+    "federal_agi": "29900.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "27900.00",
+    "state_taxable_income": "890.00",
+    "state_tax_before_credits": "31.15",
+    "credits": "0.00",
+    "state_income_tax": "31.15",
+    "relief_amounts": {
+      "wi_retirement_67": "1000.00",
+      "wi_retirement_5000": "1000.00"
+    }
+  },
+  "worked": "Married filing jointly, both 67 or older (68 and 67): IRA 500 each, interest 28,900; federal AGI 29,900 is under 30,000, so both line 16 and line 17 are open (line 17 has no credit restriction and stacks on line 16). The projection applies each to the full qualifying income: line 16 1,000 (both IRAs, under 48,000) and line 17 500 + 500 more. On the form, line 17 worksheet line 4 takes out the 1,000 already subtracted on line 16, so line 5 and line 6 are 0 in both columns and line 17 is 0; expected follows the projection (accepted approximation). Federal (given, not tested): federal AGI = ira distribution (you) 500.00 + ira distribution (spouse) 500.00 + interest 28,900.00 = 29,900.00. Federal taxable income = 29,900.00 - standard deduction 31,500.00 + 2 x 1,600.00 = 0.00 (floored at 0); the federal senior deduction is ignored. Form 1 line 1 federal AGI 29,900.00; line 2 Schedule I adjustments 0.00; line 3 29,900.00; line 4 additions 0.00; line 5 29,900.00. Schedule SB: line 16 retirement income subtraction: qualifying income you (age 68): IRA 500.00 = 500.00; spouse (age 67): IRA 500.00 = 500.00; smaller of 1,000.00 and the 48,000.00 cap = 1,000.00; line 17 $5,000 retirement income subtraction (federal AGI 29,900.00 is under 30,000.00): you smaller of 500.00 and 5,000 = 500.00; spouse smaller of 500.00 and 5,000 = 500.00 = 1,000.00; line 50 total 2,000.00. Form 1 line 6 2,000.00; line 7 Wisconsin income = 29,900.00 - 2,000.00 = 27,900.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 27,500 to less than 28,000, column Married filing jointly: 25,110.00 (printed row, at least / less than / single / joint / separate / head of household: 27,500 / 28,000 / 12,576 / 25,110 / 9,090 / 15,674). Line 9 = 27,900.00 - 25,110.00 = 2,790.00. Line 10a 2 x 700 = 1,400.00; line 10b 2 x 250 = 500.00; line 10c 1,900.00. Line 11 taxable income = 2,790.00 - 1,900.00 = 890.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 890.00 = 31.15; total 31.15, rounded once to 31.15. The Tax Table row 800 to 900 (PDF page 38) gives 30; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 31.15. Form figure for comparison (line 16 1,000, line 17 0): Form 1 line 6 1,000.00; line 7 Wisconsin income = 29,900.00 - 1,000.00 = 28,900.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 28,500 to less than 29,000, column Married filing jointly: 25,003.00 (printed row, at least / less than / single / joint / separate / head of household: 28,500 / 29,000 / 12,456 / 25,003 / 8,892 / 15,449). Line 9 = 28,900.00 - 25,003.00 = 3,897.00. Line 10a 2 x 700 = 1,400.00; line 10b 2 x 250 = 500.00; line 10c 1,900.00. Line 11 taxable income = 3,897.00 - 1,900.00 = 1,997.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 1,997.00 = 69.895; total 69.895, rounded once to 69.90. The Tax Table row 1,900 to 2,000 (PDF page 38) gives 68; expected keeps the schedule. Form state income tax 69.90. The projection's tax is 38.75 lower than the form's.",
+  "accepted_approximations": [
+    "The 5,000 subtraction takes only retirement income left after the 24,000/48,000 subtraction; the projection applies each to the full covered income.",
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

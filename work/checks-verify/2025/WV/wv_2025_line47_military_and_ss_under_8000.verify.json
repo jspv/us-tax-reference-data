@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "state_agi": "22000.00",
+    "state_taxable_income": "20000.00",
+    "state_tax_before_credits": "518.00",
+    "credits": "0.00",
+    "state_income_tax": "518.00",
+    "relief_amounts": {
+      "wv_military_retirement": "3000.00",
+      "wv_social_security": "0.00",
+      "wv_senior_citizen_deduction": "5000.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 30000.00 (single). Federal standard deduction and senior deduction ignored: WV starts from federal AGI. You: line 32 military retirement 3000.00 (exempt in full). You: line 34 taxable Social Security 2000.00; federal AGI 30000.00 does not exceed 50000 -> x 1 = 2000.00. You (age 67): senior deduction cap 8,000 less military 3000.00 = 5000.00; own income 30000.00 -> 5000.00. You: best_of_group wv_line_47 keeps the senior deduction 5000.00 over Social Security 2000.00 (Social Security entry not applied: 0). Line 2 additions 0; line 3 subtractions 8000.00; line 4 WV AGI = 30000.00 + 0 - 8000.00 = 22000.00. Line 6 exemptions 1 x 2,000 = 2000; line 7 taxable income 22000.00 - 2000 = 20000.00. Tax (rate schedule, exact, no table):   0-10,000 x 0.0222 = 222.0000   10,000-20,000.00 x 0.0296 = 296.000000 Tax = 518.000000 -> 518.00. No credits modelled: credits 0.00; income tax 518.00."
+}

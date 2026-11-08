@@ -1,0 +1,69 @@
+{
+  "id": "mo_2025_joint_one_spouse_under_62",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "social_security_retirement_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Instructions PDF p7 Line 7 income percentages and combined return; PDF p21 'A separate tax must be computed for you and your spouse'; Form MO-A PDF p3 Part 3 Section C; instructions PDF p17 Section C Lines 1-2 and Worksheet for Lines 1 and 2; Reference Guide PDF p9; record social_security_retirement_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-02-02"
+      },
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "30600.00",
+      "interest": "60000.00"
+    },
+    "federal_agi": "90600.00",
+    "federal_taxable_income": "59100.00"
+  },
+  "expected": {
+    "state_agi": "70200.00",
+    "state_taxable_income": "38700.00",
+    "state_tax_before_credits": "1642.96",
+    "credits": "0.00",
+    "state_income_tax": "1642.96",
+    "relief_amounts": {
+      "social_security_retirement_subtraction": "20400.00"
+    }
+  },
+  "worked": "Married filing combined (joint federal), ages 63 and 60. Each person's own age counts: person 0 is 63 and person 1 is 60, so only person 0's share of the taxable benefits is exempt. Federal taxable Social Security: other income 60,000.00 + half of benefits 18,000.00 = provisional 78,000.00; 85% x (78,000.00 - 44,000.00) + 6,000.00 = 34,900.00, limited to 85% x 36,000.00 = 30,600.00. Federal (given, not tested): federal AGI = taxable Social Security 30,600.00 + interest 60,000.00 = 90,600.00. Federal taxable income = 90,600.00 - standard deduction 31,500.00 = 59,100.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 90,600.00. Line 2 additions 0.00. Line 3 total income 90,600.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 90,600.00 - 0.00 = 90,600.00. Worksheet for Lines 1 and 2 (instructions p17): taxable 30,600.00 split by share of benefits, Y 24,000.00 / 36,000.00 = 20,400.00, S 12,000.00 / 36,000.00 = 10,200.00. MO-A Part 3 Section C (Y, age 63): Line 1 20,400.00; Line 3 20,400.00 (62 or older by December 31). MO-A Part 3 Section C (S, age 60): Line 1 10,200.00; Line 3 0.00 (under 62 at December 31, no exemption; the benefit stays taxed). Section C Line 4 total 20,400.00. Form MO-1040 Line 8 pension and Social Security exemption 20,400.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 31,500.00. Line 26 subtotal 90,600.00 - 20,400.00 - 31,500.00 = 38,700.00. Line 29 taxable income 38,700.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 1,313.00 = 59.085 + 4.7% x 29,509.00 = 1386.923; total 1642.958 = 1,642.96. The form itself splits this: Line 5 Y 80,400.00, S 10,200.00 (the return-level income taken as Y's); Line 7 89% / 11%; Line 27 34,443.00 and 4,257.00; Lines 30Y and 30S 1443 + 69 = 1512 on Line 36. The projection applies the chart once to the couple's total, so expected is 1,642.96. state_agi (after every relief, as the check format defines it) = Line 6 90,600.00 - Line 8 20,400.00 = 70,200.00; the form's Missouri AGI is Line 6, 90,600.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled).",
+    "Married filing combined: Missouri figures a separate tax for each spouse on that spouse's share of taxable income, using the one chart twice, and this is required, not chosen. The projection applies the chart once to the couple's total taxable income, because the format has no way to say tax is per spouse."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

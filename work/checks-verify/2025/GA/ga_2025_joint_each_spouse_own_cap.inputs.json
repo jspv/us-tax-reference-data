@@ -1,0 +1,63 @@
+{
+  "id": "ga_2025_joint_each_spouse_own_cap",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ga_retirement_exclusion_65_plus",
+    "ga_retirement_exclusion_62_64",
+    "ga_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49)",
+    "section": "Subtractions item 1 'Retirement income' (PDF p.21); Retirement Income Exclusion notes (PDF p.24: Social Security, Railroad Retirement and exempt income left out; items allocated to the owner); Schedule 1 page 2 lines 1-17 and footnote (PDF p.48; 2025GA500.pdf p.8): lines 1-5 earned income limited to the 5,000 Maximum Earned Income, lines 6-14 unearned retirement income, line 16 maximum allowable exclusion 35,000 (62-64) or 65,000 (65 or older), line 17 the lesser of lines 15 and 16; PDF p.21 'each must qualify on a separate basis. If both spouses qualify, each spouse may claim the amounts above'; Form 500 lines 8-16 (booklet PDF pp.16-17: Line 8 federal AGI, Line 10 Georgia AGI, Line 11 standard deduction, Lines 13-15c, Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); Form 500 Schedule 1 page 1 lines 1-14 (PDF p.47); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-11-03"
+      },
+      {
+        "age": 63,
+        "born": "1962-02-17"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "80000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "126900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ga_retirement_exclusion_65_plus",
+    "relief_amounts.ga_retirement_exclusion_62_64"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "co_2025_railroad_benefit",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_railroad_benefit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 15 Railroad Benefit (PDF p.22 Line 15; DR 0104AD p.2 line 15); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-12-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_taxable_income": "12250.00",
+    "state_tax_before_credits": "539.00",
+    "credits": "0.00",
+    "state_income_tax": "539.00",
+    "relief_amounts": {
+      "co_railroad_benefit": "20000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 30,000.00 + railroad retirement (RRB-1099-R) paid by the federal government (you) 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 32,250.00 (federal senior deduction ignored). DR 0104 line 1 federal taxable income (Form 1040 line 15) 32,250.00; lines 2-9 additions 0.00 (no state income tax addback, no other-state bond interest; federal AGI 50,000.00 is not over 300,000, so no line 4 deduction addback); line 10 subtotal 32,250.00. DR 0104AD: Line 15 railroad benefit: railroad retirement included in federal taxable income 20,000.00 (no cap or age test). Line 22 subtotal = 20,000.00; DR 0104 line 11 = 20,000.00. Line 12 Colorado taxable income = 32,250.00 - 20,000.00 = 12,250.00. Line 13 tax = 4.4% x 12,250.00 = 539.00 (the tax table row over 12,200.00 but not over 12,300.00, PDF p.34, gives 539.00; expected keeps the formula figure). No credits claimed: 0.00. Colorado income tax 539.00. Railroad retirement (Tier II, on Form RRB-1099-R) is subtracted in full on line 15; it is not also put on line 4, and with no other pension income line 4 is 0.00.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income at 4.4%; below 50,000 the booklet uses the tax table, which taxes each 100-dollar row at its midpoint and rounds to the dollar."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:co_pension_under_55_survivor",
+    "state_rule_not_modelled:co_pera_dpsrs_1984_1986"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

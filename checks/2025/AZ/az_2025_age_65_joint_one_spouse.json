@@ -1,0 +1,60 @@
+{
+  "id": "az_2025_age_65_joint_one_spouse",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 11 Box 8 (enter 1 if you or your spouse was 65 or older); Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-10-10"
+      },
+      {
+        "age": 62,
+        "born": "1963-01-25"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "25000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "75000.00",
+    "federal_taxable_income": "41900.00"
+  },
+  "expected": {
+    "state_taxable_income": "41400.00",
+    "state_tax_before_credits": "1035.00",
+    "credits": "0.00",
+    "state_income_tax": "1035.00"
+  },
+  "worked": "Federal AGI = wages (person 1) 50,000.00 + private pension (person 0) 25,000.00 = 75,000.00. Federal taxable income = 75,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 41,900.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 75,000.00; line 13 small business income 0.00; line 14 = 75,000.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 75,000.00 + 0.00 = 75,000.00. Subtractions lines 24-34: none. Line 35 = 75,000.00 - 0.00 = 75,000.00; line 36 other subtractions 0.00; line 37 = 75,000.00. Line 38 age 65 or over: box 8 = 1 x 2,100.00 = 2,100.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 75,000.00 - 2,100.00 = 72,900.00. Line 43 standard deduction (married filing joint) 31,500.00; line 44 0.00. Line 45 Arizona taxable income = 72,900.00 - 31,500.00 = 41,400.00. Line 46 tax = 41,400.00 x 2.5% = 1,035.00. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 75,000.00, over the maximum for the status). Line 52 balance of tax 1,035.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:other_exemption"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "14103.00",
+    "state_income_tax": "352.88",
+    "state_tax_before_credits": "352.88",
+    "state_taxable_income": "8303.00",
+    "relief_amounts": {
+      "railroad_retirement": "20000.00",
+      "pre1946_private": "45897.00",
+      "senior_investment_deduction": "0.00"
+    }
+  },
+  "worked": "Single born 1941. Line 11 railroad retirement 20,000 exempt in full. Form 4884 Section A: private limit 65,897 - line 11 20,000 = 45,897; private pension 50,000 -> 45,897.00. Line 28 worksheet: 14,688 - (20,000 + 45,897) -> 0. state_agi 80,000 - 20,000 - 45,897 = 14,103.00. Exemption 5,800. Taxable 8,303.00. Tax 352.8775 -> 352.88. [check: state_agi 14103.00, taxable 8303.00, tax 352.88; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

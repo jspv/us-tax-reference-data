@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "27434.82",
+    "state_income_tax": "801.07",
+    "state_tax_before_credits": "801.07",
+    "state_taxable_income": "15434.82",
+    "relief_amounts": {
+      "ga_retirement_exclusion_65_plus": "50000.00"
+    }
+  },
+  "worked": "Form 500 line 8 federal AGI 77434.82 (given). ga_retirement_exclusion_65_plus person 0 (age 66), Schedule 1 p.2: wages 30000.00 limited to 5000.00 + self-employment 8000.00 limited to 5000.00 (projection applies 5,000 to each separately) + IRA 10000.00 + private pension 30000.00 = 50000.00; lesser of that and 65000.00 = 50000.00. Georgia AGI (line 10) = 77434.82 - 50000.00 = 27434.82. Line 11 standard deduction (single) 12000.00; line 15 taxable income = 27434.82 - 12000.00 = 15434.82. Line 16 tax = 15434.82 x 5.19% = 801.067158 -> 801.07 (the form rounds to the nearest dollar: 801). No credits in the projection: credits 0.00; state income tax = 801.07. Federal AGI 77434.82 = 78000.00 less half of SE tax 565.18 (8000 x 0.9235 x 0.153 / 2). The form itself (Schedule 1 p.2 lines 1-5) takes one combined 5,000 earned-income limit: 5,000 + 40,000 = 45,000 excluded, taxable 20,434.82, tax 1,060.57; the projection's separate sub-limits give the figures above (approximation: understates_tax by 259.50)."
+}

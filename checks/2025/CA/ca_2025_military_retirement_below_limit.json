@@ -1,0 +1,65 @@
+{
+  "id": "ca_2025_military_retirement_below_limit",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_retirement_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "PDF page 60 Schedule CA (540) instructions, Line 5a and 5b (Military Retirement Exclusion, federal AGI limit 125,000 / 250,000, 20,000 cap); PDF page 6 and 55 What's New; Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "36000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "96000.00",
+    "federal_taxable_income": "80250.00"
+  },
+  "expected": {
+    "state_agi": "76000.00",
+    "state_taxable_income": "70294.00",
+    "state_tax_before_credits": "3007.57",
+    "credits": "153.00",
+    "state_income_tax": "2854.57",
+    "relief_amounts": {
+      "military_retirement_exclusion": "20000.00"
+    }
+  },
+  "worked": "Single, 58: uniformed-services retirement pay 36,000 and wages 60,000; federal AGI = 96,000, under the 125,000 limit. Form 540 line 13 federal AGI = 96,000.00. Federal taxable income = 96,000.00 - 15,750.00 federal standard deduction = 80,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: Schedule CA (540) line 5 column B, Military Retirement Exclusion: federal AGI 96,000.00 does not exceed 125,000.00; military retirement pay 36,000.00, capped at 20,000.00 a return = 20,000.00. Schedule CA Part I line 27 column B = 20,000.00 = Form 540 line 14. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 96,000.00 - 20,000.00 = 76,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 76,000.00 - 5,706.00 = 70,294.00. Tax on 70,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 12,752.00 x 8% = 1,020.16; total 3,007.57. Line 31: the form uses the Tax Table for taxable income of 100,000 or less; the row 70,251-70,350 gives 3,008 (formula result kept in expected). Line 32 exemption credits: federal AGI 96,000.00 is not more than 252,203.00, so no AGI limitation; line 7 personal 1 x 153 = 153.00; line 9 senior 0 x 153 = 0.00; line 32 = 153.00. Line 33 = 3,007.57 - 153.00 = 2,854.57; no other credits (lines 34 to 47 nil), line 48 = 2,854.57. State income tax = 2,854.57.",
+  "accepted_approximations": [
+    "Taxable income of 100,000 or less is taxed by the Tax Table (100-dollar rows, tax at the row midpoint); the projection uses the schedules' exact arithmetic."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:military_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

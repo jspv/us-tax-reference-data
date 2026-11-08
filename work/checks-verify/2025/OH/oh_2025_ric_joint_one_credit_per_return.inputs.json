@@ -1,0 +1,53 @@
+{
+  "id": "oh_2025_ric_joint_one_credit_per_return",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 2 (PDF p.28; Table 2 PDF p.44; bundle PDF p.7); Department FAQ 2; Schedule of Credits line 12 (PDF p.29)",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-04-01"
+      },
+      {
+        "age": 61,
+        "born": "1964-07-07"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "20050.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "60050.00",
+    "federal_taxable_income": "28550.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.retirement_income_credit"
+  ]
+}

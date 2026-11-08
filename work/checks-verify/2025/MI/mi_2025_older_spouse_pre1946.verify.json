@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "25000.00",
+    "state_income_tax": "569.50",
+    "state_tax_before_credits": "569.50",
+    "state_taxable_income": "13400.00",
+    "relief_amounts": {
+      "pre1946_private": "110000.00"
+    }
+  },
+  "worked": "Joint; person 1 born 1944-12-01 is the older spouse (born before 1946). Private pension 90,000 + IRA 20,000 = 110,000 < joint private limit 131,794 -> 110,000.00. Line 28: 29,376 - 110,000 -> 0. Taxable SS 34,000 subtracted. state_agi 169,000 - 34,000 - 110,000 = 25,000.00 (interest). Exemptions 11,600. Taxable 13,400.00. Tax 569.50. [check: state_agi 25000.00, taxable 13400.00, tax 569.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

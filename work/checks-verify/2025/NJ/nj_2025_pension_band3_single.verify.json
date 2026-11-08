@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "nj_pension_exclusion": "12000.00"
+    },
+    "state_agi": "118000.00",
+    "state_income_tax": "5262.95",
+    "state_tax_before_credits": "5262.95",
+    "state_taxable_income": "116000.00"
+  },
+  "worked": "Start: federal AGI 130,000.00 (projection base.starts_from federal_agi). NJ income before exclusions (line 27 proxy) = 130,000.00 - 0.00 + 0.00 = 130,000.00. Persons: person 0 age 65 (born 1960-01-15) qualifies 62+. Income test measure = federal AGI 130,000.00 + tax-exempt interest 0.00 - taxable SS 0.00 = 130,000.00; stepped keep_share for single = 0.1875 (bands apply strictly over 100,000 / 125,000 / 150,000). nj_pension_exclusion (line 28a): covered income of qualifying persons: person 0 private pension 44,000.00, person 0 ira_distribution 20,000.00; total 64,000.00; lesser of that and the single maximum 75,000.00 = 64,000.00; x 0.1875 = 12,000.00. nj_unclaimed_exclusion (line 28b, Worksheet D): earned income (wages + self-employment, return total) 66,000.00 is more than 3,000 (earned_income_limit per return) -> not eligible, 0.00. State AGI (line 29) = 130,000.00 - 0.00 - 0.00 - 12,000.00 - 0.00 = 118,000.00. Exemptions: regular 1,000 x 1 = 1,000.00; senior 65+ 1,000 x 1 = 1,000.00. Taxable income = 118,000.00 - 2,000.00 = 116,000.00. Tax (rate schedule, exact): 20,000.00 x 0.014 = 280; 15,000.00 x 0.0175 = 262.5; 5,000.00 x 0.035 = 175; 35,000.00 x 0.05525 = 1,933.75; 41,000.00 x 0.0637 = 2,611.7; total 5,262.950000 -> 5262.95 Credits: none modelled, 0.00. State income tax = tax before credits. Federal figures given; federal senior deduction ignored as the brief directs."
+}

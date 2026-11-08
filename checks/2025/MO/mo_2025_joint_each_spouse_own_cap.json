@@ -1,0 +1,76 @@
+{
+  "id": "mo_2025_joint_each_spouse_own_cap",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "public_pension_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Instructions PDF p7 Line 7 income percentages and combined return; PDF p21 'A separate tax must be computed for you and your spouse'; Form MO-A PDF p3 Part 3 Section A Lines 1-5; instructions PDF p17; Reference Guide PDF p9 (47,633 per taxpayer); record public_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      },
+      {
+        "age": 61,
+        "born": "1964-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal"
+        },
+        {
+          "amount": "60000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "MO"
+        }
+      ]
+    },
+    "federal_agi": "170000.00",
+    "federal_taxable_income": "138500.00"
+  },
+  "expected": {
+    "state_agi": "74734.00",
+    "state_taxable_income": "43234.00",
+    "state_tax_before_credits": "1856.06",
+    "credits": "0.00",
+    "state_income_tax": "1856.06",
+    "relief_amounts": {
+      "public_pension_subtraction": "95266.00"
+    }
+  },
+  "worked": "Married filing combined (joint federal), ages 60 and 61. 47,633 is per taxpayer, so each spouse's pension has its own cap. Federal (given, not tested): federal AGI = wages 50,000.00 + pensions 120,000.00 = 170,000.00. Federal taxable income = 170,000.00 - standard deduction 31,500.00 = 138,500.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 170,000.00. Line 2 additions 0.00. Line 3 total income 170,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 170,000.00 - 0.00 = 170,000.00. Section A (Y): Line 1 60,000.00; Line 2 lesser of that or 47,633.00 = 47,633.00; Line 3 0.00; Line 4 47,633.00. Section A (S): Line 1 60,000.00; Line 2 lesser of that or 47,633.00 = 47,633.00; Line 3 0.00; Line 4 47,633.00. Section A Line 5 total 95,266.00. Form MO-1040 Line 8 pension and Social Security exemption 95,266.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 31,500.00. Line 26 subtotal 170,000.00 - 95,266.00 - 31,500.00 = 43,234.00. Line 29 taxable income 43,234.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 1,313.00 = 59.085 + 4.7% x 34,043.00 = 1600.021; total 1856.056 = 1,856.06. The form itself splits this: Line 5 Y 110,000.00, S 60,000.00; Line 7 65% / 35%; Line 27 28,102.10 and 15,131.90; Lines 30Y and 30S 1145 + 535 = 1680 on Line 36. The projection applies the chart once to the couple's total, so expected is 1,856.06. state_agi (after every relief, as the check format defines it) = Line 6 170,000.00 - Line 8 95,266.00 = 74,734.00; the form's Missouri AGI is Line 6, 170,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "Married filing combined: Missouri figures a separate tax for each spouse on that spouse's share of taxable income, using the one chart twice, and this is required, not chosen. The projection applies the chart once to the couple's total taxable income, because the format has no way to say tax is per spouse."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

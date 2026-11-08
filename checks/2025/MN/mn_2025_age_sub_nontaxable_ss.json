@@ -1,0 +1,65 @@
+{
+  "id": "mn_2025_age_sub_nontaxable_ss",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "mn_age_65_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1R lines 1-13 and Line 10 table (M1R PDF p.1, p.2); Form M1 instructions PDF p.15; M1M PDF p.5 line 16; Schedule M1M line 1 (M1M PDF p.3 'Line 1 - Interest From Municipal Bonds of Another State')",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-15"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "1000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00",
+      "municipal_interest_other_state": "4500.00"
+    },
+    "federal_agi": "20000.00",
+    "federal_taxable_income": "2250.00"
+  },
+  "expected": {
+    "state_agi": "18650.00",
+    "state_taxable_income": "1700.00",
+    "state_tax_before_credits": "90.95",
+    "credits": "0.00",
+    "state_income_tax": "90.95",
+    "relief_amounts": {
+      "mn_age_65_subtraction": "5850.00",
+      "mn_social_security_simplified": "0.00"
+    }
+  },
+  "worked": "Benefits all nontaxable: they come off line 1 dollar for dollar, the same amount by the form and by the projection's benefits received. Federal (given, not tested): federal AGI = IRA distribution 20,000.00 = 20,000.00. Social Security benefits (Form 1040 line 6a) 1,000.00; line 6b taxable 0.00 (federal worksheet: benefits taxable up to 85%; given, not tested). Federal taxable income = 20,000.00 - 17,750.00 federal standard deduction (15,750 plus 1 x 2,000) = 2,250.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 20,000.00. Schedule M1M line 1 other-state municipal interest 4,500.00; line 10 additions 4,500.00; Form M1 line 2 4,500.00; line 3 = 24,500.00. Schedule M1M line 12: AGI 20,000.00 is not over 84,490.00, so worksheet steps 3-5 give 0 and the simplified amount is all of line 6b, 0.00. Alternative method, projection: measure = federal AGI + tax-exempt interest = 20,000.00 + 4,500.00 = 24,500.00; cap first: lesser of 0.00 and 4,560.00 = 0.00; less 20% x (excess over 69,250.00, 0.00) = 0.00; alternative = 0.00. Worksheet steps 9-24 as printed: steps 9-11 20,000.00 - 0.00 = 20,000.00; steps 12-13 50% x 1,000.00 = 500.00; step 14 4,500.00; step 15 25,000.00; steps 16-18 0.00; step 19 25,000.00; step 20 69,250.00; step 21 0.00; step 22 0.00; step 23 4,560.00; step 24 4,560.00; step 25-27 0.00; step 28 0.00; step 30 greater of 0.00 and 0.00 = 0.00. Line 12 = the better of the two, 0.00. Both methods give the same amount, applied once. Schedule M1R: line 1 9,600.00; line 2 0.00 (65 or older); line 3 9,600.00; line 4 0.00; line 5 nontaxable Social Security 1,000.00 - 0.00 = 1,000.00; line 6 Railroad Retirement Board benefits 0.00; line 7 1,000.00; line 8 = 8,600.00. Line 9 20,000.00; line 10 14,500.00; line 11 5,500.00; line 12 2,750.00; line 13 = 5,850.00. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 5,850.00 + 0.00 + 0.00 = 5,850.00 (lines 12, 16, 17, 25). State income before deduction = 24,500.00 - 5,850.00 = 18,650.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00 plus 1 x 2,000 age box(es) = 16,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 16,950.00. Form M1 line 8 total = 16,950.00 + 5,850.00 = 22,800.00; line 9 Minnesota taxable income = 24,500.00 - 22,800.00 = 1,700.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (1,700.00 - 0.00) = 90.95 = 90.95. The tax table (PDF pp.32-38) gives 94; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 90.95.",
+  "accepted_approximations": [
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

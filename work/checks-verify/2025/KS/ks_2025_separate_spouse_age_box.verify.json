@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "36020.00",
+    "state_tax_before_credits": "1922.52",
+    "credits": "0.00",
+    "state_income_tax": "1922.52"
+  },
+  "worked": "Filing status married_separate. K-40 line 1 federal AGI 50,000.00 (given). Line 2 modifications 0.00. Line 3 Kansas AGI 50,000.00 + (0.00) = 50,000.00. Line 4 standard deduction 4,120 + 1 age box(es) x 700 = 4,820 (worksheet PDF page 6). Separate return: the worksheet has a spouse box and prints up to 4 boxes for this status; persons list both spouses, so each one 65 or older counts. Line 5 exemption 9,160. Line 6 13,980.00. Line 7 taxable income 50,000.00 - 13,980.00 = 36,020.00. Line 8 tax 23,000 x 5.2% = 1,196.00; (36,020.00 - 23,000) = 13,020.00 x 5.58% = 726.516000; total 1922.516000. the table row 36,001-36,050 gives 1,923. No credits in the projection: credits 0.00. Tax 1922.52."
+}

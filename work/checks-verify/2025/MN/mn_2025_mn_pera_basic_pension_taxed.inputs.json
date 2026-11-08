@@ -1,0 +1,44 @@
+{
+  "id": "mn_2025_mn_pera_basic_pension_taxed",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "mn_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule M1QPEN Qualified Public Pension Subtraction",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1QPEN PDF p.1 lines 1-10, p.2 qualified plan table and basic member definition; Schedule M1M line 29",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1qpen-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-07-07",
+        "not_covered_by_social_security": true
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "MN"
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

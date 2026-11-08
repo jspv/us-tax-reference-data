@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "199000.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "35054.00",
+    "senior_deduction": "0.00",
+    "standard_deduction": "16100.00",
+    "taxable_income": "182900.00",
+    "total_tax": "35054.00"
+  },
+  "worked": "Form 1040: line 1z wages 180000; line 2a tax-exempt interest 0; line 2b taxable interest 0; line 3a qualified dividends 12000; line 3b ordinary dividends 15000; lines 4b+5b pensions/IRA 0; line 7a capital gain 4000; line 8 other income 0. Form 1040 line 6b taxable SS 0.00; line 9 total income = line 11 AGI = 199000.00 (no adjustments). Standard deduction: basic 16100 (single) + 0 box(es) x 2050 (unmarried amount) = 16100. Schedule 1-A Part V: nobody 65 or older (born before January 2, 1962); 0. Form 1040 line 14 = 16100 + 0; line 15 taxable income = max(0, 199000.00 - 16100 - 0) = 182900.00. QDCG Tax Worksheet: L1 182900; L2 12000; L3 4000; L4 16000; L5 166900; L6 49450; L7 49450; L8 49450; L9 (0%) 0; L10 16000; L11 0; L12 16000; L13 545500; L14 182900; L15 166900; L16 16000; L17 16000; L18 15% = 2400.00; L19 16000; L20 0; L21 20% = 0.00; L22 schedule tax on 166900: 0.10 x (12400 - 0) = 1240.00; 0.12 x (50400 - 12400) = 4560.00; 0.22 x (105700 - 50400) = 12166.00; 0.24 x (166900 - 105700) = 14688.00 = 32654.00; L23 35054.00; L24 schedule tax on 182900 = 36494.00; L25 smaller = 35054.00. Form 8960: L1 interest 0; L2 dividends 15000; L5a gain 4000; L8/L12 NII 19000; L13 MAGI 199000.00; L14 threshold 200000; L15 0.00; L16 smaller 0.00; L17 3.8% = 0.00. Form 8959 Part I: L1/L4 Medicare wages 180000; L5 200000; L6 0; L7 0.9% = 0.00. Total tax = 35054.00 + 0.00 + 0.00 = 35054.00."
+}

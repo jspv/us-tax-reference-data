@@ -1,0 +1,44 @@
+{
+  "id": "nc_2025_base",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?'",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60750.00",
+    "federal_taxable_income": "45000.00"
+  },
+  "expected": {
+    "state_taxable_income": "48000.00",
+    "state_tax_before_credits": "2040.00",
+    "credits": "0.00",
+    "state_income_tax": "2040.00"
+  },
+  "worked": "Federal AGI = wages 60,750.00. Federal taxable income = 60,750.00 - 15,750.00 federal standard deduction = 45,000.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 60,750.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 60,750.00. Line 9 deductions (Schedule S Part B) 0.00. Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (single) 12,750.00. Line 12a = Lines 9 + 10 + 11 = 12,750.00; Line 12b = Line 8 - Line 12a = 48,000.00. Line 14 NC taxable income (full-year resident) = 48,000.00. Line 15 tax = 48,000.00 x 0.0425 = 2,040.00. Line 16 credits 0.00; Line 17 income tax = 2,040.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "mo_2025_private_test_after_business_deduction",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "private_pension_subtraction",
+    "business_income_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction; Form MO-A PDF p2 Part 1 Line 17; instructions PDF p16 Line 17 worksheet; record business_income_deduction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "self_employment": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "5000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "28233.81",
+    "federal_taxable_income": "12483.81"
+  },
+  "expected": {
+    "state_agi": "18233.81",
+    "state_taxable_income": "2483.81",
+    "state_tax_before_credits": "23.42",
+    "credits": "0.00",
+    "state_income_tax": "23.42",
+    "relief_amounts": {
+      "private_pension_subtraction": "5000.00",
+      "business_income_deduction": "5000.00"
+    }
+  },
+  "worked": "Single, age 60. The business income deduction is a Part 1 subtraction, so it lowers Line 6 and the income test: 23,233.81, under the limit, where federal AGI would be over it. Federal (given, not tested): federal AGI = self-employment net profit 25,000.00 + pensions 5,000.00 - deductible half of self-employment tax 1,766.19 (25,000.00 x 92.35% x 15.3% / 2) = 28,233.81. Federal taxable income = 28,233.81 - standard deduction 15,750.00 = 12,483.81 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 28,233.81. Line 2 additions 0.00. Line 3 total income 28,233.81. Line 4 subtractions: MO-A Part 1 Line 17 business income deduction, 20% of net profit 5,000.00; total 5,000.00. Line 6 Missouri adjusted gross income 28,233.81 - 5,000.00 = 23,233.81. Section B: Line 1 23,233.81; Line 2 0.00; Line 3 23,233.81; Line 4 25,000.00; Line 5 0.00; Line 6Y 5,000.00, Line 7Y 5,000.00; Line 8 5,000.00; Line 9 5,000.00. Form MO-1040 Line 8 pension and Social Security exemption 5,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 23,233.81 - 5,000.00 - 15,750.00 = 2,483.81. Line 29 taxable income 2,483.81. Tax by the bands (0% to 1,313): 2% x 1,170.81 = 23.4162; total 23.4162 = 23.42. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 23; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 23,233.81 - Line 8 5,000.00 = 18,233.81; the form's Missouri AGI is Line 6, 23,233.81.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled).",
+    "The business income deduction is applied to all self-employment income; it applies to Missouri-source income only, and it also reaches Schedule E Part 2 income, Schedule F and Form 4835 profit, which the projection leaves out."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

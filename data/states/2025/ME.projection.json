@@ -1,0 +1,396 @@
+{
+  "layer": "projection",
+  "state": "ME",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/ME.record.json",
+    "sha256": "523410b3e56bd187bb33cb12ac88e2875ff3973523d6970d2075579e6baa52dd"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "26800"
+      },
+      {
+        "rate": "0.0715",
+        "start": "63450"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "53600"
+      },
+      {
+        "rate": "0.0715",
+        "start": "126900"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "26800"
+      },
+      {
+        "rate": "0.0715",
+        "start": "63450"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.058",
+        "start": "0"
+      },
+      {
+        "rate": "0.0675",
+        "start": "40200"
+      },
+      {
+        "rate": "0.0715",
+        "start": "95150"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "15000",
+          "married_joint": "30000",
+          "married_separate": "15000",
+          "head_of_household": "22500",
+          "qualifying_surviving_spouse": "30000"
+        },
+        "per": "return",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "head_of_household": "150000",
+            "married_joint": "200050",
+            "qualifying_surviving_spouse": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "75000",
+            "married_separate": "75000",
+            "head_of_household": "112500",
+            "married_joint": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "share_decimals": 4
+        }
+      },
+      {
+        "id": "age_65_additional_standard_deduction",
+        "amount": {
+          "single": "2000",
+          "married_joint": "1600",
+          "married_separate": "1600",
+          "head_of_household": "2000",
+          "qualifying_surviving_spouse": "1600"
+        },
+        "per": "person",
+        "min_age": 65,
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "single": "100000",
+            "married_separate": "100000",
+            "head_of_household": "150000",
+            "married_joint": "200050",
+            "qualifying_surviving_spouse": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "75000",
+            "married_separate": "75000",
+            "head_of_household": "112500",
+            "married_joint": "150000",
+            "qualifying_surviving_spouse": "150000"
+          },
+          "share_decimals": 4
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "all": "5150"
+        },
+        "per": "person",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "single": "333450",
+            "head_of_household": "366750",
+            "married_joint": "400100",
+            "qualifying_surviving_spouse": "400100",
+            "married_separate": "200050"
+          },
+          "effect": "share_phase_out",
+          "width": {
+            "single": "125000",
+            "head_of_household": "125000",
+            "married_joint": "125000",
+            "qualifying_surviving_spouse": "125000",
+            "married_separate": "62500"
+          },
+          "share_decimals": 4
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "railroad_retirement_exempt",
+      "from_record": [
+        "social_security_railroad_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "military_retirement_exempt",
+      "from_record": [
+        "military_retirement_exempt",
+        "military_survivor_annuity_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pension_income_deduction",
+      "from_record": [
+        "pension_income_deduction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "ira_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "48216"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "125000",
+          "married_separate": "125000",
+          "head_of_household": "187500",
+          "married_joint": "250000",
+          "qualifying_surviving_spouse": "250000"
+        },
+        "effect": "share_phase_out",
+        "width": {
+          "single": "100000",
+          "married_separate": "50000",
+          "head_of_household": "100000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000"
+        },
+        "share_decimals": 4
+      },
+      "social_security_basis": "gross"
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "pension_income_deduction_phase_out",
+      "indexed": true,
+      "covers": [
+        "reliefs:pension_income_deduction.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "pension_income_deduction",
+      "from_record": [
+        "pension_income_deduction"
+      ],
+      "warn_when": "has_retirement_account_distribution",
+      "age_range": [
+        0,
+        54
+      ],
+      "what": "Distributions received before age 55 qualify only as a series of substantially equal periodic payments over the life of the recipient (or joint lives with the beneficiary). A projection cannot tell a periodic series from an occasional withdrawal, so all count here."
+    },
+    {
+      "id": "mainepers_subtraction",
+      "from_record": [
+        "mainepers_subtraction"
+      ],
+      "warn_when": "has_pension",
+      "what": "MainePERS subtraction (Schedule 1S line 7): Form 1099-R box 2a minus box 16, and previously taxed rollovers, for persons retired after 1988. It needs the amount of pick-up contributions previously taxed by Maine, which a projection does not hold."
+    },
+    {
+      "id": "dependent_exemption_credit",
+      "from_record": [
+        "dependent_exemption_credit",
+        "dependent_exemption_credit_under_6"
+      ],
+      "warn_when": "has_dependents",
+      "what": "Dependent exemption tax credit: refundable, 305 for each qualifying child or dependent at least six, 610 under six, less 20 for each 500 of Maine AGI over 100,000 single, 125,000 head of household, 150,000 joint or surviving spouse, 75,000 separate."
+    },
+    {
+      "id": "blind_additional_standard_deduction",
+      "from_record": [
+        "blind_additional_standard_deduction"
+      ],
+      "warn_when": "never",
+      "what": "Additional standard deduction for blindness: 2,000 (single, head of household) or 1,600 (married, surviving spouse) for each box on lines 12b and 12d."
+    },
+    {
+      "id": "us_obligation_interest_subtraction",
+      "from_record": [
+        "us_obligation_interest_subtraction"
+      ],
+      "warn_when": "never",
+      "what": "Income from direct U.S. Government obligations is subtracted (Schedule 1S line 1); a projection cannot tell it from other interest."
+    },
+    {
+      "id": "me_property_tax_fairness_credit",
+      "from_record": [],
+      "warn_when": "person_in_age_range",
+      "age_range": [
+        65,
+        120
+      ],
+      "what": "Property Tax Fairness Credit: refundable, up to 1,000 (2,000 at 65 or older) for a Maine home owner or renter with income under a limit (102,500 at 65 or older). Depends on property tax or rent paid."
+    },
+    {
+      "id": "me_other_credits_and_returns",
+      "from_record": [],
+      "warn_when": "never",
+      "what": "Sales tax fairness, earned income, child care, adult dependent care and student loan credits; credit for income tax paid to other jurisdictions; part-year, nonresident and safe harbor returns (Schedule NR); the MainePERS contribution addition for active employees (Schedule 1A line 3); municipal property tax volunteer benefits for persons at least 60 (up to 1,465, line 16)."
+    }
+  ],
+  "approximations": [
+    {
+      "what": "A government pension paid by New York or any other state is treated like Maine's own, inside the pension income deduction. This is a reading of 'state and federal pension benefits' (page 8): the word is not limited to Maine, but no sentence names another state's pension.",
+      "direction": "understates_tax",
+      "size": "Only if Maine does not treat such a pension this way: up to 7.15% of 48,216, about 3,447 a person a year."
+    },
+    {
+      "what": "The cap is reduced per person by that person's own social security and railroad benefits, taxable or not. Page 8 says each spouse has a cap and that it is reduced, but the worksheet that would show whose benefits reduce whose cap is not saved.",
+      "direction": "either",
+      "size": "Only on a joint return where one spouse has benefits and the other has pension income; up to 7.15% of the benefits moved between the caps."
+    },
+    {
+      "what": "Before age 55, every pension, IRA and plan distribution counts toward the deduction here, though only a series of substantially equal periodic payments qualifies.",
+      "direction": "understates_tax",
+      "size": "7.15% of the withdrawal at most, up to about 3,447 a person a year, for a person under 55 taking occasional withdrawals."
+    },
+    {
+      "what": "Benefits earned by another person do not qualify, except a surviving spouse's, and only employee annuities are named; a projection counts inherited accounts and annuities bought outside an employer plan toward the deduction.",
+      "direction": "understates_tax",
+      "size": "At most 7.15% of that income, inside the same cap."
+    },
+    {
+      "what": "The standard deduction is always used. Maine allows itemizing for a filer who itemized federally, limited to 36,300 except medical expenses, and the larger amount applies.",
+      "direction": "overstates_tax",
+      "size": "7.15% of the excess of itemized deductions over the standard deduction; for 10,000 more, 715 a year."
+    },
+    {
+      "what": "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars.",
+      "direction": "either",
+      "size": "A few dollars a year at most."
+    },
+    {
+      "what": "Income from direct U.S. Government obligations is taxed here (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "Up to 7.15% of the Treasury interest; for 10,000 of interest, 715 a year."
+    },
+    {
+      "what": "A projection that cannot tell Maine bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "Up to 7.15% of the Maine municipal interest."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

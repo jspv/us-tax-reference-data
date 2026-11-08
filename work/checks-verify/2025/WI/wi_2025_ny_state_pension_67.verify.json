@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "16000.00",
+  "state_income_tax": "52.15",
+  "state_tax_before_credits": "52.15",
+  "state_taxable_income": "1490.00",
+  "relief_amounts": {
+   "wi_retirement_67": "24000.00"
+  }
+ },
+ "worked": "Filing status single; federal_taxable_income given (42050.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 59,800.00. Schedule SB line 4: taxable social security subtracted in full: 19,800.00. Schedule SB line 16 (wi_retirement_67): persons 67 or older at 12/31/2025: [0] (ages [69]); their covered retirement income (pensions not military/railroad, IRA, plan distributions) = 40,000.00; cap 24,000.00 per return -> 24,000.00. Schedule SB line 17 (wi_retirement_5000): federal AGI 59,800.00 is not less than 15,000.00: no subtraction (0). Total subtractions 43,800.00; Form 1 line 7 Wisconsin income (state_agi) = 59,800.00 - 43,800.00 = 16,000.00. Line 8 standard deduction: table row for single at least 0.00 (projection step over 0) -> 13,560.00. Line 10a exemptions 700 x 1 = 700.00; line 10b 250 x 1 person(s) 65 or older = 250.00. Line 11 taxable income = 16,000.00 - 13,560.00 - 700.00 - 250.00 = 1,490.00. Line 12 tax, Pub 106 Schedule A (single or head of household): (1,490.00 - 0.00) x 0.035 = 52.15 = 52.15. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 52.15."
+}

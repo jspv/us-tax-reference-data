@@ -1,0 +1,42 @@
+{
+  "id": "US-2026-surviving-spouse-wages-niit-medicare",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Qualifying surviving spouse age 50 with wages and qualified dividends: the net investment income tax uses the 250,000 joint threshold, the additional Medicare tax the 200,000 threshold.",
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "born": "1976-10-10",
+        "age": 50
+      }
+    ],
+    "wages": "230000",
+    "ordinary_dividends": "30000",
+    "qualified_dividends": "30000"
+  },
+  "expected": {
+    "agi": "260000.00",
+    "standard_deduction": "32200.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "227800.00",
+    "regular_tax": "37440.00",
+    "net_investment_income_tax": "380.00",
+    "additional_medicare_tax": "270.00",
+    "total_tax": "38090.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: qualifying surviving spouse.\nTaxpayer: born 1976-10-10, age 50 at the end of 2026.\nForm 1040: line 1z wages 230,000; line 3a qualified dividends 30,000; line 3b ordinary dividends 30,000.\nForm 1040 line 9 total income = 230,000 + 30,000 = 260,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 260,000.\nLine 12e standard deduction = 32,200 (married filing jointly amount, used by a qualifying surviving spouse; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 32,200 + 0 = 32,200; line 15 taxable income = 260,000 - 32,200 = 227,800.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 227,800; line 2 = 30,000; line 3 = 0 (no Schedule D; Form 1040 line 7a is 0); line 4 = 30,000; line 5 = 227,800 - 30,000 = 197,800\n  line 6 = 98,900; line 7 = smaller of 227,800 and 98,900 = 98,900; line 8 = smaller of 197,800 and 98,900 = 98,900; line 9 = 0 taxed at 0%\n  line 10 = smaller of 227,800 and 30,000 = 30,000; line 11 = 0; line 12 = 30,000\n  line 13 = 613,700; line 14 = smaller of 227,800 and 613,700 = 227,800; line 15 = 197,800 + 0 = 197,800; line 16 = 30,000; line 17 = smaller of 30,000 and 30,000 = 30,000\n  line 18 = 15% x 30,000 = 4,500; line 19 = 30,000; line 20 = 30,000 - 30,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 197,800: 10% x 24,800 = 2,480; 12% x (100,800 - 24,800) = 9,120; 22% x (197,800 - 100,800) = 21,340; total 32,940\n  line 23 = 4,500 + 0 + 32,940 = 37,440\n  line 24 (tax on line 1): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 227,800: 10% x 24,800 = 2,480; 12% x (100,800 - 24,800) = 9,120; 22% x (211,400 - 100,800) = 24,332; 24% x (227,800 - 211,400) = 3,936; total 39,868\n  line 25 = smaller of 37,440 and 39,868 = 37,440 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 1 + 2 + 5a = 0 interest + 30,000 dividends + 0 gain = 30,000 (line 8; no deductions, line 12 = 30,000; pensions, IRA distributions and Social Security are not investment income).\n  line 13 MAGI = 260,000; line 14 = 250,000 (qualifying surviving spouse); line 15 = 10,000; line 16 = smaller of 30,000 and 10,000 = 10,000 (the MAGI over the threshold is the lesser); line 17 = 3.8% x 10,000 = 380\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 230,000; line 5 = 200,000 (qualifying surviving spouse); line 6 = 30,000; line 7 = 0.9% x 30,000 = 270 (additional Medicare tax).\nTotal tax = 37,440 regular + 380 net investment income tax + 270 additional Medicare tax = 38,090.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "ia_2025_age_65_credit_joint_both_below",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "ia_age_65_credit",
+    "ia_personal_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-05-05"
+      },
+      {
+        "age": 66,
+        "born": "1959-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "37600.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "37600.00",
+    "federal_taxable_income": "2900.00"
+  },
+  "expected": {
+    "state_taxable_income": "2900.00",
+    "state_tax_before_credits": "110.20",
+    "credits": "110.20",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 37,600.00 = 37,600.00. Federal taxable income = 37,600.00 - standard deduction 31,500.00 - 2 x 1,600.00 for 65 or older = 2,900.00 (federal senior deduction ignored). IA 1040 filing status 2 (married filing jointly). Step 3 line a personal credits 2 x 40.00 = 80.00; line b 2 x 20.00 = 40.00 (65 or older on or before January 1, 2026; nobody blind); line c no dependents; line d and line 8 = 120.00. Line 1c federal AGI 37,600.00; line 2 federal taxable income 2,900.00. Schedule 1: no additions or subtractions. Schedule 1 line 21 net modifications = 0.00; line 3 = 0.00. Line 4 Iowa taxable income = 2,900.00 + (0.00) = 2,900.00. Line 5 tax = 3.8% x 2,900.00 = 110.20; line 7 = 110.20. Line 11 total credits 120.00; line 12 = 110.20 - 120.00, below zero, so enter 0.00 (non-refundable; expected credits shows the 110.20 used). State income tax 0.00 (no line 13-17 credits; line 19 school district or EMS surtax is local, not computed). The form allows whole-dollar rounding; expected keeps the cents. Low-income exemption and alternate tax (PDF p.10-13): line 4 2,900.00 + federal deduction 34,700.00 = 37,600.00, against 32,000.00: not exempt; alternate tax 4.3% x (37,600.00 - 32,000.00) = 240.80, not smaller than the 3.8% tax. The tax of 110.20 is over 100.00 (one 65 credit) and under 120.00 (two), so each spouse's own 65 credit counts.",
+  "accepted_approximations": [
+    "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ia_health_insurance_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

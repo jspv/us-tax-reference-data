@@ -1,0 +1,29 @@
+{
+  "expected": {
+    "credits": "80.00",
+    "relief_amounts": {
+      "ky_pension_exclusion": "43110.00",
+      "ky_personal_tax_credit_age_65": "80.00"
+    },
+    "state_agi": "13890.00",
+    "state_income_tax": "344.80",
+    "state_tax_before_credits": "424.80",
+    "state_taxable_income": "10620.00"
+  },
+  "worked": [
+    "Form 740 line 5 federal AGI 94450.00",
+    "Schedule M additions: other-state municipal interest 0 (Kentucky muni 0 exempt)",
+    "Schedule M line 10: taxable Social Security subtracted 37450.00 (social_security exempt)",
+    "Schedule M line 9 / worksheet, person 0: retirement income 45000.00, lesser of that or 31110 = 31110",
+    "Schedule M line 9 / worksheet, person 1: retirement income 12000.00, lesser of that or 31110 = 12000.00",
+    "ky_pension_exclusion total 43110.00",
+    "Kentucky AGI (line 9) = 94450.00 + 0 - 37450.00 - 0 - 43110.00 = 13890.00",
+    "line 10 standard deduction 3270 (one per return); line 11 taxable income = max(0, 13890.00 - 3270) = 10620.00",
+    "line 12 tax = 10620.00 x 0.04 = 424.8000",
+    "line 17 personal tax credits: 2 person(s) 65+ x 40 = 80, limited to tax -> 80",
+    "line 18/19 tax after personal credits = 344.8000",
+    "Family Size Tax Credit: MGI = federal AGI + tax-exempt interest = 94450.00 + 0 = 94450.00; family size two (married_joint column); keep share 0; credit = 344.8000 x 0 = 0.0000",
+    "credits = 80 + 0.00 = 80.00; line 22 tax = 424.8000 - 80.00 = 344.80",
+    "Federal figures given; federal senior deduction ignored per brief."
+  ]
+}

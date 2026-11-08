@@ -1,0 +1,63 @@
+{
+  "id": "al_2025_dependent_band_edge_50000",
+  "state": "AL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 40 Instruction Booklet",
+    "section": "Form 40 (25f40blk.pdf page 1) lines 5b to 18; booklet PDF page 8 lines 5 to 13, PDF page 10 lines 14 and 17; PDF page 9 Standard Deduction chart (line 11, PDF page 8); Form 40 page 1 boxes 1 to 4 (personal exemption, line 13); PDF page 10 line 14 Dependent Exemption chart ('0 - 50,000 1,000'); tax table PDF pages 25 to 30",
+    "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 47,
+        "born": "1978-05-05"
+      },
+      {
+        "age": 46,
+        "born": "1979-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "18500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "42000.00",
+    "state_tax_before_credits": "2020.00",
+    "credits": "0.00",
+    "state_income_tax": "2020.00"
+  },
+  "worked": "Federal AGI = wages (person 0) 30,000.00 + wages (person 1) 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 31,500.00 federal standard deduction = 18,500.00 (given, not tested; the federal senior deduction is ignored). Alabama: the projection starts from federal AGI and removes exempt income (Form 40 builds its own lines 5b to 10, which give the same AGI for this household). Form 40 line 10 Alabama AGI = 50,000.00. Line 11 standard deduction (married filing jointly, chart PDF page 9): AL AGI 50,000.00 is over 35,499.00, the band 35,500.00 and above, so 5,000.00. Line 12 federal income tax deduction: the form subtracts the 2025 federal income tax (worksheet PDF page 31); the projection does not model it (not_modelled, approximation), so 0.00 here. Line 13 personal exemption (married filing jointly) 3,000.00. Line 14 dependent exemption 0.00 (no dependents; the case format carries none. At AL AGI 50,000 the line 14 chart (PDF page 10) gives 1,000 per dependent ('0 - 50,000'); the projection does not model it (not_modelled dependent_exemption, warn has_dependents)). Line 15 total deductions = 5,000.00 + 0.00 + 3,000.00 + 0.00 = 8,000.00. Line 16 taxable income = 50,000.00 - 8,000.00 = 42,000.00. Line 17 tax from the derived married filing jointly schedule (2% from 0, 4% from 1,000, 5% from 6,000): (1,000.00 - 0.00) x 0.02 = 20.00 + (6,000.00 - 1,000.00) x 0.04 = 200.00 + (42,000.00 - 6,000.00) x 0.05 = 1,800.00 = 2,020.00; the tax table row 42,000-42,100 (married filing jointly column, PDF pages 25 to 30) gives 2,023. Line 18 net tax due, no credits: 2,020.00.",
+  "accepted_approximations": [
+    "The federal income tax deduction is not applied (not_modelled).",
+    "The brackets are derived from the tax table. Under 100,000 the table taxes each 100-dollar row at its midpoint, rounded; above 100,000 the printed worksheet ((income - 100,000) x .05 + 4,958, or + 4,918 joint) is 2 dollars below the derived brackets."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:al_federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

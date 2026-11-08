@@ -1,0 +1,45 @@
+{
+  "id": "tx_2025_no_tax",
+  "state": "TX",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Texas is open for small business (Fiscal Notes, 2025), Texas Comptroller of Public Accounts",
+    "section": "'Texas is small-business friendly by the numbers' figure, under '0%': Texas has no personal income tax (no state return or form lines exist)",
+    "url": "https://comptroller.texas.gov/economy/fiscal-notes/industry/2025/small-biz-info/"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-11-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "120000.00",
+          "person": 0
+        }
+      ],
+      "interest": "4000.00"
+    },
+    "federal_agi": "124000.00",
+    "federal_taxable_income": "108250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 120,000.00 + interest 4,000.00 = 124,000.00. Federal taxable income = 124,000.00 - 15,750.00 single standard deduction = 108,250.00 (given, not tested). Texas imposes no personal income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00 regardless of income.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

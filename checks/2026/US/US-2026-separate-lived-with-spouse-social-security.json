@@ -1,0 +1,43 @@
+{
+  "id": "US-2026-separate-lived-with-spouse-social-security",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Married filing separately, age 67, lived with the spouse during the year: base amount 0, so 85% of the worksheet's line 7 is taxable; no senior deduction on a separate return.",
+  "inputs": {
+    "filing_status": "married_separate",
+    "lived_with_spouse": true,
+    "persons": [
+      {
+        "born": "1959-09-02",
+        "age": 67
+      }
+    ],
+    "taxable_pensions": "6000",
+    "social_security_benefits": "20000"
+  },
+  "expected": {
+    "agi": "19600.00",
+    "taxable_social_security": "13600.00",
+    "standard_deduction": "17750.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "1850.00",
+    "regular_tax": "185.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "185.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: married filing separately, lived with the spouse at some time in the year.\nTaxpayer: born 1959-09-02, age 67 at the end of 2026.\nForm 1040: lines 4b + 5b taxable pensions and IRA distributions 6,000; line 6a Social Security benefits 20,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 20,000; line 2 = 50% x 20,000 = 10,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 6,000; line 4 (line 2a) = 0\n  line 5 = 10,000 + 6,000 + 0 = 16,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 16,000\n  line 8: married filing separately and lived with the spouse, so base amount and adjusted base amount are 0 (IRC 86(c)(1)(C), (c)(2)(C)); skip lines 8-15; line 16 = 85% x 16,000 = 13,600\n  line 17 = 85% x 20,000 = 17,000; line 18 = smaller of 13,600 and 17,000 = 13,600 -> Form 1040 line 6b\nForm 1040 line 9 total income = 6,000 + 13,600 = 19,600; line 10 adjustments 0; line 11a/11b adjusted gross income = 19,600.\nLine 12e standard deduction = 16,100 basic (married filing separately) + 1 x 1,650 additional (married or surviving spouse amount, one per box checked on line 12d for age 65 or older / blind) = 17,750.\nSchedule 1-A Part V: not allowed on a married-filing-separately return (a married person must file jointly); senior deduction 0.\nLine 14 = 17,750 + 0 = 17,750; line 15 taxable income = 19,600 - 17,750 = 1,850.\nForm 1040 line 16 (regular tax): Tax Rate Schedule Y-2 (married filing separately) on 1,850: 10% x 1,850 = 185; total 185\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 19,600; line 14 threshold = 125,000; line 15 = 19,600 - 125,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 185 regular + 0 net investment income tax + 0 additional Medicare tax = 185.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

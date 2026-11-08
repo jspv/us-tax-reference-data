@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "155.00",
+  "relief_amounts": {
+   "food_tax_credit": "155.00"
+  },
+  "state_agi": "22000.00",
+  "state_income_tax": "-78.73",
+  "state_tax_before_credits": "76.27",
+  "state_taxable_income": "6250.00"
+ },
+ "worked": "Form 40 line 7 federal AGI 22000.00 (given). Line 11 Idaho income (state_agi) = 22000.00 + 0.00 - 0.00 = 22000.00. Line 16 standard deduction 15750.00 + age 65 addition 0 x 2000.00 = 0.00; total 15750.00. Line 19/20 taxable income = max(0, 22000.00 - 15750.00) = 6250.00. Tax: (6250.00 - 4811.00) x 5.3% = 76.26700 -> 76.27. Line 43 Food Tax Credit: 155 x 1 persons = 155.00, refundable (paid in full, not limited to tax). Permanent Building Fund 10 not charged (approximation). Federal senior deduction ignored (federal figures given). State income tax = 76.27 - 155.00 = -78.73."
+}

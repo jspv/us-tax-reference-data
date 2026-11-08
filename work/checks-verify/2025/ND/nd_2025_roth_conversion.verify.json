@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "892.61",
+  "state_tax_before_credits": "892.61",
+  "state_taxable_income": "94250.00"
+ },
+ "worked": "Federal check: AGI 110,000.00 = wages 80,000.00 + roth_conversion 30,000.00; less standard deduction 15,750 + age 0 = federal taxable income 94,250.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 94,250.00; no additions (lines 2-3 are 0).\nLine 17 total subtractions = 0.00\nLine 18 = 94,250.00 - 0.00 = 94,250.00\nLine 20 tax: single band 0.0195 on 45,775.00 (over 48,475.00) = 892.612500\nLine 20 tax = 892.612500 -> 892.61 to the cent\nThe Tax Table row 94,250-94,300 gives 893; schedule formula used per the checks brief.\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 892.61.\nRoth conversion is in federal AGI and federal taxable income; the booklet has no rule removing it.\nApproximation: Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+}

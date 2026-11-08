@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Single born 1950 (Tier 2). Worksheet 2 line 7: 20,000; covered income IRA 5,000 + interest 14,000 = 19,000 -> 19,000 (alternative Worksheet 3.3: 5,000). Taxable SS 2,000 subtracted. state_agi 21,000 - 2,000 - 19,000 = 0.00. Exemption 5,800 -> taxable -5,800, floored at 0.00. Tax 0.00. [check: state_agi 0.00, taxable 0.00, tax 0.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

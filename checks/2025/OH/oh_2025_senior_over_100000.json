@@ -1,0 +1,50 @@
+{
+  "id": "oh_2025_senior_over_100000",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "senior_citizen_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 4 (PDF p.28; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-04-25"
+      }
+    ],
+    "income": {
+      "dividends": "121900.00"
+    },
+    "federal_agi": "121900.00",
+    "federal_taxable_income": "104150.00"
+  },
+  "expected": {
+    "state_agi": "121900.00",
+    "state_taxable_income": "120000.00",
+    "state_tax_before_credits": "3019.32",
+    "credits": "0.00",
+    "state_income_tax": "3019.32",
+    "relief_amounts": {
+      "senior_citizen_credit": "0.00"
+    }
+  },
+  "worked": "Federal AGI = dividends 121,900.00 = 121,900.00. Federal taxable income = 121,900.00 - standard deduction 15,750.00 - 1 x 2,000.00 age 65 additional = 104,150.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 121,900.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 121,900.00 + 0.00 - 0.00 = 121,900.00. Line 4: MAGI is line 3 with no business income deduction, 121,900.00, in the band 80,001 to 749,999: 1,900.00 each; 1 exemption x 1,900.00 = 1,900.00. Line 5 = 121,900.00 - 1,900.00 = 120,000.00. Line 6 taxable business income 0.00. Line 7 = 120,000.00. Line 8a tax: 120,000.00 is over 100,000: 2,394.32 plus 3.125% of (120,000.00 - 100,000.00 = 20,000.00) = 2,394.32 + 625.00 = 3,019.32. Schedule of Credits line 1 = 3,019.32. MAGI less exemptions (worksheet PDF p.40) = 121,900.00 - 1,900.00 = 120,000.00 (equal to line 7 without business income), at or over 100,000.00, so the retirement income and senior citizen credits are not available. Line 2 retirement income credit: no covered retirement income, 0.00. Line 4 senior citizen credit: taxpayer is 65 or older at the end of the year; 0.00. Line 10 credits = 0.00 + 0.00 = 0.00. Line 11 = 3,019.32 - 0.00 = 3,019.32. State income tax 3,019.32. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 3,019; expected keeps the formula result.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

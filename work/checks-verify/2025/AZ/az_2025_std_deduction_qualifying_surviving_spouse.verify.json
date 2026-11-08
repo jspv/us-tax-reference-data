@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1000.00",
+    "state_tax_before_credits": "1000.00",
+    "state_taxable_income": "40000.00"
+  },
+  "worked": "Line 12 federal AGI (Arizona gross income) 63,625.00. Line 35 subtractions 0.00; line 37 = 63,625.00 - 0.00 = 63,625.00. Box 8 = 0 (ages 60); line 38 = 0 x 2,100 = 0.00. Line 42 Arizona AGI = 63,625.00. Line 43 standard deduction 23,625.00 (federal qualifying surviving spouse files as head of household in Arizona, PDF page 10 Box 5); line 45 = 63,625.00 - 23,625.00 = 40,000.00. Line 46 tax = 40,000.00 x 2.5% = 1,000.00. Credits: none (dependent and family income credits not applied by the projection) = 0.00. Tax 1,000.00. Federal figures given; federal senior deduction ignored."
+}

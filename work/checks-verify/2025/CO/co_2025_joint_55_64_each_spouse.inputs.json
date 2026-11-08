@@ -1,0 +1,70 @@
+{
+  "id": "co_2025_joint_55_64_each_spouse",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "co_pension_55_64",
+    "co_ss_55_64_limited",
+    "co_ss_55_64_full"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 4 / line 6 Pension and Annuity Subtraction (PDF p.18-19 Line 4 bullets; p.19-20 Line 6; DR 0104AD p.1 lines 4 and 6) ('should not be intermingled between spouses'); DR 0104AD line 3 / line 5 Social Security Benefits (PDF p.18 Line 3; p.19 Line 5; DR 0104AD p.1 lines 3 and 5), joint federal AGI over 95,000; DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-05"
+      },
+      {
+        "age": 58,
+        "born": "1967-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "15000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "150500.00",
+    "federal_taxable_income": "119000.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_pension_55_64",
+    "relief_amounts.co_ss_55_64_full",
+    "relief_amounts.co_ss_55_64_limited"
+  ]
+}

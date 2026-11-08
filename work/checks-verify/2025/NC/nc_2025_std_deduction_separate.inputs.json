@@ -1,0 +1,40 @@
+{
+  "id": "nc_2025_std_deduction_separate",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nc_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?' (married filing separately, spouse does not claim itemized deductions: 12,750)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50750.00",
+    "federal_taxable_income": "35000.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

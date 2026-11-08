@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "35000.00",
+    "state_income_tax": "1193.70",
+    "state_tax_before_credits": "1193.70",
+    "state_taxable_income": "23000.00",
+    "relief_amounts": {
+      "ga_railroad_retirement": "25000.00",
+      "ga_retirement_exclusion_65_plus": "25000.00"
+    }
+  },
+  "worked": "Form 500 line 8 federal AGI 85000.00 (given). ga_railroad_retirement: railroad retirement 25000.00 in federal AGI subtracted in full (Schedule 1 line 8). ga_retirement_exclusion_65_plus person 0 (age 66), Schedule 1 p.2: wages 40000.00 limited to 5000.00 + IRA 20000.00 = 25000.00; lesser of that and 65000.00 = 25000.00. Georgia AGI (line 10) = 85000.00 - 50000.00 = 35000.00. Line 11 standard deduction (single) 12000.00; line 15 taxable income = 35000.00 - 12000.00 = 23000.00. Line 16 tax = 23000.00 x 5.19% = 1193.700000 -> 1193.70 (the form rounds to the nearest dollar: 1194). No credits in the projection: credits 0.00; state income tax = 1193.70."
+}

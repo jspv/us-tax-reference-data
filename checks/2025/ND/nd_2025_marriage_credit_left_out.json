@@ -1,0 +1,58 @@
+{
+  "id": "nd_2025_marriage_credit_left_out",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.16 Line 22 - Marriage penalty credit and Marriage Penalty Credit Worksheet lines 1-14; PDF p.17 qualified income; Form ND-1 line 22; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-05"
+      },
+      {
+        "age": 50,
+        "born": "1975-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "115750.00",
+          "person": 0
+        },
+        {
+          "amount": "115750.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "231500.00",
+    "federal_taxable_income": "200000.00"
+  },
+  "expected": {
+    "state_taxable_income": "200000.00",
+    "state_tax_before_credits": "2320.99",
+    "credits": "0.00",
+    "state_income_tax": "2320.99"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 115,750.00 + wages (person 1) 115,750.00 = 231,500.00. Federal taxable income = 231,500.00 - standard deduction 31,500.00 = 200,000.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 200,000.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 200,000.00. Subtractions lines 5-16: none; line 17 = 0.00. Line 18 North Dakota taxable income = 200,000.00 - 0.00 = 200,000.00. Line 19 = 200,000.00. Line 20 tax: 1.95% x (200,000.00 - 80,975.00) = 1.95% x 119,025.00 = 2,320.9875, to the cent 2,320.99; taxable income is 100,000 or more, so the form itself uses the schedule (PDF p.29). Lines 21-23 credits: Marriage Penalty Credit Worksheet (not in the projection, shown for the difference): line 1 200,000.00; line 3a 115,750.00, line 3b 115,750.00; line 4 115,750.00; line 5 15,750.00; line 6 100,000.00; line 7 Single schedule tax on line 6 = 1,004.7375; line 8 100,000.00; line 9 Single schedule tax on line 8 = 1,004.7375; line 10 joint schedule tax on line 1 = 2,320.9875; line 11 = 2,009.475; line 12 = 311.5125; line 13 312.00; line 14 credit = 311.5125, 311.51. The projection does not take it (not_modelled, warn_when always), so credits stay 0.00 and expected overstates the form's net tax by 311.51. Expected credits 0.00. Line 25 net tax = 2,320.99.",
+  "accepted_approximations": [
+    "The marriage penalty credit is left out."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

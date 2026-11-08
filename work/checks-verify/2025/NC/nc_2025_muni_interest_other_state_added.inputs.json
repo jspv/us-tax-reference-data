@@ -1,0 +1,40 @@
+{
+  "id": "nc_2025_muni_interest_other_state_added",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 17, Schedule S Part A Line 1 (interest on obligations of states other than NC not included in federal AGI is added); Form D-400 Schedule S page 1 (PDF page 2), Line 1 and Line 16; D-401 PDF page 13, Line 7; PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-08-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50750.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "2000.00",
+      "municipal_interest_own_state": "3000.00"
+    },
+    "federal_agi": "50750.00",
+    "federal_taxable_income": "35000.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

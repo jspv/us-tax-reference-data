@@ -1,0 +1,63 @@
+{
+  "id": "sc_2025_retirement_65_or_older_at_or_above",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "sc_retirement_65_or_older",
+    "sc_age_65_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF pp.10-11 'Line p-1 through line p-3: Retirement deduction', qualified retirement income definition and Worksheet for taxpayer (line p-1) lines 1-5; Instructions PDF p.12 'Line q: Age 65 and older deduction' and Worksheet for taxpayer (line q-1) lines 1-4; PDF p.13 Examples 1-5 (Example 2); SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-09-30"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "26000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "14000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "22250.00"
+  },
+  "expected": {
+    "state_taxable_income": "7250.00",
+    "state_tax_before_credits": "110.70",
+    "credits": "0.00",
+    "state_income_tax": "110.70"
+  },
+  "worked": "Federal AGI = private pension 26,000.00 + IRA distribution 14,000.00 = 40,000.00. Federal taxable income = 40,000.00 - standard deduction 17,750.00 (15,750.00 single + 1 x 2,000.00 for 65 or older) = 22,250.00 (federal senior deduction ignored, federal figures given, not tested). SC1040 line 1 federal taxable income 22,250.00; additions lines a-e none, line 2 = 0.00; line 3 = 22,250.00. Line p-1 worksheet (age 70): line 1 maximum 10,000.00; line 2 military 0.00; line 3 = 10,000.00; line 4 qualified retirement income = 26,000.00 + 14,000.00 = 40,000.00; line 5 lesser = 10,000.00 (cap binds). Line q-1 worksheet: 15,000.00 - (10,000.00 + 0.00) = 5,000.00 (as Example 2: 10,000 on p-1 and 5,000 on q-1; at the 15,000 combined maximum). Projection: best_of_group of the 65-or-older retirement entry (10,000) and the age 65 entry (min(15,000, 40,000) = 15,000) keeps 15,000; same total, so relief_amounts are not split by id. Line 4 total subtractions = p-1 10,000.00 + q-1 5,000.00 = 15,000.00. Line 5 South Carolina income subject to tax = 22,250.00 - 15,000.00 = 7,250.00. Line 6 tax = 3% x (7,250.00 - 3,560.00) = 3% x 3,690.00 = 110.70; the printed table (row 7,200 to 7,300, figured at the row midpoint) gives 111; expected uses the bracket formula on the exact income. Line 12 Two Wage Earner Credit: not modelled (warning), 0.00; it is for joint filers only, so 0 anyway. Line 14 credits 0.00; line 15 state income tax = 110.70.",
+  "accepted_approximations": [
+    "The bracket starts 3,560 and 17,840 are derived from the printed tax table and the 6%-minus-642 formula; the table fixes them only to 3,559-3,566 and 17,818-17,857. Tax below 100,000 is figured on the exact income, where the booklet uses the table row's midpoint.",
+    "The booklet stacks the age 65 deduction on the retirement deduction (15,000 less the retirement and military deductions taken). The projection puts the 65-or-older retirement deduction and the age 65 deduction in one best_of_group, with the age 65 cap reduced by military retirement. For a person 65 or older this gives the same total as the worksheets, the larger of 15,000 and the military retirement income (Examples 1-5), whenever the person's income covers it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:sc_disability_retirement",
+    "state_rule_not_modelled:sc_retirement_surviving_under_65",
+    "state_rule_not_modelled:sc_two_wage_earner_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

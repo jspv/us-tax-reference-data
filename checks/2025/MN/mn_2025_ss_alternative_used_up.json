@@ -1,0 +1,65 @@
+{
+  "id": "mn_2025_ss_alternative_used_up",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "mn_social_security_alternative",
+    "mn_social_security_simplified"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table); Schedule M1M line 12 and Worksheet for line 12 steps 1-30 (M1M PDF p.3, p.4)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "73000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "98500.00",
+    "federal_taxable_income": "82750.00"
+  },
+  "expected": {
+    "state_agi": "83200.00",
+    "state_taxable_income": "68250.00",
+    "state_tax_before_credits": "4168.74",
+    "credits": "0.00",
+    "state_income_tax": "4168.74",
+    "relief_amounts": {
+      "mn_social_security_simplified": "15300.00"
+    }
+  },
+  "worked": "AGI past where the alternative reaches zero, 92,050; the simplified method keeps 60%. Federal (given, not tested): federal AGI = wages 73,000.00 + taxable Social Security 25,500.00 = 98,500.00. Social Security benefits (Form 1040 line 6a) 30,000.00; line 6b taxable 25,500.00 (federal worksheet: benefits taxable up to 85%; given, not tested). Federal taxable income = 98,500.00 - 15,750.00 federal standard deduction (15,750 plus 0 x 2,000) = 82,750.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 98,500.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 98,500.00. Schedule M1M line 12, Worksheet: step 1 98,500.00; step 2 84,490.00; step 3 14,010.00; step 4 14,010.00 / 4,000 rounded up = 4; step 5 0.4; step 6 25,500.00; step 7 10,200.00; step 8 = 15,300.00 (step 29, Tier 1 step 26 is 0.00). Keep share 0.6. Alternative method, projection: measure = federal AGI + tax-exempt interest = 98,500.00 + 0.00 = 98,500.00; cap first: lesser of 25,500.00 and 4,560.00 = 4,560.00; less 20% x (excess over 69,250.00, 29,250.00) = 5,850.00; alternative = 0.00. Worksheet steps 9-24 as printed: steps 9-11 98,500.00 - 25,500.00 = 73,000.00; steps 12-13 50% x 30,000.00 = 15,000.00; step 14 0.00; step 15 88,000.00; steps 16-18 0.00; step 19 88,000.00; step 20 69,250.00; step 21 18,750.00; step 22 3,750.00; step 23 4,560.00; step 24 810.00; step 25-27 25,500.00; step 28 810.00; step 30 greater of 810.00 and 15,300.00 = 15,300.00. Line 12 = the better of the two, 15,300.00. The projection's alternative entry loses, so only the simplified amount is applied. Schedule M1M line 16: no one is 65 or older (born before January 2, 1961), so no Schedule M1R subtraction. Schedule M1M line 40 = Form M1 line 7 subtractions = 15,300.00 + 0.00 + 0.00 + 0.00 = 15,300.00 (lines 12, 16, 17, 25). State income before deduction = 98,500.00 - 15,300.00 = 83,200.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 14,950.00. Form M1 line 8 total = 14,950.00 + 15,300.00 = 30,250.00; line 9 Minnesota taxable income = 98,500.00 - 30,250.00 = 68,250.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (32,570.00 - 0.00) = 1,742.495 + 6.80% x (68,250.00 - 32,570.00) = 2,426.24 = 4,168.735. The tax table (PDF pp.32-38) gives 4,169; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 4,168.74.",
+  "accepted_approximations": [
+    "The alternative Social Security method tests federal AGI plus tax-exempt interest, the nearest available measure. Worksheet step 19 uses total income less taxable benefits plus 50% of all benefits, which no projection measure holds. The cap is applied before the reduction; the worksheet takes the lesser of the reduced cap and taxable benefits.",
+    "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

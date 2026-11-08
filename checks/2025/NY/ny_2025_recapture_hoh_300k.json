@@ -1,0 +1,49 @@
+{
+  "id": "ny_2025_recapture_hoh_300k",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 12, Line 39 (NY AGI over 107,650: tax computation worksheets); PDF page 33 rate schedule; PDF page 38, Tax computation worksheet 13; Form IT-201 lines 19, 33-39; IT-201-I PDF page 11 (line 34)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 49,
+        "born": "1976-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "300000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "300000.00",
+    "federal_taxable_income": "276375.00"
+  },
+  "expected": {
+    "state_agi": "300000.00",
+    "state_taxable_income": "288800.00",
+    "state_tax_before_credits": "18595.49",
+    "credits": "0.00",
+    "state_income_tax": "18595.49"
+  },
+  "worked": "Head of household, wages 300,000; no subtractions, so New York AGI = federal AGI. Federal AGI (IT-201 line 19) = 300,000.00. Federal taxable income = 300,000.00 - 23,625.00 federal standard deduction = 276,375.00 (given, not tested; the federal senior deduction is ignored). Line 32 total subtractions = 0.00. Line 33 New York AGI = 300,000.00 - 0.00 = 300,000.00. Line 34 New York standard deduction (head of household, PDF page 11 table) 11,200.00; line 35 = 300,000.00 - 11,200.00 = 288,800.00; line 36 dependent exemption 0 (no dependents); lines 37/38 taxable income 288,800.00. Rate schedule (PDF page 33, head of household) on 288,800.00: 12,800.00 x 4% = 512.00; 4,850.00 x 4.5% = 218.25; 3,250.00 x 5.25% = 170.63; 86,750.00 x 5.5% = 4,771.25; 161,650.00 x 6% = 9,699.00; 19,500.00 x 6.85% = 1,335.75; schedule tax = 16,706.88 (the printed schedule, with its whole-dollar base 15,371 at 269,300, gives 16,706.75; this case uses the bands as numbers). NY AGI 300,000.00 is over 107,650 (PDF page 12, line 39): recapture. Projection reading: entry starts_over 269,300.00 (full_rate 6.85%); full-rate tax = 288,800.00 x 6.85% = 19,782.80; share = min(1, (300,000.00 - 269,300.00) / 50,000.00) = 0.614; tax = 16,706.88 + (19,782.80 - 16,706.88) x 0.614 = 18,595.49. Booklet worksheet 13: line 1 300,000.00, line 2 288,800.00, line 3 schedule tax 16,706.88, line 4 Recapture Base 787.00, line 5 Incremental Benefit 2,289.00, line 6 = 30,700.00, line 7 = 30,700.00, line 8 = 0.6140, line 9 = 1,405.45, line 10 = 18,899.32. Booklet minus projection = 303.83. The projection phases in Recapture Base and Incremental Benefit together, so it understates by the Recapture Base x (1 - share) = 787.00 x 0.386 = 303.78, plus the whole-dollar rounding of the printed amounts (3,076.00 against 3,075.93) x (1 - share); expected follows the projection (accepted approximation). Line 39 NYS tax = 18,595.49. Credits: none (the household credit, line 40, PDF page 12 tables 1-3, allows no credit above federal AGI of 28,000 single or 32,000 other statuses): state income tax = 18,595.49.",
+  "accepted_approximations": [
+    "Recapture (tax computation worksheets 1-16, PDF pages 34-39). Layer 2 holds each worksheet as a flat rate on all taxable income phased in over 50,000 of NY AGI; it cannot hold a worksheet's taxable-income range or its printed Recapture Base and Incremental Benefit amounts (they are in the record's as_printed). Reading the entries: for the filing status, use no entry when NY AGI is 107,650 or less; the 25,000,000 entry when NY AGI is over 25,000,000; otherwise the entry with the highest starts_over that taxable income (line 38) exceeds, among those starting above 107,650, or else the 107,650 entry (the booklet picks the worksheet by taxable income); then tax = schedule tax + (full_rate x taxable income - schedule tax) x min(1, (NY AGI - starts_over) / phase_in_width). Worksheets 1, 7, 12, 6, 11 and 16 come out exact. For worksheets 2-5, 8-10 and 13-15 the booklet starts from the Recapture Base already taken back and phases in only the Incremental Benefit, while this reading phases in both together, so it understates the tax by the Recapture Base x (1 - phase-in share) while NY AGI is within 50,000 above the worksheet's start; once NY AGI is 50,000 over the start it is exact, because the Recapture Base plus the Incremental Benefit equals the band rate on all taxable income minus the schedule tax (record notes)."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

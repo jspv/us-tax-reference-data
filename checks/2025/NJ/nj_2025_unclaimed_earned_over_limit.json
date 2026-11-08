@@ -1,0 +1,68 @@
+{
+  "id": "nj_2025_unclaimed_earned_over_limit",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 16a, 20a, 27, 28a, 28b, 29: Instr PDF p.21 line 27, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 (lines 4-8: lines 15, 18, 21 and 22 added; 'Is the amount on line 8 MORE than $3,000?') with the Maximum Exclusion chart, PDF p.22 line 29; GIT-1 & 2 p.23 condition 3 (earned income 'combined if filing jointly' must be $3,000 or less); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-03-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "3000.01",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "interest": "70000.00"
+    },
+    "federal_agi": "93000.01",
+    "federal_taxable_income": "77250.01"
+  },
+  "expected": {
+    "state_agi": "73000.01",
+    "state_taxable_income": "72000.01",
+    "state_tax_before_credits": "2485.50",
+    "credits": "0.00",
+    "state_income_tax": "2485.50",
+    "relief_amounts": {
+      "nj_pension_exclusion": "20000.00",
+      "nj_unclaimed_exclusion": "0.00"
+    }
+  },
+  "worked": "Federal AGI 93,000.01 (wages 3,000.01 + private pension 20,000.00 + interest 70,000.00); federal taxable income = 93,000.01 - 15,750.00 federal standard deduction = 77,250.01 (given, not tested; age 64, so no age-65 amount; the federal senior deduction is ignored). Line 15 wages 3,000.01 + line 16a interest 70,000.00 + line 20a pension 20,000.00 = line 27 total income 93,000.01 (projection: federal AGI less taxable Social Security 0.00); measure 93,000.01, in the 0-100,000 band (keep share 1). Line 28a: age 64; Line A 20,000.00, Line B 75,000.00; lesser = 20,000.00. Worksheet D: line 27 is not more than 150,000; line 1 75,000.00 - line 2 20,000.00 = line 3 55,000.00 (more than 0); line 4 (line 15 wages) 3,000.01 + lines 5-7 0.00 = line 8 3,000.01, which is MORE than 3,000: 'You are not eligible to use the unclaimed portion of your maximum exclusion', so line 28b = 0.00 (projection: earned income 3,000.01 is over the 3,000 per-return limit, so the relief does not apply: 0.00). Line 28c = 20,000.00. Line 29 New Jersey gross income = 93,000.01 - 20,000.00 - 0.00 = 73,000.01. Line 30 exemptions (line 13): regular 1,000 x 1 (nobody is 65 or older, so no senior exemption) = 1,000.00; line 38 = 1,000.00 (no other deductions). Line 39/42 taxable income = 73,000.01 - 1,000.00 = 72,000.01. Line 43 tax, rate schedule Table A (single/separate) as bands: 20,000.00 x 0.014 = 280.00 + 15,000.00 x 0.0175 = 262.50 + 5,000.00 x 0.035 = 175.00 + 32,000.01 x 0.05525 = 1,768.00 (1,768.0005525) = 2,485.50 (2,485.5005525, rounded to the cent). The booklet's Tax Table (taxable income under 100,000) gives 2,487 for the 72,000-72,050 row (schedule at the midpoint 72,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 2,485.50. One cent of wages over the limit costs the whole 55,000.00 unclaimed exclusion: compare nj_2025_unclaimed_earned_at_limit (tax 238.00). The pension is noncontributory, so line 20b is empty.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

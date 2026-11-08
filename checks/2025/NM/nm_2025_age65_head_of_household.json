@@ -1,0 +1,58 @@
+{
+  "id": "nm_2025_age65_head_of_household",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption",
+    "low_middle_income_exemption_joint_hoh"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 4, line 13; PDF page 5, Table 1; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-04-10"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "36625.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "36625.00",
+    "federal_taxable_income": "11000.00"
+  },
+  "expected": {
+    "state_agi": "11000.00",
+    "state_taxable_income": "4162.50",
+    "state_tax_before_credits": "62.44",
+    "credits": "0.00",
+    "state_income_tax": "62.44",
+    "relief_amounts": {
+      "age_65_exemption": "5000.00",
+      "low_middle_income_exemption_joint_hoh": "1837.50"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 36,625.00 = 36,625.00. Federal taxable income = 36,625.00 - standard deduction 23,625.00 - 1 x 2,000.00 additional for age 65 or older = 11,000.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, head of household. Line 9 federal AGI 36,625.00. Line 10 0.00 (standard deduction taken). Line 11 additions 0.00. Line 12 federal standard deduction 25,625.00. Line 13 dependents 0.00. Line 14 low- and middle-income worksheet: line 1 36,625.00; line 2 30,000.00; line 3 6,625.00; line 4 0.10; line 5 662.50; line 6 2,500.00 - 662.50 = 1,837.50; line 7 1 exemption(s); line 8 = 1,837.50. Line 15, PIT-ADJ: line 13 age 65 or older: Table 1 (head of household) row for federal AGI 36,625.00 gives 5,000.00 x 1 qualifying = 5,000.00; PIT-ADJ line 28 total 5,000.00. Line 17 = 36,625.00 + 0.00 - 25,625.00 - 1,837.50 - 5,000.00 = 4,162.50. By the projection: state_agi = federal taxable income 11,000.00 = 11,000.00; less base deductions 6,837.50 gives 4,162.50. Line 18 tax, schedule as numbers: 1.5% x 4,162.50 = 62.4375; total 62.4375, to the cent 62.44. The table row over 4,100 to 4,200 gives 62; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 62.44. Row 36,001 to 39,000 of the joint, head of household and surviving spouse column.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:medical_expense_exemption_65",
+    "state_rule_not_modelled:nm_lump_sum_averaging",
+    "state_rule_not_modelled:nm_medical_care_credit_property_tax_rebate"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

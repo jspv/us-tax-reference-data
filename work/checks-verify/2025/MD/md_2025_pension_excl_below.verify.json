@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "pension_exclusion": "30000.00",
+      "ss_rr_exempt": "8500.00"
+    },
+    "state_agi": "20550.00",
+    "state_income_tax": "565.00",
+    "state_tax_before_credits": "565.00",
+    "state_taxable_income": "13000.00"
+  },
+  "worked": "Filing status single. Line 1 federal AGI 59050.00 (given; federal taxable income 41300.00 given, federal senior deduction ignored). Income items sum to 59050.00 = federal AGI. Line 11 (ss_rr_exempt): taxable Social Security in federal AGI 8500.00 subtracted in full. Worksheet 13A person 0 (age 70): line 1 qualifying pension 30000.00; line 2 41,200.00; line 3 own Social Security/RR gross 10000.00; line 4 max(41,200 - 10000.00, 0) = 31200.00; line 5 smaller = 30000.00. Line 10a pension exclusion total 30000.00. Line 16 Maryland AGI = 59050.00 + additions 0.00 - subtractions 38500.00 = 20550.00. Line 17 standard deduction (flat, single) 3350.00. Chart 10A: federal AGI 59050.00 -> 3200.00 per exemption x 1 = 3200.00. Age 65 exemption (not reduced by AGI): 1 x 1,000.00 = 1000.00. Line 19 total exemptions 4200.00. Line 20 taxable net income = 20550.00 - 3350.00 - 4200.00 = 13000.00. Line 21 tax by schedule (single): 0.02 x (1000.00 - 0) = 20.00; 0.03 x (2000.00 - 1000) = 30.00; 0.04 x (3000.00 - 2000) = 40.00; 0.0475 x (13000.00 - 3000) = 475.00; total 565.00. State tax before credits 565.00; credits 0.00; state income tax 565.00. (County local tax not part of the projection.)"
+}

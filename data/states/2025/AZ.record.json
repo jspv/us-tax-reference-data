@@ -1,0 +1,310 @@
+{
+  "layer": "record",
+  "state": "AZ",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Settlement 2026-11-07: brackets.married_separate and brackets.head_of_household: A gave each its own one-band schedule (2.5% from 0), B gave none; PDF page 5 prints one rate for every status ('2025 New Tax Rate of 2.5% for All Income Levels and Filing Status') and PDF page 26 Line 46 and the form line (PDF page 40, line 46) say 'Multiply line 45 by 2.5% (.025)' with no status schedule, so no separate schedule is printed for them; the schema gives those lists only when the booklet prints its own schedule. Recorded single and married_joint, 2.5% from 0; every status uses the same rate.",
+    "Settlement 2026-11-07: reliefs (U.S. Social Security or Railroad Retirement benefits, line 30): who.basis: A said each_person, B said return; PDF page 20 Line 30 subtracts the taxable amount of the benefits included as income on the federal return ('Enter only the taxable amount (the amount that was subject to federal income tax)') and tests neither spouse's age or status, so return.",
+    "Settlement 2026-11-07: indexing: A gave a 'brackets' entry (not_stated) besides standard_deduction and all_other, B gave only standard_deduction and all_other; the booklet says nothing on whether the 2.5% rate is adjusted, so the answer is not_stated either way; A's entry is kept so the rate has an explicit answer.",
+    "Flat 2.5% on Arizona taxable income for every filing status; the booklet says the Optional Tax Table and the X and Y Tax Table are now obsolete (PDF page 5), so there is no tax table and no brackets.derivation.",
+    "Order of the Form 140 lines (PDF pages 39-40): federal AGI (line 12) is Arizona gross income; additions (lines 15-18) and subtractions (lines 24-36) give line 37; the exemptions on lines 38 to 41 are subtracted to give Arizona adjusted gross income (line 42); the standard or itemized deduction (line 43) and the charitable increase (line 44) give Arizona taxable income (line 45).",
+    "Pensions from other states' governments, a New York State pension included: PDF page 20, Line 29a: 'NOTE: Public retirement pensions from states other than Arizona do not qualify for this subtraction.' The agency web page says 'Arizona law states that residents are taxed on the same income they report for federal purposes, including income earned and retirement from other states' and 'as a general rule, the same portion of an individual's pension is taxable for Arizona purposes as it is for federal'. So another state's government pension is taxed like any other pension; it is in not_covered of the line 29a entry, and no entry covers public_pension_other_state. The sources do not name New York; the rule is for all states other than Arizona, with no reciprocity by paying state.",
+    "Own and federal government pensions (line 29a, PDF pages 19-20): the lesser of the amount received or 2,500, each spouse on their own; only the amount reported as income on the federal return. Qualifying sources are listed by name (U.S. Civil Service Retirement and Disability Fund, Foreign Service system, any other retirement system or plan established by federal law, the Arizona State Retirement System and Plan, Corrections Officer Retirement Plan, Public Safety Personnel Retirement System, Elected Officials' Retirement Plan, Arizona county, city or town plans, Board of Regents and community college optional retirement programs). No age test, income test or contributory-plan test is printed. The form line reads 'Exclusion for federal, Arizona state or local government pensions (up to $2,500 per taxpayer)' (PDF page 39, line 29a).",
+    "Retired or retainer pay of the uniformed services (line 29b, PDF page 20): 100% subtracted, each spouse on their own; a surviving spouse of a deceased military veteran receiving payments from the uniformed services may also exclude 100% (PDF pages 6 and 20; web page). It is not entered on line 29a.",
+    "Private pensions, IRA distributions, 401(k) and other employer-plan distributions, annuities and Roth conversions: no subtraction or exclusion for them found in the booklet. The web page says 'as a general rule, the same portion of an individual's pension is taxable for Arizona purposes as it is for federal'. Because Arizona starts from federal AGI they are taxed as included federally. Roth conversions are not mentioned in the booklet (not found in the booklet). No relief entry is written for them.",
+    "Amounts from a qualified pension plan or an IRA that invests in U.S. Government obligations are not interest and get no line 28 subtraction (PDF page 19, rulings ITR 96-2 and 96-3).",
+    "Lump-sum distributions: other addition C adds the ordinary income portion of a lump-sum distribution for which federal averaging was used; 'Arizona law does not provide for averaging' (PDF page 14).",
+    "Social Security: exempt. PDF page 20, Line 30: 'Arizona does not tax ... Social security benefits received under Title II of the Social Security Act' and tier 1 or tier 2 railroad retirement benefits; the taxable amount included federally is subtracted. Confirmed by the form line (PDF page 39, line 30 'U.S. Social Security or Railroad Retirement Act benefits included as income on your federal return (taxable amount)') and the filing-requirement list of income Arizona law does not tax (PDF page 6).",
+    "Standard deduction (PDF page 26 table, PDF page 5, and the filing requirement table on PDF page 6): 15,750 single and married filing separate, 31,500 married filing joint, 23,625 head of household. A surviving spouse whose spouse died in 2025 enters 31,500 if a joint return would have been filed, 15,750 if separate returns. A filer who qualifies as a qualifying widow or widower on the federal return files as head of household in Arizona (PDF page 10, Box 5), so takes 23,625. The filer may itemize instead (line 43I); the booklet says tax is less with the larger of the two (PDF page 26).",
+    "Increased standard deduction for charitable contributions (line 44, PDF page 26): standard-deduction filers add 34% (.34) of the charitable contributions that would have been allowed if itemizing; needs Form 140 page 3. It has no fixed amount, so it is not a base deduction.",
+    "Exemptions (PDF pages 25-26 lines 38-41; PDF page 11 Boxes 8 and 9; PDF pages 11-12 Box 11a): age 65 or over 2,100 for each person counted in box 8 (filer and, on a joint return, spouse; not if claimed as a dependent by another taxpayer; a person born 1/1/1961 counts as 65 at the end of 2025); blind 1,500 per person in box 9 (certified statement); other exemption 2,300 for each person 65 or over for whom the filer paid more than one-fourth of Arizona nursing, residential care or assisted living cost (over 800) or more than 800 of Arizona home health or medical cost, and for a stillborn child; 10,000 for each qualifying parent or grandparent 65 or over who lived with the filer all year, whose support the filer paid more than half of, and who needed help with two or more activities of daily living. The same person cannot be counted on lines 40, 41 and for the line 49 credit.",
+    "The booklet prints no personal exemption and no dependent exemption in dollars. Dependents give a nonrefundable Dependent Tax Credit (line 49, PDF pages 26-27): 100 for each dependent under 17 and 25 for each dependent 17 or older, reduced when federal AGI is over 200,000 (single, head of household, married filing separate) or 400,000 (married filing joint) by Table V (keep .95 for 1 to 1,000 over, down 5 points per 1,000, nothing over 19,000). No field holds a dependent credit; recorded here only.",
+    "Family income tax credit (line 50, PDF pages 27-28): a nonrefundable credit for income at or under a maximum for the filing status; not held in this record. Other credits (Form 301, school tuition organization, QCO and QFCO credits; PDF page 5) are not held here either.",
+    "Active-duty, reserve and National Guard pay (line 32) is recorded as a relief covering wages. Wages of enrolled American Indians earned on their reservation (line 31), 529 and ABLE contributions (up to 2,000 per beneficiary, 4,000 if married; line 34), adoption expenses (up to 40,000), long-term care insurance premiums for non-itemizers, the Arizona Families Tax Rebate and the other line 36 subtractions (PDF pages 20-25) are not held in relief entries.",
+    "Capital gains: 25% (.25) of net long-term capital gain from assets acquired after December 31, 2011 is subtracted (line 24, PDF page 18; worksheet PDF page 37); an asset acquired by gift or inheritance counts on the giver's or decedent's date; if the date cannot be determined the asset is treated as acquired before 2012. Other gains are taxed at the regular rate. The web page says 'In regards to capital gains, Arizona has no special arrangement'; the booklet's line 24 is the more direct and current statement and is followed.",
+    "Municipal interest: non-Arizona municipal bond interest not in federal income is added (line 15, PDF page 13); federally taxable interest on Arizona obligations is subtracted (other subtraction C, PDF page 22); Arizona municipal interest exempt federally is not in federal AGI and is not added back. Recorded other_states_taxed_own_exempt.",
+    "Indexing: the booklet heads the standard deduction '2025 Arizona Standard Deduction Amounts Adjusted' (PDF page 5) but does not say it is adjusted for inflation; not_stated. It says the private and certified school tuition organization credit maximums were adjusted for inflation; those credits are not held here. Nothing printed on indexing of the rate or the exemptions.",
+    "No surtax and no recapture of lower brackets found in the booklet; the empty lists mean not found in the booklet. Line 47 'Tax from Recapture of Credits from Arizona Form 301' is a recapture of credits, not of lower brackets."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.025",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.025",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+      "section": "PDF page 5 '2025 New Tax Rate of 2.5% for All Income Levels and Filing Status'; PDF page 26 Line 46 'Multiply line 45 by 2.5% (.025)'; PDF page 40 Form 140 line 46",
+      "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "15750",
+          "married_joint": "31500",
+          "married_separate": "15750",
+          "head_of_household": "23625"
+        },
+        "per": "return",
+        "condition": "Taken instead of itemized deductions (line 43, box 43S); the filer may take the larger. A federal qualifying widow or widower files as head of household. Increased by 34% of charitable contributions when line 44 is claimed.",
+        "cite": {
+          "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+          "section": "PDF page 26 Line 43 'Your Standard Deduction' table; PDF page 5 '2025 Arizona Standard Deduction Amounts Adjusted'; PDF page 10 Box 5",
+          "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "2100"
+        },
+        "per": "exemption_claimed",
+        "condition": "Each filer, and spouse on a joint return, 65 or older in 2025 and not claimed as a dependent by another taxpayer (box 8); subtracted before the standard deduction.",
+        "cite": {
+          "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+          "section": "PDF page 25 Line 38 'Multiply the number in box 8 ... by $2,100'; PDF page 11 Box 8; PDF page 40 Form 140 line 38",
+          "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "blind_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "1500"
+        },
+        "per": "exemption_claimed",
+        "condition": "Filer or spouse totally or partially blind on December 31, 2025, with a certified eye-doctor or optometrist statement (box 9).",
+        "cite": {
+          "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+          "section": "PDF page 25 Line 39 'Multiply the number in box 9 ... by $1,500'; PDF page 11 Box 9; PDF page 40 Form 140 line 39",
+          "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "other_exemption",
+        "what": "other",
+        "amount": {
+          "all": "2300"
+        },
+        "per": "exemption_claimed",
+        "condition": "Each person 65 or over (related or not) for whom the filer paid more than one-fourth of the cost of an Arizona nursing care, residential care or assisted living facility (more than 800), or more than 800 of Arizona home health care or other medical costs; or a stillborn child in 2025 (line 40).",
+        "cite": {
+          "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+          "section": "PDF page 25 Line 40 Other Exemptions; PDF page 40 Form 140 line 40",
+          "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "qualifying_parent_grandparent_exemption",
+        "what": "other",
+        "amount": {
+          "all": "10000"
+        },
+        "per": "exemption_claimed",
+        "condition": "Each parent or grandparent 65 or over who lived in the filer's principal residence all year, for whom the filer paid more than half of support, and who needed help with two or more activities of daily living (line 41).",
+        "cite": {
+          "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+          "section": "PDF page 26 Line 41 'Multiply the number in box 11a ... by $10,000'; PDF pages 11-12 Box 11a; PDF page 40 Form 140 line 41",
+          "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+      "section": "PDF page 13 Line 12 'Arizona uses federal adjusted gross income as a starting point to determine Arizona taxable income'; PDF pages 25-26 lines 38-46",
+      "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+      "section": "PDF page 20 Line 30 'Arizona does not tax ... Social security benefits received under Title II of the Social Security Act'; PDF page 39 Form 140 line 30; PDF page 6 income Arizona law does not tax",
+      "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "az_gov_pension_exclusion",
+      "label": "Exclusion for U.S. Government, Arizona State or Local Government Pensions",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "Public retirement pensions from states other than Arizona do not qualify for this subtraction.",
+        "Retired or retainer pay of the Uniformed Services (entered on line 29b instead).",
+        "A retirement plan that is only regulated by federal law (plans which must meet certain federal criteria to be qualified plans); only plans authorized and enacted into the U.S. Code count."
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Pension from a listed source: the U.S. Government Service Retirement and Disability Fund, the U.S. Foreign Service Retirement and Disability System, any other retirement system or plan established by federal law, the Arizona State Retirement System or Plan, the Corrections Officer Retirement Plan, the Public Safety Personnel Retirement System, the Elected Officials' Retirement Plan, a plan for employees of an Arizona county, city or town, or an optional retirement program of the Arizona Board of Regents or an Arizona community college district"
+        ]
+      },
+      "cap": {
+        "all": "2500"
+      },
+      "cap_per": "person",
+      "cap_rule": "The amount received or 2,500, whichever is less; only the amount reported as income on the federal return; if both spouses receive such pension income, each may subtract the amount received or 2,500, whichever is less.",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF pages 19-20 Line 29a and the list of qualifying sources, with the note on other states; PDF page 39 Form 140 line 29a",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "az_military_retirement_exclusion",
+      "label": "Exclusion for Retired or Retainer Pay of the Uniformed Services of the United States",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap_rule": "100% of the amount received; no cap printed; on a joint return each spouse may subtract 100% of the amount each received; a surviving spouse of a deceased military veteran receiving payments from the uniformed services may exclude 100% of them.",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 20 Line 29b; PDF page 39 Form 140 line 29b; PDF page 6 income Arizona law does not tax",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "az_social_security_railroad_subtraction",
+      "label": "U.S. Social Security Benefits or Railroad Retirement Benefits",
+      "form": "subtraction",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "Only the taxable amount (the amount that was subject to federal income tax) is subtracted.",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 20 Line 30; PDF page 39 Form 140 line 30",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "az_us_obligations_interest_subtraction",
+      "label": "Interest on U.S. Obligations",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "not_covered": [
+        "Interest earned on Fannie Mae (FNMA) or Ginnie Mae (GNMA) bonds, since this interest is taxable by Arizona.",
+        "Any amount received from a qualified pension plan or an IRA that invests in U.S. Government obligations; these amounts are not interest income."
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "Interest from U.S. Government obligations (savings bonds, treasury bills) included in federal income, reduced by related expenses included in Arizona gross income.",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 19 Line 28; PDF page 39 Form 140 line 28",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "az_armed_forces_pay_subtraction",
+      "label": "Pay Received for Active Service as a Member of the Reserves, National Guard or the U.S. Armed Forces",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "not_covered": [
+        "Income received for full-time civil service employment as a military technician (dual status).",
+        "Pay received for active duty service as a member of the U.S. Public Health Service or NOAA."
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Active duty in the U.S. armed forces, or active service as a reservist or National Guard member (including weekend or two-week training)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 20 Line 32; PDF page 39 Form 140 line 32",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Non-Arizona municipal bond interest not in federal income is added (line 15); federally taxable Arizona municipal interest is subtracted (other subtraction C); Arizona municipal interest exempt federally is not in federal AGI and is not added back.",
+    "cite": {
+      "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+      "section": "PDF page 13 Line 15; PDF page 22 other subtraction C",
+      "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "az_ltcg_post_2011_subtraction",
+      "applies_to": "long_term",
+      "treatment": "deduction_share",
+      "value": "0.25",
+      "condition": "Net long-term capital gain included in federal AGI from assets acquired after December 31, 2011 (an asset whose acquisition date cannot be determined counts as acquired before January 1, 2012); short-term and older long-term gains are taxed like other income.",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 18 Lines 23 and 24; PDF page 37 worksheet; PDF page 39 Form 140 line 24",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "standard_deduction",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "section": "PDF page 5 heading '2025 Arizona Standard Deduction Amounts Adjusted' (does not say inflation)",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "figure": "brackets",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

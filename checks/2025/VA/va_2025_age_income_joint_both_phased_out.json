@@ -1,0 +1,79 @@
+{
+  "id": "va_2025_age_income_joint_both_phased_out",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "age_deduction_income_based",
+    "age_65_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 8-9, 11, 12, 14-16; PDF p15 Line 4 Age Deduction and Exemptions; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; PDF p17 (printed Page 11) Taxpayers Age 65 and Older and Line 5; PDF p41 Tax Rate Schedule; Spouse Tax Adjustment Worksheet (PDF p18, printed Page 12), not applied by the projection",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-05-05"
+      },
+      {
+        "age": 66,
+        "born": "1959-03-03"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        },
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "24000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "45900.00"
+    },
+    "federal_agi": "145900.00",
+    "federal_taxable_income": "111200.00"
+  },
+  "expected": {
+    "state_agi": "100000.00",
+    "state_taxable_income": "79040.00",
+    "state_tax_before_credits": "4287.30",
+    "credits": "0.00",
+    "state_income_tax": "4287.30",
+    "relief_amounts": {
+      "age_deduction_income_based": "0.00"
+    }
+  },
+  "worked": "Federal (given, not tested): Taxable Social Security (federal worksheet): gross benefits 54,000.00; provisional income = 100,000.00 + half of benefits 27,000.00 = 127,000.00; taxable = 45,900.00. Federal AGI = private pension (you) 60,000.00 + private pension (spouse) 40,000.00 + taxable Social Security 45,900.00 = 145,900.00. Federal taxable income = 145,900.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 111,200.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 145,900.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 145,900.00. Income-based age deduction (you born 1955-05-05, spouse born 1959-03-03); Age 65 and Older Deduction Worksheet: line 1 = 2; line 2 FAGI 145,900.00; lines 3-6 no conformity adjustments; line 7 taxable Social Security 45,900.00; line 8 AFAGI = 145,900.00 - 45,900.00 = 100,000.00; line 9 limit 75,000.00; line 11 excess = 100,000.00 - 75,000.00 = 25,000.00; line 12 = 2 x 12,000.00 = 24,000.00; on the form, line 14 = 24,000.00 - 25,000.00 = 0.00, line 13: no age deduction for either spouse. The projection evaluates each person: 12,000.00 - 25,000.00 = 0.00 each, total 0.00 (the same as the form here). Line 4 age deduction = 0.00. Line 5 taxable Social Security subtracted = 45,900.00. Line 6 state refund 0.00. Line 7 Schedule ADJ subtractions 0.00. Line 8 = 0.00 + 45,900.00 + 0.00 + 0.00 = 45,900.00. Line 9 VAGI = 145,900.00 - 45,900.00 = 100,000.00. Line 11 standard deduction (Filing Status 2) = 17,500.00. Line 12 exemptions: Section A 2 x 930.00 = 1,860.00; Section B 2 x 800.00 (65 or older) = 1,600.00; total 3,460.00. Line 14 = 20,960.00. Line 15 Virginia taxable income = 100,000.00 - 20,960.00 = 79,040.00. Line 16 tax, rate schedule (PDF p41) as numbers: 720.00 + 5.75% x (79,040.00 - 17,000.00 = 62,040.00) = 720.00 + 3,567.30 = 4,287.30 (the form rounds to the whole dollar: 4,287.00). Line 17 Spouse Tax Adjustment 0.00 under the projection (see the note below). Credits none modelled or claimed, 0.00. Virginia income tax = 4,287.30. Spouse Tax Adjustment on the form: separate VAGI less exemptions 58,270.00 and 38,270.00; the smaller is over 17,000 and taxable income over 34,000, so 259.00 (form tax 4,028.30); not applied (approximation).",
+  "accepted_approximations": [
+    "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:retirement_prev_taxed_other_state",
+    "state_rule_not_modelled:ss_tier1_railroad"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

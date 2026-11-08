@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "40400.00",
+    "state_income_tax": "1224.00",
+    "state_tax_before_credits": "1224.00",
+    "state_taxable_income": "28800.00",
+    "relief_amounts": {
+      "tier3_standard_deduction": "19600.00"
+    }
+  },
+  "worked": "Joint; older spouse born 1956 (Tier 3, 67 by 2025). Worksheet 2: line 7 40,000; line 8 taxable SS 20,400; line 9 exemptions (9a 11,600) NOT applied by the projection (approximation: 'The Tier 3 deduction is also reduced by exemptions claimed (MI-1040 lines 9a and 9d); not modelled.'); projection Tier 3 = 40,000 - 20,400 = 19,600.00 (covered income wages 30,000 + interest 20,000 + dividends 10,000 = 60,000). No pension, so Worksheet 3.3 gives 0. state_agi 80,400 - 20,400 - 19,600 = 40,400.00. Exemptions 11,600. Taxable 28,800.00. Tax 1,224.00. (Booklet in full: line 11 = 40,000 - 32,000 = 8,000; state_agi 52,000; taxable 40,400; tax 1,717.00.) [check: state_agi 40400.00, taxable 28800.00, tax 1224.00; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

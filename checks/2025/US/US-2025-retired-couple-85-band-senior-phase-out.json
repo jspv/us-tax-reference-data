@@ -1,0 +1,52 @@
+{
+  "id": "US-2025-retired-couple-85-band-senior-phase-out",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.capital_gains",
+    "income_tax.senior_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Retired couple filing jointly, both over 65, with Social Security, a pension, interest, qualified dividends and a long-term gain: taxable Social Security in the 85% band below the cap, each senior deduction partly phased out, and the gains stacked on ordinary income across the 0% and 15% bands.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1955-05-14",
+        "age": 70
+      },
+      {
+        "born": "1957-08-30",
+        "age": 68
+      }
+    ],
+    "taxable_pensions": "60000",
+    "taxable_interest": "3000",
+    "ordinary_dividends": "12000",
+    "qualified_dividends": "10000",
+    "net_long_term_gain": "5000",
+    "social_security_benefits": "90000"
+  },
+  "expected": {
+    "agi": "154850.00",
+    "taxable_social_security": "74850.00",
+    "standard_deduction": "34700.00",
+    "senior_deduction": "11418.00",
+    "taxable_income": "108732.00",
+    "regular_tax": "12575.64",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "12575.64"
+  },
+  "worked": "Filing status: married filing jointly.\nTaxpayer: born 1955-05-14, age 70 at the end of 2025.\nSpouse: born 1957-08-30, age 68 at the end of 2025.\nForm 1040: line 2b taxable interest 3,000; line 3a qualified dividends 10,000; line 3b ordinary dividends 12,000; lines 4b + 5b taxable pensions and IRA distributions 60,000; line 6a Social Security benefits 90,000; line 7a capital gain 5,000 (Schedule D line 16: net long-term 5,000).\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 90,000; line 2 = 50% x 90,000 = 45,000\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 80,000; line 4 (line 2a) = 0\n  line 5 = 45,000 + 80,000 + 0 = 125,000; line 6 (Schedule 1 adjustments) = 0; line 7 = 125,000\n  line 8 (base amount, married filing jointly) = 32,000\n  line 9 = 125,000 - 32,000 = 93,000; line 10 = 12,000 (44,000 adjusted base amount - 32,000); line 11 = 81,000\n  line 12 = smaller of 93,000 and 12,000 = 12,000; line 13 = 6,000; line 14 = smaller of 45,000 and 6,000 = 6,000\n  line 15 = 85% x 81,000 = 68,850; line 16 = 6,000 + 68,850 = 74,850\n  line 17 = 85% x 90,000 = 76,500; line 18 = smaller of 74,850 and 76,500 = 74,850 -> Form 1040 line 6b\nForm 1040 line 9 total income = 3,000 + 12,000 + 60,000 + 74,850 + 5,000 = 154,850; line 10 adjustments 0; line 11a/11b adjusted gross income = 154,850.\nLine 12e standard deduction = 31,500 basic (married filing jointly) + 2 x 1,600 additional (married or surviving spouse amount, one per box checked on line 12d for age 65 or older / blind) = 34,700.\nSchedule 1-A: line 1 = line 11b 154,850; line 3 MAGI = 154,850 (no excluded income).\n  Part V: line 31 = 154,850; line 32 = 150,000; line 33 = 4,850; line 34 = 6% x 4,850 = 291; line 35 = 6,000 - 291 = 5,709\n  line 36a (taxpayer born before January 2, 1961) = 5,709; line 36b (spouse born before January 2, 1961) = 5,709; line 37 = 11,418 -> line 38 -> Form 1040 line 13b\nLine 14 = 34,700 + 11,418 = 46,118; line 15 taxable income = 154,850 - 46,118 = 108,732.\nQualified Dividends and Capital Gain Tax Worksheet (Form 1040 line 16):\n  line 1 = 108,732; line 2 = 10,000; line 3 = 5,000 (Schedule D lines 15 and 16 both 5,000); line 4 = 15,000; line 5 = 108,732 - 15,000 = 93,732\n  line 6 = 96,700; line 7 = smaller of 108,732 and 96,700 = 96,700; line 8 = smaller of 93,732 and 96,700 = 93,732; line 9 = 2,968 taxed at 0%\n  line 10 = smaller of 108,732 and 15,000 = 15,000; line 11 = 2,968; line 12 = 12,032\n  line 13 = 600,050; line 14 = smaller of 108,732 and 600,050 = 108,732; line 15 = 93,732 + 2,968 = 96,700; line 16 = 12,032; line 17 = smaller of 12,032 and 12,032 = 12,032\n  line 18 = 15% x 12,032 = 1,804.80; line 19 = 15,000; line 20 = 15,000 - 15,000 = 0; line 21 = 20% x 0 = 0\n  line 22 (tax on line 5): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 93,732: 10% x 23,850 = 2,385; 12% x (93,732 - 23,850) = 8,385.84; total 10,770.84\n  line 23 = 1,804.80 + 0 + 10,770.84 = 12,575.64\n  line 24 (tax on line 1): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 108,732: 10% x 23,850 = 2,385; 12% x (96,950 - 23,850) = 8,772; 22% x (108,732 - 96,950) = 2,592.04; total 13,749.04\n  line 25 = smaller of 12,575.64 and 13,749.04 = 12,575.64 -> Form 1040 line 16 (regular tax)\nForm 8960: lines 8 and 12 net investment income = 20,000; line 13 MAGI = 154,850; line 14 threshold = 250,000; line 15 = 154,850 - 250,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959: no wages or self-employment income; additional Medicare tax 0.\nTotal tax = 12,575.64 regular + 0 net investment income tax + 0 additional Medicare tax = 12,575.64.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

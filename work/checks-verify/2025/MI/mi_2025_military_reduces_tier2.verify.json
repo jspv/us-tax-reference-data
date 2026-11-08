@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "15000.00",
+    "state_income_tax": "144.50",
+    "state_tax_before_credits": "144.50",
+    "state_taxable_income": "3400.00",
+    "relief_amounts": {
+      "military_retirement": "15000.00",
+      "tier2_standard_deduction": "25000.00"
+    }
+  },
+  "worked": "Joint, older spouse born 1949 (Tier 2). Schedule 1 line 14 taxable SS 30,600 subtracted. Line 11 military retirement 15,000 exempt in full. Worksheet 2: line 1 40,000; line 5 military 15,000; line 7 = 25,000; covered income (interest 40,000) exceeds it -> Tier 2 25,000.00. Alternative 1946-1966 retirement subtraction: no covered pension (military not covered) = 0; best of group is Tier 2. state_agi 85,600 - 30,600 - 15,000 - 25,000 = 15,000.00. Exemptions 11,600. Taxable 3,400.00. Tax 144.50. [check: state_agi 15000.00, taxable 3400.00, tax 144.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

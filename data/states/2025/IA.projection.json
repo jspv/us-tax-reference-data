@@ -1,0 +1,268 @@
+{
+ "layer": "projection",
+ "state": "IA",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/IA.record.json",
+  "sha256": "59db9bee72c43c05d1f58d67a8864a346caeb64f3c50334177d4ca8c3b81ad51"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.038",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.038",
+    "start": "0"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_taxable_income",
+  "federal_senior_deduction": "follows",
+  "deductions": []
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "ia_ret_excl_age55",
+   "from_record": [
+    "ia_ret_excl_age55"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "ira_distribution",
+    "employer_plan_distribution",
+    "roth_conversion",
+    "annuity"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 55
+   },
+   "needs_input": [
+    "pension_source"
+   ]
+  },
+  {
+   "id": "ia_military_retirement",
+   "from_record": [
+    "ia_military_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "needs_input": [
+    "pension_source"
+   ]
+  },
+  {
+   "id": "ia_railroad_retirement",
+   "from_record": [
+    "ia_railroad_retirement"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ia_personal_credit",
+   "from_record": [
+    "ia_personal_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "40",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "ia_age_65_credit",
+   "from_record": [
+    "ia_age_65_credit"
+   ],
+   "form": "credit",
+   "credit_amount": "20",
+   "credit_basis": "tax",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "return",
+   "who": {
+    "basis": "each_person",
+    "min_age": 65
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "all_taxed"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "credits",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "reliefs.credit_amount"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "ia_ret_excl_disabled",
+   "from_record": [
+    "ia_ret_excl_disabled"
+   ],
+   "what": "Retirement income exclusion for a disabled recipient under 55; a projection does not know disability. Leaves the income taxed at 3.8%.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "ia_ret_excl_survivor",
+   "from_record": [
+    "ia_ret_excl_survivor",
+    "ia_ret_excl_protection_survivor"
+   ],
+   "what": "Retirement income exclusion under 55 for a surviving spouse or insurable-interest survivor, and for the surviving spouse of a protection occupation, sheriff, firefighter or police pensioner under the named Iowa Code plans. Leaves the income taxed at 3.8%.",
+   "warn_when": "has_pension"
+  },
+  {
+   "id": "ia_health_insurance_deduction",
+   "from_record": [
+    "ia_health_insurance_deduction"
+   ],
+   "what": "Health insurance deduction at 65 or older with worksheet income under 100,000: premiums are not a yearly fact of a projection. Leaves tax too high by 3.8% of post-tax premiums: an 8,000 premium is 304 a year.",
+   "warn_when": "person_in_age_range",
+   "age_range": [
+    65,
+    120
+   ]
+  },
+  {
+   "id": "ia_head_of_household_credit",
+   "from_record": [
+    "ia_head_of_household_credit"
+   ],
+   "what": "The extra 40 personal credit for head of household; a relief here cannot test filing status. Leaves the tax 40 too high for those filers.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ia_blind_credit",
+   "from_record": [
+    "ia_blind_credit"
+   ],
+   "what": "The additional 20 credit for a taxpayer or spouse who is blind on December 31; a projection does not know this.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ia_dependent_credit",
+   "from_record": [
+    "ia_dependent_credit"
+   ],
+   "what": "The 40 credit for each dependent.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "ia_disability_income_exclusion",
+   "from_record": [
+    "ia_disability_income_exclusion"
+   ],
+   "what": "Disability income exclusion for a person under 65 retired on total and permanent disability; the amount is set on form IA 2440.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ia_federal_securities_income",
+   "from_record": [
+    "ia_federal_securities_income"
+   ],
+   "what": "Interest from federal securities and dividends attributable to them are subtracted; the projection cannot tell them from other interest and dividends.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ia_capital_gain_deduction",
+   "from_record": [],
+   "what": "Iowa capital gain deduction (Schedule 1 line 16, form IA 100): its terms are not in the sources. Gains are taxed at 3.8% in full, which overstates tax for a gain that qualifies.",
+   "warn_when": "never"
+  },
+  {
+   "id": "ia_retired_farmer_tenancy_exclusion",
+   "from_record": [],
+   "what": "Farm tenancy income exclusion for retired farmers (Schedule 1 line 18).",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "The low-income exemption, the alternate tax (every status except single) and the single filers' tax reduction are not applied; the record holds them in notes. The reduction's terms are not in the sources.",
+   "direction": "overstates_tax",
+   "size": "Low incomes only. Example: head of household 65 or older, Iowa taxable income 20,000, federal deduction 25,000: 3.8% gives 760; alternate tax is 4.3% of (45,000 - 32,000) = 559; 201 too much. Nil once the 3.8% tax is the smaller."
+  },
+  {
+   "what": "All municipal interest is taxed; a printed list of Iowa issues (PDF p.64) and bonds of Guam, Puerto Rico and the Virgin Islands (PDF p.65) is exempt, and other Iowa bonds are taxed like other states' bonds.",
+   "direction": "overstates_tax",
+   "size": "3.8% of the interest on those bonds only."
+  },
+  {
+   "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "3.8% of that interest: 16,000 of interest is 608 a year."
+  },
+  {
+   "what": "The annuity kind is excluded whole at 55 or older, but nonqualified annuities and nonqualified deferred compensation do not qualify.",
+   "direction": "understates_tax",
+   "size": "3.8% of the taxable part of such payments."
+  },
+  {
+   "what": "Federal taxable income is taken as computed, floored at zero; Iowa line 2 can be negative when deductions exceed income, and that negative amount offsets Iowa additions.",
+   "direction": "overstates_tax",
+   "size": "Only for a household with no federal taxable income and Iowa additions such as municipal interest: at most 3.8% of those additions."
+  },
+  {
+   "what": "The 65 credit is tested on age during the year; the booklet counts anyone 65 on or before January 1 of the next year, so a January 1 birthday qualifies a year sooner.",
+   "direction": "overstates_tax",
+   "size": "20 for one year."
+  },
+  {
+   "what": "Iowa lump-sum tax (25% of the federal form 4972 tax, none if the recipient is 55 or older, disabled or an eligible survivor) is not computed.",
+   "direction": "understates_tax",
+   "size": "Only a person under 55 who is using federal form 4972."
+  },
+  {
+   "what": "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1).",
+   "direction": "understates_tax",
+   "size": "That percentage of the Iowa tax; the percentages are not in the sources."
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

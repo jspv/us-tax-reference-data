@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "6000.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Form 511 line 1 Federal AGI 6,000.00 (given; federal senior deduction ignored in the given federal figures). Oklahoma AGI (line 7) = 6,000.00 + 0.00 - 0.00 = 6,000.00. Line 10 standard deduction 6,350.00; line 11 regular exemptions 1 x 1,000.00 = 1,000.00; special exemptions 0.00. Line 13 Oklahoma taxable income = 6,000.00 - 7,350.00 = -1,350.00, floored at 0.00. Tax on the single schedule: none. Line 14 tax 0.00 (no tax on the form). Credits 0.00 (not modelled). Income tax 0.00."
+}

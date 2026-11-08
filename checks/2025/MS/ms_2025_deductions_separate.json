@@ -1,0 +1,59 @@
+{
+  "id": "ms_2025_deductions_separate",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "ms_standard_deduction",
+    "ms_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.5 Line 3 and Standard Deductions & Exemptions for Married Persons; p.7 Line 15",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      },
+      {
+        "age": 43,
+        "born": "1982-07-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "24250.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "31700.00",
+    "state_tax_before_credits": "954.80",
+    "credits": "0.00",
+    "state_income_tax": "954.80",
+    "relief_amounts": {
+      "ms_standard_deduction": "2300.00",
+      "ms_personal_exemption": "6000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 40,000.00 = 40,000.00. Federal taxable income = 40,000.00 - 15,750.00 federal standard deduction = 24,250.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 3, Married - Filing Separate Returns. Start at federal AGI 40,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Line 66 and line 13 Mississippi AGI = 40,000.00. Line 14 standard deduction 2,300.00. Line 8 age boxes checked 0 (taxpayer and spouse each have a box); line 10 = 0 x 1,500.00 = 0.00; line 11 12,000.00; line 12 = 12,000.00; line 15 = one-half of line 12 = 6,000.00 (Line 15, p.7; Line 3, p.5). Line 16 Mississippi taxable income = 40,000.00 - 2,300.00 - 6,000.00 = 31,700.00. Schedule of Tax Computation line 1: first 10,000.00 x 0% = 0.00; line 2: remaining 21,700.00 x 4.4% = 954.80; line 4 and line 17 = 954.80. Lines 18 and 19 credits 0.00; line 20 = 954.80. The form rounds to whole dollars (p.22), which would give 955; expected keeps the formula result. This is one spouse's separate return; the second person is the spouse, under 65, with income on a return of their own.",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

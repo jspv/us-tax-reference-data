@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "40000.00",
+    "state_tax_before_credits": "1228.00",
+    "credits": "0.00",
+    "state_income_tax": "1228.00",
+    "relief_amounts": {
+      "pa_ira_from_59_5": "30000.00"
+    }
+  },
+  "worked": "Pennsylvania 2025, projection rules; filing status single (one flat rate for every status). Start: federal AGI 70,000.00 (projection base.starts_from federal_agi; PA-40 Line 9 has no federal start, the mapping is the projection's first approximation). Less IRA distribution, person 0, born 1965-06-15, reaches 59 1/2 on 2024-12-15 (in or before 2025; the projection's age is the year's): 30,000.00 (pa_ira_from_59_5, exempt in full). State income (state_agi): 70,000.00 + 0.00 - 30,000.00 = 40,000.00. Deductions: none (PDF page 9; projection base.deductions empty; no Line 10 item in the inputs). Taxable income (Line 11): 40,000.00. Tax (Line 12): 40,000.00 x 0.0307 = 1228, 1,228.00. Credits: 0.00 (no credit relief in the projection; Tax Forgiveness and other credits are not_modelled). State income tax: 1,228.00. The form shows whole dollars (1,228, PDF page 'Rounding Numbers'); the formula result to the cent is the expected figure. Federal figures given, the federal senior deduction ignored."
+}

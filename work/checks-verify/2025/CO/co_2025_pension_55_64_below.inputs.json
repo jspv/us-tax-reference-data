@@ -1,0 +1,48 @@
+{
+  "id": "co_2025_pension_55_64_below",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_pension_55_64"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD",
+    "section": "DR 0104AD line 4 / line 6 Pension and Annuity Subtraction (PDF p.18-19 Line 4 bullets; p.19-20 Line 6; DR 0104AD p.1 lines 4 and 6), second bullet (at least 55, not yet 65); DR 0104 lines 1, 10-13 (PDF p.8, p.10); tax table PDF p.34-35",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-10-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "12000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "62000.00",
+    "federal_taxable_income": "46250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_pension_55_64"
+  ]
+}

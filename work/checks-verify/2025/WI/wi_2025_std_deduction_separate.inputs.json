@@ -1,0 +1,42 @@
+{
+  "id": "wi_2025_std_deduction_separate",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37; Publication 106 PDF page 7 Schedule C",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 47,
+        "born": "1978-11-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "14250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

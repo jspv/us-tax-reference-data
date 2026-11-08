@@ -1,0 +1,65 @@
+{
+  "id": "vt_2025_minimum_tax_joint_applies",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_railroad_retirement",
+    "vt_standard_deduction",
+    "vt_personal_exemption",
+    "vt_age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Line 8 minimum tax, 3% of federal AGI over 150,000 (booklet PDF p.11 Line 8; PDF p.46 note); Schedule IN-112 Part I Line 14, Railroad Retirement (IN-112 Instructions PDF p.4 Line 14; booklet PDF p.23); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-03-03"
+      },
+      {
+        "age": 66,
+        "born": "1959-05-05"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "90000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        },
+        {
+          "amount": "50000.00",
+          "person": 1,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "interest": "20000.00"
+    },
+    "federal_agi": "200000.00",
+    "federal_taxable_income": "165300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.vt_railroad_retirement"
+  ]
+}

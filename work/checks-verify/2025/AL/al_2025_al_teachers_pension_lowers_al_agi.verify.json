@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "al_public_pension": "30000.00"
+    },
+    "state_agi": "30000.00",
+    "state_income_tax": "923.75",
+    "state_tax_before_credits": "923.75",
+    "state_taxable_income": "20075.00"
+  },
+  "worked": "Start: federal AGI 60,000.00 (projection starts_from federal_agi). Subtraction: person 0 public_pension 30,000.00 exempt in full (al_public_pension) -> 30,000.00. wages person 1 30,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 30,000.00. Standard deduction (married_joint, state AGI 30,000.00 over 29999): 6,925.00. Personal exemption (married_joint): 3,000.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 30,000.00 - 6,925.00 - 3,000.00 = 20,075.00. Tax on 20,075.00 with the married_joint brackets: 0.02 x (1,000.00 - 0.00) = 20.00; 0.04 x (6,000.00 - 1,000.00) = 200.00; 0.05 x (20,075.00 - 6,000.00) = 703.75; total 923.75. Credits: none in the projection: 0.00. State income tax = 923.75."
+}

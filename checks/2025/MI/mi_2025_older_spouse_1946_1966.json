@@ -1,0 +1,65 @@
+{
+  "id": "mi_2025_older_spouse_1946_1966",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "born_1946_1966"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "PDF page 19 'Which Benefits are Taxable' (older spouse's year of birth on a joint return); PDF page 22 Line 19 ('If the older of you (or your spouse ...) was born during the period from January 1, 1946 through December 31, 1966'); Worksheet 3.3 (PDF page 25); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 57,
+        "born": "1968-03-03"
+      },
+      {
+        "age": 60,
+        "born": "1965-11-11"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "58500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "38400.00",
+    "state_tax_before_credits": "1632.00",
+    "credits": "0.00",
+    "state_income_tax": "1632.00",
+    "relief_amounts": {
+      "born_1946_1966": "40000.00"
+    }
+  },
+  "worked": "Federal AGI = spouse 1 private pension 40,000.00 + spouse 2 wages 50,000.00 = 90,000.00. Federal taxable income = 90,000.00 - federal standard deduction (31,500.00) = 58,500.00; given, not tested; the federal senior deduction is ignored. Michigan: the pension belongs to the spouse born 1968 (alone, no subtraction: born after 1966), but the older spouse was born 1965, so Section D applies to the return: Worksheet 3.3 line 4 = 75% x 131,794.00 = 98,845.50 (98,846 on line 19); line 5 40,000.00; line 6 40,000.00 to Schedule 1 line 27. Line 14 = 90,000.00 - 40,000.00 = 50,000.00; exemptions 11,600.00; line 16 = 38,400.00. MI-1040 line 17 tax = 38,400.00 x 0.0425 = 1,632.00. No credits; state income tax 1,632.00. (Without the older-spouse rule: taxable 78,400.00, tax 3,332.00.)",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mi_firepolice_public",
+    "state_rule_not_modelled:mi_ssa_exempt_1959_1964"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

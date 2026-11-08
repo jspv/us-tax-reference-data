@@ -1,0 +1,50 @@
+{
+  "id": "dc_2025_high_income_joint",
+  "state": "DC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "section": "D-40 Lines 4-7, 15-20; booklet PDF page 19 Line 4; PDF page 20 Lines 16-17 and Calculation I/Tax Rate Schedule; Schedule S Calculation G-1 lines a-h (PDF page 51); standard deduction PDF pages 4 and 13 (record base.deductions cite); capital gains taxed as ordinary income (record notes)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-12-01"
+      },
+      {
+        "age": 53,
+        "born": "1972-03-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "400000.00",
+          "person": 0
+        },
+        {
+          "amount": "180000.00",
+          "person": 1
+        }
+      ],
+      "long_term_gains": "50000.00"
+    },
+    "federal_agi": "630000.00",
+    "federal_taxable_income": "598500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

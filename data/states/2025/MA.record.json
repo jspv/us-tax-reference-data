@@ -1,0 +1,472 @@
+{
+  "layer": "record",
+  "state": "MA",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: the booklet prints one 5.0% rate on 5.0% income (p12 line 22: tax table under 24,000, multiply by 0.05 over 24,000); the same flat schedule is given for every filing status. Short-term gains (8.5%) and collectibles gains (12%) are in capital_gains, not brackets.",
+    "Optional voluntary 5.85% rate in place of 5.0% (p12 Line 22 note; p29 Schedule D line 22): not modelled, a filer's election; it does not apply to 8.5% or 12% income.",
+    "base.starts_from is state_own: Form 1 builds income line by line (wages, pensions, interest, etc.); federal AGI is only an information item (p9 'Federal Adjusted Gross Income'). Massachusetts conforms to the IRC as of 1 Jan 2024 with listed exceptions (p4).",
+    "Standard deduction: not found in the booklet; Form 1 uses exemptions (lines 2a-2f) and the deductions on lines 11-15 and Schedule Y. Recorded the personal, dependent, age 65 and blindness exemptions; medical/dental (line 2e, federal Sch A line 4 amount) and adoption agency fee (line 2f, fees paid) exemptions have no fixed amount and are not recorded.",
+    "Base deductions recorded as 'other': FICA/Medicare/Railroad/US-or-MA retirement contributions (max 2,000 per person, line 11, p11), rental deduction (50% of rent, max 4,000 per return, 2,000 if married filing separately, line 14, p12), student loan interest (max 2,500, Sch Y line 10, p22). Many other Schedule Y deductions (alimony paid, HSA, tuition 25%-of-AGI test, charitable, commuter 750, etc.) are not recorded.",
+    "Capital gains: long-term gains (other than collectibles) are taxed at 5.0%, same as ordinary (p29 Schedule D line 22), so no entry. Gains on collectibles and pre-1996 installment sales classified as capital gain are 12% (p13 line 23b; p27) with a 50% long-term deduction if held over one year (p27); the Schedule B line 27 worksheet applies it to collectibles gains (p26). Short-term gains are 8.5% (p13 line 23a).",
+    "Capital losses: long-term losses can offset interest and dividends only up to 2,000 (p27 worksheet); not held by the schema.",
+    "Excess unused exemptions (when exemptions exceed 5.0% income) can be applied against interest, dividends, 8.5%/12% income and then long-term gains, only single, head of household or joint (p12 worksheet); not held by the schema.",
+    "Surtax: 4% on taxable income over 1,083,150 for 2025, for residents; for non-residents on the part sourced to Massachusetts (p3, p14). Same threshold stated for every status (no per-status amount printed), so recorded under 'all'.",
+    "Surtax measure: booklet says 'taxable income' without defining it further; recorded base 'other' with as_printed text.",
+    "Social Security: not taxed ('Massachusetts does not tax Social Security income', p10; excluded from gross income p6).",
+    "Pensions: exempt = contributory pensions of the US government or Massachusetts and its political subdivisions (p10), and noncontributory military/uniformed services pensions and survivor benefits (p10-11). Pensions from other states are reported on line 4 and deducted on Schedule Y line 13 under the tests of TIR 95-9 (now in the sources): three entries, one for New York (the only paying state the sources name), one for a state with no income tax, one for any other state with a specific pension exclusion, deduction or exemption that would apply to a Massachusetts pension. Noncontributory public pensions other than military are taxable where the sources address them (pre-1975 state judges, p11; senior U.S. judges, 'not contributory'; ch 32 ss 56-60 veterans after a lump sum, p11). Private pensions: 'Income from most private pensions or annuity plans is taxable in Massachusetts' (p10).",
+    "Railroad retirement benefits: not found in the Form 1 instructions as an income kind; the DOR page 'Tax Treatment of Government Pensions' says 'Tier I or Tier II railroad retirement benefits are exempt from Massachusetts taxation' and that 'Social Security benefits' includes Tier I: entry railroad_retirement_exempt.",
+    "IRA/Keogh distributions, including qualified charitable IRA distributions and Roth conversions, are taxable to the extent they exceed contributions previously taxed by Massachusetts (Schedule X line 2 worksheet, p20; p11 rollover paragraph); 401(k) rolled into an IRA is generally fully taxable on distribution (p20). Private pensions and annuities are generally taxable (p10). No age-based retirement exclusion found in the booklet.",
+    "Firefighter/police line-of-duty incapacity exclusion (Sch Y line 4a, p21) recorded as a subtraction covering wages with no cap stated; the booklet gives no age or amount test.",
+    "Circuit breaker credit (age 65+, max 2,820; total income limits 75,000 single, 94,000 head of household, 112,000 joint; property value limit 1,298,000; p3, p8) is a credit on real estate tax or rent, not on an income kind in the schema; not recorded as a relief. No Tax Status and Limited Income Credit thresholds (p13-14) also not recorded: they are not held by the schema.",
+    "Indexing: only the surtax threshold, circuit breaker amounts and the section 179 limits are said to be inflation-adjusted. Nothing is said about brackets, exemptions or deductions, so those are not_stated.",
+    "Muni interest: interest from other states' obligations is included in gross income; interest on Massachusetts obligations is excluded (p6, p24-25).",
+    "Settlement 2026-11-06: married_separate and head_of_household brackets dropped (the booklet prints one rate for all); surtax measure set to state_taxable_income (booklet: 'taxable income').",
+    "Format update 2026-11-06: recapture added (none found in the booklet).",
+    "Settlement 2026-11-07: other_state_contributory_pension: covers was public_pension; rule 14 asks public_pension_other_state for another state's pension that the state treats differently from its own, and the sources do (TIR 95-9). Split into three entries by TIR 95-9's tests: _ny (paying_states NY, age 59.5, 20,000 a person, Examples 1-2), _no_income_tax (test 3, all of it), and the general entry (tests 1-2, the amount the other state would allow).",
+    "Settlement 2026-11-07: TIR 95-9's tests name 'a specific income exclusion' or 'a specific deduction or exemption' for pension income; none of the sources mentions a credit either way, so a paying state's pension credit is not recorded as qualifying or as not qualifying.",
+    "Settlement 2026-11-07: TIR 95-9 cites the New York provision as 'Section 617(c)(3-a)'; Letter Ruling 81-91 quotes the same text as 'N.Y. Tax Law, Section 612(c)' paragraph 3-a. Recorded as the TIR prints it in the cite; the figure (20,000 at 59 1/2) is the same in both.",
+    "Settlement 2026-11-07: Letter Ruling 81-91 (1981) held a New York State contributory pension fully taxable to a Massachusetts resident because New York's exclusion was not a 'blanket exemption'; TIR 95-9 revokes it ('This TIR revokes Letter Rulings 81-91 and 85-12 and Technical Information Releases 80-4 and 89-10'). Not used for any rule.",
+    "Settlement 2026-11-07: railroad_retirement_exempt added from the DOR page 'Tax Treatment of Government Pensions' (Tier I and Tier II exempt; lump-sum insurance and residual payments exempt).",
+    "Settlement 2026-11-07: us_ma_contributory_pension not_covered: added senior U.S. judges' pensions (taxable, 'not contributory'; Tax Treatment of Government Pensions).",
+    "Settlement 2026-11-07: age_65_exemption kept at 700. The 2025 Form 1's text layer (pypdf and docling) reads 'x $ 1,700 = 2c', but the rendered PDF page 1 prints 'x $ 700 = 2c', matching the instructions (PDF p10 Line 2c, $700); the '1' is a text-layer artifact.",
+    "Settlement 2026-11-07: the DOR page 'Differences between MA and federal tax law' says pensions eligible for the exclusion include 'contributory plans of other states' with no reciprocity test; the instructions (p22) and TIR 95-9 state the test, and are followed.",
+    "Settlement 2026-11-07: the three new DOR pages are not in fetch.json; their cite.url is the registry address and accessed the date their files were retrieved (2026-11-07 UTC). The pensions page's own canonical address is https://www.mass.gov/info-details/tax-treatment-of-government-pensions."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.05",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.05",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+      "section": "PDF p12, Line 22 '5.0% Tax (from tax table)': multiply by 0.05 above $24,000; Form 1 line 19 heading '5.0% Income After Exemptions' (p12)",
+      "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [
+    {
+      "id": "ma_4pct_surtax",
+      "rate": "0.04",
+      "over": {
+        "all": "1083150"
+      },
+      "measure": {
+        "base": "state_taxable_income",
+        "as_printed": "annual taxable income exceeding $1,083,150 (residents); annual taxable income sourced to Massachusetts exceeding $1,083,150 (non-residents)"
+      },
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p3 '4% Surtax'; PDF p14 Line 28b '4% Surtax'",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "base": {
+    "starts_from": "state_own",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "single": "4400",
+          "married_separate": "4400",
+          "head_of_household": "6800",
+          "married_joint": "8800"
+        },
+        "per": "return",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p10, Line 2a Personal Exemptions",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "dependent",
+        "condition": "dependent claimed on the U.S. return; not yourself or spouse",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p10, Line 2b Number of Dependents",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "700"
+        },
+        "per": "person",
+        "condition": "age 65 or over before January 1, 2026; a spouse aged 65 or over on a joint return also gets 700",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p10, Line 2c",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "blind_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "2200"
+        },
+        "per": "person",
+        "condition": "legally blind (20/200 or less in better eye with correction, or field of vision 10 degrees or less); spouse also if joint",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p10, Line 2d and Legal Definition of Blindness",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "retirement_contribution_deduction",
+        "what": "other",
+        "amount": {
+          "all": "2000"
+        },
+        "per": "person",
+        "condition": "amounts paid to Social Security, Medicare, Railroad Retirement, or U.S. or Massachusetts retirement systems; not transferable between spouses",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p11, Line 11 (lines 11a and 11b)",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "rental_deduction",
+        "what": "other",
+        "amount": {
+          "single": "4000",
+          "married_joint": "4000",
+          "head_of_household": "4000",
+          "married_separate": "2000"
+        },
+        "per": "return",
+        "condition": "50% of rent paid for principal residence in Massachusetts, up to the amount shown; married filing separately may reallocate up to a combined 4,000",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p12, Line 14 Rental Deduction",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "student_loan_interest_deduction",
+        "what": "other",
+        "amount": {
+          "all": "2500"
+        },
+        "per": "return",
+        "condition": "amount from U.S. Schedule 1 line 21, not over 2,500; not with the undergraduate student loan interest deduction for the same expenses",
+        "cite": {
+          "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+          "section": "PDF p22, Schedule Y Line 10",
+          "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+      "section": "PDF p10 Line 2 Exemptions; PDF p11-12 Lines 11-15; PDF p22 Schedule Y",
+      "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+      "section": "PDF p10 Line 4 note 'Massachusetts does not tax Social Security income'; PDF p6 gross income exclusions",
+      "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "us_ma_contributory_pension",
+      "label": "Pension income from U.S. government or Massachusetts contributory retirement fund",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "pension from a contributory annuity, pension, endowment or retirement fund of the U.S. Government or the Commonwealth of Massachusetts and its political subdivisions",
+          "Massachusetts state court judges appointed on or after 1975-01-02 are in the contributory system (non-taxable); those appointed earlier receive taxable noncontributory pensions"
+        ]
+      },
+      "not_covered": [
+        "pension income from other states or their political subdivisions (reported on line 4; see separate deduction)",
+        "noncontributory pension income received after a lump-sum distribution is fully taxable",
+        "veterans who began Massachusetts state service before 1939 and retired under MGL ch 32 sections 56-60: all or part of pension may be subject to tax",
+        "Senior U.S. judges' pension distributions: 'subject to Massachusetts income tax ... since they're not contributory' (Tax Treatment of Government Pensions, Federal employee contributory pension)"
+      ],
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p10 'What pensions are exempt?' first bullet; PDF p6 gross income exclusions; PDF p11 judges and ch 32 paragraphs",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_noncontributory_pension",
+      "label": "Noncontributory pension or survivorship benefits from U.S. uniformed services",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "noncontributory pension income or survivorship benefits from the U.S. uniformed services (Army, Navy, Marine Corps, Air Force, Coast Guard, Public Health Service commissioned corps, NOAA)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p10-11 'What pensions are exempt?' third bullet",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "railroad_retirement_exempt",
+      "label": "Tier I and II railroad retirement pension",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "Tax Treatment of Government Pensions (Massachusetts DOR web page, updated April 3, 2026)",
+        "section": "'Tier I and II railroad retirement pension': 'Tier I or Tier II railroad retirement benefits are exempt from Massachusetts taxation.'",
+        "url": "https://www.mass.gov/info-details/tax-treatment-of-out-of-state-government-pensions-for-ma-residents",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "other_state_contributory_pension",
+      "label": "Deductible amount of qualified contributory pension income from another state or political subdivision (Schedule Y line 13; TIR 95-9 tests 1 and 2)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension_other_state"
+      ],
+      "not_covered": [
+        "a pension that is not from a 'contributory annuity, pension, endowment or retirement fund' of the other state or its political subdivisions (noncontributory plans)",
+        "an exemption of the other state that applies to any type of income and is 'not specifically related to pension income' (TIR 95-9 Example 3: a 10,000 standard personal exemption gives no deduction)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "contributory plan: income from a contributory annuity, pension, endowment or retirement fund of another state or its political subdivisions, included on Form 1 line 4",
+          "(1) that other state has a specific income exclusion for pension income which applies to Massachusetts state or local contributory public employee pension plans; or",
+          "(2) that other state has a specific deduction or exemption for pension income which applies to Massachusetts state or local contributory public employee pension plans",
+          "applies to a paying state without its own entry here (New York has one)"
+        ]
+      },
+      "cap_rule": "No fixed cap. The deduction 'will equal the amount of the specific pension exclusion, deduction, or exemption that could be claimed by the taxpayer under the laws of the other state if the taxpayer were a resident of the other state and received the income from a Massachusetts state or local contributory pension' (TIR 95-9). Part-year residents: 'If a partial exclusion from income applies, reduce the Massachusetts related exclusion by the amount excluded in the former state during the same tax year.'",
+      "cannot_combine_with": [
+        "other_state_contributory_pension_ny",
+        "other_state_contributory_pension_no_income_tax"
+      ],
+      "cite": {
+        "publication": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States (Massachusetts DOR, 01/10/1996)",
+        "section": "Department's Position After Pariser, tests (1)-(2) and the amount paragraph; Example 3. Also 2025 Form 1 Instructions PDF p10 'What pensions are exempt?' second bullet and PDF p22 Schedule Y Line 13; Tax Treatment of Government Pensions, 'Out-of-state employee contributory government pension'",
+        "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "other_state_contributory_pension_ny",
+      "label": "Deduction for New York State contributory public employee pension income (Schedule Y line 13; TIR 95-9 Examples 1 and 2)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension_other_state"
+      ],
+      "paying_states": [
+        "NY"
+      ],
+      "not_covered": [
+        "New York pension income of a recipient under 59 1/2: 'The taxpayer, who is not 59 1/2 years old or older, is not allowed a deduction for any of the New York pension income' (TIR 95-9 Example 2)",
+        "New York pension income above 20,000 (TIR 95-9 Example 1: 25,000 received, 20,000 deducted)",
+        "a pension that is not from a 'contributory annuity, pension, endowment or retirement fund' of the other state or its political subdivisions (noncontributory plans)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5,
+        "other_conditions": [
+          "contributory plan: income from a New York State contributory public employee pension fund, included on Form 1 line 4",
+          "age test as New York applies it: 'received by an individual who has attained the age of fifty-nine and one-half'; the Massachusetts sources do not say on what date in the year the age is measured"
+        ]
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cap_rule": "The amount New York would allow a New York resident on a Massachusetts state or local contributory pension: New York's pension and annuity subtraction, 'not in excess of twenty thousand dollars', for an individual who has attained 59 1/2 (TIR 95-9 quoting N.Y. Tax Law; Example 1: age 62, 25,000 received, 20,000 deducted). The figure is New York's as quoted by TIR 95-9 (1996); the TIR ties the deduction to New York's law, so it follows any change there. Part-year residents: 'If a partial exclusion from income applies, reduce the Massachusetts related exclusion by the amount excluded in the former state during the same tax year.'",
+      "cannot_combine_with": [
+        "other_state_contributory_pension",
+        "other_state_contributory_pension_no_income_tax"
+      ],
+      "cite": {
+        "publication": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States (Massachusetts DOR, 01/10/1996)",
+        "section": "Department's Position Prior To Pariser (N.Y. pension subtraction quoted); ATB Decision In Pariser; Department's Position After Pariser, Examples 1 and 2",
+        "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "other_state_contributory_pension_no_income_tax",
+      "label": "Deductible contributory pension income from a state that has no income tax (Schedule Y line 13; TIR 95-9 test 3)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension_other_state"
+      ],
+      "not_covered": [
+        "a pension that is not from a 'contributory annuity, pension, endowment or retirement fund' of the other state or its political subdivisions (noncontributory plans)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "contributory plan: income from a contributory annuity, pension, endowment or retirement fund of another state or its political subdivisions, included on Form 1 line 4",
+          "(3) that other state has no income tax (the sources name no such state)"
+        ]
+      },
+      "cap_rule": "No cap: 'In the case of a state that has no income tax, all income from qualifying pensions of the other state or its subdivisions may be deducted' (TIR 95-9). Part-year residents: 'If a partial exclusion from income applies, reduce the Massachusetts related exclusion by the amount excluded in the former state during the same tax year.'",
+      "cannot_combine_with": [
+        "other_state_contributory_pension",
+        "other_state_contributory_pension_ny"
+      ],
+      "cite": {
+        "publication": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States (Massachusetts DOR, 01/10/1996)",
+        "section": "Department's Position After Pariser, test (3) and the amount paragraph's last sentence; Tax Treatment of Government Pensions, 'Out-of-state employee contributory government pension' third bullet",
+        "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "firefighter_police_incapacity_exclusion",
+      "label": "Amounts excludible under MGL ch 41 section 111F (firefighter or police officer incapacitated in line of duty)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "firefighter or police officer incapacitated in the line of duty",
+          "amount included in Form 1 line 3"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p21 Schedule Y Line 4a",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest from obligations of other states and their political subdivisions is in Massachusetts gross income; interest on obligations of Massachusetts and its political subdivisions and of the U.S. and territories is excluded.",
+    "cite": {
+      "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+      "section": "PDF p6 'Massachusetts gross income also includes' and 'does not include'; PDF p25 Schedule B Line 6a",
+      "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "short_term_gains",
+      "applies_to": "short_term",
+      "treatment": "own_rate",
+      "value": "0.085",
+      "condition": "8.5% income from certain capital gains; the optional 5.85% election does not apply",
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p13 Line 23a; PDF p12 Line 22 note",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "collectibles_gains",
+      "applies_to": "collectibles",
+      "treatment": "own_rate",
+      "value": "0.12",
+      "condition": "long-term gains on collectibles and pre-1996 installment sales classified as capital gain",
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p13 Line 23b; PDF p27 Installment Sales",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "collectibles_long_term_deduction",
+      "applies_to": "collectibles",
+      "treatment": "deduction_share",
+      "value": "0.5",
+      "condition": "50% long-term gains deduction on collectibles gains (asset held over one year), reduced by 50% of excess short-term losses; Schedule B line 27 worksheet",
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p26 Schedule B Line 27 worksheet; PDF p27 Installment Sales",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "ma_4pct_surtax",
+      "indexed": "yes",
+      "index": "inflation ('increased annually for inflation'; base 1,000,000, 2025 threshold 1,083,150)",
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p3 '4% Surtax'",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "brackets",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+        "section": "PDF p12 Line 22",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

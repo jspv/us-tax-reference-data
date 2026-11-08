@@ -1,0 +1,58 @@
+{
+  "id": "il_2025_exemption_single_exactly_250000",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "il_personal_exemption",
+    "il_ira"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-04-08"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "247850.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "2150.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "250000.00",
+    "federal_taxable_income": "234250.00"
+  },
+  "expected": {
+    "state_agi": "247850.00",
+    "state_taxable_income": "245000.00",
+    "state_tax_before_credits": "12127.50",
+    "credits": "0.00",
+    "state_income_tax": "12127.50",
+    "relief_amounts": {
+      "il_ira": "2150.00",
+      "il_personal_exemption": "2850.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 247,850.00 + IRA distribution (person 0) 2,150.00 = 250,000.00. Federal taxable income = 250,000.00 - standard deduction 15,750.00 = 234,250.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 250,000.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 = 250,000.00. Line 5 IRA distribution 2,150.00 = 2,150.00. Lines 6 and 7 0.00. Line 8 = 2,150.00. Line 9 base income = 250,000.00 - 2,150.00 = 247,850.00. Income Exceptions: federal AGI 250,000.00 is not greater than 250,000.00, so the allowance stands. Line 10a 2,850.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 2,850.00. Line 11 net income = 247,850.00 - 2,850.00 = 245,000.00. Line 12 tax = 245,000.00 x 4.95% = 12,127.5000. The form takes whole dollars only and would show 12,128.00; expected uses the formula to the cent. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 12,127.50. The printed word is 'greater than', so federal AGI of exactly 250,000.00 keeps the allowance.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "hi_2025_railroad_retirement",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "hi_railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "PDF page 13, Line 14 Social Security Benefits; Form N-11 line 14; Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-10-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "interest": "30000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "36250.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "23312.00",
+    "state_tax_before_credits": "815.17",
+    "credits": "0.00",
+    "state_income_tax": "815.17",
+    "relief_amounts": {
+      "hi_railroad_retirement": "24000.00"
+    }
+  },
+  "worked": "Single, 67: Railroad Retirement Board annuity 24,000 (all of it in federal AGI), interest 30,000. The projection exempts railroad retirement in full (hi_railroad_retirement, from the line 14 rule: 'Hawaii does not tax Social Security or first tier Railroad Retirement Act benefits'). The booklet names only first tier benefits; this case follows the projection and subtracts the whole 24,000 (accepted approximation for any Tier 2 part). Age-65 exemption claimed. Line 7 federal AGI = railroad retirement annuity 24,000.00 + interest 30,000.00 = 54,000.00. Federal taxable income = 54,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age-65 addition = 36,250.00 (given, not tested; the federal senior deduction is ignored). Line 11 total additions = 0.00; line 12 = 54,000.00 + 0.00 = 54,000.00. Line 14 railroad retirement benefits (projection: exempt in full) 24,000.00. Line 19 total subtractions = 24,000.00; line 20 Hawaii AGI = 54,000.00 - 24,000.00 = 30,000.00. Line 23 standard deduction (single, PDF page 20 table) 4,400.00; line 24 = 30,000.00 - 4,400.00 = 25,600.00. Line 6e exemptions: 1 regular + 1 age 65 or over = 2; line 25 = 2 x 1,144.00 = 2,288.00. Line 26 taxable income = 25,600.00 - 2,288.00 = 23,312.00. Line 27 tax, Schedule I (PDF page 50) as bands on 23,312.00: 9,600.00 x 1.4% = 134.40; 4,800.00 x 3.2% = 153.60; 4,800.00 x 5.5% = 264.00; 4,112.00 x 6.4% = 263.168; sum = 815.168, to the cent 815.17; tax = 815.17 (Form N-11 line 27 uses the Tax Table below 100,000 of taxable income (PDF page 20, Line 27): the table row 23,300 to 23,350 gives 816; this case uses the bands as numbers). No credits modelled (refundable food/excise and renters credits, lines 28-29, not claimed): state income tax = 815.17.",
+  "accepted_approximations": [
+    "Railroad retirement is exempt in full; the booklet names only first tier Railroad Retirement Act benefits, and Tier 2 is not stated."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:hi_private_pension_exclusion_ratio"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

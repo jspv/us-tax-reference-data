@@ -1,0 +1,55 @@
+{
+  "id": "ks_2025_bracket_top_of_low_band_joint",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "kansas_standard_deduction",
+    "personal_exemption_allowance"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 53,
+        "born": "1972-04-04"
+      },
+      {
+        "age": 51,
+        "born": "1974-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "72560.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "72560.00",
+    "federal_taxable_income": "41060.00"
+  },
+  "expected": {
+    "state_agi": "72560.00",
+    "state_taxable_income": "46000.00",
+    "state_tax_before_credits": "2392.00",
+    "credits": "0.00",
+    "state_income_tax": "2392.00"
+  },
+  "worked": "Federal AGI = wages (you) 72,560.00 = 72,560.00. Federal taxable income = 72,560.00 - standard deduction 31,500.00 (31,500.00) = 41,060.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). No Kansas modifications: Schedule S lines A9 and A26 are 0.00, line A27 net modification 0.00 (the K-40 instructions let a filer skip line 2). Form K-40: line 1 federal AGI 72,560.00; line 2 modifications 0.00; line 3 Kansas AGI = 72,560.00 + (0.00) = 72,560.00; line 4 standard deduction (married filing joint) 8,240.00; line 5 exemption allowance (2 exemptions) 18,320.00, 0 dependents; line 6 total deductions = 8,240.00 + 18,320.00 = 26,560.00; line 7 taxable income = 72,560.00 - 26,560.00 = 46,000.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 46,000.00 = 2,392.0000 = 2,392.00. Line 7 is 100,000 or less, so the form reads the tax table: row 45,951-46,000, married filing joint column, PDF page 30, gives 2,391; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 2,392.00. Credits (lines 13-15, 17): none, 0.00; state income tax = 2,392.00. Wages chosen so taxable income is exactly 46,000.00: all at 5.2%, the last dollar of the low band on the joint schedule.",
+  "accepted_approximations": [
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

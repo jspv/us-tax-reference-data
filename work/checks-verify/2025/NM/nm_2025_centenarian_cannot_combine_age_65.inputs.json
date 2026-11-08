@@ -1,0 +1,55 @@
+{
+  "id": "nm_2025_centenarian_cannot_combine_age_65",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "centenarian_exemption",
+    "age_65_exemption",
+    "low_middle_income_exemption_joint_hoh"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF pages 3 to 4, line 12, boxes 12a and 12b; PIT-ADJ instructions PDF page 4, line 13; PDF page 5, Table 1; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      },
+      {
+        "age": 88,
+        "born": "1937-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "1000.00",
+          "person": 0
+        },
+        {
+          "amount": "49000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "15300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.centenarian_exemption",
+    "relief_amounts.age_65_exemption",
+    "relief_amounts.low_middle_income_exemption_joint_hoh"
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "state": "SD",
+    "title": "Taxes | South Dakota Department of Revenue (states SD does not impose a state income tax)",
+    "url": "https://dor.sd.gov/individuals/taxes/",
+    "kind": "html",
+    "retrieved": "2026-11-07T03:02:18.826246+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.sd.gov/individuals/taxes/",
+    "file": "taxes.html",
+    "bytes": 175347,
+    "sha256": "b3304f59943c036d48a9403165a567bfe3dcccef2c2e8918f7b57b28e999d62f",
+    "text_file": "taxes.page.txt"
+  }
+]

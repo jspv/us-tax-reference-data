@@ -1,0 +1,68 @@
+{
+  "id": "nj_2025_pension_band3_single",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.22 line 28a chart column $125,001-$150,000 ('18.75% of line 20a'), PDF p.16 IRA withdrawals, PDF p.21 line 27, PDF p.23 Worksheet D; GIT-1 & 2 p.19; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1960-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "66000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "44000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "130000.00",
+    "federal_taxable_income": "112250.00"
+  },
+  "expected": {
+    "state_agi": "118000.00",
+    "state_taxable_income": "116000.00",
+    "state_tax_before_credits": "5262.95",
+    "credits": "0.00",
+    "state_income_tax": "5262.95",
+    "relief_amounts": {
+      "nj_pension_exclusion": "12000.00"
+    }
+  },
+  "worked": "Federal AGI 130,000.00 (wages 66,000.00 + private pension 44,000.00 + IRA distribution 20,000.00); federal taxable income = 130,000.00 - 17,750.00 federal standard deduction (15,750 single + 2,000 for age 65 or older) = 112,250.00 (given, not tested; the federal senior deduction is ignored). Line 15 wages 66,000.00 + line 20a pension and IRA 64,000.00 = line 27 total income 130,000.00; measure 130,000.00, in the 125,001-150,000 band, single share 0.1875. Line 28a: age 65; Line A = 64,000.00, Line B = 18.75% x 64,000.00 = 12,000.00; lesser = 12,000.00. Projection: 0.1875 x lesser of (64,000.00, cap 75,000.00) = 12,000.00. Line 28b: wages 66,000 are more than 3,000, so no unclaimed exclusion; projection 0.00 (no covered interest, dividends or gains). Line 29 New Jersey gross income = 130,000.00 - 12,000.00 - 0.00 = 118,000.00. Line 30 exemptions (line 13): regular 1,000 x 1 + senior 65+ 1,000 x 1 = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 118,000.00 - 2,000.00 = 116,000.00. Line 43 tax, rate schedule Table A (single/separate) as bands: 20,000.00 x 0.014 = 280.00 + 15,000.00 x 0.0175 = 262.50 + 5,000.00 x 0.035 = 175.00 + 35,000.00 x 0.05525 = 1,933.75 + 41,000.00 x 0.0637 = 2,611.70 = 5,262.95. No credits. State income tax = 5,262.95. The pension is noncontributory, so the New Jersey taxable amount (line 20a) equals the federal taxable amount and line 20b is empty. The IRA was funded only by a rollover from a 401(k) (pre-tax in New Jersey too), so it has no New Jersey basis and Worksheet C gives no excludable part. Taxable income is 100,000 or more, so the booklet itself uses the rate schedule.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

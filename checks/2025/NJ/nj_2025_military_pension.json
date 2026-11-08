@@ -1,0 +1,71 @@
+{
+  "id": "nj_2025_military_pension",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_military_pension_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 27, 29: Instr PDF p.15 line 20a nontaxable retirement income ('U.S. Military pensions and survivor's benefit payments'), PDF p.10 exempt income; njit6 Nontaxable Retirement Income ('regardless of your age or disability status'); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-08-08"
+      },
+      {
+        "age": 55,
+        "born": "1970-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "48500.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "48000.00",
+    "state_tax_before_credits": "770.00",
+    "credits": "0.00",
+    "state_income_tax": "770.00",
+    "relief_amounts": {
+      "nj_military_pension_exempt": "30000.00"
+    }
+  },
+  "worked": "Federal AGI 80,000.00 (spouse 1 U.S. military retired pay 30,000.00 + spouse 2 wages 50,000.00); federal taxable income = 80,000.00 - 31,500.00 federal standard deduction = 48,500.00 (given, not tested; the federal senior deduction is ignored). The military pension is exempt and not reported on line 20a (at age 60). Line 15 wages 50,000.00 = line 27 total income 50,000.00 (projection: federal AGI 80,000.00 less the military pension exempt in full 30,000.00). Lines 28a-28b: nobody is 62 or older; exclusions 0.00 and 0.00. Line 29 New Jersey gross income = 50,000.00 - 0.00 - 0.00 = 50,000.00. Line 30 exemptions (line 13): regular 1,000 x 2 (nobody is 65 or older, so no senior exemption) = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 50,000.00 - 2,000.00 = 48,000.00. Line 43 tax, rate schedule Table B (joint/head of household/qualifying widow(er)) as bands: 20,000.00 x 0.014 = 280.00 + 28,000.00 x 0.0175 = 490.00 = 770.00. The booklet's Tax Table (taxable income under 100,000) gives 770 for the 48,000-48,050 row (schedule at the midpoint 48,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 770.00. Spouse 1 is presumably an honorably discharged veteran, which on the booklet's line 9 adds a 6,000 veteran exemption (taxable income 42,000, tax 665.00); the projection does not model that exemption and warns (state_rule_not_modelled:nj_veteran_exemption), so expected leaves it out.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_pension_exclusion_disabled",
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_veteran_exemption"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

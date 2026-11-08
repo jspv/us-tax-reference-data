@@ -1,0 +1,695 @@
+{
+  "layer": "record",
+  "state": "OH",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: the booklet prints one table for every filing status, on taxable nonbusiness income (IT 1040 line 7), columns 'More than' and 'Up to' (PDF p.18): 0 to 26,050, 0.000%; 26,050 to 100,000, '$ 342.00 plus 2.750% of the amount in excess of $ 26,050'; 100,000 and over, '$2,394.32 plus 3.125% of the amount in excess of $100,000'. So tax is 0 at exactly 26,050 and 342.00 and a fraction just above it, and the table steps up at both thresholds. Single and married_joint carry the same list; no separate married separate or head of household schedule is printed.",
+    "Printed lump sums: each band above the first carries the printed amount in `base` (342.00 at 26,050; 2,394.32 at 100,000), so tax above the start is the base plus the rate on the excess, as the table prints it. brackets.derivation re-checks printed rows and the booklet's worked example.",
+    "Printed table is not continuous at 100,000: 342 + 2.75% x 73,950 is 2,375.63 at the top of the second band, and the third band starts from the printed 2,394.32, 18.70 higher. Taken as printed; no second table is in the sources (the Department's tax.ohio.gov/taxcalculator tool is not archived). The booklet's letter (PDF p.4) says 'Ohio has lowered the tax rate applied to taxable nonbusiness income above $100,000 to 3.125%'. Worked example PDF p.18: 68,050 gives 342 + 42,000 x 0.0275 = 1,497.",
+    "brackets.derivation.formula is left out: that field holds 'rate x income minus constant', and the constants this table implies (374.375, 730.68) are not printed, so the printed base-plus-rate formulas are held in the notes above and proved by the table_rows. Row incomes 26,051 and 100,001 are the first whole dollars over each threshold, where the printed bases 342.00 and 2,394.32 are the row figures to within 0.04.",
+    "Returns are in whole dollars ('Round all figures to the nearest dollar', PDF p.5; 'Round numbers to the nearest dollar', PDF p.7); the bands above are exact to the cent, so they hold for rounded figures too.",
+    "Ohio starts from federal AGI (IT 1040 line 1), adds and deducts on the Ohio Schedule of Adjustments, then line 3 Ohio AGI less line 4 exemptions is line 5, the Ohio income tax base; line 6 taxable business income comes off to give line 7, taxable nonbusiness income, the bracket base (bundle PDF p.1).",
+    "The booklet prints no standard deduction. The exemption (line 4) is the only personal allowance; no age-65 or blindness amount is printed. Example PDF p.17: three exemptions at MAGI 75,000 total 6,450 (3 x 2,150).",
+    "Pension from another state's government, including a New York State pension: no source names one, and none treats it apart from other retirement income, so it falls under the general rule. Department FAQ 5: 'A state can only tax the retirement income of a resident taxpayer. Thus, if an Ohio resident earns or receives retirement income, it is subject to tax in Ohio even if the taxpayer previously lived or worked in another state. This includes any amount included in the taxpayer's federal adjusted gross income.' FAQ 1: 'Generally, retirement income included in federal adjusted gross income is subject to Ohio income tax. Ohio then provides a credit based on the taxpayer's retirement income.' FAQ 3 lists the only deductible kinds (Social Security and tier I railroad, certain other railroad, retired military pay). So a New York State pension is taxed in full, and counts toward the retirement income credit, which covers income from 'a pension, profit-sharing, or retirement plan' whoever pays it (public_pension_other_state in that entry's covers). No paying_states: no rule turns on which state pays.",
+    "Ohio's own and federal government pensions: no deduction is printed, the same rule applies, and they are in the retirement income credit's covers without being named: Senior Citizens page: 'Other retirement income included in your Ohio adjusted gross income is usually taxed by Ohio, but you may qualify for credits like Ohio's retirement income credit or the lump sum retirement credit.' The one exception is the military-years share of a federal civil service pension (line 34, federal_civil_service_military_share).",
+    "Private pensions, IRAs, 401(k) plans: taxed, same FAQ 1 sentence; retirement income credit only ('such as traditional IRAs or 401(k) plans', PDF p.28).",
+    "Roth conversions: FAQ 8: 'if your rollover results in recognizing income that is included in your federal adjusted gross income (e.g. converting to a Roth IRA), it will be taxable to Ohio.' So a conversion is taxed. Whether it counts toward the retirement income credit is not settled: the credit needs income received 'on account of retirement', and FAQ 7 says 'Early withdraws and distributions do not qualify for this credit'; hence covers_unclear.",
+    "Social Security: exempt. Senior Citizens page: 'Ohio does not tax Social Security benefits.' Booklet PDF p.20, Schedule of Adjustments line 16: 'Deduct the amount on your federal 1040 or 1040-SR, line 6b.' Same line on bundle PDF p.3. Filing tip on the Senior Citizens page: if the taxable amount exceeds federal AGI, deduct only up to federal AGI.",
+    "Retirement income credit table (PDF p.44 Table 2; FAQ 2 prints the same table): 0-500: 0; 501-1,500: 25; 1,501-3,000: 50; 3,001-5,000: 80; 5,001-8,000: 130; 8,001 or more: 200. It steps on the eligible retirement income itself, while the schema's stepped income_test takes one measure and that slot holds the 100,000 test, so the table is in cap_rule.",
+    "Senior citizen credit: PDF p.28 says 'You were 65 or older at the end of the tax year' and 'The credit is equal to $50 per return'; FAQ 2 says 'Taxpayers who were 65 or older during the tax year'. Bundle PDF p.7 line 4: 'must be 65 or older to claim this credit'. Neither says how a joint return with one spouse 65 is tested.",
+    "The credits recorded here (Schedule of Credits lines 2, 3, 4, 5, 9 and 12) come under the 'Nonrefundable Credits' heading (PDF p.28); line 11 says 'if negative, enter zero'.",
+    "Credits and deductions not given entries: earned income credit, 30% of the federal credit (PDF p.30); child and dependent care credit (PDF p.28); Ohio resident credit for tax paid to another state (PDF p.40); displaced worker, campaign contribution and home school credits. Unreimbursed medical deduction (line 44, PDF pp.25, 41): premiums for periods without Medicare or an employer plan and long-term care premiums in full, plus Medicare-period premiums and medical care over 7.5% of federal AGI; no entry because it is not tied to an income kind and premiums are not a yearly fact.",
+    "Business income (PDF pp.11, 27; bundle PDF p.5 lines 11 to 16): 'Taxpayers can deduct the first $250,000 ($125,000 for married separate filers) of their business income included in their federal adjusted gross income. Also, any business income not deducted is taxed at a flat 3%.' The 3% is a separate tax on line 6, not a bracket; the schema has no field for it, so it is in the business_income_deduction entry's cap_rule. The deduction is added back in MAGI.",
+    "Interest: non-Ohio state and local obligations are added (line 1, PDF p.19); Ohio public obligations are deducted (line 18, PDF pp.20-21); U.S. obligations exempt by federal law, such as savings bonds and Treasury notes, bills and bonds, are deducted (line 26, PDF p.22).",
+    "Not stated in any source: a capital gains rate or exclusion for nonbusiness gains (they run through the brackets); inflation adjustment of any figure. Recapture: none found.",
+    "School district income tax (SD 100) is a local tax, not recorded. Senior Citizens page: 'Neither tax base includes Social Security income, and retirement income is only taxed in traditional tax base districts.'",
+    "Settlement 2026-11-07: base.deductions personal exemption per: A said exemption_claimed, B said person; PDF p.17 says 'Multiply your exemptions by the appropriate amount'. Exemption_claimed.",
+    "Settlement 2026-11-07: exemption phase_out top step: A said at_or_over 750000, B said over 749999; PDF p.17 says '$750,000 or greater $0'. A's, the printed figure unshifted.",
+    "Settlement 2026-11-07: business income: A said a base.deductions entry of kind other, B said a capped relief; PDF p.11 says the first 250,000 (125,000 married separate) of one kind of income is deducted, which is a cap on covered income. B's relief, with cap all 250000 and married_separate 125000 as printed.",
+    "Settlement 2026-11-07: retirement_income_credit who.basis: A said return, B said each_person; PDF p.28 says 'your and your spouse's (if filing jointly) total eligible retirement income' and 'maximum credit per return is $200'. Return.",
+    "Settlement 2026-11-07: retirement_income_credit credit_amount: A left it out, B said 200; PDF pp.28, 44 print a table with a 200 maximum, not a fixed amount. Left out in the record, cap 200.",
+    "Settlement 2026-11-07: who.basis for Social Security, railroad and uniformed services: A said return, B said each_person; no source tests a person and none is capped, so the basis changes nothing. each_person as the brief's rule 5 and the other settled states have it.",
+    "Settlement 2026-11-07: bracket first rate: A said 0, B said 0.0; the same number. 0.",
+    "Settlement 2026-11-07: uniformed services branch for a federal civil service pension: A said its own entry, B said a condition on the military entry; PDF p.24 gives it its own limit on public income. A's own entry, by the brief's rule 3.",
+    "Settlement 2026-11-07: one-sided entries kept from A, printed and in scope: disability_benefits_deduction, survivor_benefits_deduction, military_pay_outside_ohio, lump_sum_distribution_credit, exemption_credit, and covers_unclear on the lump sum retirement credit.",
+    "Settlement 2026-11-07: joint_filing_credit: both readers held it in notes only; PDF p.29 prints a table up to 650, which is larger than any other retirement-age credit here, so it gets an entry.",
+    "Settlement 2026-11-07: both readers said the Department pages could not be fetched; they arrived after the readings, and the maintainer saved them. Roth conversions, Social Security and the other-state position above are cited from them."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.0275",
+        "start": "26050",
+        "base": "342"
+      },
+      {
+        "rate": "0.03125",
+        "start": "100000",
+        "base": "2394.32"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.0275",
+        "start": "26050",
+        "base": "342"
+      },
+      {
+        "rate": "0.03125",
+        "start": "100000",
+        "base": "2394.32"
+      }
+    ],
+    "cite": {
+      "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+      "section": "PDF p.18 '2025 Ohio Income Tax Brackets for Ohio IT 1040'; rate change stated PDF pp.4, 5",
+      "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+      "accessed": "2026-11-07"
+    },
+    "derivation": {
+      "method": "formula",
+      "table_rows": [
+        {
+          "status": "all",
+          "income": "26050",
+          "tax": "0"
+        },
+        {
+          "status": "all",
+          "income": "26051",
+          "tax": "342.00"
+        },
+        {
+          "status": "all",
+          "income": "68050",
+          "tax": "1497"
+        },
+        {
+          "status": "all",
+          "income": "100001",
+          "tax": "2394.32"
+        }
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.18, the bracket table and the 'Nonbusiness Income Tax Liability Calculation Example'",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "2400"
+        },
+        "per": "exemption_claimed",
+        "condition": "You, and your spouse if filing jointly, if not claimed as a dependent on another person's return. The amount depends on MAGI.",
+        "phase_out": {
+          "measure": {
+            "base": "other",
+            "as_printed": "Modified adjusted gross income (MAGI) is your Ohio adjusted gross income (Ohio IT 1040, line 3) plus your business income deduction (Ohio Schedule of Adjustments, line 13)."
+          },
+          "threshold": {
+            "all": "40000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "all",
+              "over": "40000",
+              "amount": "2150"
+            },
+            {
+              "status": "all",
+              "over": "80000",
+              "amount": "1900"
+            },
+            {
+              "status": "all",
+              "over": "750000",
+              "amount": "0",
+              "applies_when": "at_or_over"
+            }
+          ],
+          "as_printed": "$40,000 or less $2,400; $40,001 - $80,000 $2,150; $80,001 - $749,999 $1,900; $750,000 or greater $0"
+        },
+        "cite": {
+          "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+          "section": "PDF p.17 Line 4 and its table",
+          "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "2400"
+        },
+        "per": "dependent",
+        "condition": "Dependents claimed on your federal tax return. Same MAGI table as the personal exemption.",
+        "phase_out": {
+          "measure": {
+            "base": "other",
+            "as_printed": "Modified adjusted gross income (MAGI) is your Ohio adjusted gross income (Ohio IT 1040, line 3) plus your business income deduction (Ohio Schedule of Adjustments, line 13)."
+          },
+          "threshold": {
+            "all": "40000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "all",
+              "over": "40000",
+              "amount": "2150"
+            },
+            {
+              "status": "all",
+              "over": "80000",
+              "amount": "1900"
+            },
+            {
+              "status": "all",
+              "over": "750000",
+              "amount": "0",
+              "applies_when": "at_or_over"
+            }
+          ],
+          "as_printed": "$40,000 or less $2,400; $40,001 - $80,000 $2,150; $80,001 - $749,999 $1,900; $750,000 or greater $0"
+        },
+        "cite": {
+          "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+          "section": "PDF p.17 Line 4 and its table",
+          "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+      "section": "PDF p.16 Line 1 and Line 4, p.17; bundle PDF p.1 lines 1 to 7",
+      "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "Senior Citizens and Ohio Income Taxes (Ohio Department of Taxation page)",
+      "section": "Heading 'Social Security Benefits': 'Ohio does not tax Social Security benefits.'; also booklet PDF p.20 Schedule of Adjustments line 16",
+      "url": "https://tax.ohio.gov/individual/file-now/senior-citizens-and-ohio-income-tax",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "social_security_deduction",
+      "label": "Taxable Social Security Benefits (Schedule of Adjustments line 16)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.20, Schedule of Adjustments line 16: 'Deduct the amount on your federal 1040 or 1040-SR, line 6b.'; bundle PDF p.3 line 16",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "railroad_benefits_deduction",
+      "label": "Certain Railroad Benefits (Schedule of Adjustments line 17)",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap_rule": "Railroad benefits to the extent they are exempt from state taxation and included in federal AGI (retirement, supplemental, dual, disability, unemployment); amounts on line 16 as taxable Social Security are not repeated here.",
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.20, Schedule of Adjustments line 17; Department FAQ 3 and 4",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "uniformed_services_retirement",
+      "label": "Uniformed Services Retirement Income (Schedule of Adjustments line 34)",
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Income included in federal AGI and related to your service in the uniformed services, reserve components or National Guard",
+          "Includes amounts collected under a survivor benefit plan by a surviving or former spouse of a deceased member"
+        ]
+      },
+      "not_covered": [
+        "Amounts deducted on this line cannot be used to calculate the retirement credit or the lump sum retirement credit"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.24, Schedule of Adjustments line 34; Department FAQ 3",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "federal_civil_service_military_share",
+      "label": "Uniformed Services Retirement Income, military-service share of a federal civil service pension (line 34)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Served in the military and receives a federal civil service retirement pension"
+        ]
+      },
+      "cap_rule": "Limited to the share of the federal retirement pay included in federal AGI that is attributable to years of military service: military years / total federal service years x amount in federal AGI (booklet example: 10/30 x 90,000 = 30,000).",
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.24, line 34 text and the Joe example",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "disability_benefits_deduction",
+      "label": "Disability Benefits (Schedule of Adjustments line 42)",
+      "form": "exempt_in_full",
+      "covers": [
+        "other_income"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "not_covered": [
+        "Retirement benefits that converted from disability benefits upon reaching a minimum retirement age",
+        "Temporary wage continuation payments",
+        "Payments for temporary illnesses or injuries (such as sick pay provided by an employer or third party)"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.25, Schedule of Adjustments line 42",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "survivor_benefits_deduction",
+      "label": "Survivor Benefits (Schedule of Adjustments line 43)",
+      "form": "exempt_in_full",
+      "covers": [
+        "other_income"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "not_covered": [
+        "Any amounts payable without the death of a covered individual as a precondition are not survivor benefits"
+      ],
+      "cap_rule": "Any amount received because of the death of another individual, to the extent included in federal AGI; the decedent's age, the recipient's age, the relationship and the prior tax treatment are not relevant. The terms of the plan decide.",
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.25, Schedule of Adjustments line 43",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "military_pay_outside_ohio",
+      "label": "Military Pay for Ohio Residents (Schedule of Adjustments line 32)",
+      "form": "exempt_in_full",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Ohio resident on active duty or in the National Guard, stationed outside Ohio"
+        ]
+      },
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.23, Schedule of Adjustments line 32",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "retirement_income_credit",
+      "label": "Retirement Income Credit (Schedule of Credits line 2)",
+      "form": "credit",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Amounts deducted on the Ohio Schedule of Adjustments (such as Social Security benefits and uniformed services retirement income)",
+        "Rollovers from one retirement plan into another that are not included in your federal adjusted gross income",
+        "Any Social Security benefits",
+        "Early withdraws and distributions (Department FAQ 7)",
+        "Stock option income and non-qualified deferred compensation generally do not qualify as retirement income (Department FAQ 5)"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Income received on account of retirement and included in Ohio AGI",
+          "Has not previously taken the Ohio lump sum retirement credit"
+        ]
+      },
+      "cap": {
+        "all": "200"
+      },
+      "cap_per": "return",
+      "cap_rule": "Credit from Table 2 on the total eligible retirement income of you and your spouse (if filing jointly): 0-500: 0; 501-1,500: 25; 1,501-3,000: 50; 3,001-5,000: 80; 5,001-8,000: 130; 8,001 or more: 200. 'The maximum credit per return is $200.' Nonrefundable.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "Your MAGI less exemptions is less than $100,000"
+      },
+      "cannot_combine_with": [
+        "lump_sum_retirement_credit"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.28 Schedule of Credits line 2; PDF p.44 Table 2; retirement income defined PDF p.43; Department FAQ 2 and 7; bundle PDF p.7 line 2",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "lump_sum_retirement_credit",
+      "label": "Lump Sum Retirement Credit (Schedule of Credits line 3)",
+      "form": "credit",
+      "covers": [
+        "employer_plan_distribution"
+      ],
+      "covers_unclear": [
+        "ira_distribution",
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "A total, lump sum distribution on account of retirement from a qualified pension, retirement or profit-sharing plan, included in Ohio AGI",
+          "Has not previously claimed this credit; taking it forbids the retirement income credit on this and any future return"
+        ]
+      },
+      "cap_rule": "Worksheet PDF p.43: retirement income divided by the age multiple (Table 1, PDF p.44), looked up in Table 2, times the multiple. An amount over the tax carries to later years.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "Your MAGI less exemptions is less than $100,000"
+      },
+      "cannot_combine_with": [
+        "retirement_income_credit"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.28 Schedule of Credits line 3; worksheet PDF p.43; Department FAQ 2",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "senior_citizen_credit",
+      "label": "Senior Citizen Credit (Schedule of Credits line 4)",
+      "form": "credit",
+      "credit_amount": "50",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "min_age": 65,
+        "other_conditions": [
+          "65 or older at the end of the tax year (no source says how a joint return with one spouse 65 is tested)",
+          "Has not previously taken the Ohio lump sum distribution credit"
+        ]
+      },
+      "cap": {
+        "all": "50"
+      },
+      "cap_per": "return",
+      "cap_rule": "The credit is equal to $50 per return.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "Your MAGI less exemptions is less than $100,000"
+      },
+      "cannot_combine_with": [
+        "lump_sum_distribution_credit"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.28 Schedule of Credits line 4; Department FAQ 2; bundle PDF p.7 line 4",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "lump_sum_distribution_credit",
+      "label": "Lump Sum Distribution Credit (Schedule of Credits line 5)",
+      "form": "credit",
+      "covers": [
+        "employer_plan_distribution"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65,
+        "other_conditions": [
+          "A total, lump sum distribution from a qualified pension, retirement or profit-sharing plan",
+          "Has not previously claimed this credit; taking it forbids the senior citizen credit on this and any future Ohio IT 1040"
+        ]
+      },
+      "cap_rule": "Worksheet PDF p.44: the age multiple from Table 1 times $50, per recipient.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "Your MAGI less exemptions is less than $100,000"
+      },
+      "cannot_combine_with": [
+        "senior_citizen_credit"
+      ],
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.28 Schedule of Credits line 5; PDF p.44 worksheet and Table 1; Department FAQ 2",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "exemption_credit",
+      "label": "Exemption Credit (Schedule of Credits line 9)",
+      "form": "credit",
+      "credit_amount": "20",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "The credit equals $20 for each exemption claimed on your return"
+        ]
+      },
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "30000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over",
+        "as_printed": "your modified adjusted gross income (MAGI) less exemptions must be less than $30,000"
+      },
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.29 Schedule of Credits line 9",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "joint_filing_credit",
+      "label": "Joint Filing Credit (Schedule of Credits line 12)",
+      "form": "credit",
+      "credit_rate": "0.20",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Filing jointly, and you and your spouse each have at least $500 of qualifying income",
+          "Qualifying income is any amount included in Ohio AGI other than interest, dividends and distributions, capital gains, and rents and royalties; amounts deducted on the Schedule of Adjustments, such as Social Security, railroad and military retirement benefits and business income, are not qualifying income",
+          "Department FAQ 6: any retirement income not deducted in calculating Ohio AGI is qualifying income",
+          "MAGI less than $750,000"
+        ]
+      },
+      "cap": {
+        "all": "650"
+      },
+      "cap_per": "return",
+      "cap_rule": "A percentage of line 11, tax less the credits on lines 2 to 9, by MAGI less exemptions; the maximum credit per return is $650.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Modified adjusted gross income less exemptions (worksheet PDF p.40: line 3 modified adjusted gross income minus line 4 exemption amount from Ohio IT 1040, line 4)"
+        },
+        "threshold": {
+          "all": "25000"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "all",
+            "over": "25000",
+            "amount": "0.15"
+          },
+          {
+            "status": "all",
+            "over": "50000",
+            "amount": "0.10"
+          },
+          {
+            "status": "all",
+            "over": "75000",
+            "amount": "0.05"
+          },
+          {
+            "status": "all",
+            "over": "750000",
+            "amount": "0",
+            "applies_when": "at_or_over"
+          }
+        ],
+        "as_printed": "0 - $25,000 20% of line 11; $25,001 - $50,000 15% of line 11; $50,001 - $75,000 10% of line 11; $75,001 - $749,999 5% of line 11"
+      },
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.29 Schedule of Credits line 12 and table; bundle PDF p.7 line 12; Department FAQ 6",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "business_income_deduction",
+      "label": "Business Income Deduction (Schedule of Adjustments line 13)",
+      "form": "subtraction",
+      "covers": [
+        "self_employment",
+        "rent_and_royalties",
+        "capital_gains",
+        "interest",
+        "dividends"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Only business income as defined by Ohio law (PDF p.11) that is included in federal AGI; each kind listed in covers counts only when it is business income"
+        ]
+      },
+      "cap": {
+        "all": "250000",
+        "married_separate": "125000"
+      },
+      "cap_per": "return",
+      "cap_rule": "Deduct the first 250,000 (125,000 for married separate filers) of business income included in federal AGI. Business income not deducted is taxed at a flat 3% (IT 1040 lines 6 and 8b), apart from the brackets. The deduction is added back in MAGI.",
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF p.11 'How Is Business Income Treated on My Return?'; PDF p.27 Parts 2 and 3; bundle PDF p.5 lines 11 to 16",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest and dividends on non-Ohio state or local government obligations are added (line 1); interest and gains on Ohio public obligations are deducted (line 18). U.S. obligations exempt by federal law are deducted on line 26.",
+    "cite": {
+      "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+      "section": "PDF p.19 line 1; PDF pp.20-21 line 18; PDF p.22 line 26",
+      "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+        "section": "PDF pp.17-18 and the two Department pages: no statement on inflation adjustment found",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

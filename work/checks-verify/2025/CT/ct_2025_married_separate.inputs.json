@@ -1,0 +1,45 @@
+{
+  "id": "ct_2025_married_separate",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "personal_exemption",
+    "personal_tax_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 19, Table A (MFS column, more than 29,000 to 30,000: 6,000); PDF page 20, Table B (one schedule for Single or Married Filing Separately); PDF page 23, Table E (MFS, more than 27,000 to 48,000: .10); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "14250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.personal_exemption",
+    "relief_amounts.personal_tax_credit"
+  ]
+}

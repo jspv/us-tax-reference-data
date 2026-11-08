@@ -1,0 +1,68 @@
+{
+  "layer": "record",
+  "state": "NV",
+  "tax_year": 2025,
+  "has_income_tax": false,
+  "notes": [
+    "The Income Tax in Nevada, Nevada Department of Taxation says Nevada has no personal income tax; the brackets, surtaxes, deductions and reliefs are therefore empty.",
+    "The source prints no standard deduction, personal or dependent exemption, or other income-tax deduction (it describes no income tax).",
+    "Social Security treatment: not stated in the source; not found in the source.",
+    "Municipal bond interest treatment: not stated in the source; not found in the source.",
+    "Capital gains: the source prints no rate or treatment for gains; not found in the source.",
+    "The page carries no tax year; it was retrieved 2026-11-07 and is recorded as tax year 2025 as dispatched."
+  ],
+  "brackets": {
+    "single": [],
+    "married_joint": [],
+    "cite": {
+      "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+      "section": "'Income Tax in Nevada' page, second sentence of the body text: \"The State of Nevada does not impose a state income tax on individuals or participate in the administration of Federal Income Tax.\"",
+      "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "none",
+    "deductions": [],
+    "cite": {
+      "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+      "section": "'Income Tax in Nevada' page, second sentence of the body text: \"The State of Nevada does not impose a state income tax on individuals or participate in the administration of Federal Income Tax.\"",
+      "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+      "section": "page text: no statement on this topic",
+      "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "not_stated",
+    "cite": {
+      "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+      "section": "page text: no statement on this topic",
+      "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "Income Tax in Nevada, Nevada Department of Taxation",
+        "section": "page text: no statement on this topic",
+        "url": "https://tax.nv.gov/about-nevada-department-of-taxation/income-tax-in-nevada/",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "recapture": []
+}

@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "2320.99",
+  "state_tax_before_credits": "2320.99",
+  "state_taxable_income": "200000.00"
+ },
+ "worked": "Federal check: AGI 231,500.00 = wages 231,500.00; less standard deduction 31,500 + age 0 = federal taxable income 200,000.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 200,000.00; no additions (lines 2-3 are 0).\nLine 17 total subtractions = 0.00\nLine 18 = 200,000.00 - 0.00 = 200,000.00\nLine 20 tax: married_joint band 0.0195 on 119,025.00 (over 80,975.00) = 2320.987500\nLine 20 tax = 2320.987500 -> 2320.99 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 2320.99.\nMarriage credit (form only, projection leaves it out): line 1 200,000.00, qualified incomes 115,750.00 and 115,750.00: line 6 100,000.00, line 7 1004.74, line 8 100,000.00, line 9 1004.74, line 10 2320.99, line 12 311.512500, form credit 311.51, form net tax 2009.48. Expected follows the projection: credits 0.00. Approximation: The marriage penalty credit is left out."
+}

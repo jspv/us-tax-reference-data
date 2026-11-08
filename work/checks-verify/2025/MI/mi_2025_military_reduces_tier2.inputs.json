@@ -1,0 +1,62 @@
+{
+  "id": "mi_2025_military_reduces_tier2",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "military_retirement",
+    "tier2_standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 11 (PDF page 14); Schedule 1 line 25 (PDF page 17: 'reduced by any amounts reported on line 11'); Worksheet 2 lines 1, 3, 5, 6, 7, 7a (PDF page 18); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 76,
+        "born": "1949-06-01"
+      },
+      {
+        "age": 74,
+        "born": "1951-01-20"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "15000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        },
+        {
+          "amount": "16000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "30600.00",
+      "interest": "40000.00"
+    },
+    "federal_agi": "85600.00",
+    "federal_taxable_income": "50900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.military_retirement",
+    "relief_amounts.tier2_standard_deduction"
+  ]
+}

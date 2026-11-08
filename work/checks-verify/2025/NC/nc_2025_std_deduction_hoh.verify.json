@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "state_taxable_income": "36000.00",
+    "state_tax_before_credits": "1530.00",
+    "credits": "0.00",
+    "state_income_tax": "1530.00"
+  },
+  "worked": "D-400 Line 6 federal AGI 55125.00. Line 7 additions 0.00. Schedule S Part B: none. Line 9 deductions 0.00. Line 6 + Line 7 - Line 9 = 55125.00 + 0.00 - 0.00 = 55125.00. Line 11 NC standard deduction (head_of_household) 19125.00. Line 14 NC taxable income 55125.00 - 19125.00 = 36000.00. Line 15 tax 36000.00 x 4.25% = 1530.00. Line 16 credits 0.00 (no credits in the projection). Tax 1530.00."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "ca_2025_joint_over_one_million",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 16 Line 62 Behavioral Health Services Tax worksheet lines 1 to 5; PDF page 40 Form 540 lines 48, 62 and 64",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-03-03"
+      },
+      {
+        "age": 59,
+        "born": "1966-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "1000000.00",
+          "person": 0
+        },
+        {
+          "amount": "700000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "1700000.00",
+    "federal_taxable_income": "1668500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.standard_deduction"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "mt_2025_elderly_credit_not_modelled",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p15 Line 16 Elderly Homeowner/Renter Credit; Form 2 PDF p1 line 16; projection not_modelled",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "14250.00"
+  },
+  "expected": {
+    "state_agi": "14250.00",
+    "state_taxable_income": "14250.00",
+    "state_tax_before_credits": "669.75",
+    "credits": "0.00",
+    "state_income_tax": "669.75"
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 15,750.00 = 14,250.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 30,000.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 14,250.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 14,250.00 + 0.00 - 0.00 - 0.00 = 14,250.00. Page 2 worksheet: line 1 taxable income 14,250.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 4.7% x 14,250.00 = 669.75; line 13 = 669.75, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 14,250.00 = 669.75. Line 9 nonrefundable credits 0.00; line 10 tax after credits 669.75. Age 64 with household income under 45,000: a filer may qualify for the refundable Elderly Homeowner/Renter Credit (up to 1,150, Form 2 line 16). It is a property tax relief credit, comes after line 10, and is not in the projection, so the expected tax is before it.",
+  "accepted_approximations": [
+    "Elderly Homeowner/Renter Credit: refundable, up to 1,150, for age 62 or older with household income under 45,000. Property tax relief outside the record."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mt_elderly_homeowner_renter_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

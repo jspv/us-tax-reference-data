@@ -1,0 +1,68 @@
+{
+  "id": "oh_2025_credits_test_after_social_security",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_income_credit",
+    "senior_citizen_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; Schedule of Adjustments line 16 (PDF p.20; bundle PDF p.3); Senior Citizens page 'Social Security Benefits'; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 2 (PDF p.28; Table 2 PDF p.44; bundle PDF p.7); Department FAQ 2; Schedule of Credits line 4 (PDF p.28; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-08-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "90050.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "20000.00"
+    },
+    "federal_agi": "110050.00",
+    "federal_taxable_income": "92300.00"
+  },
+  "expected": {
+    "state_agi": "90050.00",
+    "state_taxable_income": "88150.00",
+    "state_tax_before_credits": "2049.75",
+    "credits": "250.00",
+    "state_income_tax": "1799.75",
+    "relief_amounts": {
+      "retirement_income_credit": "200.00",
+      "senior_citizen_credit": "50.00"
+    }
+  },
+  "worked": "Federal AGI = private pension person 0 90,050.00 + taxable Social Security 20,000.00 = 110,050.00. Federal taxable income = 110,050.00 - standard deduction 15,750.00 - 1 x 2,000.00 age 65 additional = 92,300.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 110,050.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: line 16 taxable Social Security 20,000.00; line 47 total 20,000.00; line 2b 20,000.00. Line 3 Ohio AGI = 110,050.00 + 0.00 - 20,000.00 = 90,050.00. Line 4: MAGI is line 3 with no business income deduction, 90,050.00, in the band 80,001 to 749,999: 1,900.00 each; 1 exemption x 1,900.00 = 1,900.00. Line 5 = 90,050.00 - 1,900.00 = 88,150.00. Line 6 taxable business income 0.00. Line 7 = 88,150.00. Line 8a tax: 88,150.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (88,150.00 - 26,050.00 = 62,100.00) = 342.00 + 1,707.75 = 2,049.75. Schedule of Credits line 1 = 2,049.75. MAGI less exemptions (worksheet PDF p.40) = 90,050.00 - 1,900.00 = 88,150.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: covered retirement income 90,050.00; 200.00 (Table 2 at 8,001 or more: 200). Line 4 senior citizen credit: taxpayer is 65 or older at the end of the year; 50.00 per return. Line 10 credits = 200.00 + 50.00 = 250.00. Line 11 = 2,049.75 - 250.00 = 1,799.75. State income tax 1,799.75. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 2,050; expected keeps the formula result. Federal AGI is over 100,000 but Ohio AGI is 90,050.00 after the Social Security deduction, so both credits stay.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:federal_civil_service_military_share",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:lump_sum_retirement_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction",
+    "state_rule_not_modelled:survivor_benefits_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

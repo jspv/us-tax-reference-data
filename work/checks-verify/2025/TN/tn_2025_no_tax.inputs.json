@@ -1,0 +1,39 @@
+{
+  "id": "tn_2025_no_tax",
+  "state": "TN",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Hall Income Tax, Tennessee Department of Revenue",
+    "section": "Hall Income Tax page: the Hall income tax was repealed for tax periods beginning on or after January 1, 2021 (no state return or form lines exist)",
+    "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

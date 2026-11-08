@@ -1,0 +1,52 @@
+{
+  "id": "md_2025_exemption_step_800_at_150000_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption",
+    "age_65_exemption",
+    "pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule I (PDF page 22); Chart 10A row over 125,000 not over 150,000 ($800) and chart text (age exemption not reduced); Worksheet 13A (PDF page 14); Line 10a (PDF page 15); Worksheet Schedules 17A (PDF page 41)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "120000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "132250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_exclusion"
+  ]
+}

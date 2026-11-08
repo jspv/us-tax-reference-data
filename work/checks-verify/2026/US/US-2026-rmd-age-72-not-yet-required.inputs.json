@@ -1,0 +1,19 @@
+{
+  "id": "US-2026-rmd-age-72-not-yet-required",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "rmd",
+  "boundary": "below",
+  "tests": [
+    "rmd.start_age"
+  ],
+  "description": "IRA owner born in 1954, age 72 in 2026: start age 73, so no distribution is required yet.",
+  "inputs": {
+    "filing_status": "single",
+    "rmd_owner_born": "1954-03-10",
+    "rmd_prior_year_end_balance": "400000"
+  },
+  "asked": [
+    "rmd_amount"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "ar_2025_employer_plan_under_59_5_capped",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ar_retirement_exclusion_employer_plan"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 11 items 12 and 13 and the NOTE (total exemptions from all plans under 12 and 13 cannot exceed 6,000 per taxpayer); PDF page 13 LINE 18A and 18B (public or private employment-related plans, the recipient does not have to be retired; traditional IRA after 59 1/2); record ar_employer_plan_exclusion, ar_traditional_ira_exclusion_59_5; PDF page 13 LINE 16 (premature distributions); PDF page 14 LINE 32",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "3000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "43000.00",
+    "federal_taxable_income": "27250.00"
+  },
+  "expected": {
+    "state_agi": "37000.00",
+    "state_taxable_income": "34530.00",
+    "state_tax_before_credits": "926.71",
+    "credits": "29.00",
+    "state_income_tax": "897.71",
+    "relief_amounts": {
+      "ar_retirement_exclusion_employer_plan": "6000.00"
+    }
+  },
+  "worked": "Single, 55: 401(k) distribution 10,000 and traditional IRA distribution 3,000. Under 59 1/2 the IRA distribution does not qualify (PDF page 11 item 13); the 401(k) takes the 6,000 at any age. Federal (given, not tested): federal AGI = wages (primary) 30,000.00 + employer plan (401(k)) distribution (primary) 10,000.00 + traditional IRA distribution (primary) 3,000.00 = 43,000.00. Federal taxable income = 43,000.00 - standard deduction 15,750.00 = 27,250.00 (federal senior deduction ignored). AR1000F, filing status 1 (single); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 30,000.00. Line 16 premature traditional IRA distribution (primary, age 55, under 59 1/2) 3,000.00, taxable in full (no 6,000 exemption: PDF page 11 item 13, PDF page 13 LINE 18B). Line 18A (primary, age 55): gross employer plan 10,000.00 = 10,000.00; less the 6,000 exemption: exemption = lesser of 10,000.00 and 6,000.00 = 6,000.00; taxable 4,000.00. Line 23 total income = 37,000.00; line 24 adjustments 0.00; line 25 AGI = 37,000.00. Projection check: federal AGI 43,000.00 - 6,000 exclusion (ar_retirement_exclusion_employer_plan) 6,000.00 = state AGI 37,000.00. Line 27 standard deduction (filing status 1) 2,470.00; line 28 net taxable income = 37,000.00 - 2,470.00 = 34,530.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (11,200.00 - 5,600.00) 5,600.00 = 112.00 + 3% x (15,990.00 - 11,200.00) 4,790.00 = 143.70 + 3.4% x (26,400.00 - 15,990.00) 10,410.00 = 353.94 + 3.9% x (34,530.00 - 26,400.00) 8,130.00 = 317.07; total 926.71. (The Regular Income Tax Table row 34,501-34,601 gives 928; expected keeps the schedule.) Line 7A boxes: personal 1 = 1 x 29.00 = 29.00; line 7C and line 34 29.00; line 37 total credits 29.00. Line 38 net tax = 926.71 - 29.00 = 897.71. Line 32 (10% of the federal Form 5329 additional tax on the early IRA distribution, 10% x 300.00 = 30.00) is not added by the projection (approximations); expected leaves it out.",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "The employer-plan exclusion is given at any age, following the 2025 instructions ('The recipient does not have to be retired'). Subject 206 (revised 2/24/2023) says a person under 59 1/2 cannot qualify for the 6,000 exemption; if that applies to employer plans, people under 59.5 get no exclusion.",
+    "The additional tax on early distributions (10% of the federal Form 5329 additional tax, line 32) is not added."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

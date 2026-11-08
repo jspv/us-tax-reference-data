@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "age_deduction_born_by_1939": "8000.00"
+    },
+    "state_agi": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00"
+  },
+  "worked": "Line 1 federal AGI 8000.00; Line 2 additions 0.00; Line 3 8000.00. Line 5 Social Security subtraction (taxable on federal return) 0.00. Line 4 age deduction person 0 (born 1936-05-01, on or before 1939-01-01): 12,000.00, no income test; limited to the return's remaining state income 8000.00: 8000.00. Line 8 total subtractions 8000.00; Line 9 VAGI = 8000.00 - 8000.00 = 0.00. Line 11 standard deduction 8750.00; Line 12 exemptions 1 x 930 + 1 x 800 (age 65 or older by 2026-01-01) = 1730.00. Line 14 taxable income = 0.00 - 8750.00 - 1730.00 = -10480.00 (floored at 0). Line 15 tax by the rate schedule as numbers: 0.00; total 0.00. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 0.00. Federal figures given; federal senior deduction ignored (not tested). The form itself enters the full 12,000.00 on Line 4, giving VAGI 8,000.00 - 12,000.00 = -4,000.00; the projection limits an all_income amount to the return's income (8,000.00). Tax is 0 either way (VAGI is also under the 11,950 filing threshold)."
+}

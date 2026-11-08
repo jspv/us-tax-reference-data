@@ -1,0 +1,54 @@
+{
+  "id": "ia_2025_negative_line_2_with_municipal_interest",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12; Line 2, PDF p.9-10; Schedule 1 line 1 column A, PDF p.64",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "10000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "5000.00"
+    },
+    "federal_agi": "10000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_taxable_income": "5000.00",
+    "state_tax_before_credits": "190.00",
+    "credits": "40.00",
+    "state_income_tax": "150.00",
+    "relief_amounts": {
+      "ia_personal_credit": "40.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 10,000.00 = 10,000.00. Federal taxable income = 10,000.00 - standard deduction 15,750.00 = -5,750.00, floored at 0.00 (federal senior deduction ignored). IA 1040 filing status 1 (single). Step 3 line a personal credits 1 x 40.00 = 40.00; line b 0 x 20.00 = 0.00 (65 or older on or before January 1, 2026; nobody blind); line c no dependents; line d and line 8 = 40.00. Line 1c federal AGI 10,000.00; line 2 federal taxable income 0.00. Schedule 1 line 1 column A: Iowa municipal interest 5,000.00 added. Schedule 1 line 21 net modifications = 5,000.00; line 3 = 5,000.00. Line 4 Iowa taxable income = 0.00 + (5,000.00) = 5,000.00. Line 5 tax = 3.8% x 5,000.00 = 190.00; line 7 = 190.00. Line 11 total credits 40.00; line 12 balance = 190.00 - 40.00 = 150.00. State income tax 150.00 (no line 13-17 credits; line 19 school district or EMS surtax is local, not computed). The form allows whole-dollar rounding; expected keeps the cents. Low-income exemption test (PDF p.10-11): line 4 -750.00 + federal deduction 15,750.00 = 15,000.00, against 9,000.00: not exempt. Single filers' tax reduction (PDF p.18): its worksheet 41-146 is not in the sources, so it is not applied. The form's figure is 0.00: line 2 may be negative (10,000.00 - 15,750.00 = -5,750.00, PDF p.9-10), so line 4 is -750.00 and no tax is due. The projection floors federal taxable income at 0.00 first, so the addition is taxed.",
+  "accepted_approximations": [
+    "The low-income exemption, the alternate tax (every status except single) and the single filers' tax reduction are not applied; the record holds them in notes. The reduction's terms are not in the sources.",
+    "All municipal interest is taxed; a printed list of Iowa issues (PDF p.64) and bonds of Guam, Puerto Rico and the Virgin Islands (PDF p.65) is exempt, and other Iowa bonds are taxed like other states' bonds.",
+    "Federal taxable income is taken as computed, floored at zero; Iowa line 2 can be negative when deductions exceed income, and that negative amount offsets Iowa additions.",
+    "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

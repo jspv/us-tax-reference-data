@@ -1,0 +1,76 @@
+{
+  "id": "ri_2025_mfj_younger_has_plan_older_has_social_security",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_pension_annuity_modification",
+    "ri_social_security_modification"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF pp.9-10, Schedule M line 1t, questions 1 and 2 and table lines 1-4; Worksheet Step 1 lines 1-7, Step 2 lines 8-13 and instructions PDF p.9, Schedule M line 1s; Guide PDF pp.23-24, Section 5 Example #9; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      },
+      {
+        "age": 64,
+        "born": "1961-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "114000.00",
+    "federal_taxable_income": "80900.00"
+  },
+  "expected": {
+    "state_agi": "88500.00",
+    "state_taxable_income": "56500.00",
+    "state_tax_before_credits": "2118.75",
+    "credits": "0.00",
+    "state_income_tax": "2118.75",
+    "relief_amounts": {
+      "ri_pension_annuity_modification": "0.00",
+      "ri_social_security_modification": "25500.00"
+    }
+  },
+  "worked": "Federal AGI = wages 60,000.00 + employer plan distributions 20,000.00 + taxable Social Security 34,000.00 = 114,000.00. Federal taxable income = 114,000.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 80,900.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 114,000.00. Line 1s, Social Security worksheet: person 0 born 1957-06-15 (age 68), person 1 born 1961-06-15 (age 64). Line 3 federal AGI 114,000.00; line 4 Married filing jointly; line 5 born on or before 03/01/1959: yes; line 6 133,750.00; line 7 114,000.00 less than 133,750.00: yes. Line 8 benefits 40,000.00; line 9 attributed to the person born on or before 03/01/1959 30,000.00; line 10 = 0.7500; line 12 = 0.7500. Line 11 taxable benefits 34,000.00; line 13 = 34,000.00 x 0.7500 = 25,500.00. Line 1t: question 1 born on or before March 1, 1959: person 0 born 1957-06-15 (age 68), person 1 born 1961-06-15 (age 64): yes; question 2 federal AGI 114,000.00 less than or equal to 133,750.00: yes. Table: person 0 line 2 0.00, line 3 lesser of that and 50,000.00 = 0.00; person 1 line 2 0.00, line 3 lesser of that and 50,000.00 = 0.00; line 4 = 0.00. Line 1y total decreasing modifications = 25,500.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 25,500.00 = -25,500.00; RI-1040 line 2 = -25,500.00. Line 3 modified federal AGI = 114,000.00 + (-25,500.00) = 88,500.00. Standard Deduction and Exemption Worksheets: line 3 88,500.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 21,800.00 (Married filing jointly). Line 5 = 88,500.00 - 21,800.00 = 66,700.00. Line 6 exemptions: 2 x 5,100.00 = 10,200.00. Line 7 taxable income = 66,700.00 - 10,200.00 = 56,500.00. Line 8 tax on 56,500.00 by the schedule as numbers: 56,500.00 x 0.0375 = 2118.75000000 = 2,118.75. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 2,118.75. Note: Shape of Guide Example #9: the plan money belongs to the spouse under full retirement age, so no pension modification; the older spouse takes only a share of the Social Security. Only the older spouse qualifies, so lines 8-12 apply.",
+  "accepted_approximations": [
+    "On a joint return with one qualifying person, the Social Security subtraction is the taxable benefits times that person's share of total benefits (worksheet lines 8-12). Consumers must divide taxable Social Security between the spouses by their gross benefits to get this result."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

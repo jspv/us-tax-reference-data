@@ -1,0 +1,63 @@
+{
+  "id": "la_2025_railroad_retirement_keeps_65_exemption",
+  "state": "LA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "la_railroad_retirement",
+    "la_retirement_income_exemption_65"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "FAQ: list of retirement system benefits that may be excluded from Louisiana income tax",
+    "section": "FAQ page 1, Federal Retirement Benefits Exclusion (R.S. 47:44.2); instructions PDF page 7, code 06E and Worksheet for Code 06E, Lines 1 to 6; Schedule E Lines 1, 3, 4A to 4H, 5 (Form IT-540 PDF page 8; instructions PDF pages 6, 7 and 10); Form IT-540 (PDF page 3) Lines 7, 8, 10, 11, 12, 13; instructions PDF page 3, Lines 7 to 13; rate: PDF page 1 What's New",
+    "url": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/individual-income-tax/is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax/"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-04"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "64000.00",
+    "federal_taxable_income": "46250.00"
+  },
+  "expected": {
+    "state_agi": "28000.00",
+    "state_taxable_income": "15500.00",
+    "state_tax_before_credits": "465.00",
+    "credits": "0.00",
+    "state_income_tax": "465.00",
+    "relief_amounts": {
+      "la_railroad_retirement": "24000.00",
+      "la_retirement_income_exemption_65": "12000.00"
+    }
+  },
+  "worked": "Federal AGI = Railroad Retirement benefits (person 0) 24,000.00 + IRA distribution (person 0) 40,000.00 = 64,000.00. Federal taxable income = 64,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 46,250.00 (given, not tested; the federal senior deduction is ignored). Filing status 1 on Form IT-540. Louisiana starts from federal AGI. Worksheet for Code 06E (first column): Line 1(a) 64,000.00 (person 0, age 67); Line 2(a) 24,000.00; Line 3(a) = 40,000.00; Line 4 12,000.00; Line 5(a) lesser of Lines 3 and 4 = 12,000.00. Line 6 = Line 5(a) = 12,000.00, code 06E. Schedule E: Line 1 federal AGI 64,000.00. Line 3 total = 64,000.00. Exempt income: code 04E Railroad Retirement benefits 24,000.00; code 06E 12,000.00. Line 4H = 36,000.00. Line 5 Louisiana AGI = 64,000.00 - 36,000.00 = 28,000.00. IT-540 Line 7 (from Schedule E Line 5) 28,000.00. Line 8 standard deduction (filing status 1) 12,500.00. Lines 9A to 9D skipped (no federal itemizing). Line 10 = 28,000.00 - 12,500.00 = 15,500.00. Line 11 = 15,500.00 x .03 = 465.00. Line 12 credits 0.00. Line 13 = 465.00. Railroad benefits sit outside code 06E: they are taken out on Worksheet Line 2, with the amounts exempted as federal retirement benefits, and do not use the 12,000.",
+  "accepted_approximations": [
+    "All Railroad Retirement income is treated as exempt. The only source says benefits 'received by federal retirees' may be excluded, and does not say who else qualifies."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

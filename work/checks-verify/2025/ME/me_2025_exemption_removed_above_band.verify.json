@@ -1,0 +1,11 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {},
+    "state_agi": "500000.00",
+    "state_income_tax": "35241.60",
+    "state_tax_before_credits": "35241.60",
+    "state_taxable_income": "500000.00"
+  },
+  "worked": "Line 14 federal AGI (given): 500,000.00\nLine 15b total subtractions: 0.00\nLine 16 Maine AGI: 500,000.00 + 0.00 - 0.00 = 500,000.00\nLine 17 chart: 15,000.00 + 0 box(es) 65 or over x 2000 = 15,000.00\nStandard deduction worksheet lines 1-5 (Maine AGI): (500,000.00 - 100,000.00) / 75,000.00 = 5.333333 >= 1, enter 1.0000; nothing kept\nWorksheet line 7 = 15,000.00 x 1 = 15,000.00; line 8 standard deduction = 0.00\nExemption phaseout worksheet lines 1-5 (Maine AGI): (500,000.00 - 333,450.00) / 125,000.00 = 1.332400 >= 1, enter 1.0000; nothing kept\nLine 18: 1 x 5,150 = 5,150.00; worksheet line 7 = 5150 x 1 = 5150; exemption 0.00\nLine 19 taxable income: 500,000.00 - 0.00 - 0.00 = 500,000.00\nTax (2025 rate schedule, single): 0.058 x (26,800.00 - 0.00) = 1,554.4000; 0.0675 x (63,450.00 - 26,800.00) = 2,473.8750; 0.0715 x (500,000.00 - 63,450.00) = 31,213.3250; total 35,241.6000 -> 35,241.60\nCredits: the projection models no credits; 0.00. Federal taxable income is not used (Maine starts from federal AGI); federal senior deduction ignored as given."
+}

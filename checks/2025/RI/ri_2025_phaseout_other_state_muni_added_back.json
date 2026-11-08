@@ -1,0 +1,55 @@
+{
+  "id": "ri_2025_phaseout_other_state_muni_added_back",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ri_standard_deduction",
+    "ri_personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Rhode Island Tax Rate Schedule and Worksheets (final, January 2026)",
+    "section": "Standard Deduction Worksheet and Exemption Worksheet lines 1-8, 2025 Tax Rate Schedule and Worksheets PDF p.1 (marked DRAFT 10/01/2025); Instructions PDF p.10, Schedule M line 2a; Guide PDF p.19, Example 2 (Rhode Island bonds); Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-01/2025%20Tax%20Rate%20and%20Worksheets.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "250000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "10000.00",
+      "municipal_interest_own_state": "5000.00"
+    },
+    "federal_agi": "250000.00",
+    "federal_taxable_income": "234250.00"
+  },
+  "expected": {
+    "state_agi": "260000.00",
+    "state_taxable_income": "247200.00",
+    "state_tax_before_credits": "11755.82",
+    "credits": "0.00",
+    "state_income_tax": "11755.82",
+    "relief_amounts": {
+      "ri_personal_exemption": "4080.00",
+      "ri_standard_deduction": "8720.00"
+    }
+  },
+  "worked": "Federal AGI = wages 250,000.00 = 250,000.00. Municipal interest is outside federal AGI. Federal taxable income = 250,000.00 - 15,750.00 standard deduction = 234,250.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 250,000.00. Line 1y total decreasing modifications = 0.00. Line 2a other-state obligations 10,000.00; line 2m total increasing modifications = 10,000.00. Schedule M page 2 line 3 net = 10,000.00 - 0.00 = 10,000.00; RI-1040 line 2 = 10,000.00. Line 3 modified federal AGI = 250,000.00 + (10,000.00) = 260,000.00. Standard Deduction and Exemption Worksheets: worksheet line 5 = 260,000.00 - 254,250.00 = 5,750.00, not more than 29,000; line 6 = 5,750.00 / 7,250 = 0.7931034, raised to 1; line 7 = 0.8000. Line 4 standard deduction: 10,900.00 (Single) x 0.8000 = 8,720.00. Line 5 = 260,000.00 - 8,720.00 = 251,280.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00 x 0.8000 = 4,080.00. Line 7 taxable income = 251,280.00 - 4,080.00 = 247,200.00. Line 8 tax on 247,200.00 by the schedule as numbers: 79,900.00 x 0.0375 = 2996.2500 + 101,750.00 x 0.0475 = 4833.1250 + 65,550.00 x 0.0599 = 3926.445000 = 11,755.82. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 11,755.82. Note: Federal AGI is 250,000, but Schedule M line 2a adds the other-state bonds, which lifts line 3 over 254,250. Rhode Island's own bonds are not on the federal return and are not added.",
+  "accepted_approximations": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "layer": "projection",
+  "state": "NE",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/NE.record.json",
+    "sha256": "f0892f0545396dfae972bf4a48037a3844165e5e383edc5de8e3cfc054ae1876"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0246",
+        "start": "0"
+      },
+      {
+        "rate": "0.0351",
+        "start": "4030"
+      },
+      {
+        "rate": "0.0501",
+        "start": "24120"
+      },
+      {
+        "rate": "0.052",
+        "start": "38870"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0246",
+        "start": "0"
+      },
+      {
+        "rate": "0.0351",
+        "start": "8040"
+      },
+      {
+        "rate": "0.0501",
+        "start": "48250"
+      },
+      {
+        "rate": "0.052",
+        "start": "77760"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.0246",
+        "start": "0"
+      },
+      {
+        "rate": "0.0351",
+        "start": "4030"
+      },
+      {
+        "rate": "0.0501",
+        "start": "24120"
+      },
+      {
+        "rate": "0.052",
+        "start": "38870"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.0246",
+        "start": "0"
+      },
+      {
+        "rate": "0.0351",
+        "start": "7510"
+      },
+      {
+        "rate": "0.0501",
+        "start": "38590"
+      },
+      {
+        "rate": "0.052",
+        "start": "57630"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ne_standard_deduction",
+        "amount": {
+          "single": "8600",
+          "married_joint": "17200",
+          "married_separate": "8600",
+          "head_of_household": "12600",
+          "qualifying_surviving_spouse": "17200"
+        },
+        "per": "return"
+      },
+      {
+        "id": "ne_age_65_additional",
+        "amount": {
+          "single": "2000",
+          "married_joint": "1650",
+          "married_separate": "1650",
+          "head_of_household": "2000",
+          "qualifying_surviving_spouse": "1650"
+        },
+        "per": "person",
+        "min_age": 65
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "ne_personal_exemption_credit",
+      "from_record": [
+        "ne_personal_exemption_credit"
+      ],
+      "form": "credit",
+      "credit_amount": "171",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "single": "171",
+        "married_joint": "342",
+        "married_separate": "171",
+        "head_of_household": "171",
+        "qualifying_surviving_spouse": "171"
+      },
+      "cap_per": "return"
+    },
+    {
+      "id": "ne_military_retirement_exclusion",
+      "from_record": [
+        "ne_military_retirement_exclusion"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "ne_railroad_retirement_exclusion",
+      "from_record": [
+        "ne_railroad_retirement_exclusion"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "ne_personal_exemption_credit",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs:ne_personal_exemption_credit"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "ne_csrs_annuity_exclusion",
+      "from_record": [
+        "ne_csrs_annuity_exclusion"
+      ],
+      "warn_when": "has_pension",
+      "what": "Federal Civil Service Retirement System (CSRS) annuities are subtracted in full (Schedule I line 38); Federal Employees Retirement System (FERS) annuities are expressly excluded, and a mixed annuity qualifies only for its CSRS part. A projection cannot tell CSRS from FERS, so modelling this would exempt FERS pensions. A household with a CSRS annuity pays less than the run shows."
+    },
+    {
+      "id": "ne_federal_tax_liability_limit",
+      "from_record": [
+        "ne_federal_tax_liability_limit"
+      ],
+      "warn_when": "always",
+      "what": "Federal Tax Liability Worksheet (line 35): when line 12 minus line 13 is under 5,000, which includes every negative figure, Nebraska tax after nonrefundable credits is limited to federal tax before credits. A projection has no input for the federal tax, so a household with little or no federal tax pays less than the run shows."
+    },
+    {
+      "id": "ne_credit_elderly_disabled",
+      "from_record": [
+        "ne_credit_elderly_disabled"
+      ],
+      "warn_when": "always",
+      "what": "Credit for the Elderly or the Disabled (line 20): the household's federal Schedule R credit, limited by federal tax. The booklet prints no amount or age test of its own, so the warning cannot be narrowed by age."
+    },
+    {
+      "id": "ne_other_tax_lump_sum_early_distribution",
+      "from_record": [],
+      "warn_when": "has_retirement_account_distribution",
+      "what": "Nebraska other tax (line 16): 29.6% of the federal tax on lump-sum distributions and on early distributions of qualified retirement plans, on top of the ordinary tax. Applies to any household that pays the federal early-distribution tax; the format has no trigger for that.",
+      "age_range": [
+        0,
+        59
+      ]
+    },
+    {
+      "id": "ne_earned_income_credit",
+      "from_record": [
+        "ne_earned_income_credit"
+      ],
+      "warn_when": "never",
+      "what": "Refundable Nebraska earned income credit (line 44): 10% of the federal earned income credit."
+    },
+    {
+      "id": "ne_dependent_exemption_credit",
+      "from_record": [
+        "ne_dependent_exemption_credit"
+      ],
+      "warn_when": "has_dependents",
+      "what": "The 171 credit for each dependent on line 4c."
+    },
+    {
+      "id": "ne_blind_additional",
+      "from_record": [
+        "ne_blind_additional"
+      ],
+      "warn_when": "never",
+      "what": "Additional standard deduction of 2,000 (single, head of household) or 1,650 (the others) for each filer or spouse who is blind. A projection does not know blindness."
+    },
+    {
+      "id": "ne_standard_deduction",
+      "from_record": [
+        "ne_standard_deduction"
+      ],
+      "warn_when": "never",
+      "what": "A filer who can be claimed by another taxpayer takes the smaller of the federal standard deduction or the chart amount, and gets no personal exemption credit."
+    },
+    {
+      "id": "ne_national_guard_exclusion",
+      "from_record": [
+        "ne_national_guard_exclusion"
+      ],
+      "warn_when": "never",
+      "what": "Nebraska National Guard income exclusion (line 41): a projection cannot tell this pay from other wages."
+    },
+    {
+      "id": "ne_bullion_gain",
+      "from_record": [
+        "ne_bullion_gain"
+      ],
+      "warn_when": "never",
+      "what": "Net gain on gold or silver bullion is subtracted (line 43) and a net loss added back (line 11); a projection cannot tell bullion from other gains."
+    },
+    {
+      "id": "ne_record_notes_lines",
+      "from_record": [],
+      "warn_when": "never",
+      "what": "Lines held in the record notes: credit for tax paid to another state (line 19, Schedule II), the Special Capital Gains/Extraordinary Dividend Deduction (line 19 of Schedule I, Form 4797N, not in the sources), health insurance premiums of retired law enforcement officers and firefighters (line 36), and the other Schedule I lines."
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither.",
+      "direction": "either",
+      "size": "Under 1 dollar a year: every printed row is within 0.50, the worksheet above 77,760 within 0.45 (single 3,565.55 against 3,566 at 77,760), and the choice inside a range moves tax by at most 0.49."
+    },
+    {
+      "what": "Nebraska tax is not limited to federal tax before credits (Federal Tax Liability Worksheet, line 35, not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to the whole Nebraska tax, when line 12 minus line 13 is under 5,000 and federal tax is below Nebraska tax. Example: a couple with 60,000 of long-term gains and federal tax 0 owes 0 on the form; the projection gives about 1,076 (taxable income 42,800, tax 1,417.86, less two credits of 171)."
+    },
+    {
+      "what": "The Nebraska standard deduction is always taken. A filer who itemized federally may take federal itemized deductions minus state and local income taxes, if larger.",
+      "direction": "overstates_tax",
+      "size": "5.20% of the amount by which Nebraska itemized deductions exceed the standard deduction, at most, for an itemizer."
+    },
+    {
+      "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "At most 5.20% of the interest."
+    },
+    {
+      "what": "A projection that cannot tell Nebraska bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "At most 5.20% of the interest from exempt Nebraska obligations."
+    },
+    {
+      "what": "The additional 65 amount goes by age in the year. The booklet tests birth before January 2, 1961 for 2025, so a person born on January 1, 1961 counts in 2025, the year before turning 65; and on a married filing separately return the spouse counts only if the filer can claim the spouse.",
+      "direction": "either",
+      "size": "At most 5.20% of 2,000, or 104, in one year for the few people these cases reach."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "342",
+      "how": "sum",
+      "of": [
+        "171",
+        "171"
+      ],
+      "what": "Limit on the personal exemption credit on a joint return: one each on lines 4a and 4b. Every other status has only line 4a, so its limit is 171, and a married filing separately return that lists both spouses still gets one credit."
+    }
+  ]
+}

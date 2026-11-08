@@ -1,0 +1,14 @@
+{
+ "expected": {
+  "state_agi": "15300.00",
+  "state_taxable_income": "3980.00",
+  "state_tax_before_credits": "187.06",
+  "credits": "0.00",
+  "state_income_tax": "187.06",
+  "relief_amounts": {
+   "age_65_subtraction": "11320.00",
+   "railroad_retirement_subtraction": "40000.00"
+  }
+ },
+ "worked": "Federal AGI 90,000.00 (given); federal taxable income 55,300.00 (given, standard deduction, no federal senior deduction). Form 2 line 3 = 55,300.00 (floored at 0). Line 4 additions (Schedule I line 1, other states' bonds) 0.00. Line 5 subtractions (Schedule I lines 22-23, Railroad Retirement Board benefits) 40,000.00. State income before line 6: 55,300.00 + 0.00 - 40,000.00 = 15,300.00. Line 6 age 65 subtraction: 2 x 5,660.00 = 11,320.00. Line 7: 15,300.00 - 11,320.00 = 3,980.00. Bracket tax (married_joint, 5.9% from 42,200): 3,980.00 x 4.7% = 187.06. Line 8: 187.06. Credits 0.00 (no credit in the projection; Elderly Homeowner/Renter Credit and EITC not modelled). State income tax 187.06."
+}

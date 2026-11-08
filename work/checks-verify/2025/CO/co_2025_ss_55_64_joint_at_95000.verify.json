@@ -1,0 +1,17 @@
+{
+  "expected": {
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "1672.00",
+    "credits": "0.00",
+    "state_income_tax": "1672.00",
+    "relief_amounts": {
+      "co_ss_55_64_full": "25500.00"
+    }
+  },
+  "worked": [
+    "DR 0104 line 1 federal taxable income 63500.00 (given: federal AGI 95000.00 less the federal standard deduction; federal senior deduction ignored). No additions apply (lines 2-4 addbacks not applied by the projection; AGI under 300,000).",
+    "DR 0104AD line 3: person 0 age 64 (55-64), federal AGI 95000.00 not over 95000.00: full taxable Social Security 25500.00 subtracted (co_ss_55_64_full; the 20,000-limited branch gives 20000.00, best of group keeps the full one, limited shown as 0).",
+    "DR 0104 line 10 subtractions total 25500.00; line 11 Colorado taxable income = 63500.00 - 25500.00 = 38000.00.",
+    "DR 0104 line 12 tax = 38000.00 x 4.4% = 1672.00 (formula, not the tax table, which would use the row midpoint and round to the dollar). No credits; state income tax {c(tax)}."
+  ]
+}

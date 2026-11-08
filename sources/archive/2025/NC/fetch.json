@@ -1,0 +1,28 @@
+[
+  {
+    "state": "NC",
+    "title": "2025 D-401 Individual Income Tax Instructions",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+    "retrieved": "2026-11-06T22:17:55.997231+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+    "file": "2025-d-401-individual-income-tax-instructions.pdf",
+    "bytes": 615117,
+    "sha256": "ceaade9246b24d4f7e504919fafd74787ebec17db6d6bbcf1c954f71cfdc185b",
+    "archived_url": "https://web.archive.org/web/20260312192339id_/https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  {
+    "state": "NC",
+    "title": "2025 Form D-400 Schedule S (Supplemental Schedule)",
+    "url": "https://www.ncdor.gov/2025-d-400-schedule-s-web-fill-version/open",
+    "retrieved": "2026-11-06T22:18:01.147564+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ncdor.gov/2025-d-400-schedule-s-web-fill-version/open",
+    "file": "2025-d-400-schedule-s-web-fill-version.pdf",
+    "bytes": 1822916,
+    "sha256": "69f5c9f6f4b84a875855a5136d68dbed7face370c26df533c0938210df79bc01",
+    "archived_url": "https://web.archive.org/web/20260612203351id_/https://www.ncdor.gov/2025-d-400-schedule-s-web-fill-version/open"
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "id": "ia_2025_joint_65_pension_ss_interest",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ia_ret_excl_age55",
+    "ia_age_65_credit",
+    "ia_personal_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12; Schedule 1 line 7, PDF p.67-68 and form PDF p.5; Retirement Income Tax Guidance, 'Who qualifies'; Schedule 1 line 5, PDF p.67",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-05-05"
+      },
+      {
+        "age": 66,
+        "born": "1959-06-06"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        },
+        {
+          "amount": "16000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "60000.00"
+    },
+    "federal_agi": "134000.00",
+    "federal_taxable_income": "99300.00"
+  },
+  "expected": {
+    "state_taxable_income": "25300.00",
+    "state_tax_before_credits": "961.40",
+    "credits": "120.00",
+    "state_income_tax": "841.40",
+    "relief_amounts": {
+      "ia_age_65_credit": "40.00",
+      "ia_personal_credit": "80.00",
+      "ia_ret_excl_age55": "40000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (you) 40,000.00 + taxable Social Security 34,000.00 + interest 60,000.00 = 134,000.00. Federal taxable income = 134,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 for 65 or older = 99,300.00 (federal senior deduction ignored). IA 1040 filing status 2 (married filing jointly). Step 3 line a personal credits 2 x 40.00 = 80.00; line b 2 x 20.00 = 40.00 (65 or older on or before January 1, 2026; nobody blind); line c no dependents; line d and line 8 = 120.00. Line 1c federal AGI 134,000.00; line 2 federal taxable income 99,300.00. Schedule 1 line 5 column B: taxable Social Security 34,000.00 subtracted. Schedule 1 line 7 column B: pension 40,000.00 of you (age 68, 55 or older on December 31, 2025) excluded; line 7 total 40,000.00. Schedule 1 line 21 net modifications = -74,000.00; line 3 = -74,000.00. Line 4 Iowa taxable income = 99,300.00 + (-74,000.00) = 25,300.00. Line 5 tax = 3.8% x 25,300.00 = 961.40; line 7 = 961.40. Line 11 total credits 120.00; line 12 balance = 961.40 - 120.00 = 841.40. State income tax 841.40 (no line 13-17 credits; line 19 school district or EMS surtax is local, not computed). The form allows whole-dollar rounding; expected keeps the cents. Low-income exemption and alternate tax (PDF p.10-13): line 4 25,300.00 + federal deduction 34,700.00 = 60,000.00, against 32,000.00: not exempt; alternate tax 4.3% x (60,000.00 - 32,000.00) = 1,204.00, not smaller than the 3.8% tax. Federal taxable Social Security: provisional income 40,000.00 + 60,000.00 + 50% x 40,000.00 = 120,000.00; 85% x (120,000.00 - 44,000.00) = 64,600.00 + 6,000.00 = 70,600.00, limited to 85% x 40,000.00 = 34,000.00. Only the interest is left to tax, less the federal deduction: 60,000.00 - 34,700.00 = 25,300.00.",
+  "accepted_approximations": [
+    "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ia_health_insurance_deduction",
+    "state_rule_not_modelled:ia_ret_excl_disabled",
+    "state_rule_not_modelled:ia_ret_excl_survivor"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

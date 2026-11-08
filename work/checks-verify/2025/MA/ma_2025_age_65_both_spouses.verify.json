@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "2490.00",
+    "state_tax_before_credits": "2490.00",
+    "state_taxable_income": "49800.00"
+  },
+  "worked": "Start: federal AGI 85500.00. Subtract taxable Social Security 25500.00 (MA exempts Social Security). Private pension 40000.00 (person 0): taxed in full. ira_distribution 20000.00 (person 1): taxed in full. State income = 85500.00 - 25500.00 = 60000.00. Personal exemption (married_joint) 8800.00. Age 65 exemption 700 x 2 = 1400.00. Taxable income = max(60000.00 - 10200.00, 0) = 49800.00. Tax = 5% x 49800.00 = 2490.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

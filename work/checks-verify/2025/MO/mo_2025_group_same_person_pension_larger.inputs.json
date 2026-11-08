@@ -1,0 +1,54 @@
+{
+  "id": "mo_2025_group_same_person_pension_larger",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "public_pension_subtraction",
+    "social_security_retirement_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section C; instructions PDF p17 Section C Lines 1-2 and Worksheet for Lines 1 and 2; Reference Guide PDF p9; record social_security_retirement_subtraction; Form MO-A PDF p3 Part 3 Section A Lines 1-5; instructions PDF p17; Reference Guide PDF p9 (47,633 per taxpayer); record public_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-04"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "MO"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00",
+      "interest": "20000.00"
+    },
+    "federal_agi": "75500.00",
+    "federal_taxable_income": "57750.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.public_pension_subtraction"
+  ]
+}

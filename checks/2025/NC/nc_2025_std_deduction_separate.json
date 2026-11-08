@@ -1,0 +1,46 @@
+{
+  "id": "nc_2025_std_deduction_separate",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "nc_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 12, Line 6 (federal AGI); PDF page 14, Line 11 NC Standard Deduction Chart, Line 14 and Line 15 (4.25%); PDF page 7, 'What is the Tax Rate?' (married filing separately, spouse does not claim itemized deductions: 12,750)",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50750.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50750.00",
+    "federal_taxable_income": "35000.00"
+  },
+  "expected": {
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "1615.00",
+    "credits": "0.00",
+    "state_income_tax": "1615.00"
+  },
+  "worked": "Federal AGI = wages 50,750.00. The spouse takes the NC standard deduction (does not itemize), so the chart gives 12,750. Federal taxable income = 50,750.00 - 15,750.00 federal standard deduction = 35,000.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 50,750.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 50,750.00. Line 9 deductions (Schedule S Part B) 0.00. Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (married_separate) 12,750.00. Line 12a = Lines 9 + 10 + 11 = 12,750.00; Line 12b = Line 8 - Line 12a = 38,000.00. Line 14 NC taxable income (full-year resident) = 38,000.00. Line 15 tax = 38,000.00 x 0.0425 = 1,615.00. Line 16 credits 0.00; Line 17 income tax = 1,615.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

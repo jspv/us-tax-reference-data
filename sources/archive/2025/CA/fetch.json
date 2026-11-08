@@ -1,0 +1,27 @@
+[
+  {
+    "state": "CA",
+    "title": "2025 Form 540 Personal Income Tax Booklet",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+    "retrieved": "2026-11-06T17:50:51.478586+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "2025-540-booklet.pdf",
+    "bytes": 1214841,
+    "sha256": "b48ee24bd2f9b9e74fe9a5bbc548d15bae0bd1ce53306bef1ff33fc76f8078c1",
+    "archived_url": "https://web.archive.org/web/20261013052727id_/https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  {
+    "state": "CA",
+    "title": "2025 Schedule CA (540) California Adjustments - Residents",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-ca.pdf",
+    "retrieved": "2026-11-07T01:00:54.801446+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.ftb.ca.gov/forms/2025/2025-540-ca.pdf",
+    "file": "2025-540-ca.pdf",
+    "bytes": 184576,
+    "sha256": "0927485bff61e49f21623c2df4f1e92b3b4d20ed52377814684f9bf814980660",
+    "archived_url": "https://web.archive.org/web/20260329001627id_/https://www.ftb.ca.gov/forms/2025/2025-540-ca.pdf"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "ne_military_retirement_exclusion": "30000.00"
+    }
+  },
+  "worked": "Line 5 federal AGI 30,000.00. Line 6/10 standard deduction 8,600.00 (no 65 box: person 0 age 58). Line 11 30,000.00 - 8,600.00 = 21,400.00. Line 12 0.00. Schedule I line 32 military retirement 30,000.00. Line 13 (Schedule I line 44) 30,000.00. state_agi = 30,000.00 + 0.00 - 30,000.00 = 0.00. Line 14 -8,600.00, floored at 0.00. Line 15 schedule: taxable income 0; total 0.000 = 0.00. Line 18 personal exemption credit 1 x 171 = 171.00, limited to the tax 0.00 (nonrefundable, lines 34 and 35). Line 35 0.00 - 0.00 = 0.00. Federal Tax Liability Worksheet (line 35) and Schedule R credit (line 20) are not_modelled and not applied. Federal figures are given; federal senior deduction ignored."
+}

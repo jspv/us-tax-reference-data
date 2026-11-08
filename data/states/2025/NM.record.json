@@ -1,0 +1,1262 @@
+{
+ "layer": "record",
+ "state": "NM",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Brackets: the 2025 Tax Rate Table prints no bracket schedule below 100,000, only tax by income row for each status; PDF page 7 (T-7) prints the rest: 'If line 17 of Form PIT-1 (Taxable Income) is over $100,000 use the following table to compute your tax.' Single 4,356 plus 4.9% over 100,000 up to 210,000, then 9,746 plus 5.9% over 210,000. Married filing jointly and head of household 4,087 plus 4.9% over 100,000 up to 315,000, then 14,622 plus 5.9% over 315,000. Married filing separately 4,492 plus 4.9% over 100,000 up to 157,500, then 7,310 plus 5.9% over 157,500. The surviving spouse uses the joint column (T-1 to T-7 footnote). Below 100,000 the rates and starts are derived from the table: tested at each row's midpoint they reproduce all 1,001 rows for all four statuses to within rounding, and moving any one start by 100, or any one rate by 0.1%, breaks the fit.",
+  "Brackets, the printed bases over 100,000: each base on T-7 is the table's last row (99,900 to 100,000, midpoint 99,950), not the tax at 100,000. The schedule's arithmetic gives 4,358 single, 4,089 joint and head of household, 4,494.50 separate at 100,000, so the printed section runs 2 (2.50 separate) lower at every income over 100,000. Those rows cannot go in derivation.table_rows: the validator allows 1 dollar. The 99,900 row is there for every status, and the 4.9% and 5.9% figures and the starts 210,000, 315,000 and 157,500 are printed. The top bases check by hand: 4,356 + 4.9% of 110,000 = 9,746; 4,087 + 4.9% of 215,000 = 14,622; 4,492 + 4.9% of 57,500 = 7,309.50, printed 7,310.",
+  "Forms read (rule 0): PIT-1, PIT-ADJ, PIT-RC and PIT-B return forms, and the Tax Rate Table. Still not in the sources: PIT-CR, PIT-S, and the PIT-RC and PIT-B instructions.",
+  "Base: Form PIT-1 starts from line 9, 'FEDERAL ADJUSTED GROSS INCOME. (from federal Form 1040 or 1040SR, line 11)'. Line 17: 'NEW MEXICO TAXABLE INCOME. Add lines 9, 10 and 11, then subtract lines 12, 13, 14, and 15. Cannot be less than zero'. Line 10 adds back state and local taxes for itemizers; line 11 is the PIT-ADJ additions; line 12 is the 'Federal standard or itemized deduction amount (from federal Form 1040, line 12'; line 15 is the PIT-ADJ deductions and exemptions. The form has no line for anything the federal return subtracts after line 12.",
+  "Standard deduction: New Mexico has no amount of its own in the sources. Line 12 takes 'the allowable federal standard deduction from federal Form 1040 or 1040SR, line 12' or 'the allowable federal itemized deductions' (PDF page 25). No dollar figure is printed, so no standard_deduction entry is recorded.",
+  "Personal exemption: no amount printed. 'Deduction amounts for personal exemptions are suspended for tax years 2018 through 2025 by the Federal Tax Cuts and Jobs Act.' (PDF page 22, Line 5.) The exemption count on line 5 still drives the low- and middle-income exemption.",
+  "Hidden text: the PDF text layers of both booklets, and so both converted texts, hold editors' working notes that are not on the printed page. Rendered, PIT-ADJ pages 5 and 7 and PIT-1 pages 22, 25 and 27 do not show them: the 'HB 252 Section 8 TY 2025 Change' box with '$1,0002,500', the sentence barring the net capital gains deduction with the Venture Capital Investments Act credit, the HB-0252 Section 32 note on armed forces retirement pay, 'Need to determine if this act has been extended or has lapsed.', the HB-6 extract, and a note 'Remove A taxpayer may not claim the deduction ...'. None of it is recorded as a rule.",
+  "Age 65 or blind: Table 1 prints one column for joint, head of household and surviving spouse (PIT-ADJ page 5); PIT-1 page 27 names only 'a joint return', and the table is used. Recorded twice, as age_65_exemption and blind_exemption, because 'The Department allows only one deduction per person.' (PIT-ADJ page 4.) The printed examples check: joint AGI 35,000 gives 6,000 each; joint AGI 28,000 gives 8,000 each.",
+  "Low- and middle-income exemption: one rule in the booklet, recorded as three entries because the schema's phase_out_rate holds one rate. Factors: 0.15 single; 0.10 joint, surviving spouse, head of household; 0.20 separate. The printed ceilings are where line 6 reaches zero: 20,000 + 2,500/0.15 = 36,666.67; 30,000 + 2,500/0.10 = 55,000; 15,000 + 2,500/0.20 = 27,500.",
+  "Social Security: PIT-ADJ line 25 and Table 2; second document, the agency web page, which words the limits as 'less than $100,000', 'under $150,000' and 'under $75,000'. The booklet's 'does not exceed' and Example 1 ('not above $100,000') are used, so AGI exactly at the limit keeps the exemption. The web page is a 2022 statement. PIT-1 page 27 also lists the exemption.",
+  "Pensions, IRA and employer-plan distributions, Roth conversions: Form PIT-ADJ lists 28 lines and none is for pensions, IRAs or employer plans, other than armed forces retirement pay (line 24), Railroad Retirement (line 10), retirement income from employment inside tribal boundaries (lines 11, 11a, 11b), and the age 100 exemption (line 12). PIT-ADJ instructions page 1: 'If an item is not listed, it is not a valid New Mexico addition, exemption, or deduction for this schedule.' Roth conversions are not mentioned anywhere: not found in the booklet.",
+  "Other states' government pensions, New York State's included: not found as a rule of their own, so no public_pension_other_state relief exists, and New York is named nowhere in the sources. Form PIT-B line 3 is 'Pensions, annuities, social security, and lump-sum distributions', with no split by payer, and its NOTE says 'Resident taxpayers including persons physically present in New Mexico 185 days or more, must allocate all income and deductions on lines 1, 2, 3, and 7 in full to New Mexico.' Line 20 NOTE (instructions PDF page 28): 'if you receive a pension from your former California employer and you now reside in New Mexico, California may not tax your retirement income. Because you are now a New Mexico resident, your retirement income is taxable in New Mexico.'",
+  "Own and federal government pensions: not found as a relief. Retiree withholding contacts appear at PIT-1 pages 20-21 and nothing there changes the tax.",
+  "Credits for people 65 or older, Form PIT-RC: property tax rebate at modified gross income of 16,000 or less (line 17c, at most 250, or 125 if married filing separately); refundable medical care credit (line 23, 'See PIT-RC instructions', which are not in the sources). Low income comprehensive tax rebate at modified gross income of 36,000 or less; its Table 1 is in those instructions too.",
+  "Other PIT-ADJ items, no dollar cap or not for planning, in notes only: Section 529 contributions (line 15; addition on line 3), New Mexico net operating loss (line 8), Medical Care Savings Account (line 14), National Guard life insurance reimbursement (line 20), refunds of state and local tax (line 21), non-resident USPHS pay (line 22), liquor license lessor deduction (line 23, up to 50,000), cannabis business expenses (line 26).",
+  "Credit for taxes paid to another state: PIT-1 line 20 and worksheet (PDF pages 28, 31). Lump-sum distributions: PIT-1 line 19 and worksheet (PDF pages 27, 28, 30), available only with federal Form 4972.",
+  "No surtax is printed. No recapture: the Tax Rate Table's top section is base plus rate on the excess, with no step that takes back the lower brackets.",
+  "Indexing: 'inflation', 'indexed', 'adjusted annually' and 'cost of living' appear nowhere in the booklets or the Tax Rate Table.",
+  "Settlement 2026-11-07: age_65_exemption and blind_exemption steps: A said 8 rows from 'over 30,000', B said 9 rows with an 8,000 row from 0; PIT-ADJ page 5 Table 1 prints nine rows; B.",
+  "Settlement 2026-11-07: social_security.treatment: A said relief, B said exempt; PIT-ADJ page 7 limits it by AGI and Example 2 says no part qualifies above the limit, so relief (the schema's 'exempt' has no income limit).",
+  "Settlement 2026-11-07: medical care exemption: A said an all_income relief, B said a deduction of type other; PIT-ADJ pages 5-6 say a flat $3,000 at $28,000 or more of medical expenses; B, because it is a flat amount tied to medical spending, not an age relief against income.",
+  "Settlement 2026-11-07: tribal income: A said all_income for the person, B said wages, public and private pensions; PIT-ADJ page 3 says 'your income is exempt' and adds 'including retirement or pension income'; A, with B's not_covered.",
+  "Settlement 2026-11-07: U.S. obligations covers: A said interest and dividends, B said interest; PIT-ADJ page 3 'You may deduct dividends from mutual funds invested in U.S. government obligations'; A.",
+  "Settlement 2026-11-07: 40% gains deduction applies_to: A said other, B said long_term; PIT-ADJ page 5 limits it to 'the sale of a business'; A.",
+  "Settlement 2026-11-07: personal exemption: A said notes only, B said an entry of amount 0; PIT-1 page 22 prints no amount; A.",
+  "Settlement 2026-11-07: Venture Capital Investments Act bar: A and B both recorded it; it is hidden text, not on rendered PIT-ADJ page 5, and hidden text on PIT-1 page 27 says 'Remove'; dropped.",
+  "Settlement 2026-11-07: brackets: A and B said empty, the rate tables not in the sources; the 2025 Tax Rate Table, archived after their readings, prints them; derived from its rows.",
+  "Settlement 2026-11-07: added by the settler: relief net_capital_gains_cap, because the capital_gains section has no field for the printed 2,500 limit."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "5500"
+   },
+   {
+    "rate": "0.043",
+    "start": "16500"
+   },
+   {
+    "rate": "0.047",
+    "start": "33500"
+   },
+   {
+    "rate": "0.049",
+    "start": "66500"
+   },
+   {
+    "rate": "0.059",
+    "start": "210000"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "8000"
+   },
+   {
+    "rate": "0.043",
+    "start": "25000"
+   },
+   {
+    "rate": "0.047",
+    "start": "50000"
+   },
+   {
+    "rate": "0.049",
+    "start": "100000"
+   },
+   {
+    "rate": "0.059",
+    "start": "315000"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "4000"
+   },
+   {
+    "rate": "0.043",
+    "start": "12500"
+   },
+   {
+    "rate": "0.047",
+    "start": "25000"
+   },
+   {
+    "rate": "0.049",
+    "start": "50000"
+   },
+   {
+    "rate": "0.059",
+    "start": "157500"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.015",
+    "start": "0"
+   },
+   {
+    "rate": "0.032",
+    "start": "8000"
+   },
+   {
+    "rate": "0.043",
+    "start": "25000"
+   },
+   {
+    "rate": "0.047",
+    "start": "50000"
+   },
+   {
+    "rate": "0.049",
+    "start": "100000"
+   },
+   {
+    "rate": "0.059",
+    "start": "315000"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Tax Rate Table (Tax Look Up Table)",
+   "section": "PDF pages 1-6 (T-1 to T-6), tax by income row up to 100,000; PDF page 7 (T-7), bases and rates over 100,000; surviving spouse uses the joint column (footnote)",
+   "url": "https://realfile.tax.newmexico.gov/2025trt.pdf",
+   "accessed": "2026-11-07"
+  },
+  "derivation": {
+   "method": "tax_table",
+   "table_rows": [
+    {
+     "status": "single",
+     "income": "3050",
+     "tax": "46"
+    },
+    {
+     "status": "single",
+     "income": "10050",
+     "tax": "228"
+    },
+    {
+     "status": "single",
+     "income": "25350",
+     "tax": "815"
+    },
+    {
+     "status": "single",
+     "income": "50050",
+     "tax": "1943"
+    },
+    {
+     "status": "single",
+     "income": "80050",
+     "tax": "3380"
+    },
+    {
+     "status": "single",
+     "income": "99950",
+     "tax": "4356"
+    },
+    {
+     "status": "married_joint",
+     "income": "5050",
+     "tax": "76"
+    },
+    {
+     "status": "married_joint",
+     "income": "15050",
+     "tax": "346"
+    },
+    {
+     "status": "married_joint",
+     "income": "25350",
+     "tax": "679"
+    },
+    {
+     "status": "married_joint",
+     "income": "40050",
+     "tax": "1311"
+    },
+    {
+     "status": "married_joint",
+     "income": "75050",
+     "tax": "2916"
+    },
+    {
+     "status": "married_joint",
+     "income": "99950",
+     "tax": "4087"
+    },
+    {
+     "status": "married_separate",
+     "income": "2050",
+     "tax": "31"
+    },
+    {
+     "status": "married_separate",
+     "income": "8050",
+     "tax": "190"
+    },
+    {
+     "status": "married_separate",
+     "income": "20050",
+     "tax": "657"
+    },
+    {
+     "status": "married_separate",
+     "income": "40050",
+     "tax": "1577"
+    },
+    {
+     "status": "married_separate",
+     "income": "75050",
+     "tax": "3272"
+    },
+    {
+     "status": "married_separate",
+     "income": "99950",
+     "tax": "4492"
+    },
+    {
+     "status": "head_of_household",
+     "income": "5050",
+     "tax": "76"
+    },
+    {
+     "status": "head_of_household",
+     "income": "15050",
+     "tax": "346"
+    },
+    {
+     "status": "head_of_household",
+     "income": "25350",
+     "tax": "679"
+    },
+    {
+     "status": "head_of_household",
+     "income": "40050",
+     "tax": "1311"
+    },
+    {
+     "status": "head_of_household",
+     "income": "75050",
+     "tax": "2916"
+    },
+    {
+     "status": "head_of_household",
+     "income": "99950",
+     "tax": "4087"
+    }
+   ],
+   "cite": {
+    "publication": "2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PDF pages 1-6, table rows; income is each row's midpoint; the last row is 99,900 to 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025trt.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "federal_senior_deduction": {
+   "treatment": "added_back",
+   "cite": {
+    "publication": "2025 PIT-1 New Mexico Personal Income Tax Return Instructions",
+    "section": "PDF p.25, Lines 9 and 12: New Mexico starts from federal adjusted gross income (line 9) and subtracts only the 'Federal standard or itemized deduction amount (from federal Form 1040, line 12'; nothing brings in Form 1040 line 13b, so New Mexico income equals federal taxable income plus the senior deduction",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+    "accessed": "2026-11-08"
+   },
+   "notes": "New Mexico's form starts from federal AGI, not federal taxable income; the effect is the same as adding the senior deduction back. It also leaves out the other line 13 deductions (qualified business income, tips, overtime, car loan interest), which retirement projections rarely have."
+  },
+  "deductions": [
+   {
+    "id": "age_65_exemption",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "8000"
+    },
+    "per": "person",
+    "condition": "65 or older on the last day of the tax year; 8,000 is the top of Table 1; applies to each qualifying taxpayer on a joint return; one deduction per person, none extra for being both 65 or older and blind; PIT-ADJ line 13",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal adjusted gross income from PIT-1, line 9 (federal Form 1040 or 1040SR, line 11)"
+     },
+     "threshold": {
+      "married_joint": "30000",
+      "head_of_household": "30000",
+      "qualifying_surviving_spouse": "30000",
+      "single": "18000",
+      "married_separate": "15000"
+     },
+     "effect": "stepped",
+     "steps": [
+      {
+       "status": "married_joint",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_joint",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "married_joint",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_joint",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "married_joint",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_joint",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "married_joint",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_joint",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "head_of_household",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "single",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "18000",
+       "amount": "7000"
+      },
+      {
+       "status": "single",
+       "over": "19500",
+       "amount": "6000"
+      },
+      {
+       "status": "single",
+       "over": "21000",
+       "amount": "5000"
+      },
+      {
+       "status": "single",
+       "over": "22500",
+       "amount": "4000"
+      },
+      {
+       "status": "single",
+       "over": "24000",
+       "amount": "3000"
+      },
+      {
+       "status": "single",
+       "over": "25500",
+       "amount": "2000"
+      },
+      {
+       "status": "single",
+       "over": "27000",
+       "amount": "1000"
+      },
+      {
+       "status": "single",
+       "over": "28500",
+       "amount": "0"
+      },
+      {
+       "status": "married_separate",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "15000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_separate",
+       "over": "16500",
+       "amount": "6000"
+      },
+      {
+       "status": "married_separate",
+       "over": "18000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_separate",
+       "over": "19500",
+       "amount": "4000"
+      },
+      {
+       "status": "married_separate",
+       "over": "21000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_separate",
+       "over": "22500",
+       "amount": "2000"
+      },
+      {
+       "status": "married_separate",
+       "over": "24000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_separate",
+       "over": "25500",
+       "amount": "0"
+      }
+     ],
+     "as_printed": "Table 1: find the row that includes federal adjusted gross income from PIT-1, line 9. 8,000 up to 30,000 (joint, head of household, surviving spouse), 18,000 (single) or 15,000 (separate), then 1,000 less for each band of 3,000 (1,500 for single and separate), and 0 from 51,001, 28,501 and 25,501. Bands are printed as '30,001 to 33,000', recorded as over 30,000."
+    },
+    "cite": {
+     "publication": "Instructions for 2025 PIT-ADJ",
+     "section": "PDF page 5, Table 1, and PDF page 4, Line 13",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "blind_exemption",
+    "what": "blind_exemption",
+    "amount": {
+     "all": "8000"
+    },
+    "per": "person",
+    "condition": "Not yet 65 but considered blind for federal income tax purposes; same Table 1 amounts as age_65_exemption; one deduction per person; PIT-ADJ line 13",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal adjusted gross income from PIT-1, line 9 (federal Form 1040 or 1040SR, line 11)"
+     },
+     "threshold": {
+      "married_joint": "30000",
+      "head_of_household": "30000",
+      "qualifying_surviving_spouse": "30000",
+      "single": "18000",
+      "married_separate": "15000"
+     },
+     "effect": "stepped",
+     "steps": [
+      {
+       "status": "married_joint",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_joint",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "married_joint",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_joint",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "married_joint",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_joint",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "married_joint",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_joint",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "head_of_household",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "head_of_household",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "30000",
+       "amount": "7000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "33000",
+       "amount": "6000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "36000",
+       "amount": "5000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "39000",
+       "amount": "4000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "42000",
+       "amount": "3000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "45000",
+       "amount": "2000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "48000",
+       "amount": "1000"
+      },
+      {
+       "status": "qualifying_surviving_spouse",
+       "over": "51000",
+       "amount": "0"
+      },
+      {
+       "status": "single",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "18000",
+       "amount": "7000"
+      },
+      {
+       "status": "single",
+       "over": "19500",
+       "amount": "6000"
+      },
+      {
+       "status": "single",
+       "over": "21000",
+       "amount": "5000"
+      },
+      {
+       "status": "single",
+       "over": "22500",
+       "amount": "4000"
+      },
+      {
+       "status": "single",
+       "over": "24000",
+       "amount": "3000"
+      },
+      {
+       "status": "single",
+       "over": "25500",
+       "amount": "2000"
+      },
+      {
+       "status": "single",
+       "over": "27000",
+       "amount": "1000"
+      },
+      {
+       "status": "single",
+       "over": "28500",
+       "amount": "0"
+      },
+      {
+       "status": "married_separate",
+       "over": "0",
+       "amount": "8000",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "15000",
+       "amount": "7000"
+      },
+      {
+       "status": "married_separate",
+       "over": "16500",
+       "amount": "6000"
+      },
+      {
+       "status": "married_separate",
+       "over": "18000",
+       "amount": "5000"
+      },
+      {
+       "status": "married_separate",
+       "over": "19500",
+       "amount": "4000"
+      },
+      {
+       "status": "married_separate",
+       "over": "21000",
+       "amount": "3000"
+      },
+      {
+       "status": "married_separate",
+       "over": "22500",
+       "amount": "2000"
+      },
+      {
+       "status": "married_separate",
+       "over": "24000",
+       "amount": "1000"
+      },
+      {
+       "status": "married_separate",
+       "over": "25500",
+       "amount": "0"
+      }
+     ],
+     "as_printed": "Table 1: find the row that includes federal adjusted gross income from PIT-1, line 9. 8,000 up to 30,000 (joint, head of household, surviving spouse), 18,000 (single) or 15,000 (separate), then 1,000 less for each band of 3,000 (1,500 for single and separate), and 0 from 51,001, 28,501 and 25,501. Bands are printed as '30,001 to 33,000', recorded as over 30,000."
+    },
+    "cite": {
+     "publication": "Instructions for 2025 PIT-ADJ",
+     "section": "PDF page 5, Table 1, and PDF page 4, Line 13",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_single",
+    "what": "other",
+    "amount": {
+     "single": "2500"
+    },
+    "per": "exemption_claimed",
+    "condition": "New Mexico Low- and Middle-Income Tax Exemption, PIT-1 line 14: up to 2,500 for each exemption reported on PIT-1 line 5 (taxpayer, spouse, dependents and other dependents). Single, federal AGI of 36,667 or less.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal adjusted gross income from PIT-1, line 9 (federal Form 1040 or 1040SR, line 11)"
+     },
+     "threshold": {
+      "single": "20000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.15",
+     "as_printed": "Worksheet: line 3 = PIT-1 line 9 less the line 2 amount; line 5 = line 3 times the line 4 factor; line 6 = 2,500 less line 5; line 8 = line 6 times the exemptions on PIT-1 line 5."
+    },
+    "cite": {
+     "publication": "2025 PIT-1 Personal Income Tax Return Instructions",
+     "section": "PDF page 25, Line 14, and PDF page 26, New Mexico Low- and Middle-Income Tax Exemption Worksheet",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_joint_hoh",
+    "what": "other",
+    "amount": {
+     "married_joint": "2500",
+     "qualifying_surviving_spouse": "2500",
+     "head_of_household": "2500"
+    },
+    "per": "exemption_claimed",
+    "condition": "New Mexico Low- and Middle-Income Tax Exemption, PIT-1 line 14: up to 2,500 for each exemption reported on PIT-1 line 5 (taxpayer, spouse, dependents and other dependents). Married filing jointly, surviving spouse or head of household, federal AGI of 55,000 or less.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal adjusted gross income from PIT-1, line 9 (federal Form 1040 or 1040SR, line 11)"
+     },
+     "threshold": {
+      "married_joint": "30000",
+      "qualifying_surviving_spouse": "30000",
+      "head_of_household": "30000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.10",
+     "as_printed": "Worksheet: line 3 = PIT-1 line 9 less the line 2 amount; line 5 = line 3 times the line 4 factor; line 6 = 2,500 less line 5; line 8 = line 6 times the exemptions on PIT-1 line 5."
+    },
+    "cite": {
+     "publication": "2025 PIT-1 Personal Income Tax Return Instructions",
+     "section": "PDF page 25, Line 14, and PDF page 26, New Mexico Low- and Middle-Income Tax Exemption Worksheet",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "low_middle_income_exemption_separate",
+    "what": "other",
+    "amount": {
+     "married_separate": "2500"
+    },
+    "per": "exemption_claimed",
+    "condition": "New Mexico Low- and Middle-Income Tax Exemption, PIT-1 line 14: up to 2,500 for each exemption reported on PIT-1 line 5 (taxpayer, spouse, dependents and other dependents). Married filing separately, federal AGI of 27,500 or less.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "Federal adjusted gross income from PIT-1, line 9 (federal Form 1040 or 1040SR, line 11)"
+     },
+     "threshold": {
+      "married_separate": "15000"
+     },
+     "effect": "phase_out_rate",
+     "rate": "0.20",
+     "as_printed": "Worksheet: line 3 = PIT-1 line 9 less the line 2 amount; line 5 = line 3 times the line 4 factor; line 6 = 2,500 less line 5; line 8 = line 6 times the exemptions on PIT-1 line 5."
+    },
+    "cite": {
+     "publication": "2025 PIT-1 Personal Income Tax Return Instructions",
+     "section": "PDF page 25, Line 14, and PDF page 26, New Mexico Low- and Middle-Income Tax Exemption Worksheet",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "certain_dependents_deduction",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "4000"
+    },
+    "per": "dependent",
+    "condition": "Head of household or married filing jointly, and not a dependent of another individual; for each dependent and other dependent beyond the first (worksheet: total dependents minus 1, times 4000); 'as long as the exemption amount pursuant to Section 151 of the Internal Revenue Code is zero (0)'; PIT-1 line 13",
+    "cite": {
+     "publication": "2025 PIT-1 Personal Income Tax Return Instructions",
+     "section": "PDF page 25, Line 13 and Line 13 worksheet",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "medical_expense_exemption_65",
+    "what": "other",
+    "amount": {
+     "all": "3000"
+    },
+    "per": "return",
+    "condition": "You or your spouse are 65 or older and paid unreimbursed and uncompensated medical care expenses of 28,000 or more in 2025 for any combination of you, your spouse or your dependents; enter 3,000 on PIT-ADJ line 18",
+    "cite": {
+     "publication": "Instructions for 2025 PIT-ADJ",
+     "section": "PDF pages 5-6, Line 18",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "organ_donation_deduction",
+    "what": "other",
+    "amount": {
+     "all": "10000"
+    },
+    "per": "return",
+    "condition": "Human organ donation-related expenses (lost wages, lodging, travel) of you or your dependent, not to exceed 10,000; married filing separately may each claim only one-half of the joint amount; PIT-ADJ line 19",
+    "cite": {
+     "publication": "Instructions for 2025 PIT-ADJ",
+     "section": "PDF page 6, Line 19",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "teacher_school_supplies_deduction",
+    "what": "other",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "condition": "Licensed public school teacher purchasing school supplies; 1,000 for tax year 2025 per qualified individual (Table 3); PIT-ADJ line 27",
+    "cite": {
+     "publication": "Instructions for 2025 PIT-ADJ",
+     "section": "PDF page 7, Line 27, and PDF page 8, Table 3",
+     "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 PIT-1 Personal Income Tax Return",
+   "section": "PDF page 1, lines 9 to 17",
+   "url": "https://realfile.tax.newmexico.gov/2025pit-1.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "Instructions for 2025 PIT-ADJ",
+   "section": "PDF page 7, Line 25, Table 2 and Examples 1 and 2",
+   "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "social_security_exemption",
+   "label": "Exemption for social security income",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal Adjusted Gross Income (AGI)"
+    },
+    "threshold": {
+     "single": "100000",
+     "married_separate": "75000",
+     "married_joint": "150000",
+     "head_of_household": "150000",
+     "qualifying_surviving_spouse": "150000"
+    },
+    "effect": "removes",
+    "applies_when": "over",
+    "as_printed": "If your federal Adjusted Gross Income (AGI) does not exceed the maximum for your filing status, as listed in Table 2 (below), enter the amount of social security income included in your AGI. Example 2: AGI of $150,000, single: no part qualifies."
+   },
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 7, Line 25 and Table 2",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "armed_forces_retirement_pay",
+   "label": "Exemption for armed forces retirement pay",
+   "form": "subtraction",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "armed forces retiree (a former member of the armed forces of the United States who has qualified by years of service or disability to separate from military service with lifetime benefits) or the surviving spouse of one"
+    ]
+   },
+   "cap": {
+    "all": "30000"
+   },
+   "cap_per": "person",
+   "cap_rule": "$30,000 of armed forces retirement pay for each qualifying retiree or surviving spouse; if married filing jointly and both qualify, each may claim $30,000",
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 7, Line 24",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "railroad_retirement_exempt",
+   "label": "Railroad Retirement Act annuities and benefits, and Railroad Unemployment Insurance Act sick pay",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "the amounts were part of federal taxable income"
+    ]
+   },
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 3, Line 10: 'These types of income are exempt from state income taxes.'",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "centenarian_exemption",
+   "label": "Income of persons age 100 years or older",
+   "form": "exempt_in_full",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "min_age": 100,
+    "other_conditions": [
+     "100 or older at the end of the tax year",
+     "someone else cannot claim the centenarian as a dependent",
+     "boxes 12a and 12b must be marked or the Department denies the exemption",
+     "married centenarian: may exempt half of all community income and all separate income"
+    ]
+   },
+   "cannot_combine_with": [
+    "age_65_exemption",
+    "blind_exemption"
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF pages 3-4, Line 12 and boxes 12a and 12b",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "indian_country_income",
+   "label": "Income of a member of a New Mexico federally-recognized Indian nation, tribe, or pueblo that was earned within the boundaries",
+   "form": "exempt_in_full",
+   "covers": [
+    "all_income"
+   ],
+   "all_income_scope": "person",
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "enrolled member of a New Mexico federally-recognized Indian nation, tribe, or pueblo, domiciled within the boundaries of the reservation, pueblo grant or Indian country of membership when the income was earned",
+     "income earned within those boundaries",
+     "retirement or pension income qualifies when it is the result of employment within those boundaries",
+     "a spouse's income is taxable unless the spouse is also a member"
+    ]
+   },
+   "not_covered": [
+    "Income (including retirement or pension income) earned outside the boundaries of the reservation or pueblo grant or outside the boundaries of land defined as 'Indian country' ... is subject to New Mexico income tax no matter where you live."
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 3, Lines 11, 11a and 11b; PIT-1 PDF pages 3-4, 'Retirement or Pension'",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "us_government_obligation_interest",
+   "label": "Interest received on U.S. government obligations",
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "dividends only from mutual funds invested in U.S. government obligations, by the percentage of the fund so invested, with a fund statement showing the amount"
+    ]
+   },
+   "not_covered": [
+    "Interest from the Government National Mortgage Association (Ginnie Mae), Federal National Mortgage Association (Fannie Mae), or Federal National Home Loan Mortgage Association (Freddie Mac), is not deductible as interest on U.S. government obligations."
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 3, Line 9",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "nm_tax_exempt_interest",
+   "label": "New Mexico tax-exempt interest and dividends",
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "from the State of New Mexico or its agencies, institutions, instrumentalities or political subdivisions; obligations of Puerto Rico, Guam, Virgin Islands, American Samoa or Northern Mariana Islands; federally taxable bonds issued by the State of New Mexico; or mutual funds, unit investment trusts or simple trusts invested in them, for the amount the annual statement shows"
+    ]
+   },
+   "not_covered": [
+    "You may not deduct interest and dividends from IRAs."
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 2, Line 7",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "active_duty_pay_exemption",
+   "label": "Active duty pay for United States armed forces",
+   "form": "subtraction",
+   "covers": [
+    "wages"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "salary paid by the United States to members of the armed forces for active duty, included in federal AGI; residents and non-residents"
+    ]
+   },
+   "not_covered": [
+    "Active duty pay from the U.S. Public Health Service: do not enter the income on this line."
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 5, Line 17",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "net_capital_gains_cap",
+   "label": "Net capital gains deduction: 100% of net capital gains, not to exceed $2,500",
+   "form": "subtraction",
+   "covers": [
+    "capital_gains"
+   ],
+   "who": {
+    "basis": "return"
+   },
+   "cap": {
+    "all": "2500"
+   },
+   "cap_per": "return",
+   "cap_rule": "Greater of this and business_sale_gain_deduction; a taxpayer and spouse filing separately may each claim only one-half of the deduction allowed on a joint return",
+   "not_covered": [
+    "'Net capital gains' do not include short-term capital gains."
+   ],
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 5, Line 16",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "All state and municipal bond interest and dividends excluded from federal AGI are added back (PIT-ADJ line 1); those of New Mexico and of Puerto Rico, Guam, Virgin Islands, American Samoa and Northern Mariana Islands are deducted (line 7; see nm_tax_exempt_interest).",
+  "cite": {
+   "publication": "Instructions for 2025 PIT-ADJ",
+   "section": "PDF page 1, Line 1, and PDF page 2, Line 7",
+   "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "net_capital_gains_deduction",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "1",
+   "condition": "100% of net capital gains (Section 1222(11): net long-term gains over short-term losses; short-term gains are not included), not to exceed 2,500 (held as a cap in net_capital_gains_cap); the greater of this and business_sale_gain_deduction; separate filers one-half each",
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 5, Line 16",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "business_sale_gain_deduction",
+   "applies_to": "other",
+   "treatment": "deduction_share",
+   "value": "0.4",
+   "condition": "40% of up to 1,000,000 of net capital gain income from the sale of a business allocated or apportioned to New Mexico under Section 7-2-11 NMSA 1978; the greater of this and the 2,500 amount; separate filers one-half each",
+   "cite": {
+    "publication": "Instructions for 2025 PIT-ADJ",
+    "section": "PDF page 5, Line 16",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated",
+   "cite": {
+    "publication": "2025 PIT-1 Personal Income Tax Return Instructions",
+    "section": "Both booklets searched for inflation, indexed, adjusted annually, cost of living: none found",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "recapture": []
+}

@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "990.00",
+    "state_tax_before_credits": "990.00",
+    "state_taxable_income": "19800.00",
+    "relief_amounts": {
+      "us_ma_contributory_pension": "50000.00"
+    }
+  },
+  "worked": "Start: federal AGI 80000.00. federal contributory public pension 50000.00 (person 0) exempt in full. Private pension 30000.00 (person 1): taxed in full. State income = 80000.00 - 50000.00 = 30000.00. Personal exemption (married_joint) 8800.00. Age 65 exemption 700 x 2 = 1400.00. Taxable income = max(30000.00 - 10200.00, 0) = 19800.00. Tax = 5% x 19800.00 = 990.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

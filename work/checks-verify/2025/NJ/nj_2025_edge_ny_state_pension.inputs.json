@@ -1,0 +1,56 @@
+{
+  "id": "nj_2025_edge_ny_state_pension",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "nj_pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.15 line 20a ('Federal, state, and local government, and teachers' pensions' taxable), njit6 Taxable Retirement Income ('all state and local government ... pensions'), GIT-1 & 2 p.4, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 with the Maximum Exclusion chart, PDF p.22 line 29 (line 27 of exactly $100,000 is in the $0-$100,000 column); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-05-05"
+      },
+      {
+        "age": 59,
+        "born": "1966-01-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": false
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "68500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_pension_exclusion"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "nm_2025_lmi_joint_full",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "low_middle_income_exemption_joint_hoh"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 PIT-1 Personal Income Tax Return Instructions; Instructions for 2025 PIT-ADJ; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-1 instructions PDF page 25, line 14; PDF page 26, Low- and Middle-Income Tax Exemption Worksheet lines 1 to 8; PDF page 22, line 5; PIT-ADJ instructions PDF page 1, line 1; PDF page 2, line 7; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-1-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      },
+      {
+        "age": 48,
+        "born": "1977-08-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "10000.00"
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "-1500.00"
+  },
+  "expected": {
+    "state_agi": "8500.00",
+    "state_taxable_income": "3500.00",
+    "state_tax_before_credits": "52.50",
+    "credits": "0.00",
+    "state_income_tax": "52.50",
+    "relief_amounts": {
+      "low_middle_income_exemption_joint_hoh": "5000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 31,500.00 = -1,500.00 (federal senior deduction ignored; Form PIT-1 takes only the federal line 12 amount, and no line for what the federal return subtracts after line 12). Form PIT-1, married filing jointly. Line 9 federal AGI 30,000.00. Line 10 0.00 (standard deduction taken). Line 11 additions, PIT-ADJ line 1 (all state and municipal bond interest left out of federal AGI): other states' bond interest 10,000.00 = 10,000.00. Line 12 federal standard deduction 31,500.00. Line 13 dependents 0.00. Line 14 low- and middle-income worksheet: line 1 30,000.00; line 2 30,000.00; line 3 0.00; line 4 0.10; line 5 0.00; line 6 2,500.00 - 0.00 = 2,500.00; line 7 2 exemption(s); line 8 = 5,000.00. Line 15 PIT-ADJ deductions and exemptions 0.00. Line 17 = 30,000.00 + 10,000.00 - 31,500.00 - 5,000.00 - 0.00 = 3,500.00. Federal AGI less the federal deduction is -1,500.00 here; the form subtracts the whole line 12 amount, so that negative figure carries through its arithmetic. By the projection: state_agi = federal taxable income -1,500.00 + 10,000.00 = 8,500.00; less base deductions 5,000.00 gives 3,500.00. Line 18 tax, schedule as numbers: 1.5% x 3,500.00 = 52.5; total 52.5, to the cent 52.50. The table row over 3,400 to 3,500 gives 52; expected keeps the formula figure. Lines 19 to 21 0.00. Line 22 net New Mexico income tax 52.50. Other-state bond interest is added so the full exemption reaches tax.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

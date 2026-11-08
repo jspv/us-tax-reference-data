@@ -1,0 +1,68 @@
+{
+  "id": "sc_2025_joint_one_spouse_65",
+  "state": "SC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "sc_age_65_deduction",
+    "sc_retirement_65_or_older",
+    "sc_retirement_under_65"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 SC1040 Individual Income Tax Instructions (SCDOR) and the 2025 SC1040 form and tax tables (IITPacket_2025)",
+    "section": "Instructions PDF p.10 'Line o: Social Security and/or railroad retirement if taxed on your federal return'; PDF p.11 ('railroad retirement income do[es] not qualify ... not taxed by South Carolina'); SC1040 line o, packet PDF p.46; Instructions PDF pp.10-11 'Line p-1 through line p-3: Retirement deduction', qualified retirement income definition and Worksheet for taxpayer (line p-1) lines 1-5 and Worksheet for spouse (line p-2) lines 1-5; Instructions PDF p.12 'Line q: Age 65 and older deduction' and Worksheet for taxpayer (line q-1) lines 1-4 ('against any South Carolina income'); PDF p.13 Worksheet for spouse (line q-2) lines 1-4; SC1040 lines 1-6 and 15 (packet PDF pp.46-47); Instructions PDF p.5 Line 1 (federal taxable income); Instructions PDF p.16 Line 6; Tax Rate Schedule packet PDF p.51 (6% minus 642, any filing status); brackets as derived in the record (brackets.derivation)",
+    "url": "https://dor.sc.gov/sites/dor/files/forms/SC1040Instr_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-10-01"
+      },
+      {
+        "age": 60,
+        "born": "1965-12-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 1
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "4000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1500.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "101000.00",
+    "federal_taxable_income": "67900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.sc_retirement_under_65"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "additional_medicare_tax": "0.00",
+    "agi": "11000.00",
+    "net_investment_income_tax": "0.00",
+    "regular_tax": "0.00",
+    "senior_deduction": "6000.00",
+    "standard_deduction": "18150.00",
+    "taxable_income": "0.00",
+    "taxable_social_security": "0.00",
+    "total_tax": "0.00"
+  },
+  "worked": "Form 1040: line 1z wages 0; line 2a tax-exempt interest 0; line 2b taxable interest 1000; line 3a qualified dividends 0; line 3b ordinary dividends 0; lines 4b+5b pensions/IRA 10000; line 7a capital gain 0; line 8 other income 0. SS Benefits Worksheet: L1 24000; L2 50% = 12000.0; L3 11000; L4 0; L5 23000.0; L6 adjustments 0; L7 23000.0; L8 base 25000; L9: L8 not less than L7, none taxable. Form 1040 line 6b taxable SS 0.00; line 9 total income = line 11 AGI = 11000.00 (no adjustments). Standard deduction: basic 16100 (single) + 1 box(es) x 2050 (unmarried amount) = 18150. Schedule 1-A Part V: L31 MAGI 11000; L32 75000; L33 zero or less; L34 6% = 0; L35 6000; L36a/36b for 1 person(s); L37 6000. Form 1040 line 14 = 18150 + 6000; line 15 taxable income = max(0, 11000.00 - 18150 - 6000) = 0.00. Form 1040 line 16: tax rate schedule (single) on 0: ; total 0.00. Form 8960: L1 interest 1000; L2 dividends 0; L5a gain 0; L8/L12 NII 1000; L13 MAGI 11000.00; L14 threshold 200000; L15 0.00; L16 smaller 0.00; L17 3.8% = 0.00. Form 8959 Part I: L1/L4 Medicare wages 0; L5 200000; L6 0; L7 0.9% = 0.00. Total tax = 0.00 + 0.00 + 0.00 = 0.00."
+}

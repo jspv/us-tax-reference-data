@@ -1,0 +1,730 @@
+{
+ "layer": "record",
+ "state": "MN",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Brackets: lines under 86,800 use the tax table (PDF pp.32-38); 86,800 or more use the Tax Rate Schedules (PDF p.39). The schedules are recorded. Each status prints its own schedule; qualifying surviving spouses use the joint one. The schedules were recomputed against p.39's own 'tax on the lower bands' figures (equal, or 1 cent off where the booklet rounds each band first) and against all 3,476 tax table cells under 86,800 at each row's midpoint (at most 54 cents off, at the lowest rows).",
+  "Base: Form M1 line 1 starts from federal adjusted gross income. Line 4 standard or itemized deduction, line 5 dependent exemptions, line 6 state income tax refund, line 7 subtractions from Schedule M1M. The booklet prints no personal exemption for the filer or spouse, only the 5,200 dependent exemption.",
+  "Age 65 and blind additions: 2,000 single or head of household, 1,550 married or qualifying surviving spouse, printed in Worksheet for Line 4 step 4 and matching the differences in the Standard Deduction Table (PDF p.13). 'Age 65 or older' means born before January 2, 1961 (PDF p.12).",
+  "Government pension from another state, New York included: the sources name neither New York nor any other paying state. Such a plan qualifies for the Qualified Public Pension Subtraction only if it allows a similar or reciprocal subtraction or exemption (M1QPEN p.2), and only for service without Social Security credit. paying_states is left out because no state is named; this does not mean every state qualifies. Whether New York meets the test is not stated in the sources. A pension that does not qualify stays in federal AGI with no subtraction found.",
+  "Reciprocity on M1M line 18 and PDF p.8 is a different rule: agreements with Michigan and North Dakota for personal service income only, such as wages. It says nothing about pensions.",
+  "Own and federal government pensions: only plans listed on M1QPEN p.2 qualify, and the test is service without Social Security credit (basic member), not whether the plan is contributory. CSRS recipients count as basic members and FERS recipients as coordinated. A public pension outside the list, or earned with Social Security credit, stays in federal AGI with no subtraction found; a coordinated member may have the Social Security subtraction instead.",
+  "Pension and simplified Social Security step-downs: the record format holds steps, but the validator requires every figure in a record to be printed, and the band edges (for example 86,490 or 88,490) are computed, not printed. The record has no derived_figures. So both stay effect other with the printed formula in as_printed. The projection carries the Social Security bands as steps, with each edge in derived_figures.",
+  "rate on an effect other test is off-label: mn_social_security_simplified holds 0.1 (10% per step) and mn_standard_deduction holds 0.03 (first tier only), each explained in as_printed, so the projection can name a record figure.",
+  "Social Security: M1M p.3 lets a filer subtract 'the full amount from line 6b' only below the status amounts; above them the subtraction is the greater of step 28 (alternative) and step 29 (simplified), so the entries share a best_of_group. The alternative cap values are the step 23 amounts.",
+  "M1M p.3 says full subtraction when AGI is 'below' the status amounts and the worksheet when 'greater'. At exactly the amount the worksheet gives step 3 = 0, so the full amount: effect starts over the amount.",
+  "Railroad Retirement Board benefits (line 17) are subtracted with no cap or income test printed; those already in line 6b go through line 12 instead.",
+  "Military pensions (line 25): no cap, age or income test printed. Claiming it bars the nonrefundable credit for past military service.",
+  "Private pensions, IRA distributions, employer-plan (401(k)) distributions, annuities and Roth conversions: no subtraction, exclusion or special rule found in the booklet. They reach Form M1 through federal AGI (line 1; Line B reports lines 4b and 5b of Form 1040). Not found in the booklet, which is different from the booklet saying there is none; Roth conversions are not mentioned at all. The only general relief these incomes can meet is the Age 65 or Older/Disabled Subtraction, which applies against any income.",
+  "Age 65 or Older/Disabled Subtraction (Schedule M1R): three entries, because line 2, line 3 and line 10 differ by branch. It is one amount for the return against any income, not a share of one kind: 9,600, 12,000 or 6,000, less nontaxable Social Security and Railroad Retirement Board benefits, less 50% of AGI over 14,500, 18,000 or 9,000. A household with nontaxable Social Security and Railroad Retirement Board benefits of the line 1 amount or more gets nothing: the worksheet stops at line 8.",
+  "mn_disabled_subtraction lists other_income because line 2 takes disability pensions and insurance payments reported on line 1z of Form 1040, the wage line, and no income kind names them. Its married_joint threshold is the 18,000 for both spouses; one spouse is 14,500, as its as_printed says.",
+  "Also not in the archive: Schedule M1C (the credit for joint filers with taxable earned income, pension or Social Security income, the long-term care credit, the credit for tax paid to another state, the credit for past military service), Schedule NIIT, Schedule M1MT, Schedule M1LS, Schedule M1NC, Schedule M1SA and Fact Sheet 6, Seniors. Nothing is filled in for them.",
+  "Net investment income tax (Schedule NIIT, line 14a): applies to net investment income over 1,000,000 (PDF p.17). Its rate is not printed in the sources, so no surtax entry is recorded.",
+  "Capital gains: no separate rate or deduction found in the booklet; empty list. Line 4 of M1M adds back the capital gain portion of a lump-sum distribution elected on federal Form 4972.",
+  "Federal conformity: Minnesota rules are generally based on the Internal Revenue Code as amended through May 1, 2023, with Schedule M1NC adjusting for later federal law (PDF p.3).",
+  "Income tests use AGI from Form M1 line 1; a partner or shareholder adds pass-through entity taxes first (Adjusted Gross Income Worksheet for PTE Deductions, PDF p.11). Recorded as federal_agi.",
+  "Indexing: no document in the archive says anything about adjusting any figure for inflation; PDF p.4 says only that the standard deduction 'increased'. Recorded not_stated.",
+  "Other M1M subtractions (K-12 education, 529, charitable contributions over 500, reservation income, active-duty pay, National Guard pay and others) are not recorded as reliefs. Recapture: no rule found that takes back the lower brackets.",
+  "Settlement 2026-11-07: social_security.treatment: A said relief, B said exempt; M1M p.3-4 says the subtraction is income-tested and phases out, which is partly exempt: relief.",
+  "Settlement 2026-11-07: mn_social_security_alternative income_test.measure.base: A said other, B said federal_agi; M1M p.4 steps 9-19 start from Form 1040 line 9 and add 50% of line 6a, so it is not AGI: other.",
+  "Settlement 2026-11-07: mn_social_security_alternative income_test.measure.minus_taxable_social_security: A left it out, B said true; M1M p.4 step 11 subtracts line 6b: true.",
+  "Settlement 2026-11-07: mn_qualified_public_pension and mn_qualified_public_pension_other_state income_test.applies_when: A left it out, B said over; M1QPEN p.1 says 'less than or equal to line 5' skips the reduction: over.",
+  "Settlement 2026-11-07: mn_us_bond_interest: only B recorded it; M1M p.5 line 14 prints it and it is in scope: kept, written exempt_in_full because no cap or test is printed.",
+  "Settlement 2026-11-07: indexing: A had a brackets entry and all_other, B all_other only; the booklet says nothing about brackets: all_other only.",
+  "Settlement 2026-11-07: bracket rate 0.0680 and alternative rate 0.20 (A) against 0.068 and 0.2 (B): same values, 6.80% and 20% as printed on PDF p.39 and M1M p.4; written 0.068 and 0.2.",
+  "Settlement 2026-11-07: pension who.basis: A and B said each_person; M1QPEN p.3 Line 1 example scenario 2 puts both spouses' pensions on one line 1 under one cap, and there is no age test: return.",
+  "Settlement 2026-11-07: cannot_combine_with on the two pension entries: only A had it; M1QPEN p.3 says 'include all taxable qualified public pension payments on line 1', so the plans do combine: removed, the shared cap is in cap_rule.",
+  "Settlement 2026-11-07: mn_foreign_service_retirement: neither reader kept an entry; M1M p.8 line 36 prints a retirement subtraction with its worksheet: added.",
+  "Settlement 2026-11-07: mn_age_65_subtraction, mn_age_65_subtraction_one_spouse, mn_disabled_subtraction: A and B said not_stated because Schedule M1R was not in the archive; Schedule M1R, fetched afterwards, prints the amount, the reductions and the limits: added. No second reader has read this schedule."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "32570"
+   },
+   {
+    "rate": "0.0785",
+    "start": "106990"
+   },
+   {
+    "rate": "0.0985",
+    "start": "198630"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "47620"
+   },
+   {
+    "rate": "0.0785",
+    "start": "189180"
+   },
+   {
+    "rate": "0.0985",
+    "start": "330410"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "23810"
+   },
+   {
+    "rate": "0.0785",
+    "start": "94590"
+   },
+   {
+    "rate": "0.0985",
+    "start": "165205"
+   }
+  ],
+  "head_of_household": [
+   {
+    "rate": "0.0535",
+    "start": "0"
+   },
+   {
+    "rate": "0.068",
+    "start": "40100"
+   },
+   {
+    "rate": "0.0785",
+    "start": "161130"
+   },
+   {
+    "rate": "0.0985",
+    "start": "264050"
+   }
+  ],
+  "cite": {
+   "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+   "section": "Form M1 instructions PDF p.39 'Tax Rate Schedules' (Single, Married filing jointly or qualifying widow(er), Married filing separately, Head of household)",
+   "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "mn_standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "14950",
+     "married_joint": "29900",
+     "married_separate": "14950",
+     "head_of_household": "22500",
+     "qualifying_surviving_spouse": "29900"
+    },
+    "per": "return",
+    "condition": "Married filing separately: not allowed if the spouse itemizes. Not for nonresident aliens (unless a treaty allows) or short-period returns. Dependents use the Worksheet for Line 4 (lesser of earned income plus 350, minimum 1,250, and 14,950 plus the age/blind additions). Itemized deductions (Schedule M1SA) may be taken instead.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "adjusted gross income from line 1 of Form M1"
+     },
+     "threshold": {
+      "single": "238950",
+      "head_of_household": "238950",
+      "married_joint": "238950",
+      "qualifying_surviving_spouse": "238950",
+      "married_separate": "119475"
+     },
+     "effect": "other",
+     "as_printed": "Worksheet A: step 2 is AGI minus 238,950, at most 91,350 once AGI is over 330,300 (married filing separately 119,475, 45,675 and 165,150); step 3 is 3% of step 2; step 4 is AGI over 330,300 (MFS 165,150); step 5 is 10% of step 4; the reduction is the lesser of steps 3 + 5 and 80% of the deduction from the table, age and blind boxes included. Worksheet B: AGI over 1,083,150, any status, reduces the deduction by 80%. rate holds the first tier (3%) only.",
+     "rate": "0.03",
+     "applies_when": "over"
+    },
+    "cite": {
+     "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+     "section": "Form M1 instructions PDF p.4 'Standard Deduction'; PDF p.13 'Standard Deduction Table for Line 4'; PDF p.14 Worksheets A and B for Line 4",
+     "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "mn_age_65_standard_addition",
+    "what": "age_65_exemption",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1550",
+     "married_separate": "1550",
+     "qualifying_surviving_spouse": "1550"
+    },
+    "per": "person",
+    "condition": "Added to the standard deduction for each box checked: you or your spouse born before January 2, 1961. Single and head of household 2,000; married and qualifying surviving spouse 1,550.",
+    "cite": {
+     "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+     "section": "Form M1 instructions PDF p.13 table (14,950 to 16,950 single; 29,900 to 31,450 joint; 14,950 to 16,500 MFS; 22,500 to 24,500 HoH) and Worksheet for Line 4 step 4 ('$2,000 ($1,550 if married or a qualifying surviving spouse)')",
+     "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "mn_blind_standard_addition",
+    "what": "blind_exemption",
+    "amount": {
+     "single": "2000",
+     "head_of_household": "2000",
+     "married_joint": "1550",
+     "married_separate": "1550",
+     "qualifying_surviving_spouse": "1550"
+    },
+    "per": "person",
+    "condition": "Added to the standard deduction for each box checked: you or your spouse totally blind as of December 31, 2025 or certified 20/200 or visual field 20 degrees or less.",
+    "cite": {
+     "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+     "section": "Form M1 instructions PDF p.12 'Standard Deduction' (blind test); PDF p.13 table and Worksheet for Line 4 step 4",
+     "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "mn_dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "5200"
+    },
+    "per": "dependent",
+    "condition": "For each qualifying dependent on Schedule M1DQC; not claimed if you can be claimed as a dependent.",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi",
+      "as_printed": "adjusted gross income from line 1 of Form M1"
+     },
+     "threshold": {
+      "single": "239050",
+      "head_of_household": "298800",
+      "married_joint": "358550",
+      "qualifying_surviving_spouse": "358550",
+      "married_separate": "179275"
+     },
+     "effect": "other",
+     "as_printed": "Worksheet for Line 5: if AGI exceeds the status amount, excess is divided by 2,500 (1,250 if MFS), rounded up, times 2%, taken off the total exemption; if the excess is more than 122,500 (61,250 MFS) the exemption is 0."
+    },
+    "cite": {
+     "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1 (m1-inst-25)",
+     "section": "Form M1 instructions PDF p.4 'Dependent Exemptions'; PDF p.14 'Worksheet for Line 5 - Dependent Exemptions'",
+     "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 Form M1 Individual Income Tax",
+   "section": "Form M1 PDF p.1 lines 1-9 (line 1 federal adjusted gross income; lines 4-5 deductions and exemptions; line 9 Minnesota taxable income)",
+   "url": "https://www.revenue.state.mn.us/sites/default/files/2026-03/m1-25.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "relief",
+  "cite": {
+   "publication": "2025 Schedule M1M Income Additions and Subtractions",
+   "section": "M1M PDF p.1 line 12; PDF p.3 'Line 12 - Social Security Subtraction' (full amount below the status amounts, otherwise the greater of step 28 and step 29); PDF p.4 'Worksheet for line 12'",
+   "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "mn_qualified_public_pension",
+   "label": "Qualified Public Pension Subtraction (Schedule M1QPEN), plans of Minnesota and the federal government",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "covers_unclear": [],
+   "not_covered": [
+    "Payments based on service for which Social Security benefits were also earned, whether or not Social Security benefits are being received (coordinated members), except the basic-member share of a member converted from basic to coordinated",
+    "Federal Employees Retirement System (FERS) recipients are considered coordinated members",
+    "Payments not included in federal adjusted gross income",
+    "Any part of a public pension used for the subtractions on Schedule M1M lines 20, 21, 22, 25 or 36"
+   ],
+   "who": {
+    "basis": "return",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Payments are federally taxable and included in federal adjusted gross income",
+     "Payments not based on service for which Social Security benefits were also earned (basic member of the plan; survivor benefits follow the member)",
+     "Converted basic-to-coordinated members: only the share of payments from months contributed to the pension alone (Worksheet for Line 1)",
+     "Plan is listed: Chapter 353 PERA basic member; 353.63-353.666 PERA Police and Fire; 353E Local Government Correctional Service Retirement Plan basic member; 354 or 354A Teachers' Retirement Association and St. Paul Teachers basic member; Chapter 3A Legislators basic member; Chapter 352B State agency law enforcement fund; any federal government plan based on service without Social Security (CSRS counts as basic, FERS as coordinated)"
+    ]
+   },
+   "cap": {
+    "single": "13540",
+    "head_of_household": "13540",
+    "married_joint": "27080",
+    "qualifying_surviving_spouse": "27080",
+    "married_separate": "13540"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 1 adds all taxable qualified public pension payments on the return, both spouses' included (Line 1 example scenario 2: 50,000 + 30,000 = 80,000 on one line 1); line 3 is the lesser of line 1 and line 2; the income test then reduces line 3. One cap for the return, shared with mn_qualified_public_pension_other_state: the two entries never give two caps.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "adjusted gross income from line 1 of Form M1"
+    },
+    "threshold": {
+     "single": "84490",
+     "head_of_household": "84490",
+     "married_joint": "108320",
+     "qualifying_surviving_spouse": "108320",
+     "married_separate": "54160"
+    },
+    "effect": "other",
+    "as_printed": "Line 5 amount: 108,320 MFJ/QSS; 84,490 Single/HoH; 54,160 MFS. If line 4 is less than or equal to line 5, skip lines 6 through 9. Line 6 = AGI minus line 5; line 7 = line 6 divided by 2,000, rounded up; line 8 = line 7 x 10%; line 9 = line 8 x line 3; line 10 = line 3 minus line 9, and zero or less means no subtraction. The 2,000 width is the same for every filing status. PDF p.3: AGI greater than 103,489 (Single, HoH), 127,319 (MFJ, QSS) or 73,159 (MFS) does not qualify. Each 10% band is one step: keep 90% in the first 2,000 over line 5, 10% in the ninth, none past 18,000 over it, so the worksheet reaches zero before the printed limit and the two agree. Band edges are not printed, so they are not listed as steps.",
+    "applies_when": "over"
+   },
+   "cite": {
+    "publication": "2025 Schedule M1QPEN Qualified Public Pension Subtraction",
+    "section": "M1QPEN PDF p.1 line 2 ($13,540; $27,080 if Married Filing Jointly or Qualifying Surviving Spouse), lines 4-10; p.3 Income Limits",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1qpen-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_qualified_public_pension_other_state",
+   "label": "Qualified Public Pension Subtraction (Schedule M1QPEN), plans of another state, its political subdivisions or the District of Columbia",
+   "form": "subtraction",
+   "covers": [
+    "public_pension_other_state"
+   ],
+   "covers_unclear": [],
+   "not_covered": [
+    "Payments based on service for which Social Security benefits were also earned, whether or not Social Security benefits are being received (coordinated members), except the basic-member share of a member converted from basic to coordinated",
+    "Federal Employees Retirement System (FERS) recipients are considered coordinated members",
+    "Payments not included in federal adjusted gross income",
+    "Any part of a public pension used for the subtractions on Schedule M1M lines 20, 21, 22, 25 or 36"
+   ],
+   "who": {
+    "basis": "return",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Payments are federally taxable and included in federal adjusted gross income",
+     "Payments not based on service for which Social Security benefits were also earned (basic member of the plan; survivor benefits follow the member)",
+     "Converted basic-to-coordinated members: only the share of payments from months contributed to the pension alone (Worksheet for Line 1)",
+     "Plan administered by another state or its political subdivisions or the District of Columbia, and only 'if they allow a similar or reciprocal subtraction or exemption' (Schedule M1QPEN PDF p.2); the web page says 'if the other state allows a similar subtraction or exemption for the Minnesota pension plans listed'. The sources name no state and do not say which states meet this test."
+    ]
+   },
+   "cap": {
+    "single": "13540",
+    "head_of_household": "13540",
+    "married_joint": "27080",
+    "qualifying_surviving_spouse": "27080",
+    "married_separate": "13540"
+   },
+   "cap_per": "return",
+   "cap_rule": "Same line 1 and same line 2 as mn_qualified_public_pension: payments from a qualifying plan of another state are added to line 1 with any Minnesota or federal plan, and one cap applies to the return.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "adjusted gross income from line 1 of Form M1"
+    },
+    "threshold": {
+     "single": "84490",
+     "head_of_household": "84490",
+     "married_joint": "108320",
+     "qualifying_surviving_spouse": "108320",
+     "married_separate": "54160"
+    },
+    "effect": "other",
+    "as_printed": "Line 5 amount: 108,320 MFJ/QSS; 84,490 Single/HoH; 54,160 MFS. If line 4 is less than or equal to line 5, skip lines 6 through 9. Line 6 = AGI minus line 5; line 7 = line 6 divided by 2,000, rounded up; line 8 = line 7 x 10%; line 9 = line 8 x line 3; line 10 = line 3 minus line 9, and zero or less means no subtraction. The 2,000 width is the same for every filing status. PDF p.3: AGI greater than 103,489 (Single, HoH), 127,319 (MFJ, QSS) or 73,159 (MFS) does not qualify. Each 10% band is one step: keep 90% in the first 2,000 over line 5, 10% in the ninth, none past 18,000 over it, so the worksheet reaches zero before the printed limit and the two agree. Band edges are not printed, so they are not listed as steps.",
+    "applies_when": "over"
+   },
+   "cite": {
+    "publication": "2025 Schedule M1QPEN Qualified Public Pension Subtraction",
+    "section": "M1QPEN PDF p.2 table, row 'Plans administered by another state or its political subdivisions or the District of Columbia if they allow a similar or reciprocal subtraction or exemption'; PDF p.1 lines 1-10; PDF p.3 Income Limits; web page https://www.revenue.state.mn.us/public-pension-subtraction, section 'Pension Plans That Qualify'",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1qpen-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_foreign_service_retirement",
+   "label": "Foreign service retirement subtraction (Schedule M1M line 36)",
+   "form": "subtraction",
+   "covers": [
+    "public_pension"
+   ],
+   "not_covered": [
+    "Any amount used to calculate the qualified public pension subtraction on line 1 of Schedule M1QPEN"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Compensation from a foreign service pension or other foreign service retirement plan, taxable on the federal return",
+     "Received from the Foreign Service Retirement and Disability System (22 U.S.C. 4041 to 4069) or the Foreign Service Pension System (22 U.S.C. 4071)"
+    ]
+   },
+   "cap_rule": "No dollar cap is printed. Worksheet for Line 36: federally taxable compensation, less any amount used on Schedule M1QPEN line 1, times years in the foreign service divided by total years of civil service credited toward the pension.",
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "M1M PDF p.8 'Line 36 - Foreign Service Retirement Subtraction' and 'Worksheet for Line 36'",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_military_pension",
+   "label": "Subtraction for military pensions or other military retirement pay (Schedule M1M line 25)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "covers_unclear": [],
+   "not_covered": [
+    "Retirement pay not taxable on the federal return"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Retirement pay taxable on the federal return, for service in the active component (10 U.S.C. 1401-1414), reserve-component retirement pay (10 U.S.C. 12733) or survivor benefit plan payments (10 U.S.C. 1447-1455)",
+     "Claiming it bars the nonrefundable credit for past military service"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "M1M PDF p.7 'Line 25 - Military Pension or Retirement Pay'; Form M1 instructions PDF p.26 'Military Pensions'",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_railroad_retirement",
+   "label": "Railroad Retirement Board benefits (Schedule M1M line 17)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "covers_unclear": [],
+   "not_covered": [
+    "Railroad Retirement Board benefits already in line 6b of Form 1040 and subtracted on line 12 of Schedule M1M (Social Security subtraction)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Unemployment, sick pay or retirement benefits from the Railroad Retirement Board included in federal adjusted gross income"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "M1M PDF p.5 'Line 17 - Railroad Retirement Board Benefits'",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_social_security_simplified",
+   "label": "Social Security benefit subtraction, simplified method (Schedule M1M line 12, worksheet step 29)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "covers_unclear": [],
+   "not_covered": [],
+   "who": {
+    "basis": "return",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Taxable Social Security benefits on line 6b of Form 1040 or 1040-SR",
+     "Tier 1 railroad retirement benefits included on Schedule M1M line 17 are taken off the result (worksheet step 29)"
+    ]
+   },
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "adjusted gross income from line 1 of Form M1"
+    },
+    "threshold": {
+     "single": "84490",
+     "head_of_household": "84490",
+     "married_joint": "108320",
+     "qualifying_surviving_spouse": "108320",
+     "married_separate": "54160"
+    },
+    "effect": "other",
+    "applies_when": "over",
+    "as_printed": "Step 2 amount: 108,320 MFJ/QSS; 84,490 Single/HoH; 54,160 MFS. Step 3 = AGI minus step 2; step 4 = step 3 divided by 4,000 (2,000 if married and filing a separate return), rounded up, no more than 10; step 5 = step 4 x 10%; step 7 = step 5 x taxable benefits on line 6b; step 8 = step 6 minus step 7, not below zero. Full line 6b amount when AGI is not over step 2. rate is the 10% for each step, not a rate per dollar. Band edges are not printed, so they are not listed as steps.",
+    "rate": "0.1"
+   },
+   "best_of_group": "mn_social_security_subtraction",
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "M1M PDF p.3 'Line 12 - Social Security Subtraction'; PDF p.4 'Worksheet for line 12' steps 1-8, 26, 29, 30; web page https://www.revenue.state.mn.us/social-security-benefit-subtraction, 'Simplified Method'",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_social_security_alternative",
+   "label": "Social Security benefit subtraction, alternative method (Schedule M1M line 12, worksheet step 28)",
+   "form": "subtraction",
+   "covers": [
+    "social_security"
+   ],
+   "covers_unclear": [],
+   "not_covered": [],
+   "who": {
+    "basis": "return",
+    "min_age": null,
+    "max_age": null,
+    "born_on_or_after": null,
+    "born_on_or_before": null,
+    "other_conditions": [
+     "Taxable Social Security benefits on line 6b of Form 1040 or 1040-SR"
+    ]
+   },
+   "cap": {
+    "single": "4560",
+    "head_of_household": "4560",
+    "married_joint": "5840",
+    "qualifying_surviving_spouse": "5840",
+    "married_separate": "2920"
+   },
+   "cap_per": "return",
+   "cap_rule": "Step 24 = the amount on step 23 minus 20% of provisional income over the step 20 amount (not below 0); step 28 = the lesser of step 24 and step 27 (taxable Social Security benefits less Tier 1 railroad retirement benefits on line 17). Provisional income (step 19) = (Form 1040 line 9 minus line 6b) + 50% of line 6a + tax-exempt interest, less Schedule 1 line 26 minus line 21 (zero if negative).",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "plus_tax_exempt_interest": true,
+     "minus_taxable_social_security": true,
+     "as_printed": "Worksheet step 19: Form 1040 line 9 less taxable Social Security on line 6b, plus 50% of line 6a, plus line 2a tax-exempt interest, less the excess of Schedule 1 line 26 over line 21. It starts from total income, not AGI, and adds half of all benefits, which no flag here holds."
+    },
+    "threshold": {
+     "single": "69250",
+     "head_of_household": "69250",
+     "married_joint": "88630",
+     "qualifying_surviving_spouse": "88630",
+     "married_separate": "44315"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.2",
+    "as_printed": "Step 20 amounts: MFJ/QSS 88,630; Single/HoH 69,250; MFS 44,315. Step 21 = step 19 less step 20, not below zero; step 22 = 20% of step 21; step 24 = step 23 less step 22, not below zero."
+   },
+   "best_of_group": "mn_social_security_subtraction",
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "M1M PDF p.4 'Worksheet for line 12' steps 9-28",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_age_65_subtraction",
+   "label": "Age 65 or Older/Disabled Subtraction (Schedule M1R, M1M line 16), age 65 or older",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "older_spouse",
+    "min_age": 65,
+    "born_on_or_before": "1961-01-01",
+    "other_conditions": [
+     "You, or your spouse on a joint return, born before January 2, 1961; on a joint return, both spouses 65 or older or disabled (one spouse only: mn_age_65_subtraction_one_spouse)",
+     "Married filing a separate federal return qualifies only if the spouses lived apart for all of 2025"
+    ]
+   },
+   "cap": {
+    "single": "9600",
+    "head_of_household": "9600",
+    "qualifying_surviving_spouse": "9600",
+    "married_joint": "12000",
+    "married_separate": "6000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 1 is the amount for the return, not per person: 12,000 on a joint return whether one or both spouses qualify. Line 8 = line 3 less line 7, and line 7 adds any pension, annuity or disability benefit on line 13b of federal Schedule R, nontaxable Social Security (line 5a less line 5b) and Railroad Retirement Board benefits (lines 6a and 6b); zero or less on line 8 means no subtraction. Line 13 = line 8 less 50% of AGI over line 10. Line 1 prints 9,600 for 'single'; the table on p.2 puts head of household and qualifying surviving spouse with it.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Line 9: amount from line 1 of Form M1 (or line 43 of Schedule M1NC if required) less Railroad Retirement Board benefits on line 6b of federal Form 1040, plus lump-sum distributions reported on federal Form 4972 (Worksheet for Line 9). The table calls this adjusted gross income."
+    },
+    "threshold": {
+     "single": "14500",
+     "head_of_household": "14500",
+     "qualifying_surviving_spouse": "14500",
+     "married_joint": "18000",
+     "married_separate": "9000"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.5",
+    "applies_when": "over",
+    "as_printed": "Line 10 amount: 14,500 single, head of household, qualifying surviving spouse; 18,000 joint with both spouses 65 or older or disabled; 9,000 separate. Line 11 = line 9 less line 10; line 12 = 50% of line 11; line 13 = line 8 less line 12, zero or less means no subtraction. Printed eligibility table (M1R p.2; same figures on M1 instructions p.15): AGI less than 33,700 and Railroad Retirement Board benefits plus nontaxable Social Security less than 9,600 (single, head of household, qualifying surviving spouse); 42,000 and 12,000 (joint, both spouses 65 or older or disabled); 38,500 and 12,000 (joint, one spouse); 21,000 and 6,000 (separate, lived apart all of 2025). These limits are where the worksheet reaches zero: each AGI limit is line 10 plus twice line 1."
+   },
+   "cite": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "M1R PDF p.1 lines 1-13; PDF p.2 'Am I eligible?', 'What are the income limitations?', 'Line 9', 'Line 10'; Form M1 instructions PDF p.15; M1M PDF p.5 line 16",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_age_65_subtraction_one_spouse",
+   "label": "Age 65 or Older/Disabled Subtraction (Schedule M1R, M1M line 16), joint return with one spouse 65 or older",
+   "form": "subtraction",
+   "covers": [
+    "all_income"
+   ],
+   "who": {
+    "basis": "older_spouse",
+    "min_age": 65,
+    "born_on_or_before": "1961-01-01",
+    "other_conditions": [
+     "Joint return on which one spouse is 65 or older or disabled and the other is neither"
+    ]
+   },
+   "cap": {
+    "married_joint": "12000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 1 is the amount for the return, not per person: 12,000 on a joint return whether one or both spouses qualify. Line 8 = line 3 less line 7, and line 7 adds any pension, annuity or disability benefit on line 13b of federal Schedule R, nontaxable Social Security (line 5a less line 5b) and Railroad Retirement Board benefits (lines 6a and 6b); zero or less on line 8 means no subtraction. Line 13 = line 8 less 50% of AGI over line 10. Line 1 prints 9,600 for 'single'; the table on p.2 puts head of household and qualifying surviving spouse with it.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Line 9: amount from line 1 of Form M1 (or line 43 of Schedule M1NC if required) less Railroad Retirement Board benefits on line 6b of federal Form 1040, plus lump-sum distributions reported on federal Form 4972 (Worksheet for Line 9). The table calls this adjusted gross income."
+    },
+    "threshold": {
+     "married_joint": "14500"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.5",
+    "applies_when": "over",
+    "as_printed": "Line 10 amount: 14,500 for a joint return with one spouse 65 or older or disabled. Line 11 = line 9 less line 10; line 12 = 50% of line 11; line 13 = line 8 less line 12, zero or less means no subtraction. Printed eligibility table (M1R p.2; same figures on M1 instructions p.15): AGI less than 33,700 and Railroad Retirement Board benefits plus nontaxable Social Security less than 9,600 (single, head of household, qualifying surviving spouse); 42,000 and 12,000 (joint, both spouses 65 or older or disabled); 38,500 and 12,000 (joint, one spouse); 21,000 and 6,000 (separate, lived apart all of 2025). These limits are where the worksheet reaches zero: each AGI limit is line 10 plus twice line 1."
+   },
+   "cite": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "M1R PDF p.1 lines 1-13; PDF p.2 'Am I eligible?', 'What are the income limitations?', 'Line 9', 'Line 10'; Form M1 instructions PDF p.15; M1M PDF p.5 line 16",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_disabled_subtraction",
+   "label": "Age 65 or Older/Disabled Subtraction (Schedule M1R, M1M line 16), permanently and totally disabled, under 65",
+   "form": "subtraction",
+   "covers": [
+    "other_income"
+   ],
+   "who": {
+    "basis": "return",
+    "max_age": 64,
+    "born_on_or_after": "1961-01-02",
+    "other_conditions": [
+     "You (and your spouse on a joint return) are under age 65",
+     "Permanent and total disability by the end of 2025, certified by a physician's statement as in the federal Schedule R instructions or by the Department of Veterans Affairs",
+     "Federally taxable disability income received in 2025",
+     "Married filing a separate federal return qualifies only if the spouses lived apart for all of 2025"
+    ]
+   },
+   "cap": {
+    "single": "9600",
+    "head_of_household": "9600",
+    "qualifying_surviving_spouse": "9600",
+    "married_joint": "12000",
+    "married_separate": "6000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Line 3 is the lesser of line 1 and line 2, and line 2 is disability pensions and insurance payments included on line 1z of federal Form 1040. The rest follows mn_age_65_subtraction. Line 1 is the amount for the return, not per person: 12,000 on a joint return whether one or both spouses qualify. Line 8 = line 3 less line 7, and line 7 adds any pension, annuity or disability benefit on line 13b of federal Schedule R, nontaxable Social Security (line 5a less line 5b) and Railroad Retirement Board benefits (lines 6a and 6b); zero or less on line 8 means no subtraction. Line 13 = line 8 less 50% of AGI over line 10. Line 1 prints 9,600 for 'single'; the table on p.2 puts head of household and qualifying surviving spouse with it.",
+   "income_test": {
+    "measure": {
+     "base": "other",
+     "as_printed": "Line 9: amount from line 1 of Form M1 (or line 43 of Schedule M1NC if required) less Railroad Retirement Board benefits on line 6b of federal Form 1040, plus lump-sum distributions reported on federal Form 4972 (Worksheet for Line 9). The table calls this adjusted gross income."
+    },
+    "threshold": {
+     "single": "14500",
+     "head_of_household": "14500",
+     "qualifying_surviving_spouse": "14500",
+     "married_joint": "18000",
+     "married_separate": "9000"
+    },
+    "effect": "phase_out_rate",
+    "rate": "0.5",
+    "applies_when": "over",
+    "as_printed": "Line 10 amount: 14,500 single, head of household, qualifying surviving spouse, and joint with one spouse disabled; 18,000 joint with both spouses disabled; 9,000 separate. Line 11 = line 9 less line 10; line 12 = 50% of line 11; line 13 = line 8 less line 12, zero or less means no subtraction. Printed eligibility table (M1R p.2; same figures on M1 instructions p.15): AGI less than 33,700 and Railroad Retirement Board benefits plus nontaxable Social Security less than 9,600 (single, head of household, qualifying surviving spouse); 42,000 and 12,000 (joint, both spouses 65 or older or disabled); 38,500 and 12,000 (joint, one spouse); 21,000 and 6,000 (separate, lived apart all of 2025). These limits are where the worksheet reaches zero: each AGI limit is line 10 plus twice line 1."
+   },
+   "cite": {
+    "publication": "2025 Schedule M1R, Age 65 or Older/Disabled Subtraction",
+    "section": "M1R PDF p.1 lines 1-13; PDF p.2 'Am I eligible?', 'What are the income limitations?', 'Line 9', 'Line 10'; Form M1 instructions PDF p.15; M1M PDF p.5 line 16",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1r-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "mn_us_bond_interest",
+   "label": "Net interest or mutual fund dividends from U.S. bonds (Schedule M1M line 14)",
+   "form": "exempt_in_full",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "interest or dividends attributable to Ginnie Mae, Fannie Mae, or Freddie Mac bonds"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "federally taxable interest from U.S. bonds, bills, notes, savings bonds, certificates of indebtedness, Sallie Mae bonds, or mutual fund dividends attributable to them",
+     "reduced by related investment interest and expenses deducted on the federal return"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule M1M Income Additions and Subtractions",
+    "section": "PDF page 5 line 14",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other_states_taxed_own_exempt",
+  "note": "Interest from bonds of a state other than Minnesota, or of a local government in one, is added (M1M line 1). Federally tax-exempt mutual fund dividends: if 95% or more came from Minnesota bonds only the non-Minnesota part is added; if less than 95%, all is added (line 2). The sources print no addition for Minnesota's own bonds.",
+  "cite": {
+   "publication": "2025 Schedule M1M Income Additions and Subtractions",
+   "section": "M1M PDF p.1 lines 1-2; PDF p.3 'Line 1' and 'Line 2'",
+   "url": "https://www.revenue.state.mn.us/sites/default/files/2026-07/m1m-25.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

@@ -1,0 +1,73 @@
+{
+  "id": "wi_2025_retirement_67_single_at_or_above",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_retirement_67"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 4 (SB Instructions PDF page 2); line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-11-20"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "28000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "23800.00"
+    },
+    "federal_agi": "68800.00",
+    "federal_taxable_income": "51050.00"
+  },
+  "expected": {
+    "state_agi": "21000.00",
+    "state_taxable_income": "6694.00",
+    "state_tax_before_credits": "234.29",
+    "credits": "0.00",
+    "state_income_tax": "234.29",
+    "relief_amounts": {
+      "wi_retirement_67": "24000.00"
+    }
+  },
+  "worked": "Single, 72: private pension 30,000, IRA distributions 15,000, Social Security 28,000. Qualifying income 45,000, over the 24,000 single cap: line 16 is 24,000. Federal (given, not tested): federal AGI = ira distribution (you) 15,000.00 + private pension (you) 30,000.00 + taxable Social Security 23,800.00 (gross 28,000.00; provisional income 45,000.00 + half of 28,000.00 = 59,000.00; taxable Social Security 23,800.00) = 68,800.00. Federal taxable income = 68,800.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 51,050.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 68,800.00; line 2 Schedule I adjustments 0.00; line 3 68,800.00; line 4 additions 0.00; line 5 68,800.00. Schedule SB: line 4 Social Security adjustment = 23,800.00; line 16 retirement income subtraction: qualifying income you (age 72): pension 30,000.00 + IRA 15,000.00 = 45,000.00; smaller of 45,000.00 and the 24,000.00 cap = 24,000.00; line 50 total 47,800.00. Schedule SB line 17: federal AGI 68,800.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 47,800.00; line 7 Wisconsin income = 68,800.00 - 47,800.00 = 21,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 21,000 to less than 21,500, column Single: 13,356.00 (printed row, at least / less than / single / joint / separate / head of household: 21,000 / 21,500 / 13,356 / 25,110 / 10,375 / 17,137). Line 9 = 21,000.00 - 13,356.00 = 7,644.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 7,644.00 - 950.00 = 6,694.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 6,694.00 = 234.29; total 234.29, rounded once to 234.29. The Tax Table row 6,600 to 6,700 (PDF page 38) gives 233; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 234.29.",
+  "accepted_approximations": [
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

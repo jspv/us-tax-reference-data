@@ -1,0 +1,40 @@
+[
+  {
+    "state": "GA",
+    "title": "2025 IT-511 Individual Income Tax Booklet",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download",
+    "retrieved": "2026-11-06T17:52:07.576186+00:00",
+    "ok": true,
+    "file": "2025_IT-511_Booklet_2026.02.16.pdf",
+    "bytes": 5218740,
+    "sha256": "ae43633e68ca423609607b0f93b1ebcd6056bce06ffb91829c448292e48a693f",
+    "archived_url": "https://web.archive.org/web/20260421161025id_/https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  {
+    "state": "GA",
+    "title": "2025 Georgia Form 500 (Rev. 07/09/25) with Schedule 1 incl. retirement exclusion",
+    "url": "https://apps.dor.ga.gov/FillableForms/webpdf/examples/2025GA500.pdf",
+    "retrieved": "2026-11-07T01:04:32.959368+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://apps.dor.ga.gov/FillableForms/webpdf/examples/2025GA500.pdf",
+    "file": "2025GA500.pdf",
+    "bytes": 2244908,
+    "sha256": "c7d56d972dab40bc3145d91bed11767132e0b3b95725c9cf7db196906e7b80f6",
+    "archived_url": "https://web.archive.org/web/20261108001003id_/https://apps.dor.ga.gov/FillableForms/webpdf/examples/2025GA500.pdf"
+  },
+  {
+    "state": "GA",
+    "title": "Georgia DOR Retirees FAQ (retirement exclusion, Social Security)",
+    "url": "https://dor.georgia.gov/retirees-faq",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:04:39.324242+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://dor.georgia.gov/retirees-faq",
+    "file": "retirees-faq.html",
+    "bytes": 99187,
+    "sha256": "71b781fb1627aa3770486f825491211df8b6696c93821d58a604d3b53afeb16c",
+    "text_file": "retirees-faq.page.txt"
+  }
+]

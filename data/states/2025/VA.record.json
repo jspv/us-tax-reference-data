@@ -1,0 +1,667 @@
+{
+  "layer": "record",
+  "state": "VA",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Page numbers are PDF page numbers (the pypdf text and the PDF itself, 43 pages); the booklet's printed page number is 6 lower (PDF p41 = printed Page 35). The docling text skips blank pages, so its page markers run 2 to 3 lower than the PDF from page 13 on; reading A's cites used those and were corrected here.",
+    "Brackets: the booklet prints one rate schedule (PDF p41) for every filing status; it is recorded under single and married_joint only. A detailed tax table is only on the Department's website, not in the booklet.",
+    "Filing statuses: 1 = Single, 2 = Joint, 3 = Married filing separately; a federal head of household files as Filing Status 1 and fills in the Head of Household oval (PDF p15). So head_of_household amounts below are the Filing Status 1 amounts. The booklet does not mention a qualifying surviving spouse.",
+    "Standard deduction: 8,750 (Filing Status 1 and 3) and 17,500 (Filing Status 2) for Taxable Years 2025 and 2026. The booklet says the increase is scheduled to sunset after Taxable Year 2026 and revert to the amounts that applied before Taxable Year 2019: 3,000 for single filers and 6,000 for married couples filing jointly (PDF p7 What's New; PDF p17 Line 11). Only the 2025 amounts are recorded as figures; the scheduled change is kept here in notes (scheduled changes are a separate pending feature, tax-reference-data issue #2).",
+    "A filer who itemized on the federal return must itemize on Virginia Schedule A (Line 10, PDF p17); itemized amounts are not recorded. A person claimed as a dependent on another's return is limited to the smaller of earned income or the standard deduction (PDF p19).",
+    "Exemptions: 930 times the sum of the You, Spouse and Dependents boxes; 800 times the sum of the 65-or-older and Blind boxes (PDF p15; Form 760 page 1 Exemption Sections A and B). The 65-or-older and blind exemptions cannot be claimed with the Credit for Low-Income Individuals (Line 23).",
+    "Age Deduction (Form 760 Line 4): recorded as two entries by birth date (on or before 1939-01-01: 12,000 each, no income test; 1939-01-02 to 1961-01-01: income based). No minimum age is printed apart from the birth dates, so min_age is left out. Born after 1961-01-01: the booklet prints no age deduction (PDF p15: 'taxpayers born on or before January 1, 1961, may qualify').",
+    "Income-based age deduction: married taxpayers always use the joint AFAGI of both spouses, filing jointly or separately, against 75,000; if both spouses claim, the joint deduction (2 x 12,000 less the excess) is computed first and half allocated to each (PDF p16 worksheet lines 1-15; PDF p17). The schema's income_test cannot say that the reduction is taken once from the combined maximum; that is in cap_rule.",
+    "The age deduction and the disability income subtraction are alternatives for each spouse (best_of_group age_or_disability; PDF p15 Line 4, PDF p25 Line 5). The bar on claiming the age deduction together with the Credit for Low-Income Individuals, the Virginia Earned Income Credit or the Refundable Virginia Earned Income Credit is in other_conditions, because credits have no ids in this record.",
+    "Social Security: Form 760 Line 5 subtracts Social Security and equivalent Tier 1 Railroad Retirement benefits taxable on the federal return (Form 760 page 1 Line 5; PDF p17 Line 5; also taken out of AFAGI on worksheet line 7, PDF p16). Recorded as exempt.",
+    "Pensions, IRAs, 401(k), Roth conversions: the booklet prints no general Virginia subtraction for private or public pensions, IRA or employer-plan distributions, and does not mention Roth conversions; not found in the booklet. The age deduction applies against any income. Treatment of another state's government pension is not found in the booklet, apart from code 31 (retirement income whose contributions another state taxed).",
+    "Code 31 (retirement income previously taxed by another state) covers 'other_income' because the booklet names only 'retirement income'; the retirement kinds it may take are in covers_unclear.",
+    "Military: the booklet lists three subtractions for servicemembers (combat zone pay code 30, basic pay code 38, Virginia National Guard code 28; PDF p25) and the same income may not be in more than one; recorded as covering wages. Military retirement: code 60 (40,000 per person) and code 44 (Medal of Honor recipients).",
+    "Municipal interest: Schedule ADJ Line 1 adds interest on obligations of other states not included in federal AGI, 'which is taxable in Virginia' (PDF p23); code 20 subtracts income from Virginia obligations, including interest on Virginia state bonds or municipal obligations and gains on their sale, to the extent in federal AGI (PDF p25). Code 10 adds interest or dividends exempt from federal tax but taxable in Virginia (PDF p24); Line 4 subtracts income from U.S. obligations (PDF p25).",
+    "Capital gains: no rate or deduction share for gains differs from ordinary income in the booklet; capital_gains is empty. The narrow code 52 subtraction (qualified-business investments made 2010-2020) is in reliefs.",
+    "Spouse Tax Adjustment (Form 760 Line 17): a reduction of tax of up to 259 on a joint return, figured from each spouse's separate VAGI on the worksheet on PDF p18; the schema has no field for it, and it is not a recapture.",
+    "Filing threshold: tax is 0 if VAGI is less than 11,950 (Filing Status 1 or 3) or 23,900 (Filing Status 2) (Form 760 Line 9; PDF p17 Line 9); no field holds this.",
+    "Left out of reliefs: Schedule ADJ subtractions unrelated to retirement, wages or investment income (lottery prizes under 600, Holocaust assets, Work Opportunity Tax Credit wages, Commonwealth Savers distributions, land preservation, historic rehabilitation, first-time home buyer accounts, student loan discharge, eminent domain gain, federal partnership income, other); the additions other than municipal and U.S. obligation interest; Schedule ADJ deductions (lines 8a-8c); and credits.",
+    "Indexing: the booklet says nothing about inflation adjustment for any figure. The standard deduction is no (2026-11-08): What's New (PDF p7) says legislation set it for Taxable Years 2025 and 2026 and that it reverts after 2026 to the pre-2019 amounts, so it is fixed by law, not adjusted. Every other entry is not_stated. No surtax and no recapture is printed.",
+    "Settlement 2026-11-07: muni_interest.treatment: A said other_states_taxed_own_exempt, B said other; PDF p23 Schedule ADJ Line 1 adds interest on obligations of other states as 'taxable in Virginia' and PDF p25 code 20 subtracts interest on Virginia state bonds or municipal obligations, so other_states_taxed_own_exempt.",
+    "Settlement 2026-11-07: military_basic_pay.income_test: A recorded a dollar-for-dollar test on military basic pay over 15,000 (measure other), B put it only in cap_rule; PDF p26 code 38 prints 'For every $1.00 of income over $15,000, the maximum subtraction is reduced by $1.00', so A's income_test is kept.",
+    "Settlement 2026-11-07: annuity_death_benefit (code 49), combat_zone_pay (code 30), retirement_prev_taxed_other_state (code 31): who.basis: A said return, B said each_person; PDF p26-27 prints no age test, no per-person cap and no each-spouse rule for these codes (unlike codes 38, 39 and 60, which say each spouse may qualify), so return, the schema's value when no person's age or limit is used.",
+    "Settlement 2026-11-07: retirement_prev_taxed_other_state.covers_unclear: only B listed ira_distribution, employer_plan_distribution, private_pension, public_pension_other_state; PDF p26 code 31 says only 'retirement income', which leaves the kinds open, so B's list is kept.",
+    "Settlement 2026-11-07: lottery_prizes (code 24): only B recorded it; out of scope with the other minor Schedule ADJ subtractions both readers left out; dropped.",
+    "Settlement 2026-11-07: standard_deduction and age_deduction_income_based threshold: head_of_household added at the Filing Status 1 amounts (8,750; 50,000) because a federal head of household files Virginia Filing Status 1 (PDF p15); neither reader had it.",
+    "Settlement 2026-11-07: indexing standard_deduction: B put the scheduled sunset in 'index' (what a figure is indexed to); moved to notes, since the booklet states no inflation index."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "5000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "17000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3000"
+      },
+      {
+        "rate": "0.05",
+        "start": "5000"
+      },
+      {
+        "rate": "0.0575",
+        "start": "17000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+      "section": "PDF p41 (printed Page 35), Tax Rate Schedule: not over 3,000 2%; over 3,000 but not over 5,000 60 + 3%; over 5,000 but not over 17,000 120 + 5%; over 17,000 720 + 5.75%",
+      "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "8750",
+          "married_joint": "17500",
+          "married_separate": "8750",
+          "head_of_household": "8750"
+        },
+        "per": "return",
+        "condition": "Claimed if the standard deduction was claimed on the federal return; a filer who itemized federally must itemize on Virginia Schedule A, and if one spouse itemizes the other must too. A person claimed as a dependent on another's return is limited to the smaller of earned income or the standard deduction. The 2025-2026 amounts are scheduled to sunset after Taxable Year 2026 (see notes).",
+        "cite": {
+          "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+          "section": "PDF p17 (printed Page 11), Line 11 Standard Deduction; PDF p7 What's New, Increase in Standard Deduction; PDF p15 Filing Status (head of household files as Filing Status 1); PDF p19 Dependent on Another's Return",
+          "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "all": "930"
+        },
+        "per": "person",
+        "condition": "One for you and, on Filing Status 2, one for your spouse; on Filing Status 3 each spouse claims his or her own",
+        "cite": {
+          "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+          "section": "PDF p15 (printed Page 9), Exemptions; Form 760 page 1 Exemption Section A 'X $930'",
+          "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "930"
+        },
+        "per": "dependent",
+        "condition": "Generally the same number of dependent exemptions allowed on the federal return; the same dependent may not be claimed on separate returns",
+        "cite": {
+          "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+          "section": "PDF p15 (printed Page 9), Exemptions: Dependents; Form 760 page 1 Exemption Section A 'X $930'",
+          "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "800"
+        },
+        "per": "person",
+        "condition": "Age 65 or older on or before January 1, 2026; cannot be claimed if the Credit for Low-Income Individuals on Line 23 is also claimed",
+        "cite": {
+          "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+          "section": "PDF p15 (printed Page 9), Exemptions: 65 or Older, Low-Income Individuals; Form 760 page 1 Exemption Section B 'X $800'",
+          "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "blind_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "800"
+        },
+        "per": "person",
+        "condition": "Considered blind for federal income tax purposes; cannot be claimed if the Credit for Low-Income Individuals on Line 23 is also claimed",
+        "cite": {
+          "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+          "section": "PDF p15 (printed Page 9), Exemptions: Blind, Low-Income Individuals; Form 760 page 1 Exemption Section B 'X $800'",
+          "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 760 Resident Individual Income Tax Return",
+      "section": "Page 1, Line 1 'Adjusted Gross Income from federal return - Not federal taxable income'; PDF p15 (printed Page 9) Line 1",
+      "url": "https://www.tax.virginia.gov/sites/default/files/taxforms/individual-income-tax/2025/760-2025.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+      "section": "PDF p17 (printed Page 11), Line 5 Social Security Act and Equivalent Tier 1 Railroad Retirement Act Benefits; Form 760 page 1 Line 5 'Social Security and equivalent Tier 1 Railroad Retirement benefits if taxable on federal return'; PDF p16 worksheet line 7",
+      "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "age_deduction_born_by_1939",
+      "label": "Age Deduction (born on or before January 1, 1939)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1939-01-01",
+        "other_conditions": [
+          "Cannot also claim a disability income subtraction, Credit for Low-Income Individuals, Virginia Earned Income Credit or Refundable Virginia Earned Income Credit",
+          "Neither spouse may claim an age deduction if one spouse claimed one of those credits, even if filing separate returns"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p17 (printed Page 11), Taxpayers Age 65 and Older, first bullet; PDF p15 (printed Page 9) Line 4 Age Deduction; Form 760 page 1 Line 4",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Each spouse born on or before January 1, 1939 may claim the full 12,000; no income test.",
+      "best_of_group": "age_or_disability",
+      "cannot_combine_with": [
+        "disability_income"
+      ]
+    },
+    {
+      "id": "age_deduction_income_based",
+      "label": "Age Deduction (income-based, born January 2, 1939 through January 1, 1961)",
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_after": "1939-01-02",
+        "born_on_or_before": "1961-01-01",
+        "other_conditions": [
+          "Cannot also claim a disability income subtraction, Credit for Low-Income Individuals, Virginia Earned Income Credit or Refundable Virginia Earned Income Credit",
+          "Neither spouse may claim an age deduction if one spouse claimed one of those credits, even if filing separate returns",
+          "Married taxpayers always use the combined AFAGI of both spouses, whether filing jointly or separately"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p17 (printed Page 11), Taxpayers Age 65 and Older, second bullet; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; Form 760 Line 4",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Maximum 12,000 per qualifying person, reduced $1 for every $1 that AFAGI exceeds 50,000 (single) or that the married taxpayers' joint AFAGI exceeds 75,000. If both spouses claim an income-based age deduction, the joint deduction (12,000 times 2, less the excess) is computed first and half is allocated to each spouse; if the excess is more than the maximum, no age deduction.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "minus_taxable_social_security": true,
+          "as_printed": "Adjusted federal adjusted gross income (AFAGI): the taxpayer's federal adjusted gross income, modified for any conformity adjustments and reduced by any taxable Social Security and Tier 1 Railroad Benefits"
+        },
+        "threshold": {
+          "single": "50000",
+          "head_of_household": "50000",
+          "married_joint": "75000",
+          "married_separate": "75000"
+        },
+        "effect": "dollar_for_dollar",
+        "as_printed": "For Filing Status 1, single taxpayers, the maximum allowable age deduction of $12,000 is reduced $1 for every $1 the taxpayer's AFAGI exceeds $50,000. For all married taxpayers, whether filing jointly or separately, the maximum allowable age deduction of $12,000 each is reduced $1 for every $1 the married taxpayers' joint AFAGI exceeds $75,000."
+      },
+      "best_of_group": "age_or_disability",
+      "cannot_combine_with": [
+        "disability_income"
+      ]
+    },
+    {
+      "id": "disability_income",
+      "label": "Disability Income subtraction (Schedule ADJ Line 5)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Disability income reported as wages (or payments in lieu of wages) for permanent and total disability, as defined under IRC 22(c)(2)(b)(iii)",
+          "Cannot also claim an age deduction on Form 760 Line 4",
+          "Once taxpayers reach mandatory retirement age (as defined by the IRS), disability income becomes retirement income"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p25 (printed Page 19), Schedule ADJ Line 5 Disability Income; PDF p15 (printed Page 9) Line 4",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Up to 20,000 of disability income; on joint returns each spouse can qualify.",
+      "best_of_group": "age_or_disability",
+      "cannot_combine_with": [
+        "age_deduction_born_by_1939",
+        "age_deduction_income_based"
+      ]
+    },
+    {
+      "id": "ss_tier1_railroad",
+      "label": "Social Security and equivalent Tier 1 Railroad Retirement benefits subtraction (Form 760 Line 5)",
+      "form": "subtraction",
+      "covers": [
+        "social_security",
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p17 (printed Page 11), Line 5; PDF p16 worksheet line 7; Form 760 Line 5 (page 1): 'Social Security and equivalent Tier 1 Railroad Retirement benefits if taxable on federal return'",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "not_covered": [
+        "Tier 2 Railroad Retirement Benefits and Other Railroad Retirement and Railroad Unemployment Benefits (not entered on Line 5; see Schedule ADJ code 22)"
+      ],
+      "cap_rule": "Only the taxable amount included in federal adjusted gross income; no cap printed"
+    },
+    {
+      "id": "railroad_tier2_other",
+      "label": "Tier 2 and Other Railroad Retirement and Railroad Unemployment Benefits (Schedule ADJ code 22)",
+      "form": "subtraction",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Tier 2 vested dual benefits and other Railroad Retirement Act and Railroad Unemployment Insurance Act benefits included in federal AGI and reported on the federal return as a taxable pension or annuity"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 22",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_benefits",
+      "label": "Military Benefits Subtraction (Schedule ADJ code 60)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Military retirement income for service in the Armed Forces of the United States, qualified military benefits under IRC 134, Survivor Benefit Plan benefits paid to the surviving spouse of a veteran, and military benefits paid to the surviving spouse of a veteran",
+          "Not allowed if a credit, exemption, subtraction or deduction is claimed for the same income under any other provision of Virginia or federal law",
+          "Taxable years beginning on and after January 1, 2024"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p28 (printed Page 22), Schedule ADJ Line 6 code 60",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "40000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Maximum 40,000 for Taxable Year 2025 and after; if both married spouses are military members receiving qualifying benefits, each may take the maximum for his or her own benefits."
+    },
+    {
+      "id": "medal_of_honor",
+      "label": "Congressional Medal of Honor Recipients (Schedule ADJ code 44)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Individual awarded the Congressional Medal of Honor"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 44",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap_rule": "Military retirement income received; no cap printed"
+    },
+    {
+      "id": "military_basic_pay",
+      "label": "Military Basic Pay (Schedule ADJ code 38)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Military service personnel on extended active duty for a period in excess of 90 consecutive days, stationed inside or outside Virginia",
+          "Basic pay must not be included in another subtraction such as the Virginia National Guard subtraction",
+          "Cannot claim a Credit for Low-Income Individuals, Virginia Earned Income Credit or Refundable Virginia Earned Income Credit"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 38",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Up to 15,000 of military basic pay; reduced $1 for every $1 of basic pay over 15,000; no subtraction if basic pay is 30,000 or more; on joint returns each spouse can qualify.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "military basic pay received during the taxable year"
+        },
+        "threshold": {
+          "all": "15000"
+        },
+        "effect": "dollar_for_dollar",
+        "as_printed": "If the basic military pay is over $15,000, then the subtraction is reduced by the amount exceeding $15,000. For every $1.00 of income over $15,000, the maximum subtraction is reduced by $1.00. If your basic military pay is $30,000 or more, you are not entitled to a subtraction."
+      }
+    },
+    {
+      "id": "national_guard",
+      "label": "Virginia National Guard Income (Schedule ADJ code 28)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Wages or salaries for active and inactive service in the Virginia National Guard",
+          "Does not apply to members of the active or reserve units of the Army, Navy, Air Force or Marines, or the National Guard of other states or the District of Columbia",
+          "Cannot claim a Credit for Low-Income Individuals, Virginia Earned Income Credit or Refundable Virginia Earned Income Credit"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 28",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "5500"
+      },
+      "cap_per": "person",
+      "cap_rule": "For persons of rank O6 and below, may not exceed income received for 39 days or $5,500, whichever is less (taxable years beginning on and after January 1, 2023)."
+    },
+    {
+      "id": "combat_zone_pay",
+      "label": "Military pay and allowances for service in a combat zone or qualified hazardous duty area (Schedule ADJ code 30)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Pay and allowances earned while serving by order of the President with the consent of Congress in a combat zone or qualified hazardous duty area treated as a combat zone under IRC 112",
+          "To the extent included in federal AGI and not otherwise subtracted, deducted or exempted"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 30",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap_rule": "To the extent included in federal AGI and not otherwise subtracted, deducted or exempted; no cap printed"
+    },
+    {
+      "id": "govt_employee_salary",
+      "label": "Federal and State Employees (Schedule ADJ code 39)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Federal or state employee earning 15,000 or less in annual salary from all employment",
+          "Cannot claim a Credit for Low-Income Individuals, Virginia Earned Income Credit or Refundable Virginia Earned Income Credit"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 39",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Up to 15,000 of the salary from that state or federal job, not more than the actual salary received; if both spouses on a joint return qualify, each may claim it."
+    },
+    {
+      "id": "retirement_prev_taxed_other_state",
+      "label": "Retirement Plan Income Previously Taxed by Another State (Schedule ADJ code 31)",
+      "form": "subtraction",
+      "covers": [
+        "other_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Retirement income received in the year on which the contributions were taxed in another state but were deductible from federal AGI in the same period"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 31",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "covers_unclear": [
+        "ira_distribution",
+        "employer_plan_distribution",
+        "private_pension",
+        "public_pension_other_state"
+      ],
+      "not_covered": [
+        "Virginia Supplemental retirement (VRS) does not qualify as previously taxed distributions for taxes paid to another state"
+      ],
+      "cap_rule": "Total subtraction cannot exceed the amount of the contributions previously taxed by another state, usually in a previous year."
+    },
+    {
+      "id": "us_obligations",
+      "label": "Obligations of the U.S. (Schedule ADJ Line 4)",
+      "form": "subtraction",
+      "covers": [
+        "interest",
+        "dividends",
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p25 (printed Page 19), Schedule ADJ Line 4 Obligations of the U.S.",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "not_covered": [
+        "Income from obligations of the Federal Home Loan Mortgage Corporation, Federal National Mortgage Association, Government National Mortgage Association, Inter-American Development Bank, and International Bank for Reconstruction and Development IS taxable in Virginia"
+      ],
+      "cap_rule": "Income (interest, dividends and gain) from obligations of the U.S. included in federal AGI but exempt from Virginia tax, e.g. U.S. Treasury bills, notes, bonds and savings bonds, TVA, FDIC, Federal Home Loan Bank, Farm Credit Bank, U.S. Postal Service"
+    },
+    {
+      "id": "va_obligations",
+      "label": "Income from Virginia Obligations (Schedule ADJ code 20)",
+      "form": "subtraction",
+      "covers": [
+        "interest",
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Interest on Virginia state bonds or municipal obligations and gains from sales of those obligations, to the extent included in federal AGI"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p25 (printed Page 19), Schedule ADJ Line 6 code 20",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "unemployment_comp",
+      "label": "Unemployment Compensation Benefits (Schedule ADJ code 37)",
+      "form": "subtraction",
+      "covers": [
+        "other_income"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26 (printed Page 20), Schedule ADJ Line 6 code 37",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "annuity_death_benefit",
+      "label": "Certain Death Benefit Payments (Schedule ADJ code 49)",
+      "form": "subtraction",
+      "covers": [
+        "annuity"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Beneficiary of an annuity contract with an insurance company; payment is a lump sum and subject to federal tax"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p26-27 (printed Pages 20-21), Schedule ADJ Line 6 code 49",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      },
+      "not_covered": [
+        "Payments from a retirement plan"
+      ]
+    },
+    {
+      "id": "qualified_ltcg",
+      "label": "Certain Long-Term Capital Gains (Schedule ADJ code 52)",
+      "form": "subtraction",
+      "covers": [
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Long-term capital gain or investment services partnership income attributable to an investment in a qualified business (Va. Code 58.1-339.4) or other approved technology business with principal facility in Virginia and under $3 million annual revenue",
+          "Investment made between April 1, 2010 and June 30, 2020",
+          "Not allowed if the Qualified Equity and Subordinated Debt Credit is claimed for the same business"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p27 (printed Page 21), Schedule ADJ Line 6 code 52",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest on obligations of other states not in federal AGI is added as taxable in Virginia (Schedule ADJ Line 1); income from Virginia obligations (interest on Virginia state bonds or municipal obligations and gains on their sale) is subtracted to the extent in federal AGI (code 20). Interest exempt federally but taxable in Virginia is added (code 10); U.S. obligations income is subtracted (Line 4).",
+    "cite": {
+      "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+      "section": "PDF p23 (printed Page 17), Schedule ADJ Line 1 Interest on Obligations of Other States; PDF p25 (printed Page 19), Schedule ADJ code 20; PDF p24 (printed Page 18) code 10",
+      "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated",
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p41 (printed Page 35), Tax Rate Schedule",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "no",
+      "cite": {
+        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
+        "section": "PDF p7 (printed Page 1), What's New, Increase in Standard Deduction: legislation set 8,750 single and 17,500 joint 'for Taxable Years 2025 and 2026'; the increase 'is scheduled to sunset after Taxable Year 2026 and revert to the standard deduction amounts that applied prior to Taxable Year 2019: $3,000 for single filers and $6,000 for married couples filing jointly.' Amounts set by law for named years; no inflation adjustment",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

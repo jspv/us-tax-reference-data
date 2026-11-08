@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "66.75",
+    "state_agi": "45000.00",
+    "state_income_tax": "378.25",
+    "state_tax_before_credits": "445.00",
+    "state_taxable_income": "21000.00",
+    "relief_amounts": {
+      "personal_exemption": "24000.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 45000.00 (filing status married_joint). Schedule 1 subtractions total 0.00; Connecticut AGI (Line 5) = 45000.00 - 0.00 = 45000.00. Table A personal exemption at Connecticut AGI 45000.00: 24000. Taxable income (Line 3) = 21000.00 -> 21000.00. Table B (married_joint schedule) on 21000.00: 20000 x 0.02 = 400.00; 1000.00 x 0.045 = 45.00; tax 445.00. Tables C and D: Connecticut AGI is not over the first recapture start for this status, so 0 (and the projection does not compute their amounts anyway). Table E decimal at Connecticut AGI 45000.00: 0.15; credit = 445.00 x 0.15 = 66.75. Connecticut income tax = 445.00 - 66.75 = 378.25."
+}

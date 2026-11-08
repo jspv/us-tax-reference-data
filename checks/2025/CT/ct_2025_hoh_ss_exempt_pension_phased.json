@@ -1,0 +1,70 @@
+{
+  "id": "ct_2025_hoh_ss_exempt_pension_phased",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ss_full_exempt",
+    "pension_annuity_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 8, Schedule 1 Line 41 (head of household, less than 100,000); PDF pages 24-25, Pension and Annuity Worksheet Line 1 (head of household, 75,000 or more) and Phase-Out Table (90,000-94,999: .05); PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "46000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "26000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "20400.00"
+    },
+    "federal_agi": "92400.00",
+    "federal_taxable_income": "66775.00"
+  },
+  "expected": {
+    "state_agi": "70700.00",
+    "state_taxable_income": "70700.00",
+    "state_tax_before_credits": "2781.50",
+    "credits": "278.15",
+    "state_income_tax": "2503.35",
+    "relief_amounts": {
+      "ss_full_exempt": "20400.00",
+      "pension_annuity_subtraction": "1300.00"
+    }
+  },
+  "worked": "Federal AGI = wages 46,000.00 + private pension 26,000.00 + taxable Social Security 20,400.00 (of 24,000.00 gross, federal worksheet) = 92,400.00. Federal taxable income = 92,400.00 - 23,625.00 standard deduction - 1 x 2,000.00 age 65+ = 66,775.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 92,400.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 92,400.00. Schedule 1 Line 41 Social Security benefit adjustment: federal AGI 92,400.00 is less than 100,000.00, so the full federally taxable amount 20,400.00 is subtracted (ss_full_exempt) -> 20,400.00. Schedule 1 Line 48b pension and annuity (Line 5b part): Phase-Out Table: federal AGI 92,400.00 is 90,000.00 or more, decimal 0.05; 26,000.00 x 0.05 = 1,300.00 -> 1,300.00. Schedule 1 Line 50 total subtractions = 21,700.00; CT-1040 Line 4 = 21,700.00. CT-1040 Line 5 Connecticut AGI = 92,400.00 - 21,700.00 = 70,700.00. Tax Calculation Schedule Line 1 = 70,700.00; Line 2 Table A: Connecticut AGI 70,700.00 is more than 56,000.00, exemption 0.00; Line 3 taxable income = 70,700.00 - 0.00 = 70,700.00. Line 4 Table B (Head of Household schedule) on 70,700.00: 16,000.00 x 0.02 + 54,700.00 x 0.045 = 320.00 + 2,461.50 = 2,781.50. Line 5 Table C 0.00 (Connecticut AGI 70,700.00 is not more than 78,500.00); Line 6 Table D 0.00 (not more than 168,000.00); Line 7 = 2,781.50. Line 8 Table E decimal 0.10 (Connecticut AGI 70,700.00 is in the band more than 46,000.00); Line 9 = 2,781.50 x 0.10 = 278.15. Line 10 Connecticut income tax = 2,781.50 - 278.15 = 2,503.35 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: Head of household uses 100,000 for the Social Security test but 75,000 for the pension test: federal AGI between them gives a full Social Security subtraction and a phased-out pension subtraction. Boundary 'below' refers to ss_full_exempt; the pension side of this return is above its threshold (see the other pension cases for that boundary).",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit",
+    "state_rule_not_modelled:teachers_pension_50"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

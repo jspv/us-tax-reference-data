@@ -1,0 +1,48 @@
+{
+  "id": "mi_2025_base",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income); no Schedule 1 additions or subtractions; PDF page 3 (rate 4.25%, exemption 5,800)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-02"
+      },
+      {
+        "age": 48,
+        "born": "1977-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        },
+        {
+          "amount": "22000.00",
+          "person": 1
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "113000.00",
+    "federal_taxable_income": "81500.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

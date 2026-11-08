@@ -1,0 +1,50 @@
+{
+  "id": "az_2025_military_retirement_single",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "az_military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 20 Line 29b (subtract 100% of retired or retainer pay of the uniformed services); PDF page 39 Form 140 line 29b; Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-12-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "39250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.az_military_retirement_exclusion"
+  ]
+}

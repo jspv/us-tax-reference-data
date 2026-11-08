@@ -1,0 +1,48 @@
+{
+  "id": "nd_2025_dividends_and_long_term_gain_joint",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "qualified_dividend_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.15 Line 13 and the Worksheet For Net Long-Term Capital Gain Exclusion lines 1-8; PDF p.14 Line 6; PDF p.16 Line 22; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-02-02"
+      },
+      {
+        "age": 64,
+        "born": "1961-05-05"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "20000.00",
+      "long_term_gains": "30000.00"
+    },
+    "federal_agi": "250000.00",
+    "federal_taxable_income": "216900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.qualified_dividend_exclusion"
+  ]
+}

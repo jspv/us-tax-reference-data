@@ -1,0 +1,26 @@
+{
+  "id": "US-2026-wages-above-wage-base",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "payroll",
+  "boundary": "at_or_above",
+  "tests": [
+    "payroll.social_security",
+    "payroll.medicare"
+  ],
+  "description": "Employee with wages above the Social Security wage base: the excess pays Medicare tax only.",
+  "inputs": {
+    "filing_status": "single",
+    "wages": "250000"
+  },
+  "expected": {
+    "social_security_tax": "11439.00",
+    "medicare_tax": "3625.00"
+  },
+  "worked": "One employee, one employer, wages 250,000 in 2026.\nSocial Security (OASDI) employee tax: 2026 wage base 184,500; wages subject = smaller of 250,000 and 184,500 = 184,500 (65,500 above the base is not taxed); 6.2% x 184,500 = 11,439.\nMedicare (hospital insurance) employee tax: no wage base; 1.45% x 250,000 = 3,625 (the 0.9% additional Medicare tax is figured on Form 8959 with the return, not here).",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

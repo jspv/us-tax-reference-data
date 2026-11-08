@@ -1,0 +1,2522 @@
+{
+  "layer": "record",
+  "state": "CT",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets apply to Connecticut taxable income (Tax Calculation Schedule Line 3 = Connecticut AGI minus the Table A exemption). Table B prints one schedule for Single or Married Filing Separately, one for Married Filing Jointly/Qualifying Surviving Spouse and one for Head of Household, so married_separate is not given (it uses single) and qualifying surviving spouse uses married_joint.",
+    "Final tax is not the Table B arithmetic alone: Line 7 = Table B tax + Table C 2% add-back + Table D recapture, then less Line 7 x the Table E decimal (Lines 8-10). Tables C and D are in recapture (their step amounts in as_printed, which the format holds only as text); Table E is the personal_tax_credit relief.",
+    "Line 6: tax is 0 if Connecticut AGI is 12,000 or less (MFS), 15,000 or less (single), 19,000 or less (HOH), 24,000 or less (MFJ or QSS). Tax Tables on the DRS website may be used when Connecticut AGI is 102,000 or less (not in the sources); the Tax Calculation Schedule is used above that.",
+    "The booklet prints no standard deduction, no dependent exemption and no age-65 or blindness amount; the only exemption is the Table A personal exemption by filing status.",
+    "Social Security: treatment 'relief'. Fully subtracted (the federally taxable amount) when federal AGI is under 75,000 (single, MFS) or 100,000 (MFJ, QSS, HOH); at or above, the worksheet subtracts taxable benefits less 25% of the lesser of worksheet Lines A and B. No upper income limit is printed. Checked on PDF page 8 (Line 41), page 24 (worksheet) and the form's Line 41.",
+    "Roth conversions: the booklet excludes 'Distributions from Roth IRAs' but does not say whether taxable conversions count; roth_conversion is in covers_unclear for both Line 48b entries.",
+    "Pensions from other states' governments (brief rule 15a): the booklet does not name them; the Line 48b worksheet (PDF page 24, Line 2) takes 100% of federal Line 5b less only military retirement pay, Tier 1 and Tier 2 railroad retirement and Connecticut teachers' pay, so they are in the same entry as Connecticut and federal pensions (public_pension_other_state in covers). No reciprocity rule is printed.",
+    "Capital gains: no rate or deduction different from ordinary income found in the booklet. Surtaxes: none printed (Tables C and D are the high-income mechanism). Indexing: the booklet says nothing about inflation adjustment for any figure.",
+    "Not recorded: Schedule 1 Line 42 (state and local income tax refunds) and the other Line 46-49 modifications (fiduciary, bonds, tribal members, organ donation up to 10,000, and similar), credit for taxes paid to qualifying jurisdictions (Schedule 2), Schedule CT-IT credits, claim of right, CT AMT and use tax.",
+    "Shares of the covered income: the 50% teachers' subtraction and the 75% IRA share are each entry's share (0.5, 0.75); the Line 48b phase-out decimals multiply the IRA's 75% (worksheet Line 2).",
+    "Property tax credit steps: keep_share is 1 minus the printed decimal (.15 -> .85, .30 -> .70, .45 -> .55, .60 -> .40, .75 -> .25, .90 -> .10, 1.00 -> 0), because the printed decimal is the share removed (Line 67 = Line 65 x Line 66).",
+    "Pension and IRA steps: the Phase-Out Table bands are 'greater than or equal to' / 'less than or equal to' whole dollars, so a step's 'over' is the printed upper end of the band below (over 74,999 means 75,000 or more). Table A, C, D, E and property tax bands are 'More Than' / 'Less Than or Equal To' and their 'over' is the printed 'More Than' figure.",
+    "Settlement 2026-11-07: brackets.married_separate: A gave the single schedule for married_separate, B left it out; PDF page 20 prints one 'Single or Married Filing Separately' schedule and the schema gives married_separate only when it has its own schedule, so it is left out.",
+    "Settlement 2026-11-07: CHET and ABLE subtractions: A recorded CHET as a base deduction 'other' (no ABLE), B recorded CHET and ABLE as all_income subtraction reliefs capped 5,000 / 10,000; PDF page 9 Line 48 and page 10 Line 48d print both with the same limits as a deduction of contributions (not relief on a kind of income), so both are base deductions 'other' with the limits as amount and the 'lesser of contributions' rule in condition.",
+    "Settlement 2026-11-07: indexing: A had only all_other, B added brackets and personal_exemption as not_stated; the booklet says nothing about indexing any figure, and the brief asks for entries only for figures the booklet speaks of, so only all_other (not_stated) is kept.",
+    "Settlement 2026-11-07: ct_eitc: A said covers wages and self_employment, credit_rate .40, income test investment income over 11,950 removes; B said covers all_income, credit_rate .40, credit_amount 250, no income test; PDF page 3 Line 20a and pages 16-17 say 40% of the federal EIC plus 250 only with a qualifying child, and 'cannot claim ... if your investment income is more than $11,950'; A's entry kept (earned income kinds; the 250 is conditional so it stays in cap_rule, not credit_amount).",
+    "Settlement 2026-11-07: personal_tax_credit income_test.effect: A said other, B said removes; PDF page 23 Table E prints decimals falling in steps by Connecticut AGI band, so effect is stepped with each band's decimal as a step; threshold moved from where the credit ends (64,500 / 100,500 / 52,500 / 78,500, both readers) to where the decimal first falls below .75 (18,800 / 30,000 / 15,000 / 24,000), as for the other stepped tests; credit_basis tax added.",
+    "Settlement 2026-11-07: interest and dividends on U.S. obligations: A wrote one entry covering interest and dividends, B two entries; PDF page 8 prints Line 39 (interest) and Line 40 (qualifying fund dividends, 50% asset test) as separate lines with their own conditions, so two entries (B).",
+    "Settlement 2026-11-07: military_retirement who.basis: A said return, B said each_person; PDF page 9 Line 44 has no age test, cap or per-person limit, so by the brief (basis is about whose age counts) it is return.",
+    "Settlement 2026-11-07: railroad_retirement who.basis: A said return, B said each_person; PDF page 9 Line 43 has no age test, cap or per-person limit, so return.",
+    "Settlement 2026-11-07: teachers_pension_50 who.basis: A said return, B said each_person; PDF page 9 Line 45 has no age test, cap or per-person limit, so return.",
+    "Settlement 2026-11-07: state_local_tax_refunds (Line 42): only B recorded it; the booklet prints it (PDF page 9) but it removes a federal item (taxable state refunds), not relief on income a planner produces, and the record leaves out the other such Schedule 1 modifications; dropped.",
+    "Settlement 2026-11-07: pension_annuity_subtraction covers: A said public and private pensions, employer plans and annuities with public_pension_other_state unclear, B listed public_pension_other_state as covered; PDF page 24 worksheet Line 2 takes 100% of federal Line 5b less only military, railroad and Connecticut teachers' pay, so another state's government pension is taken and is covered (B). roth_conversion stays in covers_unclear (A) because the booklet does not settle it.",
+    "Settlement 2026-11-07: pension_annuity_subtraction income_test.effect: A said phase_out_rate, B said other; PDF page 25 prints a Phase-Out Table of decimals by federal AGI band, so effect is stepped with keep_share steps.",
+    "Settlement 2026-11-07: ira_subtraction income_test.effect: A said phase_out_rate, B said other; same PDF page 25 table, so stepped with the same keep_share steps applied to worksheet Line 2 (75% of Line 4b).",
+    "Settlement 2026-11-07: personal_exemption phase_out.effect: both readers said dollar_for_dollar; PDF page 19 Table A drops 1,000 at the start of each 1,000 band (14,000 for AGI just over 30,000), which is a step table, so effect is stepped with the printed amounts as steps.",
+    "Settlement 2026-11-07: property_tax_credit income_test.effect: both readers said other; PDF page 27 prints a decimal table by Connecticut AGI band, so effect is stepped.",
+    "Settlement 2026-11-07: teachers' pay in the Line 48b subtraction (the worksheet-vs-example conflict both readers noted): PDF page 10 and the page 24 worksheet subtract Connecticut teachers' retirement pay from Line 5b, while Example 1 (PDF page 10) puts Anna's 30,000 of teachers' pay in her 68,000 Line 48b subtraction. Settled from the booklet: page 10 says 'Retired teachers may claim either the teachers' pension subtraction modification or the pension and annuity subtraction modification (if their federal adjusted gross income is below the applicable threshold) on the income they receive from the Connecticut Teachers' Retirement System', and worksheet Line 2 subtracts teachers' pay 'as applicable'; so teachers' pay is taken out of Line 48b only when it is claimed on Line 45, and the two entries are a best_of_group choice with cannot_combine_with (Example 2: over 100,000 of AGI the 50% subtraction is the one that helps).",
+    "Settlement 2026-11-07: ss_full_exempt income_test.effect: both readers said other; PDF page 8 makes the full subtraction apply only below the threshold, so effect is removes; the partial branch stays other (its 25% formula has no structured field). B's cannot_combine_with between ss_partial and railroad dropped: Line 43 only excludes benefits 'already subtracted on Line 41' (kept in railroad's conditions); A's mutual exclusion of the two Social Security branches kept.",
+    "2026-11-07: ira_subtraction gains share 0.75 (the format's `share` field, added after this state was settled); the 75% was previously only in cap_rule.",
+    "2026-11-07: applies_when added (format change): the Social Security full exemption ('less than 75,000 / 100,000') and the pension/IRA phase-out table ('75,000-77,499 ...') cut in at the threshold; step edges restored to the table's own figures (were shifted down a dollar).",
+    "2026-11-07: format v1 adoption: Table E decimals moved from steps[].amount to steps[].rate (same figures, PDF page 23); teachers_pension_50 gains share 0.5 (PDF page 9, Line 45: 'Subtract 50% of the income received from the Connecticut Teachers' Retirement System').",
+    "2026-11-07: format v1 adoption (requires, applies_over, keeps_taxable): ss_partial_exempt is modelled in the projection: it applies at or over 75,000 / 100,000 of federal AGI (worksheet: '$75,000 or more', '$100,000 or more') and keeps 0.25 of the lesser of worksheet Line A (federal worksheet Line 1) and Line B (federal worksheet Line 9, Line 7 for married filing separately living with the spouse) taxed (PDF page 24, Lines A-F). The record schema has no field for the 25% share, so it stays in this entry's cap_rule with the line references and its cite."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "10000"
+      },
+      {
+        "rate": "0.055",
+        "start": "50000"
+      },
+      {
+        "rate": "0.06",
+        "start": "100000"
+      },
+      {
+        "rate": "0.065",
+        "start": "200000"
+      },
+      {
+        "rate": "0.069",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "500000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "20000"
+      },
+      {
+        "rate": "0.055",
+        "start": "100000"
+      },
+      {
+        "rate": "0.06",
+        "start": "200000"
+      },
+      {
+        "rate": "0.065",
+        "start": "400000"
+      },
+      {
+        "rate": "0.069",
+        "start": "500000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "1000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "16000"
+      },
+      {
+        "rate": "0.055",
+        "start": "80000"
+      },
+      {
+        "rate": "0.06",
+        "start": "160000"
+      },
+      {
+        "rate": "0.065",
+        "start": "320000"
+      },
+      {
+        "rate": "0.069",
+        "start": "400000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "800000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form CT-1040 Instructions",
+      "section": "PDF page 20, Table B - Initial Tax Calculation (Single or Married Filing Separately; Married Filing Jointly/Qualifying Surviving Spouse; Head of Household), applied to Connecticut taxable income, Tax Calculation Schedule Line 3 (PDF page 19)",
+      "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+      "accessed": "2026-11-06"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "single": "15000",
+          "married_joint": "24000",
+          "qualifying_surviving_spouse": "24000",
+          "married_separate": "12000",
+          "head_of_household": "19000"
+        },
+        "per": "return",
+        "condition": "Subtracted from Connecticut AGI to give Connecticut taxable income (Tax Calculation Schedule Lines 1-3). One amount per return by filing status (Table A heading: Married Filing Jointly or Qualified Surviving Spouse share a column); reduced as Connecticut AGI rises.",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi",
+            "as_printed": "Connecticut AGI (Form CT-1040, Line 5; Tax Calculation Schedule, Line 1)"
+          },
+          "threshold": {
+            "single": "30000",
+            "married_joint": "48000",
+            "qualifying_surviving_spouse": "48000",
+            "married_separate": "24000",
+            "head_of_household": "38000"
+          },
+          "effect": "stepped",
+          "as_printed": "Table A, Personal Exemptions (columns 'More Than' / 'Less Than or Equal To'): Single 15,000 for Connecticut AGI 0 to 30,000; 14,000 over 30,000 to 31,000; 1,000 less for each further 1,000 band; 1,000 over 43,000 to 44,000; 0 for 44,000 and up. MFJ/QSS 24,000 to 48,000; 23,000 over 48,000 to 49,000; ... 1,000 over 70,000 to 71,000; 0 for 71,000 and up. MFS 12,000 to 24,000; 11,000 over 24,000 to 25,000; ... 1,000 over 34,000 to 35,000; 0 for 35,000 and up. HOH 19,000 to 38,000; 18,000 over 38,000 to 39,000; ... 1,000 over 55,000 to 56,000; 0 for 56,000 and up. Steps: amount is the exemption for Connecticut AGI over 'over'.",
+          "steps": [
+            {
+              "status": "single",
+              "over": "30000",
+              "amount": "14000"
+            },
+            {
+              "status": "single",
+              "over": "31000",
+              "amount": "13000"
+            },
+            {
+              "status": "single",
+              "over": "32000",
+              "amount": "12000"
+            },
+            {
+              "status": "single",
+              "over": "33000",
+              "amount": "11000"
+            },
+            {
+              "status": "single",
+              "over": "34000",
+              "amount": "10000"
+            },
+            {
+              "status": "single",
+              "over": "35000",
+              "amount": "9000"
+            },
+            {
+              "status": "single",
+              "over": "36000",
+              "amount": "8000"
+            },
+            {
+              "status": "single",
+              "over": "37000",
+              "amount": "7000"
+            },
+            {
+              "status": "single",
+              "over": "38000",
+              "amount": "6000"
+            },
+            {
+              "status": "single",
+              "over": "39000",
+              "amount": "5000"
+            },
+            {
+              "status": "single",
+              "over": "40000",
+              "amount": "4000"
+            },
+            {
+              "status": "single",
+              "over": "41000",
+              "amount": "3000"
+            },
+            {
+              "status": "single",
+              "over": "42000",
+              "amount": "2000"
+            },
+            {
+              "status": "single",
+              "over": "43000",
+              "amount": "1000"
+            },
+            {
+              "status": "single",
+              "over": "44000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "48000",
+              "amount": "23000"
+            },
+            {
+              "status": "married_joint",
+              "over": "49000",
+              "amount": "22000"
+            },
+            {
+              "status": "married_joint",
+              "over": "50000",
+              "amount": "21000"
+            },
+            {
+              "status": "married_joint",
+              "over": "51000",
+              "amount": "20000"
+            },
+            {
+              "status": "married_joint",
+              "over": "52000",
+              "amount": "19000"
+            },
+            {
+              "status": "married_joint",
+              "over": "53000",
+              "amount": "18000"
+            },
+            {
+              "status": "married_joint",
+              "over": "54000",
+              "amount": "17000"
+            },
+            {
+              "status": "married_joint",
+              "over": "55000",
+              "amount": "16000"
+            },
+            {
+              "status": "married_joint",
+              "over": "56000",
+              "amount": "15000"
+            },
+            {
+              "status": "married_joint",
+              "over": "57000",
+              "amount": "14000"
+            },
+            {
+              "status": "married_joint",
+              "over": "58000",
+              "amount": "13000"
+            },
+            {
+              "status": "married_joint",
+              "over": "59000",
+              "amount": "12000"
+            },
+            {
+              "status": "married_joint",
+              "over": "60000",
+              "amount": "11000"
+            },
+            {
+              "status": "married_joint",
+              "over": "61000",
+              "amount": "10000"
+            },
+            {
+              "status": "married_joint",
+              "over": "62000",
+              "amount": "9000"
+            },
+            {
+              "status": "married_joint",
+              "over": "63000",
+              "amount": "8000"
+            },
+            {
+              "status": "married_joint",
+              "over": "64000",
+              "amount": "7000"
+            },
+            {
+              "status": "married_joint",
+              "over": "65000",
+              "amount": "6000"
+            },
+            {
+              "status": "married_joint",
+              "over": "66000",
+              "amount": "5000"
+            },
+            {
+              "status": "married_joint",
+              "over": "67000",
+              "amount": "4000"
+            },
+            {
+              "status": "married_joint",
+              "over": "68000",
+              "amount": "3000"
+            },
+            {
+              "status": "married_joint",
+              "over": "69000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_joint",
+              "over": "70000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_joint",
+              "over": "71000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "48000",
+              "amount": "23000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "49000",
+              "amount": "22000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "50000",
+              "amount": "21000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "51000",
+              "amount": "20000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "52000",
+              "amount": "19000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "53000",
+              "amount": "18000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "54000",
+              "amount": "17000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "55000",
+              "amount": "16000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "56000",
+              "amount": "15000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "57000",
+              "amount": "14000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "58000",
+              "amount": "13000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "59000",
+              "amount": "12000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "60000",
+              "amount": "11000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "61000",
+              "amount": "10000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "62000",
+              "amount": "9000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "63000",
+              "amount": "8000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "64000",
+              "amount": "7000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "65000",
+              "amount": "6000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "66000",
+              "amount": "5000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "67000",
+              "amount": "4000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "68000",
+              "amount": "3000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "69000",
+              "amount": "2000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "70000",
+              "amount": "1000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "71000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "24000",
+              "amount": "11000"
+            },
+            {
+              "status": "married_separate",
+              "over": "25000",
+              "amount": "10000"
+            },
+            {
+              "status": "married_separate",
+              "over": "26000",
+              "amount": "9000"
+            },
+            {
+              "status": "married_separate",
+              "over": "27000",
+              "amount": "8000"
+            },
+            {
+              "status": "married_separate",
+              "over": "28000",
+              "amount": "7000"
+            },
+            {
+              "status": "married_separate",
+              "over": "29000",
+              "amount": "6000"
+            },
+            {
+              "status": "married_separate",
+              "over": "30000",
+              "amount": "5000"
+            },
+            {
+              "status": "married_separate",
+              "over": "31000",
+              "amount": "4000"
+            },
+            {
+              "status": "married_separate",
+              "over": "32000",
+              "amount": "3000"
+            },
+            {
+              "status": "married_separate",
+              "over": "33000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_separate",
+              "over": "34000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_separate",
+              "over": "35000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "38000",
+              "amount": "18000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "39000",
+              "amount": "17000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "40000",
+              "amount": "16000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "41000",
+              "amount": "15000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "42000",
+              "amount": "14000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "43000",
+              "amount": "13000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "44000",
+              "amount": "12000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "45000",
+              "amount": "11000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "46000",
+              "amount": "10000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "47000",
+              "amount": "9000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "48000",
+              "amount": "8000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "49000",
+              "amount": "7000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "50000",
+              "amount": "6000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "51000",
+              "amount": "5000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "52000",
+              "amount": "4000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "53000",
+              "amount": "3000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "54000",
+              "amount": "2000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "55000",
+              "amount": "1000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "56000",
+              "amount": "0"
+            }
+          ]
+        },
+        "cite": {
+          "publication": "2025 Form CT-1040 Instructions",
+          "section": "PDF page 19, Table A - Personal Exemptions and Tax Calculation Schedule Lines 1-3",
+          "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "chet_contributions",
+        "what": "other",
+        "amount": {
+          "single": "5000",
+          "married_joint": "10000",
+          "qualifying_surviving_spouse": "10000",
+          "married_separate": "5000",
+          "head_of_household": "5000"
+        },
+        "per": "return",
+        "condition": "Subtraction (Schedule 1 Line 48) for contributions to Connecticut Higher Education Trust (CHET) accounts: the lesser of the year's contributions to all CHET accounts or this maximum (5,000 for each individual taxpayer: single, head of household, filing separately; 10,000 filing jointly or qualifying surviving spouse). Excess carries forward five succeeding years within the same limit; current-year contributions are used first.",
+        "cite": {
+          "publication": "2025 Form CT-1040 Instructions",
+          "section": "PDF page 9, Line 48; Form CT-1040 PDF page 3, Schedule 1 Line 48",
+          "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+          "accessed": "2026-11-06"
+        }
+      },
+      {
+        "id": "able_contributions",
+        "what": "other",
+        "amount": {
+          "single": "5000",
+          "married_joint": "10000",
+          "qualifying_surviving_spouse": "10000",
+          "married_separate": "5000",
+          "head_of_household": "5000"
+        },
+        "per": "return",
+        "condition": "Subtraction (Schedule 1 Line 48d) for contributions to ABLE (Achieving a Better Life Experience) accounts: the lesser of the year's contributions to all ABLE accounts or this maximum (5,000 for each individual taxpayer: single, head of household, filing separately; 10,000 filing jointly or qualifying surviving spouse).",
+        "cite": {
+          "publication": "2025 Form CT-1040 Instructions",
+          "section": "PDF page 10, Line 48d; Form CT-1040 PDF page 3, Schedule 1 Line 48d",
+          "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+          "accessed": "2026-11-06"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form CT-1040 Instructions",
+      "section": "PDF page 2, Lines 1-6 (Line 1 is federal AGI from federal Form 1040 Line 11a; Line 5 Connecticut AGI = Line 1 + additions - subtractions) and PDF page 19, Tax Calculation Schedule",
+      "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+      "accessed": "2026-11-06"
+    }
+  },
+  "social_security": {
+    "treatment": "relief",
+    "cite": {
+      "publication": "2025 Form CT-1040 Instructions",
+      "section": "PDF pages 8-9, Schedule 1 Line 41 Social Security Benefit Adjustment; PDF page 24, Social Security Benefit Adjustment Worksheet",
+      "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+      "accessed": "2026-11-06"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ss_full_exempt",
+      "label": "Social Security Benefit Adjustment, benefits fully exempt (Schedule 1 Line 41)",
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Social Security benefits subject to federal income tax",
+          "Uses the required Connecticut filing status"
+        ]
+      },
+      "cap_rule": "The whole federally taxable amount of Social Security benefits (federal Form 1040 Line 6b) is entered on Line 41; no dollar cap.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal adjusted gross income, the amount reported on Form CT-1040, Line 1 (federal Form 1040, Line 11a)"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000",
+          "head_of_household": "100000"
+        },
+        "effect": "removes",
+        "as_printed": "Fully exempt if your required filing status is single or married filing separately and the amount on Form CT-1040 Line 1 is less than $75,000; or married filing jointly, qualifying surviving spouse, or head of household and Line 1 is less than $100,000. At or above these (worksheet: '$75,000 or more' / '$100,000 or more') this branch does not apply and ss_partial_exempt does.",
+        "applies_when": "at_or_over"
+      },
+      "cannot_combine_with": [
+        "ss_partial_exempt"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 8, Line 41; PDF page 24, Social Security Benefit Adjustment Worksheet (the two Yes/No questions)",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ss_partial_exempt",
+      "label": "Social Security Benefit Adjustment, benefits partially exempt (Schedule 1 Line 41, worksheet Lines A-F)",
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Social Security benefits subject to federal income tax",
+          "Taxable benefits figured with the worksheets in the federal Form 1040 instructions"
+        ]
+      },
+      "cap_rule": "Worksheet (PDF page 24): Line A = federal Social Security Benefits Worksheet Line 1, the gross benefits (if zero or less, enter 0 on Line 41); Line B = federal worksheet Line 9, the provisional income over the base amount (Line 7 if filing separately and lived with spouse at any time during 2025; if zero or less, stop); Line C = the lesser of Line A or Line B; Line D = Line C x 25% (.25), share 0.25; Line E = taxable Social Security benefits, federal worksheet Line 18; Line F = Line E minus Line D ('If Line D is greater than or equal to Line E, enter 0'). Line F is the Line 41 subtraction, so 0.25 of the lesser of Line A or Line B stays in Connecticut income. No dollar cap; no upper income limit printed.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal adjusted gross income, the amount reported on Form CT-1040, Line 1 (federal Form 1040, Line 11a)"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000",
+          "head_of_household": "100000"
+        },
+        "effect": "other",
+        "as_printed": "Partially exempt if your federal adjusted gross income is above the threshold for your filing status. Worksheet: single or married filing separately, 'is the amount on Line 1 $75,000 or more? Yes: Complete this worksheet'; married filing jointly, qualifying surviving spouse, or head of household, '$100,000 or more? Yes: Complete this worksheet.' This branch applies only at or above the threshold."
+      },
+      "cannot_combine_with": [
+        "ss_full_exempt"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 9, Line 41 (continued); PDF page 24, Social Security Benefit Adjustment Worksheet Lines A-F",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      },
+      "keeps_taxable": {
+        "share": "0.25",
+        "of_lesser_of": [
+          "social_security_gross",
+          "federal_ss_worksheet_line_9"
+        ]
+      },
+      "applies_over": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000",
+          "head_of_household": "100000"
+        },
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "label": "Tier 1 and Tier 2 railroad retirement benefits and supplemental annuities (Schedule 1 Line 43)",
+      "form": "subtraction",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Only to the extent the benefits were not already subtracted on Line 41",
+          "Railroad unemployment and sickness benefits paid by the RRB in lieu of unemployment benefits are also entered, to the extent included in federal AGI"
+        ]
+      },
+      "cap_rule": "The Tier 1 and Tier 2 benefits included in federal AGI (federal Form 1040 Line 5b); no cap or income test. Page 10 calls them fully exempt from Connecticut income tax.",
+      "not_covered": [
+        "Sickness benefit paid by the RRB resulting from an on-the-job injury (not included in federal adjusted gross income)"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 9, Line 43; PDF page 10, Line 48b ('fully exempt'); Form CT-1040 PDF page 3, Schedule 1 Line 43",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "military_retirement",
+      "label": "Military retirement pay (Schedule 1 Line 44)",
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Retired member of the armed forces of the United States or the National Guard, or a beneficiary receiving survivor benefits under an option or election made by a deceased retired military member"
+        ]
+      },
+      "cap_rule": "Military retirement pay to the extent included in federal AGI; no cap or income test. Page 10 calls it fully exempt from Connecticut income tax.",
+      "not_covered": [
+        "Payments received by a former spouse of a retired military member under a final decree of divorce, dissolution, annulment, or legal separation or a court ordered, ratified, or approved property settlement incident to a decree dividing military retirement pay"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 9, Line 44; PDF page 10, Line 48b ('fully exempt'); Form CT-1040 PDF page 3, Schedule 1 Line 44",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "teachers_pension_50",
+      "label": "50% of Connecticut Teachers' Retirement Pay (Schedule 1 Line 45)",
+      "form": "subtraction",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Income received from the Connecticut Teachers' Retirement System, properly included in federal adjusted gross income",
+          "Must have received a Form 1099-R from the Connecticut Teachers' Retirement Board"
+        ]
+      },
+      "cap_rule": "Subtract 50% of the income received from the Connecticut Teachers' Retirement System. No dollar cap and no income test (Example 2: federal AGI over $100,000, $40,000 of teachers' pay, subtracts $20,000). share 0.5 holds the 50%.",
+      "share": "0.5",
+      "best_of_group": "ct_teachers_pension_choice",
+      "cannot_combine_with": [
+        "pension_annuity_subtraction"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 9, Line 45; PDF page 10, Line 48b ('Retired teachers may claim either ...') and Examples 1 and 2; Form CT-1040 PDF page 3, Schedule 1 Line 45",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "pension_annuity_subtraction",
+      "label": "Pension or annuity income (Schedule 1 Line 48b), pensions and annuities on federal Form 1040 Line 5b",
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Military retirement pay and Tier 1 and Tier 2 railroad retirement benefits (fully exempt; subtracted on Lines 44 and 43, not here)",
+        "Connecticut teachers' retirement pay when it is subtracted on Line 45 (the worksheet subtracts it from Line 5b 'as applicable'; a retired teacher may instead claim it here)",
+        "Disability pensions received before the recipient met the minimum retirement age set by his or her employer",
+        "Corrective distributions of excess elective deferrals or other excess contributions to retirement plans",
+        "Distributions from Roth IRAs"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Distributions from certain pensions and annuities, such as from a defined benefit plan, 401(k), 403(b) or 457(b) plans",
+          "A survivor or beneficiary of a plan participant may claim the subtraction in the same manner as the participant, if required to report the income on the federal return in the same manner",
+          "Retired teachers may claim either this subtraction or the 50% teachers' subtraction on income from the Connecticut Teachers' Retirement System, not both"
+        ]
+      },
+      "cap_rule": "Worksheet Line 2: 100% of federal Form 1040 Line 5b (taxable pensions and annuities) less military retirement pay, Tier 1 and Tier 2 railroad retirement and Connecticut teachers' retirement pay, as applicable; Line 3: decimal from the Pension and Annuity Phase-Out Table; Line 4 = Line 2 x Line 3, the Line 48b subtraction. Below the Line 1 test (under $75,000 single, MFS, HOH; under $100,000 MFJ) the worksheet is not completed and the full amount is subtracted. No dollar cap.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal adjusted gross income, the amount reported on Form CT-1040, Line 1 (federal Form 1040, Line 11a)"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "head_of_household": "75000",
+          "married_joint": "100000"
+        },
+        "effect": "stepped",
+        "as_printed": "Pension and Annuity Phase-Out Table (Line 3 of the worksheet, decimal applied to Line 2). Single, MFS or HOH, federal AGI: 0-74,999 = 1; 75,000-77,499 = .85; 77,500-79,999 = .70; 80,000-82,499 = .55; 82,500-84,999 = .40; 85,000-87,499 = .25; 87,500-89,999 = .10; 90,000-94,999 = .05; 95,000-99,999 = .025; 100,000 and up = 0. Married filing jointly: 0-99,999 = 1; 100,000-104,999 = .85; 105,000-109,999 = .70; 110,000-114,999 = .55; 115,000-119,999 = .40; 120,000-124,999 = .25; 125,000-129,999 = .10; 130,000-139,999 = .05; 140,000-149,999 = .025; 150,000 and up = 0. Bands are 'Greater Than or Equal To' / 'Less Than or Equal To' in whole dollars, so each step's 'over' is the printed upper end of the band below (over 74,999 is 75,000 or more). The worksheet names only married filing jointly for the higher column; qualifying surviving spouse is not stated.",
+        "steps": [
+          {
+            "status": "single",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "105000",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "110000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "115000",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "120000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "125000",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "130000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "140000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "150000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          }
+        ],
+        "applies_when": "at_or_over"
+      },
+      "best_of_group": "ct_teachers_pension_choice",
+      "cannot_combine_with": [
+        "teachers_pension_50"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 10, Line 48b; PDF pages 24-25, Pension and Annuity Worksheet Lines 1-4 and Pension and Annuity Phase-Out Table; Form CT-1040 PDF page 3, Schedule 1 Line 48b",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ira_subtraction",
+      "label": "Pension or annuity income (Schedule 1 Line 48b), 75% of IRA distributions other than Roth IRA",
+      "form": "subtraction",
+      "covers": [
+        "ira_distribution"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Distributions from Roth IRAs"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "IRA other than a Roth IRA",
+          "A survivor or beneficiary of a plan participant may claim it in the same manner as the participant"
+        ]
+      },
+      "cap_rule": "Worksheet Line 2: 75% of the taxable IRA distributions on federal Form 1040 Line 4b (other than a Roth IRA); Line 4 = Line 2 x the Line 3 phase-out decimal. Below the Line 1 test 75% of the Line 4b amount is subtracted. No dollar cap. share 0.75 holds the 75%; the steps are the printed phase-out decimals that multiply it.",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "as_printed": "Federal adjusted gross income, the amount reported on Form CT-1040, Line 1 (federal Form 1040, Line 11a)"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "head_of_household": "75000",
+          "married_joint": "100000"
+        },
+        "effect": "stepped",
+        "as_printed": "Pension and Annuity Phase-Out Table (Line 3 of the worksheet, decimal applied to Line 2). Single, MFS or HOH, federal AGI: 0-74,999 = 1; 75,000-77,499 = .85; 77,500-79,999 = .70; 80,000-82,499 = .55; 82,500-84,999 = .40; 85,000-87,499 = .25; 87,500-89,999 = .10; 90,000-94,999 = .05; 95,000-99,999 = .025; 100,000 and up = 0. Married filing jointly: 0-99,999 = 1; 100,000-104,999 = .85; 105,000-109,999 = .70; 110,000-114,999 = .55; 115,000-119,999 = .40; 120,000-124,999 = .25; 125,000-129,999 = .10; 130,000-139,999 = .05; 140,000-149,999 = .025; 150,000 and up = 0. The decimal multiplies worksheet Line 2 (75% of Line 4b). Bands are 'Greater Than or Equal To' / 'Less Than or Equal To' in whole dollars, so each step's 'over' is the printed upper end of the band below.",
+        "steps": [
+          {
+            "status": "single",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "105000",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "110000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "115000",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "120000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "125000",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "130000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "140000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "150000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          }
+        ],
+        "applies_when": "at_or_over"
+      },
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 10, Line 48b; PDF pages 24-25, Pension and Annuity Worksheet Lines 1-4 (and the '*' note) and Phase-Out Table",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      },
+      "share": "0.75"
+    },
+    {
+      "id": "us_government_interest",
+      "label": "Interest on U.S. government obligations (Schedule 1 Line 39)",
+      "form": "subtraction",
+      "covers": [
+        "interest"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Interest from U.S. government obligations which federal law prohibits states from taxing (for example Savings Bonds Series EE or HH, U.S. Treasury bills or notes)"
+        ]
+      },
+      "cap_rule": "To the extent included in federal AGI; for Series EE bonds only the interest subject to federal tax after the Form 8815 exclusion. No cap.",
+      "not_covered": [
+        "Interest from Fannie Mae, Ginnie Mae and Freddie Mac bonds and securities (taxable for Connecticut income tax purposes)",
+        "Interest paid on a federal income tax refund"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 8, Line 39; Form CT-1040 PDF page 3, Schedule 1 Line 39",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "us_government_fund_dividends",
+      "label": "Exempt dividends from certain qualifying mutual funds derived from U.S. government obligations (Schedule 1 Line 40)",
+      "form": "subtraction",
+      "covers": [
+        "dividends"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Fund qualifies if at the close of each quarter of its taxable year at least 50% of the value of its assets consists of U.S. government obligations"
+        ]
+      },
+      "cap_rule": "Only the share of dividends the fund reports as derived from U.S. government obligations (example: 55% of a $100 dividend = $55).",
+      "not_covered": [
+        "Dividend income derived from Fannie Mae, Ginnie Mae and Freddie Mac obligations"
+      ],
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 8, Line 40; Form CT-1040 PDF page 3, Schedule 1 Line 40",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "personal_tax_credit",
+      "label": "Personal Tax Credits (Table E; Tax Calculation Schedule Lines 8-10)",
+      "form": "credit",
+      "credit_rate": "0.75",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cap_rule": "Line 9 = Line 7 (Table B tax + Table C add-back + Table D recapture) x the Table E decimal; Line 10 tax = Line 7 - Line 9. credit_rate is the largest decimal (.75); each step's rate is the decimal for its band.",
+      "income_test": {
+        "measure": {
+          "base": "state_agi",
+          "as_printed": "Connecticut AGI (Form CT-1040, Line 5; Tax Calculation Schedule, Line 1)"
+        },
+        "threshold": {
+          "single": "18800",
+          "married_joint": "30000",
+          "qualifying_surviving_spouse": "30000",
+          "married_separate": "15000",
+          "head_of_household": "24000"
+        },
+        "effect": "stepped",
+        "as_printed": "Table E, decimal multiplied by tax on Line 9 (credit); single: over 15,000 to 18,800: .75; over 18,800 to 19,300: .70; over 19,300 to 19,800: .65; over 19,800 to 20,300: .60; over 20,300 to 20,800: .55; over 20,800 to 21,300: .50; over 21,300 to 21,800: .45; over 21,800 to 22,300: .40; over 22,300 to 25,000: .35; over 25,000 to 25,500: .30; over 25,500 to 26,000: .25; over 26,000 to 26,500: .20; over 26,500 to 31,300: .15; over 31,300 to 31,800: .14; over 31,800 to 32,300: .13; over 32,300 to 32,800: .12; over 32,800 to 33,300: .11; over 33,300 to 60,000: .10; over 60,000 to 60,500: .09; over 60,500 to 61,000: .08; over 61,000 to 61,500: .07; over 61,500 to 62,000: .06; over 62,000 to 62,500: .05; over 62,500 to 63,000: .04; over 63,000 to 63,500: .03; over 63,500 to 64,000: .02; over 64,000 to 64,500: .01; over 64,500: .00 | married_joint: over 24,000 to 30,000: .75; over 30,000 to 30,500: .70; over 30,500 to 31,000: .65; over 31,000 to 31,500: .60; over 31,500 to 32,000: .55; over 32,000 to 32,500: .50; over 32,500 to 33,000: .45; over 33,000 to 33,500: .40; over 33,500 to 40,000: .35; over 40,000 to 40,500: .30; over 40,500 to 41,000: .25; over 41,000 to 41,500: .20; over 41,500 to 50,000: .15; over 50,000 to 50,500: .14; over 50,500 to 51,000: .13; over 51,000 to 51,500: .12; over 51,500 to 52,000: .11; over 52,000 to 96,000: .10; over 96,000 to 96,500: .09; over 96,500 to 97,000: .08; over 97,000 to 97,500: .07; over 97,500 to 98,000: .06; over 98,000 to 98,500: .05; over 98,500 to 99,000: .04; over 99,000 to 99,500: .03; over 99,500 to 100,000: .02; over 100,000 to 100,500: .01; over 100,500: .00 | married_separate: over 12,000 to 15,000: .75; over 15,000 to 15,500: .70; over 15,500 to 16,000: .65; over 16,000 to 16,500: .60; over 16,500 to 17,000: .55; over 17,000 to 17,500: .50; over 17,500 to 18,000: .45; over 18,000 to 18,500: .40; over 18,500 to 20,000: .35; over 20,000 to 20,500: .30; over 20,500 to 21,000: .25; over 21,000 to 21,500: .20; over 21,500 to 25,000: .15; over 25,000 to 25,500: .14; over 25,500 to 26,000: .13; over 26,000 to 26,500: .12; over 26,500 to 27,000: .11; over 27,000 to 48,000: .10; over 48,000 to 48,500: .09; over 48,500 to 49,000: .08; over 49,000 to 49,500: .07; over 49,500 to 50,000: .06; over 50,000 to 50,500: .05; over 50,500 to 51,000: .04; over 51,000 to 51,500: .03; over 51,500 to 52,000: .02; over 52,000 to 52,500: .01; over 52,500: .00 | head_of_household: over 19,000 to 24,000: .75; over 24,000 to 24,500: .70; over 24,500 to 25,000: .65; over 25,000 to 25,500: .60; over 25,500 to 26,000: .55; over 26,000 to 26,500: .50; over 26,500 to 27,000: .45; over 27,000 to 27,500: .40; over 27,500 to 34,000: .35; over 34,000 to 34,500: .30; over 34,500 to 35,000: .25; over 35,000 to 35,500: .20; over 35,500 to 44,000: .15; over 44,000 to 44,500: .14; over 44,500 to 45,000: .13; over 45,000 to 45,500: .12; over 45,500 to 46,000: .11; over 46,000 to 74,000: .10; over 74,000 to 74,500: .09; over 74,500 to 75,000: .08; over 75,000 to 75,500: .07; over 75,500 to 76,000: .06; over 76,000 to 76,500: .05; over 76,500 to 77,000: .04; over 77,000 to 77,500: .03; over 77,500 to 78,000: .02; over 78,000 to 78,500: .01; over 78,500: .00. Columns are 'More Than' / 'Less Than or Equal To'; MFJ and QSS share a column. Each step's rate is the decimal for Connecticut AGI over 'over'; threshold is where the decimal first falls below .75.",
+        "steps": [
+          {
+            "status": "single",
+            "over": "15000",
+            "rate": "0.75"
+          },
+          {
+            "status": "single",
+            "over": "18800",
+            "rate": "0.70"
+          },
+          {
+            "status": "single",
+            "over": "19300",
+            "rate": "0.65"
+          },
+          {
+            "status": "single",
+            "over": "19800",
+            "rate": "0.60"
+          },
+          {
+            "status": "single",
+            "over": "20300",
+            "rate": "0.55"
+          },
+          {
+            "status": "single",
+            "over": "20800",
+            "rate": "0.50"
+          },
+          {
+            "status": "single",
+            "over": "21300",
+            "rate": "0.45"
+          },
+          {
+            "status": "single",
+            "over": "21800",
+            "rate": "0.40"
+          },
+          {
+            "status": "single",
+            "over": "22300",
+            "rate": "0.35"
+          },
+          {
+            "status": "single",
+            "over": "25000",
+            "rate": "0.30"
+          },
+          {
+            "status": "single",
+            "over": "25500",
+            "rate": "0.25"
+          },
+          {
+            "status": "single",
+            "over": "26000",
+            "rate": "0.20"
+          },
+          {
+            "status": "single",
+            "over": "26500",
+            "rate": "0.15"
+          },
+          {
+            "status": "single",
+            "over": "31300",
+            "rate": "0.14"
+          },
+          {
+            "status": "single",
+            "over": "31800",
+            "rate": "0.13"
+          },
+          {
+            "status": "single",
+            "over": "32300",
+            "rate": "0.12"
+          },
+          {
+            "status": "single",
+            "over": "32800",
+            "rate": "0.11"
+          },
+          {
+            "status": "single",
+            "over": "33300",
+            "rate": "0.10"
+          },
+          {
+            "status": "single",
+            "over": "60000",
+            "rate": "0.09"
+          },
+          {
+            "status": "single",
+            "over": "60500",
+            "rate": "0.08"
+          },
+          {
+            "status": "single",
+            "over": "61000",
+            "rate": "0.07"
+          },
+          {
+            "status": "single",
+            "over": "61500",
+            "rate": "0.06"
+          },
+          {
+            "status": "single",
+            "over": "62000",
+            "rate": "0.05"
+          },
+          {
+            "status": "single",
+            "over": "62500",
+            "rate": "0.04"
+          },
+          {
+            "status": "single",
+            "over": "63000",
+            "rate": "0.03"
+          },
+          {
+            "status": "single",
+            "over": "63500",
+            "rate": "0.02"
+          },
+          {
+            "status": "single",
+            "over": "64000",
+            "rate": "0.01"
+          },
+          {
+            "status": "single",
+            "over": "64500",
+            "rate": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "24000",
+            "rate": "0.75"
+          },
+          {
+            "status": "married_joint",
+            "over": "30000",
+            "rate": "0.70"
+          },
+          {
+            "status": "married_joint",
+            "over": "30500",
+            "rate": "0.65"
+          },
+          {
+            "status": "married_joint",
+            "over": "31000",
+            "rate": "0.60"
+          },
+          {
+            "status": "married_joint",
+            "over": "31500",
+            "rate": "0.55"
+          },
+          {
+            "status": "married_joint",
+            "over": "32000",
+            "rate": "0.50"
+          },
+          {
+            "status": "married_joint",
+            "over": "32500",
+            "rate": "0.45"
+          },
+          {
+            "status": "married_joint",
+            "over": "33000",
+            "rate": "0.40"
+          },
+          {
+            "status": "married_joint",
+            "over": "33500",
+            "rate": "0.35"
+          },
+          {
+            "status": "married_joint",
+            "over": "40000",
+            "rate": "0.30"
+          },
+          {
+            "status": "married_joint",
+            "over": "40500",
+            "rate": "0.25"
+          },
+          {
+            "status": "married_joint",
+            "over": "41000",
+            "rate": "0.20"
+          },
+          {
+            "status": "married_joint",
+            "over": "41500",
+            "rate": "0.15"
+          },
+          {
+            "status": "married_joint",
+            "over": "50000",
+            "rate": "0.14"
+          },
+          {
+            "status": "married_joint",
+            "over": "50500",
+            "rate": "0.13"
+          },
+          {
+            "status": "married_joint",
+            "over": "51000",
+            "rate": "0.12"
+          },
+          {
+            "status": "married_joint",
+            "over": "51500",
+            "rate": "0.11"
+          },
+          {
+            "status": "married_joint",
+            "over": "52000",
+            "rate": "0.10"
+          },
+          {
+            "status": "married_joint",
+            "over": "96000",
+            "rate": "0.09"
+          },
+          {
+            "status": "married_joint",
+            "over": "96500",
+            "rate": "0.08"
+          },
+          {
+            "status": "married_joint",
+            "over": "97000",
+            "rate": "0.07"
+          },
+          {
+            "status": "married_joint",
+            "over": "97500",
+            "rate": "0.06"
+          },
+          {
+            "status": "married_joint",
+            "over": "98000",
+            "rate": "0.05"
+          },
+          {
+            "status": "married_joint",
+            "over": "98500",
+            "rate": "0.04"
+          },
+          {
+            "status": "married_joint",
+            "over": "99000",
+            "rate": "0.03"
+          },
+          {
+            "status": "married_joint",
+            "over": "99500",
+            "rate": "0.02"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "rate": "0.01"
+          },
+          {
+            "status": "married_joint",
+            "over": "100500",
+            "rate": "0"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "24000",
+            "rate": "0.75"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "30000",
+            "rate": "0.70"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "30500",
+            "rate": "0.65"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "31000",
+            "rate": "0.60"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "31500",
+            "rate": "0.55"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "32000",
+            "rate": "0.50"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "32500",
+            "rate": "0.45"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "33000",
+            "rate": "0.40"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "33500",
+            "rate": "0.35"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "40000",
+            "rate": "0.30"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "40500",
+            "rate": "0.25"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "41000",
+            "rate": "0.20"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "41500",
+            "rate": "0.15"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "50000",
+            "rate": "0.14"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "50500",
+            "rate": "0.13"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "51000",
+            "rate": "0.12"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "51500",
+            "rate": "0.11"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "52000",
+            "rate": "0.10"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "96000",
+            "rate": "0.09"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "96500",
+            "rate": "0.08"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "97000",
+            "rate": "0.07"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "97500",
+            "rate": "0.06"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "98000",
+            "rate": "0.05"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "98500",
+            "rate": "0.04"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "99000",
+            "rate": "0.03"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "99500",
+            "rate": "0.02"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "100000",
+            "rate": "0.01"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "100500",
+            "rate": "0"
+          },
+          {
+            "status": "married_separate",
+            "over": "12000",
+            "rate": "0.75"
+          },
+          {
+            "status": "married_separate",
+            "over": "15000",
+            "rate": "0.70"
+          },
+          {
+            "status": "married_separate",
+            "over": "15500",
+            "rate": "0.65"
+          },
+          {
+            "status": "married_separate",
+            "over": "16000",
+            "rate": "0.60"
+          },
+          {
+            "status": "married_separate",
+            "over": "16500",
+            "rate": "0.55"
+          },
+          {
+            "status": "married_separate",
+            "over": "17000",
+            "rate": "0.50"
+          },
+          {
+            "status": "married_separate",
+            "over": "17500",
+            "rate": "0.45"
+          },
+          {
+            "status": "married_separate",
+            "over": "18000",
+            "rate": "0.40"
+          },
+          {
+            "status": "married_separate",
+            "over": "18500",
+            "rate": "0.35"
+          },
+          {
+            "status": "married_separate",
+            "over": "20000",
+            "rate": "0.30"
+          },
+          {
+            "status": "married_separate",
+            "over": "20500",
+            "rate": "0.25"
+          },
+          {
+            "status": "married_separate",
+            "over": "21000",
+            "rate": "0.20"
+          },
+          {
+            "status": "married_separate",
+            "over": "21500",
+            "rate": "0.15"
+          },
+          {
+            "status": "married_separate",
+            "over": "25000",
+            "rate": "0.14"
+          },
+          {
+            "status": "married_separate",
+            "over": "25500",
+            "rate": "0.13"
+          },
+          {
+            "status": "married_separate",
+            "over": "26000",
+            "rate": "0.12"
+          },
+          {
+            "status": "married_separate",
+            "over": "26500",
+            "rate": "0.11"
+          },
+          {
+            "status": "married_separate",
+            "over": "27000",
+            "rate": "0.10"
+          },
+          {
+            "status": "married_separate",
+            "over": "48000",
+            "rate": "0.09"
+          },
+          {
+            "status": "married_separate",
+            "over": "48500",
+            "rate": "0.08"
+          },
+          {
+            "status": "married_separate",
+            "over": "49000",
+            "rate": "0.07"
+          },
+          {
+            "status": "married_separate",
+            "over": "49500",
+            "rate": "0.06"
+          },
+          {
+            "status": "married_separate",
+            "over": "50000",
+            "rate": "0.05"
+          },
+          {
+            "status": "married_separate",
+            "over": "50500",
+            "rate": "0.04"
+          },
+          {
+            "status": "married_separate",
+            "over": "51000",
+            "rate": "0.03"
+          },
+          {
+            "status": "married_separate",
+            "over": "51500",
+            "rate": "0.02"
+          },
+          {
+            "status": "married_separate",
+            "over": "52000",
+            "rate": "0.01"
+          },
+          {
+            "status": "married_separate",
+            "over": "52500",
+            "rate": "0"
+          },
+          {
+            "status": "head_of_household",
+            "over": "19000",
+            "rate": "0.75"
+          },
+          {
+            "status": "head_of_household",
+            "over": "24000",
+            "rate": "0.70"
+          },
+          {
+            "status": "head_of_household",
+            "over": "24500",
+            "rate": "0.65"
+          },
+          {
+            "status": "head_of_household",
+            "over": "25000",
+            "rate": "0.60"
+          },
+          {
+            "status": "head_of_household",
+            "over": "25500",
+            "rate": "0.55"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26000",
+            "rate": "0.50"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26500",
+            "rate": "0.45"
+          },
+          {
+            "status": "head_of_household",
+            "over": "27000",
+            "rate": "0.40"
+          },
+          {
+            "status": "head_of_household",
+            "over": "27500",
+            "rate": "0.35"
+          },
+          {
+            "status": "head_of_household",
+            "over": "34000",
+            "rate": "0.30"
+          },
+          {
+            "status": "head_of_household",
+            "over": "34500",
+            "rate": "0.25"
+          },
+          {
+            "status": "head_of_household",
+            "over": "35000",
+            "rate": "0.20"
+          },
+          {
+            "status": "head_of_household",
+            "over": "35500",
+            "rate": "0.15"
+          },
+          {
+            "status": "head_of_household",
+            "over": "44000",
+            "rate": "0.14"
+          },
+          {
+            "status": "head_of_household",
+            "over": "44500",
+            "rate": "0.13"
+          },
+          {
+            "status": "head_of_household",
+            "over": "45000",
+            "rate": "0.12"
+          },
+          {
+            "status": "head_of_household",
+            "over": "45500",
+            "rate": "0.11"
+          },
+          {
+            "status": "head_of_household",
+            "over": "46000",
+            "rate": "0.10"
+          },
+          {
+            "status": "head_of_household",
+            "over": "74000",
+            "rate": "0.09"
+          },
+          {
+            "status": "head_of_household",
+            "over": "74500",
+            "rate": "0.08"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "rate": "0.07"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75500",
+            "rate": "0.06"
+          },
+          {
+            "status": "head_of_household",
+            "over": "76000",
+            "rate": "0.05"
+          },
+          {
+            "status": "head_of_household",
+            "over": "76500",
+            "rate": "0.04"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77000",
+            "rate": "0.03"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "rate": "0.02"
+          },
+          {
+            "status": "head_of_household",
+            "over": "78000",
+            "rate": "0.01"
+          },
+          {
+            "status": "head_of_household",
+            "over": "78500",
+            "rate": "0"
+          }
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 23, Table E - Personal Tax Credits; PDF page 19, Tax Calculation Schedule Lines 7-10",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "property_tax_credit",
+      "label": "Credit for property taxes paid on your primary residence, motor vehicle, or both (Schedule 3; Form CT-1040 Line 11)",
+      "form": "credit",
+      "credit_amount": "300",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Connecticut resident who paid qualifying property tax during 2025 to a Connecticut political subdivision on a primary residence, privately owned or leased motor vehicle, or both",
+          "A second motor vehicle only for married filing jointly or qualifying surviving spouse",
+          "Offsets only the 2025 income tax; not refundable; no carryforward"
+        ]
+      },
+      "cap": {
+        "all": "300"
+      },
+      "cap_per": "return",
+      "cap_rule": "Line 65 = lesser of qualifying property tax paid or $300 (maximum per return regardless of filing status), not more than the tax on CT-1040 Line 10; Line 66 = Property Tax Credit Table decimal; Line 67 = Line 65 x Line 66; Line 68 credit = Line 65 - Line 67.",
+      "income_test": {
+        "measure": {
+          "base": "state_agi",
+          "as_printed": "Connecticut AGI (Form CT-1040, Line 5; Tax Calculation Schedule, Line 1)"
+        },
+        "threshold": {
+          "single": "49500",
+          "married_joint": "70500",
+          "qualifying_surviving_spouse": "70500",
+          "married_separate": "35250",
+          "head_of_household": "54500"
+        },
+        "effect": "stepped",
+        "as_printed": "Schedule 3 Line 66 decimal (reduction) by Connecticut AGI, Property Tax Credit Table, page 27: Single: up to 49,500: 0; 49,500-59,500 .15; 59,500-69,500 .30; 69,500-79,500 .45; 79,500-89,500 .60; 89,500-99,500 .75; 99,500-109,500 .90; 109,500 and up 1.00. MFJ/QSS: up to 70,500: 0; 70,500-80,500 .15; 80,500-90,500 .30; 90,500-100,500 .45; 100,500-110,500 .60; 110,500-120,500 .75; 120,500-130,500 .90; 130,500 and up 1.00. MFS: up to 35,250: 0; 35,250-40,250 .15; 40,250-45,250 .30; 45,250-50,250 .45; 50,250-55,250 .60; 55,250-60,250 .75; 60,250-65,250 .90; 65,250 and up 1.00. HoH: up to 54,500: 0; 54,500-64,500 .15; 64,500-74,500 .30; 74,500-84,500 .45; 84,500-94,500 .60; 94,500-104,500 .75; 104,500-114,500 .90; 114,500 and up 1.00. The printed decimal is the share taken away (Line 67 = Line 65 x Line 66), so each step's keep_share is 1 minus it (.15 removed keeps .85; 1.00 removed keeps 0). Columns are 'More Than' / 'Less Than or Equal To'.",
+        "steps": [
+          {
+            "status": "single",
+            "over": "49500",
+            "keep_share": "0.85"
+          },
+          {
+            "status": "single",
+            "over": "59500",
+            "keep_share": "0.70"
+          },
+          {
+            "status": "single",
+            "over": "69500",
+            "keep_share": "0.55"
+          },
+          {
+            "status": "single",
+            "over": "79500",
+            "keep_share": "0.40"
+          },
+          {
+            "status": "single",
+            "over": "89500",
+            "keep_share": "0.25"
+          },
+          {
+            "status": "single",
+            "over": "99500",
+            "keep_share": "0.10"
+          },
+          {
+            "status": "single",
+            "over": "109500",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "70500",
+            "keep_share": "0.85"
+          },
+          {
+            "status": "married_joint",
+            "over": "80500",
+            "keep_share": "0.70"
+          },
+          {
+            "status": "married_joint",
+            "over": "90500",
+            "keep_share": "0.55"
+          },
+          {
+            "status": "married_joint",
+            "over": "100500",
+            "keep_share": "0.40"
+          },
+          {
+            "status": "married_joint",
+            "over": "110500",
+            "keep_share": "0.25"
+          },
+          {
+            "status": "married_joint",
+            "over": "120500",
+            "keep_share": "0.10"
+          },
+          {
+            "status": "married_joint",
+            "over": "130500",
+            "keep_share": "0"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "70500",
+            "keep_share": "0.85"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "80500",
+            "keep_share": "0.70"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "90500",
+            "keep_share": "0.55"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "100500",
+            "keep_share": "0.40"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "110500",
+            "keep_share": "0.25"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "120500",
+            "keep_share": "0.10"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "130500",
+            "keep_share": "0"
+          },
+          {
+            "status": "married_separate",
+            "over": "35250",
+            "keep_share": "0.85"
+          },
+          {
+            "status": "married_separate",
+            "over": "40250",
+            "keep_share": "0.70"
+          },
+          {
+            "status": "married_separate",
+            "over": "45250",
+            "keep_share": "0.55"
+          },
+          {
+            "status": "married_separate",
+            "over": "50250",
+            "keep_share": "0.40"
+          },
+          {
+            "status": "married_separate",
+            "over": "55250",
+            "keep_share": "0.25"
+          },
+          {
+            "status": "married_separate",
+            "over": "60250",
+            "keep_share": "0.10"
+          },
+          {
+            "status": "married_separate",
+            "over": "65250",
+            "keep_share": "0"
+          },
+          {
+            "status": "head_of_household",
+            "over": "54500",
+            "keep_share": "0.85"
+          },
+          {
+            "status": "head_of_household",
+            "over": "64500",
+            "keep_share": "0.70"
+          },
+          {
+            "status": "head_of_household",
+            "over": "74500",
+            "keep_share": "0.55"
+          },
+          {
+            "status": "head_of_household",
+            "over": "84500",
+            "keep_share": "0.40"
+          },
+          {
+            "status": "head_of_household",
+            "over": "94500",
+            "keep_share": "0.25"
+          },
+          {
+            "status": "head_of_household",
+            "over": "104500",
+            "keep_share": "0.10"
+          },
+          {
+            "status": "head_of_household",
+            "over": "114500",
+            "keep_share": "0"
+          }
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 2, Line 11; PDF page 14, Schedule 3; PDF page 27, Property Tax Credit Table; Form CT-1040 PDF page 4, Schedule 3 Lines 60-68",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "id": "ct_eitc",
+      "label": "Connecticut Earned Income Tax Credit (Schedule CT-EITC; Form CT-1040 Line 20a)",
+      "form": "credit",
+      "credit_rate": "0.40",
+      "covers": [
+        "wages",
+        "self_employment"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Claimed and been allowed the 2025 federal earned income credit (EIC)",
+          "Full-year Connecticut resident (part-year residents and nonresidents do not qualify)",
+          "The additional $250 only with at least one qualifying child for federal income tax purposes"
+        ]
+      },
+      "cap_rule": "40% (.40) of the federal earned income credit claimed and allowed, not of income (the format's credit_basis has no 'federal credit' value, so it is left out); plus $250 if a qualifying child is listed (Schedule CT-EITC Line 15a). The excess over Connecticut income tax is refunded without interest.",
+      "income_test": {
+        "measure": {
+          "base": "other",
+          "as_printed": "Investment income: taxable interest, tax-exempt interest, dividends, capital gain net income and the other items listed under Schedule CT-EITC Line 2"
+        },
+        "threshold": {
+          "all": "11950"
+        },
+        "effect": "removes",
+        "as_printed": "You cannot claim the CT EITC if your investment income is more than $11,950."
+      },
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 3, Line 20a; PDF pages 16-17, Schedule CT-EITC 'Who qualifies?' and line instructions (Line 2, Line 9 'the CT EITC is 40% (.40) of the federal EIC', Line 15a, Line 16)",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Line 31 adds back interest on state and municipal obligations other than Connecticut's or its municipalities' that is not taxed federally; Line 32 adds back exempt-interest dividends to the extent derived from non-Connecticut obligations. Interest from Puerto Rico, Guam, American Samoa or U.S. Virgin Islands obligations is not added back. Interest from Connecticut obligations included in federal AGI is subtracted (Line 49 item 7). Gains on sale of Connecticut obligations are subtracted (Line 47) and losses added back (Line 35).",
+    "cite": {
+      "publication": "2025 Form CT-1040 Instructions",
+      "section": "PDF page 7, Schedule 1 Lines 31, 32 and 35; PDF page 9, Line 47; PDF page 11, Line 49 item 7",
+      "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+      "accessed": "2026-11-06"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": [
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "Connecticut AGI * (Tax Calculation Schedule, Line 1); the asterisk's footnote text is not in either converted text"
+      },
+      "starts_over": {
+        "single": "56500",
+        "married_joint": "100500",
+        "qualifying_surviving_spouse": "100500",
+        "married_separate": "50250",
+        "head_of_household": "78500"
+      },
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Table C 2% Tax Rate Phase-Out Add-Back, by Connecticut AGI: Single 0 up to 56,500; then 25 more for each 5,000 band (56,500-61,500 25; 61,500-66,500 50; ... 96,500-101,500 225); 250 over 101,500. MFJ/QSS 0 up to 100,500; 50 more per 5,000 band (100,500-105,500 50; ... 140,500-145,500 450); 500 over 145,500. MFS 0 up to 50,250; 25 more per 2,500 band (50,250-52,750 25; ... 70,250-72,750 225); 250 over 72,750. HoH 0 up to 78,500; 40 more per 4,000 band (78,500-82,500 40; ... 110,500-114,500 360); 400 over 114,500. Columns are 'More Than' / 'Less Than or Equal To'. The amount is added to the Table B tax on Tax Calculation Schedule Line 5.",
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 21, Table C - 2% Phase-Out Add-Back; PDF page 19, Tax Calculation Schedule Line 5",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "Connecticut AGI * (Tax Calculation Schedule, Line 1); the asterisk's footnote text is not in either converted text"
+      },
+      "starts_over": {
+        "single": "105000",
+        "married_separate": "105000",
+        "married_joint": "210000",
+        "qualifying_surviving_spouse": "210000",
+        "head_of_household": "168000"
+      },
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Table D Tax Recapture, by Connecticut AGI: Single/MFS 0 up to 105,000; 25 per 5,000 band to 225 (145,000-150,000); 250 for 150,000-200,000; then 90 more per 5,000 band (200,000-205,000 340 ... 340,000-345,000 2,860); 2,950 for 345,000-500,000; then 50 more per 5,000 band (500,000-505,000 3,000 ... 535,000-540,000 3,350); 3,400 over 540,000. MFJ/QSS 0 up to 210,000; 50 per 10,000 band to 450 (290,000-300,000); 500 for 300,000-400,000; then 180 more per 10,000 band (400,000-410,000 680 ... 680,000-690,000 5,720); 5,900 for 690,000-1,000,000; then 100 more per 10,000 band (1,000,000-1,010,000 6,000 ... 1,070,000-1,080,000 6,700); 6,800 over 1,080,000. HoH 0 up to 168,000; 40 per 8,000 band to 360 (232,000-240,000); 400 for 240,000-320,000; then 140 more per 8,000 band (320,000-328,000 540 ... 544,000-552,000 4,460); 4,600 for 552,000-800,000; then 80 more per 8,000 band (800,000-808,000 4,680 ... 856,000-864,000 5,240); 5,320 over 864,000. Single and MFS share one column; columns are 'More Than' / 'Less Than or Equal To'. The amount is added on Tax Calculation Schedule Line 6.",
+      "cite": {
+        "publication": "2025 Form CT-1040 Instructions",
+        "section": "PDF page 22, Table D - Tax Recapture; PDF page 19, Tax Calculation Schedule Line 6",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+        "accessed": "2026-11-06"
+      }
+    }
+  ]
+}

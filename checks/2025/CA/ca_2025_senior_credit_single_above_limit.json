@@ -1,0 +1,60 @@
+{
+  "id": "ca_2025_senior_credit_single_above_limit",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "senior_exemption_credit",
+    "personal_exemption_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-06-06"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "150000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        }
+      ],
+      "dividends": "50000.00"
+    },
+    "federal_agi": "400000.00",
+    "federal_taxable_income": "382250.00"
+  },
+  "expected": {
+    "state_agi": "400000.00",
+    "state_taxable_income": "394294.00",
+    "state_tax_before_credits": "33336.13",
+    "credits": "0.00",
+    "state_income_tax": "33336.13",
+    "relief_amounts": {
+      "senior_exemption_credit": "0.00",
+      "personal_exemption_credit": "0.00"
+    }
+  },
+  "worked": "Single, 70: private pension 150,000, IRA distribution 200,000 (no California basis difference), dividends 50,000; federal AGI = 400,000, 147,797 over the 252,203 limit, past the phase-down range, so the form and the projection agree. Form 540 line 13 federal AGI = 400,000.00. Federal taxable income = 400,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age-65 addition = 382,250.00 (given, not tested; the federal senior deduction is ignored). Subtractions: none (pension and IRA amounts are the same for California here, PDF pages 59-60). Form 540 line 14 = 0.00. Additions (line 16): 0.00. Line 15 = line 17 California AGI = 400,000.00 - 0.00 = 400,000.00. Line 18 California standard deduction (single, PDF page 13 chart) 5,706.00. Line 19 taxable income = 400,000.00 - 5,706.00 = 394,294.00. Tax on 394,294.00 by the projection's brackets: 11,079.00 x 1% = 110.79; 15,185.00 x 2% = 303.70; 15,188.00 x 4% = 607.52; 16,090.00 x 6% = 965.40; 15,182.00 x 8% = 1,214.56; 298,755.00 x 9.3% = 27,784.215; 22,815.00 x 10.3% = 2,349.945; total 33,336.13. Line 31: Tax Rate Schedule X (PDF page 75), from its printed base, gives 33,336.14 (the printed base is rounded to the cent; this case uses the bands as numbers, 33,336.13). Line 11 exemptions: 1 personal x 153 and 1 senior x 153. Federal AGI 400,000.00 is more than 252,203.00: the projection removes the personal and senior credits, line 32 = 0.00. The form's AGI Limitation Worksheet (PDF page 14) would give: c = 147,797 over 252,203.00; d = 147,797 / 2,500 rounded up = 60; e = 60 x 6 = 360; f = 2 boxes on lines 7 and 9; g = 360 x 2 = 720; h = 306; i = 306 - 720 = 0 (zero or less enters 0); line 32 = 0. Line 33 = 33,336.13 - 0.00 = 33,336.13; no other credits (lines 34 to 47 nil), line 48 = 33,336.13. State income tax = 33,336.13.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "100000.00",
+    "state_taxable_income": "72040.00",
+    "state_tax_before_credits": "3845.03",
+    "credits": "0.00",
+    "state_income_tax": "3845.03"
+  },
+  "worked": "Filing status married_joint. K-40 line 1 federal AGI 159,500.00 (given). A10 Social Security in federal AGI 59,500.00 subtracted in full (no income test), not the gross 70,000.00. IRA distribution 100,000.00: no subtraction line, stays in Kansas income. Line 2 modifications -59,500.00. Line 3 Kansas AGI 159,500.00 + (-59,500.00) = 100,000.00. Line 4 standard deduction 8,240 + 2 age box(es) x 700 = 9,640 (worksheet PDF page 6). Line 5 exemption 18,320. Line 6 27,960.00. Line 7 taxable income 100,000.00 - 27,960.00 = 72,040.00. Line 8 tax 46,000 x 5.2% = 2,392.00; (72,040.00 - 46,000) = 26,040.00 x 5.58% = 1453.032000; total 3845.032000. the table row 72,001-72,050 gives 3,844. No credits in the projection: credits 0.00. Tax 3845.03."
+}

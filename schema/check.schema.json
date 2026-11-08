@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tax-reference-data/schema/check.schema.json",
+  "title": "A hand-worked check: one household, worked from the state's own form, against the projection's rules",
+  "description": "Each case gives a household's inputs (federal AGI and federal taxable income supplied, so only the state part is tested), the expected state lines worked to the cent with the projection's own formulas (never the printed tax table or whole-dollar rounding), and the arithmetic. Amounts are decimal strings. `tests` names exact projection ids; every relief, credit and deduction in a released projection needs cases (base: 1; each relief or credit: one below and one at or above its cap or income limit; edge cases where the state has whose-age, paying-government or can't-combine rules; no-income-tax states: one zero case).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "state",
+    "tax_year",
+    "kind",
+    "tests",
+    "boundary",
+    "source",
+    "inputs",
+    "expected",
+    "worked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z]{2}_2[0-9]{3}_[a-z0-9_]+$"
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "tax_year": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "kind": {
+      "enum": [
+        "base",
+        "relief",
+        "credit",
+        "deduction",
+        "edge",
+        "no_tax"
+      ]
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "description": "Exact ids from the state's projection (reliefs, base.deductions); empty for a base or no_tax case."
+    },
+    "boundary": {
+      "enum": [
+        "below",
+        "at_or_above",
+        null
+      ],
+      "description": "For a relief or credit case: below its cap or income limit, or at or above it."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication",
+        "section",
+        "url"
+      ],
+      "properties": {
+        "publication": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Form lines or worksheet lines the case follows."
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "filing_status",
+        "persons",
+        "income",
+        "federal_agi",
+        "federal_taxable_income"
+      ],
+      "properties": {
+        "filing_status": {
+          "enum": [
+            "single",
+            "married_joint",
+            "married_separate",
+            "head_of_household",
+            "qualifying_surviving_spouse"
+          ]
+        },
+        "persons": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "age",
+              "born"
+            ],
+            "properties": {
+              "age": {
+                "type": "number",
+                "description": "Age at December 31 of the tax year by the tax rule that a person reaches an age on the day before the birthday: so only a January 1 birthday moves up (born 1961-01-01 is 65 for 2025; born 1961-01-02 is 64). tools/checks.py checks it against `born`. A state that tests age on another date (Arkansas: '65 on January 1, 2026') is an edge case; fractional tests (59.5) use `born` directly."
+              },
+              "born": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "not_covered_by_social_security": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "income": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "wages": {
+              "$ref": "#/$defs/by_person"
+            },
+            "self_employment": {
+              "$ref": "#/$defs/by_person"
+            },
+            "pensions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "amount",
+                  "person",
+                  "source"
+                ],
+                "properties": {
+                  "amount": {
+                    "$ref": "#/$defs/amount"
+                  },
+                  "person": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "source": {
+                    "enum": [
+                      "public",
+                      "private",
+                      "military"
+                    ]
+                  },
+                  "paying_government": {
+                    "type": "string",
+                    "pattern": "^([A-Z]{2}|federal)$",
+                    "description": "For a public pension."
+                  },
+                  "contributory": {
+                    "type": "boolean"
+                  },
+                  "vested_by_1989_08_12": {
+                    "type": "boolean"
+                  },
+                  "military_years_20_or_medical": {
+                    "type": "boolean"
+                  },
+                  "kind": {
+                    "enum": [
+                      "pension",
+                      "annuity",
+                      "railroad_retirement"
+                    ],
+                    "description": "Default pension."
+                  }
+                }
+              }
+            },
+            "ira_distribution": {
+              "$ref": "#/$defs/by_person"
+            },
+            "employer_plan_distribution": {
+              "$ref": "#/$defs/by_person"
+            },
+            "roth_conversion": {
+              "$ref": "#/$defs/by_person"
+            },
+            "social_security_gross": {
+              "$ref": "#/$defs/by_person"
+            },
+            "taxable_social_security": {
+              "$ref": "#/$defs/amount",
+              "description": "The federal taxable amount for the return."
+            },
+            "interest": {
+              "$ref": "#/$defs/amount",
+              "description": "Taxable interest other than U.S. Treasury interest."
+            },
+            "us_treasury_interest": {
+              "$ref": "#/$defs/amount"
+            },
+            "municipal_interest_own_state": {
+              "$ref": "#/$defs/amount"
+            },
+            "municipal_interest_other_state": {
+              "$ref": "#/$defs/amount"
+            },
+            "dividends": {
+              "$ref": "#/$defs/amount"
+            },
+            "short_term_gains": {
+              "$ref": "#/$defs/amount"
+            },
+            "long_term_gains": {
+              "$ref": "#/$defs/amount"
+            }
+          }
+        },
+        "federal_agi": {
+          "$ref": "#/$defs/amount"
+        },
+        "federal_taxable_income": {
+          "$ref": "#/$defs/amount"
+        }
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state_taxable_income",
+        "state_income_tax"
+      ],
+      "properties": {
+        "state_agi": {
+          "$ref": "#/$defs/amount",
+          "description": "State income after the state's additions and its subtractions (every relief that is a subtraction or exempt_in_full), before its standard deduction, exemptions and other base deductions (New Jersey: NJ-1040 line 29, after the pension exclusions)."
+        },
+        "state_taxable_income": {
+          "$ref": "#/$defs/amount",
+          "description": "state_agi less the base deductions and exemptions; floored at 0."
+        },
+        "state_tax_before_credits": {
+          "$ref": "#/$defs/amount",
+          "description": "The bracket tax (surtax bands and recapture included) on state_taxable_income, plus any capital gains extra rate."
+        },
+        "credits": {
+          "$ref": "#/$defs/amount",
+          "description": "Total of the nonrefundable credit reliefs, limited to state_tax_before_credits, plus refundable credits in full."
+        },
+        "state_income_tax": {
+          "$ref": "#/$defs/amount",
+          "description": "state_tax_before_credits less credits; not below 0, except that a refundable credit's excess makes it negative."
+        },
+        "relief_amounts": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/amount"
+          },
+          "description": "Keyed by projection id."
+        }
+      }
+    },
+    "worked": {
+      "type": "string",
+      "minLength": 20,
+      "description": "The arithmetic line by line as the state's worksheet does it, to the cent; where the form rounds or uses a table, its own figure noted too."
+    },
+    "accepted_approximations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted_warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Warning codes the case expects: state_rule_not_modelled:<id> for a not_modelled rule it touches, state_assumption:<relief id> for a relief applied on an assumption. Set by tools.checks --fix-warnings."
+    },
+    "verified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "by",
+        "on",
+        "result"
+      ],
+      "properties": {
+        "by": {
+          "type": "string"
+        },
+        "on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "result": {
+          "enum": [
+            "agrees",
+            "corrected"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "description": "The second, independent working. A release includes only verified cases."
+    }
+  },
+  "$defs": {
+    "amount": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+    },
+    "by_person": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "amount",
+          "person"
+        ],
+        "properties": {
+          "amount": {
+            "$ref": "#/$defs/amount"
+          },
+          "person": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    }
+  }
+}

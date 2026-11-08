@@ -1,0 +1,69 @@
+{
+  "id": "me_2025_pension_cap_reduced_by_ss",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_income_deduction",
+    "age_65_additional_standard_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27 and the Worksheet for Pension Income Deduction lines P1-P10 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-08-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "16.00",
+      "social_security_gross": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "17000.00"
+    },
+    "federal_agi": "77016.00",
+    "federal_taxable_income": "59266.00"
+  },
+  "expected": {
+    "state_agi": "31800.00",
+    "state_taxable_income": "9650.00",
+    "state_tax_before_credits": "559.70",
+    "credits": "0.00",
+    "state_income_tax": "559.70",
+    "relief_amounts": {
+      "pension_income_deduction": "28216.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = private pension (person 0) 60,000.00 + taxable interest 16.00 + taxable Social Security 17,000.00 = 77,016.00. Taxable Social Security on gross benefits 20,000.00: federal worksheet: other income 60,016.00 + half of benefits 10,000.00 = provisional income 70,016.00; over 25,000.00 by 45,016.00; line 11 36,016.00, line 14 4,500.00, line 16 36,016.00 x 85% + 4,500.00 = 35,113.60; 85% of benefits 17,000.00; taxable 17,000.00. Federal taxable income = 77,016.00 - 15,750.00 standard deduction - 1 x 2,000.00 for 65 or older = 59,266.00 (federal senior deduction ignored). Form 1040ME, single: line 14 federal AGI 77,016.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 0.00; Schedule 1A total = line 15a 0.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 17,000.00 + railroad retirement 0.00 = 17,000.00. Pension Income Deduction Worksheet (taxpayer column, person 0, age 72): P1 eligible non-military pension income 60,000.00; P2 48,216.00; P3 Social Security and railroad benefits received 20,000.00; P4 = 48,216.00 - 20,000.00 = 28,216.00; P5 smaller of P1 and P4 = 28,216.00; P6/P7 not needed (federal AGI 77,016.00 not over 125,000.00); P8 = 28,216.00; P9 military retirement pay 0.00; P10 = 28,216.00. Schedule 1S line 4 = P10 total 28,216.00 (non-military 28,216.00 + military 0.00). Schedule 1S line 27 total subtractions = 17,000.00 + 28,216.00 = line 15b 45,216.00. Line 16 Maine AGI = 77,016.00 + 0.00 - 45,216.00 = 31,800.00. Line 17 standard deduction (person 0 born 1953-08-09 is 72 at December 31, 2025; 1 box(es) on lines 12a-12d): chart (PDF p.5) 17,000.00 = base 15,000.00 + 1 x 2,000.00; Maine AGI not over 100,000.00, so no worksheet; line 17 = 17,000.00. Line 13 = 1; line 18 exemption = 1 x 5,150.00 = 5,150.00 (Maine AGI not over 333,450.00). Line 19 taxable income = 31,800.00 - 17,000.00 - 5,150.00 = 9,650.00. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (9,650.00 - 0.00) = 559.70 = 559.70. The booklet's tax table (PDF pp.12-13) row 9,600.00 to 9,700.00 gives 560; expected keeps the schedule formula. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 559.70.",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mainepers_subtraction",
+    "state_rule_not_modelled:me_property_tax_fairness_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "1810.00",
+    "state_tax_before_credits": "1810.00",
+    "state_taxable_income": "36200.00",
+    "relief_amounts": {
+      "military_pension": "30000.00"
+    }
+  },
+  "worked": "Start: federal AGI 75000.00. Military pension 30000.00 (person 0) exempt in full. Private pension 45000.00 (person 1): taxed in full. State income = 75000.00 - 30000.00 = 45000.00. Personal exemption (married_joint) 8800.00. Taxable income = max(45000.00 - 8800.00, 0) = 36200.00. Tax = 5% x 36200.00 = 1810.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

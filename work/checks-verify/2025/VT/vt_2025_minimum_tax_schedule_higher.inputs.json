@@ -1,0 +1,42 @@
+{
+  "id": "vt_2025_minimum_tax_schedule_higher",
+  "state": "VT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "vt_standard_deduction",
+    "vt_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Vermont Income Tax Return Booklet",
+    "section": "Line 8 minimum tax, 3% of federal AGI over 150,000 (booklet PDF p.11 Line 8; PDF p.46 note); Form IN-111 Lines 1-8 and 14 (booklet PDF pp.10-11), standard deduction chart and Lines 4-5e (PDF p.11), rate schedules (PDF p.46)",
+    "url": "https://tax.vermont.gov/sites/tax/files/documents/Income-Booklet-2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-01-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "200000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "200000.00",
+    "federal_taxable_income": "184250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "mt_2025_base",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "52000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "8000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "44250.00",
+    "state_taxable_income": "44250.00",
+    "state_tax_before_credits": "2357.55",
+    "credits": "0.00",
+    "state_income_tax": "2357.55"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 52,000.00 + private pension (person 0) 8,000.00 = 60,000.00. Federal taxable income = 60,000.00 - standard deduction 15,750.00 = 44,250.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; line 24 subtractions 0.00. Form 2 page 1: line 1 federal AGI 60,000.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 44,250.00; line 4 0.00; line 5 0.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 44,250.00 + 0.00 - 0.00 - 0.00 = 44,250.00. Page 2 worksheet: line 1 taxable income 44,250.00; no net long-term capital gain, so lines 2-10 are skipped and line 11 is 0.00; line 12 ordinary income tax from the PDF p18 rate table: 5.9% x 44,250.00 = 2,610.75, less 253 = 2,357.75; line 13 = 2,357.75, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 21,100.00 = 991.70; 5.9% x (44,250.00 - 21,100.00 = 23,150.00) = 1,365.85; bracket tax 2,357.55. Line 9 nonrefundable credits 0.00; line 10 tax after credits 2,357.55. The form gives 2,357.75; expected keeps the projection's 2,357.55, a difference of 0.20 from the table's whole-dollar constant (253 against 253.20).",
+  "accepted_approximations": [
+    "The tables print a whole-dollar constant with the 5.9% rate (253, 506, 380) where the bracket arithmetic gives 253.20, 506.40, 380.40."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

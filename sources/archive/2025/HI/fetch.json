@@ -1,0 +1,56 @@
+[
+  {
+    "state": "HI",
+    "title": "2025 Form N-11 Instructions",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+    "retrieved": "2026-11-07T01:04:45.612206+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf",
+    "file": "n11ins.pdf",
+    "bytes": 2128938,
+    "sha256": "7160595e466b376ba9c14da1540d21532be9e05d48d01d877f5d953c85e4e4d4",
+    "archived_url": "https://web.archive.org/web/20260107075245id_/https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  {
+    "state": "HI",
+    "title": "2025 Form N-11 Resident Income Tax Return (fillable)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11_f.pdf",
+    "retrieved": "2026-11-07T01:04:50.758333+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://files.hawaii.gov/tax/forms/current/n11_f.pdf",
+    "file": "n11_f.pdf",
+    "bytes": 3356339,
+    "sha256": "e0e707e1d2b3c58ec1e7bc837fce54ec87e61b8933fd2795dd8014147692b999",
+    "archived_url": "https://web.archive.org/web/20260713060235id_/https://files.hawaii.gov/tax/forms/current/n11_f.pdf"
+  },
+  {
+    "state": "HI",
+    "title": "Department of Taxation amendment to HAR 18-235-7-03 Exclusion of pension income (pretax employee contribution, exclusion ratio), effective 1/1/98",
+    "url": "https://files.hawaii.gov/tax/news/announce/1990_2003/98ann02a.pdf",
+    "retrieved": "2026-11-07T20:57:29.302249+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://files.hawaii.gov/tax/news/announce/1990_2003/98ann02a.pdf",
+    "method": "browser",
+    "file": "98ann02a.pdf",
+    "bytes": 61295,
+    "sha256": "c54671010562fa8b88a59109525a330477d85d163908239c9d7d3a5b407a2140",
+    "archived_url": "https://web.archive.org/web/20260513092618id_/https://files.hawaii.gov/tax/news/announce/1990_2003/98ann02a.pdf"
+  },
+  {
+    "state": "HI",
+    "title": "Department of Taxation, Tax Review Commission presentation 2026-07-14: Pension Income Taxation (IRA and 401(k) withdrawals fully taxable)",
+    "url": "https://files.hawaii.gov/tax/stats/trc/docs2025/2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf",
+    "retrieved": "2026-11-07T20:57:34.339930+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://files.hawaii.gov/tax/stats/trc/docs2025/2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf",
+    "method": "browser",
+    "file": "2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf",
+    "bytes": 1114177,
+    "sha256": "1c9aa9a7149eb83b4feccd5612da91564107bfabc3b7a09ad63ab9a79e721ad7",
+    "archived_url": "https://web.archive.org/web/20261108001037id_/https://files.hawaii.gov/tax/stats/trc/docs2025/2026-07-14-Karacaovali_Presentation-Pension_Income_Taxation.pdf"
+  }
+]

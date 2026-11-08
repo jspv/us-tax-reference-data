@@ -1,0 +1,76 @@
+{
+  "id": "nj_2025_unclaimed_joint_earned_combined",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_unclaimed_exclusion",
+    "nj_pension_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 16a, 20a, 27, 28a, 28b, 29: Instr PDF p.21 line 27, PDF p.22 line 28a (Line A, Line B and chart), PDF p.22 line 28b and PDF p.23 Worksheet D lines 1-9 (lines 4-8: lines 15, 18, 21 and 22 added; 'Is the amount on line 8 MORE than $3,000?') with the Maximum Exclusion chart, PDF p.22 line 29; GIT-1 & 2 p.23 condition 3 (earned income 'combined if filing jointly' must be $3,000 or less) and p.25 (only one spouse qualifies: 'The joint earned income ... is $3,000 or less'; example: 'their joint income from wages ... was more than $3,000'); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-09-10"
+      },
+      {
+        "age": 63,
+        "born": "1962-06-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "2000.00",
+          "person": 0
+        },
+        {
+          "amount": "2000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "interest": "20000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "22500.00"
+  },
+  "expected": {
+    "state_agi": "24000.00",
+    "state_taxable_income": "22000.00",
+    "state_tax_before_credits": "315.00",
+    "credits": "0.00",
+    "state_income_tax": "315.00",
+    "relief_amounts": {
+      "nj_pension_exclusion": "30000.00",
+      "nj_unclaimed_exclusion": "0.00"
+    }
+  },
+  "worked": "Federal AGI 54,000.00 (wages 2,000.00 + 2,000.00 + private pension 30,000.00 + interest 20,000.00); federal taxable income = 54,000.00 - 31,500.00 federal standard deduction = 22,500.00 (given, not tested; both under 65; the federal senior deduction is ignored). Line 15 wages 4,000.00 + line 16a interest 20,000.00 + line 20a pension 30,000.00 = line 27 total income 54,000.00 (projection: federal AGI 54,000.00 less taxable Social Security 0.00); measure 54,000.00, in the 0-100,000 band (keep share 1). Line 28a: ages 64 and 63, both qualify; Line A 30,000.00, Line B 100,000.00 joint; lesser = 30,000.00. Worksheet D: line 27 is not more than 150,000; line 1 100,000.00 - line 2 30,000.00 = line 3 70,000.00 (more than 0); line 4 (line 15, the joint return's wages) 4,000.00 + lines 5-7 0.00 = line 8 4,000.00, MORE than 3,000, so neither spouse may use the unclaimed portion although each earned only 2,000.00 (GIT-1 & 2 p.23: earned income 'combined if filing jointly'; p.25: 'their joint income from wages ... was more than $3,000'): line 28b = 0.00 (projection: earned_income_limit per return, 2,000.00 + 2,000.00 = 4,000.00 over 3,000, so the relief does not apply: 0.00; a per-person test would have excluded the 20,000.00 interest). Line 28c = 30,000.00. Line 29 New Jersey gross income = 54,000.00 - 30,000.00 - 0.00 = 24,000.00. Line 30 exemptions (line 13): regular 1,000 x 2 (nobody is 65 or older, so no senior exemption) = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 24,000.00 - 2,000.00 = 22,000.00. Line 43 tax, rate schedule Table B (joint/head of household/qualifying widow(er)) as bands: 20,000.00 x 0.014 = 280.00 + 2,000.00 x 0.0175 = 35.00 = 315.00. The booklet's Tax Table (taxable income under 100,000) gives 315 for the 22,000-22,050 row (schedule at the midpoint 22,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 315.00. The pension is noncontributory, so line 20b is empty.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

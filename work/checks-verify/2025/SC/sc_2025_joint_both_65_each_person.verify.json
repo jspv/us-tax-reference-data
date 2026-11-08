@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "232.20",
+    "state_tax_before_credits": "232.20",
+    "state_taxable_income": "11300.00"
+  },
+  "worked": "Joint, both 65+. Each person gets 15,000 in total (retirement plus age 65); projection best_of_group per person picks age 65 15,000 for each; total 30,000. The age 65 deduction is 'against any South Carolina income', so the spouse's 15,000 is not limited to her own 6,000 pension (joint interest 10,000 and joint income cover it). Line 1 federal taxable income 41300.00; line 2 additions 0.00; line 3 = 41300.00. p-1 taxpayer (72): lesser of 10,000 and own IRA 60,000: 10000.00 p-2 spouse (67): lesser of 10,000 and own pension 6,000: 6000.00 q-1 taxpayer: 15,000 - 10,000 - 0: 5000.00 q-2 spouse: 15,000 - 6,000 - 0: 9000.00 Line 4 subtractions total 30000.00; line 5 SC taxable income 41300.00 - 30000.00 = 11300.00 tax: 0.03 x (11300.00 - 3,560) = 232.20 (line 6; formula on exact income, not the table row midpoint). Credits: none modelled (Two Wage Earner Credit not_modelled; no dependents); credits 0.00. Federal taxable income is given (federal senior deduction ignored per brief). State income tax 232.20."
+}

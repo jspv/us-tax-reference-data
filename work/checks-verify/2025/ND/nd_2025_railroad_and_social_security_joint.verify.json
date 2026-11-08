@@ -1,0 +1,12 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "669.34",
+  "state_tax_before_credits": "669.34",
+  "state_taxable_income": "115300.00",
+  "relief_amounts": {
+   "railroad_retirement_exclusion": "18000.00"
+  }
+ },
+ "worked": "Federal check: AGI 195,200.00 = pensions 18,000.00 + ira_distribution 150,000.00 + taxable_social_security 27,200.00; less standard deduction 31,500 + age 3,200 = federal taxable income 160,500.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 160,500.00; no additions (lines 2-3 are 0).\nLine 8 railroad_retirement_exclusion = 18,000.00\nLine 15 social security exclusion (taxable part) = 27,200.00\nLine 17 total subtractions = 45,200.00\nLine 18 = 160,500.00 - 45,200.00 = 115,300.00\nLine 20 tax: married_joint band 0.0195 on 34,325.00 (over 80,975.00) = 669.337500\nLine 20 tax = 669.337500 -> 669.34 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 669.34.\nMarriage credit (form only, projection leaves it out): line 1 115,300.00, qualified incomes 0.00 and 150,000.00: lower not over 47,550, no credit. Expected follows the projection: credits 0.00. Approximation: The marriage penalty credit is left out."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "nj_2025_base",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 16a, 27, 29, 30, 38, 39, 42, 43: Instr PDF p.21 line 27, PDF p.22 line 29, PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "58000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "59000.00",
+    "state_tax_before_credits": "1767.25",
+    "credits": "0.00",
+    "state_income_tax": "1767.25",
+    "relief_amounts": {}
+  },
+  "worked": "Federal AGI 60,000.00 (wages 58,000.00 + interest 2,000.00); federal taxable income = 60,000.00 - 15,750.00 federal standard deduction = 44,250.00 (given, not tested; the federal senior deduction is ignored). Line 15 wages 58,000.00 + line 16a taxable interest 2,000.00 = line 27 total income 60,000.00 (the projection: federal AGI 60,000.00 less taxable Social Security 0.00). Lines 28a-28c: none (age 45, no pension); exclusions 0.00. Line 29 New Jersey gross income = 60,000.00 - 0.00 - 0.00 = 60,000.00. Line 30 exemptions (line 13): regular 1,000 x 1 (nobody is 65 or older, so no senior exemption) = 1,000.00; line 38 = 1,000.00 (no other deductions). Line 39/42 taxable income = 60,000.00 - 1,000.00 = 59,000.00. Line 43 tax, rate schedule Table A (single/separate) as bands: 20,000.00 x 0.014 = 280.00 + 15,000.00 x 0.0175 = 262.50 + 5,000.00 x 0.035 = 175.00 + 19,000.00 x 0.05525 = 1,049.75 = 1,767.25. The booklet's Tax Table (taxable income under 100,000) gives 1,769 for the 59,000-59,050 row (schedule at the midpoint 59,025, rounded); expected keeps the exact schedule result. No credits. State income tax = 1,767.25.",
+  "accepted_approximations": [
+    "Tax Table: for taxable income under 100,000 New Jersey uses its Tax Table, the schedule's tax at each 50-dollar row's midpoint rounded to the dollar; the projection uses the exact schedule."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_pension_exclusion_disabled"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

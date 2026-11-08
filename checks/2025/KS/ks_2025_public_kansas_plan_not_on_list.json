@@ -1,0 +1,65 @@
+{
+  "id": "ks_2025_public_kansas_plan_not_on_list",
+  "state": "KS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "public_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Complete Income Tax Instruction Booklet (ip25), Kansas Department of Revenue, with Form K-40 and Schedule S bound in (PDF pages 19-22)",
+    "section": "Form K-40 lines 1-12 (ip25 PDF page 20; exemption block PDF page 19); K-40 instructions lines 1-3 (PDF page 6), line 4 and exemptions (PDF page 6), lines 5-8 (PDF page 7); Schedule S line A14 (ip25 PDF page 21), instructions PDF page 12 'Retirement benefits specifically exempt from Kansas Income Tax', Kansas plan bullets; tax rate schedule: 2025 Tax Computation Worksheet (PDF page 34) and Tax Table (PDF pages 27-34)",
+    "url": "https://www.ksrevenue.gov/pdf/ip25.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 64,
+        "born": "1961-03-09"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "KS"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "74250.00"
+  },
+  "expected": {
+    "state_agi": "60000.00",
+    "state_taxable_income": "47235.00",
+    "state_tax_before_credits": "2548.31",
+    "credits": "0.00",
+    "state_income_tax": "2548.31",
+    "relief_amounts": {
+      "public_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = wages (you) 60,000.00 + Kansas public pension (you) 30,000.00 = 90,000.00. Federal taxable income = 90,000.00 - standard deduction 15,750.00 (15,750.00) = 74,250.00 (federal senior deduction ignored; federal figures are given, not tested; Kansas starts from federal AGI). Schedule S Part A: line A1 0.00; lines A2-A8 0.00; line A9 total additions 0.00. Line A10 0.00; lines A11-A13 0.00; line A14 retirement benefits specifically exempt: Kansas public pension, as the projection treats it 30,000.00 = 30,000.00; lines A15-A25 0.00; line A26 total subtractions = 30,000.00; line A27 net modification = 0.00 - 30,000.00 = -30,000.00. Form K-40: line 1 federal AGI 90,000.00; line 2 modifications -30,000.00; line 3 Kansas AGI = 90,000.00 + (-30,000.00) = 60,000.00; line 4 standard deduction (single) 3,605.00; line 5 exemption allowance (1 exemption) 9,160.00, 0 dependents; line 6 total deductions = 3,605.00 + 9,160.00 = 12,765.00; line 7 taxable income = 60,000.00 - 12,765.00 = 47,235.00; line 8 tax (rate schedule as numbers, PDF page 34): 5.2% x 23,000.00 = 1,196.00 + 5.58% x (47,235.00 - 23,000.00 = 24,235.00) = 1,352.3130; total 2,548.3130 = 2,548.31. Line 7 is 100,000 or less, so the form reads the tax table: row 47,201-47,250, single, head of household or married filing separate column, PDF page 30, gives 2,548; expected keeps the formula figure. Lines 9-10 do not apply (resident); line 11 0.00; line 12 total income tax 2,548.31. Credits (lines 13-15, 17): none, 0.00; state income tax = 2,548.31. This household's pension is from a Kansas local plan that line A14 does not name. The projection cannot tell it from a listed plan and exempts every public_pension, so expected follows the projection. On the form the pension stays in income: line 3 90,000.00, line 7 77,235.00, tax 1,196.00 + 5.58% x 54,235.00 = 3,026.3130; total 4,222.3130 = 4,222.31, which is 1,674.00 more (5.58% x 30,000.00), the approximation's own figure.",
+  "accepted_approximations": [
+    "Every public_pension is treated as exempt, but line A14 names particular Kansas plans and only 'certain' first class city pensions; a Kansas local plan not on the list is taxable.",
+    "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:regents_annuity_contracts"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

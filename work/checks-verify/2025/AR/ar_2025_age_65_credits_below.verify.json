@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "28.60",
+    "state_agi": "9500.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "28.60",
+    "state_taxable_income": "7030.00"
+  },
+  "worked": "Federal figures given; federal senior deduction ignored. Arkansas starts from federal AGI less exempt items (projection approximation). All amounts to the cent with the bracket schedule, not the printed table. Start: federal AGI 9500.00. Person 0 65+: takes the 0.00 exclusion (net tax 0.00) over the 65 Special 29 (net tax would be 0.00). State AGI (line 25 equivalent) = 9500.00 - 0.00 - 0.00 = 9500.00. Less standard deduction 2470.00 = net taxable income 7030.00. Tax by schedule: 0.02 x (7030.00 - 5600.00) = 28.60; total 28.60. Line 7A credits: personal 1 x 29 + age 65 1 x 29 + 65 Special 0 x 29 = 58.00; nonrefundable, limited to tax: 28.60. State income tax = 28.60 - 28.60 = 0.00. The Low Income Tax Table and the Additional Tax Credit for Qualified Individuals are not applied (projection approximation)."
+}

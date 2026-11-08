@@ -1,0 +1,55 @@
+{
+  "id": "md_2025_pension_excl_capped",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_exclusion",
+    "ss_rr_exempt"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 11, 15-21; Worksheet 13A lines 1-5 (PDF page 14); Instruction 13 Line 10a (PDF page 15); Line 11 (PDF page 16); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-09-09"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "MD"
+        }
+      ],
+      "taxable_social_security": "20400.00",
+      "interest": "750.00"
+    },
+    "federal_agi": "81150.00",
+    "federal_taxable_income": "63400.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_exclusion",
+    "relief_amounts.ss_rr_exempt"
+  ]
+}

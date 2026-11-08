@@ -1,0 +1,59 @@
+{
+  "id": "or_2025_roth_conversion_taxed",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-40-FY, Oregon Income Tax Full-Year Resident instructions",
+    "section": "Pub OR-17 PDF p.49 IRA conversions; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "roth_conversion": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "94250.00"
+  },
+  "expected": {
+    "state_agi": "110000.00",
+    "state_taxable_income": "107165.00",
+    "state_tax_before_credits": "9066.94",
+    "credits": "0.00",
+    "state_income_tax": "9066.94"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 60,000.00 + Roth conversion (person 0) 50,000.00 = 110,000.00. Federal taxable income = 110,000.00 - 15,750.00 federal standard deduction = 94,250.00 (the federal senior deduction is ignored). Form OR-40 (filing status single): line 7 federal AGI 110,000.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 110,000.00 + 0.00 = 110,000.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 0.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 0.00 + 0.00 + 0.00 = 0.00. Line 15 = 110,000.00 - 0.00 = 110,000.00. Line 16 itemized 0.00. Line 17 standard deduction 2,835.00; no age 65 box. Line 18 = 2,835.00. Line 19 = 110,000.00 - 2,835.00 = 107,165.00. Line 20: 4,400.00 x 4.75% = 209 + 6,700.00 x 6.75% = 452.25 + 96,065.00 x 8.75% = 8405.6875; total 9066.9375, to the cent 9,066.94 (Chart S gives 4,065 + 57,165.00 x 8.75% = 9,067; expected keeps the formula). Lines 21-23 0.00. Line 24 = 9,066.94. Line 25 exemption credit worksheet line 1: federal AGI 110,000.00 is more than 100,000.00, enter 0; credit 0.00. Line 27 retirement income credit (code 811): no one is 62 or older at the end of the year, so 0.00. Line 28 credits = 0.00 + 0.00 = 0.00. Line 29 and line 31 state income tax = 9,066.94 - 0.00 = 9,066.94. Line 32 kicker comes after this figure and is not applied (not_modelled). Oregon taxes the conversion in full.",
+  "accepted_approximations": [
+    "The federal tax liability subtraction is not applied (not_modelled). This is the largest gap for most Oregon households.",
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

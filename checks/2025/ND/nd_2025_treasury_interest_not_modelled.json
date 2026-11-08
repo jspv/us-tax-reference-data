@@ -1,0 +1,53 @@
+{
+  "id": "nd_2025_treasury_interest_not_modelled",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14 Line 5 - U.S. obligation interest; Form ND-1 line 5; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 48,
+        "born": "1977-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "5000.00",
+      "interest": "1000.00"
+    },
+    "federal_agi": "106000.00",
+    "federal_taxable_income": "90250.00"
+  },
+  "expected": {
+    "state_taxable_income": "90250.00",
+    "state_tax_before_credits": "814.61",
+    "credits": "0.00",
+    "state_income_tax": "814.61"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 100,000.00 + interest 1,000.00 + U.S. Treasury interest 5,000.00 = 106,000.00. Federal taxable income = 106,000.00 - standard deduction 15,750.00 = 90,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 90,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 90,250.00. Subtractions lines 5-16: none; line 17 = 0.00. Line 18 North Dakota taxable income = 90,250.00 - 0.00 = 90,250.00. Line 19 = 90,250.00. Line 20 tax: 1.95% x (90,250.00 - 48,475.00) = 1.95% x 41,775.00 = 814.6125, to the cent 814.61; the Tax Table row 90,250 to 90,300 gives 815; expected uses the bracket formula on the exact income. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 814.61. The form differs: line 5 would subtract 5,000.00, so line 18 would be 85,250.00 and the exact tax 717.1125; the projection overstates tax by 97.50 (1.95% x 5,000.00).",
+  "accepted_approximations": [
+    "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars.",
+    "Interest on U.S. obligations is not subtracted (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

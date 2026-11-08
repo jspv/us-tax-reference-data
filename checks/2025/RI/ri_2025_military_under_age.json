@@ -1,0 +1,58 @@
+{
+  "id": "ri_2025_military_under_age",
+  "state": "RI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ri_military_pension_modification"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Rhode Island Retirement Income Tax Guide, Publication 2026-01 (tax year 2025)",
+    "section": "Instructions PDF p.10, Schedule M line 1v; Guide PDF p.15; Guide PDF p.15, Section 2 Example #1; Instructions PDF p.4, RI-1040 lines 1-5; PDF p.5, lines 6-8; PDF p.13, Tax Computation Worksheet ('Use for all filing status types')",
+    "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2026-02/PUB_2026-01_Retirement_Income_Guide.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "55000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "85000.00",
+    "federal_taxable_income": "69250.00"
+  },
+  "expected": {
+    "state_agi": "55000.00",
+    "state_taxable_income": "39000.00",
+    "state_tax_before_credits": "1462.50",
+    "credits": "0.00",
+    "state_income_tax": "1462.50",
+    "relief_amounts": {
+      "ri_military_pension_modification": "30000.00"
+    }
+  },
+  "worked": "Federal AGI = wages 55,000.00 + military pension (person 0) 30,000.00 = 85,000.00. Federal taxable income = 85,000.00 - 15,750.00 standard deduction = 69,250.00 (given, not tested; federal senior deduction ignored). RI-1040 line 1 federal AGI 85,000.00. Line 1v military service pension 30,000.00 (in full, no age or income test). Line 1y total decreasing modifications = 30,000.00. Line 2a other-state obligations 0.00; line 2m total increasing modifications = 0.00. Schedule M page 2 line 3 net = 0.00 - 30,000.00 = -30,000.00; RI-1040 line 2 = -30,000.00. Line 3 modified federal AGI = 85,000.00 + (-30,000.00) = 55,000.00. Standard Deduction and Exemption Worksheets: line 3 55,000.00 is not more than 254,250.00: the worksheets stop at line 3, full amounts. Line 4 standard deduction: 10,900.00 (Single). Line 5 = 55,000.00 - 10,900.00 = 44,100.00. Line 6 exemptions: 1 x 5,100.00 = 5,100.00. Line 7 taxable income = 44,100.00 - 5,100.00 = 39,000.00. Line 8 tax on 39,000.00 by the schedule as numbers: 39,000.00 x 0.0375 = 1462.500000 = 1,462.50. Credits 0.00 (Schedule I, Schedule II, RI earned income credit and RI-1040H are not modelled and not claimed here). Rhode Island income tax = 1,462.50. Note: Guide Example #1 (Joshua, 62, federal AGI 85,000): no age or income test.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  },
+  "accepted_approximations": []
+}

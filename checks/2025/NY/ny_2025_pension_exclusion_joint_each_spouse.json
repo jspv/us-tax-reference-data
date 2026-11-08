@@ -1,0 +1,71 @@
+{
+  "id": "ny_2025_pension_exclusion_joint_each_spouse",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_annuity_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 10, Line 29, Married taxpayers (each spouse up to 20,000 of own income; no unused part of the spouse's exclusion; example 30,000 and 15,000 gives 35,000); Form IT-201 line 29; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-03-10"
+      },
+      {
+        "age": 62,
+        "born": "1963-09-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "75000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "15000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "88500.00"
+  },
+  "expected": {
+    "state_agi": "85000.00",
+    "state_taxable_income": "68950.00",
+    "state_tax_before_credits": "3459.75",
+    "credits": "0.00",
+    "state_income_tax": "3459.75",
+    "relief_amounts": {
+      "pension_annuity_exclusion": "35000.00"
+    }
+  },
+  "worked": "Married filing jointly, both 62 (59 1/2 before 2025). Person 0: private employer pension 30,000. Person 1: 401(k) periodic distributions 15,000 and wages 75,000. The booklet's example: 20,000 + 15,000 = 35,000. Federal AGI (IT-201 line 19) = 120,000.00. Federal taxable income = 120,000.00 - 31,500.00 federal standard deduction = 88,500.00 (given, not tested; the federal senior deduction is ignored). Subtraction: line 29 exclusion, person 0: private pension 30,000, limited to 20,000 20,000.00. Subtraction: line 29 exclusion, person 1: 401(k) periodic distribution 15,000 (person 0's unused amount cannot be used) 15,000.00. Line 32 total subtractions = 35,000.00. Line 33 New York AGI = 120,000.00 - 35,000.00 = 85,000.00. Line 34 New York standard deduction (married joint, PDF page 11 table) 16,050.00; line 35 = 85,000.00 - 16,050.00 = 68,950.00; line 36 dependent exemption 0 (no dependents); lines 37/38 taxable income 68,950.00. Rate schedule (PDF page 33, married joint) on 68,950.00: 17,150.00 x 4% = 686.00; 6,450.00 x 4.5% = 290.25; 4,300.00 x 5.25% = 225.75; 41,050.00 x 5.5% = 2,257.75; schedule tax = 3,459.75. NY AGI is 107,650 or less and line 38 is 65,000 or more: the rate schedule applies (PDF page 12, line 39); no recapture worksheet. Line 39 NYS tax = 3,459.75. Credits: none (the household credit, line 40, PDF page 12 tables 1-3, allows no credit above federal AGI of 28,000 single or 32,000 other statuses): state income tax = 3,459.75.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:gov_pension_ira_rollover"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

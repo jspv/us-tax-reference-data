@@ -1,0 +1,67 @@
+{
+  "id": "me_2025_hoh_federal_pension_capped",
+  "state": "ME",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_income_deduction",
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form 1040ME Schedule 1S",
+    "section": "Schedule 1S lines 3, 4 and 27 and the Worksheet for Pension Income Deduction lines P1-P10 (Schedule 1S PDF p.2); booklet Schedule 1S line 3 (PDF p.7) and line 4 (PDF p.8); Form 1040ME lines 14-20; line 17 chart (booklet PDF p.5); line 18 (PDF p.5); 2025 Tax Rate Schedules (PDF p.13). Record cite: pension_income_deduction, PDF page 8, 36 M.R.S. 5122(2)(M-2)",
+    "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/inline-files/25_1040me_sch_1s_fillable.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal"
+        }
+      ],
+      "interest": "10016.00"
+    },
+    "federal_agi": "90016.00",
+    "federal_taxable_income": "66391.00"
+  },
+  "expected": {
+    "state_agi": "41800.00",
+    "state_taxable_income": "14150.00",
+    "state_tax_before_credits": "820.70",
+    "credits": "0.00",
+    "state_income_tax": "820.70",
+    "relief_amounts": {
+      "pension_income_deduction": "48216.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 30,000.00 + public pension paid by federal (person 0) 50,000.00 + taxable interest 10,016.00 = 90,016.00. Federal taxable income = 90,016.00 - 23,625.00 standard deduction = 66,391.00 (federal senior deduction ignored). Form 1040ME, head of household: line 14 federal AGI 90,016.00. Schedule 1A line 1 (PDF p.7) other-state municipal bond interest 0.00; Schedule 1A total = line 15a 0.00. Schedule 1S line 3 (PDF p.7) taxable Social Security 0.00 + railroad retirement 0.00 = 0.00. Pension Income Deduction Worksheet (taxpayer column, person 0, age 58): P1 eligible non-military pension income 50,000.00; P2 48,216.00; P3 Social Security and railroad benefits received 0.00; P4 = 48,216.00 - 0.00 = 48,216.00; P5 smaller of P1 and P4 = 48,216.00; P6/P7 not needed (federal AGI 90,016.00 not over 187,500.00); P8 = 48,216.00; P9 military retirement pay 0.00; P10 = 48,216.00. Schedule 1S line 4 = P10 total 48,216.00 (non-military 48,216.00 + military 0.00). Schedule 1S line 27 total subtractions = 0.00 + 48,216.00 = line 15b 48,216.00. Line 16 Maine AGI = 90,016.00 + 0.00 - 48,216.00 = 41,800.00. Line 17 standard deduction (person 0 born 1967-06-06 is 58 at December 31, 2025; 0 box(es) on lines 12a-12d): chart (PDF p.5) 22,500.00 = base 22,500.00 + 0 x 2,000.00; Maine AGI not over 150,000.00, so no worksheet; line 17 = 22,500.00. Line 13 = 1; line 18 exemption = 1 x 5,150.00 = 5,150.00 (Maine AGI not over 366,750.00). Line 19 taxable income = 41,800.00 - 22,500.00 - 5,150.00 = 14,150.00. Line 20 tax from the rate schedule (PDF p.13): 5.8% x (14,150.00 - 0.00) = 820.70 = 820.70. The booklet's tax table (PDF pp.12-13) row 14,100.00 to 14,200.00 gives 821; expected keeps the schedule formula. Line 23 nonrefundable credits 0.00; line 24 Maine income tax 820.70.",
+  "accepted_approximations": [
+    "Tax is computed from the rate schedules as numbers. The booklet's table taxes 100-dollar rows and the printed schedule constants are rounded to dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:mainepers_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "wi_2025_retirement_5000_single_at_or_above",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wi_retirement_5000"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 17 and the Retirement Income Subtraction Worksheet lines 1-6 (SB Instructions PDF page 8; Publication 126 PDF pages 8-9 section 4.E(2)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-09-09"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "6000.00",
+          "person": 0
+        }
+      ],
+      "interest": "9000.00"
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "15000.00",
+    "state_taxable_income": "490.00",
+    "state_tax_before_credits": "17.15",
+    "credits": "0.00",
+    "state_income_tax": "17.15"
+  },
+  "worked": "Single, 66: IRA 6,000, interest 9,000; federal AGI exactly 15,000 is not less than 15,000, so no line 17 subtraction. Federal (given, not tested): federal AGI = ira distribution (you) 6,000.00 + interest 9,000.00 = 15,000.00. Federal taxable income = 15,000.00 - standard deduction 15,750.00 + 1 x 2,000.00 = 0.00 (floored at 0); the federal senior deduction is ignored. Form 1 line 1 federal AGI 15,000.00; line 2 Schedule I adjustments 0.00; line 3 15,000.00; line 4 additions 0.00; line 5 15,000.00. Schedule SB: no subtraction applies; line 50 0.00. Schedule SB line 17: federal AGI 15,000.00 is not less than 15,000.00, so no 5,000 subtraction. Form 1 line 6 0.00; line 7 Wisconsin income = 15,000.00 - 0.00 = 15,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 15,000 to less than 15,500, column Single: 13,560.00 (printed row, at least / less than / single / joint / separate / head of household: 15,000 / 15,500 / 13,560 / 25,110 / 11,562 / 17,520). Line 9 = 15,000.00 - 13,560.00 = 1,440.00. Line 10a 1 x 700 = 700.00; line 10b 1 x 250 = 250.00; line 10c 950.00. Line 11 taxable income = 1,440.00 - 950.00 = 490.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 490.00 = 17.15; total 17.15, rounded once to 17.15. The Tax Table row 400 to 500 (PDF page 38) gives 16; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 17.15.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

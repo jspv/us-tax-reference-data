@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "33850.00",
+    "state_income_tax": "1070.25",
+    "state_tax_before_credits": "1070.25",
+    "state_taxable_income": "26500.00"
+  },
+  "worked": "Form 511 line 1 Federal AGI 33,850.00 (given; federal senior deduction ignored in the given federal figures). Roth conversion 20,000.00: left out of line 6 (projection approximation, covers_unclear in the record); stays taxed. Oklahoma AGI (line 7) = 33,850.00 + 0.00 - 0.00 = 33,850.00. Special exemption test: 1 person(s) 65 or older; Federal AGI line 1 33,850.00 against limit 15,000.00: over, none allowed (projection tests AGI including the Roth conversion; the booklet would leave out 20,000.00, giving 13,850.00). Line 10 standard deduction 6,350.00; line 11 regular exemptions 1 x 1,000.00 = 1,000.00; special exemptions 0.00. Line 13 Oklahoma taxable income = 33,850.00 - 7,350.00 = 26,500.00. Tax on the single schedule: 1,000.00 x 0.0025 = 2.5000; 1,500.00 x 0.0075 = 11.2500; 1,250.00 x 0.0175 = 21.8750; 1,150.00 x 0.0275 = 31.6250; 2,300.00 x 0.0375 = 86.2500; 19,300.00 x 0.0475 = 916.7500; total 1070.2500. Line 14 tax 1,070.25 (the table row 26,500-26,550 gives 1,071). Credits 0.00 (not modelled). Income tax 1,070.25."
+}

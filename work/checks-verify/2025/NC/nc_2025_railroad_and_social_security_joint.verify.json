@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "state_taxable_income": "14500.00",
+    "state_tax_before_credits": "616.25",
+    "credits": "0.00",
+    "state_income_tax": "616.25",
+    "relief_amounts": {
+      "railroad_retirement": "30000.00"
+    }
+  },
+  "worked": "D-400 Line 6 federal AGI 90400.00. Line 7 additions 0.00. Schedule S Part B: Line 19 taxable Social Security 20400.00 (social_security exempt); Line 19 railroad retirement 30000.00 (relief railroad_retirement, exempt_in_full). Line 9 deductions 50400.00. Line 6 + Line 7 - Line 9 = 90400.00 + 0.00 - 50400.00 = 40000.00. Line 11 NC standard deduction (married_joint) 25500.00. Line 14 NC taxable income 40000.00 - 25500.00 = 14500.00. Line 15 tax 14500.00 x 4.25% = 616.25. Line 16 credits 0.00 (no credits in the projection). Tax 616.25."
+}

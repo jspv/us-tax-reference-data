@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "centenarian_exemption": "1000.00",
+      "age_65_exemption": "1000.00",
+      "low_middle_income_exemption_joint_hoh": "1000.00"
+    },
+    "state_agi": "14300.00",
+    "state_income_tax": "257.60",
+    "state_tax_before_credits": "257.60",
+    "state_taxable_income": "12300.00"
+  },
+  "worked": "Status married_joint; persons [100, 88]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 50,000.00 less line 12 federal standard deduction 34,700.00 = 15,300.00. PIT-ADJ line 12, person 0 is 100: own income 1,000.00 exempt (projection approximation: the person's own income, not half of community income plus separate income). state_agi = 15,300.00 + additions 0.00 - subtractions 1,000.00 = 14,300.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). PIT-ADJ line 13, Table 1, married_joint: AGI 50,000.00 gives 1,000.00 per qualifying person; 1 qualifies (person(s) [0] claim the centenarian exemption and may not also claim this one): 1,000.00. PIT-1 line 14 worksheet: line 3 = 50,000.00 - 30,000 floored at 0 = 20,000.00; line 5 = x 0.10 = 2,000.00; line 6 = 2,500 - line 5 (not below 0) = 500.00; line 7 exemptions 2 (dependents not modelled); line 8 = 1,000.00. state_taxable_income (PIT-1 line 17) = 14,300.00 - 1,000.00 - 1,000.00 = 12,300.00. Tax on 12,300.00, married_joint brackets: 0.015 x 8,000.00 = 120.0000; 0.032 x 4,300.00 = 137.6000; total 257.6000, 257.60 to the cent. The printed table gives 256 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

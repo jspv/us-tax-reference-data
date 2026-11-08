@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "20000.00",
+    "state_income_tax": "603.50",
+    "state_tax_before_credits": "603.50",
+    "state_taxable_income": "14200.00",
+    "relief_amounts": {
+      "senior_investment_deduction": "10000.00"
+    }
+  },
+  "worked": "Single born 1944, no retirement benefits. Line 28 worksheet: 14,688 limit; interest 6,000 + dividends 3,000 + gains 1,000 = 10,000 -> 10,000.00. Taxable SS 13,850 subtracted. state_agi 43,850 - 13,850 - 10,000 = 20,000.00 (wages). Exemption 5,800. Taxable 14,200.00. Tax 603.50. [check: state_agi 20000.00, taxable 14200.00, tax 603.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

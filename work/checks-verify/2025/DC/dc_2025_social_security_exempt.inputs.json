@@ -1,0 +1,48 @@
+{
+  "id": "dc_2025_social_security_exempt",
+  "state": "DC",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "additional_standard_age65"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "section": "D-40 Lines 4-7, 15-20; booklet PDF page 19 Line 4; PDF page 20 Lines 16-17 and Calculation I/Tax Rate Schedule; Schedule S Calculation G-1 lines a-h (PDF page 51); standard deduction PDF pages 4 and 13 (record base.deductions cite); additional standard deduction for age 65, born before January 2, 1961 (PDF pages 4, 13, 51; record additional_standard_age65 cite); Line 10 taxable Social Security and tier 1 railroad retirement (PDF page 20 Line 10; D-40 form page 2 Line 10; record social_security_tier1_subtraction cite)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-02-02"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "28000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "13000.00"
+    },
+    "federal_agi": "43000.00",
+    "federal_taxable_income": "25250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

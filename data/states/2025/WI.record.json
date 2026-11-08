@@ -1,0 +1,5673 @@
+{
+ "layer": "record",
+ "state": "WI",
+ "tax_year": 2025,
+ "has_income_tax": true,
+ "notes": [
+  "Brackets: Publication 106 PDF pages 6-7 print 2025 Tax Rate Schedules A ('For Single Taxpayers or Head of Household'), B (married filing jointly) and C (married filing separately). Head of household has no schedule of its own, so no head_of_household list is given (it uses single). The Form 1 Instructions Tax Table (PDF pages 38-43, taxable income under 100,000) was checked against the schedules at every row midpoint: 3,006 cells, none off by more than 1 dollar (the page 38 example, joint taxable income 28,653, prints 1,084; the schedule gives 1,084.38). The Tax Computation Worksheet (page 44) constants are the schedule's own arithmetic (single 5.3% minus 586.44 and 7.65% minus 8,183.76; joint 5.3% minus 781.92 and 7.65% minus 10,911.83; separate 7.65% minus 5,455.92 at 215,530 or over).",
+  "Publication 106 page 7: nonresidents and part-year residents prorate the income levels of the rates by Wisconsin income over federal AGI. This record is for full-year residents.",
+  "Filing status: Form 1 Instructions PDF page 13: 'If you file your federal return as a qualifying surviving spouse, you may file your Wisconsin return as head of household.' Wisconsin has no qualifying surviving spouse status of its own.",
+  "Standard deduction: Form 1 Instructions PDF pages 35-37 print only a table by line 7 Wisconsin income, in rows 'At least / But less than' 500 dollars wide (the first row 0 to 13,390, then 13,390 to 13,500, the last 155,000 to 155,169, then '155,169 or more' 0). No formula, rate or threshold is printed. The record holds the whole table as phase_out steps (every row where an amount changes; every figure printed). Judgement, derived and not printed: the rows are matched to the dollar at their midpoints by: single 13,560 less 12% of income over 19,550; married filing jointly 25,110 less 19.778% over 28,210; married filing separately 11,930 less 19.778% over 13,390; head of household 17,520 less 22.515% over 19,550 but never below the single amount (equal from the 57,000 row, 9,036). Single and head of household reach 0 at the 132,500 row, separate at 73,500; joint is 17 in the 155,000 row. A consumer using the steps gets the form's exact amount; the formula behind the table is not in the sources.",
+  "Standard deduction for a person who can be claimed as a dependent (Form 1 Instructions PDF page 15 worksheet): the smaller of the table amount and earned income plus 450 (at least 1,350). A short-period return or a federal Form 4563 exclusion gets no standard deduction (0).",
+  "Exemptions (Form 1 Instructions PDF pages 15-16, Form 1 line 10): 700 each for you and your spouse (0 for a person who can be claimed as a dependent), and 700 for each dependent listed on federal Form 1040; 250 more for you and for your spouse if 65 or older on December 31, 2025, only for a person allowed the 700 exemption. The booklets print no blind exemption or blind standard deduction, and no income limit on exemptions.",
+  "Social Security: Schedule SB line 4 subtracts the taxable benefits from federal Form 1040 line 6b, 'Social security benefits are not taxable for Wisconsin' (Schedule SB Instructions PDF page 2); Publication 126 PDF page 5, Publication 106 PDF page 4 and the FAQ say the same.",
+  "Pensions in general: Publication 126 PDF page 4 section 3: 'The amount of your retirement benefits that are taxable for federal income tax purposes are also taxable for Wisconsin. This is true even though the retirement benefit may be due to services performed in another state.' Example 1 there: an Illinois teacher's pension received by a full-year Wisconsin resident is taxable as on the federal return. Example 2: an IRA set up in Florida is taxable too.",
+  "Government pensions of other states (New York State included): no rule in the sources names any other state's pension or any reciprocity, and nothing treats them differently from Wisconsin's own post-1963 government pensions: they are taxable as on the federal return (Publication 126 page 4), and they are 'qualifying retirement income' for the two general subtractions (lines 16 and 17), so public_pension_other_state is in covers on those entries. 'New York' does not appear in the sources.",
+  "Judgement: lines 16 and 17 take 'retirement income from a qualified retirement plan or individual retirement account (IRA)'. Publication 126 PDF page 11 (section J) lists what a 'qualified retirement plan' includes: 401(a) trusts, SEPs, 403(a) and 403(b) annuities, IRAs, 457 plans of state and local governments, 'A government plan under sec. 414(d), IRC', and 501(c)(18) trusts. The FAQ ('Does Wisconsin have any general exclusion of retirement income?') says the two subtractions may be claimed 'for benefits other than those listed in Answer 1' (the exempt pre-1964 systems, military and railroad), and its example says exempt military pay may not also be claimed, which assumes government benefits are otherwise eligible. So public_pension and public_pension_other_state are in covers. The section J list is printed for nonresidents; the general-subtraction text does not repeat it.",
+  "Judgement: annuity is in covers on lines 16 and 17 only as annuity income from a qualified retirement plan (the line 17 worksheet line 2: 'Taxable pension and annuity income from a qualified retirement plan included on line 5b'). The sources do not say that an annuity bought outside a qualified plan or IRA qualifies.",
+  "Roth conversions: no source says whether a conversion counts for lines 16 or 17; roth_conversion is in covers_unclear. The line 17 worksheet line 1 takes 'Taxable IRA distributions from line 4b of your federal Form 1040', which is where a conversion is reported federally, but the booklet never names conversions.",
+  "Line 16 (24,000/48,000, 'Credits Restricted', first available for 2025, 2025 Wis. Act 15): Schedule SB Instructions PDF page 7: 'Individuals may subtract up to $24,000 of retirement income received. A married couple who file a joint return and are both as least 67 years old as of December 31, 2025, may subtract up to $48,000 of retirement income, regardless of how much retirement income each spouse received.' Recorded as two entries: the individual amount (each person 67 or older, up to 24,000 of that person's own qualifying income) and the joint amount (both spouses 67 or older, up to 48,000 of either spouse's). Judgement: a joint return with only one spouse 67 or older gets the individual amount, 24,000, of that spouse's own income: the 48,000 is printed only for 'both', and 'regardless of how much retirement income each spouse received' is said only of the pooled joint amount. Publication 106 page 4 ('you (or your spouse if married filing joint return)') states eligibility, the same words line 17 uses before a per-spouse worksheet.",
+  "Line 16 forfeits credits: Schedule SB Instructions PDF page 7 Caution and Publication 126 PDF page 8: no credit on Schedule CR or Form 1 lines 13-20 and 30-35 for the year, including carryforwards. Those lines are the itemized deduction credit (13), additional child and dependent care credit (14), blind worker transportation credit (15), school property tax credit (16, at most 300, 150 married separate or married head of household), working families credit (17, 'Do not enter any amount on this line'), married couple credit (18, at most 480), Schedule CR nonrefundable credits (19), credit for net tax paid to another state (20), earned income credit (30), farmland preservation (31), repayment credit (32), homestead credit (33), veterans property tax credit (34) and Schedule CR refundable credits (35). The schema has no field for a relief that bars credits; it is in who.other_conditions of both line 16 entries. The filer chooses: claim line 16 and lose the credits, or skip it.",
+  "Lines 16 and 17 stack: the line 17 worksheet (Schedule SB Instructions PDF page 8) line 4 removes 'the total amount subtracted on lines 12, 13, 14, 15, and 16' before the 5,000 limit, so both may be claimed, line 17 on what line 16 leaves. Neither has cannot_combine_with.",
+  "Line 17 (5,000, 'Income Restricted'): age 65 or older on December 31, 2025; federal AGI (Form 1 line 3) less than 15,000 single or head of household, 30,000 married filing jointly; married filing separately, the sum of both spouses' federal AGI less than 30,000 (Publication 126 page 8). Each spouse figured separately in the worksheet columns, so up to 10,000 on a joint return. 'Less than' is recorded as effect removes, applies_when at_or_over. Line 17 does not restrict credits.",
+  "Wisconsin's own and federal government pensions: taxable as federally (Publication 106 page 4 section 3.B), except payments from the seven listed pre-1964 local and state systems and the federal Civil Service Retirement System on a pre-1964 account (Schedule SB lines 13 and 14), and U.S. military, Coast Guard, NOAA and Public Health Service retirement pay (line 12). The Wisconsin Retirement System is not on the list (Publication 126 page 7 Example 1: the WRS part of an annuity is taxable). Thrift Savings Plan payments are taxable. No contributory-plan test is printed.",
+  "Lump-sum distributions reported on federal Form 4972 are added to Wisconsin income as ordinary income (Publication 126 page 5; Schedule AD line 6). Penalties: 33% of the federal penalty tax on IRAs and retirement plans (Form 1 line 25 'x .33'; Publication 126 page 13), not on an exempt pre-1964 system distribution. No field holds either.",
+  "Credits are not recorded as reliefs (design non-goal): itemized deduction credit 5% of certain federal itemized deductions over the Wisconsin standard deduction (Form 1 Schedule 1); married couple credit 3% of the smaller spouse's qualified earned income up to 16,000, at most 480 (Form 1 Schedule 2); school property tax credit; homestead credit (household income below 24,680, Publication 106 page 5).",
+  "Also not recorded as reliefs: medical care insurance and long-term care insurance subtractions (Schedule SB lines 6-7); unemployment compensation worksheet (line 3); 'Annuities that began after July 1, 1986, and before January 1, 1987' (Publication 126 page 9, a Schedule I adjustment); nonresident rules for retirement distributions (Publication 126 pages 11-12).",
+  "Capital gains: Schedule SB Instructions PDF page 2 line 5 names the 30% long-term capital gain exclusion (60% for farm assets), figured on Schedule WD; Schedule WD and its holding-period and loss rules are not in the sources. A capital gain distribution that is the only gain, with no Wisconsin loss carryover, takes 30% on line 5 directly.",
+  "Municipal interest: Schedule AD Instructions PDF pages 1-2, line 1: add 'interest you received from state, municipal, and other bonds', 'generally ... the amount shown as tax-exempt interest on line 2a of your federal Form 1040', which includes Wisconsin's own municipal bonds, except 18 listed kinds exempt for both federal and Wisconsin purposes (mostly bonds of named Wisconsin authorities and districts, bonds of Puerto Rico, Guam, the Virgin Islands, the Northern Mariana Islands and, if issued after October 16, 2004, American Samoa, and certain pre-1987 out-of-state public housing agency bonds), whether held directly or through a mutual fund. Recorded as 'other'.",
+  "U.S. government interest is subtracted on Schedule SB line 2 (not Ginnie Mae and similar 'guaranteed' securities), and the part of an IRA, Keogh or qualified deferred compensation distribution attributable to U.S. government securities interest is exempt (Publication 126 page 10 worksheet).",
+  "Indexing: no source says whether any figure is adjusted for inflation (searched index, inflation, adjusted annually).",
+  "No recapture: the Tax Computation Worksheet reproduces the schedules' own arithmetic.",
+  "Settlement 2026-11-07: social_security and railroad entries: A said who.basis each_person, B said return; no age test or cap, the tax is the same; each_person, as most uncapped entries in settled states (extraction brief rule 5).",
+  "Settlement 2026-11-07: military retirement who.basis: both readers said return; changed to each_person (not a compared difference) by the same rule 5 reading, each retiree qualifying on their own service.",
+  "Settlement 2026-11-07: brackets.head_of_household: A gave a list repeating single, B gave none; Publication 106 PDF page 6 titles Schedule A 'For Single Taxpayers or Head of Household', one schedule for both, so none (schema: only when the booklet prints its own).",
+  "Settlement 2026-11-07: brackets base on bands 2-4: A left out, B gave 513.80, 2,089.00 and 16,547.93 (and the joint and separate figures); Publication 106 pages 6-7 print them, and each is exactly the sum of the lower bands, so the schedule needs no base (the schema keeps base for a table that steps up); left out.",
+  "Settlement 2026-11-07: base.deductions standard deduction: A said four entries, one per status, B said one entry with four amounts; Form 1 Instructions PDF pages 35-37 is one table with four columns, so one entry (B). Amounts 13,560 / 25,110 / 11,930 / 17,520 and first falling rows 19,500 / 28,000 / 13,390 / 19,500 agreed and are printed.",
+  "Settlement 2026-11-07: standard deduction phase_out.measure.base: A said state_agi, B said other; page 35 heads the table 'If your income (line 7 of Form 1) is', and Form 1 line 7 says 'This is your Wisconsin income': state_agi (A).",
+  "Settlement 2026-11-07: standard deduction phase_out.effect: both said other with no rate; the table is printed in full, so effect stepped with every printed row (neither reader); applies_when at_or_over from the table's 'At least' column (B).",
+  "Settlement 2026-11-07: standard deduction for dependents: A recorded an 'other' entry of 1,350, B only a note; Form 1 Instructions PDF page 15 prints the worksheet; kept (A).",
+  "Settlement 2026-11-07: United States government interest covers: A said interest, B said interest and dividends; Schedule SB Instructions PDF page 1 line 2 says 'interest on U.S. bonds and interest and dividends of certain U.S. government corporations' and a mutual fund's ordinary dividend; both kinds (B).",
+  "Settlement 2026-11-07: U.S. government interest in IRA and plan distributions: A only; Publication 126 PDF page 10 section H prints it with a worksheet; kept.",
+  "Settlement 2026-11-07: active duty pay: B only; Schedule SB Instructions PDF page 8 line 18 prints it; kept.",
+  "Settlement 2026-11-07: disability income exclusion: A only (B in notes); Schedule SB Instructions PDF page 9 line 22 and Publication 126 page 9 print it; kept.",
+  "Settlement 2026-11-07: line 16 and 17 covers: A said public_pension and public_pension_other_state in covers, B said covers_unclear; Publication 126 PDF page 11 lists 'A government plan under sec. 414(d), IRC' and 457 plans of state and local governments in a qualified retirement plan, and the FAQ allows the subtractions 'for benefits other than those listed in Answer 1'; in covers (A).",
+  "Settlement 2026-11-07: line 16 shape: A said one entry, each_person, cap 24,000 (48,000 joint) per return; B said two entries, 24,000 older_spouse per person and 48,000 per return, best_of_group; Schedule SB Instructions PDF page 7 prints 24,000 for 'Individuals' and 48,000 for a joint couple 'both' 67 'regardless of how much retirement income each spouse received'; two entries (B's split) with each_person and min_age 67 on both, 24,000 per person, 48,000 per return only when both are 67 (neither reader exactly).",
+  "Settlement 2026-11-07: line 17 covers and cap: A and B agree on 5,000 per person, age 65, federal AGI under 15,000 / 30,000; covers settled as for line 16 (A).",
+  "Settlement 2026-11-07: added, neither reader as an entry: the pre-1965 tax-sheltered annuity subtraction for certain retired teachers (Publication 126 PDF pages 10-11 section I); both readers noted it.",
+  "Settlement 2026-11-07: muni_interest: both said not_stated because Schedule AD Instructions were not in their sources; they were fetched afterwards, and Schedule AD Instructions PDF page 1 line 1 adds back federally tax-exempt interest from 'state, municipal, and other bonds' except the listed bonds: treatment other.",
+  "Settlement 2026-11-07: paying_states added on the pre-1964 entries (neither reader): WI on the local and state systems, federal on CSRS, as the lists name only Wisconsin systems and the U.S. Civil Service Retirement System."
+ ],
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.035",
+    "start": "0"
+   },
+   {
+    "rate": "0.044",
+    "start": "14680"
+   },
+   {
+    "rate": "0.053",
+    "start": "50480"
+   },
+   {
+    "rate": "0.0765",
+    "start": "323290"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.035",
+    "start": "0"
+   },
+   {
+    "rate": "0.044",
+    "start": "19580"
+   },
+   {
+    "rate": "0.053",
+    "start": "67300"
+   },
+   {
+    "rate": "0.0765",
+    "start": "431060"
+   }
+  ],
+  "married_separate": [
+   {
+    "rate": "0.035",
+    "start": "0"
+   },
+   {
+    "rate": "0.044",
+    "start": "9790"
+   },
+   {
+    "rate": "0.053",
+    "start": "33650"
+   },
+   {
+    "rate": "0.0765",
+    "start": "215530"
+   }
+  ],
+  "cite": {
+   "publication": "Wisconsin Tax Information for Retirees, Publication 106 (01/26)",
+   "section": "PDF page 6, 2025 Tax Rate Schedules A (For Single Taxpayers or Head of Household) and B (Married Taxpayers Filing Jointly); PDF page 7, Schedule C (Married Taxpayers Filing Separately); Form 1 Instructions PDF pages 38-44 Tax Table and Tax Computation Worksheet agree",
+   "url": "https://www.revenue.wi.gov/DOR%20Publications/pb106.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "surtaxes": [],
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "wi_standard_deduction",
+    "what": "standard_deduction",
+    "amount": {
+     "single": "13560",
+     "married_joint": "25110",
+     "married_separate": "11930",
+     "head_of_household": "17520"
+    },
+    "per": "return",
+    "condition": "From the 2025 Standard Deduction Table by line 7 Wisconsin income and filing status; the amounts are the table's at the lowest incomes. Not the table for a filer who can be claimed as a dependent (wi_standard_deduction_dependent) or a short-period return or federal Form 4563 filer (0).",
+    "phase_out": {
+     "measure": {
+      "base": "state_agi",
+      "as_printed": "line 7 of Form 1, 'This is your Wisconsin income' (federal adjusted gross income for Wisconsin purposes plus Schedule AD additions less Schedule SB subtractions)"
+     },
+     "threshold": {
+      "single": "19500",
+      "married_joint": "28000",
+      "married_separate": "13390",
+      "head_of_household": "19500"
+     },
+     "effect": "stepped",
+     "applies_when": "at_or_over",
+     "as_printed": "2025 Standard Deduction Table: 'If your income (line 7 of Form 1) is - At least / But less than ... Your standard deduction is -'. Thresholds are the first rows in which each amount falls. No rate or formula is printed; the steps are the printed rows.",
+     "steps": [
+      {
+       "status": "single",
+       "over": "0",
+       "amount": "13560",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "19500",
+       "amount": "13536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "20000",
+       "amount": "13476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "20500",
+       "amount": "13416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "21000",
+       "amount": "13356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "21500",
+       "amount": "13296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "22000",
+       "amount": "13236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "22500",
+       "amount": "13176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "23000",
+       "amount": "13116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "23500",
+       "amount": "13056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "24000",
+       "amount": "12996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "24500",
+       "amount": "12936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "25000",
+       "amount": "12876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "25500",
+       "amount": "12816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "26000",
+       "amount": "12756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "26500",
+       "amount": "12696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "27000",
+       "amount": "12636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "27500",
+       "amount": "12576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "28000",
+       "amount": "12516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "28500",
+       "amount": "12456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "29000",
+       "amount": "12396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "29500",
+       "amount": "12336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "30000",
+       "amount": "12276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "30500",
+       "amount": "12216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "31000",
+       "amount": "12156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "31500",
+       "amount": "12096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "32000",
+       "amount": "12036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "32500",
+       "amount": "11976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "33000",
+       "amount": "11916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "33500",
+       "amount": "11856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "34000",
+       "amount": "11796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "34500",
+       "amount": "11736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "35000",
+       "amount": "11676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "35500",
+       "amount": "11616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "36000",
+       "amount": "11556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "36500",
+       "amount": "11496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "37000",
+       "amount": "11436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "37500",
+       "amount": "11376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "38000",
+       "amount": "11316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "38500",
+       "amount": "11256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "39000",
+       "amount": "11196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "39500",
+       "amount": "11136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "40000",
+       "amount": "11076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "40500",
+       "amount": "11016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "41000",
+       "amount": "10956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "41500",
+       "amount": "10896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "42000",
+       "amount": "10836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "42500",
+       "amount": "10776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "43000",
+       "amount": "10716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "43500",
+       "amount": "10656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "44000",
+       "amount": "10596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "44500",
+       "amount": "10536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "45000",
+       "amount": "10476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "45500",
+       "amount": "10416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "46000",
+       "amount": "10356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "46500",
+       "amount": "10296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "47000",
+       "amount": "10236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "47500",
+       "amount": "10176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "48000",
+       "amount": "10116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "48500",
+       "amount": "10056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "49000",
+       "amount": "9996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "49500",
+       "amount": "9936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "50000",
+       "amount": "9876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "50500",
+       "amount": "9816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "51000",
+       "amount": "9756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "51500",
+       "amount": "9696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "52000",
+       "amount": "9636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "52500",
+       "amount": "9576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "53000",
+       "amount": "9516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "53500",
+       "amount": "9456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "54000",
+       "amount": "9396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "54500",
+       "amount": "9336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "55000",
+       "amount": "9276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "55500",
+       "amount": "9216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "56000",
+       "amount": "9156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "56500",
+       "amount": "9096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "57000",
+       "amount": "9036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "57500",
+       "amount": "8976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "58000",
+       "amount": "8916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "58500",
+       "amount": "8856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "59000",
+       "amount": "8796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "59500",
+       "amount": "8736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "60000",
+       "amount": "8676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "60500",
+       "amount": "8616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "61000",
+       "amount": "8556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "61500",
+       "amount": "8496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "62000",
+       "amount": "8436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "62500",
+       "amount": "8376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "63000",
+       "amount": "8316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "63500",
+       "amount": "8256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "64000",
+       "amount": "8196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "64500",
+       "amount": "8136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "65000",
+       "amount": "8076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "65500",
+       "amount": "8016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "66000",
+       "amount": "7956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "66500",
+       "amount": "7896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "67000",
+       "amount": "7836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "67500",
+       "amount": "7776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "68000",
+       "amount": "7716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "68500",
+       "amount": "7656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "69000",
+       "amount": "7596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "69500",
+       "amount": "7536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "70000",
+       "amount": "7476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "70500",
+       "amount": "7416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "71000",
+       "amount": "7356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "71500",
+       "amount": "7296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "72000",
+       "amount": "7236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "72500",
+       "amount": "7176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "73000",
+       "amount": "7116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "73500",
+       "amount": "7056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "74000",
+       "amount": "6996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "74500",
+       "amount": "6936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "75000",
+       "amount": "6876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "75500",
+       "amount": "6816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "76000",
+       "amount": "6756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "76500",
+       "amount": "6696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "77000",
+       "amount": "6636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "77500",
+       "amount": "6576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "78000",
+       "amount": "6516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "78500",
+       "amount": "6456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "79000",
+       "amount": "6396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "79500",
+       "amount": "6336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "80000",
+       "amount": "6276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "80500",
+       "amount": "6216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "81000",
+       "amount": "6156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "81500",
+       "amount": "6096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "82000",
+       "amount": "6036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "82500",
+       "amount": "5976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "83000",
+       "amount": "5916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "83500",
+       "amount": "5856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "84000",
+       "amount": "5796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "84500",
+       "amount": "5736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "85000",
+       "amount": "5676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "85500",
+       "amount": "5616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "86000",
+       "amount": "5556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "86500",
+       "amount": "5496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "87000",
+       "amount": "5436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "87500",
+       "amount": "5376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "88000",
+       "amount": "5316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "88500",
+       "amount": "5256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "89000",
+       "amount": "5196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "89500",
+       "amount": "5136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "90000",
+       "amount": "5076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "90500",
+       "amount": "5016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "91000",
+       "amount": "4956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "91500",
+       "amount": "4896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "92000",
+       "amount": "4836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "92500",
+       "amount": "4776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "93000",
+       "amount": "4716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "93500",
+       "amount": "4656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "94000",
+       "amount": "4596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "94500",
+       "amount": "4536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "95000",
+       "amount": "4476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "95500",
+       "amount": "4416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "96000",
+       "amount": "4356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "96500",
+       "amount": "4296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "97000",
+       "amount": "4236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "97500",
+       "amount": "4176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "98000",
+       "amount": "4116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "98500",
+       "amount": "4056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "99000",
+       "amount": "3996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "99500",
+       "amount": "3936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "100000",
+       "amount": "3876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "100500",
+       "amount": "3816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "101000",
+       "amount": "3756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "101500",
+       "amount": "3696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "102000",
+       "amount": "3636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "102500",
+       "amount": "3576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "103000",
+       "amount": "3516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "103500",
+       "amount": "3456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "104000",
+       "amount": "3396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "104500",
+       "amount": "3336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "105000",
+       "amount": "3276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "105500",
+       "amount": "3216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "106000",
+       "amount": "3156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "106500",
+       "amount": "3096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "107000",
+       "amount": "3036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "107500",
+       "amount": "2976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "108000",
+       "amount": "2916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "108500",
+       "amount": "2856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "109000",
+       "amount": "2796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "109500",
+       "amount": "2736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "110000",
+       "amount": "2676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "110500",
+       "amount": "2616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "111000",
+       "amount": "2556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "111500",
+       "amount": "2496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "112000",
+       "amount": "2436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "112500",
+       "amount": "2376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "113000",
+       "amount": "2316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "113500",
+       "amount": "2256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "114000",
+       "amount": "2196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "114500",
+       "amount": "2136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "115000",
+       "amount": "2076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "115500",
+       "amount": "2016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "116000",
+       "amount": "1956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "116500",
+       "amount": "1896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "117000",
+       "amount": "1836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "117500",
+       "amount": "1776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "118000",
+       "amount": "1716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "118500",
+       "amount": "1656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "119000",
+       "amount": "1596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "119500",
+       "amount": "1536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "120000",
+       "amount": "1476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "120500",
+       "amount": "1416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "121000",
+       "amount": "1356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "121500",
+       "amount": "1296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "122000",
+       "amount": "1236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "122500",
+       "amount": "1176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "123000",
+       "amount": "1116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "123500",
+       "amount": "1056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "124000",
+       "amount": "996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "124500",
+       "amount": "936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "125000",
+       "amount": "876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "125500",
+       "amount": "816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "126000",
+       "amount": "756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "126500",
+       "amount": "696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "127000",
+       "amount": "636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "127500",
+       "amount": "576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "128000",
+       "amount": "516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "128500",
+       "amount": "456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "129000",
+       "amount": "396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "129500",
+       "amount": "336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "130000",
+       "amount": "276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "130500",
+       "amount": "216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "131000",
+       "amount": "156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "131500",
+       "amount": "96",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "132000",
+       "amount": "36",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "single",
+       "over": "132500",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "0",
+       "amount": "25110",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "28000",
+       "amount": "25102",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "28500",
+       "amount": "25003",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "29000",
+       "amount": "24904",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "29500",
+       "amount": "24805",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "30000",
+       "amount": "24707",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "30500",
+       "amount": "24608",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "31000",
+       "amount": "24509",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "31500",
+       "amount": "24410",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "32000",
+       "amount": "24311",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "32500",
+       "amount": "24212",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "33000",
+       "amount": "24113",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "33500",
+       "amount": "24014",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "34000",
+       "amount": "23915",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "34500",
+       "amount": "23817",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "35000",
+       "amount": "23718",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "35500",
+       "amount": "23619",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "36000",
+       "amount": "23520",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "36500",
+       "amount": "23421",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "37000",
+       "amount": "23322",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "37500",
+       "amount": "23223",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "38000",
+       "amount": "23124",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "38500",
+       "amount": "23025",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "39000",
+       "amount": "22927",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "39500",
+       "amount": "22828",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "40000",
+       "amount": "22729",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "40500",
+       "amount": "22630",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "41000",
+       "amount": "22531",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "41500",
+       "amount": "22432",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "42000",
+       "amount": "22333",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "42500",
+       "amount": "22234",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "43000",
+       "amount": "22135",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "43500",
+       "amount": "22036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "44000",
+       "amount": "21938",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "44500",
+       "amount": "21839",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "45000",
+       "amount": "21740",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "45500",
+       "amount": "21641",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "46000",
+       "amount": "21542",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "46500",
+       "amount": "21443",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "47000",
+       "amount": "21344",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "47500",
+       "amount": "21245",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "48000",
+       "amount": "21146",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "48500",
+       "amount": "21048",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "49000",
+       "amount": "20949",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "49500",
+       "amount": "20850",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "50000",
+       "amount": "20751",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "50500",
+       "amount": "20652",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "51000",
+       "amount": "20553",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "51500",
+       "amount": "20454",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "52000",
+       "amount": "20355",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "52500",
+       "amount": "20256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "53000",
+       "amount": "20158",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "53500",
+       "amount": "20059",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "54000",
+       "amount": "19960",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "54500",
+       "amount": "19861",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "55000",
+       "amount": "19762",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "55500",
+       "amount": "19663",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "56000",
+       "amount": "19564",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "56500",
+       "amount": "19465",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "57000",
+       "amount": "19366",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "57500",
+       "amount": "19268",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "58000",
+       "amount": "19169",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "58500",
+       "amount": "19070",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "59000",
+       "amount": "18971",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "59500",
+       "amount": "18872",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "60000",
+       "amount": "18773",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "60500",
+       "amount": "18674",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "61000",
+       "amount": "18575",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "61500",
+       "amount": "18476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "62000",
+       "amount": "18378",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "62500",
+       "amount": "18279",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "63000",
+       "amount": "18180",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "63500",
+       "amount": "18081",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "64000",
+       "amount": "17982",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "64500",
+       "amount": "17883",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "65000",
+       "amount": "17784",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "65500",
+       "amount": "17685",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "66000",
+       "amount": "17586",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "66500",
+       "amount": "17488",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "67000",
+       "amount": "17389",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "67500",
+       "amount": "17290",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "68000",
+       "amount": "17191",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "68500",
+       "amount": "17092",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "69000",
+       "amount": "16993",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "69500",
+       "amount": "16894",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "70000",
+       "amount": "16795",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "70500",
+       "amount": "16696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "71000",
+       "amount": "16598",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "71500",
+       "amount": "16499",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "72000",
+       "amount": "16400",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "72500",
+       "amount": "16301",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "73000",
+       "amount": "16202",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "73500",
+       "amount": "16103",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "74000",
+       "amount": "16004",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "74500",
+       "amount": "15905",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "75000",
+       "amount": "15806",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "75500",
+       "amount": "15708",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "76000",
+       "amount": "15609",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "76500",
+       "amount": "15510",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "77000",
+       "amount": "15411",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "77500",
+       "amount": "15312",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "78000",
+       "amount": "15213",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "78500",
+       "amount": "15114",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "79000",
+       "amount": "15015",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "79500",
+       "amount": "14916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "80000",
+       "amount": "14818",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "80500",
+       "amount": "14719",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "81000",
+       "amount": "14620",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "81500",
+       "amount": "14521",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "82000",
+       "amount": "14422",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "82500",
+       "amount": "14323",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "83000",
+       "amount": "14224",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "83500",
+       "amount": "14125",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "84000",
+       "amount": "14026",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "84500",
+       "amount": "13928",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "85000",
+       "amount": "13829",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "85500",
+       "amount": "13730",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "86000",
+       "amount": "13631",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "86500",
+       "amount": "13532",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "87000",
+       "amount": "13433",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "87500",
+       "amount": "13334",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "88000",
+       "amount": "13235",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "88500",
+       "amount": "13136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "89000",
+       "amount": "13038",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "89500",
+       "amount": "12939",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "90000",
+       "amount": "12840",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "90500",
+       "amount": "12741",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "91000",
+       "amount": "12642",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "91500",
+       "amount": "12543",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "92000",
+       "amount": "12444",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "92500",
+       "amount": "12345",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "93000",
+       "amount": "12246",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "93500",
+       "amount": "12147",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "94000",
+       "amount": "12049",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "94500",
+       "amount": "11950",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "95000",
+       "amount": "11851",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "95500",
+       "amount": "11752",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "96000",
+       "amount": "11653",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "96500",
+       "amount": "11554",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "97000",
+       "amount": "11455",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "97500",
+       "amount": "11356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "98000",
+       "amount": "11257",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "98500",
+       "amount": "11159",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "99000",
+       "amount": "11060",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "99500",
+       "amount": "10961",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "100000",
+       "amount": "10862",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "100500",
+       "amount": "10763",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "101000",
+       "amount": "10664",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "101500",
+       "amount": "10565",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "102000",
+       "amount": "10466",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "102500",
+       "amount": "10367",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "103000",
+       "amount": "10269",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "103500",
+       "amount": "10170",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "104000",
+       "amount": "10071",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "104500",
+       "amount": "9972",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "105000",
+       "amount": "9873",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "105500",
+       "amount": "9774",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "106000",
+       "amount": "9675",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "106500",
+       "amount": "9576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "107000",
+       "amount": "9477",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "107500",
+       "amount": "9379",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "108000",
+       "amount": "9280",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "108500",
+       "amount": "9181",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "109000",
+       "amount": "9082",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "109500",
+       "amount": "8983",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "110000",
+       "amount": "8884",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "110500",
+       "amount": "8785",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "111000",
+       "amount": "8686",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "111500",
+       "amount": "8587",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "112000",
+       "amount": "8489",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "112500",
+       "amount": "8390",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "113000",
+       "amount": "8291",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "113500",
+       "amount": "8192",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "114000",
+       "amount": "8093",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "114500",
+       "amount": "7994",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "115000",
+       "amount": "7895",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "115500",
+       "amount": "7796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "116000",
+       "amount": "7697",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "116500",
+       "amount": "7599",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "117000",
+       "amount": "7500",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "117500",
+       "amount": "7401",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "118000",
+       "amount": "7302",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "118500",
+       "amount": "7203",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "119000",
+       "amount": "7104",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "119500",
+       "amount": "7005",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "120000",
+       "amount": "6906",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "120500",
+       "amount": "6807",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "121000",
+       "amount": "6709",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "121500",
+       "amount": "6610",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "122000",
+       "amount": "6511",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "122500",
+       "amount": "6412",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "123000",
+       "amount": "6313",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "123500",
+       "amount": "6214",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "124000",
+       "amount": "6115",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "124500",
+       "amount": "6016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "125000",
+       "amount": "5917",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "125500",
+       "amount": "5819",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "126000",
+       "amount": "5720",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "126500",
+       "amount": "5621",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "127000",
+       "amount": "5522",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "127500",
+       "amount": "5423",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "128000",
+       "amount": "5324",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "128500",
+       "amount": "5225",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "129000",
+       "amount": "5126",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "129500",
+       "amount": "5027",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "130000",
+       "amount": "4929",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "130500",
+       "amount": "4830",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "131000",
+       "amount": "4731",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "131500",
+       "amount": "4632",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "132000",
+       "amount": "4533",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "132500",
+       "amount": "4434",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "133000",
+       "amount": "4335",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "133500",
+       "amount": "4236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "134000",
+       "amount": "4137",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "134500",
+       "amount": "4039",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "135000",
+       "amount": "3940",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "135500",
+       "amount": "3841",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "136000",
+       "amount": "3742",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "136500",
+       "amount": "3643",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "137000",
+       "amount": "3544",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "137500",
+       "amount": "3445",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "138000",
+       "amount": "3346",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "138500",
+       "amount": "3247",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "139000",
+       "amount": "3149",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "139500",
+       "amount": "3050",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "140000",
+       "amount": "2951",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "140500",
+       "amount": "2852",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "141000",
+       "amount": "2753",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "141500",
+       "amount": "2654",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "142000",
+       "amount": "2555",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "142500",
+       "amount": "2456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "143000",
+       "amount": "2357",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "143500",
+       "amount": "2258",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "144000",
+       "amount": "2160",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "144500",
+       "amount": "2061",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "145000",
+       "amount": "1962",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "145500",
+       "amount": "1863",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "146000",
+       "amount": "1764",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "146500",
+       "amount": "1665",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "147000",
+       "amount": "1566",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "147500",
+       "amount": "1467",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "148000",
+       "amount": "1368",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "148500",
+       "amount": "1270",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "149000",
+       "amount": "1171",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "149500",
+       "amount": "1072",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "150000",
+       "amount": "973",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "150500",
+       "amount": "874",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "151000",
+       "amount": "775",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "151500",
+       "amount": "676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "152000",
+       "amount": "577",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "152500",
+       "amount": "478",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "153000",
+       "amount": "380",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "153500",
+       "amount": "281",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "154000",
+       "amount": "182",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "154500",
+       "amount": "83",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "155000",
+       "amount": "17",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_joint",
+       "over": "155169",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "0",
+       "amount": "11930",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "13390",
+       "amount": "11919",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "13500",
+       "amount": "11859",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "14000",
+       "amount": "11760",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "14500",
+       "amount": "11661",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "15000",
+       "amount": "11562",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "15500",
+       "amount": "11463",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "16000",
+       "amount": "11364",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "16500",
+       "amount": "11265",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "17000",
+       "amount": "11167",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "17500",
+       "amount": "11068",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "18000",
+       "amount": "10969",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "18500",
+       "amount": "10870",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "19000",
+       "amount": "10771",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "19500",
+       "amount": "10672",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "20000",
+       "amount": "10573",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "20500",
+       "amount": "10474",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "21000",
+       "amount": "10375",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "21500",
+       "amount": "10277",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "22000",
+       "amount": "10178",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "22500",
+       "amount": "10079",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "23000",
+       "amount": "9980",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "23500",
+       "amount": "9881",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "24000",
+       "amount": "9782",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "24500",
+       "amount": "9683",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "25000",
+       "amount": "9584",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "25500",
+       "amount": "9485",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "26000",
+       "amount": "9387",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "26500",
+       "amount": "9288",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "27000",
+       "amount": "9189",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "27500",
+       "amount": "9090",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "28000",
+       "amount": "8991",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "28500",
+       "amount": "8892",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "29000",
+       "amount": "8793",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "29500",
+       "amount": "8694",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "30000",
+       "amount": "8595",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "30500",
+       "amount": "8497",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "31000",
+       "amount": "8398",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "31500",
+       "amount": "8299",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "32000",
+       "amount": "8200",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "32500",
+       "amount": "8101",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "33000",
+       "amount": "8002",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "33500",
+       "amount": "7903",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "34000",
+       "amount": "7804",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "34500",
+       "amount": "7705",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "35000",
+       "amount": "7607",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "35500",
+       "amount": "7508",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "36000",
+       "amount": "7409",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "36500",
+       "amount": "7310",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "37000",
+       "amount": "7211",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "37500",
+       "amount": "7112",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "38000",
+       "amount": "7013",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "38500",
+       "amount": "6914",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "39000",
+       "amount": "6815",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "39500",
+       "amount": "6717",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "40000",
+       "amount": "6618",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "40500",
+       "amount": "6519",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "41000",
+       "amount": "6420",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "41500",
+       "amount": "6321",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "42000",
+       "amount": "6222",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "42500",
+       "amount": "6123",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "43000",
+       "amount": "6024",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "43500",
+       "amount": "5925",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "44000",
+       "amount": "5827",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "44500",
+       "amount": "5728",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "45000",
+       "amount": "5629",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "45500",
+       "amount": "5530",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "46000",
+       "amount": "5431",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "46500",
+       "amount": "5332",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "47000",
+       "amount": "5233",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "47500",
+       "amount": "5134",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "48000",
+       "amount": "5035",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "48500",
+       "amount": "4936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "49000",
+       "amount": "4838",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "49500",
+       "amount": "4739",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "50000",
+       "amount": "4640",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "50500",
+       "amount": "4541",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "51000",
+       "amount": "4442",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "51500",
+       "amount": "4343",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "52000",
+       "amount": "4244",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "52500",
+       "amount": "4145",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "53000",
+       "amount": "4046",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "53500",
+       "amount": "3948",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "54000",
+       "amount": "3849",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "54500",
+       "amount": "3750",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "55000",
+       "amount": "3651",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "55500",
+       "amount": "3552",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "56000",
+       "amount": "3453",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "56500",
+       "amount": "3354",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "57000",
+       "amount": "3255",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "57500",
+       "amount": "3156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "58000",
+       "amount": "3058",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "58500",
+       "amount": "2959",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "59000",
+       "amount": "2860",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "59500",
+       "amount": "2761",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "60000",
+       "amount": "2662",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "60500",
+       "amount": "2563",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "61000",
+       "amount": "2464",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "61500",
+       "amount": "2365",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "62000",
+       "amount": "2266",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "62500",
+       "amount": "2168",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "63000",
+       "amount": "2069",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "63500",
+       "amount": "1970",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "64000",
+       "amount": "1871",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "64500",
+       "amount": "1772",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "65000",
+       "amount": "1673",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "65500",
+       "amount": "1574",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "66000",
+       "amount": "1475",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "66500",
+       "amount": "1376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "67000",
+       "amount": "1278",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "67500",
+       "amount": "1179",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "68000",
+       "amount": "1080",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "68500",
+       "amount": "981",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "69000",
+       "amount": "882",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "69500",
+       "amount": "783",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "70000",
+       "amount": "684",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "70500",
+       "amount": "585",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "71000",
+       "amount": "486",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "71500",
+       "amount": "388",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "72000",
+       "amount": "289",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "72500",
+       "amount": "190",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "73000",
+       "amount": "91",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "married_separate",
+       "over": "73500",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "0",
+       "amount": "17520",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "19500",
+       "amount": "17475",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "20000",
+       "amount": "17362",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "20500",
+       "amount": "17250",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "21000",
+       "amount": "17137",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "21500",
+       "amount": "17025",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "22000",
+       "amount": "16912",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "22500",
+       "amount": "16800",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "23000",
+       "amount": "16687",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "23500",
+       "amount": "16574",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "24000",
+       "amount": "16462",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "24500",
+       "amount": "16349",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "25000",
+       "amount": "16237",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "25500",
+       "amount": "16124",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "26000",
+       "amount": "16011",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "26500",
+       "amount": "15899",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "27000",
+       "amount": "15786",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "27500",
+       "amount": "15674",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "28000",
+       "amount": "15561",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "28500",
+       "amount": "15449",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "29000",
+       "amount": "15336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "29500",
+       "amount": "15223",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "30000",
+       "amount": "15111",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "30500",
+       "amount": "14998",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "31000",
+       "amount": "14886",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "31500",
+       "amount": "14773",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "32000",
+       "amount": "14661",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "32500",
+       "amount": "14548",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "33000",
+       "amount": "14435",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "33500",
+       "amount": "14323",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "34000",
+       "amount": "14210",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "34500",
+       "amount": "14098",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "35000",
+       "amount": "13985",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "35500",
+       "amount": "13873",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "36000",
+       "amount": "13760",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "36500",
+       "amount": "13647",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "37000",
+       "amount": "13535",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "37500",
+       "amount": "13422",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "38000",
+       "amount": "13310",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "38500",
+       "amount": "13197",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "39000",
+       "amount": "13085",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "39500",
+       "amount": "12972",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "40000",
+       "amount": "12859",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "40500",
+       "amount": "12747",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "41000",
+       "amount": "12634",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "41500",
+       "amount": "12522",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "42000",
+       "amount": "12409",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "42500",
+       "amount": "12297",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "43000",
+       "amount": "12184",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "43500",
+       "amount": "12071",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "44000",
+       "amount": "11959",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "44500",
+       "amount": "11846",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "45000",
+       "amount": "11734",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "45500",
+       "amount": "11621",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "46000",
+       "amount": "11508",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "46500",
+       "amount": "11396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "47000",
+       "amount": "11283",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "47500",
+       "amount": "11171",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "48000",
+       "amount": "11058",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "48500",
+       "amount": "10946",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "49000",
+       "amount": "10833",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "49500",
+       "amount": "10720",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "50000",
+       "amount": "10608",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "50500",
+       "amount": "10495",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "51000",
+       "amount": "10383",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "51500",
+       "amount": "10270",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "52000",
+       "amount": "10158",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "52500",
+       "amount": "10045",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "53000",
+       "amount": "9932",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "53500",
+       "amount": "9820",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "54000",
+       "amount": "9707",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "54500",
+       "amount": "9595",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "55000",
+       "amount": "9482",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "55500",
+       "amount": "9370",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "56000",
+       "amount": "9257",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "56500",
+       "amount": "9144",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "57000",
+       "amount": "9036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "57500",
+       "amount": "8976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "58000",
+       "amount": "8916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "58500",
+       "amount": "8856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "59000",
+       "amount": "8796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "59500",
+       "amount": "8736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "60000",
+       "amount": "8676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "60500",
+       "amount": "8616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "61000",
+       "amount": "8556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "61500",
+       "amount": "8496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "62000",
+       "amount": "8436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "62500",
+       "amount": "8376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "63000",
+       "amount": "8316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "63500",
+       "amount": "8256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "64000",
+       "amount": "8196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "64500",
+       "amount": "8136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "65000",
+       "amount": "8076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "65500",
+       "amount": "8016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "66000",
+       "amount": "7956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "66500",
+       "amount": "7896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "67000",
+       "amount": "7836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "67500",
+       "amount": "7776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "68000",
+       "amount": "7716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "68500",
+       "amount": "7656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "69000",
+       "amount": "7596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "69500",
+       "amount": "7536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "70000",
+       "amount": "7476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "70500",
+       "amount": "7416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "71000",
+       "amount": "7356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "71500",
+       "amount": "7296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "72000",
+       "amount": "7236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "72500",
+       "amount": "7176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "73000",
+       "amount": "7116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "73500",
+       "amount": "7056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "74000",
+       "amount": "6996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "74500",
+       "amount": "6936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "75000",
+       "amount": "6876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "75500",
+       "amount": "6816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "76000",
+       "amount": "6756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "76500",
+       "amount": "6696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "77000",
+       "amount": "6636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "77500",
+       "amount": "6576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "78000",
+       "amount": "6516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "78500",
+       "amount": "6456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "79000",
+       "amount": "6396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "79500",
+       "amount": "6336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "80000",
+       "amount": "6276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "80500",
+       "amount": "6216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "81000",
+       "amount": "6156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "81500",
+       "amount": "6096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "82000",
+       "amount": "6036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "82500",
+       "amount": "5976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "83000",
+       "amount": "5916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "83500",
+       "amount": "5856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "84000",
+       "amount": "5796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "84500",
+       "amount": "5736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "85000",
+       "amount": "5676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "85500",
+       "amount": "5616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "86000",
+       "amount": "5556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "86500",
+       "amount": "5496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "87000",
+       "amount": "5436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "87500",
+       "amount": "5376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "88000",
+       "amount": "5316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "88500",
+       "amount": "5256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "89000",
+       "amount": "5196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "89500",
+       "amount": "5136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "90000",
+       "amount": "5076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "90500",
+       "amount": "5016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "91000",
+       "amount": "4956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "91500",
+       "amount": "4896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "92000",
+       "amount": "4836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "92500",
+       "amount": "4776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "93000",
+       "amount": "4716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "93500",
+       "amount": "4656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "94000",
+       "amount": "4596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "94500",
+       "amount": "4536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "95000",
+       "amount": "4476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "95500",
+       "amount": "4416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "96000",
+       "amount": "4356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "96500",
+       "amount": "4296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "97000",
+       "amount": "4236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "97500",
+       "amount": "4176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "98000",
+       "amount": "4116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "98500",
+       "amount": "4056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "99000",
+       "amount": "3996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "99500",
+       "amount": "3936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "100000",
+       "amount": "3876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "100500",
+       "amount": "3816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "101000",
+       "amount": "3756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "101500",
+       "amount": "3696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "102000",
+       "amount": "3636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "102500",
+       "amount": "3576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "103000",
+       "amount": "3516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "103500",
+       "amount": "3456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "104000",
+       "amount": "3396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "104500",
+       "amount": "3336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "105000",
+       "amount": "3276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "105500",
+       "amount": "3216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "106000",
+       "amount": "3156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "106500",
+       "amount": "3096",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "107000",
+       "amount": "3036",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "107500",
+       "amount": "2976",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "108000",
+       "amount": "2916",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "108500",
+       "amount": "2856",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "109000",
+       "amount": "2796",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "109500",
+       "amount": "2736",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "110000",
+       "amount": "2676",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "110500",
+       "amount": "2616",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "111000",
+       "amount": "2556",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "111500",
+       "amount": "2496",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "112000",
+       "amount": "2436",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "112500",
+       "amount": "2376",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "113000",
+       "amount": "2316",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "113500",
+       "amount": "2256",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "114000",
+       "amount": "2196",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "114500",
+       "amount": "2136",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "115000",
+       "amount": "2076",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "115500",
+       "amount": "2016",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "116000",
+       "amount": "1956",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "116500",
+       "amount": "1896",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "117000",
+       "amount": "1836",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "117500",
+       "amount": "1776",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "118000",
+       "amount": "1716",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "118500",
+       "amount": "1656",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "119000",
+       "amount": "1596",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "119500",
+       "amount": "1536",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "120000",
+       "amount": "1476",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "120500",
+       "amount": "1416",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "121000",
+       "amount": "1356",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "121500",
+       "amount": "1296",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "122000",
+       "amount": "1236",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "122500",
+       "amount": "1176",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "123000",
+       "amount": "1116",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "123500",
+       "amount": "1056",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "124000",
+       "amount": "996",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "124500",
+       "amount": "936",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "125000",
+       "amount": "876",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "125500",
+       "amount": "816",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "126000",
+       "amount": "756",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "126500",
+       "amount": "696",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "127000",
+       "amount": "636",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "127500",
+       "amount": "576",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "128000",
+       "amount": "516",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "128500",
+       "amount": "456",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "129000",
+       "amount": "396",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "129500",
+       "amount": "336",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "130000",
+       "amount": "276",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "130500",
+       "amount": "216",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "131000",
+       "amount": "156",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "131500",
+       "amount": "96",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "132000",
+       "amount": "36",
+       "applies_when": "at_or_over"
+      },
+      {
+       "status": "head_of_household",
+       "over": "132500",
+       "amount": "0",
+       "applies_when": "at_or_over"
+      }
+     ]
+    },
+    "cite": {
+     "publication": "2025 I-111 Form 1 Instructions",
+     "section": "PDF pages 35-37, 2025 Standard Deduction Table (first row 0 to 13,390; last rows 155,000 to 155,169 and 155,169 or more); line 8, PDF page 15",
+     "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wi_standard_deduction_dependent",
+    "what": "other",
+    "amount": {
+     "all": "1350"
+    },
+    "per": "return",
+    "condition": "You (or your spouse on a joint return) can be claimed as a dependent: the smaller of the table amount and earned income plus 450, but at least 1,350.",
+    "cite": {
+     "publication": "2025 I-111 Form 1 Instructions",
+     "section": "PDF page 15, Line 8 and Standard Deduction Worksheet for Dependents, lines 1-5",
+     "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wi_personal_exemption",
+    "what": "personal_exemption",
+    "amount": {
+     "all": "700"
+    },
+    "per": "person",
+    "condition": "1 for a single filer, 2 on a joint return; 0 for a person who can be claimed as a dependent on someone else's return.",
+    "cite": {
+     "publication": "2025 I-111 Form 1 Instructions",
+     "section": "PDF page 15, Line 10a; Form 1 PDF page 1 line 10a 'x $700'",
+     "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wi_dependent_exemption",
+    "what": "dependent_exemption",
+    "amount": {
+     "all": "700"
+    },
+    "per": "dependent",
+    "condition": "One for each dependent listed on federal Form 1040 or 1040-SR.",
+    "cite": {
+     "publication": "2025 I-111 Form 1 Instructions",
+     "section": "PDF page 15, Line 10a, additional exemptions",
+     "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+     "accessed": "2026-11-07"
+    }
+   },
+   {
+    "id": "wi_age_65_exemption",
+    "what": "age_65_exemption",
+    "amount": {
+     "all": "250"
+    },
+    "per": "person",
+    "condition": "You and your spouse, each if 65 or older on December 31, 2025, and only for a person allowed the 700 exemption on line 10a.",
+    "cite": {
+     "publication": "2025 I-111 Form 1 Instructions",
+     "section": "PDF pages 15-16, Line 10b; Form 1 PDF page 1 line 10b 'x $250'; Publication 106 PDF page 4 section 3.D",
+     "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf",
+     "accessed": "2026-11-07"
+    }
+   }
+  ],
+  "cite": {
+   "publication": "2025 I-010 Form 1, Wisconsin income tax",
+   "section": "PDF page 1, lines 1-11: line 1 federal AGI from Form 1040 line 11; line 3 federal AGI for Wisconsin purposes; line 4 Schedule AD additions; line 6 Schedule SB subtractions; line 7 Wisconsin income; line 8 standard deduction; line 10 exemptions; line 11 taxable income",
+   "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "social_security": {
+  "treatment": "exempt",
+  "cite": {
+   "publication": "2025 Schedule SB Instructions",
+   "section": "PDF page 2, Line 4 Social Security Adjustment: 'Social security benefits are not taxable for Wisconsin. You may subtract any social security benefits that were taxable on your federal Form 1040 or 1040-SR.'",
+   "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "reliefs": [
+  {
+   "id": "wi_social_security",
+   "label": "Social security adjustment (Schedule SB line 4)",
+   "form": "exempt_in_full",
+   "covers": [
+    "social_security"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 2, Line 4; Publication 126 PDF page 5 section 4.B 'Social security benefits are not taxable by Wisconsin'; Publication 106 PDF page 4 section 3.A",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_railroad_retirement",
+   "label": "Railroad retirement benefits (Schedule SB line 15)",
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 7, Line 15: 'Wisconsin does not tax amounts received from the U.S. Railroad Retirement Board'; Publication 126 PDF page 5 section 4.A",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_military_retirement",
+   "label": "Military and uniformed services retirement benefits (Schedule SB line 12)",
+   "form": "exempt_in_full",
+   "covers": [
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Payments from the U.S. military retirement system paid by the Defense Finance and Accounting Service (including the Retired Serviceman's Family Protection Plan and the Survivor Benefit Plan), or U.S. government retirement payments for service with the Coast Guard, the NOAA commissioned corps or the Public Health Service commissioned corps"
+    ]
+   },
+   "cap_rule": "Cannot be more than the amount of such payments included in federal income.",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 6, Line 12; Publication 126 PDF pages 5-6 section 4.D; FAQ 'Are my military or uniformed services retirement benefits taxable?'",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_pre1964_local_state",
+   "label": "Local and state retirement benefits (Schedule SB line 13)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "paying_states": [
+    "WI"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Paid by the Milwaukee City Employees, Milwaukee City Police Officers, Milwaukee Fire Fighters, Milwaukee Public School Teachers, Milwaukee County Employees, Milwaukee Sheriff or Wisconsin State Teachers retirement system",
+     "Retired from the system before January 1, 1964; or a member as of December 31, 1963, paid from an account established before 1964; or the beneficiary of such a person"
+    ]
+   },
+   "not_covered": [
+    "Payments received as a result of voluntary tax-sheltered annuity deposits in any of the retirement systems listed",
+    "Payments from a listed system if you first became a member after December 31, 1963, even though pre-1964 military service may have been counted as creditable service",
+    "Supplemental benefits provided by the City of Milwaukee (Early Retirement Supplement and Benefit Improvement Plan)",
+    "The part of a benefit based on membership in other retirement systems, such as the Wisconsin Retirement System"
+   ],
+   "cap_rule": "Cannot be more than the payments included in federal income. A benefit based on both exempt and other membership: years of creditable service in the exempt plan over total years, times the annuity included in federal income (or separate Forms 1099-R).",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF pages 6-7, Line 13; Publication 126 PDF pages 6-8 section 4.D",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_pre1964_federal_csrs",
+   "label": "Federal retirement benefits (Schedule SB line 14)",
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension"
+   ],
+   "paying_states": [
+    "federal"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Paid by the U.S. Civil Service Retirement System (U.S. Office of Personnel Management)",
+     "Retired from the system before January 1, 1964; or a member as of December 31, 1963, paid from an account established before 1964; or the beneficiary of such a person"
+    ]
+   },
+   "not_covered": [
+    "Payments from the federal Thrift Savings Plan",
+    "Payments from an account established after December 31, 1963, even if pre-1964 military service was counted"
+   ],
+   "cap_rule": "The limits and years-of-service proration of the local and state entry apply.",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 7, Line 14; Publication 126 PDF pages 6-8 section 4.D",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_retirement_67",
+   "label": "Retirement Income Subtraction (Credits Restricted), Schedule SB line 16: up to $24,000 for an individual",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Any distribution that is excluded from Wisconsin income under another provision of law, such as military retirement pay",
+    "Retirement income already removed from Wisconsin income on Schedule SB lines 12 through 15 (military and uniformed services, pre-1964 local and state systems, pre-1964 federal CSRS, railroad retirement)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 67,
+    "other_conditions": [
+     "At least 67 years old as of December 31, 2025 (you, or your spouse if married filing a joint return)",
+     "Federally taxable retirement income from a qualified retirement plan or IRA",
+     "Claiming it means no tax credit on Schedule CR or on Form 1 lines 13 through 20 and 30 through 35 for 2025: every credit computed for 2025 is given up, including any part that would carry forward, and no credit carried forward from a prior year may be used",
+     "Nonresidents may not claim it; a part-year resident prorates the maximum by Wisconsin AGI over federal AGI"
+    ]
+   },
+   "cap": {
+    "all": "24000"
+   },
+   "cap_per": "person",
+   "cap_rule": "Up to 24,000 of the qualifying person's retirement income. A joint return where only one spouse is 67 or older: 24,000 of that spouse's income (judgement, see notes). A joint return where both are 67 or older takes wi_retirement_67_joint instead.",
+   "best_of_group": "wi_retirement_67_choice",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 7, Line 16 and its Caution; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1); FAQ 'Does Wisconsin have any general exclusion of retirement income?'",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_retirement_67_joint",
+   "label": "Retirement Income Subtraction (Credits Restricted), Schedule SB line 16: up to $48,000 for a joint return when both spouses are 67 or older",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Any distribution that is excluded from Wisconsin income under another provision of law, such as military retirement pay",
+    "Retirement income already removed from Wisconsin income on Schedule SB lines 12 through 15 (military and uniformed services, pre-1964 local and state systems, pre-1964 federal CSRS, railroad retirement)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 67,
+    "other_conditions": [
+     "Married filing a joint return, and both spouses at least 67 years old as of December 31, 2025",
+     "Claiming it means no tax credit on Schedule CR or on Form 1 lines 13 through 20 and 30 through 35 for 2025: every credit computed for 2025 is given up, including any part that would carry forward, and no credit carried forward from a prior year may be used"
+    ]
+   },
+   "cap": {
+    "married_joint": "48000"
+   },
+   "cap_per": "return",
+   "cap_rule": "Up to 48,000 of the couple's qualifying retirement income, 'regardless of how much retirement income each spouse received'.",
+   "best_of_group": "wi_retirement_67_choice",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 7, Line 16; Publication 126 PDF page 8 section 4.E(1)",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_retirement_5000",
+   "label": "$5,000 Retirement Income Subtraction (Income Restricted), Schedule SB line 17",
+   "form": "subtraction",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "private_pension",
+    "annuity",
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "covers_unclear": [
+    "roth_conversion"
+   ],
+   "not_covered": [
+    "Retirement benefits otherwise exempt from Wisconsin income tax, such as military retirement pay, and amounts subtracted on lines 12 through 16 (worksheet line 4)"
+   ],
+   "who": {
+    "basis": "each_person",
+    "min_age": 65,
+    "other_conditions": [
+     "65 years of age or older on December 31, 2025; on a joint return each spouse is figured in a separate worksheet column",
+     "Worksheet line 1: taxable IRA distributions from federal Form 1040 line 4b; line 2: taxable pension and annuity income from a qualified retirement plan included on line 5b",
+     "Full-year resident (Schedule M for part-year residents and nonresidents)"
+    ]
+   },
+   "cap": {
+    "all": "5000"
+   },
+   "cap_per": "person",
+   "cap_rule": "The smaller of the person's worksheet line 5 (IRA and qualified-plan income less the amounts subtracted on lines 12 through 16) and 5,000; up to 10,000 on a joint return if both spouses qualify.",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "federal adjusted gross income (line 3 of Form 1); if married filing separately, the sum of both spouses' federal adjusted gross income"
+    },
+    "threshold": {
+     "single": "15000",
+     "head_of_household": "15000",
+     "married_joint": "30000",
+     "married_separate": "30000"
+    },
+    "effect": "removes",
+    "applies_when": "at_or_over",
+    "as_printed": "Your federal adjusted gross income (line 3 of Form 1) is less than $15,000 ($30,000 if married filing a joint return). If married filing a separate return, the sum of both spouses' federal adjusted gross income must be less than $30,000."
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 8, Line 17 and Retirement Income Subtraction Worksheet; Publication 126 PDF pages 8-9 section 4.E(2); Publication 106 PDF page 4 section 3.C(2)",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_us_government_interest",
+   "label": "United States government interest (Schedule SB line 2)",
+   "form": "subtraction",
+   "covers": [
+    "interest",
+    "dividends"
+   ],
+   "not_covered": [
+    "Interest from Ginnie Mae (Government National Mortgage Association) securities and other similar securities 'guaranteed' by the United States government"
+   ],
+   "who": {
+    "basis": "return",
+    "other_conditions": [
+     "Interest on U.S. bonds and interest and dividends of certain U.S. government corporations included on Form 1 line 3; the part of a mutual fund's ordinary dividend the fund says is from U.S. government securities"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 1, Line 2",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_us_government_interest_in_retirement_plans",
+   "label": "Distributions from IRAs, Keoghs and deferred compensation plans that invest in U.S. government securities",
+   "form": "subtraction",
+   "covers": [
+    "ira_distribution",
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Only the part of the distribution attributable to interest from U.S. government securities the IRA or plan owns directly or through a mutual fund; interest a bank earns on its own holdings does not pass through"
+    ]
+   },
+   "cap_rule": "Worksheet: distributions from all IRAs x (U.S. government interest received by the IRAs for all years less amounts withdrawn in prior years) / (year-end value of all IRAs plus the distributions).",
+   "cite": {
+    "publication": "Publication 126, How Your Retirement Benefits Are Taxed (1/26)",
+    "section": "PDF page 10, section 4.H and its worksheet",
+    "url": "https://www.revenue.wi.gov/DOR%20Publications/pb126.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_pre1965_tax_sheltered_annuity",
+   "label": "Tax-sheltered annuities purchased by a school system before January 1, 1965",
+   "form": "subtraction",
+   "covers": [
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "A school system bought a tax-sheltered annuity for the employee before January 1, 1965, and the employee paid Wisconsin income tax on the deposit used to pay the 1964 premium ('This exception only applies to certain retired teachers')"
+    ]
+   },
+   "cap_rule": "The part of the benefit included in federal AGI on which the employee already paid Wisconsin tax.",
+   "cite": {
+    "publication": "Publication 126, How Your Retirement Benefits Are Taxed (1/26)",
+    "section": "PDF pages 10-11, section 4.I",
+    "url": "https://www.revenue.wi.gov/DOR%20Publications/pb126.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_disability_income_exclusion",
+   "label": "Disability income exclusion (Schedule SB line 22, Schedule 2440W)",
+   "form": "subtraction",
+   "covers": [
+    "other_income"
+   ],
+   "who": {
+    "basis": "each_person",
+    "max_age": 64,
+    "other_conditions": [
+     "Retired on permanent and total disability, with the disability income included in federal AGI",
+     "Did not reach mandatory retirement age before January 1, 2025; permanently and totally disabled when retired; married at the end of 2025 must file jointly; did not choose before 1984 to treat disability income as a pension"
+    ]
+   },
+   "cap": {
+    "all": "5200"
+   },
+   "cap_per": "person",
+   "income_test": {
+    "measure": {
+     "base": "federal_agi",
+     "as_printed": "Your federal adjusted gross income (for Wisconsin)"
+    },
+    "threshold": {
+     "all": "20200",
+     "married_joint": "25400"
+    },
+    "effect": "removes",
+    "applies_when": "at_or_over",
+    "as_printed": "less than $20,200 ($25,400 if married and both spouses are eligible); the amount for a married couple with one eligible spouse is not printed in these sources (Schedule 2440W is not among them)"
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 9, Line 22; Publication 126 PDF page 9 section 4.F",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_active_duty_pay",
+   "label": "U.S. Armed Forces active duty pay (Schedule SB line 18)",
+   "form": "subtraction",
+   "covers": [
+    "wages"
+   ],
+   "not_covered": [
+    "Basic pay for inactive duty training",
+    "Basic housing allowance, or any other nontaxable income reported on leave and earnings statements"
+   ],
+   "who": {
+    "basis": "each_person",
+    "other_conditions": [
+     "Member of the U.S. Armed Forces on active duty (regular and reserve components, including the Coast Guard); basic, special and incentive pay under 37 USC chapters 3 and 5 included in federal AGI"
+    ]
+   },
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 8, Line 18",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "other",
+  "note": "Wisconsin adds back federally tax-exempt interest from state, municipal and other bonds, its own municipalities' bonds included (generally Form 1040 line 2a), except 18 listed kinds exempt for both federal and Wisconsin tax: mostly bonds of named Wisconsin authorities and districts (public housing or community development authorities of Wisconsin municipalities, municipal redevelopment authorities, certain WHEDA bonds, local exposition, baseball park, cultural arts district and football stadium bonds, Aerospace Authority, certain WHEFA and conduit revenue bonds), bonds of Puerto Rico, Guam, the Virgin Islands, the Northern Mariana Islands and American Samoa (issued after October 16, 2004), and certain pre-1987 out-of-state public housing agency bonds; held directly or through a mutual fund.",
+  "cite": {
+   "publication": "2025 Schedule AD Instructions (additions)",
+   "section": "PDF pages 1-2, Line 1 State and Municipal Interest and its Exception, items (1)-(18); Form 1 Instructions PDF page 14 line 4",
+   "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleAD-Inst.pdf",
+   "accessed": "2026-11-07"
+  }
+ },
+ "capital_gains": [
+  {
+   "id": "wi_long_term_gain_exclusion",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "0.30",
+   "condition": "30% long-term capital gain exclusion figured on Schedule WD (subtracted on Schedule SB line 5); a capital gain distribution that is the only capital gain on Form 1040 line 7, with no Wisconsin capital loss carryover, takes 30% directly on line 5.",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 2, Line 5 Capital Gain/Loss Subtraction",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  },
+  {
+   "id": "wi_farm_asset_gain_exclusion",
+   "applies_to": "long_term",
+   "treatment": "deduction_share",
+   "value": "0.60",
+   "condition": "Farm assets: 60% long-term capital gain exclusion, figured on Schedule WD.",
+   "cite": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "PDF page 2, Line 5 ('60% in the case of farm assets')",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf",
+    "accessed": "2026-11-07"
+   }
+  }
+ ],
+ "indexing": [
+  {
+   "figure": "all_other",
+   "indexed": "not_stated"
+  }
+ ],
+ "recapture": []
+}

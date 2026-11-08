@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "50000.00",
+    "state_income_tax": "2260.00",
+    "state_tax_before_credits": "2260.00",
+    "state_taxable_income": "46000.00"
+  },
+  "worked": "Start: federal AGI 48,000.00 (projection starts_from federal_agi). Addition: other-state municipal interest 2,000.00 (muni_interest other_states_taxed_own_exempt; Form 40 Schedule B taxes non-Alabama obligations) -> 50,000.00. U.S. Treasury interest 3,000.00 stays in (Alabama exempts it, but it is not_modelled: the projection taxes it; approximation 'Interest on U.S. obligations is taxed'). wages person 0 40,000.00: taxed, stays in federal AGI. State AGI (Form 40 line 10 equivalent) = 50,000.00. Standard deduction (single, state AGI 50,000.00 over 35499): 2,500.00. Personal exemption (single): 1,500.00. No dependents; federal income tax deduction not applied (not_modelled). Taxable income 50,000.00 - 2,500.00 - 1,500.00 = 46,000.00. Tax on 46,000.00 with the single brackets: 0.02 x (500.00 - 0.00) = 10.00; 0.04 x (3,000.00 - 500.00) = 100.00; 0.05 x (46,000.00 - 3,000.00) = 2,150.00; total 2,260.00. Credits: none in the projection: 0.00. State income tax = 2,260.00."
+}

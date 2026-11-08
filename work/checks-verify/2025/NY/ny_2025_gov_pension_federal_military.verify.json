@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "73950.00",
+    "state_tax_before_credits": "3734.75",
+    "credits": "0.00",
+    "state_income_tax": "3734.75",
+    "relief_amounts": {
+      "gov_pension": "80000.00"
+    }
+  },
+  "worked": "Line 19 federal AGI 170000.00 (given). Federal taxable income 138500.00 given, not used (NY starts from federal AGI).\nLine 24 = 170000.00\nLine 26: public pension 50000.00 paid by federal (person 0) exempt in full\nLine 26: military pension 30000.00 paid by US military (person 1) exempt in full\nLine 26 total 80000.00\nLine 32 subtractions 80000.00; line 33 NY AGI = 170000.00 - 80000.00 = 90000.00\nLine 34 standard deduction (married_joint) 16050; line 36 dependents none; line 37/38 taxable income = 90000.00 - 16050 = 73950.00\nRate schedule on 73950.00: 17150 x 0.04 = 686.00; 6450 x 0.045 = 290.250; 4300 x 0.0525 = 225.7500; 46050.00 x 0.055 = 2532.75000; schedule tax 3734.75000\nNY AGI 90000.00 <= 107,650: no recapture worksheet; tax = schedule tax 3734.75\nLine 39 tax as above; credits (household credit etc.) not in projection: 0; state income tax = line 39"
+}

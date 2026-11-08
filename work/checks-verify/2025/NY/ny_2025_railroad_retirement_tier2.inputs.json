@@ -1,0 +1,47 @@
+{
+  "id": "ny_2025_railroad_retirement_tier2",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "Information for retired persons (NYS Department of Taxation and Finance)",
+    "section": "Subtractions, Railroad Retirement benefits (Tier 2 benefits under the Railroad Retirement Act of 1974, subtracted on Form IT-225 code S-122, carried to Form IT-201 line 31); Form IT-201 lines 19, 31-39; IT-201-I PDF page 11 (line 34) and PDF pages 12 and 33 (line 39)",
+    "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-08-08"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "interest": "55000.00",
+      "dividends": "20000.00"
+    },
+    "federal_agi": "105000.00",
+    "federal_taxable_income": "87250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement"
+  ]
+}

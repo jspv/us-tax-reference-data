@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "social_security_exemption": "17000.00"
+    },
+    "state_agi": "32650.00",
+    "state_income_tax": "1229.05",
+    "state_tax_before_credits": "1229.05",
+    "state_taxable_income": "32650.00"
+  },
+  "worked": "Status married_separate; persons [68]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 67,000.00 less line 12 federal standard deduction 17,350.00 = 49,650.00. PIT-ADJ line 25, Table 2: AGI 67,000.00 does not exceed 75,000: exemption 17,000.00 of the 17,000.00 taxable social security. state_agi = 49,650.00 + additions 0.00 - subtractions 17,000.00 = 32,650.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). PIT-ADJ line 13, Table 1, married_separate: AGI 67,000.00 gives 0.00 per qualifying person; 1 qualifies: 0.00. PIT-1 line 14 worksheet: line 3 = 67,000.00 - 15,000 floored at 0 = 52,000.00; line 5 = x 0.20 = 10,400.00; line 6 = 2,500 - line 5 (not below 0) = 0.00; line 7 exemptions 1 (dependents not modelled); line 8 = 0.00. state_taxable_income (PIT-1 line 17) = 32,650.00 - 0.00 - 0.00 = 32,650.00. Tax on 32,650.00, married_separate brackets: 0.015 x 4,000.00 = 60.0000; 0.032 x 8,500.00 = 272.0000; 0.043 x 12,500.00 = 537.5000; 0.047 x 7,650.00 = 359.5500; total 1,229.0500, 1,229.05 to the cent. The printed table gives 1,229 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

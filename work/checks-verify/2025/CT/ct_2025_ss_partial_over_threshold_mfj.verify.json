@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "credits": "127.75",
+    "state_agi": "55500.00",
+    "state_income_tax": "1149.75",
+    "state_tax_before_credits": "1277.50",
+    "state_taxable_income": "39500.00",
+    "relief_amounts": {
+      "ss_full_exempt": "0.00",
+      "ss_partial_exempt": "18000.00",
+      "military_retirement": "30000.00"
+    }
+  },
+  "worked": "Line 1 federal AGI 103500.00 (filing status married_joint). Social Security: federal AGI 103500.00 >= 100000: full subtraction removed (ss_full_exempt 0); worksheet Lines A-F.   Federal SS worksheet: Line 1 30000.00; Line 2 half 15000.00; Line 3 other income 78000.00 (federal AGI less taxable SS); Line 4 tax-exempt interest 0; Line 7 93000.00; Line 8 base 32000; Line 9 61000.00.   CT Line A 30000.00; Line B 61000.00; Line C lesser 30000.00; Line D = C x .25 = 7500.00; Line E taxable 25500.00; Line F = E - D = 18000.00 (Line 41). Line 44 military retirement pay exempt in full: 30000.00. Schedule 1 subtractions total 48000.00; Connecticut AGI (Line 5) = 103500.00 - 48000.00 = 55500.00. Table A personal exemption at Connecticut AGI 55500.00: 16000. Taxable income (Line 3) = 39500.00 -> 39500.00. Table B (married_joint schedule) on 39500.00: 20000 x 0.02 = 400.00; 19500.0000 x 0.045 = 877.50; tax 1277.50. Tables C and D: Connecticut AGI is not over the first recapture start for this status, so 0 (and the projection does not compute their amounts anyway). Table E decimal at Connecticut AGI 55500.00: 0.10; credit = 1277.50 x 0.10 = 127.75. Connecticut income tax = 1277.50 - 127.75 = 1149.75."
+}

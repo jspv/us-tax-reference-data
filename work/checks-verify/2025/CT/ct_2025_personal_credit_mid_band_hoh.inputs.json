@@ -1,0 +1,45 @@
+{
+  "id": "ct_2025_personal_credit_mid_band_hoh",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "personal_tax_credit",
+    "personal_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 23, Table E (Head of Household, more than 25,000 to 25,500: .60) and Tax Calculation Schedule Lines 7-10; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-04-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25200.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "25200.00",
+    "federal_taxable_income": "1575.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.personal_tax_credit",
+    "relief_amounts.personal_exemption"
+  ]
+}

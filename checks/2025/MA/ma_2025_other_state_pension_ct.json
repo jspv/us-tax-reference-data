@@ -1,0 +1,57 @@
+{
+  "id": "ma_2025_other_state_pension_ct",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "other_state_contributory_pension_ny"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "TIR 95-9: Income Taxation of Contributory Public Employee Pensions of Other States (Massachusetts DOR, 01/10/1996)",
+    "section": "Department's Position After Pariser, tests (1)-(3) and the amount paragraph (amount depends on the paying state's law); 2025 Form 1 Instructions PDF p10 Line 4 second bullet, PDF p22-23 Schedule Y Line 13; Form 1 lines 2a, 2c, 4, 10-22",
+    "url": "https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "public",
+          "paying_government": "CT",
+          "contributory": true,
+          "amount": "35000.00",
+          "person": 0
+        },
+        {
+          "source": "private",
+          "amount": "10000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "45000.00",
+    "federal_taxable_income": "27250.00"
+  },
+  "expected": {
+    "state_taxable_income": "39900.00",
+    "state_tax_before_credits": "1995.00",
+    "credits": "0.00",
+    "state_income_tax": "1995.00"
+  },
+  "worked": "Federal AGI = Connecticut state employee contributory pension 35,000.00 (person 0) + private pension 10,000.00 (person 0) = 45,000.00 (given). Federal taxable income = 45,000.00 - 17,750.00 standard deduction (15,750.00 + 1 x 2,000.00 age 65 or older) = 27,250.00 (given, not tested; the federal senior deduction is ignored). Massachusetts Form 1 (the projection starts from federal AGI and takes out the exempt items): Line 4 taxable pensions = 35,000.00 Connecticut state employee contributory pension (taxed: the New York entry covers only New York; the general TIR 95-9 entry is not modelled, so the projection taxes it in full and warns) + 10,000.00 private pension (taxed: most private pensions are taxable, PDF p10) = 45,000.00. Line 10 total 5.0% income = 45,000.00. Line 16 total deductions = 0.00. Line 17 = 45,000.00 - 0.00 = 45,000.00. Line 2a personal exemption (single) = 4,400.00; line 2c age 65 or over before 2026: 1 x 700.00 = 700.00; line 2g = line 18 = 5,100.00. Line 19 = 45,000.00 - 5,100.00 = 39,900.00. Line 20 interest and dividends = 0.00. Line 21 = 39,900.00. Line 22 = 39,900.00 x 0.05 = 1,995.00. No 8.5%/12% income or long-term gains (lines 23-24 = 0.00); 4% surtax 0.00 (line 21 is under 1,083,150). Line 28 total tax = 1,995.00; no credits (No Tax Status and the Limited Income Credit do not apply: Massachusetts AGI 45,000.00 is over their limits). State income tax = 1,995.00. The form's own answer depends on what Connecticut would exclude for a Massachusetts pension (TIR 95-9 tests 1-2), which the sources do not give; this case states what the projection computes (not_modelled: taxed in full).",
+  "accepted_warnings": [
+    "state_rule_not_modelled:other_state_contributory_pension"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

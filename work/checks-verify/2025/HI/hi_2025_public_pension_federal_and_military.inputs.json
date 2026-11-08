@@ -1,0 +1,63 @@
+{
+  "id": "hi_2025_public_pension_federal_and_military",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "hi_public_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "PDF page 13, Line 13 Pensions (Employer-Funded Pension Plans, items (1) and (2)); Form N-11 line 13; Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-01-25"
+      },
+      {
+        "age": 60,
+        "born": "1965-08-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        },
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "63500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.hi_public_pension"
+  ]
+}

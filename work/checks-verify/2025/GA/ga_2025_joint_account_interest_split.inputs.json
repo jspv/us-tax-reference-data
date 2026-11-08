@@ -1,0 +1,51 @@
+{
+  "id": "ga_2025_joint_account_interest_split",
+  "state": "GA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ga_retirement_exclusion_65_plus",
+    "ga_retirement_exclusion_62_64",
+    "ga_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IT-511 Individual Income Tax Booklet (Georgia DOR), with Form 500 and Schedule 1 bound in (PDF pages 41-49); Ga. Comp. R. & Regs. 560-7-4-.02(2)",
+    "section": "Subtractions item 1 'Retirement income' (PDF p.21: 'each must qualify on a separate basis. If both spouses qualify, each spouse may claim the amounts above. Income from property that is jointly owned should be allocated to each taxpayer at 50% of the total value'); Retirement Income Exclusion notes (PDF p.24: 'If any item is held jointly, the income or loss should be allocated to each taxpayer at 50%'); Ga. Comp. R. & Regs. 560-7-4-.02(2) ('If property is jointly owned, income derived is allocated to each taxpayer at 50 percent of the total'); Schedule 1 page 2 lines 1-17 and footnote (PDF p.48; 2025GA500.pdf p.8): lines 1-5 earned income, line 6 interest income, line 11 taxable IRA distributions, line 14, line 15, line 16 maximum allowable exclusion 35,000 (62-64) or 65,000 (65 or older), line 17 the lesser of lines 15 and 16; Form 500 Schedule 1 page 1 lines 7a, 7d, 13, 14 (PDF p.47); Form 500 lines 8-16 (booklet PDF pp.16-17: Line 16 'Multiply the amount on Line 15c by 5.19%. Round to nearest dollar.'); rate cite PDF p.9 What's New; standard deduction cite PDF p.16 Line 11",
+    "url": "https://dor.georgia.gov/document/document/2025-it-511-individual-income-tax-booklet/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-05-20"
+      },
+      {
+        "age": 63,
+        "born": "1962-08-09"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "interest": "40000.00"
+    },
+    "federal_agi": "140000.00",
+    "federal_taxable_income": "106900.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.ga_retirement_exclusion_65_plus",
+    "relief_amounts.ga_retirement_exclusion_62_64"
+  ]
+}

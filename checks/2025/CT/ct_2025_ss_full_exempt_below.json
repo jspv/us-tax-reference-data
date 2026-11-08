@@ -1,0 +1,64 @@
+{
+  "id": "ct_2025_ss_full_exempt_below",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ss_full_exempt"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 8, Schedule 1 Line 41 (MFJ, Line 1 less than 100,000: enter federally taxable benefits); PDF page 24, Social Security Benefit Adjustment Worksheet first questions; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-06-15"
+      },
+      {
+        "age": 62,
+        "born": "1963-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "55000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "80500.00",
+    "federal_taxable_income": "47400.00"
+  },
+  "expected": {
+    "state_agi": "55000.00",
+    "state_taxable_income": "38000.00",
+    "state_tax_before_credits": "1210.00",
+    "credits": "121.00",
+    "state_income_tax": "1089.00",
+    "relief_amounts": {
+      "ss_full_exempt": "25500.00"
+    }
+  },
+  "worked": "Federal AGI = wages 55,000.00 + taxable Social Security 25,500.00 (of 30,000.00 gross, federal worksheet) = 80,500.00. Federal taxable income = 80,500.00 - 31,500.00 standard deduction - 1 x 1,600.00 age 65+ = 47,400.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 80,500.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 80,500.00. Schedule 1 Line 41 Social Security benefit adjustment: federal AGI 80,500.00 is less than 100,000.00, so the full federally taxable amount 25,500.00 is subtracted (ss_full_exempt) -> 25,500.00. Schedule 1 Line 50 total subtractions = 25,500.00; CT-1040 Line 4 = 25,500.00. CT-1040 Line 5 Connecticut AGI = 80,500.00 - 25,500.00 = 55,000.00. Tax Calculation Schedule Line 1 = 55,000.00; Line 2 Table A: Connecticut AGI 55,000.00 is more than 54,000.00, exemption 17,000.00; Line 3 taxable income = 55,000.00 - 17,000.00 = 38,000.00. Line 4 Table B (Married Filing Jointly/Qualifying Surviving Spouse schedule) on 38,000.00: 20,000.00 x 0.02 + 18,000.00 x 0.045 = 400.00 + 810.00 = 1,210.00. Line 5 Table C 0.00 (Connecticut AGI 55,000.00 is not more than 100,500.00); Line 6 Table D 0.00 (not more than 210,000.00); Line 7 = 1,210.00. Line 8 Table E decimal 0.10 (Connecticut AGI 55,000.00 is in the band more than 52,000.00); Line 9 = 1,210.00 x 0.10 = 121.00. Line 10 Connecticut income tax = 1,210.00 - 121.00 = 1,089.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled).",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

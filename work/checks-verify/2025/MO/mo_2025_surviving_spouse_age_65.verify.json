@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "60000.00",
+    "state_income_tax": "1022.56",
+    "state_tax_before_credits": "1022.56",
+    "state_taxable_income": "25500.00"
+  },
+  "worked": "Filing status qualifying_surviving_spouse; persons ages [67]. Federal AGI 60000.00 (given). Missouri AGI (state_agi) = 60000.00 + additions 0 - subtractions 0.0 = 60000.00 Deductions (MO-1040 Lines 14-15): standard 31500 + age 65 1600 x 1 = 1600 + head of household/QSS exemption 1400 = 34500 Taxable income = 60000.00 - 34500 = 25500.00 Tax by the chart's bands (0% to 1,313, then 2%..4.7%, one chart applied to the return's total): 0.02 x (2626 - 1313) = 26.26; 0.025 x (3939 - 2626) = 32.825; 0.03 x (5252 - 3939) = 39.39; 0.035 x (6565 - 5252) = 45.955; 0.04 x (7878 - 6565) = 52.52; 0.045 x (9191 - 7878) = 59.085; 0.047 x (25500.00 - 9191) = 766.52300; sum 1022.55800 -> 1022.56 No credits modelled: credits 0.00; federal income tax deduction not modelled. State tax 1022.56"
+}

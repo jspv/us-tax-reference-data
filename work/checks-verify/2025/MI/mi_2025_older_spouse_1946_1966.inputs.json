@@ -1,0 +1,54 @@
+{
+  "id": "mi_2025_older_spouse_1946_1966",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "born_1946_1966"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "PDF page 19 'Which Benefits are Taxable' (older spouse's year of birth on a joint return); PDF page 22 Line 19 ('If the older of you (or your spouse ...) was born during the period from January 1, 1946 through December 31, 1966'); Worksheet 3.3 (PDF page 25); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 57,
+        "born": "1968-03-03"
+      },
+      {
+        "age": 60,
+        "born": "1965-11-11"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "58500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.born_1946_1966"
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "state": "DC",
+    "title": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf",
+    "retrieved": "2026-11-07T01:03:51.969885+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf",
+    "file": "2025_D40_Book_082026_v1.pdf",
+    "bytes": 8200629,
+    "sha256": "6c1df426c2a6b4cdbe5182f7b83b3f9c0cf31011ce177f1ce404ed566d1754d0",
+    "archived_url": "https://web.archive.org/web/20261108000816id_/https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  {
+    "state": "DC",
+    "title": "2025 D-40 Individual Income Tax Return",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Form_0002_030526.pdf",
+    "retrieved": "2026-11-07T01:03:57.725464+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Form_0002_030526.pdf",
+    "file": "2025_D40_Form_0002_030526.pdf",
+    "bytes": 1113144,
+    "sha256": "bb8898a4fc8fb3895e24b34343dc604dd880e40ca77f35bc9366994b5ab2698e",
+    "archived_url": "https://web.archive.org/web/20260319234940id_/https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Form_0002_030526.pdf"
+  }
+]

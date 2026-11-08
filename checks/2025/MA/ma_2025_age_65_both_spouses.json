@@ -1,0 +1,72 @@
+{
+  "id": "ma_2025_age_65_both_spouses",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "age_65_exemption",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "Form 1 lines 2a, 2c (age 65 or over before 2026, 700 each spouse, PDF p10 Line 2c), 4, 9 (Schedule X line 2 worksheet, PDF p20), 10-22; Social Security not taxed (PDF p10 Line 4 note)",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 68,
+        "born": "1957-06-15"
+      },
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "private",
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        },
+        {
+          "amount": "12000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "25500.00"
+    },
+    "federal_agi": "85500.00",
+    "federal_taxable_income": "50800.00"
+  },
+  "expected": {
+    "state_taxable_income": "49800.00",
+    "state_tax_before_credits": "2490.00",
+    "credits": "0.00",
+    "state_income_tax": "2490.00"
+  },
+  "worked": "Federal AGI = private pension 40,000.00 (person 0) + IRA distribution 20,000.00 (person 1) + taxable Social Security 25,500.00 (30,000.00 gross; provisional income 60,000.00 + 15,000.00 = 75,000.00; 0.85 x (75,000.00 - 44,000.00) + 6,000.00 = 32,350.00, capped at 0.85 x 30,000.00 = 25,500.00) = 85,500.00 (given). Federal taxable income = 85,500.00 - 34,700.00 standard deduction (31,500.00 + 2 x 1,600.00 age 65 or older) = 50,800.00 (given, not tested; the federal senior deduction is ignored). Massachusetts Form 1 (the projection starts from federal AGI and takes out the exempt items): Line 4 taxable pensions = 40,000.00 private pension (taxed: most private pensions are taxable, PDF p10) = 40,000.00. Line 9 (Schedule X line 2 worksheet: 20,000.00 IRA distributions less 0.00 contributions previously taxed by Massachusetts) = 20,000.00. Social Security (30,000.00 gross, 25,500.00 federally taxable) is not reported: Massachusetts does not tax it (PDF p10). Line 10 total 5.0% income = 60,000.00. Line 16 total deductions = 0.00. Line 17 = 60,000.00 - 0.00 = 60,000.00. Line 2a personal exemption (married_joint) = 8,800.00; line 2c age 65 or over before 2026: 2 x 700.00 = 1,400.00; line 2g = line 18 = 10,200.00. Line 19 = 60,000.00 - 10,200.00 = 49,800.00. Line 20 interest and dividends = 0.00. Line 21 = 49,800.00. Line 22 = 49,800.00 x 0.05 = 2,490.00. No 8.5%/12% income or long-term gains (lines 23-24 = 0.00); 4% surtax 0.00 (line 21 is under 1,083,150). Line 28 total tax = 2,490.00; no credits (No Tax Status and the Limited Income Credit do not apply: Massachusetts AGI 60,000.00 is over their limits). State income tax = 2,490.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:other_state_contributory_pension"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

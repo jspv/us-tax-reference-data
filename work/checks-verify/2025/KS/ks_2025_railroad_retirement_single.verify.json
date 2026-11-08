@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "6385.00",
+    "state_tax_before_credits": "332.02",
+    "credits": "0.00",
+    "state_income_tax": "332.02",
+    "relief_amounts": {
+      "railroad_retirement": "22000.00"
+    }
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 42,000.00 (given). A14 railroad retirement 22,000.00 subtracted (railroad_retirement). IRA distribution 20,000.00: no subtraction line, stays in Kansas income. Line 2 modifications -22,000.00. Line 3 Kansas AGI 42,000.00 + (-22,000.00) = 20,000.00. Line 4 standard deduction 3,605 + 1 age box(es) x 850 = 4,455 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 13,615.00. Line 7 taxable income 20,000.00 - 13,615.00 = 6,385.00. Line 8 tax 6,385.00 x 5.2% = 332.02000. the table row 6,351-6,400 gives 332. No credits in the projection: credits 0.00. Tax 332.02."
+}

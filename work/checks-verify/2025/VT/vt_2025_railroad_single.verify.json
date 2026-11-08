@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "vt_railroad_retirement": "24000.00"
+  },
+  "state_agi": "30020.00",
+  "state_income_tax": "529.97",
+  "state_tax_before_credits": "529.97",
+  "state_taxable_income": "15820.00"
+ },
+ "worked": "Filing status single; IN-111 Line 1 federal AGI 54,020.00 (federal taxable income 36270.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 14 Railroad Retirement exempt in full: 24,000.00. IN-112 Line 19 net modification = 0.00 - 24,000.00; IN-111 Line 3 state AGI = 54,020.00 + 0.00 - 24,000.00 = 30,020.00. Line 4 standard deduction 7,650.00 + 1,250 x 1 (born before Jan. 2, 1961) = 8,900.00; Line 5e exemptions 1 x 5,300 = 5,300.00; Line 6 = 14,200.00. Line 7 taxable income = 30,020.00 - 14,200.00 = 15,820.00. Rate schedule (single): 3.3500% x (15,820.00 - 0.00) = 529.970000; total 529.970000. Line 8: federal AGI 54,020.00 not greater than 150,000, minimum tax does not apply; tax 529.97 (formula, not the 100-dollar tax table). No credits modelled: credits 0.00; state income tax 529.97."
+}

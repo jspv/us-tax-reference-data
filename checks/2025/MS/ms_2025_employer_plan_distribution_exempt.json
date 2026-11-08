@@ -1,0 +1,54 @@
+{
+  "id": "ms_2025_employer_plan_distribution_exempt",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ms_retirement_income_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25); Miss. Admin. Code Title 35 Part III Income and Franchise (Department of Revenue income tax regulations)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.11 Line 46 Total Pensions and Annuities; FAQ 'Is retirement income taxable?'; Miss. Admin. Code Title 35 Part III Subpart 02 Chapter 07 rules 100, 102 and 104 (https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, PDF p.18)",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-06-06"
+      }
+    ],
+    "income": {
+      "employer_plan_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "60000.00",
+    "federal_taxable_income": "44250.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "60000.00"
+    }
+  },
+  "worked": "Federal AGI = employer plan distribution (person 0) 60,000.00 = 60,000.00. Federal taxable income = 60,000.00 - 15,750.00 federal standard deduction = 44,250.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 5, Single. Start at federal AGI 60,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Less retirement income 60,000.00 (exempt in total: regulation rule 102 counts a 401(k), 403(b) or 457 payout, tax deferred federally, as an optional retirement allowance when the recipient qualifies for other retirement income by minimum age, years of service or other criteria; rule 100 exempts it). Person 0 is 62 and is taken to have met the plan's age or service test; the projection cannot test it and exempts the payout at any age. Line 66 and line 13 Mississippi AGI = 0.00. Line 14 standard deduction 2,300.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 6,000.00; line 12 and line 15 = 6,000.00. Line 16 Mississippi taxable income = 0.00 - 2,300.00 - 6,000.00 = -8,300.00 on the formula; floored at 0.00 (the form enters 0). Schedule of Tax Computation lines 1 to 4 and line 17 = 0.00. Lines 18 and 19 credits 0.00; line 20 = 0.00. Before the 2026-11-07 decision this case taxed the payout (1,834.80).",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+    "IRA, 401(k), 403(b) and 457 payouts and Roth conversions are exempted at every age. Mississippi exempts them only when they are not early distributions (regulation rule 104), and a deferred compensation payout only once the person qualifies for other retirement income by minimum age, years of service or other criteria (rule 102). A projection cannot test either, so an early payout is exempted here; the warning names it for anyone under 60."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

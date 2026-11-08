@@ -1,0 +1,71 @@
+{
+  "id": "nc_2025_railroad_and_social_security_joint",
+  "state": "NC",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-401 Individual Income Tax Instructions",
+    "section": "PDF page 18, Schedule S Part B Line 19 (Social Security and Tier 1 or Tier 2 railroad retirement benefits included in federal AGI are deducted); Form D-400 Schedule S page 2 (PDF page 3), Line 19; D-401 PDF page 13, Line 9; PDF page 14, Lines 11, 14, 15",
+    "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-01-09"
+      },
+      {
+        "age": 67,
+        "born": "1958-06-25"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "20400.00"
+    },
+    "federal_agi": "90400.00",
+    "federal_taxable_income": "55700.00"
+  },
+  "expected": {
+    "state_taxable_income": "14500.00",
+    "state_tax_before_credits": "616.25",
+    "credits": "0.00",
+    "state_income_tax": "616.25",
+    "relief_amounts": {
+      "railroad_retirement": "30000.00"
+    }
+  },
+  "worked": "Federal taxable Social Security: provisional income = 30,000.00 + 40,000.00 + half of 24,000.00 (12,000.00) = 82,000.00; 85% x (82,000.00 - 44,000.00) + 6,000.00 = 38,300.00, limited to 85% x 24,000.00 = 20,400.00. Federal AGI = railroad retirement Tier 2 annuity 30,000.00 + wages 40,000.00 + taxable Social Security 20,400.00 = 90,400.00. Federal taxable income = 90,400.00 - 31,500.00 federal standard deduction - 2 x 1,600.00 age 65 additional = 55,700.00 (given, not tested; the federal senior deduction is ignored). D-400 Line 6 federal AGI 90,400.00. Line 7 additions (Schedule S Part A) 0.00. Line 8 = Line 6 + Line 7 = 90,400.00. Line 9 deductions (Schedule S Part B) 50,400.00 (Line 19 railroad retirement, spouse 1 30,000.00; Line 19 taxable Social Security, spouse 2 20,400.00). Line 10 child deduction 0.00 (no qualifying children). Line 11 NC standard deduction (married_joint) 25,500.00. Line 12a = Lines 9 + 10 + 11 = 75,900.00; Line 12b = Line 8 - Line 12a = 14,500.00. Line 14 NC taxable income (full-year resident) = 14,500.00. Line 15 tax = 14,500.00 x 0.0425 = 616.25. Line 16 credits 0.00; Line 17 income tax = 616.25.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:bailey_defined_benefit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

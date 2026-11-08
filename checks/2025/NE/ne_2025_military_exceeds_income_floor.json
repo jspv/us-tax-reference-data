@@ -1,0 +1,56 @@
+{
+  "id": "ne_2025_military_exceeds_income_floor",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I line 32; booklet PDF page 26 Line 32 ('All military retirees are allowed to exclude 100% of the military retirement benefits'); record ne_military_retirement_exclusion",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-06-18"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "30000.00",
+    "federal_taxable_income": "14250.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "ne_military_retirement_exclusion": "30000.00"
+    }
+  },
+  "worked": "Single, 58: military pension 30,000 and nothing else. The subtraction takes all the income, so the standard deduction takes line 14 below zero. Federal (given, not tested): federal AGI = military pension (you) 30,000.00 = 30,000.00. Federal taxable income = 30,000.00 - standard deduction 15,750.00 = 14,250.00 (federal senior deduction ignored). Form 1040N filing status (1) single, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4c none; line 4 total 1. Line 5 federal AGI 30,000.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 8,600.00; lines 7 to 9 skipped (no federal itemizing); line 10 8,600.00. Line 11 = 30,000.00 - 8,600.00 = 21,400.00. Line 12 adjustments increasing federal AGI 0.00. Schedule I Part B: line 32 military retirement 30,000.00; line 44 total 30,000.00. Line 13 = 30,000.00. Line 14 = 21,400.00 + 0.00 - 30,000.00 = -8,600.00, less than zero, so the form enters 0.00. State income after additions and subtractions (before the deduction) = 30,000.00 + 0.00 - 30,000.00 = 0.00. Line 15 tax 0.00. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 0.00. Line 18 personal exemption credit = 171 x 1 = 171.00; line 34 171.00. Line 35 = 0.00 (nonrefundable: nothing of the credit is used). Federal Tax Liability Worksheet (PDF page 17): line 2 is zero or less, so line 35 is 0.00.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_csrs_annuity_exclusion",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

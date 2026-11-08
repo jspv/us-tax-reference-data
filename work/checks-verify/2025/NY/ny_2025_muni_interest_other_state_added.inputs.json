@@ -1,0 +1,41 @@
+{
+  "id": "ny_2025_muni_interest_other_state_added",
+  "state": "NY",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Instructions for Form IT-201 (2025)",
+    "section": "PDF page 7, Line 20 (interest income on state and local bonds and obligations of other states); Form IT-201 line 20; Form IT-201 lines 19, 24, 32-39 (PDF pages 2-3); IT-201-I PDF page 11 (line 34 standard deduction table), PDF pages 12 and 33 (line 39, rate schedule)",
+    "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-10-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "80000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_own_state": "3000.00",
+      "municipal_interest_other_state": "2000.00"
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

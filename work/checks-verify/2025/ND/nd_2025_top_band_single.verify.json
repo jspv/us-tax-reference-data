@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "5208.20",
+  "state_tax_before_credits": "5208.20",
+  "state_taxable_income": "300000.00"
+ },
+ "worked": "Federal check: AGI 315,750.00 = wages 315,750.00; less standard deduction 15,750 + age 0 = federal taxable income 300,000.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 300,000.00; no additions (lines 2-3 are 0).\nLine 17 total subtractions = 0.00\nLine 18 = 300,000.00 - 0.00 = 300,000.00\nLine 20 tax: single band 0.0195 on 196,350.00 (over 48,475.00) = 3828.8250\nLine 20 tax: single band 0.025 on 55,175.00 (over 244,825.00) = 1379.37500\nLine 20 tax = 5208.20000 -> 5208.20 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 5208.20.\nForm figure: the schedule prints the base 3828.83 (exact band sum 3828.8250), giving 5208.20500 on the printed base; expected uses the projection's exact bands."
+}

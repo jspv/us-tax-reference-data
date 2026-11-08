@@ -1,0 +1,60 @@
+{
+  "id": "md_2025_age_100_below",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "age_100_income",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 13 (Form 502SU code ya), 14-21; Instruction 13 Line 13 code letter ya (PDF page 20); Instruction 10 (PDF page 13); Schedule II (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 100,
+        "born": "1925-03-01"
+      },
+      {
+        "age": 92,
+        "born": "1933-06-06"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        },
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "65300.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "24900.00",
+    "state_tax_before_credits": "1130.25",
+    "credits": "0.00",
+    "state_income_tax": "1130.25",
+    "relief_amounts": {
+      "age_100_income": "60000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (you) 60,000.00 + IRA distribution (spouse) 40,000.00 = 100,000.00. Federal taxable income = 100,000.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 65,300.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 100,000.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 100,000.00. Form 502SU: code ya (you, age 100): smaller of that person's income 60,000.00 and 100,000.00 = 60,000.00. Line 13 = 60,000.00. Line 14 two-income subtraction: 0.00 on the form too: after the code ya subtraction the 100-year-old's income is 0, so Worksheet 13D line 6 is 0. Line 15 total subtractions = Line 13 60,000.00 = 60,000.00. Line 16 Maryland AGI = 100,000.00 - 60,000.00 = 40,000.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 6,700.00. Line 18 net income = 40,000.00 - 6,700.00 = 33,300.00. Line 19 exemptions: Chart 10A at federal AGI 100,000.00 (not over 150,000) gives 3,200.00 each x 2 (Box A) + 1,000.00 x 2 for age 65 or older (Box B, not reduced by the chart) = 8,400.00. Line 20 taxable net income = 33,300.00 - 8,400.00 = 24,900.00. Line 21 tax, Schedule II as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 21,900.00 = 1,040.25; total 1,130.25. (The tax table row 24,900-24,950, PDF page 35, gives 1,131; expected keeps the formula figure.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 1,130.25. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). Code ya covers only the income of the person who is at least 100; the 92-year-old spouse's IRA distribution stays taxable. The IRA distributions do not qualify for the pension exclusion.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

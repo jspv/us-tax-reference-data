@@ -1,0 +1,68 @@
+{
+  "id": "oh_2025_ric_under_500_table_2",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 2 (PDF p.28; Table 2 PDF p.44; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "400.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50400.00",
+    "federal_taxable_income": "34650.00"
+  },
+  "expected": {
+    "state_agi": "50400.00",
+    "state_taxable_income": "48250.00",
+    "state_tax_before_credits": "952.50",
+    "credits": "200.00",
+    "state_income_tax": "752.50",
+    "relief_amounts": {
+      "retirement_income_credit": "200.00"
+    }
+  },
+  "worked": "Federal AGI = wages person 0 50,000.00 + private pension person 0 400.00 = 50,400.00. Federal taxable income = 50,400.00 - standard deduction 15,750.00 = 34,650.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 50,400.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: none; line 47 total 0.00; line 2b 0.00. Line 3 Ohio AGI = 50,400.00 + 0.00 - 0.00 = 50,400.00. Line 4: MAGI is line 3 with no business income deduction, 50,400.00, in the band 40,001 to 80,000: 2,150.00 each; 1 exemption x 2,150.00 = 2,150.00. Line 5 = 50,400.00 - 2,150.00 = 48,250.00. Line 6 taxable business income 0.00. Line 7 = 48,250.00. Line 8a tax: 48,250.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (48,250.00 - 26,050.00 = 22,200.00) = 342.00 + 610.50 = 952.50. Schedule of Credits line 1 = 952.50. MAGI less exemptions (worksheet PDF p.40) = 50,400.00 - 2,150.00 = 48,250.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: covered retirement income 400.00; 200.00 (the projection's flat figure). Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 200.00 + 0.00 = 200.00. Line 11 = 952.50 - 200.00 = 752.50. State income tax 752.50. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 953; expected keeps the formula result. Table 2 gives 0 on 400 of retirement income, so the form's tax is 952.50; the projection's flat credit is 200 and expected follows it.",
+  "accepted_approximations": [
+    "The retirement income credit is a flat 200 whenever the return has covered income, where Table 2 steps on the amount: 0 to 500 gets 0, then 25, 50, 80, 130, and 200 from 8,001."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:federal_civil_service_military_share",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:lump_sum_retirement_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction",
+    "state_rule_not_modelled:survivor_benefits_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

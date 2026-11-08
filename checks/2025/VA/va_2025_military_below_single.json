@@ -1,0 +1,63 @@
+{
+  "id": "va_2025_military_below_single",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_benefits"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-3, 7-9, 11, 12, 14-16; Schedule ADJ Lines 6-7, code 60 Military Benefits Subtraction (PDF p28, printed Page 22); PDF p15 Exemptions; PDF p17 Line 11; PDF p41 Tax Rate Schedule",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "10320.00",
+    "state_tax_before_credits": "386.00",
+    "credits": "0.00",
+    "state_income_tax": "386.00",
+    "relief_amounts": {
+      "military_benefits": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): Federal AGI = wages (you) 20,000.00 + military retired pay (you) 30,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 = 34,250.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 50,000.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 50,000.00. Line 4 age deduction = 0.00. Line 5 taxable Social Security subtracted = 0.00. Line 6 state refund 0.00. Schedule ADJ Line 6 code 60 military benefits subtraction, each person's own maximum: you: smaller of 30,000.00 and 40,000.00 = 30,000.00; Schedule ADJ Line 7 total = 30,000.00; Form 760 Line 7 = 30,000.00. Line 8 = 0.00 + 0.00 + 0.00 + 30,000.00 = 30,000.00. Line 9 VAGI = 50,000.00 - 30,000.00 = 20,000.00. Line 11 standard deduction (Filing Status 1) = 8,750.00. Line 12 exemptions: Section A 1 x 930.00 = 930.00; Section B 0 x 800.00 (65 or older) = 0.00; total 930.00. Line 14 = 9,680.00. Line 15 Virginia taxable income = 20,000.00 - 9,680.00 = 10,320.00. Line 16 tax, rate schedule (PDF p41) as numbers: 120.00 + 5% x (10,320.00 - 5,000.00 = 5,320.00) = 120.00 + 266.00 = 386.00 (the form rounds to the whole dollar: 386.00). Line 17 Spouse Tax Adjustment: not a joint return, 0.00. Credits none modelled or claimed, 0.00. Virginia income tax = 386.00. No age deduction (born after January 1, 1961).",
+  "accepted_warnings": [
+    "state_rule_not_modelled:medal_of_honor",
+    "state_rule_not_modelled:retirement_prev_taxed_other_state",
+    "state_rule_not_modelled:ss_tier1_railroad"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

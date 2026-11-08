@@ -1,0 +1,65 @@
+{
+  "id": "ne_2025_military_single",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ne_military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I line 32; booklet PDF page 26 Line 32 ('All military retirees are allowed to exclude 100% of the military retirement benefits'); record ne_military_retirement_exclusion",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-02-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40050.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "36000.00",
+          "person": 0,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "76050.00",
+    "federal_taxable_income": "60300.00"
+  },
+  "expected": {
+    "state_agi": "40050.00",
+    "state_taxable_income": "31450.00",
+    "state_tax_before_credits": "1171.53",
+    "credits": "171.00",
+    "state_income_tax": "1000.53",
+    "relief_amounts": {
+      "ne_military_retirement_exclusion": "36000.00"
+    }
+  },
+  "worked": "Single, 50: military pension 36,000 and wages 40,050. No age or income test: the whole pension comes out, the wages stay. Federal (given, not tested): federal AGI = wages (you) 40,050.00 + military pension (you) 36,000.00 = 76,050.00. Federal taxable income = 76,050.00 - standard deduction 15,750.00 = 60,300.00 (federal senior deduction ignored). Form 1040N filing status (1) single, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4c none; line 4 total 1. Line 5 federal AGI 76,050.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 8,600.00; lines 7 to 9 skipped (no federal itemizing); line 10 8,600.00. Line 11 = 76,050.00 - 8,600.00 = 67,450.00. Line 12 adjustments increasing federal AGI 0.00. Schedule I Part B: line 32 military retirement 36,000.00; line 44 total 36,000.00. Line 13 = 36,000.00. Line 14 Nebraska taxable income = 67,450.00 + 0.00 - 36,000.00 = 31,450.00. State income after additions and subtractions (before the deduction) = 76,050.00 + 0.00 - 36,000.00 = 40,050.00. Line 15 tax, schedule as numbers (single column): 2.46% x 4,030.00 = 99.138 + 3.51% x 20,090.00 = 705.159 + 5.01% x 7,330.00 = 367.233; total 1,171.530, rounded once to 1,171.53. The Tax Table row 31,360 to 31,460 gives 1,170; expected keeps the schedule. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 1,171.53. Line 18 personal exemption credit = 171 x 1 = 171.00; line 34 171.00. Line 35 = 1,171.53 - 171.00 = 1,000.53. Federal Tax Liability Worksheet (PDF page 17): net adjustments -36,000.00 are under 5,000, but it does not reduce line 35: the federal tax before credits is at least 10% x 60,300.00 = 6,030.00, above worksheet line 2 of 1,000.53.",
+  "accepted_approximations": [
+    "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_csrs_annuity_exclusion",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

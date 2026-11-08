@@ -1,0 +1,52 @@
+{
+  "id": "hi_2025_head_of_household_wages",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules); PDF page 20 Line 23 (head of household 6,424)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-07-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "46375.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "62432.00",
+    "state_tax_before_credits": "3119.90",
+    "credits": "0.00",
+    "state_income_tax": "3119.90"
+  },
+  "worked": "Head of household, 40, wages 70,000. Tests the head of household standard deduction (6,424) and one personal exemption. The qualifying person's dependent exemption (line 6c/6d) is not counted: dependents are not modelled. Line 7 federal AGI = wages 70,000.00 = 70,000.00. Federal taxable income = 70,000.00 - 23,625.00 federal standard deduction = 46,375.00 (given, not tested; the federal senior deduction is ignored). Line 11 total additions = 0.00; line 12 = 70,000.00 + 0.00 = 70,000.00. Line 19 total subtractions = 0.00; line 20 Hawaii AGI = 70,000.00 - 0.00 = 70,000.00. Line 23 standard deduction (head of household, PDF page 20 table) 6,424.00; line 24 = 70,000.00 - 6,424.00 = 63,576.00. Line 6e exemptions: 1 regular = 1; line 25 = 1 x 1,144.00 = 1,144.00. Line 26 taxable income = 63,576.00 - 1,144.00 = 62,432.00. Line 27 tax, Schedule III (PDF page 50) as bands on 62,432.00: 14,400.00 x 1.4% = 201.60; 7,200.00 x 3.2% = 230.40; 7,200.00 x 5.5% = 396.00; 7,200.00 x 6.4% = 460.80; 18,000.00 x 6.8% = 1,224.00; 8,432.00 x 7.2% = 607.104; sum = 3,119.904, to the cent 3,119.90; tax = 3,119.90 (Form N-11 line 27 uses the Tax Table below 100,000 of taxable income (PDF page 20, Line 27): the table row 62,400 to 62,450 gives 3,120; this case uses the bands as numbers). No credits modelled (refundable food/excise and renters credits, lines 28-29, not claimed): state income tax = 3,119.90.",
+  "accepted_approximations": [
+    "Dependent exemptions are not applied (dependents not modelled)."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

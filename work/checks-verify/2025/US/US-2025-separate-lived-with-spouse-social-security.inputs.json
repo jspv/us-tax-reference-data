@@ -1,0 +1,37 @@
+{
+  "id": "US-2025-separate-lived-with-spouse-social-security",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.social_security_benefits"
+  ],
+  "description": "Married filing separately, age 67, lived with the spouse during the year: base amount 0, so 85% of the worksheet's line 7 is taxable; no senior deduction on a separate return.",
+  "inputs": {
+    "filing_status": "married_separate",
+    "lived_with_spouse": true,
+    "persons": [
+      {
+        "born": "1958-09-02",
+        "age": 67
+      }
+    ],
+    "taxable_pensions": "6000",
+    "social_security_benefits": "20000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "taxable_social_security",
+    "total_tax"
+  ]
+}

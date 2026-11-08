@@ -1,0 +1,51 @@
+{
+  "id": "wi_2025_std_deduction_single_max",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37 (first row 0 to 13,390 and the flat 13,560 single column to 19,500)",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "18000.00",
+    "federal_taxable_income": "2250.00"
+  },
+  "expected": {
+    "state_agi": "18000.00",
+    "state_taxable_income": "3740.00",
+    "state_tax_before_credits": "130.90",
+    "credits": "0.00",
+    "state_income_tax": "130.90"
+  },
+  "worked": "Single, 45, wages 18,000: Wisconsin income below the first falling single row (19,500), so the full 13,560 standard deduction. Federal (given, not tested): federal AGI = wages (you) 18,000.00 = 18,000.00. Federal taxable income = 18,000.00 - standard deduction 15,750.00 = 2,250.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 18,000.00; line 2 Schedule I adjustments 0.00; line 3 18,000.00; line 4 additions 0.00; line 5 18,000.00. Schedule SB: no subtraction applies; line 50 0.00. Form 1 line 6 0.00; line 7 Wisconsin income = 18,000.00 - 0.00 = 18,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 18,000 to less than 18,500, column Single: 13,560.00 (printed row, at least / less than / single / joint / separate / head of household: 18,000 / 18,500 / 13,560 / 25,110 / 10,969 / 17,520). Line 9 = 18,000.00 - 13,560.00 = 4,440.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 4,440.00 - 700.00 = 3,740.00. Line 12 tax, Schedule A (single) as numbers: 3.5% x 3,740.00 = 130.90; total 130.90, rounded once to 130.90. The Tax Table row 3,700 to 3,800 (PDF page 38) gives 131; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 130.90.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

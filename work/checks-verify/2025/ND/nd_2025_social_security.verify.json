@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "658.61",
+  "state_tax_before_credits": "658.61",
+  "state_taxable_income": "82250.00"
+ },
+ "worked": "Federal check: AGI 125,500.00 = ira_distribution 100,000.00 + taxable_social_security 25,500.00; less standard deduction 15,750 + age 2,000 = federal taxable income 107,750.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 107,750.00; no additions (lines 2-3 are 0).\nLine 15 social security exclusion (taxable part) = 25,500.00\nLine 17 total subtractions = 25,500.00\nLine 18 = 107,750.00 - 25,500.00 = 82,250.00\nLine 20 tax: single band 0.0195 on 33,775.00 (over 48,475.00) = 658.612500\nLine 20 tax = 658.612500 -> 658.61 to the cent\nThe Tax Table row 82,250-82,300 gives 659; schedule formula used per the checks brief.\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 658.61.\nApproximation: Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+}

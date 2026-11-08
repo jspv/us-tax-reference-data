@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "40000.00",
+  "state_income_tax": "1109.74",
+  "state_tax_before_credits": "1109.74",
+  "state_taxable_income": "28224.00",
+  "relief_amounts": {
+   "wi_military_retirement": "30000.00"
+  }
+ },
+ "worked": "Filing status single; federal_taxable_income given (54250.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 70,000.00. Schedule SB line 12 U.S. military retirement exempt in full (wi_military_retirement): 30,000.00. Total subtractions 30,000.00; Form 1 line 7 Wisconsin income (state_agi) = 70,000.00 - 30,000.00 = 40,000.00. Line 8 standard deduction: table row for single at least 40,000.00 (projection step over 40000) -> 11,076.00. Line 10a exemptions 700 x 1 = 700.00; line 10b 250 x 0 person(s) 65 or older = 0.00. Line 11 taxable income = 40,000.00 - 11,076.00 - 700.00 - 0.00 = 28,224.00. Line 12 tax, Pub 106 Schedule A (single or head of household): (14,680.00 - 0.00) x 0.035 = 513.80 + (28,224.00 - 14,680.00) x 0.044 = 595.94 = 1,109.74. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 1,109.74."
+}

@@ -1,0 +1,2 @@
+{"expected":{"credits":"0.00","state_income_tax":"0.00","state_tax_before_credits":"0.00","state_taxable_income":"0.00"},
+"worked":"Florida has no personal income tax (projection has_income_tax false, no brackets, starts_from none, no deductions or reliefs). No state return exists, so state taxable income, tax before credits, credits and state income tax are all 0.00 whatever the federal AGI (81,000.00) and taxable income (65,250.00)."}

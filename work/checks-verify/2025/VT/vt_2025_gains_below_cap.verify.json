@@ -1,0 +1,13 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "relief_amounts": {
+   "vt_capital_gains_flat": "3000.00"
+  },
+  "state_agi": "65000.00",
+  "state_income_tax": "1829.80",
+  "state_tax_before_credits": "1829.80",
+  "state_taxable_income": "52050.00"
+ },
+ "worked": "Filing status single; IN-111 Line 1 federal AGI 68,000.00 (federal taxable income 52250.00 given, not used: VT starts from federal AGI; federal senior deduction ignored per brief). IN-112 Line 8 / IN-153 flat exclusion: lesser of gains 3,000.00 or 5,000 = 3,000.00 (40%-of-federal-taxable-income limit not applied by projection; not binding here: 40% x 52250.00 far above 5,000). IN-112 Line 19 net modification = 0.00 - 3,000.00; IN-111 Line 3 state AGI = 68,000.00 + 0.00 - 3,000.00 = 65,000.00. Line 4 standard deduction 7,650.00 + 1,250 x 0 (born before Jan. 2, 1961) = 7,650.00; Line 5e exemptions 1 x 5,300 = 5,300.00; Line 6 = 12,950.00. Line 7 taxable income = 65,000.00 - 12,950.00 = 52,050.00. Rate schedule (single): 3.3500% x (49,400.00 - 0.00) = 1654.9000; 6.600% x (52,050.00 - 49,400.00) = 174.90000; total 1829.80000. Line 8: federal AGI 68,000.00 not greater than 150,000, minimum tax does not apply; tax 1,829.80 (formula, not the 100-dollar tax table). No credits modelled: credits 0.00; state income tax 1,829.80."
+}

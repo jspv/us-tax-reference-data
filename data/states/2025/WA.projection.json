@@ -1,0 +1,67 @@
+{
+  "layer": "projection",
+  "state": "WA",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/WA.record.json",
+    "sha256": "6811710d5eb80f50881c417c89c855b0c85c96c97a56d774d941a3cff712e7e6"
+  },
+  "has_income_tax": false,
+  "brackets": {
+    "single": [],
+    "married_joint": []
+  },
+  "base": {
+    "starts_from": "none",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "all_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [],
+  "not_modelled": [
+    {
+      "id": "wa_cg_first_million",
+      "from_record": [
+        "wa_cg_first_million",
+        "wa_cg_over_million_additional",
+        "wa_cg_real_estate_exempt",
+        "wa_cg_real_estate_entity_exempt",
+        "wa_cg_retirement_accounts_exempt",
+        "wa_cg_standard_deduction",
+        "wa_cg_charitable_deduction"
+      ],
+      "what": "Washington's excise tax on long-term capital gains (RCW 82.87), which is separate from income tax: 7% on the first 1,000,000 of taxable Washington capital gains and 7% plus an additional 2.9% on the amount over 1,000,000, after a 278,000 standard deduction and the record's other deductions and exemptions (real estate and assets held in certain retirement accounts are exempt). The projection computes none of it. Only a household whose Washington long-term gains exceed the standard deduction after exemptions can owe it; the warning fires only when the household has long-term gains.",
+      "warn_when": "has_long_term_gains"
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "0.099",
+      "how": "sum",
+      "of": [
+        "0.07",
+        "0.029"
+      ],
+      "what": "Washington capital gains tax rate on the amount over 1,000,000: the 7% plus the additional 2.9%; matches the 9.9% row of the notice's rate table. Not used in any calculation here (the tax is in not_modelled)."
+    }
+  ],
+  "approximations": [
+    {
+      "what": "No personal income tax (Income tax page, Washington Department of Revenue). Social Security and municipal interest are shown as exempt because nothing is taxed; the record holds not_stated for both, since the sources say nothing about either.",
+      "direction": "either",
+      "size": "None: there is no state income tax to estimate."
+    },
+    {
+      "what": "Washington's tax on long-term capital gains is left out of the state tax (see not_modelled).",
+      "direction": "understates_tax",
+      "size": "The whole tax, for a household that owes it. Example: 500,000 of Washington long-term gains after exemptions, no other deductions: (500,000 - 278,000) x 7% = 15,540 a year not shown."
+    }
+  ]
+}

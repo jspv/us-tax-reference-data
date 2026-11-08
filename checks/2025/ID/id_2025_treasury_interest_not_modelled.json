@@ -1,0 +1,55 @@
+{
+  "id": "id_2025_treasury_interest_not_modelled",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.43 Form 39R instructions Part B Line 3; PDF p.33 Form 39R Part B line 3; Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-01-31"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00"
+    },
+    "federal_agi": "54000.00",
+    "federal_taxable_income": "38250.00"
+  },
+  "expected": {
+    "state_agi": "54000.00",
+    "state_taxable_income": "38250.00",
+    "state_tax_before_credits": "1772.27",
+    "credits": "155.00",
+    "state_income_tax": "1617.27"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 50,000.00 + U.S. Treasury interest 4,000.00 = 54,000.00. Federal taxable income = 54,000.00 - 15,750.00 federal standard deduction = 38,250.00 (the federal senior deduction is ignored). Form 40 (filing status single): line 7 federal AGI 54,000.00. Line 8 additions 0.00; line 9 = 54,000.00 + 0.00 = 54,000.00. Form 39R Part B line 3 U.S. government interest: the projection subtracts 0.00 (approximations; the booklet would subtract 4,000.00). Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8: no qualifying retirement benefits, line 8f 0.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 0.00 = 0.00. Form 40 line 10 0.00; line 11 total adjusted income = 54,000.00 - 0.00 = 54,000.00. Line 12a boxes checked 0. Standard Deduction Worksheet: line 1 15,750.00; line 4 15,750.00; line 5 0 x 2,000.00 = 0.00; line 6 15,750.00. Line 15 0.00 (no Schedule A); line 16 15,750.00. Line 17 = 54,000.00 - 15,750.00 = 38,250.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 38,250.00. Line 20 worksheet: line 1 38,250.00; line 2 4,811.00; line 3 = 33,439.00; line 4 at 5.3%; line 5 tax = 33,439.00 x 5.3% = 1772.267, to the cent 1,772.27 (the return rounds to whole dollars, PDF p.8, and shows 1,772; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 1,772.27. Food Tax Credit Worksheet (Form 40 line 43): 1 x 155.00 = 155.00. State income tax = 1,772.27 - 155.00 = 1,617.27. The booklet itself would subtract 4,000.00 on Form 39R Part B line 3: line 19 34,250.00, tax 1,560.27; the projection overstates tax by 212.00. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations).",
+  "accepted_approximations": [
+    "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

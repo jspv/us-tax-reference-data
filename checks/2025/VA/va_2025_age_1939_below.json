@@ -1,0 +1,64 @@
+{
+  "id": "va_2025_age_1939_below",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "age_deduction_born_by_1939",
+    "age_65_exemption"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 8-9, 11, 12, 14-16; PDF p15 Line 4 Age Deduction and Exemptions; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15; PDF p17 (printed Page 11) Taxpayers Age 65 and Older and Line 5; PDF p41 Tax Rate Schedule",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 89,
+        "born": "1936-05-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "6000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "2000.00",
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00"
+    },
+    "federal_agi": "8000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "age_deduction_born_by_1939": "8000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): Taxable Social Security (federal worksheet): gross benefits 18,000.00; provisional income = 8,000.00 + half of benefits 9,000.00 = 17,000.00; taxable = 0.00. Federal AGI = private pension (you) 6,000.00 + taxable interest 2,000.00 + taxable Social Security 0.00 = 8,000.00. Federal taxable income = 8,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = -9,750.00, floored at 0.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 8,000.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 8,000.00. Age deduction, born on or before January 1, 1939 (you born 1936-05-01): 12,000.00 each with no income test = 12,000.00, limited by the projection to the return's income after Social Security 8,000.00 = 8,000.00 (the form itself enters 12,000.00 and lets VAGI go below 0). Line 4 age deduction = 8,000.00. Line 5 taxable Social Security subtracted = 0.00. Line 6 state refund 0.00. Line 7 Schedule ADJ subtractions 0.00. Line 8 = 8,000.00 + 0.00 + 0.00 + 0.00 = 8,000.00. Line 9 VAGI = 8,000.00 - 8,000.00 = 0.00. Line 11 standard deduction (Filing Status 1) = 8,750.00. Line 12 exemptions: Section A 1 x 930.00 = 930.00; Section B 1 x 800.00 (65 or older) = 800.00; total 1,730.00. Line 14 = 10,480.00. Line 15 Virginia taxable income = 0.00 - 10,480.00 = -10,480.00, floored at 0.00. Line 16 tax, rate schedule (PDF p41) as numbers: 2% x 0.00 = 0.00 (the form rounds to the whole dollar: 0.00). Line 17 Spouse Tax Adjustment: not a joint return, 0.00. Credits none modelled or claimed, 0.00. Virginia income tax = 0.00. The person's income after Social Security (8,000.00) is under the 12,000.00 cap. VAGI is under the 11,950 filing threshold, so the form's tax is 0 as well.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:retirement_prev_taxed_other_state",
+    "state_rule_not_modelled:ss_tier1_railroad"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

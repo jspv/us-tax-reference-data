@@ -1,0 +1,54 @@
+{
+  "id": "id_2025_std_deduction_exceeds_income",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "food_tax_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.6 Idaho Resident Filing Requirements; Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; PDF p.31 Form 40 lines 41, 43, 50 and 55; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "12000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "12000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "12000.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "155.00",
+    "state_income_tax": "-155.00",
+    "relief_amounts": {
+      "food_tax_credit": "155.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 12,000.00 = 12,000.00. Federal taxable income = 12,000.00 - 15,750.00 federal standard deduction = 0.00 (the federal senior deduction is ignored). Form 40 (filing status single): line 7 federal AGI 12,000.00. Line 8 additions 0.00; line 9 = 12,000.00 + 0.00 = 12,000.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8: no qualifying retirement benefits, line 8f 0.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 0.00 = 0.00. Form 40 line 10 0.00; line 11 total adjusted income = 12,000.00 - 0.00 = 12,000.00. Line 12a boxes checked 0. Standard Deduction Worksheet: line 1 15,750.00; line 4 15,750.00; line 5 0 x 2,000.00 = 0.00; line 6 15,750.00. Line 15 0.00 (no Schedule A); line 16 15,750.00. Line 17 = 12,000.00 - 15,750.00 = -3,750.00, less than zero, so 0.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 0.00. Line 20 worksheet: line 1 0.00; line 2 4,811.00; line 3 = -4,811.00; line 4 at 5.3%; line 5 zero or less, so 0.00 (the return rounds to whole dollars, PDF p.8, and shows 0; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 0.00. Food Tax Credit Worksheet (Form 40 line 43): line 1 12 months, line 2 155.00; line 6 total 155.00 (relief amount). The tax is 0.00, and line 43 is a payment line, not a credit against the tax: Form 40 adds it into line 50 'Total Payments and Other Credits' and line 55 pays out line 50 above line 41 (PDF p.31; Line 43 under 'Payments and Other Credits', PDF p.13), so the projection's credit is refundable and is not limited to the tax: credits 155.00. State income tax = 0.00 - 155.00 = -155.00, paid out. On the return: line 20 0, no line 31 tax (gross income under the filing amount, 'NRF', PDF p.12), line 41 0, line 43 155, line 50 155, line 55 overpaid 155, the same as expected. Gross income 12,000.00 is under the 15,750 filing amount (PDF p.6); the return is filed only to claim line 43.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

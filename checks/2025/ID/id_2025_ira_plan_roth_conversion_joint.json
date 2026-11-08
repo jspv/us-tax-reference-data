@@ -1,0 +1,72 @@
+{
+  "id": "id_2025_ira_plan_roth_conversion_joint",
+  "state": "ID",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_addition",
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
+    "section": "PDF p.10 Line 12a; PDF p.11 worksheet line 5 ('born before January 2, 1961'); Form 40 lines 7-11, 12a, 15-20, 26 (PDF p.29-30); instructions PDF p.10-11 Standard Deduction Worksheet lines 1-6 and Line 20 worksheet lines 1-5; PDF p.13-14 Line 43 and Food Tax Credit Worksheet; PDF p.12 Line 31; record brackets and base.deductions cites",
+    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-03"
+      },
+      {
+        "age": 64,
+        "born": "1961-07-22"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "roth_conversion": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "90000.00",
+    "federal_taxable_income": "56900.00"
+  },
+  "expected": {
+    "state_agi": "90000.00",
+    "state_taxable_income": "56900.00",
+    "state_tax_before_credits": "2505.73",
+    "credits": "310.00",
+    "state_income_tax": "2195.73"
+  },
+  "worked": "Federal (given, not tested): federal AGI = IRA distribution (person 0) 30,000.00 + employer plan distribution (person 1) 20,000.00 + Roth conversion (person 0) 40,000.00 = 90,000.00. Federal taxable income = 90,000.00 - 31,500.00 federal standard deduction - 1 x 1,600.00 age 65 additional = 56,900.00 (the federal senior deduction is ignored). Form 40 (filing status married filing jointly): line 7 federal AGI 90,000.00. Line 8 additions 0.00; line 9 = 90,000.00 + 0.00 = 90,000.00. Form 39R Part B line 7 Social Security and railroad benefits included in federal income = 0.00 + 0.00 = 0.00. Line 8: no qualifying retirement benefits, line 8f 0.00. Line 18 health insurance premiums: none in the inputs, 0.00. Line 24 total subtractions = 0.00 + 0.00 = 0.00. Form 40 line 10 0.00; line 11 total adjusted income = 90,000.00 - 0.00 = 90,000.00. Line 12a boxes checked 1. Standard Deduction Worksheet: line 1 31,500.00; line 4 31,500.00; line 5 1 x 1,600.00 = 1,600.00; line 6 33,100.00. Line 15 0.00 (no Schedule A); line 16 33,100.00. Line 17 = 90,000.00 - 33,100.00 = 56,900.00. Line 18 federal Form 1040 lines 13a and 13b taken as 0.00; line 19 Idaho taxable income 56,900.00. Line 20 worksheet: line 1 56,900.00; line 2 9,622.00; line 3 = 47,278.00; line 4 at 5.3%; line 5 tax = 47,278.00 x 5.3% = 2505.734, to the cent 2,505.73 (the return rounds to whole dollars, PDF p.8, and shows 2,506; expected keeps the formula). Lines 21-24 credits 0.00; line 25 0.00; line 26 2,505.73. Food Tax Credit Worksheet (Form 40 line 43): 2 x 155.00 = 310.00. State income tax = 2,505.73 - 310.00 = 2,195.73. Line 31 Permanent Building Fund tax 10.00 is on the return but the projection does not charge it (approximations). Line 18 would take any federal Schedule 1-A amount, the senior deduction included; it is ignored here and the projection does not subtract it (approximations). No Idaho subtraction names IRA or employer plan money or a Roth conversion; all three reach Idaho through federal AGI on line 7.",
+  "accepted_approximations": [
+    "The Permanent Building Fund tax of 10 a return (Form 40 line 31) is not charged.",
+    "The federal Schedule 1-A and qualified business income deductions are not subtracted (Form 40 line 18)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:health_insurance_premiums",
+    "state_rule_not_modelled:qbi_and_schedule_1a_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

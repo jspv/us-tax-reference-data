@@ -1,0 +1,35 @@
+{
+  "id": "US-2025-single-65-full-senior-deduction",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Single filer age 66 with a pension and interest, no Social Security: MAGI under 75,000, full senior deduction.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1959-07-07",
+        "age": 66
+      }
+    ],
+    "taxable_pensions": "60000",
+    "taxable_interest": "4000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "0.00",
+    "state_income_tax": "0.00",
+    "state_tax_before_credits": "0.00",
+    "state_taxable_income": "0.00",
+    "relief_amounts": {
+      "military_retirement": "25000.00"
+    }
+  },
+  "worked": "IT-40 line 1 federal AGI 34,600.00 (given; federal senior deduction ignored in the federal figures). Schedule 2 line 5: taxable Social Security 9,600.00 subtracted (social_security exempt). Schedule 2 line 11 code 632: military retirement 25,000.00 subtracted in full (military_retirement, no age test). State AGI (IT-40 line 5) = 34,600.00 + 0.00 - 34,600.00 = 0.00. Schedule 3 line 1 personal exemptions: 1 x 1,000 = 1,000.00. Schedule 3 line 4 age 65 exemption: 1 x 1,000 = 1,000.00. Schedule 3 line 5: federal AGI 34,600.00 is less than 40,000.00 (IT-40 line 1, before add-backs): 1 x 500 = 500.00. Exemptions total 2,500.00. Taxable income (line 7) = max(0, 0.00 - 2,500.00) = 0.00 (the form's figure would be negative). Line 8: 3% x 0.00 = 0.00. No credits modelled: credits 0.00; state income tax 0.00."
+}

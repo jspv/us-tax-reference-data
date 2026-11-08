@@ -1,0 +1,36 @@
+{
+  "id": "US-2026-surviving-spouse-wages-niit-medicare",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "at_or_above",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.capital_gains",
+    "income_tax.net_investment_income_tax",
+    "income_tax.additional_medicare_tax"
+  ],
+  "description": "Qualifying surviving spouse age 50 with wages and qualified dividends: the net investment income tax uses the 250,000 joint threshold, the additional Medicare tax the 200,000 threshold.",
+  "inputs": {
+    "filing_status": "qualifying_surviving_spouse",
+    "persons": [
+      {
+        "born": "1976-10-10",
+        "age": 50
+      }
+    ],
+    "wages": "230000",
+    "ordinary_dividends": "30000",
+    "qualified_dividends": "30000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

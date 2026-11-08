@@ -1,0 +1,12 @@
+{
+ "expected": {
+  "credits": "40.00",
+  "relief_amounts": {
+   "ia_personal_credit": "40.00"
+  },
+  "state_income_tax": "150.00",
+  "state_tax_before_credits": "190.00",
+  "state_taxable_income": "5000.00"
+ },
+ "worked": "Federal AGI 10000.00; federal deduction 15750.00 (senior deduction ignored). IA 1040 line 2, federal taxable income, as given and floored at zero: 0.00. Schedule 1 line 1 column A, municipal_interest_own_state: +5000.00 (projection muni_interest all_taxed). Line 3, net Iowa modifications: 5000.00 - 0.00 = 5000.00. Line 4, Iowa taxable income: 0.00 + 5000.00 = 5000.00. Line 5: 5000.00 x 3.8% = 190.00. Line 8, exemption credits: personal 1 x 40 = 40.00; 65 or older 0 x 20 = 0.00; total 40.00. Line 12: 190.00 - 40.00 = 150.00. Form difference (approximation): line 2 could be negative, -5750.00; line 4 would be -750.00, no tax. The projection floors line 2 at zero. The single filers' tax reduction (41-146) is not applied; its terms are not in the sources."
+}

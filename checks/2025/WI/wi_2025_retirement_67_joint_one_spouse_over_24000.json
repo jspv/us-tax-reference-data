@@ -1,0 +1,71 @@
+{
+  "id": "wi_2025_retirement_67_joint_one_spouse_over_24000",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wi_retirement_67"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Schedule SB Instructions",
+    "section": "Schedule SB (PDF page 1) and its Instructions: line 16 and its Caution (SB Instructions PDF page 7; Publication 126 PDF page 8 section 4.E(1); Publication 106 PDF page 4 section 3.C(1)); Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-ScheduleSB-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-07-15"
+      },
+      {
+        "age": 60,
+        "born": "1965-07-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "36900.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "3643.00",
+    "state_tax_before_credits": "127.51",
+    "credits": "0.00",
+    "state_income_tax": "127.51",
+    "relief_amounts": {
+      "wi_retirement_67": "40000.00"
+    }
+  },
+  "worked": "Married filing jointly, you 67, spouse 60: you private pension 40,000; spouse wages 30,000. Only one spouse is 67: Wisconsin allows that spouse up to 24,000 (the 48,000 is only for a couple both 67), so the form's line 16 is 24,000. The projection applies the 48,000 joint cap to the 67-year-old's own income and subtracts all 40,000; expected follows the projection (accepted approximation). Federal (given, not tested): federal AGI = wages (spouse) 30,000.00 + private pension (you) 40,000.00 = 70,000.00. Federal taxable income = 70,000.00 - standard deduction 31,500.00 + 1 x 1,600.00 = 36,900.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 70,000.00; line 2 Schedule I adjustments 0.00; line 3 70,000.00; line 4 additions 0.00; line 5 70,000.00. Schedule SB: line 16 retirement income subtraction: qualifying income you (age 67): pension 40,000.00 = 40,000.00; smaller of 40,000.00 and the 48,000.00 cap = 40,000.00; line 50 total 40,000.00. Schedule SB line 17: federal AGI 70,000.00 is not less than 30,000.00, so no 5,000 subtraction. Form 1 line 6 40,000.00; line 7 Wisconsin income = 70,000.00 - 40,000.00 = 30,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 30,000 to less than 30,500, column Married filing jointly: 24,707.00 (printed row, at least / less than / single / joint / separate / head of household: 30,000 / 30,500 / 12,276 / 24,707 / 8,595 / 15,111). Line 9 = 30,000.00 - 24,707.00 = 5,293.00. Line 10a 2 x 700 = 1,400.00; line 10b 1 x 250 = 250.00; line 10c 1,650.00. Line 11 taxable income = 5,293.00 - 1,650.00 = 3,643.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 3,643.00 = 127.505; total 127.505, rounded once to 127.51. The Tax Table row 3,600 to 3,700 (PDF page 38) gives 128; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 127.51. Form figure for comparison (line 16 24,000, the one-spouse cap): Form 1 line 6 24,000.00; line 7 Wisconsin income = 70,000.00 - 24,000.00 = 46,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 46,000 to less than 46,500, column Married filing jointly: 21,542.00 (printed row, at least / less than / single / joint / separate / head of household: 46,000 / 46,500 / 10,356 / 21,542 / 5,431 / 11,508). Line 9 = 46,000.00 - 21,542.00 = 24,458.00. Line 10a 2 x 700 = 1,400.00; line 10b 1 x 250 = 250.00; line 10c 1,650.00. Line 11 taxable income = 24,458.00 - 1,650.00 = 22,808.00. Line 12 tax, Schedule B (joint) as numbers: 3.5% x 19,580.00 = 685.30 + 4.4% x 3,228.00 = 142.032; total 827.332, rounded once to 827.33. The Tax Table row 22,800 to 22,900 (PDF page 39) gives 829; expected keeps the schedule. Form state income tax 827.33. The projection's tax is 699.82 lower than the form's.",
+  "accepted_approximations": [
+    "Joint return where only one spouse is 67 or older: the projection applies the 48,000 joint cap to that spouse's own qualifying income; Wisconsin allows 24,000 then (48,000 only when both are 67). A joint return where both are 67 is exact, which is why the joint cap is used.",
+    "The projection always takes the 24,000/48,000 subtraction for a person 67 or older, never the Wisconsin credits it bars (see not_modelled); a household whose credits are worth more would skip it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits",
+    "state_rule_not_modelled:wi_disability_income_exclusion",
+    "state_rule_not_modelled:wi_pre1964_local_state",
+    "state_rule_not_modelled:wi_retirement_67"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

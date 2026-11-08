@@ -1,0 +1,76 @@
+{
+  "id": "nj_2025_pension_band4_over_150k",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_pension_exclusion",
+    "nj_unclaimed_exclusion"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 16a, 20a, 27, 28a, 28b, 29: Instr PDF p.22 line 28a qualification ('Your income on line 27 is $150,000 or less'), PDF p.23 Worksheet D first question (line 27 MORE than $150,000); GIT-1 & 2 p.21 example ($150,450); PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-06-01"
+      },
+      {
+        "age": 63,
+        "born": "1962-10-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "55000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        },
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "NJ",
+          "contributory": false
+        }
+      ],
+      "interest": "5000.00"
+    },
+    "federal_agi": "160000.00",
+    "federal_taxable_income": "128500.00"
+  },
+  "expected": {
+    "state_agi": "160000.00",
+    "state_taxable_income": "158000.00",
+    "state_tax_before_credits": "6022.10",
+    "credits": "0.00",
+    "state_income_tax": "6022.10",
+    "relief_amounts": {
+      "nj_pension_exclusion": "0.00",
+      "nj_unclaimed_exclusion": "0.00"
+    }
+  },
+  "worked": "Federal AGI 160,000.00 (wages 55,000.00 + pensions 60,000.00 + 40,000.00 + interest 5,000.00); federal taxable income = 160,000.00 - 31,500.00 federal standard deduction = 128,500.00 (given, not tested; the federal senior deduction is ignored). Line 15 wages 55,000.00 + line 16a interest 5,000.00 + line 20a pensions 100,000.00 = line 27 total income 160,000.00; measure 160,000.00, over 150,000, keep share 0. Line 28a: line 27 is more than 150,000, so no pension exclusion: 0.00. Line 28b: Worksheet D answers Yes to 'line 27 MORE than $150,000', so no unclaimed exclusion (and wages are over 3,000): 0.00. Line 29 New Jersey gross income = 160,000.00 - 0.00 - 0.00 = 160,000.00. Line 30 exemptions (line 13): regular 1,000 x 2 (nobody is 65 or older, so no senior exemption) = 2,000.00; line 38 = 2,000.00 (no other deductions). Line 39/42 taxable income = 160,000.00 - 2,000.00 = 158,000.00. Line 43 tax, rate schedule Table B (joint/head of household/qualifying widow(er)) as bands: 20,000.00 x 0.014 = 280.00 + 30,000.00 x 0.0175 = 525.00 + 20,000.00 x 0.0245 = 490.00 + 10,000.00 x 0.035 = 350.00 + 70,000.00 x 0.05525 = 3,867.50 + 8,000.00 x 0.0637 = 509.60 = 6,022.10. No credits. State income tax = 6,022.10. The pension is noncontributory, so the New Jersey taxable amount (line 20a) equals the federal taxable amount and line 20b is empty.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:nj_disability_pension_exempt",
+    "state_rule_not_modelled:nj_special_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

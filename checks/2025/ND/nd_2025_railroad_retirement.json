@@ -1,0 +1,64 @@
+{
+  "id": "nd_2025_railroad_retirement",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14 Line 8 - U.S. Railroad Retirement Board benefits; Form ND-1 line 8; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-05-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "114000.00",
+    "federal_taxable_income": "98250.00"
+  },
+  "expected": {
+    "state_taxable_income": "74250.00",
+    "state_tax_before_credits": "502.61",
+    "credits": "0.00",
+    "state_income_tax": "502.61",
+    "relief_amounts": {
+      "railroad_retirement_exclusion": "24000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 90,000.00 + railroad retirement (Tier 2, taxed federally as a pension) (person 0) 24,000.00 = 114,000.00. Federal taxable income = 114,000.00 - standard deduction 15,750.00 = 98,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 98,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 98,250.00. Subtractions: line 8 U.S. Railroad Retirement Board benefits 24,000.00. Line 17 total subtractions = 24,000.00. Line 18 North Dakota taxable income = 98,250.00 - 24,000.00 = 74,250.00. Line 19 = 74,250.00. Line 20 tax: 1.95% x (74,250.00 - 48,475.00) = 1.95% x 25,775.00 = 502.6125, to the cent 502.61; the Tax Table row 74,250 to 74,300 gives 503; expected uses the bracket formula on the exact income. Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 502.61.",
+  "accepted_approximations": [
+    "Tax below 100,000 is figured on the exact income; the booklet uses a 50-dollar Tax Table row rounded to whole dollars."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit",
+    "state_rule_not_modelled:peace_officer_retirement_exclusion"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

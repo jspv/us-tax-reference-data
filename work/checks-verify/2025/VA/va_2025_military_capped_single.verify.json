@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "military_benefits": "40000.00"
+    },
+    "state_agi": "45000.00",
+    "state_income_tax": "1773.40",
+    "state_tax_before_credits": "1773.40",
+    "state_taxable_income": "35320.00"
+  },
+  "worked": "Line 1 federal AGI 85000.00; Line 2 additions 0.00; Line 3 85000.00. Line 5 Social Security subtraction (taxable on federal return) 0.00. Schedule ADJ code 60 military benefits, person 0: min(55000.00, 40,000.00) = 40000.00. Line 7 Schedule ADJ subtractions 40000.00. Person 0 (born 1977-08-20) does not qualify for an age deduction. Line 8 total subtractions 40000.00; Line 9 VAGI = 85000.00 - 40000.00 = 45000.00. Line 11 standard deduction 8750.00; Line 12 exemptions 1 x 930 + 0 x 800 (age 65 or older by 2026-01-01) = 930.00. Line 14 taxable income = 45000.00 - 8750.00 - 930.00 = 35320.00. Line 15 tax by the rate schedule as numbers: 0.02 x (3000.00 - 0.00) = 60.00; 0.03 x (5000.00 - 3000.00) = 60.00; 0.05 x (17000.00 - 5000.00) = 600.00; 0.0575 x (35320.00 - 17000.00) = 1053.40; total 1773.40. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 1773.40. Federal figures given; federal senior deduction ignored (not tested)."
+}

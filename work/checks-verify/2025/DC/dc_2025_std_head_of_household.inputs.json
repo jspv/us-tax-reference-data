@@ -1,0 +1,41 @@
+{
+  "id": "dc_2025_std_head_of_household",
+  "state": "DC",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 D-40 Booklet (Individual Income Tax Forms and Instructions)",
+    "section": "D-40 Lines 4-7, 15-20; booklet PDF page 19 Line 4; PDF page 20 Lines 16-17 and Calculation I/Tax Rate Schedule; Schedule S Calculation G-1 lines a-h (PDF page 51); standard deduction PDF pages 4 and 13 (record base.deductions cite)",
+    "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_082026_v1.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 41,
+        "born": "1984-03-03"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "68000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "68000.00",
+    "federal_taxable_income": "44375.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

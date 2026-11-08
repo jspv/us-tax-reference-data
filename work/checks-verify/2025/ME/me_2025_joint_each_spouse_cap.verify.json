@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "pension_income_deduction": "38216.00"
+    },
+    "state_agi": "70800.00",
+    "state_income_tax": "1583.40",
+    "state_tax_before_credits": "1583.40",
+    "state_taxable_income": "27300.00"
+  },
+  "worked": "Line 14 federal AGI (given): 139,016.00\nLine 15a additions (Sch 1A): other-state municipal interest 4,000.00\nMaine municipal interest 3,000.00: not in federal AGI, exempt in Maine, no entry\nSch 1S line 3 social security included in federal AGI: 34,000.00 (social security exempt)\nPhaseout of non-military pension worksheet (line 1 federal AGI): measure 139,016.00 not over threshold 250,000.00; share lost 0, kept 1.0000\nPension worksheet, person 0: P1 eligible 55,000.00; P2 48,216.00; P3 SS+railroad received 30,000.00; P4 18,216.00; P5 18,216.00; P6 0; P7 0.00; P8 18,216.00\nPension worksheet, person 1: P1 eligible 20,000.00; P2 48,216.00; P3 SS+railroad received 10,000.00; P4 38,216.00; P5 20,000.00; P6 0; P7 0.00; P8 20,000.00\nSch 1S line 4 pension income deduction (P10): 38,216.00\nLine 15b total subtractions: 72,216.00\nLine 16 Maine AGI: 139,016.00 + 4,000.00 - 72,216.00 = 70,800.00\nLine 17 chart: 30,000.00 + 2 box(es) 65 or over x 1600 = 33,200.00\nStandard deduction worksheet lines 1-5 (Maine AGI): measure 70,800.00 not over threshold 200,050.00; share lost 0, kept 1.0000\nWorksheet line 7 = 33,200.00 x 0 = 0.00; line 8 standard deduction = 33,200.00\nExemption phaseout worksheet lines 1-5 (Maine AGI): measure 70,800.00 not over threshold 400,100.00; share lost 0, kept 1.0000\nLine 18: 2 x 5,150 = 10,300.00; worksheet line 7 = 10300 x 0 = 0; exemption 10,300.00\nLine 19 taxable income: 70,800.00 - 33,200.00 - 10,300.00 = 27,300.00\nTax (2025 rate schedule, married_joint): 0.058 x (27,300.00 - 0.00) = 1,583.4000; total 1,583.4000 -> 1,583.40\nCredits: the projection models no credits; 0.00. Federal taxable income is not used (Maine starts from federal AGI); federal senior deduction ignored as given."
+}

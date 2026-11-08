@@ -1,0 +1,2076 @@
+{
+  "layer": "projection",
+  "state": "CT",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/CT.record.json",
+    "sha256": "125b00cab03c47d87d38aacf9ca24d38012433e5cce586ba6a2f1a318e8f6ebe"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "10000"
+      },
+      {
+        "rate": "0.055",
+        "start": "50000"
+      },
+      {
+        "rate": "0.06",
+        "start": "100000"
+      },
+      {
+        "rate": "0.065",
+        "start": "200000"
+      },
+      {
+        "rate": "0.069",
+        "start": "250000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "500000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "20000"
+      },
+      {
+        "rate": "0.055",
+        "start": "100000"
+      },
+      {
+        "rate": "0.06",
+        "start": "200000"
+      },
+      {
+        "rate": "0.065",
+        "start": "400000"
+      },
+      {
+        "rate": "0.069",
+        "start": "500000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "1000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.02",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "16000"
+      },
+      {
+        "rate": "0.055",
+        "start": "80000"
+      },
+      {
+        "rate": "0.06",
+        "start": "160000"
+      },
+      {
+        "rate": "0.065",
+        "start": "320000"
+      },
+      {
+        "rate": "0.069",
+        "start": "400000"
+      },
+      {
+        "rate": "0.0699",
+        "start": "800000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "personal_exemption",
+        "amount": {
+          "single": "15000",
+          "married_joint": "24000",
+          "qualifying_surviving_spouse": "24000",
+          "married_separate": "12000",
+          "head_of_household": "19000"
+        },
+        "per": "return",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "single": "30000",
+            "married_joint": "48000",
+            "qualifying_surviving_spouse": "48000",
+            "married_separate": "24000",
+            "head_of_household": "38000"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "single",
+              "over": "30000",
+              "amount": "14000"
+            },
+            {
+              "status": "single",
+              "over": "31000",
+              "amount": "13000"
+            },
+            {
+              "status": "single",
+              "over": "32000",
+              "amount": "12000"
+            },
+            {
+              "status": "single",
+              "over": "33000",
+              "amount": "11000"
+            },
+            {
+              "status": "single",
+              "over": "34000",
+              "amount": "10000"
+            },
+            {
+              "status": "single",
+              "over": "35000",
+              "amount": "9000"
+            },
+            {
+              "status": "single",
+              "over": "36000",
+              "amount": "8000"
+            },
+            {
+              "status": "single",
+              "over": "37000",
+              "amount": "7000"
+            },
+            {
+              "status": "single",
+              "over": "38000",
+              "amount": "6000"
+            },
+            {
+              "status": "single",
+              "over": "39000",
+              "amount": "5000"
+            },
+            {
+              "status": "single",
+              "over": "40000",
+              "amount": "4000"
+            },
+            {
+              "status": "single",
+              "over": "41000",
+              "amount": "3000"
+            },
+            {
+              "status": "single",
+              "over": "42000",
+              "amount": "2000"
+            },
+            {
+              "status": "single",
+              "over": "43000",
+              "amount": "1000"
+            },
+            {
+              "status": "single",
+              "over": "44000",
+              "amount": "0"
+            },
+            {
+              "status": "married_joint",
+              "over": "48000",
+              "amount": "23000"
+            },
+            {
+              "status": "married_joint",
+              "over": "49000",
+              "amount": "22000"
+            },
+            {
+              "status": "married_joint",
+              "over": "50000",
+              "amount": "21000"
+            },
+            {
+              "status": "married_joint",
+              "over": "51000",
+              "amount": "20000"
+            },
+            {
+              "status": "married_joint",
+              "over": "52000",
+              "amount": "19000"
+            },
+            {
+              "status": "married_joint",
+              "over": "53000",
+              "amount": "18000"
+            },
+            {
+              "status": "married_joint",
+              "over": "54000",
+              "amount": "17000"
+            },
+            {
+              "status": "married_joint",
+              "over": "55000",
+              "amount": "16000"
+            },
+            {
+              "status": "married_joint",
+              "over": "56000",
+              "amount": "15000"
+            },
+            {
+              "status": "married_joint",
+              "over": "57000",
+              "amount": "14000"
+            },
+            {
+              "status": "married_joint",
+              "over": "58000",
+              "amount": "13000"
+            },
+            {
+              "status": "married_joint",
+              "over": "59000",
+              "amount": "12000"
+            },
+            {
+              "status": "married_joint",
+              "over": "60000",
+              "amount": "11000"
+            },
+            {
+              "status": "married_joint",
+              "over": "61000",
+              "amount": "10000"
+            },
+            {
+              "status": "married_joint",
+              "over": "62000",
+              "amount": "9000"
+            },
+            {
+              "status": "married_joint",
+              "over": "63000",
+              "amount": "8000"
+            },
+            {
+              "status": "married_joint",
+              "over": "64000",
+              "amount": "7000"
+            },
+            {
+              "status": "married_joint",
+              "over": "65000",
+              "amount": "6000"
+            },
+            {
+              "status": "married_joint",
+              "over": "66000",
+              "amount": "5000"
+            },
+            {
+              "status": "married_joint",
+              "over": "67000",
+              "amount": "4000"
+            },
+            {
+              "status": "married_joint",
+              "over": "68000",
+              "amount": "3000"
+            },
+            {
+              "status": "married_joint",
+              "over": "69000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_joint",
+              "over": "70000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_joint",
+              "over": "71000",
+              "amount": "0"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "48000",
+              "amount": "23000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "49000",
+              "amount": "22000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "50000",
+              "amount": "21000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "51000",
+              "amount": "20000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "52000",
+              "amount": "19000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "53000",
+              "amount": "18000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "54000",
+              "amount": "17000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "55000",
+              "amount": "16000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "56000",
+              "amount": "15000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "57000",
+              "amount": "14000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "58000",
+              "amount": "13000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "59000",
+              "amount": "12000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "60000",
+              "amount": "11000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "61000",
+              "amount": "10000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "62000",
+              "amount": "9000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "63000",
+              "amount": "8000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "64000",
+              "amount": "7000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "65000",
+              "amount": "6000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "66000",
+              "amount": "5000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "67000",
+              "amount": "4000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "68000",
+              "amount": "3000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "69000",
+              "amount": "2000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "70000",
+              "amount": "1000"
+            },
+            {
+              "status": "qualifying_surviving_spouse",
+              "over": "71000",
+              "amount": "0"
+            },
+            {
+              "status": "married_separate",
+              "over": "24000",
+              "amount": "11000"
+            },
+            {
+              "status": "married_separate",
+              "over": "25000",
+              "amount": "10000"
+            },
+            {
+              "status": "married_separate",
+              "over": "26000",
+              "amount": "9000"
+            },
+            {
+              "status": "married_separate",
+              "over": "27000",
+              "amount": "8000"
+            },
+            {
+              "status": "married_separate",
+              "over": "28000",
+              "amount": "7000"
+            },
+            {
+              "status": "married_separate",
+              "over": "29000",
+              "amount": "6000"
+            },
+            {
+              "status": "married_separate",
+              "over": "30000",
+              "amount": "5000"
+            },
+            {
+              "status": "married_separate",
+              "over": "31000",
+              "amount": "4000"
+            },
+            {
+              "status": "married_separate",
+              "over": "32000",
+              "amount": "3000"
+            },
+            {
+              "status": "married_separate",
+              "over": "33000",
+              "amount": "2000"
+            },
+            {
+              "status": "married_separate",
+              "over": "34000",
+              "amount": "1000"
+            },
+            {
+              "status": "married_separate",
+              "over": "35000",
+              "amount": "0"
+            },
+            {
+              "status": "head_of_household",
+              "over": "38000",
+              "amount": "18000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "39000",
+              "amount": "17000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "40000",
+              "amount": "16000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "41000",
+              "amount": "15000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "42000",
+              "amount": "14000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "43000",
+              "amount": "13000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "44000",
+              "amount": "12000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "45000",
+              "amount": "11000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "46000",
+              "amount": "10000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "47000",
+              "amount": "9000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "48000",
+              "amount": "8000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "49000",
+              "amount": "7000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "50000",
+              "amount": "6000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "51000",
+              "amount": "5000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "52000",
+              "amount": "4000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "53000",
+              "amount": "3000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "54000",
+              "amount": "2000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "55000",
+              "amount": "1000"
+            },
+            {
+              "status": "head_of_household",
+              "over": "56000",
+              "amount": "0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "relief"
+  },
+  "reliefs": [
+    {
+      "id": "ss_full_exempt",
+      "from_record": [
+        "ss_full_exempt"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000",
+          "head_of_household": "100000"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "ss_partial_exempt",
+      "from_record": [
+        "ss_partial_exempt"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "requires": [
+        "applies_over",
+        "keeps_taxable"
+      ],
+      "applies_over": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "married_joint": "100000",
+          "qualifying_surviving_spouse": "100000",
+          "head_of_household": "100000"
+        },
+        "applies_when": "at_or_over"
+      },
+      "keeps_taxable": {
+        "share": "0.25",
+        "of_lesser_of": [
+          "social_security_gross",
+          "federal_ss_worksheet_line_9"
+        ]
+      }
+    },
+    {
+      "id": "pension_annuity_subtraction",
+      "from_record": [
+        "pension_annuity_subtraction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "head_of_household": "75000",
+          "married_joint": "100000"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "single",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "105000",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "110000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "115000",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "120000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "125000",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "130000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "140000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "150000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          }
+        ],
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "ira_subtraction",
+      "from_record": [
+        "ira_subtraction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "ira_distribution"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "75000",
+          "married_separate": "75000",
+          "head_of_household": "75000",
+          "married_joint": "100000"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "single",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "single",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_separate",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "80000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "82500",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "85000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "87500",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "90000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "95000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "head_of_household",
+            "over": "100000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "keep_share": "0.85",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "105000",
+            "keep_share": "0.70",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "110000",
+            "keep_share": "0.55",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "115000",
+            "keep_share": "0.40",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "120000",
+            "keep_share": "0.25",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "125000",
+            "keep_share": "0.10",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "130000",
+            "keep_share": "0.05",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "140000",
+            "keep_share": "0.025",
+            "applies_when": "at_or_over"
+          },
+          {
+            "status": "married_joint",
+            "over": "150000",
+            "keep_share": "0",
+            "applies_when": "at_or_over"
+          }
+        ],
+        "applies_when": "at_or_over"
+      },
+      "share": "0.75"
+    },
+    {
+      "id": "military_retirement",
+      "from_record": [
+        "military_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "railroad_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "personal_tax_credit",
+      "from_record": [
+        "personal_tax_credit"
+      ],
+      "form": "credit",
+      "credit_rate": "0.75",
+      "credit_basis": "tax",
+      "covers": [
+        "all_income"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "income_test": {
+        "measure": {
+          "base": "state_agi"
+        },
+        "threshold": {
+          "single": "18800",
+          "married_joint": "30000",
+          "qualifying_surviving_spouse": "30000",
+          "married_separate": "15000",
+          "head_of_household": "24000"
+        },
+        "effect": "stepped",
+        "steps": [
+          {
+            "status": "single",
+            "over": "15000",
+            "rate": "0.75"
+          },
+          {
+            "status": "single",
+            "over": "18800",
+            "rate": "0.70"
+          },
+          {
+            "status": "single",
+            "over": "19300",
+            "rate": "0.65"
+          },
+          {
+            "status": "single",
+            "over": "19800",
+            "rate": "0.60"
+          },
+          {
+            "status": "single",
+            "over": "20300",
+            "rate": "0.55"
+          },
+          {
+            "status": "single",
+            "over": "20800",
+            "rate": "0.50"
+          },
+          {
+            "status": "single",
+            "over": "21300",
+            "rate": "0.45"
+          },
+          {
+            "status": "single",
+            "over": "21800",
+            "rate": "0.40"
+          },
+          {
+            "status": "single",
+            "over": "22300",
+            "rate": "0.35"
+          },
+          {
+            "status": "single",
+            "over": "25000",
+            "rate": "0.30"
+          },
+          {
+            "status": "single",
+            "over": "25500",
+            "rate": "0.25"
+          },
+          {
+            "status": "single",
+            "over": "26000",
+            "rate": "0.20"
+          },
+          {
+            "status": "single",
+            "over": "26500",
+            "rate": "0.15"
+          },
+          {
+            "status": "single",
+            "over": "31300",
+            "rate": "0.14"
+          },
+          {
+            "status": "single",
+            "over": "31800",
+            "rate": "0.13"
+          },
+          {
+            "status": "single",
+            "over": "32300",
+            "rate": "0.12"
+          },
+          {
+            "status": "single",
+            "over": "32800",
+            "rate": "0.11"
+          },
+          {
+            "status": "single",
+            "over": "33300",
+            "rate": "0.10"
+          },
+          {
+            "status": "single",
+            "over": "60000",
+            "rate": "0.09"
+          },
+          {
+            "status": "single",
+            "over": "60500",
+            "rate": "0.08"
+          },
+          {
+            "status": "single",
+            "over": "61000",
+            "rate": "0.07"
+          },
+          {
+            "status": "single",
+            "over": "61500",
+            "rate": "0.06"
+          },
+          {
+            "status": "single",
+            "over": "62000",
+            "rate": "0.05"
+          },
+          {
+            "status": "single",
+            "over": "62500",
+            "rate": "0.04"
+          },
+          {
+            "status": "single",
+            "over": "63000",
+            "rate": "0.03"
+          },
+          {
+            "status": "single",
+            "over": "63500",
+            "rate": "0.02"
+          },
+          {
+            "status": "single",
+            "over": "64000",
+            "rate": "0.01"
+          },
+          {
+            "status": "single",
+            "over": "64500",
+            "rate": "0"
+          },
+          {
+            "status": "married_joint",
+            "over": "24000",
+            "rate": "0.75"
+          },
+          {
+            "status": "married_joint",
+            "over": "30000",
+            "rate": "0.70"
+          },
+          {
+            "status": "married_joint",
+            "over": "30500",
+            "rate": "0.65"
+          },
+          {
+            "status": "married_joint",
+            "over": "31000",
+            "rate": "0.60"
+          },
+          {
+            "status": "married_joint",
+            "over": "31500",
+            "rate": "0.55"
+          },
+          {
+            "status": "married_joint",
+            "over": "32000",
+            "rate": "0.50"
+          },
+          {
+            "status": "married_joint",
+            "over": "32500",
+            "rate": "0.45"
+          },
+          {
+            "status": "married_joint",
+            "over": "33000",
+            "rate": "0.40"
+          },
+          {
+            "status": "married_joint",
+            "over": "33500",
+            "rate": "0.35"
+          },
+          {
+            "status": "married_joint",
+            "over": "40000",
+            "rate": "0.30"
+          },
+          {
+            "status": "married_joint",
+            "over": "40500",
+            "rate": "0.25"
+          },
+          {
+            "status": "married_joint",
+            "over": "41000",
+            "rate": "0.20"
+          },
+          {
+            "status": "married_joint",
+            "over": "41500",
+            "rate": "0.15"
+          },
+          {
+            "status": "married_joint",
+            "over": "50000",
+            "rate": "0.14"
+          },
+          {
+            "status": "married_joint",
+            "over": "50500",
+            "rate": "0.13"
+          },
+          {
+            "status": "married_joint",
+            "over": "51000",
+            "rate": "0.12"
+          },
+          {
+            "status": "married_joint",
+            "over": "51500",
+            "rate": "0.11"
+          },
+          {
+            "status": "married_joint",
+            "over": "52000",
+            "rate": "0.10"
+          },
+          {
+            "status": "married_joint",
+            "over": "96000",
+            "rate": "0.09"
+          },
+          {
+            "status": "married_joint",
+            "over": "96500",
+            "rate": "0.08"
+          },
+          {
+            "status": "married_joint",
+            "over": "97000",
+            "rate": "0.07"
+          },
+          {
+            "status": "married_joint",
+            "over": "97500",
+            "rate": "0.06"
+          },
+          {
+            "status": "married_joint",
+            "over": "98000",
+            "rate": "0.05"
+          },
+          {
+            "status": "married_joint",
+            "over": "98500",
+            "rate": "0.04"
+          },
+          {
+            "status": "married_joint",
+            "over": "99000",
+            "rate": "0.03"
+          },
+          {
+            "status": "married_joint",
+            "over": "99500",
+            "rate": "0.02"
+          },
+          {
+            "status": "married_joint",
+            "over": "100000",
+            "rate": "0.01"
+          },
+          {
+            "status": "married_joint",
+            "over": "100500",
+            "rate": "0"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "24000",
+            "rate": "0.75"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "30000",
+            "rate": "0.70"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "30500",
+            "rate": "0.65"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "31000",
+            "rate": "0.60"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "31500",
+            "rate": "0.55"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "32000",
+            "rate": "0.50"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "32500",
+            "rate": "0.45"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "33000",
+            "rate": "0.40"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "33500",
+            "rate": "0.35"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "40000",
+            "rate": "0.30"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "40500",
+            "rate": "0.25"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "41000",
+            "rate": "0.20"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "41500",
+            "rate": "0.15"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "50000",
+            "rate": "0.14"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "50500",
+            "rate": "0.13"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "51000",
+            "rate": "0.12"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "51500",
+            "rate": "0.11"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "52000",
+            "rate": "0.10"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "96000",
+            "rate": "0.09"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "96500",
+            "rate": "0.08"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "97000",
+            "rate": "0.07"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "97500",
+            "rate": "0.06"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "98000",
+            "rate": "0.05"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "98500",
+            "rate": "0.04"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "99000",
+            "rate": "0.03"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "99500",
+            "rate": "0.02"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "100000",
+            "rate": "0.01"
+          },
+          {
+            "status": "qualifying_surviving_spouse",
+            "over": "100500",
+            "rate": "0"
+          },
+          {
+            "status": "married_separate",
+            "over": "12000",
+            "rate": "0.75"
+          },
+          {
+            "status": "married_separate",
+            "over": "15000",
+            "rate": "0.70"
+          },
+          {
+            "status": "married_separate",
+            "over": "15500",
+            "rate": "0.65"
+          },
+          {
+            "status": "married_separate",
+            "over": "16000",
+            "rate": "0.60"
+          },
+          {
+            "status": "married_separate",
+            "over": "16500",
+            "rate": "0.55"
+          },
+          {
+            "status": "married_separate",
+            "over": "17000",
+            "rate": "0.50"
+          },
+          {
+            "status": "married_separate",
+            "over": "17500",
+            "rate": "0.45"
+          },
+          {
+            "status": "married_separate",
+            "over": "18000",
+            "rate": "0.40"
+          },
+          {
+            "status": "married_separate",
+            "over": "18500",
+            "rate": "0.35"
+          },
+          {
+            "status": "married_separate",
+            "over": "20000",
+            "rate": "0.30"
+          },
+          {
+            "status": "married_separate",
+            "over": "20500",
+            "rate": "0.25"
+          },
+          {
+            "status": "married_separate",
+            "over": "21000",
+            "rate": "0.20"
+          },
+          {
+            "status": "married_separate",
+            "over": "21500",
+            "rate": "0.15"
+          },
+          {
+            "status": "married_separate",
+            "over": "25000",
+            "rate": "0.14"
+          },
+          {
+            "status": "married_separate",
+            "over": "25500",
+            "rate": "0.13"
+          },
+          {
+            "status": "married_separate",
+            "over": "26000",
+            "rate": "0.12"
+          },
+          {
+            "status": "married_separate",
+            "over": "26500",
+            "rate": "0.11"
+          },
+          {
+            "status": "married_separate",
+            "over": "27000",
+            "rate": "0.10"
+          },
+          {
+            "status": "married_separate",
+            "over": "48000",
+            "rate": "0.09"
+          },
+          {
+            "status": "married_separate",
+            "over": "48500",
+            "rate": "0.08"
+          },
+          {
+            "status": "married_separate",
+            "over": "49000",
+            "rate": "0.07"
+          },
+          {
+            "status": "married_separate",
+            "over": "49500",
+            "rate": "0.06"
+          },
+          {
+            "status": "married_separate",
+            "over": "50000",
+            "rate": "0.05"
+          },
+          {
+            "status": "married_separate",
+            "over": "50500",
+            "rate": "0.04"
+          },
+          {
+            "status": "married_separate",
+            "over": "51000",
+            "rate": "0.03"
+          },
+          {
+            "status": "married_separate",
+            "over": "51500",
+            "rate": "0.02"
+          },
+          {
+            "status": "married_separate",
+            "over": "52000",
+            "rate": "0.01"
+          },
+          {
+            "status": "married_separate",
+            "over": "52500",
+            "rate": "0"
+          },
+          {
+            "status": "head_of_household",
+            "over": "19000",
+            "rate": "0.75"
+          },
+          {
+            "status": "head_of_household",
+            "over": "24000",
+            "rate": "0.70"
+          },
+          {
+            "status": "head_of_household",
+            "over": "24500",
+            "rate": "0.65"
+          },
+          {
+            "status": "head_of_household",
+            "over": "25000",
+            "rate": "0.60"
+          },
+          {
+            "status": "head_of_household",
+            "over": "25500",
+            "rate": "0.55"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26000",
+            "rate": "0.50"
+          },
+          {
+            "status": "head_of_household",
+            "over": "26500",
+            "rate": "0.45"
+          },
+          {
+            "status": "head_of_household",
+            "over": "27000",
+            "rate": "0.40"
+          },
+          {
+            "status": "head_of_household",
+            "over": "27500",
+            "rate": "0.35"
+          },
+          {
+            "status": "head_of_household",
+            "over": "34000",
+            "rate": "0.30"
+          },
+          {
+            "status": "head_of_household",
+            "over": "34500",
+            "rate": "0.25"
+          },
+          {
+            "status": "head_of_household",
+            "over": "35000",
+            "rate": "0.20"
+          },
+          {
+            "status": "head_of_household",
+            "over": "35500",
+            "rate": "0.15"
+          },
+          {
+            "status": "head_of_household",
+            "over": "44000",
+            "rate": "0.14"
+          },
+          {
+            "status": "head_of_household",
+            "over": "44500",
+            "rate": "0.13"
+          },
+          {
+            "status": "head_of_household",
+            "over": "45000",
+            "rate": "0.12"
+          },
+          {
+            "status": "head_of_household",
+            "over": "45500",
+            "rate": "0.11"
+          },
+          {
+            "status": "head_of_household",
+            "over": "46000",
+            "rate": "0.10"
+          },
+          {
+            "status": "head_of_household",
+            "over": "74000",
+            "rate": "0.09"
+          },
+          {
+            "status": "head_of_household",
+            "over": "74500",
+            "rate": "0.08"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75000",
+            "rate": "0.07"
+          },
+          {
+            "status": "head_of_household",
+            "over": "75500",
+            "rate": "0.06"
+          },
+          {
+            "status": "head_of_household",
+            "over": "76000",
+            "rate": "0.05"
+          },
+          {
+            "status": "head_of_household",
+            "over": "76500",
+            "rate": "0.04"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77000",
+            "rate": "0.03"
+          },
+          {
+            "status": "head_of_household",
+            "over": "77500",
+            "rate": "0.02"
+          },
+          {
+            "status": "head_of_household",
+            "over": "78000",
+            "rate": "0.01"
+          },
+          {
+            "status": "head_of_household",
+            "over": "78500",
+            "rate": "0"
+          }
+        ]
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_thresholds",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test",
+        "reliefs.applies_over"
+      ]
+    },
+    {
+      "figure": "recapture",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "recapture"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "teachers_pension_50",
+      "from_record": [
+        "teachers_pension_50"
+      ],
+      "what": "50% subtraction of Connecticut Teachers' Retirement System pay, at any income, as an alternative to the Line 48b subtraction. The projection cannot tell a teachers' pension from another public pension.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "property_tax_credit",
+      "from_record": [
+        "property_tax_credit"
+      ],
+      "what": "Property tax credit: up to 300 a return for property tax paid on a Connecticut home or car, reduced in steps above 49,500 of Connecticut AGI (single; 70,500 MFJ/QSS, 35,250 MFS, 54,500 HOH) and gone above 109,500 (130,500, 65,250, 114,500). The projection does not know the property tax paid.",
+      "warn_when": "always"
+    },
+    {
+      "id": "us_government_interest",
+      "from_record": [
+        "us_government_interest",
+        "us_government_fund_dividends"
+      ],
+      "what": "Interest on U.S. government obligations and the U.S.-obligation share of qualifying mutual fund dividends are subtracted.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ct_eitc",
+      "from_record": [
+        "ct_eitc"
+      ],
+      "what": "Connecticut earned income tax credit: 40% of the federal earned income credit, plus 250 with a qualifying child.",
+      "warn_when": "never"
+    },
+    {
+      "id": "chet_contributions",
+      "from_record": [
+        "chet_contributions",
+        "able_contributions"
+      ],
+      "what": "Subtractions for CHET and ABLE account contributions, up to 5,000 (10,000 joint) each.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Tables C (2% phase-out add-back) and D (tax recapture) are step tables of dollar amounts by Connecticut AGI band; the format's recapture fields hold only where each starts, so the amounts are not computed from this file. The full tables are in the record's recapture[].as_printed; a consumer that applies them from there is exact.",
+      "direction": "understates_tax",
+      "size": "The table amount, added to tax: Table C up to 250 (single, MFS), 500 (MFJ/QSS), 400 (HOH); Table D up to 3,400 (single, MFS), 6,800 (MFJ/QSS), 5,320 (HOH). Example: single, Connecticut AGI 300,000: 250 + 2,050 = 2,300 a year too little."
+    },
+    {
+      "what": "The 50% subtraction for Connecticut teachers' pensions is not applied (not_modelled); above the Line 48b phase-out a retired teacher's pension is taxed in full.",
+      "direction": "overstates_tax",
+      "size": "Half the teachers' pension at the marginal rate, for a household with one; nothing otherwise. Example (Aubrey, PDF page 10 Example 2): single, 40,000 of teachers' pay, federal AGI 110,000: the projection subtracts nothing (Connecticut AGI 110,000, tax 5,350.00) where the booklet subtracts 20,000 (90,000, tax 4,200.00): 1,150 a year too much, before Tables C and D."
+    },
+    {
+      "what": "Roth conversions are not in covers: the booklet does not say whether they qualify for the Line 48b subtraction (covers_unclear in the record). If they do, this overstates tax in a conversion year below the phase-out end.",
+      "direction": "overstates_tax",
+      "size": "Up to the marginal rate times 75% of the conversion, only while federal AGI is under 100,000 (single, MFS, HOH) or 150,000 (MFJ); a large conversion usually pushes AGI past that. Example: single, 50,000 of wages and a 20,000 conversion (federal AGI 70,000): if conversions qualify, 15,000 is subtracted (Connecticut AGI 55,000, tax 2,047.50 after the .10 Table E credit) instead of none (70,000, tax 3,100.00): 1,052.50 a year too much."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "The marginal rate times the Treasury interest. Example: single, Connecticut AGI 60,000 including 10,000 of Treasury interest: tax 2,295.00 instead of 1,800.00 on 50,000 (both after the .10 Table E credit): 495 a year too much."
+    },
+    {
+      "what": "The property tax credit is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 300 a year, for a household paying Connecticut property tax with Connecticut AGI under 109,500 (single), 130,500 (MFJ/QSS), 65,250 (MFS) or 114,500 (HOH)."
+    },
+    {
+      "what": "The Pension and Annuity Phase-Out Table names only married filing jointly for its higher column; for a qualifying surviving spouse the booklet does not say which column applies, and the projection's income test has no qualifying_surviving_spouse threshold.",
+      "direction": "either",
+      "size": "Only a qualifying surviving spouse with federal AGI between 75,000 and 150,000 and pension or IRA income. Example: federal AGI 90,000 with 40,000 of pension: the married filing jointly column subtracts all 40,000 (Connecticut AGI 50,000, tax 646.00); the single column keeps .05 and subtracts 2,000 (88,000, tax 3,114.00): 2,468 a year apart."
+    },
+    {
+      "what": "Partial Social Security subtraction, married filing separately: the filer is taken to have lived with the spouse at some time in the year, so Line B is the federal worksheet's Line 7 (no base amount), as a projection of one household implies. A separate filer who lived apart all year uses Line 9, after the 25,000 base.",
+      "direction": "overstates_tax",
+      "size": "For a separate filer who lived apart all year: 25% of up to 25,000 more stays taxable, up to 6,250, about 437 a year at 6.99%."
+    }
+  ],
+  "recapture": [
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "single": "56500",
+        "married_joint": "100500",
+        "qualifying_surviving_spouse": "100500",
+        "married_separate": "50250",
+        "head_of_household": "78500"
+      },
+      "effect": "phase_out_lower_brackets"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "single": "105000",
+        "married_separate": "105000",
+        "married_joint": "210000",
+        "qualifying_surviving_spouse": "210000",
+        "head_of_household": "168000"
+      },
+      "effect": "phase_out_lower_brackets"
+    }
+  ],
+  "derived_figures": []
+}

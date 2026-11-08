@@ -1,0 +1,47 @@
+{
+  "id": "US-2026-joint-one-spouse-65",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Married couple filing jointly, ages 67 and 62, with wages, a pension and Social Security: one additional standard deduction, one senior deduction (MAGI under 150,000), benefits taxable at the 85% cap.",
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "born": "1959-02-11",
+        "age": 67
+      },
+      {
+        "born": "1964-06-25",
+        "age": 62
+      }
+    ],
+    "wages": "50000",
+    "taxable_pensions": "40000",
+    "social_security_benefits": "25000"
+  },
+  "expected": {
+    "agi": "111250.00",
+    "taxable_social_security": "21250.00",
+    "standard_deduction": "33850.00",
+    "senior_deduction": "6000.00",
+    "taxable_income": "71400.00",
+    "regular_tax": "8072.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "8072.00"
+  },
+  "worked": "Line numbers are those of the 2025 Form 1040, its instructions' worksheets and Schedule 1-A; the figures are the 2026 ones from the federal file.\nFiling status: married filing jointly.\nTaxpayer: born 1959-02-11, age 67 at the end of 2026.\nSpouse: born 1964-06-25, age 62 at the end of 2026.\nForm 1040: line 1z wages 50,000; lines 4b + 5b taxable pensions and IRA distributions 40,000; line 6a Social Security benefits 25,000.\nSocial Security Benefits Worksheet (Form 1040 instructions, lines 6a and 6b; Publication 915 Worksheet 1):\n  line 1 = 25,000; line 2 = 50% x 25,000 = 12,500\n  line 3 (lines 1z, 2b, 3b, 4b, 5b, 7a, 8) = 90,000; line 4 (line 2a) = 0\n  line 5 = 12,500 + 90,000 + 0 = 102,500; line 6 (Schedule 1 adjustments) = 0; line 7 = 102,500\n  line 8 (base amount, married filing jointly) = 32,000\n  line 9 = 102,500 - 32,000 = 70,500; line 10 = 12,000 (44,000 adjusted base amount - 32,000); line 11 = 58,500\n  line 12 = smaller of 70,500 and 12,000 = 12,000; line 13 = 6,000; line 14 = smaller of 12,500 and 6,000 = 6,000\n  line 15 = 85% x 58,500 = 49,725; line 16 = 6,000 + 49,725 = 55,725\n  line 17 = 85% x 25,000 = 21,250; line 18 = smaller of 55,725 and 21,250 = 21,250 -> Form 1040 line 6b\nForm 1040 line 9 total income = 50,000 + 40,000 + 21,250 = 111,250; line 10 adjustments 0; line 11a/11b adjusted gross income = 111,250.\nLine 12e standard deduction = 32,200 basic (married filing jointly) + 1 x 1,650 additional (married or surviving spouse amount, one per box checked on line 12d for age 65 or older / blind) = 33,850.\nSchedule 1-A: line 1 = line 11b 111,250; line 3 MAGI = 111,250 (no excluded income).\n  Part V: line 31 = 111,250; line 32 = 150,000; line 33: 111,250 - 150,000 is zero or less, so line 35 = 6,000\n  line 36a (taxpayer born before January 2, 1962) = 6,000; line 36b (spouse not born before January 2, 1962) = 0; line 37 = 6,000 -> line 38 -> Form 1040 line 13b\nLine 14 = 33,850 + 6,000 = 39,850; line 15 taxable income = 111,250 - 39,850 = 71,400.\nForm 1040 line 16 (regular tax): Tax Rate Schedule Y-1 (married filing jointly or qualifying surviving spouse) on 71,400: 10% x 24,800 = 2,480; 12% x (71,400 - 24,800) = 5,592; total 8,072\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 111,250; line 14 threshold = 250,000; line 15 = 111,250 - 250,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 50,000; line 5 = 250,000 (married filing jointly); line 6 = 50,000 - 250,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 8,072 regular + 0 net investment income tax + 0 additional Medicare tax = 8,072.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

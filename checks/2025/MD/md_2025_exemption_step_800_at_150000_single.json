@@ -1,0 +1,65 @@
+{
+  "id": "md_2025_exemption_step_800_at_150000_single",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "personal_exemption",
+    "age_65_exemption",
+    "pension_exclusion"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 7, 15-21; Instruction 16 standard deduction (PDF page 21); Instruction 10 and Exemption Amount Chart 10A (PDF pages 12-13); Instruction 17 Tax Rate Schedule I (PDF page 22); Chart 10A row over 125,000 not over 150,000 ($800) and chart text (age exemption not reduced); Worksheet 13A (PDF page 14); Line 10a (PDF page 15); Worksheet Schedules 17A (PDF page 41)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-01-20"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "120000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "132250.00"
+  },
+  "expected": {
+    "state_agi": "120000.00",
+    "state_taxable_income": "114850.00",
+    "state_tax_before_credits": "5440.00",
+    "credits": "0.00",
+    "state_income_tax": "5440.00",
+    "relief_amounts": {
+      "pension_exclusion": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 120,000.00 + private employer pension (you) 30,000.00 = 150,000.00. Federal taxable income = 150,000.00 - standard deduction 15,750.00 - 1 x 2,000.00 additional for age 65 or older = 132,250.00 (federal senior deduction ignored). Form 502 Line 1 federal AGI 150,000.00; Lines 2-6 additions 0.00 (no non-Maryland municipal interest); Line 7 total 150,000.00. Worksheet 13A: You (age 66): line 1 qualifying pension 30,000.00; line 2 41,200.00; line 3 Social Security 0.00; line 4 tentative 41,200.00 - 0.00 = 41,200.00; line 5 smaller = 30,000.00. Line 10a = 30,000.00. Line 14 two-income subtraction: 0.00 (not a joint return). Line 15 total subtractions = Line 10a 30,000.00 = 30,000.00. Line 16 Maryland AGI = 150,000.00 - 30,000.00 = 120,000.00. Line 17 standard deduction (Instruction 16, flat by filing status) = 3,350.00. Line 18 net income = 120,000.00 - 3,350.00 = 116,650.00. Line 19 exemptions: Chart 10A at federal AGI 150,000.00 (not over 150,000) gives 800.00 each x 1 (Box A) + 1,000.00 x 1 for age 65 or older (Box B, not reduced by the chart) = 1,800.00. Line 20 taxable net income = 116,650.00 - 1,800.00 = 114,850.00. Line 21 tax, Schedule I as numbers: 2.00% x 1,000.00 = 20.00 + 3.00% x 1,000.00 = 30.00 + 4.00% x 1,000.00 = 40.00 + 4.75% x 97,000.00 = 4,607.50 + 5.00% x 14,850.00 = 742.50; total 5,440.00. (Taxable net income is 100,000 or more, so the form uses Worksheet Schedules 17A, the same formula: 5,440.00.) Lines 22-26 credits: none modelled or claimed, 0.00; Maryland state tax 5,440.00. Local tax (Lines 28-33) out of scope; 2% capital gain tax (Line 21b) not charged (no gains, AGI under 350,000). Chart 10A: single, over 125,000 but not over 150,000 gives 800; federal AGI of exactly 150,000 is still in that row. The chart reads federal AGI (150,000), not Maryland AGI after the pension exclusion; the 1,000 age exemption is not reduced by the chart. No Social Security yet, so the tentative pension exclusion is the full 41,200 and the 30,000 pension is excluded in full.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:fire_police_injury_payments",
+    "state_rule_not_modelled:pension_exclusion_disabled",
+    "state_rule_not_modelled:ranger_pension_exclusion",
+    "state_rule_not_modelled:state_pension_pickup"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "nj_2025_pension_band2_joint",
+  "state": "NJ",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "nj_pension_exclusion",
+    "nj_senior_exemption"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 NJ-1040 Instructions (with GIT-1 & 2 Retirement Income, January 2026, and njit6/njit7 web pages where named)",
+    "section": "Form NJ-1040 lines 15, 20a, 27, 28a, 29: Instr PDF p.22 line 28a chart column $100,001-$125,000 ('50% of line 20a'), PDF p.21 line 27, PDF p.23 Worksheet D; GIT-1 & 2 p.19; PDF p.8 lines 6-7 (regular and senior 65+ exemptions), PDF p.9 line 13, PDF p.25 line 30, PDF p.27 lines 38-39, PDF p.33 lines 42-43, PDF p.65 Tax Rate Schedules",
+    "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-03-03"
+      },
+      {
+        "age": 66,
+        "born": "1959-11-11"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private",
+          "contributory": false
+        },
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "NJ",
+          "contributory": false
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "75300.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.nj_pension_exclusion",
+    "relief_amounts.nj_senior_exemption"
+  ]
+}

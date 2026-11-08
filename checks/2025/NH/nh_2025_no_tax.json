@@ -1,0 +1,45 @@
+{
+  "id": "nh_2025_no_tax",
+  "state": "NH",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)",
+    "section": "Press release: for tax periods beginning on or after January 1, 2025, taxpayers are no longer required to pay the Interest and Dividends Tax (no state return or form lines exist)",
+    "url": "https://www.revenue.nh.gov/news-and-media/repeal-nh-interest-and-dividends-tax-now-effect"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 90,000.00 + interest 2,000.00 = 92,000.00. Federal taxable income = 92,000.00 - 15,750.00 single standard deduction = 76,250.00 (given, not tested). New Hampshire's Interest and Dividends Tax was repealed for periods beginning January 1, 2025 or later, so there is no 2025 state income tax and the interest changes nothing: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

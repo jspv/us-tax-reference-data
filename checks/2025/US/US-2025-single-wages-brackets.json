@@ -1,0 +1,38 @@
+{
+  "id": "US-2025-single-wages-brackets",
+  "jurisdiction": "US",
+  "tax_year": 2025,
+  "kind": "income_tax",
+  "boundary": "none",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction"
+  ],
+  "description": "Single filer age 40, wages only; ordinary income through the 10%, 12% and 22% brackets.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1985-04-12",
+        "age": 40
+      }
+    ],
+    "wages": "85000"
+  },
+  "expected": {
+    "agi": "85000.00",
+    "standard_deduction": "15750.00",
+    "senior_deduction": "0.00",
+    "taxable_income": "69250.00",
+    "regular_tax": "10149.00",
+    "net_investment_income_tax": "0.00",
+    "additional_medicare_tax": "0.00",
+    "total_tax": "10149.00"
+  },
+  "worked": "Filing status: single.\nTaxpayer: born 1985-04-12, age 40 at the end of 2025.\nForm 1040: line 1z wages 85,000.\nForm 1040 line 9 total income = 85,000 = 85,000; line 10 adjustments 0; line 11a/11b adjusted gross income = 85,000.\nLine 12e standard deduction = 15,750 (single; no line 12d box: nobody 65 or older or blind).\nSchedule 1-A Part V: nobody is 65 or older at the end of the year; senior deduction 0.\nLine 14 = 15,750 + 0 = 15,750; line 15 taxable income = 85,000 - 15,750 = 69,250.\nForm 1040 line 16 (regular tax): Tax Rate Schedule X (single) on 69,250: 10% x 11,925 = 1,192.50; 12% x (48,475 - 11,925) = 4,386; 22% x (69,250 - 48,475) = 4,570.50; total 10,149\nForm 8960: lines 8 and 12 net investment income = 0; line 13 MAGI = 85,000; line 14 threshold = 200,000; line 15 = 85,000 - 200,000, zero or less, so 0; line 17 net investment income tax = 0.\nForm 8959 Part I: line 1 Medicare wages (W-2 box 5) = line 4 = 85,000; line 5 = 200,000 (single); line 6 = 85,000 - 200,000, zero or less, so 0; line 7 = 0.9% x 0 = 0 (additional Medicare tax).\nTotal tax = 10,149 regular + 0 net investment income tax + 0 additional Medicare tax = 10,149.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

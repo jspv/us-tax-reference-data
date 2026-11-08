@@ -1,0 +1,12 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "sc_military_retirement": "13000.00"
+    },
+    "state_income_tax": "200.70",
+    "state_tax_before_credits": "200.70",
+    "state_taxable_income": "10250.00"
+  },
+  "worked": "Single, 67, wages 30,000, military pension 13,000. Projection: age 65 cap 15,000 reduced by military 13,000 = 2,000 (covered by wages), beats retirement 10,000 - 13,000 -> 0. Line 1 federal taxable income 25250.00; line 2 additions 0.00; line 3 = 25250.00. p-4 military retirement (all of it): 13000.00 p-1 retirement: 10,000 - 13,000 < 0 -> 0: 0.00 q-1 age 65: 15,000 - 0 - 13,000 (Example 3): 2000.00 Line 4 subtractions total 15000.00; line 5 SC taxable income 25250.00 - 15000.00 = 10250.00 tax: 0.03 x (10250.00 - 3,560) = 200.70 (line 6; formula on exact income, not the table row midpoint). Credits: none modelled (Two Wage Earner Credit not_modelled; no dependents); credits 0.00. Federal taxable income is given (federal senior deduction ignored per brief). State income tax 200.70."
+}

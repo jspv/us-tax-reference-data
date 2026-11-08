@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "state_agi": "75000.00",
+    "state_taxable_income": "57340.00",
+    "state_tax_before_credits": "3024.77",
+    "credits": "0.00",
+    "state_income_tax": "3024.77"
+  },
+  "worked": "Filing status qualifying_surviving_spouse. K-40 line 1 federal AGI 75,000.00 (given). Line 2 modifications 0.00. Line 3 Kansas AGI 75,000.00 + (0.00) = 75,000.00. Line 4 standard deduction 6,180 + 0 age box(es) x 850 = 6,180 (worksheet PDF page 6). Form: Qualifying Widow(er) checks Head of Household, so the head of household deduction and exemption apply. Line 5 exemption 11,480. Line 6 17,660.00. Line 7 taxable income 75,000.00 - 17,660.00 = 57,340.00. Line 8 tax 46,000 x 5.2% = 2,392.00; (57,340.00 - 46,000) = 11,340.00 x 5.58% = 632.772000; total 3024.772000. Projection has no list for this status, and projection.schema.json gives it married_joint (band 46,000), accepted approximation; the form's single group schedule would give 3112.17. the table row 57,301-57,350 gives 3,111. No credits in the projection: credits 0.00. Tax 3024.77."
+}

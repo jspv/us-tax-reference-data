@@ -1,0 +1,48 @@
+{
+  "id": "nd_2025_joint_over_65_no_age_relief",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.17 (taxable IRAs, pensions and annuities are income); no age-based amount printed anywhere in the booklet; PDF p.16 Line 22; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-04-22"
+      },
+      {
+        "age": 66,
+        "born": "1959-11-30"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "120000.00",
+    "federal_taxable_income": "85300.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

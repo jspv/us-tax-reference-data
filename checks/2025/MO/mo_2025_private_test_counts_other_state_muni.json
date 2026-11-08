@@ -1,0 +1,67 @@
+{
+  "id": "mo_2025_private_test_counts_other_state_muni",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "private_pension_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Form MO-A PDF p3 Part 3 Section B Lines 1-9; instructions PDF p17; Reference Guide PDF p9; record private_pension_subtraction; Form MO-A PDF p1 Part 1 Line 1; instructions PDF p12 Line 1; record muni_interest",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "19000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "5000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "municipal_interest_own_state": "2000.00",
+      "municipal_interest_other_state": "3000.00"
+    },
+    "federal_agi": "24000.00",
+    "federal_taxable_income": "8250.00"
+  },
+  "expected": {
+    "state_agi": "24000.00",
+    "state_taxable_income": "8250.00",
+    "state_tax_before_credits": "213.69",
+    "credits": "0.00",
+    "state_income_tax": "213.69",
+    "relief_amounts": {
+      "private_pension_subtraction": "3000.00"
+    }
+  },
+  "worked": "Single, age 60. Interest on other states' bonds is added on Line 2, so it counts in Line 6 and the income test; Missouri bonds do not. Federal (given, not tested): federal AGI = wages 19,000.00 + pensions 5,000.00 = 24,000.00. Federal taxable income = 24,000.00 - standard deduction 15,750.00 = 8,250.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 24,000.00. Line 2 additions: MO-A Part 1 Line 1 interest on other states' obligations 3,000.00 (the 2,000.00 of Missouri obligations is not added). Line 3 total income 27,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 27,000.00 - 0.00 = 27,000.00. Section B: Line 1 27,000.00; Line 2 0.00; Line 3 27,000.00; Line 4 25,000.00; Line 5 2,000.00; Line 6Y 5,000.00, Line 7Y 5,000.00; Line 8 5,000.00; Line 9 3,000.00. Form MO-1040 Line 8 pension and Social Security exemption 3,000.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 15,750.00. Line 26 subtotal 27,000.00 - 3,000.00 - 15,750.00 = 8,250.00. Line 29 taxable income 8,250.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 372.00 = 16.74; total 213.69 = 213.69. The chart and Tax Calculation Worksheet (instructions p21) round to the dollar and give 214; expected keeps the bands. state_agi (after every relief, as the check format defines it) = Line 6 27,000.00 - Line 8 3,000.00 = 24,000.00; the form's Missouri AGI is Line 6, 27,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled)."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction",
+    "state_rule_not_modelled:social_security_disability_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "mi_2025_tier3_at_or_above",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "tier3_standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 26 (PDF page 17: older spouse born January 1, 1953 through January 1, 1959 and 67 by December 31, 2025; up to 40,000 joint, reduced by exemptions on lines 9a and 9d and taxable Social Security); Worksheet 2 lines 1-11 (PDF page 18); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 69,
+        "born": "1956-07-01"
+      },
+      {
+        "age": 67,
+        "born": "1958-02-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "14000.00",
+          "person": 0
+        },
+        {
+          "amount": "10000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "20400.00",
+      "interest": "20000.00",
+      "dividends": "10000.00"
+    },
+    "federal_agi": "80400.00",
+    "federal_taxable_income": "45700.00"
+  },
+  "expected": {
+    "state_agi": "40400.00",
+    "state_taxable_income": "28800.00",
+    "state_tax_before_credits": "1224.00",
+    "credits": "0.00",
+    "state_income_tax": "1224.00",
+    "relief_amounts": {
+      "tier3_standard_deduction": "19600.00"
+    }
+  },
+  "worked": "Federal AGI = spouse 2 wages 30,000.00 + interest 20,000.00 + dividends 10,000.00 + taxable Social Security 20,400.00 (85% of 24,000.00) = 80,400.00. Federal taxable income = 80,400.00 - federal standard deduction (31,500 + 2 x 1,600 age 65 or older = 34,700.00) = 45,700.00; given, not tested; the federal senior deduction is ignored. Michigan (older spouse born 1956, past 67; no SSA-exempt benefits, so Tier 3): Schedule 1 line 14 Social Security 20,400.00. Worksheet 2: line 1 40,000.00; line 2 0.00; line 3 40,000.00; lines 4-6 0.00; line 7 40,000.00; line 8 taxable Social Security 20,400.00. As the projection does it (approximation: exemptions not subtracted, line 9 left out): Tier 3 = 40,000.00 - 20,400.00 = 19,600.00, less than the 60,000.00 of wages, interest and dividends; subtractions 40,000.00; line 14 = 80,400.00 - 40,000.00 = 40,400.00; exemptions 11,600.00; line 16 = 28,800.00. MI-1040 line 17 tax = 28,800.00 x 0.0425 = 1,224.00. No credits; state income tax 1,224.00. The form itself also subtracts line 9 exemptions 11,600.00 on Worksheet 2 line 9: line 10 = 20,400.00 + 11,600.00 = 32,000.00; line 11 Tier 3 = 8,000.00; taxable income 40,400.00; tax 1,717.00, which is 493.00 more (4.25% x 11,600.00), the size the approximation states. No pensions, so Worksheet 3.3 gives 0.00 and Tier 3 is the better choice either way.",
+  "accepted_approximations": [
+    "The Tier 3 deduction is also reduced by exemptions claimed (MI-1040 lines 9a and 9d); not modelled."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

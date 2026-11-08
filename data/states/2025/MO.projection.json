@@ -1,0 +1,437 @@
+{
+  "layer": "projection",
+  "state": "MO",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/MO.record.json",
+    "sha256": "ae1e0a6168cda12a77db76fb5b8a956c4fa87a32f5205ac7aab9c8ad547dc639"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "1313"
+      },
+      {
+        "rate": "0.025",
+        "start": "2626"
+      },
+      {
+        "rate": "0.03",
+        "start": "3939"
+      },
+      {
+        "rate": "0.035",
+        "start": "5252"
+      },
+      {
+        "rate": "0.04",
+        "start": "6565"
+      },
+      {
+        "rate": "0.045",
+        "start": "7878"
+      },
+      {
+        "rate": "0.047",
+        "start": "9191"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.02",
+        "start": "1313"
+      },
+      {
+        "rate": "0.025",
+        "start": "2626"
+      },
+      {
+        "rate": "0.03",
+        "start": "3939"
+      },
+      {
+        "rate": "0.035",
+        "start": "5252"
+      },
+      {
+        "rate": "0.04",
+        "start": "6565"
+      },
+      {
+        "rate": "0.045",
+        "start": "7878"
+      },
+      {
+        "rate": "0.047",
+        "start": "9191"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "15750",
+          "married_joint": "31500",
+          "married_separate": "15750",
+          "head_of_household": "23625",
+          "qualifying_surviving_spouse": "31500"
+        },
+        "per": "return"
+      },
+      {
+        "id": "standard_deduction_age_65",
+        "amount": {
+          "single": "2000",
+          "married_joint": "1600",
+          "married_separate": "1600",
+          "head_of_household": "2000",
+          "qualifying_surviving_spouse": "1600"
+        },
+        "per": "person",
+        "min_age": 65
+      },
+      {
+        "id": "head_of_household_additional_exemption",
+        "amount": {
+          "head_of_household": "1400",
+          "qualifying_surviving_spouse": "1400"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "relief"
+  },
+  "reliefs": [
+    {
+      "id": "public_pension_subtraction",
+      "from_record": [
+        "public_pension_subtraction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "47633"
+      },
+      "cap_per": "person",
+      "best_of_group": "mo_social_security_or_public_pension"
+    },
+    {
+      "id": "social_security_retirement_subtraction",
+      "from_record": [
+        "social_security_retirement_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 62
+      },
+      "best_of_group": "mo_social_security_or_public_pension"
+    },
+    {
+      "id": "private_pension_subtraction",
+      "from_record": [
+        "private_pension_subtraction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cap": {
+        "all": "6000"
+      },
+      "cap_per": "person",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi",
+          "plus_tax_exempt_interest": true,
+          "minus_own_state_muni_interest": true,
+          "minus_taxable_social_security": true,
+          "minus_reliefs": [
+            "capital_gain_subtraction",
+            "military_retirement_subtraction",
+            "railroad_retirement_exempt",
+            "business_income_deduction"
+          ]
+        },
+        "threshold": {
+          "single": "25000",
+          "married_joint": "32000",
+          "married_separate": "16000",
+          "head_of_household": "25000",
+          "qualifying_surviving_spouse": "25000"
+        },
+        "effect": "dollar_for_dollar",
+        "applies_when": "over",
+        "reduce_each_person": false
+      }
+    },
+    {
+      "id": "military_retirement_subtraction",
+      "from_record": [
+        "military_retirement_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "railroad_retirement_exempt",
+      "from_record": [
+        "railroad_retirement_exempt"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "business_income_deduction",
+      "from_record": [
+        "business_income_deduction"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "self_employment"
+      ],
+      "share": "0.2",
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "capital_gain_subtraction",
+      "from_record": [
+        "capital_gain_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "capital_gains"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": true,
+      "covers": [
+        "deductions:standard_deduction"
+      ]
+    },
+    {
+      "figure": "standard_deduction_age_65",
+      "indexed": true,
+      "covers": [
+        "deductions:standard_deduction_age_65"
+      ]
+    },
+    {
+      "figure": "head_of_household_additional_exemption",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions:head_of_household_additional_exemption"
+      ]
+    },
+    {
+      "figure": "public_pension_subtraction",
+      "indexed": true,
+      "covers": [
+        "reliefs:public_pension_subtraction"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    },
+    {
+      "figure": "relief_income_tests",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "federal_income_tax_deduction",
+      "from_record": [
+        "federal_income_tax_deduction"
+      ],
+      "what": "Federal income tax deduction (Form MO-1040 Lines 9-13): the total federal tax times 35%, 25%, 15%, 5% or 0% by Missouri AGI, at most 5,000, or 10,000 on a combined return. The projection's yearly facts do not include federal tax, and applying the maximum as a fixed amount would be wrong for most households.",
+      "warn_when": "always"
+    },
+    {
+      "id": "social_security_disability_subtraction",
+      "from_record": [
+        "social_security_disability_subtraction"
+      ],
+      "what": "Taxable Social Security disability benefits are subtracted at any age, for someone receiving them the entire year, and reduce that person's public pension exemption. A projection cannot tell disability benefits from other benefits, so benefits of a person under 62 are taxed.",
+      "warn_when": "person_in_age_range",
+      "age_range": [
+        0,
+        61
+      ]
+    },
+    {
+      "id": "standard_deduction_blind",
+      "from_record": [
+        "standard_deduction_blind"
+      ],
+      "what": "Additional standard deduction of 2,000 (single, head of household) or 1,600 (the others) for each person who is blind.",
+      "warn_when": "never"
+    },
+    {
+      "id": "standard_deduction_dependent_filer",
+      "from_record": [
+        "standard_deduction_dependent_filer"
+      ],
+      "what": "Standard deduction of a filer claimed as a dependent on another person's return.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_obligations_interest",
+      "from_record": [
+        "us_obligations_interest"
+      ],
+      "what": "Interest on direct U.S. Government obligations, and the matching part of mutual fund distributions, is subtracted (Form MO-A Part 1 Line 8).",
+      "warn_when": "never"
+    },
+    {
+      "id": "mo_other_subtractions",
+      "from_record": [],
+      "what": "Other Missouri subtractions and deductions in the record's notes only: long-term care insurance, qualified health insurance premiums, 529 and ABLE contributions, active and inactive duty military pay, health care sharing ministry, foster parent, farmland sold to a beginning farmer, and the 25 percent and 50 percent capital gain rules.",
+      "warn_when": "never"
+    },
+    {
+      "id": "mo_lump_sum_tax_and_credits",
+      "from_record": [],
+      "what": "Line 34 tax on a lump sum distribution (10 percent of the federal Form 4972 tax), the property tax credit and the Missouri Working Family Tax Credit.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Married filing combined: Missouri figures a separate tax for each spouse on that spouse's share of taxable income, using the one chart twice, and this is required, not chosen. The projection applies the chart once to the couple's total taxable income, because the format has no way to say tax is per spouse.",
+      "direction": "overstates_tax",
+      "size": "At most about 176 a year, when both spouses have taxable income of 9,191 or more; nothing when one spouse has no income. Example: taxable income 60,000 split 30,000 each: one chart gives 2,644.06, two give 2,468.12, so 175.94 too much. A consumer that can split income can use the single schedule per spouse."
+    },
+    {
+      "what": "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+      "direction": "either",
+      "size": "Under 1 dollar a year: 388.06 against the chart's 388.03 at 12,000."
+    },
+    {
+      "what": "The federal income tax deduction is not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "At most 4.7% x 10,000 = 470 a year on a combined return, 4.7% x 5,000 = 235 otherwise; nothing when Missouri AGI is over 125,000. Example: combined return, Missouri AGI 80,000, federal tax 6,000: deduction 15% x 6,000 = 900, so 42.30 too much."
+    },
+    {
+      "what": "The public pension exemption and the Social Security exemption share a best_of_group, each person separately. Form MO-A takes the lesser of the pension or 47,633 and subtracts that person's Social Security exemption (Section A Lines 2-4), which reduces the exemption, not the cap, so cap_reduced_by would be wrong. The two exemptions together come to the larger of the Social Security exemption and the lesser of the pension or 47,633, which is what the group gives when evaluated per person.",
+      "direction": "either",
+      "size": "None when the group is evaluated for each person, as the Arkansas and South Carolina groups are. Example: pension 30,000, exempt Social Security 20,000: Lines 2-4 give 30,000 - 20,000 = 10,000, 30,000 in all, the group's larger amount; cap_reduced_by would give 27,633 + 20,000 = 47,633, 828.75 too little tax. If a consumer chose one entry for the whole return, a couple with his Social Security and her pension would lose one of them, up to 4.7% x 47,633 = 2,238.75 too much."
+    },
+    {
+      "what": "A pension paid by another state's government (New York State included) is treated as a public pension, on a reading of 'any federal, state, or local government' (Form MO-A Section A; instructions PDF p17). No sentence in the sources names another state's pension.",
+      "direction": "understates_tax",
+      "size": "If Missouri treated it as private instead: up to 4.7% x (47,633 - 6,000) = 1,956.75 a year per person, more above the private pension income limit. Nothing for a Missouri or federal pension."
+    },
+    {
+      "what": "Roth conversions are left out of the private pension exemption (the sources do not mention them; Section B Line 6 takes federal Lines 4b and 5b).",
+      "direction": "overstates_tax",
+      "size": "Up to 4.7% x 6,000 = 282 a year per person, only for a converter under the income limit with room under 6,000."
+    },
+    {
+      "what": "The business income deduction is applied to all self-employment income; it applies to Missouri-source income only, and it also reaches Schedule E Part 2 income, Schedule F and Form 4835 profit, which the projection leaves out.",
+      "direction": "either",
+      "size": "4.7% x 20% = 0.94% of the income treated differently."
+    },
+    {
+      "what": "The standard deduction is always taken; Missouri itemized deductions (Form MO-A Part 2) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "4.7% of the amount by which itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "A projection that cannot tell Missouri bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "4.7% of the interest from Missouri obligations, and the same interest counts in the private pension income test. Example: single, private pension 6,000, income test exactly 25,000 without the interest, Missouri bond interest 2,000: 2,000 added back and 2,000 of the exemption lost, so taxable income is 4,000 too high: at most 4.7% x 4,000 = 188 too much, less in the lower bands."
+    },
+    {
+      "what": "Treasury interest is taxed (the Line 8 subtraction is not modelled).",
+      "direction": "overstates_tax",
+      "size": "4.7% of the Treasury interest, and the interest also counts in the private pension income test (the Form MO-A Part 1 Line 8 subtraction comes before Form MO-1040 Line 6). Example: single, private pension 6,000, income test 25,000 without the interest, Treasury interest 2,000: the form keeps the whole 6,000; the projection tests 27,000 and keeps 4,000, so taxable income is 4,000 too high: at most 4.7% x 4,000 = 188 too much, less in the lower bands."
+    },
+    {
+      "what": "The credit for income tax paid to another state (Form MO-CR) is not modelled.",
+      "direction": "overstates_tax",
+      "size": "Up to the Missouri tax on that income, for a household taxed by another state."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

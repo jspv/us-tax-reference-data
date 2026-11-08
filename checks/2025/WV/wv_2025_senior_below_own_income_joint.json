@@ -1,0 +1,64 @@
+{
+  "id": "wv_2025_senior_below_own_income_joint",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "wv_senior_citizen_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 47 Senior Citizen Deduction columns (a)-(d) (PDF p.6; instructions PDF p.29; example PDF p.30; PDF p.23 'Taxpayers over age 65 or disabled'; Tax Division page: 'You receive the higher of the $8,000 modification or the sum of various itemized decreasing modifications'); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-01-15"
+      },
+      {
+        "age": 60,
+        "born": "1965-06-06"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 1
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "5000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "55000.00",
+    "federal_taxable_income": "21900.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "46000.00",
+    "state_tax_before_credits": "1431.90",
+    "credits": "0.00",
+    "state_income_tax": "1431.90",
+    "relief_amounts": {
+      "wv_senior_citizen_deduction": "5000.00"
+    }
+  },
+  "worked": "Married filing jointly, you 70 with an IRA distribution of 5,000 (under 8,000), your spouse 60 with wages: line 47 is limited to your own income ('ONLY THE INCOME OF THE SPOUSE WHO MEETS THE ELIGIBILITY REQUIREMENTS QUALIFIES'), and your spouse, under 65, gets none. You (Column A) born 1955-01-15, age 70 at December 31, 2025; Spouse (Column B) born 1965-06-06, age 60 at December 31, 2025. Federal AGI (given) = IRA distribution 5,000.00 (you) + wages 50,000.00 (spouse) = 55,000.00. Federal taxable income (given, not tested) = 55,000.00 - standard deduction 31,500.00 - 1 x 1,600.00 aged 65 or older = 21,900.00 (federal senior deduction ignored). IT-140 line 1 federal AGI 55,000.00. Schedule M additions lines 51-58 none; IT-140 line 2 0.00. Schedule M You (Column A): line 47 (age 70): column (c) income not on lines 35-46 = 5,000.00, under 8,000.00: 5,000.00; column (d) lines 29-34 = 0.00; line 47 = 5,000.00 - 0.00 = 5,000.00; line 49 = 5,000.00. Schedule M Spouse (Column B): line 47: age 60, under 65 and not disabled, none; line 49 = 0.00. Line 50 total subtractions = 5,000.00 + 0.00 = 5,000.00. Projection (per person): You (Column A): Social Security subtraction 0.00; age 65 deduction = lesser of (8,000.00 - military retirement 0.00) and own income 5,000.00 = 5,000.00; best_of_group wv_line_47 keeps the larger, 5,000.00 (wv_senior_citizen_deduction). Projection subtractions total 5,000.00, the same as line 50. IT-140 line 3 subtractions 5,000.00; line 4 West Virginia AGI = 55,000.00 + 0.00 - 5,000.00 = 50,000.00. Line 5 Low-Income Earned Income Exclusion: federal AGI over 10,000, none. Line 6 exemptions 2 x 2,000.00 = 4,000.00. Line 7 taxable income = 50,000.00 - 4,000.00 = 46,000.00. Line 8 tax by Rate Schedule I (PDF p.37) bands: 2.22% x 10,000.00 = 222 + 2.96% x 15,000.00 = 444 + 3.33% x 15,000.00 = 499.5 + 4.44% x 6,000.00 = 266.4; total 1431.9 = 1,431.90. The Tax Table row 46,000 to under 46,050 (PDF p.38 on) gives 1,433; expected keeps the schedule formula on the exact income. No Family Tax Credit (Modified Federal AGI above the table limits); credits 0.00; state income tax 1,431.90.",
+  "accepted_approximations": [
+    "Tax below 100,000 of taxable income is figured on the exact income, where the booklet uses a Tax Table row's midpoint rounded to the whole dollar. Other tax is also rounded to the whole dollar in the booklet."
+  ],
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

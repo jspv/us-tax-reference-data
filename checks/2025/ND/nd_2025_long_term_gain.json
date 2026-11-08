@@ -1,0 +1,52 @@
+{
+  "id": "nd_2025_long_term_gain",
+  "state": "ND",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "section": "PDF p.14 Line 6 - Net long-term capital gain exclusion; PDF p.15 Worksheet lines 1-8; Form ND-1 line 6; Form ND-1 lines 1b, 4b, 17, 18, 19, 20, 24, 25; booklet PDF p.4 (starting point is federal taxable income), PDF p.13 Line 1b, PDF p.16 Line 20, PDF p.29 Tax Rate Schedules, PDF pp.22-28 Tax Table",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-07-07"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "100000.00",
+          "person": 0
+        }
+      ],
+      "short_term_gains": "5000.00",
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "125000.00",
+    "federal_taxable_income": "109250.00"
+  },
+  "expected": {
+    "state_taxable_income": "101250.00",
+    "state_tax_before_credits": "1029.11",
+    "credits": "0.00",
+    "state_income_tax": "1029.11"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 100,000.00 + short-term gain 5,000.00 + long-term gain 20,000.00 = 125,000.00. Federal taxable income = 125,000.00 - standard deduction 15,750.00 = 109,250.00 (federal senior deduction ignored). Form ND-1 line 1b federal taxable income 109,250.00; lines 2-3 additions 0.00, line 4a 0.00; line 4b = 109,250.00. Subtractions: line 6 net long-term capital gain exclusion, 40% x 20,000.00 = 8,000.00. Line 17 total subtractions = 8,000.00. Line 18 North Dakota taxable income = 109,250.00 - 8,000.00 = 101,250.00. Line 19 = 101,250.00. Line 20 tax: 1.95% x (101,250.00 - 48,475.00) = 1.95% x 52,775.00 = 1,029.1125, to the cent 1,029.11; taxable income is 100,000 or more, so the form itself uses the schedule (PDF p.29). Lines 21-23 credits: line 22 marriage penalty credit: not a joint return, so none. Expected credits 0.00. Line 25 net tax = 1,029.11. Worksheet: line 1 Schedule D line 15 20,000.00; line 2 Schedule D line 16 25,000.00; line 3 the smaller, 20,000.00; line 8 = 40% x 20,000.00 = 8,000.00. The short-term gain gets no exclusion.",
+  "accepted_approximations": [
+    "The long-term gain exclusion is applied to long-term gains; the worksheet uses the smaller of net long-term gain and overall net gain, so a net short-term loss reduces it."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:marriage_penalty_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

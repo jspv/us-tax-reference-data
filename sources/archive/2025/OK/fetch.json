@@ -1,0 +1,30 @@
+[
+  {
+    "state": "OK",
+    "title": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet, includes Schedule 511-A)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "retrieved": "2026-11-07T01:37:39.753836+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf",
+    "method": "browser",
+    "file": "511-Pkt.pdf",
+    "bytes": 1299105,
+    "sha256": "c90cf30381cca6262ec94050acde8db1ee58885360f0af4ec21e045d1cc5a572",
+    "archived_url": "https://web.archive.org/web/20260519225322id_/https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  {
+    "state": "OK",
+    "title": "Help Center: Individual Income Tax (Social Security and retirement exclusions)",
+    "url": "https://oklahoma.gov/tax/helpcenter/income-tax.html",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:37:44.923361+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://oklahoma.gov/tax/helpcenter/income-tax.html",
+    "file": "income-tax.html",
+    "bytes": 416542,
+    "sha256": "d856631609059b02d24094f520f4686048856ff87fb8caef3fe8409b41f02600",
+    "text_file": "income-tax.page.txt"
+  }
+]

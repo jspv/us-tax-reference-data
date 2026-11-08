@@ -1,0 +1,834 @@
+{
+  "layer": "record",
+  "state": "NY",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Brackets: PDF page 33 of IT-201-I prints three schedules. The pypdf text layer places the filing-status headings after their tables; the docling layout text and the worksheets on pages 34-39 (taxable-income limits $161,550 married joint, $215,400 single, $269,300 head of household) fix the assignment: the 17,150 table is married filing jointly and qualifying surviving spouse, the 8,500 table single and married filing separately, the 12,800 table head of household. Each table's base taxes check (686 = 4% of 17,150; 340 = 4% of 8,500; 512 = 4% of 12,800).",
+    "married_separate is recorded as a copy of the single schedule (page 33 heading 'Single and married filing separately'); qualifying surviving spouse has no bracket key in the schema and uses the married_joint schedule.",
+    "Line 39 (PDF page 12): with NY AGI of $107,650 or less, the tax comes from the 2025 NYS Tax Table (not in these sources; visit www.tax.ny.gov), or from the rate schedule when line 38 is $65,000 or more. With NY AGI over $107,650 the tax comes from the tax computation worksheets (recapture).",
+    "Recapture: one entry per tax computation worksheet, 1 to 16 (PDF pages 34-39), each keyed by the filing statuses its heading names. Worksheets 1, 7 and 12 phase in a flat 5.5% (married joint, qualifying surviving spouse) or 6% (single, married separate, head of household) on all of line 38 over $50,000 of NY AGI from $107,650, in full at $157,650. Worksheets 2-5, 8-10 and 13-15 add a printed Recapture Base amount plus a printed Incremental Benefit amount times the share of $50,000 of NY AGI above the worksheet's start. Worksheets 6, 11 and 16 tax all of line 38 at 10.9% when NY AGI is over $25,000,000. The schema has no field for the Recapture Base and Incremental Benefit amounts or for each worksheet's taxable-income range, so they are in as_printed.",
+    "Recapture arithmetic (a check, not a printed statement): for each of worksheets 2-5, 8-10 and 13-15, Recapture Base plus Incremental Benefit equals the band's rate times the band's start minus the schedule tax at the start, within rounding (married joint 333 + 807 = 6% of 161,550 - 8,553 = 1,140; 1,140 + 2,747 = 6.85% of 323,200 - 18,252 = 3,887.20; 3,887 + 60,350 = 9.65% of 2,155,350 - 143,754 = 64,237.28; 64,237 + 32,500 = 10.3% of 5,000,000 - 418,263 = 96,737; the single and head of household worksheets likewise), and each Recapture Base is the previous worksheet's full amount. So once NY AGI is $50,000 over a worksheet's start, the worksheet's tax equals the band's rate on all of line 38. full_over and full_rate are left out of those entries because the booklet does not print them.",
+    "Standard deduction: PDF page 11 table. Single is 8,000, or 3,100 when item C (can be claimed as a dependent on another taxpayer's federal return) is marked Yes; recorded as two entries. The filer enters the larger of the standard deduction and the New York itemized deduction (Form IT-196, line 49). Married filing separately: both spouses must take the standard deduction unless both itemize.",
+    "Not found in the booklet: a personal exemption, an age-65 or blindness amount, or any phase-out of the standard deduction. The only exemption printed is $1,000 per dependent (line 36).",
+    "Social Security: exempt. Form IT-201 line 15 says 'also enter on line 27' and line 27, a New York subtraction, takes the taxable amount of Social Security benefits (from line 15); the Department's page 'Information for retired persons' (Subtractions, Social Security) says benefits included in federal AGI may be subtracted. No income test is printed. The instructions booklet text has no separate line 27 entry.",
+    "Municipal interest: line 20 (PDF page 7; form line 20 'but not those of NYS or its local governments') adds back interest on state and local bonds of other states, and their tax-exempt funds; New York's own bond interest is not added back.",
+    "Government pensions (line 26, PDF page 9): NYS (including certain public authorities and the ORP portion for SUNY, CUNY and the State Education Department), NY local governments, and the United States including the military, its territories and the District of Columbia; regardless of age (Department's page); no cap. Recorded as exempt_in_full covering public_pension and military_pension in one entry, because the line treats them alike.",
+    "Another state's government pension: line 26 does not list other states, and says payments 'attributable to your employment by an employer other than a New York public employer' may not be subtracted there but 'may qualify for the pension and annuity income exclusion described in the instructions for line 29'. Line 29 takes pension income 'not from a New York State or local government pension plan or federal government pension plan' and its qualifying income starts with 'periodic payments for services you performed as an employee before you retired'. So public_pension_other_state is covered by the pension and annuity income exclusion, not by line 26.",
+    "Roth conversions: neither the booklet nor the Department's page mentions them. Qualifying income includes 'periodic and lump-sum payments from an IRA', but no text says a conversion counts, so roth_conversion is in covers_unclear. The SECURE 2.0 sentence in not_covered is about employer contributions designated to a Roth account, not conversions.",
+    "IRA rollovers from government pensions (Department's page, Rollovers): recorded as their own entry (gov_pension_ira_rollover) with the printed pro-rata formula in other_conditions; the page says 'Generally', which is kept in the label's conditions.",
+    "Uncapped subtractions of the whole amount included in federal AGI (Social Security line 27, government pensions line 26, U.S. government interest line 28, railroad retirement) are recorded with form exempt_in_full.",
+    "Left out (no amount printed in these sources, or not retirement-income relief): the long-term residential care deduction for continuing-care retirement community fees (amount depends on fees and age; no amounts printed), the disability income exclusion itself (Form IT-221, IT-225 S-124; only its shared $20,000 limit is recorded), New York's 529 college savings deduction (line 30), the inflation refund check subtraction (line 25), the public employee 414(h) contribution addition (line 21), the college tuition credit or itemized deduction, and the NYS household credit tables (line 40, a low-income credit).",
+    "Out of scope: New York City and Yonkers taxes and the MCTMT (local or separate taxes, lines 47-57); the nonresident pension rule (4 U.S.C. section 114) on the Department's page applies to nonresidents (Form IT-203).",
+    "Capital gains: lines 7 and 8 take the federal amounts; no separate rate or deduction found in the booklet, so capital_gains is empty. Indexing: no statement that any figure is adjusted for inflation was found in these sources (the only 'inflation' text is the inflation refund check subtraction).",
+    "Settlement 2026-11-07: recapture worksheets 1, 7 and 12, effect: A said flat_top_rate_on_all_income, B said phase_out_lower_brackets; PDF pages 34, 36 and 38 multiply all of line 38 by 5.5% or 6% (line 3) and make that the tax when NY AGI is $157,650 or more, phased in over $50,000 of NY AGI from $107,650: flat_top_rate_on_all_income, with full_over 157,650 and the printed rate.",
+    "Settlement 2026-11-07: recapture worksheets 2-5, 8-10 and 13-15, effect: A said other, B said phase_out_lower_brackets; PDF pages 34-38 add a Recapture Base amount and an Incremental Benefit amount phased in over $50,000 of NY AGI to the schedule tax, which takes back the benefit of the lower brackets: phase_out_lower_brackets, without full_over or full_rate (not printed).",
+    "Settlement 2026-11-07: recapture filing statuses: A wrote one entry per status, with married separate entries copying the single worksheets and no qualifying surviving spouse key; B grouped worksheets 7 and 12 and worksheets 6, 11 and 16, and keyed qualifying surviving spouse. The worksheet headings (PDF pages 34-39: 'Married filing jointly and qualifying surviving spouse', 'Single and married filing separately', 'Head of household') settle it: one entry per worksheet, keyed by every status its heading names. Every threshold, rate, Recapture Base and Incremental Benefit amount was the same in both readings and matches the worksheets; the threshold differences the comparison reported came from the different grouping.",
+    "Settlement 2026-11-07: pension and annuity income exclusion as a beneficiary: who.basis and cap_per: A said return and return, B said each_person and person; PDF page 10 (Beneficiaries) and the Department's page (Receiving distributions as a beneficiary, Example 3) apply the $20,000 to the beneficiary taxpayer ('The maximum exclusion allowable, from the total of all sources that qualify for the exclusion, may not exceed $20,000'), with the decedent's $20,000 shared among beneficiaries: each_person, cap 20,000 per person, the sharing in cap_rule.",
+    "Settlement 2026-11-07: standard deduction layout: A wrote one entry with an amount per filing status, B one entry per status; the amounts are the same in both and match the PDF page 11 table; A's one entry is kept (the schema's by_status form), with B's dependent-filer single entry kept as a second entry as both readers had it.",
+    "Settlement 2026-11-07: New York's 529 college savings program deduction (line 30): only B recorded it, as a relief covering other_income; it is a deduction for contributions to a college savings account, not relief for a kind of retirement income, so it is dropped from reliefs and named in the left-out note.",
+    "Settlement 2026-11-07: indexing entry for dependent_exemption: only B had it; kept as not_stated, like the other figures (no indexing statement found)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "8500"
+      },
+      {
+        "rate": "0.0525",
+        "start": "11700"
+      },
+      {
+        "rate": "0.055",
+        "start": "13900"
+      },
+      {
+        "rate": "0.06",
+        "start": "80650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "215400"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1077550"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "17150"
+      },
+      {
+        "rate": "0.0525",
+        "start": "23600"
+      },
+      {
+        "rate": "0.055",
+        "start": "27900"
+      },
+      {
+        "rate": "0.06",
+        "start": "161550"
+      },
+      {
+        "rate": "0.0685",
+        "start": "323200"
+      },
+      {
+        "rate": "0.0965",
+        "start": "2155350"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "8500"
+      },
+      {
+        "rate": "0.0525",
+        "start": "11700"
+      },
+      {
+        "rate": "0.055",
+        "start": "13900"
+      },
+      {
+        "rate": "0.06",
+        "start": "80650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "215400"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1077550"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "12800"
+      },
+      {
+        "rate": "0.0525",
+        "start": "17650"
+      },
+      {
+        "rate": "0.055",
+        "start": "20900"
+      },
+      {
+        "rate": "0.06",
+        "start": "107650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "269300"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1616450"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "cite": {
+      "publication": "Instructions for Form IT-201 (2025)",
+      "section": "PDF page 33, New York State tax rate schedule (line 39): married filing jointly and qualifying surviving spouse; single and married filing separately; head of household",
+      "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "8000",
+          "married_joint": "16050",
+          "married_separate": "8000",
+          "head_of_household": "11200",
+          "qualifying_surviving_spouse": "16050"
+        },
+        "per": "return",
+        "condition": "New York standard deduction; the filer takes the larger of it and the New York itemized deduction (Form IT-196, line 49). Single: item C (can be claimed as a dependent) marked No. Married filing separately: both spouses must take the standard deduction unless both itemize.",
+        "cite": {
+          "publication": "Instructions for Form IT-201 (2025)",
+          "section": "PDF page 11, Line 34, New York State standard deduction table",
+          "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "standard_deduction_dependent_filer",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "3100"
+        },
+        "per": "return",
+        "condition": "Single and item C marked Yes (can be claimed as a dependent on another taxpayer's federal return); the larger New York itemized deduction may be taken instead.",
+        "cite": {
+          "publication": "Instructions for Form IT-201 (2025)",
+          "section": "PDF page 11, Line 34, New York State standard deduction table",
+          "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "1000"
+        },
+        "per": "dependent",
+        "condition": "Number of dependents listed in item H times 1,000, entered on line 36.",
+        "cite": {
+          "publication": "Instructions for Form IT-201 (2025)",
+          "section": "PDF page 11, Line 36: Dependent exemption amount; Form IT-201 page 2 line 36",
+          "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "Form IT-201 (2025) Resident Income Tax Return",
+      "section": "PDF page 2, lines 19 (federal AGI) to 37 (taxable income): New York additions lines 20-23, subtractions lines 25-31, New York AGI line 33, deduction line 34, dependent exemption line 36",
+      "url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "Form IT-201 (2025) Resident Income Tax Return",
+      "section": "PDF page 2, line 15 (also enter on line 27) and line 27 'Taxable amount of Social Security benefits (from line 15)' under New York subtractions; also the Department's page 'Information for retired persons', Subtractions, Social Security",
+      "url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "social_security_subtraction",
+      "label": "Taxable amount of Social Security benefits (Form IT-201 line 27)",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "Form IT-201 (2025) Resident Income Tax Return",
+        "section": "PDF page 2, line 15 (also enter on line 27) and line 27 under New York subtractions; Department's page 'Information for retired persons', Subtractions, Social Security",
+        "url": "https://www.tax.ny.gov/pdf/2025/inc/it201_2025_fill_in.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "gov_pension_subtraction",
+      "label": "Pensions of New York State and local governments and the federal government (line 26)",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "not_covered": [
+        "Pension payments or return of contributions that were attributable to your employment by an employer other than a New York public employer, such as a private university, and any portion attributable to contributions you made to a supplemental annuity plan which was funded through a salary reduction program (these may qualify for the pension and annuity income exclusion)",
+        "Periodic distributions from government (IRC section 457) deferred compensation plans (these may qualify for the pension and annuity income exclusion)",
+        "Optional Retirement Program members: only the portion attributable to employment with the State or City University of New York or the New York State Education Department"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Pension or other distribution (including a return of contributions in a year before retirement) from a New York State or local government pension plan or a federal government pension plan (the United States, its territories and possessions, agencies and instrumentalities including the military, or the District of Columbia), included in federal AGI; allowed regardless of age or of the form the payments take",
+          "Thrift Savings Plan distributions qualify only for federal employees in FERS; CSRS participants' TSP distributions go to the pension and annuity income exclusion",
+          "Also allowed to a beneficiary of a deceased officer or employee, and for distributions to a nonemployee spouse under a QDRO (IRC 414(p)(1)(A)) or a New York DRO"
+        ]
+      },
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 9, Line 26 and Nonemployee spouses; Department's page 'Information for retired persons', Pensions of New York State, local governments, and the federal government",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "gov_pension_ira_rollover",
+      "label": "Rollovers into an IRA from a New York State, local government or federal government pension (part of the line 26 subtraction)",
+      "form": "exempt_in_full",
+      "covers": [
+        "ira_distribution"
+      ],
+      "not_covered": [
+        "Any interest or gains on the initial rollover included in the distribution (these may be eligible for the pension and annuity income exclusion)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Only the part of an IRA distribution that comes from amounts rolled over from a New York State, local government or federal government pension: 'Generally, amounts rolled over into an IRA from a New York State, local government or federal government pension will continue to be fully excludable to the extent of the rollover amount'",
+          "Eligible part = (contributions rolled over from the New York State, local government or federal government pension plan / total value of the IRA, including the amount of distribution, at the date of distribution) x amount distributed",
+          "The recipient must keep track of the yearly distributions from the original rollover amount versus distributions attributable to any gain or interest on the rollover amount"
+        ]
+      },
+      "cite": {
+        "publication": "Information for retired persons (NYS Department of Taxation and Finance)",
+        "section": "Subtractions, Pensions of New York State, local governments, and the federal government, Rollovers",
+        "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "pension_annuity_exclusion",
+      "label": "Pension and annuity income exclusion (line 29)",
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "Distributions you received as a nonemployee spouse in accordance with a court-issued qualified domestic relations order (QDRO) that meets the criteria of IRC 414(p)(1)(A) or a domestic relations order (DRO) issued by a New York court",
+        "Distributions you received as a result of an annuity contract purchased with your own funds from an insurance company or other financial institution",
+        "Employer nonelective and matching contributions that you designated to a Roth account under the SECURE 2.0 Act of 2022",
+        "IRA, HR-10 (Keogh), cafeteria plan and 401(k) payments derived from contributions made after you retired",
+        "Lump-sum HR-10 (Keogh) payments when federal Form 4972 is used"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5,
+        "other_conditions": [
+          "59 1/2 before January 1, 2025 for the year's qualifying income; if 59 1/2 was reached during 2025, only the income received after reaching 59 1/2 counts",
+          "Pension or annuity income (generally lines 9 and 10) not from a New York State or local government pension plan or federal government pension plan, included in federal AGI",
+          "Qualifying income: periodic payments for services performed as an employee before retirement; periodic and lump-sum IRA payments; periodic distributions from government (IRC 457) deferred compensation plans; periodic distributions from an IRC 403(b) annuity purchased by an employer that is a corporation, community chest, fund, foundation or public school; periodic and (if Form 4972 is not used) lump-sum HR-10 (Keogh) payments; periodic distributions from a cafeteria plan (IRC 125) or a 401(k), profit-sharing or stock bonus plan"
+        ]
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Not more than $20,000 regardless of the source of the income. Each spouse who qualifies may subtract up to $20,000 of their own pension and annuity income, on a joint or separate return, but neither may claim an unused part of the other's. A person receiving their own and a deceased spouse's pension income is entitled to a maximum of $20,000 each year. With the disability income exclusion (Form IT-225, S-124), the total of both exclusions cannot exceed $20,000.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF pages 9-10, Line 29 ($20,000 limit; qualifying income; Married taxpayers; Disability income exclusion); Department's page 'Information for retired persons', Pension and annuity income exclusion",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "pension_annuity_exclusion_beneficiary",
+      "label": "Pension and annuity income exclusion for income received as a beneficiary of a decedent (line 29)",
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Pension and annuity income of a decedent who would have been entitled to the exclusion had the decedent continued to live; allowed regardless of the beneficiary's age",
+          "If the decedent would have become 59 1/2 during 2025, only amounts received after that date count",
+          "First reduced by any exclusion subtracted on the decedent's own return for the same year"
+        ]
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person",
+      "cap_rule": "The total claimed by the decedent and all the decedent's beneficiaries cannot exceed $20,000; with more than one beneficiary, each beneficiary's share is $20,000 x (value of pensions and annuities the beneficiary inherited / total value inherited by all beneficiaries). The beneficiary's exclusion from all sources, own and inherited, cannot exceed $20,000, and the part applied to income received as a beneficiary is limited to the beneficiary's share of the decedent's exclusion.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 10, Line 29, Beneficiaries; Department's page 'Information for retired persons', Receiving distributions as a beneficiary, Pension and annuity income exclusion (Examples 1-3)",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "railroad_tier1_subtraction",
+      "label": "Social Security equivalent Tier 1 railroad retirement benefits",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Social Security equivalent Tier 1 benefits included in federal AGI; on Form IT-201 the subtraction is claimed on line 27"
+        ]
+      },
+      "cite": {
+        "publication": "Information for retired persons (NYS Department of Taxation and Finance)",
+        "section": "Subtractions, Railroad Retirement benefits, Social Security equivalent Railroad Retirement benefits",
+        "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "railroad_tier2_subtraction",
+      "label": "Certain railroad retirement income and railroad unemployment insurance benefits (Form IT-225, S-122)",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Supplemental annuity or Tier 2 benefits under the Railroad Retirement Act of 1974, or benefits under the Railroad Unemployment Insurance Act, included in federal AGI and exempt from state income taxes under Title 45 of the United States Code; claimed on Form IT-225 (line 31)"
+        ]
+      },
+      "cite": {
+        "publication": "Information for retired persons (NYS Department of Taxation and Finance)",
+        "section": "Subtractions, Railroad Retirement benefits, Railroad Retirement benefits",
+        "url": "https://www.tax.ny.gov/pit/file/information_for_seniors.htm",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "us_government_interest_subtraction",
+      "label": "Interest income on U.S. government bonds (line 28)",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest",
+        "dividends"
+      ],
+      "who": {
+        "basis": "return",
+        "other_conditions": [
+          "Interest on bonds or other obligations of the U.S. government included on lines 2, 6 or 11",
+          "Dividends from a regulated investment company (mutual fund) qualify only if it meets the 50% asset requirement each quarter, and only the portion derived from federal obligations"
+        ]
+      },
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 9, Line 28; Form IT-201 page 2 line 28",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Line 20 adds interest on state and local bonds and obligations, tax-exempt bond fund dividends and tax-exempt money market funds of states other than New York; the form line excludes those of NYS or its local governments.",
+    "cite": {
+      "publication": "Instructions for Form IT-201 (2025)",
+      "section": "PDF page 7, Line 20; Form IT-201 page 2 line 20",
+      "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "dependent_exemption",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "pension_annuity_exclusion",
+      "indexed": "not_stated"
+    },
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": [
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "107650",
+        "qualifying_surviving_spouse": "107650"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "married_joint": "157650",
+        "qualifying_surviving_spouse": "157650"
+      },
+      "full_rate": "0.055",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 1 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $107,650 but not more than $25,000,000 and taxable income (line 38) is $161,550 or less. Line 3 = line 38 x 5.5% (0.055); if line 1 (NY AGI) is $157,650 or more, the tax is the line 3 amount. Otherwise line 4 = NYS tax on line 38 from the rate schedule; line 5 = line 3 minus line 4; line 6 = excess of NY AGI over $107,650; line 7 = line 6 / $50,000 rounded to four decimals; tax (line 9) = line 4 + line 5 x line 7.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 34, Tax computation worksheet 1",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "161550",
+        "qualifying_surviving_spouse": "161550"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 2 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $161,550 but not more than $25,000,000 and taxable income (line 38) is more than $161,550 but not more than $323,200. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 333; line 5 Incremental Benefit amount 807; line 6 = excess of NY AGI over $161,550; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 34, Tax computation worksheet 2",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "323200",
+        "qualifying_surviving_spouse": "323200"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 3 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $323,200 but not more than $25,000,000 and taxable income (line 38) is more than $323,200 but not more than $2,155,350. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 1,140; line 5 Incremental Benefit amount 2,747; line 6 = excess of NY AGI over $323,200; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 34, Tax computation worksheet 3",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "2155350",
+        "qualifying_surviving_spouse": "2155350"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 4 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $2,155,350 but not more than $25,000,000 and taxable income (line 38) is more than $2,155,350 but not more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 3,887; line 5 Incremental Benefit amount 60,350; line 6 = excess of NY AGI over $2,155,350; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 34, Tax computation worksheet 4",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "5000000",
+        "qualifying_surviving_spouse": "5000000"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 5 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $5,000,000 but not more than $25,000,000 and taxable income (line 38) is more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 64,237; line 5 Incremental Benefit amount 32,500; line 6 = excess of NY AGI over $5,000,000; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 35, Tax computation worksheet 5",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "married_joint": "25000000",
+        "qualifying_surviving_spouse": "25000000"
+      },
+      "phase_in_width": "0",
+      "full_over": {
+        "married_joint": "25000000",
+        "qualifying_surviving_spouse": "25000000"
+      },
+      "full_rate": "0.109",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 6 (Married filing jointly and qualifying surviving spouse): applies if NY AGI (line 33) is more than $25,000,000. Tax = taxable income (line 38) x 10.9% (0.109).",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 35, Tax computation worksheet 6",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "single": "107650",
+        "married_separate": "107650"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "single": "157650",
+        "married_separate": "157650"
+      },
+      "full_rate": "0.06",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 7 (Single and married filing separately): applies if NY AGI (line 33) is more than $107,650 but not more than $25,000,000 and taxable income (line 38) is $215,400 or less. Line 3 = line 38 x 6% (0.06); if line 1 (NY AGI) is $157,650 or more, the tax is the line 3 amount. Otherwise line 4 = NYS tax on line 38 from the rate schedule; line 5 = line 3 minus line 4; line 6 = excess of NY AGI over $107,650; line 7 = line 6 / $50,000 rounded to four decimals; tax (line 9) = line 4 + line 5 x line 7.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 36, Tax computation worksheet 7",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "single": "215400",
+        "married_separate": "215400"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 8 (Single and married filing separately): applies if NY AGI (line 33) is more than $215,400 but not more than $25,000,000 and taxable income (line 38) is more than $215,400 but not more than $1,077,550. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 568; line 5 Incremental Benefit amount 1,831; line 6 = excess of NY AGI over $215,400; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 36, Tax computation worksheet 8",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "single": "1077550",
+        "married_separate": "1077550"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 9 (Single and married filing separately): applies if NY AGI (line 33) is more than $1,077,550 but not more than $25,000,000 and taxable income (line 38) is more than $1,077,550 but not more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 2,399; line 5 Incremental Benefit amount 30,172; line 6 = excess of NY AGI over $1,077,550; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 36, Tax computation worksheet 9",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "single": "5000000",
+        "married_separate": "5000000"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 10 (Single and married filing separately): applies if NY AGI (line 33) is more than $5,000,000 but not more than $25,000,000 and taxable income (line 38) is more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 32,571; line 5 Incremental Benefit amount 32,500; line 6 = excess of NY AGI over $5,000,000; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 36, Tax computation worksheet 10",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "single": "25000000",
+        "married_separate": "25000000"
+      },
+      "phase_in_width": "0",
+      "full_over": {
+        "single": "25000000",
+        "married_separate": "25000000"
+      },
+      "full_rate": "0.109",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 11 (Single and married filing separately): applies if NY AGI (line 33) is more than $25,000,000. Tax = taxable income (line 38) x 10.9% (0.109).",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 37, Tax computation worksheet 11",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "head_of_household": "107650"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "head_of_household": "157650"
+      },
+      "full_rate": "0.06",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 12 (Head of household): applies if NY AGI (line 33) is more than $107,650 but not more than $25,000,000 and taxable income (line 38) is $269,300 or less. Line 3 = line 38 x 6% (0.06); if line 1 (NY AGI) is $157,650 or more, the tax is the line 3 amount. Otherwise line 4 = NYS tax on line 38 from the rate schedule; line 5 = line 3 minus line 4; line 6 = excess of NY AGI over $107,650; line 7 = line 6 / $50,000 rounded to four decimals; tax (line 9) = line 4 + line 5 x line 7.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 38, Tax computation worksheet 12",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "head_of_household": "269300"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 13 (Head of household): applies if NY AGI (line 33) is more than $269,300 but not more than $25,000,000 and taxable income (line 38) is more than $269,300 but not more than $1,616,450. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 787; line 5 Incremental Benefit amount 2,289; line 6 = excess of NY AGI over $269,300; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 38, Tax computation worksheet 13",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "head_of_household": "1616450"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 14 (Head of household): applies if NY AGI (line 33) is more than $1,616,450 but not more than $25,000,000 and taxable income (line 38) is more than $1,616,450 but not more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 3,076; line 5 Incremental Benefit amount 45,261; line 6 = excess of NY AGI over $1,616,450; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 38, Tax computation worksheet 14",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "head_of_household": "5000000"
+      },
+      "phase_in_width": "50000",
+      "effect": "phase_out_lower_brackets",
+      "as_printed": "Tax computation worksheet 15 (Head of household): applies if NY AGI (line 33) is more than $5,000,000 but not more than $25,000,000 and taxable income (line 38) is more than $5,000,000. Line 3 = NYS tax on line 38 from the rate schedule; line 4 Recapture Base amount 48,337; line 5 Incremental Benefit amount 32,500; line 6 = excess of NY AGI over $5,000,000; line 7 = lesser of line 6 or $50,000; line 8 = line 7 / $50,000 rounded to four decimals; line 9 = line 5 x line 8; tax (line 10) = lines 3 + 4 + 9.",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 38, Tax computation worksheet 15",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "measure": {
+        "base": "state_agi",
+        "as_printed": "New York adjusted gross income (Form IT-201, line 33)"
+      },
+      "starts_over": {
+        "head_of_household": "25000000"
+      },
+      "phase_in_width": "0",
+      "full_over": {
+        "head_of_household": "25000000"
+      },
+      "full_rate": "0.109",
+      "effect": "flat_top_rate_on_all_income",
+      "as_printed": "Tax computation worksheet 16 (Head of household): applies if NY AGI (line 33) is more than $25,000,000. Tax = taxable income (line 38) x 10.9% (0.109).",
+      "cite": {
+        "publication": "Instructions for Form IT-201 (2025)",
+        "section": "PDF page 39, Tax computation worksheet 16",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ]
+}

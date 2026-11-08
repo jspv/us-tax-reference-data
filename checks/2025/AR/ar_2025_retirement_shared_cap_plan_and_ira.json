@@ -1,0 +1,67 @@
+{
+  "id": "ar_2025_retirement_shared_cap_plan_and_ira",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "ar_retirement_exclusion_59_5_plus",
+    "ar_retirement_exclusion_employer_plan"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt); PDF page 11 items 12 and 13 and the NOTE (total exemptions from all plans under 12 and 13 cannot exceed 6,000 per taxpayer); PDF page 13 LINE 18A and 18B (public or private employment-related plans, the recipient does not have to be retired; traditional IRA after 59 1/2); record ar_employer_plan_exclusion, ar_traditional_ira_exclusion_59_5",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 61,
+        "born": "1964-02-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "employer_plan_distribution": [
+        {
+          "amount": "4000.00",
+          "person": 0
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "5000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "39000.00",
+    "federal_taxable_income": "23250.00"
+  },
+  "expected": {
+    "state_agi": "33000.00",
+    "state_taxable_income": "30530.00",
+    "state_tax_before_credits": "770.71",
+    "credits": "29.00",
+    "state_income_tax": "741.71",
+    "relief_amounts": {
+      "ar_retirement_exclusion_59_5_plus": "6000.00"
+    }
+  },
+  "worked": "Single, 61: 401(k) distribution 4,000 and traditional IRA distribution 5,000. One 6,000 per taxpayer across items 12 and 13 (PDF page 11 NOTE): 4,000 + 5,000 = 9,000, limited to 6,000. The employer-plan entry alone would give 4,000; the 59 1/2 entry gives 6,000 and is kept (best of the group). Federal (given, not tested): federal AGI = wages (primary) 30,000.00 + employer plan (401(k)) distribution (primary) 4,000.00 + traditional IRA distribution (primary) 5,000.00 = 39,000.00. Federal taxable income = 39,000.00 - standard deduction 15,750.00 = 23,250.00 (federal senior deduction ignored). AR1000F, filing status 1 (single); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 30,000.00. Line 18A (primary, age 61): gross employer plan 4,000.00 + traditional IRA after 59 1/2 5,000.00 = 9,000.00; less the 6,000 exemption: exemption = lesser of 9,000.00 and 6,000.00 = 6,000.00; taxable 3,000.00. Line 23 total income = 33,000.00; line 24 adjustments 0.00; line 25 AGI = 33,000.00. Projection check: federal AGI 39,000.00 - 6,000 exclusion (ar_retirement_exclusion_59_5_plus) 6,000.00 = state AGI 33,000.00. Line 27 standard deduction (filing status 1) 2,470.00; line 28 net taxable income = 33,000.00 - 2,470.00 = 30,530.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (11,200.00 - 5,600.00) 5,600.00 = 112.00 + 3% x (15,990.00 - 11,200.00) 4,790.00 = 143.70 + 3.4% x (26,400.00 - 15,990.00) 10,410.00 = 353.94 + 3.9% x (30,530.00 - 26,400.00) 4,130.00 = 161.07; total 770.71. (The Regular Income Tax Table row 30,501-30,601 gives 772; expected keeps the schedule.) Line 7A boxes: personal 1 = 1 x 29.00 = 29.00; line 7C and line 34 29.00; line 37 total credits 29.00. Line 38 net tax = 770.71 - 29.00 = 741.71.",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

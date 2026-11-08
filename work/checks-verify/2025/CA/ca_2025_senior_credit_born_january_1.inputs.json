@@ -1,0 +1,47 @@
+{
+  "id": "ca_2025_senior_credit_born_january_1",
+  "state": "CA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "senior_exemption_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 540 Personal Income Tax Booklet",
+    "section": "Form 540 lines 13 to 19 and 31 to 33 (PDF pages 39-40); PDF page 13 Line 18 standard deduction chart and Line 31; PDF page 75 Tax Rate Schedules; PDF page 39 Form 540 lines 7 and 9 ('X $153'); PDF page 12 Line 7 and Line 9; PDF page 14 Line 32 and the AGI Limitation Worksheet lines a to i; PDF page 12 Line 9 footnote ('If your 65th birthday is on January 1, 2026, you are considered to be age 65 on December 31, 2025')",
+    "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "55000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "CA",
+          "contributory": true
+        }
+      ],
+      "interest": "15000.00"
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "52250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.senior_exemption_credit"
+  ]
+}

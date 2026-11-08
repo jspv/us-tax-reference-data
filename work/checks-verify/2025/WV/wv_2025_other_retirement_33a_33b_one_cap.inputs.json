@@ -1,0 +1,59 @@
+{
+  "id": "wv_2025_other_retirement_33a_33b_one_cap",
+  "state": "WV",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "wv_other_retirement"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 IT-140 Personal Income Tax Forms and Instructions (West Virginia Tax Division), with Schedule M bound in",
+    "section": "Schedule M line 33(a)-(b) Other Retirement Modification, 'Combined amounts of 33a and 33b must not exceed $2,000' (PDF p.5; instructions PDF p.28; PDF p.22); IT-140 lines 1-8 (PDF p.3; instructions PDF p.26: exemptions 2,000 each, line 7 floored at zero); Rate Schedules I and II (PDF p.37); Tax Table (PDF p.38 on)",
+    "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-10-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "1500.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "WV",
+          "contributory": true
+        },
+        {
+          "amount": "1500.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "33000.00",
+    "federal_taxable_income": "17250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.wv_other_retirement"
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "state": "CT",
+    "title": "2025 Form CT-1040 Instructions",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE",
+    "retrieved": "2026-11-06T22:09:21.540112+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "2025-ct-1040-instructions_1225.pdf",
+    "bytes": 998064,
+    "sha256": "0e2cabf0fd48b9fa86d926adfb9e3c6dad3cbf17badfcf11321d8e4bceb24386",
+    "archived_url": "https://web.archive.org/web/20260331202924id_/https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  {
+    "state": "CT",
+    "title": "2025 Form CT-1040 Connecticut Resident Income Tax Return",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/ct-1040_1225.pdf",
+    "retrieved": "2026-11-06T22:22:09.232619+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://portal.ct.gov/-/media/drs/forms/2025/income/ct-1040_1225.pdf",
+    "file": "ct-1040_1225.pdf",
+    "bytes": 424566,
+    "sha256": "fadbe2acfd629a61c59266fd5d5f80cb0f717da556203b8cd73f6ae49d538b9b",
+    "archived_url": "https://web.archive.org/web/20260301195438id_/https://portal.ct.gov/-/media/drs/forms/2025/income/ct-1040_1225.pdf"
+  }
+]

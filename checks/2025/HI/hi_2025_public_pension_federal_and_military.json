@@ -1,0 +1,73 @@
+{
+  "id": "hi_2025_public_pension_federal_and_military",
+  "state": "HI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "hi_public_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form N-11 Instructions",
+    "section": "PDF page 13, Line 13 Pensions (Employer-Funded Pension Plans, items (1) and (2)); Form N-11 line 13; Form N-11 lines 7-12, 19-20 and 23-27 (pages 2-3); PDF page 11 (Line 7), PDF page 20 (Line 23 standard deduction table, Line 25 exemptions), PDF page 9 (Lines 6a, 6b, 'age 65 or over as of January 1, 2026'), PDF page 20 (Line 27 Tax Table), PDF page 50 (2025 Tax Rate Schedules)",
+    "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-01-25"
+      },
+      {
+        "age": 60,
+        "born": "1965-08-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "25000.00",
+          "person": 1
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military",
+          "paying_government": "federal",
+          "military_years_20_or_medical": true
+        },
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "federal",
+          "contributory": true
+        }
+      ]
+    },
+    "federal_agi": "95000.00",
+    "federal_taxable_income": "63500.00"
+  },
+  "expected": {
+    "state_agi": "25000.00",
+    "state_taxable_income": "13912.00",
+    "state_tax_before_credits": "194.77",
+    "credits": "0.00",
+    "state_income_tax": "194.77",
+    "relief_amounts": {
+      "hi_public_pension": "70000.00"
+    }
+  },
+  "worked": "Married filing jointly, 62 and 60. One spouse has military retired pay 30,000 (20 years of service); the other a federal civil service annuity 40,000 (FERS, with the mandatory employee contributions, which are not 'voluntary contributions under an elective right') paid upon retirement, and wages 25,000. Both pensions are named in line 13 item (1) ('federal civil service annuity, military pension') and are excluded in full; no age test. No age-65 exemptions. Line 7 federal AGI = military retired pay 30,000.00 + federal civil service (FERS) annuity 40,000.00 + wages 25,000.00 = 95,000.00. Federal taxable income = 95,000.00 - 31,500.00 federal standard deduction = 63,500.00 (given, not tested; the federal senior deduction is ignored). Line 11 total additions = 0.00; line 12 = 95,000.00 + 0.00 = 95,000.00. Line 13 pensions taxed federally but not taxed by Hawaii (military 30,000.00 + federal civil service 40,000.00) 70,000.00. Line 19 total subtractions = 70,000.00; line 20 Hawaii AGI = 95,000.00 - 70,000.00 = 25,000.00. Line 23 standard deduction (married filing jointly, PDF page 20 table) 8,800.00; line 24 = 25,000.00 - 8,800.00 = 16,200.00. Line 6e exemptions: 2 regular = 2; line 25 = 2 x 1,144.00 = 2,288.00. Line 26 taxable income = 16,200.00 - 2,288.00 = 13,912.00. Line 27 tax, Schedule II (PDF page 50) as bands on 13,912.00: 13,912.00 x 1.4% = 194.768; sum = 194.768, to the cent 194.77; tax = 194.77 (Form N-11 line 27 uses the Tax Table below 100,000 of taxable income (PDF page 20, Line 27): the table row 13,900 to 13,950 gives 195; this case uses the bands as numbers). No credits modelled (refundable food/excise and renters credits, lines 28-29, not claimed): state income tax = 194.77.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:hi_private_pension_exclusion_ratio"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

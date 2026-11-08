@@ -1,0 +1,48 @@
+{
+  "id": "mi_2025_tier3_below",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "tier3_standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 26 (PDF page 17: born January 1, 1953 through January 1, 1959, reached 67 by December 31, 2025; up to 20,000 single); Worksheet 2 lines 1-11 (PDF page 18); PDF pages 22-23 questions 1-6; Worksheet 3.3 (PDF page 25); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-10-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "3000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00",
+      "interest": "6000.00"
+    },
+    "federal_agi": "9000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "US-2026-wages-above-wage-base",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "payroll",
+  "boundary": "at_or_above",
+  "tests": [
+    "payroll.social_security",
+    "payroll.medicare"
+  ],
+  "description": "Employee with wages above the Social Security wage base: the excess pays Medicare tax only.",
+  "inputs": {
+    "filing_status": "single",
+    "wages": "250000"
+  },
+  "asked": [
+    "medicare_tax",
+    "social_security_tax"
+  ]
+}

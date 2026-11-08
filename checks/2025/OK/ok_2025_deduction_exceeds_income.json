@@ -1,0 +1,48 @@
+{
+  "id": "ok_2025_deduction_exceeds_income",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38)",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 30,
+        "born": "1995-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "6000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "6000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "6000.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages (you) 6,000.00 = 6,000.00. Federal taxable income = 6,000.00 - standard deduction 15,750.00 = -9,750.00, floored at 0.00 (federal senior deduction ignored; federal figures are given, not tested; Oklahoma starts from federal AGI). Form 511: line 1 federal AGI 6,000.00; line 2 subtractions 0.00; line 3 = 6,000.00 - 0.00 = 6,000.00; line 4 out-of-state income 0.00; line 5 6,000.00; line 6 additions 0.00; line 7 Oklahoma AGI 6,000.00; line 8 adjustments 0.00; line 9 6,000.00; line 10 standard deduction (single) 6,350.00; line 11 exemptions: 1 Regular + 0 Special = 1 x 1,000.00 = 1,000.00 (no one is 65 or older, 0 Special); line 12 = 6,350.00 + 1,000.00 = 7,350.00; line 13 taxable income = 6,000.00 - 7,350.00 = -1,350.00, floored at 0.00 in expected; line 14 tax 0.00. Line 13 is under 100,000, so the form reads the tax table: row 0-50, column 'Single or married filing separate', PDF page 27, gives 0; expected keeps the schedule figure. Lines 15-17 credits 0.00; line 18 income tax 0.00. The form's line 9 minus line 12 is below zero; taxable income is floored at 0.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

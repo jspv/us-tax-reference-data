@@ -1,0 +1,50 @@
+{
+  "id": "ne_2025_personal_credit_at_or_above",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "ne_personal_exemption_credit",
+    "ne_standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); record ne_personal_exemption_credit (Form 1040N line 18, nonrefundable: lines 34 and 35)",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-10-02"
+      }
+    ],
+    "income": {
+      "interest": "17050.00"
+    },
+    "federal_agi": "17050.00",
+    "federal_taxable_income": "1300.00"
+  },
+  "expected": {
+    "state_agi": "17050.00",
+    "state_taxable_income": "8450.00",
+    "state_tax_before_credits": "254.28",
+    "credits": "171.00",
+    "state_income_tax": "83.28"
+  },
+  "worked": "Single, 40: interest 17,050, no earned income. The tax is over the 171 credit, so the whole credit is used. Federal (given, not tested): federal AGI = interest 17,050.00 = 17,050.00. Federal taxable income = 17,050.00 - standard deduction 15,750.00 = 1,300.00 (federal senior deduction ignored). Form 1040N filing status (1) single, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4c none; line 4 total 1. Line 5 federal AGI 17,050.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 8,600.00; lines 7 to 9 skipped (no federal itemizing); line 10 8,600.00. Line 11 = 17,050.00 - 8,600.00 = 8,450.00. Line 12 adjustments increasing federal AGI 0.00. Line 13 adjustments decreasing federal AGI 0.00. Line 14 Nebraska taxable income = 8,450.00 + 0.00 - 0.00 = 8,450.00. State income after additions and subtractions (before the deduction) = 17,050.00 + 0.00 - 0.00 = 17,050.00. Line 15 tax, schedule as numbers (single column): 2.46% x 4,030.00 = 99.138 + 3.51% x 4,420.00 = 155.142; total 254.280, rounded once to 254.28. The Tax Table row 8,360 to 8,460 gives 253; expected keeps the schedule. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 254.28. Line 18 personal exemption credit = 171 x 1 = 171.00; line 34 171.00. Line 35 = 254.28 - 171.00 = 83.28. Federal Tax Liability Worksheet (PDF page 17): net adjustments 0.00 are under 5,000, but it does not reduce line 35: the federal tax before credits is at least 10% x 1,300.00 = 130.00, above worksheet line 2 of 83.28.",
+  "accepted_approximations": [
+    "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

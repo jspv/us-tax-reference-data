@@ -1,0 +1,70 @@
+{
+  "id": "or_2025_ric_joint_older_spouse_is_person_1",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "retirement_income_credit"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.106-107 'Retirement income' (credit code 811) worksheet lines 1-12; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-06-15"
+      },
+      {
+        "age": 64,
+        "born": "1961-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "20990.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "9000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "29990.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "29990.00",
+    "state_taxable_income": "24320.00",
+    "state_tax_before_credits": "1508.00",
+    "credits": "1322.00",
+    "state_income_tax": "186.00",
+    "relief_amounts": {
+      "retirement_income_credit": "810.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 20,990.00 + private pension (person 1) 9,000.00 = 29,990.00. Federal taxable income = 29,990.00 - 31,500.00 federal standard deduction = -1,510.00, floored at 0.00 = 0.00 (the federal senior deduction is ignored). Form OR-40 (filing status married filing jointly): line 7 federal AGI 29,990.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 29,990.00 + 0.00 = 29,990.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 0.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 0.00 + 0.00 + 0.00 = 0.00. Line 15 = 29,990.00 - 0.00 = 29,990.00. Line 16 itemized 0.00. Line 17 standard deduction 5,670.00; no age 65 box. Line 18 = 5,670.00. Line 19 = 29,990.00 - 5,670.00 = 24,320.00. Line 20: 8,800.00 x 4.75% = 418 + 13,400.00 x 6.75% = 904.5 + 2,120.00 x 8.75% = 185.5; total 1508, to the cent 1,508.00 (the tax table's J column, row 24,300 to 24,400, gives 1,511; expected keeps the formula). Lines 21-23 0.00. Line 24 = 1,508.00. Line 25 exemption credit: federal AGI 29,990.00 is not more than 200,000.00; 2 x 256.00 = 512.00. Line 27 retirement income credit (code 811) worksheet: line 1 and line 3 retirement income of the eligible individual(s) 9,000.00; line 2 federal pension subtracted 0.00; line 4 15,000.00; line 5 Social Security and railroad 0.00; line 6 = 15,000.00; line 7 household income = 29,990.00 - 0.00 + 0.00 = 29,990.00; line 8 30,000.00; line 9 = 0.00; line 10 = 15,000.00 - 0.00 = 15,000.00, not below 0; line 11 smaller of 9,000.00 and 15,000.00 = 9,000.00; line 12 = 9,000.00 x 9% = 810.00. Line 28 credits = 512.00 + 810.00 = 1,322.00. Line 29 and line 31 state income tax = 1,508.00 - 1,322.00 = 186.00. Line 32 kicker comes after this figure and is not applied (not_modelled). Person 1 is the older spouse and it is that person's pension, so it counts.",
+  "accepted_approximations": [
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_pension_subtraction",
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit",
+    "state_rule_not_modelled:previously_taxed_retirement_contributions"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

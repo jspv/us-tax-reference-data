@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "20000.00",
+    "state_taxable_income": "7235.00",
+    "state_tax_before_credits": "376.22",
+    "credits": "0.00",
+    "state_income_tax": "376.22",
+    "relief_amounts": {
+      "public_retirement": "40000.00"
+    }
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 60,000.00 (given). A14 federal public pension 40,000.00 subtracted (public_retirement). Line 2 modifications -40,000.00. Line 3 Kansas AGI 60,000.00 + (-40,000.00) = 20,000.00. Line 4 standard deduction 3,605 + 0 age box(es) x 850 = 3,605 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 12,765.00. Line 7 taxable income 20,000.00 - 12,765.00 = 7,235.00. Line 8 tax 7,235.00 x 5.2% = 376.22000. the table row 7,201-7,250 gives 376. No credits in the projection: credits 0.00. Tax 376.22."
+}

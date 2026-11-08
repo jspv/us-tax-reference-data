@@ -1,0 +1,10 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "55000.00",
+    "state_income_tax": "2649.86",
+    "state_tax_before_credits": "2649.86",
+    "state_taxable_income": "49456.00"
+  },
+  "worked": "Line 7 federal AGI 50,000.00. Line 9 add out-of-state municipal interest 5,000.00 (Hawaii municipal interest 3,000.00 not added, not in federal AGI). Line 20 Hawaii AGI 55,000.00. Line 23 standard deduction 4,400.00; line 25 exemptions 1 personal + 0 age-65 = 1 x 1,144 = 1,144.00. Line 26 taxable income 49,456.00. Line 27 tax by the rate schedule: 9,600.00 x 0.014 = 134.4000; 4,800.00 x 0.032 = 153.6000; 4,800.00 x 0.055 = 264.0000; 4,800.00 x 0.064 = 307.2000; 12,000.00 x 0.068 = 816.0000; 12,000.00 x 0.072 = 864.0000; 1,456.00 x 0.076 = 110.6560; total 2,649.8560 -> 2,649.86 (the form uses the Tax Table under 100,000; schedule formula used). Credits: none modelled, 0.00. State income tax 2649.86."
+}

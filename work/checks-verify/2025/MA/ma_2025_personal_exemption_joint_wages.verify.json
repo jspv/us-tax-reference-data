@@ -1,0 +1,9 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_income_tax": "5560.00",
+    "state_tax_before_credits": "5560.00",
+    "state_taxable_income": "111200.00"
+  },
+  "worked": "Start: federal AGI 120000.00. wages 90000.00 (person 0): taxed in full. wages 30000.00 (person 1): taxed in full. State income = 120000.00 - 0.00 = 120000.00. Personal exemption (married_joint) 8800.00. Taxable income = max(120000.00 - 8800.00, 0) = 111200.00. Tax = 5% x 111200.00 = 5560.00 (below the 1,083,150 surtax line). No credits in the projection: credits 0. Federal senior deduction not relevant (state starts from federal AGI)."
+}

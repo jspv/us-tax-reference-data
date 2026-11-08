@@ -1,0 +1,50 @@
+{
+  "id": "mn_2025_std_phase_out_mfs",
+  "state": "MN",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "mn_standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Minnesota Individual Income Tax Forms and Instructions, Form M1",
+    "section": "Form M1 lines 1-4, 7-10 (instructions PDF p.13 Standard Deduction Table for Line 4, p.14 Worksheet A, p.39 Tax Rate Schedules, pp.32-38 tax table)",
+    "url": "https://www.revenue.state.mn.us/sites/default/files/2026-10/m1-inst-25.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "150000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "150000.00",
+    "federal_taxable_income": "134250.00"
+  },
+  "expected": {
+    "state_agi": "150000.00",
+    "state_taxable_income": "135965.75",
+    "state_tax_before_credits": "9334.87",
+    "credits": "0.00",
+    "state_income_tax": "9334.87"
+  },
+  "worked": "Separate threshold 119,475; third bracket. Federal (given, not tested): federal AGI = wages 150,000.00 = 150,000.00. Federal taxable income = 150,000.00 - 15,750.00 federal standard deduction (15,750 plus 0 x 1,600) = 134,250.00 (federal senior deduction ignored). Form M1, married filing separately: line 1 federal AGI 150,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 150,000.00. Schedule M1M line 16: no one is 65 or older (born before January 2, 1961), so no Schedule M1R subtraction. Schedule M1M line 40 = Form M1 line 7 subtractions = 0.00 + 0.00 + 0.00 + 0.00 = 0.00 (lines 12, 16, 17, 25). State income before deduction = 150,000.00 - 0.00 = 150,000.00. Standard Deduction Table for Line 4: 14,950.00 (0 age box(es)). Worksheet A: step 1 150,000.00; step 2 30,525.00; step 3 915.75; step 4 0.00; step 5 0.00; step 6 915.75; step 7 14,950.00; step 8 11,960.00; step 9 915.75; step 10 = 14,034.25. Form M1 line 8 total = 14,034.25 + 0.00 = 14,034.25; line 9 Minnesota taxable income = 150,000.00 - 14,034.25 = 135,965.75. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (23,810.00 - 0.00) = 1,273.835 + 6.80% x (94,590.00 - 23,810.00) = 4,813.04 + 7.85% x (135,965.75 - 94,590.00) = 3,247.996375 = 9,334.871375. Line 16 credits 0.00; state income tax 9,334.87.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:mn_marriage_credit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

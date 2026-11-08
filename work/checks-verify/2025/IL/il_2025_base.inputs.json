@@ -1,0 +1,39 @@
+{
+  "id": "il_2025_base",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 IL-1040 Instructions, with Form IL-1040",
+    "section": "Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; no standard deduction line on the form, and federal itemized deductions may not be subtracted, Schedule M Instructions PDF page 1",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-05-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "72850.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "72850.00",
+    "federal_taxable_income": "57100.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

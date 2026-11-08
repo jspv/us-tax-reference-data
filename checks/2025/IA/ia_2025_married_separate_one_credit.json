@@ -1,0 +1,52 @@
+{
+  "id": "ia_2025_married_separate_one_credit",
+  "state": "IA",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ia_personal_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Expanded Instructions (IA 1040) and the 2025 IA 1040 Iowa Individual Income Tax Return",
+    "section": "IA 1040 form PDF p.1 Step 3 lines a, b, d; form PDF p.2 lines 1c, 2-5, 7, 8, 11, 12; Instructions PDF p.8 Step 3; PDF p.9-10 lines 2-4; PDF p.12 line 5 ('Iowa now has a flat tax rate of 3.8%'); PDF p.18 line 12",
+    "url": "https://revenue.iowa.gov/media/4435/download?inline="
+  },
+  "inputs": {
+    "filing_status": "married_separate",
+    "persons": [
+      {
+        "age": 45,
+        "born": "1980-12-12"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_taxable_income": "34250.00",
+    "state_tax_before_credits": "1301.50",
+    "credits": "40.00",
+    "state_income_tax": "1261.50",
+    "relief_amounts": {
+      "ia_personal_credit": "40.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 50,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 = 34,250.00 (federal senior deduction ignored). IA 1040 filing status 3 (married filing separately). Step 3 line a personal credits 1 x 40.00 = 40.00; line b 0 x 20.00 = 0.00 (65 or older on or before January 1, 2026; nobody blind); line c no dependents; line d and line 8 = 40.00. Line 1c federal AGI 50,000.00; line 2 federal taxable income 34,250.00. Schedule 1: no additions or subtractions. Schedule 1 line 21 net modifications = 0.00; line 3 = 0.00. Line 4 Iowa taxable income = 34,250.00 + (0.00) = 34,250.00. Line 5 tax = 3.8% x 34,250.00 = 1,301.50; line 7 = 1,301.50. Line 11 total credits 40.00; line 12 balance = 1,301.50 - 40.00 = 1,261.50. State income tax 1,261.50 (no line 13-17 credits; line 19 school district or EMS surtax is local, not computed). The form allows whole-dollar rounding; expected keeps the cents. Low-income test (PDF p.11): 50,000.00 is over 9,000.00, not exempt; alternate tax (PDF p.12-13, the spouse under 65 with no Iowa income) 4.3% x (50,000.00 - 13,500.00) = 1,569.50, more than the 3.8% tax, so unused. Status 3 enters 1 personal credit (PDF p.8). One rate for every filing status.",
+  "accepted_approximations": [
+    "School district and county EMS surtaxes (a percentage of the tax, form line 19) are local and out of scope (issue #1)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

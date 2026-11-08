@@ -1,0 +1,69 @@
+{
+  "id": "ne_2025_military_joint_one_spouse",
+  "state": "NE",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ne_military_retirement_exclusion"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Nebraska Individual Income Tax and Amended Return Booklet (8-307-2025), with 2025 Form 1040N and Schedule I",
+    "section": "Form 1040N PDF pages 1-2, lines 2a, 4a, 4b, 4, 5, 6, 10, 11, 12, 13, 14, 15, 17, 18, 34, 35; booklet PDF page 12 lines 2a, 4a, 4b; PDF page 13 line 5, line 6 and the Nebraska Standard Deduction Chart; PDF page 14 lines 10 to 18; PDF page 17 lines 34, 35 and the Federal Tax Liability Worksheet; PDF pages 46-49 Tax Table and over-77,760 worksheet (schedule as numbers, as settled in the record from the table); Schedule I line 32; booklet PDF page 26 Line 32 ('All military retirees are allowed to exclude 100% of the military retirement benefits'); record ne_military_retirement_exclusion",
+    "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 61,
+        "born": "1964-04-22"
+      },
+      {
+        "age": 58,
+        "born": "1967-08-30"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "40000.00",
+          "person": 1,
+          "source": "military"
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "78500.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "52800.00",
+    "state_tax_before_credits": "1837.11",
+    "credits": "342.00",
+    "state_income_tax": "1495.11",
+    "relief_amounts": {
+      "ne_military_retirement_exclusion": "40000.00"
+    }
+  },
+  "worked": "Married filing jointly: you 61 with wages 70,000; your spouse 58 with a military pension 40,000. Only the retiree's pension comes out. Federal (given, not tested): federal AGI = wages (you) 70,000.00 + military pension (spouse) 40,000.00 = 110,000.00. Federal taxable income = 110,000.00 - standard deduction 31,500.00 = 78,500.00 (federal senior deduction ignored). Form 1040N filing status (2) married filing jointly, resident. Line 2a: 0 box(es) checked (no one born before January 2, 1961). Line 4a 1; line 4b 1; line 4c none; line 4 total 2. Line 5 federal AGI 110,000.00. Line 6 Nebraska standard deduction, chart for 0 box(es): 17,200.00; lines 7 to 9 skipped (no federal itemizing); line 10 17,200.00. Line 11 = 110,000.00 - 17,200.00 = 92,800.00. Line 12 adjustments increasing federal AGI 0.00. Schedule I Part B: line 32 military retirement 40,000.00; line 44 total 40,000.00. Line 13 = 40,000.00. Line 14 Nebraska taxable income = 92,800.00 + 0.00 - 40,000.00 = 52,800.00. State income after additions and subtractions (before the deduction) = 110,000.00 + 0.00 - 40,000.00 = 70,000.00. Line 15 tax, schedule as numbers (married_joint column): 2.46% x 8,040.00 = 197.784 + 3.51% x 40,210.00 = 1,411.371 + 5.01% x 4,550.00 = 227.955; total 1,837.110, rounded once to 1,837.11. The Tax Table row 52,760 to 52,860 gives 1,838; expected keeps the schedule. Line 16 0.00 (no lump-sum or early-distribution tax); line 17 = 1,837.11. Line 18 personal exemption credit = 171 x 2 = 342.00; line 34 342.00. Line 35 = 1,837.11 - 342.00 = 1,495.11. Federal Tax Liability Worksheet (PDF page 17): net adjustments -40,000.00 are under 5,000, but it does not reduce line 35: the federal tax before credits is at least 10% x 78,500.00 = 7,850.00, above worksheet line 2 of 1,495.11.",
+  "accepted_approximations": [
+    "The brackets are fitted to the printed tax table; no rate schedule is in the sources. The start of the 5.20% band is not pinned by the table: single and married filing separately 38,793 to 38,897, head of household 57,535 to 57,639, married filing jointly 77,501 to 77,760. The table's rows also round to the dollar at the row's midpoint, and the bands do neither."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ne_credit_elderly_disabled",
+    "state_rule_not_modelled:ne_csrs_annuity_exclusion",
+    "state_rule_not_modelled:ne_federal_tax_liability_limit"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

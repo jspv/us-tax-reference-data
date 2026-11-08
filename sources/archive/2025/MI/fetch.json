@@ -1,0 +1,39 @@
+[
+  {
+    "state": "MI",
+    "title": "2025 MI-1040 Forms and Instructions",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf",
+    "retrieved": "2026-11-06T17:52:28.537510+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "MI-1040-Book.pdf",
+    "bytes": 1833881,
+    "sha256": "35b38086176f867d1365e20f4f31a40b9b85ef68befb3e44d6021eb4502f66cd",
+    "archived_url": "https://web.archive.org/web/20260827164245id_/https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  {
+    "state": "MI",
+    "title": "2025 Form 4884 (Retirement and Pension Schedule) instructions",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/4884-Instr.pdf",
+    "retrieved": "2026-11-06T17:52:33.985001+00:00",
+    "ok": true,
+    "status": 200,
+    "file": "4884-Instr.pdf",
+    "bytes": 591055,
+    "sha256": "a0e826e052fc43adec7cecd499cffea41abb1a2bda89ec998cc42c24ec87dc20"
+  },
+  {
+    "state": "MI",
+    "title": "Revenue Administrative Bulletin 2026-1 (retirement and pension benefits)",
+    "url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:12:04.885700+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.michigan.gov/taxes/rep-legal/rab/2026-revenue-administrative-bulletins/revenue-administrative-bulletin-2026-1",
+    "file": "revenue-administrative-bulletin-2026-1.html",
+    "bytes": 428273,
+    "sha256": "96a0dd838f07ecdda37e90c47c4a4bbcc0ec8975d6f8c8c3f052ca35bed8c3c0",
+    "text_file": "revenue-administrative-bulletin-2026-1.page.txt"
+  }
+]

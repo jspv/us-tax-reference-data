@@ -1,0 +1,271 @@
+{
+ "layer": "projection",
+ "state": "IL",
+ "tax_year": 2025,
+ "record": {
+  "path": "data/states/2025/IL.record.json",
+  "sha256": "53ae08d45e085bb3d0fc4f98823af46a7975815894ca329e96bd05dd266314b8"
+ },
+ "has_income_tax": true,
+ "brackets": {
+  "single": [
+   {
+    "rate": "0.0495",
+    "start": "0"
+   }
+  ],
+  "married_joint": [
+   {
+    "rate": "0.0495",
+    "start": "0"
+   }
+  ]
+ },
+ "base": {
+  "starts_from": "federal_agi",
+  "deductions": [
+   {
+    "id": "il_personal_exemption",
+    "amount": {
+     "single": "2850",
+     "married_joint": "5700",
+     "married_separate": "2850",
+     "head_of_household": "2850",
+     "qualifying_surviving_spouse": "2850"
+    },
+    "per": "return",
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "single": "250000",
+      "married_joint": "500000",
+      "married_separate": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "removes",
+     "applies_when": "over"
+    }
+   },
+   {
+    "id": "il_age_65_exemption",
+    "amount": {
+     "all": "1000"
+    },
+    "per": "person",
+    "min_age": 65,
+    "phase_out": {
+     "measure": {
+      "base": "federal_agi"
+     },
+     "threshold": {
+      "single": "250000",
+      "married_joint": "500000",
+      "married_separate": "250000",
+      "head_of_household": "250000",
+      "qualifying_surviving_spouse": "250000"
+     },
+     "effect": "removes",
+     "applies_when": "over"
+    }
+   }
+  ]
+ },
+ "social_security": {
+  "treatment": "exempt"
+ },
+ "reliefs": [
+  {
+   "id": "il_government_pension",
+   "from_record": [
+    "il_government_pension"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "public_pension",
+    "public_pension_other_state",
+    "military_pension"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "il_employer_plans",
+   "from_record": [
+    "il_qualified_plan",
+    "il_governmental_457"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "private_pension",
+    "employer_plan_distribution"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "il_ira",
+   "from_record": [
+    "il_ira"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "ira_distribution",
+    "roth_conversion"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  },
+  {
+   "id": "il_railroad",
+   "from_record": [
+    "il_railroad"
+   ],
+   "form": "exempt_in_full",
+   "covers": [
+    "railroad_retirement"
+   ],
+   "who": {
+    "basis": "each_person"
+   }
+  }
+ ],
+ "muni_interest": {
+  "treatment": "all_taxed"
+ },
+ "capital_gains": [],
+ "indexing": [
+  {
+   "figure": "brackets",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "brackets"
+   ]
+  },
+  {
+   "figure": "deductions",
+   "indexed": false,
+   "assumed": true,
+   "covers": [
+    "deductions"
+   ]
+  }
+ ],
+ "not_modelled": [
+  {
+   "id": "il_dependent_allowance",
+   "from_record": [],
+   "what": "Dependent allowance on Line 10d, from Schedule IL-E/EITC; the amount is not printed in the documents read.",
+   "warn_when": "has_dependents"
+  },
+  {
+   "id": "il_blind_exemption",
+   "from_record": [
+    "il_blind_exemption"
+   ],
+   "what": "Exemption of 1,000 for each legally blind filer or spouse (Line 10c); a projection does not know this.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_personal_exemption",
+   "from_record": [
+    "il_personal_exemption"
+   ],
+   "what": "The reduced Line 10a amounts when someone can claim the filer or spouse as a dependent (Line C).",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_us_obligation_interest",
+   "from_record": [
+    "il_us_obligation_interest"
+   ],
+   "what": "Interest on U.S. Treasury and agency obligations, and the matching share of mutual fund distributions, is subtracted on Schedule M Line 22; a projection cannot tell it from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_retirement_bonds",
+   "from_record": [
+    "il_retirement_bonds"
+   ],
+   "what": "Interest realized on the redemption of U.S. retirement bonds is subtracted on Line 5; a projection cannot tell it from other interest.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_nua_employer_securities",
+   "from_record": [
+    "il_nua_employer_securities"
+   ],
+   "what": "Capital gains on employer securities from a lump-sum distribution are subtracted to the extent of net unrealized appreciation; a projection cannot tell them from other gains.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_group_term_life",
+   "from_record": [
+    "il_group_term_life"
+   ],
+   "what": "Group term life premiums paid by a retirement plan and included as wages are subtracted on Line 5; a projection cannot tell them from other wages.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_military_pay",
+   "from_record": [
+    "il_military_pay"
+   ],
+   "what": "Military pay earned is subtracted on Schedule M Line 21; a projection cannot tell it from other wages.",
+   "warn_when": "never"
+  },
+  {
+   "id": "il_retired_partner_payments",
+   "from_record": [],
+   "what": "Retirement payments to retired partners; Pub 120 and the IL-1040 instructions send them to Schedule M, Schedule M Line 14 sends them to Line 5, and no income kind matches.",
+   "warn_when": "never"
+  }
+ ],
+ "approximations": [
+  {
+   "what": "A pension or plan withdrawal from a plan that is not a qualified employee benefit plan and not a government plan is treated as subtractable, and so is ordinary income for which the 10-year averaging method was elected. Pub 120 refuses both; the projection cannot tell.",
+   "direction": "understates_tax",
+   "size": "4.95% of that income."
+  },
+  {
+   "what": "Annuity income is left out of the Line 5 subtraction (covers_unclear in the record). An annuity paid from a qualified employee benefit plan qualifies.",
+   "direction": "overstates_tax",
+   "size": "4.95% of that annuity income."
+  },
+  {
+   "what": "All municipal bond interest is taxed. Illinois adds back all federally tax-exempt interest and exempts only listed obligations (Schedule M Lines 34 and 35), which a projection cannot tell from others.",
+   "direction": "overstates_tax",
+   "size": "4.95% of the interest on listed bonds held directly."
+  },
+  {
+   "what": "Interest on U.S. Treasury and agency obligations and on U.S. retirement bonds is taxed (the projection cannot tell it from other interest).",
+   "direction": "overstates_tax",
+   "size": "4.95% of that interest."
+  },
+  {
+   "what": "Employer-securities gains and group term life premiums that Line 5 subtracts, and military pay subtracted on Schedule M, are taxed.",
+   "direction": "overstates_tax"
+  },
+  {
+   "what": "The dependent allowance (Line 10d) and the blind exemption (Line 10c) are not applied.",
+   "direction": "overstates_tax",
+   "size": "49.50 a year for a blind person."
+  },
+  {
+   "what": "A filer who can be claimed as a dependent gets the full Line 10a amount; the chart reduces it.",
+   "direction": "understates_tax"
+  },
+  {
+   "what": "Credits are not applied: tax paid to another state (Line 15), property tax and K-12 education (Line 16), and Schedule 1299-C (Line 17). Other Schedule M subtractions, such as college savings contributions, are not applied either.",
+   "direction": "overstates_tax"
+  }
+ ],
+ "recapture": [],
+ "derived_figures": []
+}

@@ -1,0 +1,60 @@
+{
+  "id": "de_2025_joint_wages_standard_deduction",
+  "state": "DE",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "de_standard_deduction",
+    "de_personal_credit"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 PIT-RES Resident Individual Income Tax Return Instructions and Form PIT-RES 2025; tax rate schedule from 30 Del. C. §1102(a)(14)",
+    "section": "Form PIT-RES Lines 1-12, 20a-24, 26-27b, 32-33; Instructions PDF p.5 Line 1; PDF p.8 Line 20a standard deduction table, Line 24, Line 27a; PDF p.9 Line 27b; tax rate schedule 30 Del. C. §1102(a)(14) (record brackets cite); Instructions PDF p.8 Line 27a example (joint couple with no dependents enters 220)",
+    "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-06-15"
+      },
+      {
+        "age": 48,
+        "born": "1977-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        },
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "70000.00",
+    "federal_taxable_income": "38500.00"
+  },
+  "expected": {
+    "state_agi": "70000.00",
+    "state_taxable_income": "63500.00",
+    "state_tax_before_credits": "3174.50",
+    "credits": "220.00",
+    "state_income_tax": "2954.50",
+    "relief_amounts": {
+      "de_personal_credit": "220.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (you) 40,000.00 + wages (spouse) 30,000.00 = 70,000.00. Federal taxable income = 70,000.00 - standard deduction 31,500.00 = 38,500.00 (federal senior deduction ignored). Form PIT-RES (filing status 2 joint, Column B): Line 1 federal AGI 70,000.00; Line 2 other states' obligations interest 0.00; Line 3 0.00; Line 4 total 70,000.00. Line 5 U.S. obligations interest 0.00. Line 6 pension exclusion 0.00. Line 7 0.00; Line 8a 0.00; Line 8b 0.00. Line 9 (Lines 5-8b) = 0.00. Line 10 = 70,000.00 - 0.00 = 70,000.00. Line 11 0.00 (Line 11 worksheet: neither spouse is 60 or disabled). Line 12 Delaware AGI = 70,000.00. Line 20a standard deduction (filing status 2) 6,500.00; Line 21 additional standard deduction 0 box(es) for 65 or over x 2,500.00 = 0.00; Line 22 = 6,500.00. Line 23 taxable income = 70,000.00 - 6,500.00 = 63,500.00. Line 24 tax, §1102(a)(14) schedule as numbers: 2.2% x 3,000.00 = 66.00 + 3.9% x 5,000.00 = 195.00 + 4.8% x 10,000.00 = 480.00 + 5.2% x 5,000.00 = 260.00 + 5.55% x 35,000.00 = 1,942.50 + 6.6% x 3,500.00 = 231.00; total 3,174.50. Line 25 0.00; Line 26 = 3,174.50. Line 27a personal credits 2 x 110.00 = 220.00; Line 27b additional credits 0 box(es) for 60 or over x 110.00 = 0.00; Line 32 total non-refundable credits 220.00. Line 33 balance = 3,174.50 - 220.00 = 2,954.50. One rate schedule for every filing status (§1102(a)(14) prints no joint schedule), so the joint return uses the same bands as a single return.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

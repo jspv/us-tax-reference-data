@@ -1,0 +1,62 @@
+{
+  "id": "ct_2025_teachers_pension_example1",
+  "state": "CT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "pension_annuity_subtraction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 Form CT-1040 Instructions (Rev. 12/25) and Form CT-1040",
+    "section": "PDF page 10, Line 48b Example 1 (Anna: 30,000 Teachers' Retirement System + 38,000 XYZ pension, subtracts 68,000 on Line 48b, nothing on Line 45); PDF page 9, Line 45; PDF pages 19-23, Tax Calculation Schedule Lines 1-10 with Table A, Table B, Tables C-D and Table E; Form CT-1040 Lines 1-6",
+    "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf?rev=d898db2e610641b9b3e6efe6f89c6fc2&hash=06D5D5DF44FBF63ABF90A972C507F9FE"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "CT",
+          "contributory": true
+        },
+        {
+          "amount": "38000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "68000.00",
+    "federal_taxable_income": "50250.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "pension_annuity_subtraction": "68000.00"
+    }
+  },
+  "worked": "Federal AGI = public pension (CT) 30,000.00 + private pension 38,000.00 = 68,000.00. Federal taxable income = 68,000.00 - 15,750.00 standard deduction - 1 x 2,000.00 age 65+ = 50,250.00 (given, not tested; federal senior deduction ignored). CT-1040 Line 1 federal AGI 68,000.00; Line 2 additions 0.00 (Schedule 1 Lines 31-37: none apply); Line 3 = 68,000.00. Schedule 1 Line 48b pension and annuity (Line 5b part): federal AGI 68,000.00 is under the 75,000.00 test, decimal 1; 68,000.00 x 1 = 68,000.00 -> 68,000.00. Schedule 1 Line 50 total subtractions = 68,000.00; CT-1040 Line 4 = 68,000.00. CT-1040 Line 5 Connecticut AGI = 68,000.00 - 68,000.00 = 0.00. Tax Calculation Schedule Line 1 = 0.00; Line 2 Table A: Connecticut AGI 0.00 is not more than 30,000.00, exemption 15,000.00; Line 3 taxable income = 0.00 - 15,000.00 = 0.00 (floored at 0). Line 4 Table B on 0.00 = 0.00. Line 5 Table C 0.00 (Connecticut AGI 0.00 is not more than 56,500.00); Line 6 Table D 0.00 (not more than 105,000.00); Line 7 = 0.00. Line 8 Table E decimal 0.75 (Connecticut AGI 0.00, lowest band); Line 9 = 0.00 x 0.75 = 0.00. Line 10 Connecticut income tax = 0.00 - 0.00 = 0.00 (CT-1040 Line 6). No other credits (property tax credit not claimed: no property tax in the inputs, and not modelled). Note: The booklet's Example 1: below the threshold the 100% Line 48b subtraction beats the 50% teachers' subtraction (they cannot be combined). The projection cannot tell a teachers' pension from another public pension and gives the same 68,000 on Line 48b, so it agrees with the booklet here.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:property_tax_credit",
+    "state_rule_not_modelled:teachers_pension_50"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

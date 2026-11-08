@@ -1,0 +1,57 @@
+[
+  {
+    "state": "CO",
+    "title": "2025 DR 0104 Booklet",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "retrieved": "2026-11-07T01:15:03.289885+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf",
+    "method": "plain_http",
+    "file": "Book104_2025.pdf",
+    "bytes": 1957689,
+    "sha256": "69c80c89118eccd21dc18e564237539e647c623a361a7f0beebed99ef5b0c7f8",
+    "archived_url": "https://web.archive.org/web/20261108000525id_/https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  {
+    "state": "CO",
+    "title": "2025 DR 0104AD Subtractions from Income",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/DR0104AD_2025.pdf",
+    "retrieved": "2026-11-07T01:15:38.573330+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://tax.colorado.gov/sites/default/files/documents/DR0104AD_2025.pdf",
+    "method": "plain_http",
+    "file": "DR0104AD_2025.pdf",
+    "bytes": 777897,
+    "sha256": "1b4430618a9df3f9d748b3e18bedc8ae3309abd1cf070475603ea5cdd1be38f2",
+    "archived_url": "https://web.archive.org/web/20261108000607id_/https://tax.colorado.gov/sites/default/files/documents/DR0104AD_2025.pdf"
+  },
+  {
+    "state": "CO",
+    "title": "Income Tax Topics: Social Security, Pensions and Annuities",
+    "url": "https://tax.colorado.gov/income-tax-topics-social-security-pensions-and-annuities",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:19:46.787568+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "co-income-tax-topics-page.pdf",
+    "bytes": 150822,
+    "sha256": "c049bd5c11b12817dc9ababc75ecd0f591ab2157b860ede07647b5398f881ab8"
+  },
+  {
+    "state": "CO",
+    "title": "Income Tax Topics: Social Security, Pensions and Annuities (revised January 2025)",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/ITT_Social_Security_Pensions_and_Annuities_Jan_2025.pdf",
+    "kind": "pdf",
+    "retrieved": "2026-11-07T13:19:46.947599+00:00",
+    "ok": true,
+    "method": "manual",
+    "note": "saved by the owner from a browser; the agency refused automated downloads",
+    "file": "ITT_Social_Security_Pensions_and_Annuities_Jan_2025.pdf",
+    "bytes": 305290,
+    "sha256": "a7e5ebe6e86fb0b37965d86635859fcc350292091517ea7af76fffc0872fa05b",
+    "archived_url": "https://web.archive.org/web/20261020060839id_/https://tax.colorado.gov/sites/default/files/documents/ITT_Social_Security_Pensions_and_Annuities_Jan_2025.pdf"
+  }
+]

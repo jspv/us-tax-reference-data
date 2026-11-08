@@ -1,0 +1,14 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_agi": "45000.00",
+  "state_income_tax": "763.62",
+  "state_tax_before_credits": "763.62",
+  "state_taxable_income": "21360.00",
+  "relief_amounts": {
+   "wi_railroad_retirement": "22000.00",
+   "wi_retirement_67": "18000.00"
+  }
+ },
+ "worked": "Filing status married_joint; federal_taxable_income given (50300.00) is not used: Wisconsin starts from federal AGI (Form 1 line 1/3). Line 3 federal AGI: 85,000.00. Schedule SB line 11 railroad retirement exempt in full (wi_railroad_retirement): 22,000.00. Schedule SB line 16 (wi_retirement_67): persons 67 or older at 12/31/2025: [0, 1] (ages [69, 67]); their covered retirement income (pensions not military/railroad, IRA, plan distributions) = 18,000.00; cap 48,000.00 per return -> 18,000.00. Schedule SB line 17 (wi_retirement_5000): federal AGI 85,000.00 is not less than 30,000.00: no subtraction (0). Total subtractions 40,000.00; Form 1 line 7 Wisconsin income (state_agi) = 85,000.00 - 40,000.00 = 45,000.00. Line 8 standard deduction: table row for married_joint at least 45,000.00 (projection step over 45000) -> 21,740.00. Line 10a exemptions 700 x 2 = 1,400.00; line 10b 250 x 2 person(s) 65 or older = 500.00. Line 11 taxable income = 45,000.00 - 21,740.00 - 1,400.00 - 500.00 = 21,360.00. Line 12 tax, Pub 106 Schedule B (joint): (19,580.00 - 0.00) x 0.035 = 685.30 + (21,360.00 - 19,580.00) x 0.044 = 78.32 = 763.62. Credits: none modelled by the projection (not_modelled) -> 0.00; state income tax = 763.62."
+}

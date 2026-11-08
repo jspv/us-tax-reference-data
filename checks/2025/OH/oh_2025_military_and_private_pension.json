@@ -1,0 +1,66 @@
+{
+  "id": "oh_2025_military_and_private_pension",
+  "state": "OH",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "uniformed_services_retirement",
+    "retirement_income_credit"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 IT 1040 / SD 100 Instruction Booklet",
+    "section": "IT 1040 lines 1 to 8a (bundle PDF p.1); booklet PDF p.16 lines 1 to 4; PDF p.17 line 4 exemption table and line 8a; PDF p.18 bracket table; PDF p.5 rounding; Schedule of Adjustments line 34 (PDF p.24; bundle PDF p.4); Department FAQ 3; MAGI PDF p.8; MAGI less exemptions worksheet PDF p.40; Schedule of Credits line 2 (PDF p.28; Table 2 PDF p.44; bundle PDF p.7); Department FAQ 2",
+    "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-02-14"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "military"
+        },
+        {
+          "amount": "50000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "80000.00",
+    "federal_taxable_income": "64250.00"
+  },
+  "expected": {
+    "state_agi": "50000.00",
+    "state_taxable_income": "47850.00",
+    "state_tax_before_credits": "941.50",
+    "credits": "200.00",
+    "state_income_tax": "741.50",
+    "relief_amounts": {
+      "uniformed_services_retirement": "30000.00",
+      "retirement_income_credit": "200.00"
+    }
+  },
+  "worked": "Federal AGI = military pension person 0 30,000.00 + private pension person 0 50,000.00 = 80,000.00. Federal taxable income = 80,000.00 - standard deduction 15,750.00 = 64,250.00 (given, not tested; the federal senior deduction is ignored; Ohio starts from federal AGI). IT 1040 line 1 federal AGI 80,000.00. Schedule of Adjustments additions: line 1 non-Ohio state or local interest 0.00; line 12 total 0.00; line 2a 0.00. Deductions: line 34 uniformed services retirement 30,000.00; line 47 total 30,000.00; line 2b 30,000.00. Line 3 Ohio AGI = 80,000.00 + 0.00 - 30,000.00 = 50,000.00. Line 4: MAGI is line 3 with no business income deduction, 50,000.00, in the band 40,001 to 80,000: 2,150.00 each; 1 exemption x 2,150.00 = 2,150.00. Line 5 = 50,000.00 - 2,150.00 = 47,850.00. Line 6 taxable business income 0.00. Line 7 = 47,850.00. Line 8a tax: 47,850.00 is in the 26,050 to 100,000 band: 342.00 plus 2.750% of (47,850.00 - 26,050.00 = 21,800.00) = 342.00 + 599.50 = 941.50. Schedule of Credits line 1 = 941.50. MAGI less exemptions (worksheet PDF p.40) = 50,000.00 - 2,150.00 = 47,850.00 (equal to line 7 without business income), under 100,000.00. Line 2 retirement income credit: covered retirement income 50,000.00; 200.00 (Table 2 at 8,001 or more: 200). Line 4 senior citizen credit: no one is 65 or older, 0.00. Line 10 credits = 200.00 + 0.00 = 200.00. Line 11 = 941.50 - 200.00 = 741.50. State income tax 741.50. The form works in whole dollars ('Round all figures to the nearest dollar', PDF p.5): line 8a would be 942; expected keeps the formula result. Only the private pension is covered by the credit; military income deducted on line 34 does not qualify.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:business_income_deduction",
+    "state_rule_not_modelled:federal_civil_service_military_share",
+    "state_rule_not_modelled:joint_filing_credit",
+    "state_rule_not_modelled:lump_sum_retirement_credit",
+    "state_rule_not_modelled:oh_unreimbursed_medical_deduction",
+    "state_rule_not_modelled:survivor_benefits_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

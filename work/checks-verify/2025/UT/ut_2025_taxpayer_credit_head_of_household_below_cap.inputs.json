@@ -1,0 +1,53 @@
+{
+  "id": "ut_2025_taxpayer_credit_head_of_household_below_cap",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "taxpayer_tax_credit",
+    "railroad_retirement"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); (78) Railroad Retirement Income (PDF p.20)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-05-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ]
+    },
+    "federal_agi": "25000.00",
+    "federal_taxable_income": "1375.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.taxpayer_tax_credit",
+    "relief_amounts.railroad_retirement"
+  ]
+}

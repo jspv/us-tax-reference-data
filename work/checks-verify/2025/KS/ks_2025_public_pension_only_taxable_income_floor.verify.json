@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "public_retirement": "30000.00"
+    }
+  },
+  "worked": "Filing status single. K-40 line 1 federal AGI 30,000.00 (given). A14 KS public pension 30,000.00 subtracted (public_retirement). The projection treats every Kansas public pension as exempt (approximation on plans not on the A14 list). Line 2 modifications -30,000.00. Line 3 Kansas AGI 30,000.00 + (-30,000.00) = 0.00. Line 4 standard deduction 3,605 + 1 age box(es) x 850 = 4,455 (worksheet PDF page 6). Line 5 exemption 9,160. Line 6 13,615.00. Line 7 taxable income 0.00 - 13,615.00 = -13,615.00, floored at 0. Line 8 tax 0.00 x 5.2% = 0.0000. the form's table gives 0. No credits in the projection: credits 0.00. Tax 0.00."
+}

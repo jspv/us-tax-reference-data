@@ -1,0 +1,74 @@
+{
+  "id": "ms_2025_joint_401k_and_pension_exempt",
+  "state": "MS",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "ms_retirement_income_exempt"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25) and the 2025 Form 80-105 Resident Return (Rev. 09/25); Miss. Admin. Code Title 35 Part III Income and Franchise (Department of Revenue income tax regulations)",
+    "section": "Form 80-105 page 1 lines 8-17 and page 2 lines 38-66; Instructions PDF p.5 Filing Status and Exemptions table; p.6 Additional Exemptions, Lines 8-12; p.7 Lines 14-17; p.22 Tax Rates; p.27 Schedule of Tax Computation lines 1-4; Instructions PDF p.11 Line 46 Total Pensions and Annuities; FAQ 'Is retirement income taxable?'; Instructions PDF p.5 Filing Status for Married Persons; Miss. Admin. Code Title 35 Part III Subpart 02 Chapter 07 rules 100, 102 and 105 (https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, PDF p.18)",
+    "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-03-03"
+      },
+      {
+        "age": 61,
+        "born": "1964-05-05"
+      }
+    ],
+    "income": {
+      "employer_plan_distribution": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 1,
+          "source": "private"
+        }
+      ],
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "100000.00",
+    "federal_taxable_income": "68500.00"
+  },
+  "expected": {
+    "state_agi": "30000.00",
+    "state_taxable_income": "13400.00",
+    "state_tax_before_credits": "149.60",
+    "credits": "0.00",
+    "state_income_tax": "149.60",
+    "relief_amounts": {
+      "ms_retirement_income_exempt": "70000.00"
+    }
+  },
+  "worked": "Federal AGI = employer plan distribution (person 0) 40,000.00 + private pension (person 1) 30,000.00 + wages (person 1) 30,000.00 = 100,000.00. Federal taxable income = 100,000.00 - 31,500.00 federal standard deduction = 68,500.00 (given, not tested; the federal senior deduction is ignored). Form 80-105 filing status box 1, Married - Combined or Joint Return. Start at federal AGI 100,000.00 (Mississippi builds its own income on lines 38 to 66; the projection starts from federal AGI and takes out the exempt income, the same result here). Less retirement income, each person on their own: person 0's 401(k) payout 40,000.00 (regulation rule 102: a deferred compensation payout counts once the recipient qualifies for other retirement income by minimum age, years of service or other criteria; person 0, 63, is taken to have met the plan's test; rule 100 exempts it) and person 1's private pension 30,000.00 (rule 100; Line 46 exempt in total; recipient taken to have met the plan requirements); together 70,000.00. Line 66 and line 13 Mississippi AGI = 30,000.00 (person 1's wages; Column A, person 0, has no taxable income). Line 14 standard deduction 4,600.00. Line 8 age boxes checked 0; line 10 = 0 x 1,500.00 = 0.00; line 11 12,000.00; line 12 and line 15 = 12,000.00. Line 16 Mississippi taxable income = 30,000.00 - 4,600.00 - 12,000.00 = 13,400.00. Schedule of Tax Computation line 1: first 10,000.00 x 0% = 0.00; line 2: remaining 3,400.00 x 4.4% = 149.60; line 4 and line 17 = 149.60. Lines 18 and 19 credits 0.00; line 20 = 149.60. The form rounds to whole dollars (p.22), which would give 150; expected keeps the formula result. Only one spouse has income Mississippi taxes, so there is one 10,000 band on the return and projection and form agree.",
+  "accepted_approximations": [
+    "Mississippi builds its own income (Form 80-105 lines 38 to 66); the projection starts from federal AGI and removes the exempt income through the reliefs and Social Security treatment.",
+    "IRA, 401(k), 403(b) and 457 payouts and Roth conversions are exempted at every age. Mississippi exempts them only when they are not early distributions (regulation rule 104), and a deferred compensation payout only once the person qualifies for other retirement income by minimum age, years of service or other criteria (rule 102). A projection cannot test either, so an early payout is exempted here; the warning names it for anyone under 60."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:ms_nonqualifying_retirement_income"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

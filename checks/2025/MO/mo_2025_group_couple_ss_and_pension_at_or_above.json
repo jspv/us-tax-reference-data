@@ -1,0 +1,75 @@
+{
+  "id": "mo_2025_group_couple_ss_and_pension_at_or_above",
+  "state": "MO",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "public_pension_subtraction",
+    "social_security_retirement_subtraction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Form MO-1040, Form MO-A and Form MO-1040 Instructions (Missouri Department of Revenue); 2025 Missouri Income Tax Reference Guide (Form 4711)",
+    "section": "Form MO-1040 PDF p2 Lines 1-8 and 14-15, PDF p3 Lines 25-30 (instructions PDF pp6-9); Instructions PDF p8 Line 14 standard deductions; PDF p21 Tax Rate Chart Sections A and B; record base.deductions; Instructions PDF p7 Line 7 income percentages and combined return; PDF p21 'A separate tax must be computed for you and your spouse'; Form MO-A PDF p3 Part 3 Section C; instructions PDF p17 Section C Lines 1-2 and Worksheet for Lines 1 and 2; Reference Guide PDF p9; record social_security_retirement_subtraction; Form MO-A PDF p3 Part 3 Section A Lines 1-5; instructions PDF p17; Reference Guide PDF p9 (47,633 per taxpayer); record public_pension_subtraction",
+    "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-10-10"
+      },
+      {
+        "age": 64,
+        "born": "1961-11-11"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "60000.00",
+          "person": 1,
+          "source": "public",
+          "paying_government": "federal"
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "30000.00"
+    },
+    "federal_agi": "124000.00",
+    "federal_taxable_income": "90900.00"
+  },
+  "expected": {
+    "state_agi": "42367.00",
+    "state_taxable_income": "9267.00",
+    "state_tax_before_credits": "259.61",
+    "credits": "0.00",
+    "state_income_tax": "259.61",
+    "relief_amounts": {
+      "public_pension_subtraction": "47633.00",
+      "social_security_retirement_subtraction": "34000.00"
+    }
+  },
+  "worked": "Married filing combined (joint federal), ages 66 and 64. Person 0 has the Social Security and person 1 a public pension over the cap: person 1's 47,633 is not reduced by person 0's Social Security, which is person 0's own Line 3. Federal taxable Social Security: other income 90,000.00 + half of benefits 20,000.00 = provisional 110,000.00; 85% x (110,000.00 - 44,000.00) + 6,000.00 = 62,100.00, limited to 85% x 40,000.00 = 34,000.00. Federal (given, not tested): federal AGI = pensions 60,000.00 + taxable Social Security 34,000.00 + interest 30,000.00 = 124,000.00. Federal taxable income = 124,000.00 - standard deduction 33,100.00 (including the additional amount for age 65) = 90,900.00 (federal senior deduction ignored). Form MO-1040 Line 1 federal AGI 124,000.00. Line 2 additions 0.00. Line 3 total income 124,000.00. Line 4 subtractions 0.00. Line 6 Missouri adjusted gross income 124,000.00 - 0.00 = 124,000.00. MO-A Part 3 Section C (Y, age 66): Line 1 34,000.00; Line 3 34,000.00 (62 or older by December 31). Section C Line 4 total 34,000.00. Section A (S): Line 1 60,000.00; Line 2 lesser of that or 47,633.00 = 47,633.00; Line 3 0.00; Line 4 47,633.00. Section A Line 5 total 47,633.00. Projection, best_of_group evaluated for each person separately: person 0: larger of Social Security exemption 34,000.00 and public pension 0.00 = 34,000.00; person 1: larger of Social Security exemption 0.00 and public pension 47,633.00 = 47,633.00; total 81,633.00, the same as Section A Line 5 + Section C Line 4. Form MO-1040 Line 8 pension and Social Security exemption 81,633.00. Lines 9-13 federal income tax deduction not applied (not modelled; the household's federal tax is not an input). Line 14 standard deduction 31,500.00 + 1 x 1,600.00 for age 65 or older = 33,100.00. Line 26 subtotal 124,000.00 - 81,633.00 - 33,100.00 = 9,267.00. Line 29 taxable income 9,267.00. Tax by the bands (0% to 1,313): 2% x 1,313.00 = 26.26 + 2.5% x 1,313.00 = 32.825 + 3% x 1,313.00 = 39.39 + 3.5% x 1,313.00 = 45.955 + 4% x 1,313.00 = 52.52 + 4.5% x 1,313.00 = 59.085 + 4.7% x 76.00 = 3.572; total 259.607 = 259.61. The form itself splits this: Line 5 Y 34,000.00, S 90,000.00 (the return-level income taken as S's); Line 7 27% / 73%; Line 27 2,502.09 and 6,764.91; Lines 30Y and 30S 24 + 152 = 176 on Line 36. The projection applies the chart once to the couple's total, so expected is 259.61. state_agi (after every relief, as the check format defines it) = Line 6 124,000.00 - Line 8 81,633.00 = 42,367.00; the form's Missouri AGI is Line 6, 124,000.00.",
+  "accepted_approximations": [
+    "The chart's cumulative amounts are rounded to whole dollars and the tax to the nearest dollar; the bands here do neither.",
+    "The federal income tax deduction is not applied (not_modelled).",
+    "Married filing combined: Missouri figures a separate tax for each spouse on that spouse's share of taxable income, using the one chart twice, and this is required, not chosen. The projection applies the chart once to the couple's total taxable income, because the format has no way to say tax is per spouse.",
+    "The public pension exemption and the Social Security exemption share a best_of_group, each person separately. Form MO-A takes the lesser of the pension or 47,633 and subtracts that person's Social Security exemption (Section A Lines 2-4), which reduces the exemption, not the cap, so cap_reduced_by would be wrong. The two exemptions together come to the larger of the Social Security exemption and the lesser of the pension or 47,633, which is what the group gives when evaluated per person."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_income_tax_deduction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

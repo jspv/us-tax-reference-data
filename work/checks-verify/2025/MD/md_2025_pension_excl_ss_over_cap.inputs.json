@@ -1,0 +1,54 @@
+{
+  "id": "md_2025_pension_excl_ss_over_cap",
+  "state": "MD",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "pension_exclusion",
+    "ss_rr_exempt"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 Maryland Resident Booklet (State and Local Tax Forms and Instructions), Form 502",
+    "section": "Form 502 Lines 1, 10a, 11, 15-21; Worksheet 13A line 3 specific instruction (PDF page 14: 'If your total Social Security ... is greater than the Maximum Pension Exclusion $41,200, the pension exclusion will be zero'); Schedule I (PDF page 22)",
+    "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 72,
+        "born": "1953-01-15"
+      }
+    ],
+    "income": {
+      "social_security_gross": [
+        {
+          "amount": "45000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "20000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "taxable_social_security": "12192.50",
+      "interest": "550.00"
+    },
+    "federal_agi": "32742.50",
+    "federal_taxable_income": "14992.50"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.pension_exclusion",
+    "relief_amounts.ss_rr_exempt"
+  ]
+}

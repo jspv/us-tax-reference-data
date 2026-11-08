@@ -1,0 +1,54 @@
+{
+  "id": "il_2025_treasury_interest_not_modelled",
+  "state": "IL",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "il_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Schedule M Instructions, with the 2025 IL-1040 Instructions and Form IL-1040",
+    "section": "Schedule M Instructions PDF page 3, Line 22; Form IL-1040 PDF page 1, Lines 1-19; Instructions PDF page 8, Lines 10-12; rate Instructions PDF page 1; Line 10a chart and Income Exceptions, Instructions PDF page 8",
+    "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-m-instr.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 53,
+        "born": "1972-09-09"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "50850.00",
+          "person": 0
+        }
+      ],
+      "us_treasury_interest": "4000.00"
+    },
+    "federal_agi": "54850.00",
+    "federal_taxable_income": "39100.00"
+  },
+  "expected": {
+    "state_agi": "54850.00",
+    "state_taxable_income": "52000.00",
+    "state_tax_before_credits": "2574.00",
+    "credits": "0.00",
+    "state_income_tax": "2574.00",
+    "relief_amounts": {
+      "il_personal_exemption": "2850.00"
+    }
+  },
+  "worked": "Federal AGI = wages (person 0) 50,850.00 + U.S. Treasury interest 4,000.00 = 54,850.00. Federal taxable income = 54,850.00 - standard deduction 15,750.00 = 39,100.00 (federal senior deduction ignored; federal figures are given, not tested; Illinois starts from federal AGI). Form IL-1040 Line 1 federal AGI 54,850.00. Line 2 federally tax-exempt interest 0.00. Line 3 other additions 0.00. Line 4 = 54,850.00. Line 5 0.00. Lines 6 and 7 0.00. Line 8 = 0.00. Line 9 base income = 54,850.00 - 0.00 = 54,850.00. Income Exceptions: federal AGI 54,850.00 is not greater than 250,000.00, so the allowance stands. Line 10a 2,850.00. Line 10b 0.00. Lines 10c and 10d 0.00. Line 10 = 2,850.00. Line 11 net income = 54,850.00 - 2,850.00 = 52,000.00. Line 12 tax = 52,000.00 x 4.95% = 2,574.0000. Lines 13-18 0.00 (no credits in the projection). Line 19 state income tax = 2,574.00. Schedule M Line 22 not applied in the projection. The booklet would subtract 4,000.00: Line 11 = 48,000.00, tax 2,376.00; the projection overstates tax by 198.00 (4.95% x 4,000.00).",
+  "accepted_approximations": [
+    "Interest on U.S. Treasury and agency obligations and on U.S. retirement bonds is taxed (the projection cannot tell it from other interest)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "layer": "projection",
+  "state": "SC",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/SC.record.json",
+    "sha256": "27e9ac6832f500dbf4c503935d1f150b5a6c0e5bfa6d17ede5fa37deeb9ba853"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3560"
+      },
+      {
+        "rate": "0.06",
+        "start": "17840"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.03",
+        "start": "3560"
+      },
+      {
+        "rate": "0.06",
+        "start": "17840"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_taxable_income",
+    "federal_senior_deduction": "added_back",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "sc_retirement_under_65",
+      "from_record": [
+        "sc_retirement_under_65"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "max_age": 64
+      },
+      "cap": {
+        "all": "3000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "military_pension"
+      ]
+    },
+    {
+      "id": "sc_retirement_65_or_older",
+      "from_record": [
+        "sc_retirement_65_or_older"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "military_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "10000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "military_pension"
+      ],
+      "best_of_group": "sc_age_65_and_retirement"
+    },
+    {
+      "id": "sc_age_65_deduction",
+      "from_record": [
+        "sc_age_65_deduction",
+        "sc_retirement_65_or_older"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "all_income"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_reduced_by": [
+        "military_pension"
+      ],
+      "best_of_group": "sc_age_65_and_retirement"
+    },
+    {
+      "id": "sc_military_retirement",
+      "from_record": [
+        "sc_military_retirement"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "sc_railroad_retirement",
+      "from_record": [
+        "sc_social_security_railroad"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [
+    {
+      "id": "sc_net_capital_gain_deduction",
+      "applies_to": "long_term",
+      "treatment": "deduction_share",
+      "value": "0.44"
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "sc_retirement_surviving_under_65",
+      "from_record": [
+        "sc_retirement_surviving_under_65",
+        "sc_retirement_surviving_65_or_older"
+      ],
+      "what": "Surviving spouse retirement deduction (line p-3): 3,000 or 10,000 of a deceased spouse's retirement income, by the age the deceased spouse would have reached, in addition to the survivor's own deduction.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "sc_military_retirement_surviving",
+      "from_record": [
+        "sc_military_retirement_surviving"
+      ],
+      "what": "Surviving spouse military retirement deduction (line p-6): all military retirement and dependent indemnity compensation received for a deceased spouse's service.",
+      "warn_when": "has_military_pension"
+    },
+    {
+      "id": "sc_guard_reserve_retirement",
+      "from_record": [
+        "sc_guard_reserve_retirement"
+      ],
+      "what": "Military retirement for Reserve or National Guard inactive service: the inactive share is excluded on line v (in practice already deducted in full by the military retirement deduction).",
+      "warn_when": "has_military_pension"
+    },
+    {
+      "id": "sc_disability_retirement",
+      "from_record": [
+        "sc_disability_retirement"
+      ],
+      "what": "Total and permanent disability retirement income is deducted in full (line g).",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "sc_dependent_exemption",
+      "from_record": [
+        "sc_dependent_exemption",
+        "sc_dependent_under_6"
+      ],
+      "what": "Dependent exemption of 4,930 for each dependent, and another 4,930 for each dependent under age 6.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "sc_two_wage_earner_credit",
+      "from_record": [
+        "sc_two_wage_earner_credit"
+      ],
+      "what": "Two Wage Earner Credit: married couples filing jointly where both spouses have earned income get .007 of the lower earner's qualified earned income, up to 350.",
+      "warn_when": "always"
+    },
+    {
+      "id": "sc_us_obligation_interest",
+      "from_record": [
+        "sc_us_obligation_interest"
+      ],
+      "what": "Interest on US savings bonds, treasury notes and bills is subtracted (line m).",
+      "warn_when": "never"
+    },
+    {
+      "id": "sc_guard_reserve_pay",
+      "from_record": [
+        "sc_guard_reserve_pay"
+      ],
+      "what": "National Guard and Reserve drill and annual training pay is subtracted (line n).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The bracket starts 3,560 and 17,840 are derived from the printed tax table and the 6%-minus-642 formula; the table fixes them only to 3,559-3,566 and 17,818-17,857. Tax below 100,000 is figured on the exact income, where the booklet uses the table row's midpoint.",
+      "direction": "either",
+      "size": "At most 3 dollars a year (6% of half a 100-dollar table row), plus well under 1 dollar from the threshold choice."
+    },
+    {
+      "what": "The booklet stacks the age 65 deduction on the retirement deduction (15,000 less the retirement and military deductions taken). The projection puts the 65-or-older retirement deduction and the age 65 deduction in one best_of_group, with the age 65 cap reduced by military retirement. For a person 65 or older this gives the same total as the worksheets, the larger of 15,000 and the military retirement income (Examples 1-5), whenever the person's income covers it.",
+      "direction": "either",
+      "size": "None when the person's income is at least the deduction; otherwise state taxable income is zero either way."
+    },
+    {
+      "what": "Roth conversions are left out of the retirement deduction's covers (covers_unclear in the record). If South Carolina counts them, this overstates tax for a person under 65 converting with less than 3,000 of other retirement income.",
+      "direction": "overstates_tax",
+      "size": "At most 6% of 3,000 = 180 a person a year; none for a person 65 or older, whose age 65 deduction covers any income."
+    },
+    {
+      "what": "Retirement income that drew a federal premature withdrawal penalty does not qualify for the retirement deduction; the projection allows it.",
+      "direction": "understates_tax",
+      "size": "At most 6% of 3,000 = 180 a person a year, only in years with penalised early withdrawals."
+    },
+    {
+      "what": "The retirement deduction is limited to the original owner's own plan; inherited IRA and beneficiary distributions (other than a surviving spouse's, not modelled) do not qualify, but the projection cannot tell them apart.",
+      "direction": "understates_tax",
+      "size": "At most 6% of 3,000 = 180 a person a year under 65; none at 65 or older if the age 65 deduction is otherwise unused."
+    },
+    {
+      "what": "The 44% deduction applies to net capital gain (net long-term gain less net short-term loss); the projection applies it to long-term gains without netting short-term losses.",
+      "direction": "understates_tax",
+      "size": "6% x 44% = 2.64% of any short-term loss netted against long-term gains."
+    },
+    {
+      "what": "All municipal bond interest is treated as from other states (added back and taxed); South Carolina's own bonds are not added back.",
+      "direction": "overstates_tax",
+      "size": "6% of South Carolina municipal interest."
+    },
+    {
+      "what": "Interest on US Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "6% of the Treasury interest."
+    },
+    {
+      "what": "South Carolina starts from federal taxable income; a household that itemizes and deducts state income tax must add back part of it (line a), which is not modelled.",
+      "direction": "understates_tax",
+      "size": "6% of the add-back, at most the itemized deductions above the federal standard deduction."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

@@ -1,0 +1,46 @@
+{
+  "id": "ok_2025_gains_and_dividends_ordinary",
+  "state": "OK",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "standard_deduction",
+    "personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Oklahoma Resident Individual Income Tax Forms and Instructions (Form 511 packet)",
+    "section": "Form 511 lines 1-14 and 18 (PDF pages 42-43); select line instructions (PDF pages 9-10); standard deduction line 10 (PDF page 10); exemptions line 11 and the Regular exemption terms (PDF pages 8 and 10); Tax Table (PDF pages 27-38); Schedule 511-A lines 11 and 12 (PDF page 18), not_modelled",
+    "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-22"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30350.00",
+          "person": 0
+        }
+      ],
+      "interest": "1000.00",
+      "dividends": "5000.00",
+      "short_term_gains": "2000.00",
+      "long_term_gains": "10000.00"
+    },
+    "federal_agi": "48350.00",
+    "federal_taxable_income": "32600.00"
+  },
+  "asked": [
+    "credits",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

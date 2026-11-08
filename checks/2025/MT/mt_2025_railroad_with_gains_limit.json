@@ -1,0 +1,56 @@
+{
+  "id": "mt_2025_railroad_with_gains_limit",
+  "state": "MT",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "railroad_retirement_subtraction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Montana Individual Income Tax Return Form 2 and Form 2 Instructions",
+    "section": "Form 2 PDF p1 lines 1-8 and PDF p2 worksheet lines 1-13; Instructions PDF p12-13 lines 1-8; PDF p17 tax calculation; PDF p18 rate tables; Instructions PDF p28 Lines 22 and 23, Railroad Retirement Benefits; Form 2 PDF p3 lines 22-24; record reliefs railroad_retirement_subtraction; Instructions PDF p17 net long-term capital gains and Line 2; PDF p18 net long-term capital gains rate tables; Form 2 PDF p2 lines 1-13; record capital_gains",
+    "url": "https://revenue.mt.gov/files/forms/Montana-Individual-Income-Tax-Return-Form-2-Instructions/2025_Montana_Individual_Income_Tax_Return_Form_2_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "30000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "long_term_gains": "20000.00"
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "34250.00"
+  },
+  "expected": {
+    "state_agi": "4250.00",
+    "state_taxable_income": "4250.00",
+    "state_tax_before_credits": "123.25",
+    "credits": "0.00",
+    "state_income_tax": "123.25",
+    "relief_amounts": {
+      "railroad_retirement_subtraction": "30000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = railroad retirement (person 0) 30,000.00 + long-term gains 20,000.00 = 50,000.00. Federal taxable income = 50,000.00 - standard deduction 15,750.00 = 34,250.00 (federal senior deduction ignored). Filing status single, no Montana standard deduction or exemptions. Schedule I Part I: line 7 additions 0.00; lines 22 and 23 railroad retirement 30,000.00; line 24 subtractions 30,000.00. Form 2 page 1: line 1 federal AGI 50,000.00; line 2 Form 1040 lines 12e and 13b 15,750.00; line 3 34,250.00; line 4 0.00; line 5 30,000.00; line 6 age 65 subtraction 0 x 5,660.00 = 0.00; line 7 Montana taxable income 34,250.00 + 0.00 - 30,000.00 - 0.00 = 4,250.00. Page 2 worksheet: line 1 4,250.00; line 2 net long-term gains 20,000.00; line 3 lesser 4,250.00; line 4 ordinary income 4,250.00 - 4,250.00 = 0.00; line 5 21,100.00; line 6 21,100.00 - 0.00 = 21,100.00; line 7 lesser of lines 3 and 6 = 4,250.00; line 8 3% x 4,250.00 = 127.50; line 9 4,250.00 - 21,100.00 = 0.00; line 10 4.1% x 0.00 = 0.00; line 11 127.50 + 0.00 = 127.50; line 12 ordinary income tax on 0.00: 4.7% x 0.00 = 0.00; line 13 127.50 + 0.00 = 127.50, carried to page 1 line 8. Bracket schedule as numbers (the expected figure): 4.7% x 4,250.00 = 199.75. Gains limited to taxable income: lesser of 20,000.00 and 4,250.00 = 4,250.00; extra rate -1.8% x 4,250.00 = -76.50; 199.75 - 76.50 = 123.25. Line 9 nonrefundable credits 0.00; line 10 tax after credits 123.25. The form gives 127.50; expected keeps the projection's 123.25, a difference of 4.25 from 3% against 2.9% on the 4,250.00 of gains inside the first bracket, 4.25. Gains are limited to Montana taxable income after the railroad subtraction, not to the gains or to federal taxable income.",
+  "accepted_approximations": [
+    "Montana taxes long-term gains at two rates, and the format holds one extra rate. Gains run through the ordinary brackets on top of ordinary income and pay an extra rate of -0.018 (4.1% less 5.9%). That is exact for gains above the first bracket, and gives 2.9% where the booklet says 3% for gains inside it. The gains must be limited to taxable income first (Form 2 page 2 line 3)."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

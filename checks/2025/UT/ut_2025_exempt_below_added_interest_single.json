@@ -1,0 +1,51 @@
+{
+  "id": "ut_2025_exempt_below_added_interest_single",
+  "state": "UT",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "qualified_exempt_taxpayer"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 TC-40 Instructions",
+    "section": "TC-40 lines 4 to 22 (Instructions PDF p.9 Line 4; PDF p.10 Lines 5 to 20 and the Line 17 table; PDF p.11 Line 22); Line 21 and Qualified Exempt Taxpayer Worksheet lines 1 to 5 (PDF pp.10-11); (57) Municipal Bond Interest (PDF p.18); (71) Utah Municipal Bonds (PDF p.19)",
+    "url": "https://files.tax.utah.gov/tax/forms/current/tc-40inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-06-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "15000.00",
+          "person": 0
+        }
+      ],
+      "municipal_interest_other_state": "50000.00"
+    },
+    "federal_agi": "15000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "0.00",
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00",
+    "relief_amounts": {
+      "qualified_exempt_taxpayer": "65000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (person 0) 15,000.00 = 15,000.00. Federal taxable income = 15,000.00 - standard deduction 15,750.00 = 0.00 (floored at 0) (federal senior deduction ignored; Utah starts from federal AGI). TC-40 (single): line 4 federal AGI 15,000.00. Line 5 additions: code 57 municipal interest from other states 50,000.00, 50,000.00. Line 6 = 15,000.00 + 50,000.00 = 65,000.00. Line 7 state tax refund 0.00. The other-state bonds were bought after Jan. 1, 2003 from a state that taxes interest on Utah's bonds, so code 57 applies. Line 8 subtractions 0.00. Line 9 Utah taxable income = 65,000.00 - 0.00 - 0.00 = 65,000.00. Line 10 = 65,000.00 x 0.045 = 2,925.00. Lines 11 to 16, by the projection: no dependents; the deduction on line 12 is held as the cap 15,750.00; initial credit = 0.06 x min(line 9 65,000.00, cap 15,750.00) = 0.06 x 15,750.00 = 945.00. Line 17 base phase-out amount 18,213.00. Line 18 = max(0, 65,000.00 - 18,213.00) = 46,787.00. Line 19 = 46,787.00 x 0.013 = 608.231. Line 20 = max(0, 945.00 - 608.231) = 336.769. Line 21 worksheet: line 1 federal AGI 15,000.00; line 2 standard deduction 15,750.00; line 3 senior deduction 0.00 (no amount in Utah's sources); line 4 15,750.00; line 5 = max(0, 15,000.00 - 15,750.00) = 0.00. Line 5 is zero, so the filer is exempt: X on line 21 and 0 on line 22 (the form still shows lines 9 and 10 as above). In the expected lines exempt_in_full takes the whole of line 9, 65,000.00, off state income, so state_agi and taxable income are 0.00, and with them the tax and the credits; no credit is claimed. The test is on federal AGI, not line 9, so the added-back interest does not take the exemption away; only an addition can show it, because below the threshold the credit alone already cancels the tax. Without the exemption line 10 would be 2,925.00 and the tax 2,588.23.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

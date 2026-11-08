@@ -1,0 +1,9 @@
+{
+ "expected": {
+  "credits": "0.00",
+  "state_income_tax": "1029.11",
+  "state_tax_before_credits": "1029.11",
+  "state_taxable_income": "101250.00"
+ },
+ "worked": "Federal check: AGI 125,000.00 = wages 100,000.00 + short_term_gains 5,000.00 + long_term_gains 20,000.00; less standard deduction 15,750 + age 0 = federal taxable income 109,250.00 (given; federal senior deduction ignored).\nLine 1b / 4b: start from federal taxable income 109,250.00; no additions (lines 2-3 are 0).\nLine 6 long-term gain exclusion 40% of 20,000.00 = 8,000.00\nLine 17 total subtractions = 8,000.00\nLine 18 = 109,250.00 - 8,000.00 = 101,250.00\nLine 20 tax: single band 0.0195 on 52,775.00 (over 48,475.00) = 1029.1125000\nLine 20 tax = 1029.1125000 -> 1029.11 to the cent\nLines 21-24: credits 0.00 (marriage penalty credit left out; other-state credit not modelled).\nLine 25 net tax = 1029.11.\nWorksheet: Sch D line 15 20,000.00, line 16 25,000.00, smaller 20,000.00."
+}

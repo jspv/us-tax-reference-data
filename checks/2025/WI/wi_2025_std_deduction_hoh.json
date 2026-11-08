@@ -1,0 +1,51 @@
+{
+  "id": "wi_2025_std_deduction_hoh",
+  "state": "WI",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "wi_standard_deduction",
+    "wi_personal_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 I-111 Form 1 Instructions",
+    "section": "Form 1 lines 1-12 (Form 1 PDF page 1); Form 1 Instructions PDF page 15 line 8 and lines 10a-10b (PDF pages 15-16), PDF pages 35-37 2025 Standard Deduction Table (row named in worked), PDF page 15 line 12 with the PDF pages 38-43 Tax Table and PDF page 44 Tax Computation Worksheet; tax figured from the 2025 Tax Rate Schedules, Publication 106 PDF pages 6-7; record wi_standard_deduction cite: Form 1 Instructions PDF pages 35-37; Form 1 Instructions PDF page 13 head of household; Publication 106 PDF page 6 Schedule A for single and head of household",
+    "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-Inst.pdf"
+  },
+  "inputs": {
+    "filing_status": "head_of_household",
+    "persons": [
+      {
+        "age": 42,
+        "born": "1983-05-05"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "40000.00",
+    "federal_taxable_income": "16375.00"
+  },
+  "expected": {
+    "state_agi": "40000.00",
+    "state_taxable_income": "26441.00",
+    "state_tax_before_credits": "1031.28",
+    "credits": "0.00",
+    "state_income_tax": "1031.28"
+  },
+  "worked": "Head of household, 42, wages 40,000: head of household column of the table; tax on Schedule A (single and head of household share it). No dependent exemption is modelled (checks carry no dependents). Federal (given, not tested): federal AGI = wages (you) 40,000.00 = 40,000.00. Federal taxable income = 40,000.00 - standard deduction 23,625.00 = 16,375.00; the federal senior deduction is ignored. Form 1 line 1 federal AGI 40,000.00; line 2 Schedule I adjustments 0.00; line 3 40,000.00; line 4 additions 0.00; line 5 40,000.00. Schedule SB: no subtraction applies; line 50 0.00. Form 1 line 6 0.00; line 7 Wisconsin income = 40,000.00 - 0.00 = 40,000.00. Line 8 standard deduction, 2025 Standard Deduction Table (Form 1 Instructions PDF page 35), row 40,000 to less than 40,500, column Head of a household: 12,859.00 (printed row, at least / less than / single / joint / separate / head of household: 40,000 / 40,500 / 11,076 / 22,729 / 6,618 / 12,859). Line 9 = 40,000.00 - 12,859.00 = 27,141.00. Line 10a 1 x 700 = 700.00; line 10b 0 x 250 = 0.00; line 10c 700.00. Line 11 taxable income = 27,141.00 - 700.00 = 26,441.00. Line 12 tax, Schedule A (single and head of household) as numbers: 3.5% x 14,680.00 = 513.80 + 4.4% x 11,761.00 = 517.484; total 1,031.284, rounded once to 1,031.28. The Tax Table row 26,400 to 26,500 (PDF page 39) gives 1,032; expected keeps the schedule. Credits (lines 13-20, 30-35): none modelled; 0.00. State income tax 1,031.28.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:wi_credits"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

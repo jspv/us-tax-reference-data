@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "age_deduction_born_by_1939": "12000.00",
+      "age_deduction_income_based": "2000.00"
+    },
+    "state_agi": "71000.00",
+    "state_income_tax": "2619.80",
+    "state_tax_before_credits": "2619.80",
+    "state_taxable_income": "50040.00"
+  },
+  "worked": "Line 1 federal AGI 127500.00; Line 2 additions 0.00; Line 3 127500.00. Line 5 Social Security subtraction (taxable on federal return) 42500.00. Line 4 age deduction person 0 (born 1939-01-01, on or before 1939-01-01): 12,000.00, no income test; limited to the return's remaining state income 85000.00: 12000.00. Line 4 age deduction person 1 (born 1950-06-06, income-based): AFAGI = FAGI 127500.00 - taxable SS 42500.00 = 85000.00; excess over 75000.00 = 10000.00; 12,000.00 - 10000.00 = 2000.00 (floored at 0), limited to remaining state income: 2000.00. Line 8 total subtractions 56500.00; Line 9 VAGI = 127500.00 - 56500.00 = 71000.00. Line 11 standard deduction 17500.00; Line 12 exemptions 2 x 930 + 2 x 800 (age 65 or older by 2026-01-01) = 3460.00. Line 14 taxable income = 71000.00 - 17500.00 - 3460.00 = 50040.00. Line 15 tax by the rate schedule as numbers: 0.02 x (3000.00 - 0.00) = 60.00; 0.03 x (5000.00 - 3000.00) = 60.00; 0.05 x (17000.00 - 5000.00) = 600.00; 0.0575 x (50040.00 - 17000.00) = 1899.80; total 2619.80. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 2619.80. Federal figures given; federal senior deduction ignored (not tested). Booklet worksheet for person 1 only: Line 1 = 1 (person 0 takes the born-by-1939 deduction, not the worksheet); Line 14 = 12,000.00 - 10,000.00 = 2,000.00; same as the projection."
+}

@@ -1,0 +1,482 @@
+{
+  "layer": "projection",
+  "state": "RI",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/RI.record.json",
+    "sha256": "276cae99ac49912c7e9ce932ac65527c3750d0aba451c835fa34836d8b7d374a"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0375",
+        "start": "0"
+      },
+      {
+        "rate": "0.0475",
+        "start": "79900"
+      },
+      {
+        "rate": "0.0599",
+        "start": "181650"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0375",
+        "start": "0"
+      },
+      {
+        "rate": "0.0475",
+        "start": "79900"
+      },
+      {
+        "rate": "0.0599",
+        "start": "181650"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "ri_standard_deduction",
+        "amount": {
+          "single": "10900",
+          "married_joint": "21800",
+          "qualifying_surviving_spouse": "21800",
+          "married_separate": "10900",
+          "head_of_household": "16350"
+        },
+        "per": "return",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "all": "254250"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "all",
+              "over": "254250",
+              "keep_share": "0.8"
+            },
+            {
+              "status": "all",
+              "over": "261500",
+              "keep_share": "0.6"
+            },
+            {
+              "status": "all",
+              "over": "268750",
+              "keep_share": "0.4"
+            },
+            {
+              "status": "all",
+              "over": "276000",
+              "keep_share": "0.2"
+            },
+            {
+              "status": "all",
+              "over": "283250",
+              "keep_share": "0"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ri_personal_exemption",
+        "amount": {
+          "all": "5100"
+        },
+        "per": "person",
+        "phase_out": {
+          "measure": {
+            "base": "state_agi"
+          },
+          "threshold": {
+            "all": "254250"
+          },
+          "effect": "stepped",
+          "steps": [
+            {
+              "status": "all",
+              "over": "254250",
+              "keep_share": "0.8"
+            },
+            {
+              "status": "all",
+              "over": "261500",
+              "keep_share": "0.6"
+            },
+            {
+              "status": "all",
+              "over": "268750",
+              "keep_share": "0.4"
+            },
+            {
+              "status": "all",
+              "over": "276000",
+              "keep_share": "0.2"
+            },
+            {
+              "status": "all",
+              "over": "283250",
+              "keep_share": "0"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "relief"
+  },
+  "reliefs": [
+    {
+      "id": "ri_pension_annuity_modification",
+      "from_record": [
+        "ri_pension_annuity_modification"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1959-03-01"
+      },
+      "cap": {
+        "all": "50000"
+      },
+      "cap_per": "person",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes"
+      }
+    },
+    {
+      "id": "ri_pension_annuity_modification_later_births",
+      "from_record": [
+        "ri_pension_annuity_modification"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 67,
+        "born_on_or_after": "1959-03-02"
+      },
+      "cap": {
+        "all": "50000"
+      },
+      "cap_per": "person",
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes"
+      }
+    },
+    {
+      "id": "ri_military_pension_modification",
+      "from_record": [
+        "ri_military_pension_modification"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    },
+    {
+      "id": "ri_social_security_modification",
+      "from_record": [
+        "ri_social_security_modification"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "born_on_or_before": "1959-03-01"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "ri_social_security_modification_later_births",
+      "from_record": [
+        "ri_social_security_modification"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 67,
+        "born_on_or_after": "1959-03-02"
+      },
+      "income_test": {
+        "measure": {
+          "base": "federal_agi"
+        },
+        "threshold": {
+          "single": "107000",
+          "head_of_household": "107000",
+          "married_separate": "107000",
+          "married_joint": "133750",
+          "qualifying_surviving_spouse": "133750"
+        },
+        "effect": "removes",
+        "applies_when": "at_or_over"
+      }
+    },
+    {
+      "id": "ri_railroad_retirement_exemption",
+      "from_record": [
+        "ri_railroad_retirement_exemption"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "relief_thresholds",
+      "indexed": true,
+      "covers": [
+        "reliefs.income_test"
+      ]
+    },
+    {
+      "figure": "relief_caps",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs.cap"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "ri_dependent_exemption",
+      "from_record": [
+        "ri_dependent_exemption"
+      ],
+      "what": "Exemption of 5,100 for each dependent, reduced by the same steps above 254,250 of line 3.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "ri_us_obligation_interest",
+      "from_record": [
+        "ri_us_obligation_interest"
+      ],
+      "what": "Income from obligations of the United States Government is subtracted (Schedule M line 1a); a projection cannot tell it from other interest.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ri_hr1_addbacks",
+      "from_record": [],
+      "what": "H.R. 1 add-backs on RI Schedule HR1 - Individual and Schedule M line 2k: business interest expense, section 174A amortization, depreciation of business assets, qualified sound recording production; and the later decreasing modification for section 174A (line 1x). These apply to sole proprietors and pass-through members.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ri_other_schedule_m_lines",
+      "from_record": [],
+      "what": "Other Schedule M lines held only in the instructions: Section 529 contributions, Family Education Accounts, organ transplantation expenses, venture capital and business items.",
+      "warn_when": "never"
+    },
+    {
+      "id": "ri_credits",
+      "from_record": [],
+      "what": "Credits: tax paid to another state (Schedule II), RI percentage of allowable federal credit (Schedule I), RI earned income credit, RI-1040H Property Tax Relief Credit.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The forms state the age test for 2025 as born on or before March 1, 1959; the law is full retirement age, so that date moves each year. So that later years are not cut off, each relief has a second branch for anyone born after that date: age 67 at year end. Nobody born after the date qualifies in 2025, so 2025 is exact. People born March 2 to December 31, 1959 have a full retirement age of 66 and ten months and reach 67 in the same tax year, 2026; everyone born in 1960 or later has 67 (born January 1, 1960 uses the 1959 row and reaches both ages in 2026).",
+      "direction": "either",
+      "size": "None at yearly resolution. A consumer that grows this file must keep both branches."
+    },
+    {
+      "what": "The phase-out steps grow with the deductions' indexing yes, so the 7,250 width grows too; the sources say the 254,250 is adjusted and do not say the width is.",
+      "direction": "either",
+      "size": "Small: a band edge moves by a share of 7,250 per year of growth, for line 3 near those edges."
+    },
+    {
+      "what": "Roth conversions are left out of the pension and annuity modification; the sources do not say where a conversion falls (covers_unclear).",
+      "direction": "overstates_tax",
+      "size": "Only if Rhode Island does exempt a conversion, for example one from an employer plan reported on federal line 5b: up to 5.99% of the conversion within the person's remaining 50,000."
+    },
+    {
+      "what": "The pension test keeps the relief at exactly the limit, as instructions line 1t asks ('less than or equal to'); the statute printed in the Guide says 'less than'.",
+      "direction": "understates_tax",
+      "size": "Only for federal AGI exactly at the limit."
+    },
+    {
+      "what": "On a joint return with one qualifying person, the Social Security subtraction is the taxable benefits times that person's share of total benefits (worksheet lines 8-12). Consumers must divide taxable Social Security between the spouses by their gross benefits to get this result.",
+      "direction": "either",
+      "size": "None if divided that way."
+    },
+    {
+      "what": "Interest on U.S. Government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "3.75% to 5.99% of the interest: 225 to 359.40 a year on 6,000."
+    },
+    {
+      "what": "A projection that cannot tell Rhode Island bonds from other states' treats all as other states', which Schedule M line 2a adds back.",
+      "direction": "overstates_tax",
+      "size": "The marginal rate times the Rhode Island bond interest."
+    },
+    {
+      "what": "H.R. 1 business add-backs are not made, so state income starts at federal AGI for a sole proprietor or pass-through member who took them. The other federal H.R. 1 items (tips, overtime, car loan interest, the SALT cap) sit below federal AGI, so starting from federal AGI and using Rhode Island's own deduction already leaves them out and nothing is needed.",
+      "direction": "understates_tax",
+      "size": "Up to 5.99% of the add-back; none for a household without business deductions."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "261500",
+      "how": "sum",
+      "of": [
+        "254250",
+        "7250"
+      ],
+      "what": "second band edge: excess over 254,250 past one 7,250 band (worksheet line 6 gives 2)"
+    },
+    {
+      "value": "268750",
+      "how": "sum",
+      "of": [
+        "261500",
+        "7250"
+      ],
+      "what": "third band edge (line 6 gives 3)"
+    },
+    {
+      "value": "276000",
+      "how": "sum",
+      "of": [
+        "268750",
+        "7250"
+      ],
+      "what": "fourth band edge (line 6 gives 4)"
+    },
+    {
+      "value": "283250",
+      "how": "sum",
+      "of": [
+        "276000",
+        "7250"
+      ],
+      "what": "excess of the printed 29,000 over 254,250: 4 x 7,250, past which the amount is zero (worksheet line 5)"
+    },
+    {
+      "value": "0.4",
+      "how": "sum",
+      "of": [
+        "0.2",
+        "0.2"
+      ],
+      "what": "printed line 7 percentage for 3 bands, written as a sum because the record holds 0.2 only"
+    },
+    {
+      "value": "0.6",
+      "how": "sum",
+      "of": [
+        "0.4",
+        "0.2"
+      ],
+      "what": "printed line 7 percentage for 2 bands"
+    },
+    {
+      "value": "0.8",
+      "how": "sum",
+      "of": [
+        "0.6",
+        "0.2"
+      ],
+      "what": "printed line 7 percentage for 1 band"
+    }
+  ]
+}

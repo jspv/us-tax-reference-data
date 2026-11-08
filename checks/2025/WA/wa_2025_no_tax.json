@@ -1,0 +1,46 @@
+{
+  "id": "wa_2025_no_tax",
+  "state": "WA",
+  "tax_year": 2025,
+  "kind": "no_tax",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "Income tax page, Washington State Department of Revenue",
+    "section": "Income tax page: 'Washington does not currently have an individual income tax' (no state return or form lines exist)",
+    "url": "https://dor.wa.gov/taxes-rates/income-tax"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 55,
+        "born": "1970-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "90000.00",
+          "person": 0
+        }
+      ],
+      "interest": "2000.00"
+    },
+    "federal_agi": "92000.00",
+    "federal_taxable_income": "76250.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = wages 90,000.00 + interest 2,000.00 = 92,000.00. Federal taxable income = 92,000.00 - 15,750.00 single standard deduction = 76,250.00 (given, not tested). Washington has no individual income tax, so there is no state return: state taxable income 0.00, tax before credits 0.00, credits 0.00, state income tax 0.00. The capital gains excise tax is not modelled and this household has no long-term gains.",
+  "accepted_warnings": [],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

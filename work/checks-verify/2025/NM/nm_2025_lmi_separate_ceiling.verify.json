@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "low_middle_income_exemption_separate": "0.00"
+    },
+    "state_agi": "11750.00",
+    "state_income_tax": "308.00",
+    "state_tax_before_credits": "308.00",
+    "state_taxable_income": "11750.00"
+  },
+  "worked": "Status married_separate; persons [50]. Federal figures given (federal senior deduction ignored). Projection base.starts_from = federal_taxable_income: start = PIT-1 line 9 federal AGI 27,500.00 less line 12 federal standard deduction 15,750.00 = 11,750.00. state_agi = 11,750.00 + additions 0.00 - subtractions 0.00 = 11,750.00 (starting from federal taxable income, so already net of the federal standard deduction; before the Table 1 and low-and-middle-income exemptions). PIT-1 line 14 worksheet: line 3 = 27,500.00 - 15,000 floored at 0 = 12,500.00; line 5 = x 0.20 = 2,500.00; line 6 = 2,500 - line 5 (not below 0) = 0.00; line 7 exemptions 1 (dependents not modelled); line 8 = 0.00. state_taxable_income (PIT-1 line 17) = 11,750.00 - 0.00 - 0.00 = 11,750.00. Tax on 11,750.00, married_separate brackets: 0.015 x 4,000.00 = 60.0000; 0.032 x 7,750.00 = 248.0000; total 308.0000, 308.00 to the cent. The printed table gives 308 (its row taken at the midpoint, whole dollars). Credits: none modelled (0.00). state_income_tax = tax."
+}

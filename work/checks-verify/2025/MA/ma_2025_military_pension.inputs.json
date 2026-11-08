@@ -1,0 +1,52 @@
+{
+  "id": "ma_2025_military_pension",
+  "state": "MA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "military_pension"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 1 Instructions (Massachusetts Form 1)",
+    "section": "PDF p10-11 Line 4 'What pensions are exempt?' third bullet (noncontributory U.S. uniformed services pension); Form 1 lines 2a, 4, 10-22",
+    "url": "https://www.mass.gov/doc/2025-form-1-instructions/download"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 62,
+        "born": "1963-06-15"
+      },
+      {
+        "age": 60,
+        "born": "1965-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "source": "military",
+          "amount": "30000.00",
+          "person": 0
+        },
+        {
+          "source": "private",
+          "amount": "45000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "75000.00",
+    "federal_taxable_income": "43500.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.military_pension"
+  ]
+}

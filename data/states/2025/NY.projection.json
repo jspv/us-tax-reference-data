@@ -1,0 +1,637 @@
+{
+  "layer": "projection",
+  "state": "NY",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/NY.record.json",
+    "sha256": "9f4e902aec28b0f90f83a9258e74596d37bf6594978d384e7fbae014b9e76560"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "8500"
+      },
+      {
+        "rate": "0.0525",
+        "start": "11700"
+      },
+      {
+        "rate": "0.055",
+        "start": "13900"
+      },
+      {
+        "rate": "0.06",
+        "start": "80650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "215400"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1077550"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "17150"
+      },
+      {
+        "rate": "0.0525",
+        "start": "23600"
+      },
+      {
+        "rate": "0.055",
+        "start": "27900"
+      },
+      {
+        "rate": "0.06",
+        "start": "161550"
+      },
+      {
+        "rate": "0.0685",
+        "start": "323200"
+      },
+      {
+        "rate": "0.0965",
+        "start": "2155350"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "8500"
+      },
+      {
+        "rate": "0.0525",
+        "start": "11700"
+      },
+      {
+        "rate": "0.055",
+        "start": "13900"
+      },
+      {
+        "rate": "0.06",
+        "start": "80650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "215400"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1077550"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.04",
+        "start": "0"
+      },
+      {
+        "rate": "0.045",
+        "start": "12800"
+      },
+      {
+        "rate": "0.0525",
+        "start": "17650"
+      },
+      {
+        "rate": "0.055",
+        "start": "20900"
+      },
+      {
+        "rate": "0.06",
+        "start": "107650"
+      },
+      {
+        "rate": "0.0685",
+        "start": "269300"
+      },
+      {
+        "rate": "0.0965",
+        "start": "1616450"
+      },
+      {
+        "rate": "0.103",
+        "start": "5000000"
+      },
+      {
+        "rate": "0.109",
+        "start": "25000000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "standard_deduction",
+        "amount": {
+          "single": "8000",
+          "married_joint": "16050",
+          "married_separate": "8000",
+          "head_of_household": "11200",
+          "qualifying_surviving_spouse": "16050"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "gov_pension",
+      "from_record": [
+        "gov_pension_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "pension_annuity_exclusion",
+      "from_record": [
+        "pension_annuity_exclusion"
+      ],
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity",
+        "public_pension_other_state"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 59.5
+      },
+      "cap": {
+        "all": "20000"
+      },
+      "cap_per": "person"
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "railroad_tier1_subtraction",
+        "railroad_tier2_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    },
+    {
+      "figure": "pension_annuity_exclusion",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "reliefs:pension_annuity_exclusion"
+      ]
+    },
+    {
+      "figure": "recapture",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "recapture"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "pension_annuity_exclusion_beneficiary",
+      "from_record": [
+        "pension_annuity_exclusion_beneficiary"
+      ],
+      "what": "Pension and annuity income exclusion for income received as a beneficiary: a person of any age may subtract inherited pension, IRA and annuity income if the decedent would have qualified, within the decedent's 20,000 shared among beneficiaries in proportion to value inherited, and within the person's own 20,000 from all sources. A projection does not know which withdrawals are inherited or the shares.",
+      "warn_when": "has_retirement_account_distribution",
+      "age_range": [
+        0,
+        59
+      ]
+    },
+    {
+      "id": "gov_pension_ira_rollover",
+      "from_record": [
+        "gov_pension_ira_rollover",
+        "gov_pension_subtraction"
+      ],
+      "what": "Money from a New York State, local or federal government plan held as an IRA or plan withdrawal: IRA distributions from amounts rolled over from such a pension stay fully subtractable in proportion to the rollover (rollover contributions / IRA value at the distribution x amount distributed), and Thrift Savings Plan distributions of FERS participants are fully subtracted on line 26. A projection holds these as IRA or employer-plan withdrawals and gives them only the 20,000 exclusion.",
+      "warn_when": "has_retirement_account_distribution"
+    },
+    {
+      "id": "pension_annuity_exclusion",
+      "from_record": [
+        "pension_annuity_exclusion"
+      ],
+      "what": "The disability income exclusion (Form IT-221) shares the 20,000 limit with the pension and annuity income exclusion.",
+      "warn_when": "never"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption"
+      ],
+      "what": "Dependent exemption of 1,000 per dependent (line 36).",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "standard_deduction_dependent_filer",
+      "from_record": [
+        "standard_deduction_dependent_filer"
+      ],
+      "what": "A single filer who can be claimed as a dependent on another taxpayer's federal return gets a 3,100 standard deduction instead of 8,000.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_government_interest_subtraction",
+      "from_record": [
+        "us_government_interest_subtraction"
+      ],
+      "what": "Interest on U.S. government bonds and obligations, and the federal-obligation share of qualifying mutual fund dividends, is subtracted (line 28).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "Recapture (tax computation worksheets 1-16, PDF pages 34-39). Layer 2 holds each worksheet as a flat rate on all taxable income phased in over 50,000 of NY AGI; it cannot hold a worksheet's taxable-income range or its printed Recapture Base and Incremental Benefit amounts (they are in the record's as_printed). Reading the entries: for the filing status, use no entry when NY AGI is 107,650 or less; the 25,000,000 entry when NY AGI is over 25,000,000; otherwise the entry with the highest starts_over that taxable income (line 38) exceeds, among those starting above 107,650, or else the 107,650 entry (the booklet picks the worksheet by taxable income); then tax = schedule tax + (full_rate x taxable income - schedule tax) x min(1, (NY AGI - starts_over) / phase_in_width). Worksheets 1, 7, 12, 6, 11 and 16 come out exact. For worksheets 2-5, 8-10 and 13-15 the booklet starts from the Recapture Base already taken back and phases in only the Incremental Benefit, while this reading phases in both together, so it understates the tax by the Recapture Base x (1 - phase-in share) while NY AGI is within 50,000 above the worksheet's start; once NY AGI is 50,000 over the start it is exact, because the Recapture Base plus the Incremental Benefit equals the band rate on all taxable income minus the schedule tax (record notes).",
+      "direction": "understates_tax",
+      "size": "Standard deduction, no dependents, all income taxable. NY AGI 150,000: married joint (taxable 133,950) recapture 282, single (142,000) 481, head of household (138,800) 666; error 0 for each. NY AGI 300,000: married joint (283,950) recapture 1,140, single (292,000) 2,399, error 0; head of household (288,800) recapture 2,192, layer 2 gives 1,888, understated by 304 (787 x 0.386). NY AGI 1,000,000: married joint (983,950) recapture 3,887, single (992,000) 2,399, head of household (988,800) 3,076; error 0 for each. Largest understatement up to 1,000,000 of NY AGI: about 770 married joint (just over 339,250), 480 single (just over 223,400), 610 head of household (just over 280,500); above that the bound is the worksheet's Recapture Base x (1 - phase-in share): for this household about 2,640 married joint just over 2,171,400 (Recapture Base 3,887) and 43,550 just over 5,016,050 (Recapture Base 64,237). A consumer that ignored recapture would understate by the full recapture figures above."
+    },
+    {
+      "what": "Below NY AGI of 107,650 and taxable income of 65,000, the booklet's tax comes from the NYS Tax Table (not in these sources); the projection uses the rate schedule.",
+      "direction": "either",
+      "size": "The table's rounding to its income rows only; the table is not in these sources, so the size is not measured here."
+    },
+    {
+      "what": "Roth conversions are not covered by the pension and annuity income exclusion (the booklet and the Department's page are silent; record covers_unclear), so a conversion uses none of a person's 20,000.",
+      "direction": "overstates_tax",
+      "size": "For a converter 59 1/2 or older whose other qualifying income is under 20,000: the unused part of 20,000 x the marginal rate, up to 1,200 a year at 6% and 1,370 at 6.85%. None when other pension and IRA income already uses the 20,000."
+    },
+    {
+      "what": "The exclusion's age test is applied as reaching 59 1/2 in the year; the booklet counts, in the year a person reaches 59 1/2, only income received after that date.",
+      "direction": "understates_tax",
+      "size": "The year of turning 59 1/2 only: income received before the birthday that year, up to 20,000, x the marginal rate (up to 1,200 at 6%)."
+    },
+    {
+      "what": "The New York standard deduction is always taken; New York itemized deductions (Form IT-196) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the amount by which NY itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "Government money in IRAs and the Thrift Savings Plan (not_modelled): rollovers from NY State, local or federal pensions and FERS TSP distributions get only the 20,000 exclusion instead of a full subtraction.",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the qualifying amount over the person's remaining exclusion: a retired federal employee in FERS drawing 40,000 from the TSP at 59 1/2 or older, with no other qualifying income, is overstated by 20,000 x 5.5% to 6%, about 1,100 to 1,200 a year."
+    },
+    {
+      "what": "Inherited pension and IRA income of a person under 59 1/2 is taxed (beneficiary branch not modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to the person's share of the decedent's 20,000 x the marginal rate: at most 1,200 a year at 6%."
+    },
+    {
+      "what": "The dependent exemption is not applied (dependents not modelled).",
+      "direction": "overstates_tax",
+      "size": "1,000 per dependent x the marginal rate: 55 to 60 a year per dependent at 5.5% to 6%."
+    },
+    {
+      "what": "A single filer who can be claimed as a dependent gets the 8,000 standard deduction instead of 3,100.",
+      "direction": "understates_tax",
+      "size": "4,900 x the marginal rate: about 200 to 270 a year at 4% to 5.5%."
+    },
+    {
+      "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the Treasury interest: 6% of 10,000 of Treasury interest is 600 a year."
+    },
+    {
+      "what": "A projection that cannot tell New York bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "The marginal rate x the interest from New York State and local obligations."
+    }
+  ],
+  "recapture": [
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "married_joint": "107650",
+        "qualifying_surviving_spouse": "107650"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "married_joint": "157650",
+        "qualifying_surviving_spouse": "157650"
+      },
+      "full_rate": "0.055",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "single": "107650",
+        "married_separate": "107650",
+        "head_of_household": "107650"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "single": "157650",
+        "married_separate": "157650",
+        "head_of_household": "157650"
+      },
+      "full_rate": "0.06",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "married_joint": "161550",
+        "qualifying_surviving_spouse": "161550"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "married_joint": "211550",
+        "qualifying_surviving_spouse": "211550"
+      },
+      "full_rate": "0.06",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "married_joint": "323200",
+        "qualifying_surviving_spouse": "323200"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "married_joint": "373200",
+        "qualifying_surviving_spouse": "373200"
+      },
+      "full_rate": "0.0685",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "married_joint": "2155350",
+        "qualifying_surviving_spouse": "2155350"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "married_joint": "2205350",
+        "qualifying_surviving_spouse": "2205350"
+      },
+      "full_rate": "0.0965",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "single": "215400",
+        "married_separate": "215400"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "single": "265400",
+        "married_separate": "265400"
+      },
+      "full_rate": "0.0685",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "single": "1077550",
+        "married_separate": "1077550"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "single": "1127550",
+        "married_separate": "1127550"
+      },
+      "full_rate": "0.0965",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "head_of_household": "269300"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "head_of_household": "319300"
+      },
+      "full_rate": "0.0685",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "head_of_household": "1616450"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "head_of_household": "1666450"
+      },
+      "full_rate": "0.0965",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "all": "5000000"
+      },
+      "phase_in_width": "50000",
+      "full_over": {
+        "all": "5050000"
+      },
+      "full_rate": "0.103",
+      "effect": "flat_top_rate_on_all_income"
+    },
+    {
+      "measure": {
+        "base": "state_agi"
+      },
+      "starts_over": {
+        "all": "25000000"
+      },
+      "phase_in_width": "0",
+      "full_over": {
+        "all": "25000000"
+      },
+      "full_rate": "0.109",
+      "effect": "flat_top_rate_on_all_income"
+    }
+  ],
+  "derived_figures": [
+    {
+      "value": "211550",
+      "how": "sum",
+      "of": [
+        "161550",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 2 (married joint, qualifying surviving spouse): the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "373200",
+      "how": "sum",
+      "of": [
+        "323200",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 3: the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "2205350",
+      "how": "sum",
+      "of": [
+        "2155350",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 4: the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "5050000",
+      "how": "sum",
+      "of": [
+        "5000000",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheets 5, 10 and 15 (all statuses): the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "265400",
+      "how": "sum",
+      "of": [
+        "215400",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 8 (single, married separate): the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "1127550",
+      "how": "sum",
+      "of": [
+        "1077550",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 9: the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "319300",
+      "how": "sum",
+      "of": [
+        "269300",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 13 (head of household): the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    },
+    {
+      "value": "1666450",
+      "how": "sum",
+      "of": [
+        "1616450",
+        "50000"
+      ],
+      "what": "full_over of the layer-2 recapture entry for worksheet 14: the worksheet's NY AGI start plus the $50,000 phase-in width, where its Incremental Benefit is taken back in full"
+    }
+  ]
+}

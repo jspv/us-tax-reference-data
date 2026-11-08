@@ -1,0 +1,29 @@
+[
+  {
+    "state": "AZ",
+    "title": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+    "retrieved": "2026-11-07T01:00:34.086551+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+    "file": "FORMS_INDIVIDUAL_2025_140Booklet.pdf",
+    "bytes": 3469703,
+    "sha256": "9a2ec97faf4358f199f7d6c5898732fd98bd217345aac52976919343c43b5ab1",
+    "archived_url": "https://web.archive.org/web/20260513213027id_/https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  {
+    "state": "AZ",
+    "title": "Identifying Other Taxable Income (Social Security, pensions, military retirement subtractions)",
+    "url": "https://azdor.gov/individuals/income-tax-filing-assistance/identifying-other-taxable-income",
+    "kind": "html",
+    "retrieved": "2026-11-07T01:00:40.683585+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://azdor.gov/individuals/income-tax-filing-assistance/identifying-other-taxable-income",
+    "file": "identifying-other-taxable-income.html",
+    "bytes": 152009,
+    "sha256": "0bfc7f7b042f1c7474c1a00972ba75d7d67a11bd158edaff2b8c98cfe3fc44e2",
+    "text_file": "identifying-other-taxable-income.page.txt"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "306.00",
+    "relief_amounts": {
+      "railroad_retirement_subtraction": "30000.00"
+    },
+    "state_agi": "40000.00",
+    "state_income_tax": "429.69",
+    "state_tax_before_credits": "735.69",
+    "state_taxable_income": "34294.00"
+  },
+  "worked": "Start: federal AGI 70,000.00 (Form 540 line 13). Schedule CA line 5b: railroad retirement 30,000.00 exempt in full. State AGI (Form 540 line 17) = 70,000.00 - 30,000.00 = 40,000.00. Standard deduction 5,706 (line 18). Taxable income (line 19) = 40,000.00 - 5,706 = 34,294.00. Tax by the rate schedule (line 31; 1% BHST over 1,000,000 folded into the brackets per the projection): 0.01 x (11,079 - 0) = 110.79; 0.02 x (26,264 - 11,079) = 303.70; 0.04 x (34,294.00 - 26,264) = 321.20; total 735.69. Exemption credits: federal AGI 70,000.00 below 252,203: personal 1 x 153 = 153; senior 1 x 153 = 153. Credits (line 32) = 306. State income tax = 735.69 - 306 = 429.69. Federal figures given (federal senior deduction ignored)."
+}

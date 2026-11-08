@@ -1,0 +1,37 @@
+{
+  "layer": "projection",
+  "state": "NH",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/NH.record.json",
+    "sha256": "1130ab65cc95bcb4ed016662880e5f1a9a5f2461a453dfbcdc4b9a6d60756313"
+  },
+  "has_income_tax": false,
+  "brackets": {
+    "single": [],
+    "married_joint": []
+  },
+  "base": {
+    "starts_from": "none",
+    "deductions": []
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [],
+  "muni_interest": {
+    "treatment": "all_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [],
+  "not_modelled": [],
+  "recapture": [],
+  "derived_figures": [],
+  "approximations": [
+    {
+      "what": "No personal income tax (Repeal of NH Interest and Dividends Tax Now in Effect, New Hampshire Department of Revenue Administration (press release, January 23, 2025)). Social Security and municipal interest are shown as exempt because nothing is taxed.",
+      "direction": "either",
+      "size": "None: there is no state income tax to estimate."
+    }
+  ]
+}

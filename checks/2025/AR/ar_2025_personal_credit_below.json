@@ -1,0 +1,53 @@
+{
+  "id": "ar_2025_personal_credit_below",
+  "state": "AR",
+  "tax_year": 2025,
+  "kind": "credit",
+  "tests": [
+    "ar_personal_credit",
+    "ar_standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 AR1000F and AR1000NR Instructions (with the 2025 AR1000F return)",
+    "section": "AR1000F lines 7A-7C, 8-25, 27-29, 34, 37-38 (Form pages 1-2); Instructions PDF page 12 LINE 7A (29 per taxpayer and spouse; 65 or over on January 1, 2026; 65 Special), PDF page 14 Standard Deduction table and LINES 26-29, PDF pages 30-34 Regular Income Tax Table (schedule 0% to 5,600, 2% to 11,200, 3% to 15,990, 3.4% to 26,400, 3.9% above, as settled in the record from the table), PDF page 11 item 8 (Social Security and Railroad Retirement exempt)",
+    "url": "https://www.dfa.arkansas.gov/wp-content/uploads/2025_AR1000F_and_AR1000NR_Instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 40,
+        "born": "1985-02-02"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "9000.00",
+          "person": 0
+        }
+      ]
+    },
+    "federal_agi": "9000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_agi": "9000.00",
+    "state_taxable_income": "6530.00",
+    "state_tax_before_credits": "18.60",
+    "credits": "18.60",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal (given, not tested): federal AGI = wages (primary) 9,000.00 = 9,000.00. Federal taxable income = 9,000.00 - standard deduction 15,750.00 = -6,750.00, floored at 0.00 (federal senior deduction ignored). AR1000F, filing status 1 (single); Arkansas builds its own income from lines 8-25, which here equals federal AGI less the exempt items. Line 8 wages 9,000.00. Line 23 total income = 9,000.00; line 24 adjustments 0.00; line 25 AGI = 9,000.00. Projection check: federal AGI 9,000.00 = state AGI 9,000.00. Line 27 standard deduction (filing status 1) 2,470.00; line 28 net taxable income = 9,000.00 - 2,470.00 = 6,530.00. Line 29 tax, schedule as numbers (0% to 5,600): 2% x (6,530.00 - 5,600.00) 930.00 = 18.60; total 18.60. (The Regular Income Tax Table row 6,501-6,601 gives 19; expected keeps the schedule.) Line 7A boxes: personal 1 = 1 x 29.00 = 29.00; line 7C and line 34 29.00; line 37 total credits 29.00. Line 38 net tax = 18.60 - 29.00, below zero, so 0.00 (credits are not refundable: 18.60 of the 29.00 is used; expected credits shows the amount used). Not applied by the projection (approximations): the Low Income Tax Tables (PDF page 28; AGI under 17,500 single) and the Additional Tax Credit for Qualified Individuals (PDF page 25, 60 at net taxable income up to 26,500); the result is 0.00 either way here because the 29 credits already exceed the tax.",
+  "accepted_approximations": [
+    "Arkansas builds its own income (AR1000F lines 8 to 25) instead of starting from federal AGI; the projection starts from federal AGI less taxable Social Security (exempt) and the reliefs here.",
+    "The schedule's bracket starts are derived from the printed tax table, which rounds the tax at each row's midpoint to the dollar; between rows and in rounding the projection's tax differs from the table.",
+    "The Low Income Tax Tables (lower tax, standard deduction built in, for adjusted gross income under cut-offs such as 17,500 single and 29,000 joint with one or no dependents) and the Additional Tax Credit for Qualified Individuals (up to 60 per person at net taxable income up to 27,600) are not applied. The low income tables are not open to anyone taking the 6,000 exclusion or the military exemptions."
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

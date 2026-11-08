@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "25900.00",
+    "state_income_tax": "657.00",
+    "state_tax_before_credits": "657.00",
+    "state_taxable_income": "21900.00",
+    "relief_amounts": {
+      "civil_service_annuity": "9700.00"
+    }
+  },
+  "worked": "IT-40 line 1 federal AGI 44,575.00 (given; federal senior deduction ignored in the federal figures). Schedule 2 line 5: taxable Social Security 8,975.00 subtracted (social_security exempt). Person 0 (age 68): code 601: lesser of annuity 13,700.00 or 16,000 = 13,700.00; less own gross Social Security 17,500.00 and railroad retirement 0.00 = 0.00 (not below 0). Person 1 (age 68): code 601: lesser of annuity 21,900.00 or 16,000 = 16,000.00; less own gross Social Security 6,300.00 and railroad retirement 0.00 = 9,700.00 (not below 0). Civil service annuity deduction total 9,700.00. State AGI (IT-40 line 5) = 44,575.00 + 0.00 - 18,675.00 = 25,900.00. Schedule 3 line 1 personal exemptions: 2 x 1,000 = 2,000.00. Schedule 3 line 4 age 65 exemption: 2 x 1,000 = 2,000.00. Schedule 3 line 5: federal AGI 44,575.00 is not less than 40,000.00 (one threshold per return, not doubled): no additional exemption. Exemptions total 4,000.00. Taxable income (line 7) = max(0, 25,900.00 - 4,000.00) = 21,900.00. Line 8: 3% x 21,900.00 = 657.00. No credits modelled: credits 0.00; state income tax 657.00."
+}

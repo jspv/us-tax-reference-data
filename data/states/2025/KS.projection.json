@@ -1,0 +1,414 @@
+{
+  "layer": "projection",
+  "state": "KS",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/KS.record.json",
+    "sha256": "f59c04adc3bdeb5e23063ac90f17708f274e739e2158ea7758b330885492e2eb"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "46000"
+      }
+    ],
+    "married_separate": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ],
+    "head_of_household": [
+      {
+        "rate": "0.052",
+        "start": "0"
+      },
+      {
+        "rate": "0.0558",
+        "start": "23000"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "kansas_standard_deduction",
+        "amount": {
+          "single": "3605",
+          "married_joint": "8240",
+          "married_separate": "4120",
+          "head_of_household": "6180",
+          "qualifying_surviving_spouse": "6180"
+        },
+        "per": "return"
+      },
+      {
+        "id": "age_65_additional_standard_deduction",
+        "amount": {
+          "single": "850",
+          "married_joint": "700",
+          "married_separate": "700",
+          "head_of_household": "850",
+          "qualifying_surviving_spouse": "850"
+        },
+        "per": "person",
+        "min_age": 65
+      },
+      {
+        "id": "personal_exemption_allowance",
+        "amount": {
+          "single": "9160",
+          "married_joint": "18320",
+          "married_separate": "9160",
+          "head_of_household": "11480",
+          "qualifying_surviving_spouse": "11480"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "public_retirement",
+      "from_record": [
+        "federal_government_retirement",
+        "kansas_public_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "military_retirement",
+      "from_record": [
+        "military_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "railroad_retirement_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "blind_additional_standard_deduction",
+      "from_record": [
+        "blind_additional_standard_deduction"
+      ],
+      "what": "Additional standard deduction of 850 (single, head of household) or 700 (joint, separate) per box for a blind filer or spouse.",
+      "warn_when": "never"
+    },
+    {
+      "id": "dependent_exemption",
+      "from_record": [
+        "dependent_exemption",
+        "child_born_exemption",
+        "stillbirth_exemption"
+      ],
+      "what": "Exemptions of 2,320 for each dependent, each child born in the year and a stillbirth.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "disabled_veteran_exemption",
+      "from_record": [
+        "disabled_veteran_exemption"
+      ],
+      "what": "Additional exemption of 2,320 for each honorably discharged veteran certified by the VA at the 100% disability rate; a projection does not know this.",
+      "warn_when": "has_military_pension"
+    },
+    {
+      "id": "thrift_savings_plans",
+      "from_record": [
+        "thrift_savings_plans"
+      ],
+      "what": "Thrift Savings Plan distributions are subtracted on line A14; a projection cannot tell them from other employer-plan distributions, which are taxed.",
+      "warn_when": "has_retirement_account_distribution"
+    },
+    {
+      "id": "kpers_rollover_withdrawals",
+      "from_record": [
+        "kpers_rollover_withdrawals"
+      ],
+      "what": "IRA or plan withdrawals of money first received as a KPERS lump sum at retirement and rolled over, with earnings, are subtracted on line A11; a projection cannot trace rolled-over money.",
+      "warn_when": "has_retirement_account_distribution"
+    },
+    {
+      "id": "regents_annuity_contracts",
+      "from_record": [
+        "regents_annuity_contracts"
+      ],
+      "what": "Retirement annuity contracts for State Board of Regents faculty and staff are subtracted on line A14 (not after a rollover into an unrelated plan); a projection cannot tell them from other annuities.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "kpers_lump_sum_subtraction",
+      "from_record": [
+        "kpers_lump_sum_subtraction"
+      ],
+      "what": "A one-time KPERS lump sum of withdrawn accumulated contributions is subtracted on line A25.",
+      "warn_when": "never"
+    },
+    {
+      "id": "us_government_interest_subtraction",
+      "from_record": [
+        "us_government_interest_subtraction"
+      ],
+      "what": "Interest and dividends from U.S. government obligations are subtracted on line A12.",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The Kansas standard deduction is always taken; Kansas itemized deductions (Schedule A) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "5.58% of the amount by which Kansas itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "A qualifying surviving spouse files as Head of Household in Kansas (PDF page 6), but the schema gives this status the joint brackets; the deductions are correct.",
+      "direction": "understates_tax",
+      "size": "0.38% of 23,000 = 87.40 a year at most."
+    },
+    {
+      "what": "Every public_pension is treated as exempt, but line A14 names particular Kansas plans and only 'certain' first class city pensions; a Kansas local plan not on the list is taxable.",
+      "direction": "understates_tax",
+      "size": "5.58% of such a pension; for a 30,000 pension, 1,674 a year."
+    },
+    {
+      "what": "A pension from another state's government, private pensions, IRA and other employer-plan distributions and Roth conversions stay in Kansas income: no line subtracts them. This is read from the booklet's silence, not from a sentence saying they are taxed.",
+      "direction": "overstates_tax",
+      "size": "None if the reading is right; otherwise 5.58% of the income."
+    },
+    {
+      "what": "Thrift Savings Plan distributions, KPERS rollover withdrawals and Regents annuities are taxed (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "5.58% of the qualifying amount; for a 30,000 withdrawal, 1,674 a year."
+    },
+    {
+      "what": "The blind amount, dependent exemptions and disabled veteran exemption are not applied (not_modelled).",
+      "direction": "overstates_tax",
+      "size": "Up to 5.58% of 850 = 47.43 per blind box or 5.58% of 2,320 = 129.46 per exemption, a year."
+    },
+    {
+      "what": "Interest on U.S. government obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "5.58% of the interest."
+    },
+    {
+      "what": "A projection that cannot tell Kansas bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "5.58% of the interest from exempt Kansas obligations."
+    },
+    {
+      "what": "Line 11 Kansas tax on a lump sum distribution (13% of the federal tax on Form 4972) is not computed.",
+      "direction": "understates_tax",
+      "size": "13% of the federal Form 4972 tax, in a year with such a distribution."
+    },
+    {
+      "what": "Line A2 add-back of current KPERS and similar members' salary contributions is not computed (the projection does not know them).",
+      "direction": "understates_tax",
+      "size": "5.58% of the contributions, while working."
+    },
+    {
+      "what": "Earned income credit, child and dependent care credit, credit for taxes paid to other states and the property tax refunds are not applied (outside the record).",
+      "direction": "overstates_tax",
+      "size": "Depends on the household; none for most retired households without other-state tax."
+    },
+    {
+      "what": "Tax is computed from the rates, not the printed tables and rounded worksheet subtraction.",
+      "direction": "either",
+      "size": "Under 2 a year: a table row spans 50 of income (1.40 at 5.58%) and is within 0.50 of the schedule at its midpoint; the worksheet differs by 0.40 (single group) or 0.20 (joint)."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": [
+    {
+      "value": "11480",
+      "how": "sum",
+      "of": [
+        "9160",
+        "2320"
+      ],
+      "what": "Head of household and qualifying surviving spouse exemption: personal_exemption_allowance plus head_of_household_additional_exemption, as one return-level amount (PDF page 3: 17,660 = 6,180 + 11,480)"
+    },
+    {
+      "value": "850",
+      "how": "difference",
+      "of": [
+        "4455",
+        "3605"
+      ],
+      "what": "single: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "850",
+      "how": "difference",
+      "of": [
+        "5305",
+        "4455"
+      ],
+      "what": "single: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "850",
+      "how": "difference",
+      "of": [
+        "7030",
+        "6180"
+      ],
+      "what": "head_of_household: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "850",
+      "how": "difference",
+      "of": [
+        "7880",
+        "7030"
+      ],
+      "what": "head_of_household: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "8940",
+        "8240"
+      ],
+      "what": "married_joint: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "9640",
+        "8940"
+      ],
+      "what": "married_joint: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "10340",
+        "9640"
+      ],
+      "what": "married_joint: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "11040",
+        "10340"
+      ],
+      "what": "married_joint: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "4820",
+        "4120"
+      ],
+      "what": "married_separate: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "5520",
+        "4820"
+      ],
+      "what": "married_separate: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "6220",
+        "5520"
+      ],
+      "what": "married_separate: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    },
+    {
+      "value": "700",
+      "how": "difference",
+      "of": [
+        "6920",
+        "6220"
+      ],
+      "what": "married_separate: one more box on the 65-or-older and blind worksheet (PDF page 6)"
+    }
+  ]
+}

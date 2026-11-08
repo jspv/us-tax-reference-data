@@ -1,0 +1,55 @@
+[
+  {
+    "state": "ND",
+    "title": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "retrieved": "2026-11-07T01:14:01.112335+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
+    "file": "2025-individual-income-tax-booklet.pdf",
+    "bytes": 8129465,
+    "sha256": "cea20eda0416339cdd2b049c67c772ca62665eafe2f0384795204c4197b4d75b",
+    "archived_url": "https://web.archive.org/web/20261108001819id_/https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf"
+  },
+  {
+    "state": "ND",
+    "title": "2025 Form ND-1",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28702-form-nd-1-2025.pdf",
+    "retrieved": "2026-11-07T01:14:09.178012+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28702-form-nd-1-2025.pdf",
+    "file": "28702-form-nd-1-2025.pdf",
+    "bytes": 565408,
+    "sha256": "e7c35d515b7b1e101bef3ceb04cd8363d5df3e44da19654982b8f26bfeed83da",
+    "archived_url": "https://web.archive.org/web/20260311155858id_/https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28702-form-nd-1-2025.pdf"
+  },
+  {
+    "state": "ND",
+    "title": "2025 Schedule ND-1SA Statutory Adjustments",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf",
+    "retrieved": "2026-11-07T01:14:14.638158+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf",
+    "file": "28710-schedule-nd-1sa-2025.pdf",
+    "bytes": 359268,
+    "sha256": "b89d6e92eb61fd5f7f01441fc55b919f2fadbf12f7abd7587ee0ad04463e3c71",
+    "archived_url": "https://web.archive.org/web/20260311154955id_/https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28710-schedule-nd-1sa-2025.pdf"
+  },
+  {
+    "state": "ND",
+    "title": "2025 Schedule ND-1TC (other credits)",
+    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28742-schedule-nd-1tc-2025.pdf",
+    "retrieved": "2026-11-07T13:17:36.408811+00:00",
+    "ok": true,
+    "status": 200,
+    "final_url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28742-schedule-nd-1tc-2025.pdf",
+    "method": "browser",
+    "file": "28742-schedule-nd-1tc-2025.pdf",
+    "bytes": 432406,
+    "sha256": "6dbc52477179331807b7e91ee4008f8faf7ecf21cd74bd9a267f96f1a4fca8ac",
+    "archived_url": "https://web.archive.org/web/20261108001855id_/https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28742-schedule-nd-1tc-2025.pdf"
+  }
+]

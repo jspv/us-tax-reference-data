@@ -1,0 +1,46 @@
+{
+  "id": "az_2025_base",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "base",
+  "tests": [],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 52,
+        "born": "1973-05-14"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "58000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "9000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "68000.00",
+    "federal_taxable_income": "52250.00"
+  },
+  "asked": [
+    "credits",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "US-2026-single-born-january-1-is-65",
+  "jurisdiction": "US",
+  "tax_year": 2026,
+  "kind": "income_tax",
+  "boundary": "below",
+  "tests": [
+    "income_tax.brackets",
+    "income_tax.standard_deduction",
+    "income_tax.additional_standard_deduction",
+    "income_tax.senior_deduction"
+  ],
+  "description": "Single filer born January 1, 1962: by the tax rule 65 at the end of 2026 (reaches 65 the day before the birthday), so the additional standard deduction and the full senior deduction apply.",
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "born": "1962-01-01",
+        "age": 65
+      }
+    ],
+    "wages": "60000"
+  },
+  "asked": [
+    "additional_medicare_tax",
+    "agi",
+    "net_investment_income_tax",
+    "regular_tax",
+    "senior_deduction",
+    "standard_deduction",
+    "taxable_income",
+    "total_tax"
+  ]
+}

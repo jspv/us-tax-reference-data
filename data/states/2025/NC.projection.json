@@ -1,0 +1,171 @@
+{
+  "layer": "projection",
+  "state": "NC",
+  "tax_year": 2025,
+  "record": {
+    "path": "data/states/2025/NC.record.json",
+    "sha256": "4b8fd98ecf5ef5a613e78b5c2d26aac28eea825fe34934013234fc37ee79e466"
+  },
+  "has_income_tax": true,
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.0425",
+        "start": "0"
+      }
+    ]
+  },
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "nc_standard_deduction",
+        "amount": {
+          "single": "12750",
+          "married_joint": "25500",
+          "qualifying_surviving_spouse": "25500",
+          "married_separate": "12750",
+          "head_of_household": "19125"
+        },
+        "per": "return"
+      }
+    ]
+  },
+  "social_security": {
+    "treatment": "exempt"
+  },
+  "reliefs": [
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "ss_rrb_subtraction"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      }
+    },
+    {
+      "id": "uniformed_services_retirement",
+      "from_record": [
+        "uniformed_services_retirement"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "military_pension"
+      ],
+      "needs_input": [
+        "pension_source"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "assumption": {
+        "what": "Maintainer assumption (decision 2026-11-07), not a booklet rule: every military pension is assumed to meet the Schedule S Line 21 test (at least 20 years of service in the Uniformed Services, or a medical retirement) and is deducted in full, per person; Survivor Benefit Plan payments are deducted when held as a military pension. The booklet allows the deduction only when the test is met (PDF page 19). A retiree with under 20 years and no medical retirement, not vested for Bailey by 1989-08-12, owes 4.25% of the pension more than shown (1,275 a year on 30,000). A military retiree with five or more years of creditable service on 1989-08-12 qualifies under Bailey (Line 20) whatever the length of service, and the same income may not be deducted on both lines, so for that retiree the result is the same either way.",
+        "warn_when": "has_military_pension"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt"
+  },
+  "capital_gains": [],
+  "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "brackets"
+      ]
+    },
+    {
+      "figure": "deductions",
+      "indexed": false,
+      "assumed": true,
+      "covers": [
+        "deductions"
+      ]
+    }
+  ],
+  "not_modelled": [
+    {
+      "id": "bailey_defined_benefit",
+      "from_record": [
+        "bailey_defined_benefit",
+        "bailey_state_401k_457"
+      ],
+      "what": "Bailey exclusion (Schedule S Line 20): NC state, NC local and US government (including military) retirement benefits are excluded in full when the retiree had five or more years of creditable service on August 12, 1989 (defined benefit plans), or had contributed or contracted to contribute to the state's 401(k) or 457 plan before August 12, 1989. A projection cannot know service or contributions before 1989-08-12. Military retired pay is not affected: the projection deducts it in full under Line 21 (maintainer assumption, see approximations), which gives the same result as Bailey for a military retiree vested before 1989-08-12.",
+      "warn_when": "has_pension"
+    },
+    {
+      "id": "nc_child_deduction",
+      "from_record": [
+        "nc_child_deduction"
+      ],
+      "what": "Child deduction per qualifying child (federal child tax credit allowed), stepping down with federal AGI from 3,000 to 0.",
+      "warn_when": "has_dependents"
+    },
+    {
+      "id": "us_obligations_interest",
+      "from_record": [
+        "us_obligations_interest"
+      ],
+      "what": "Interest on U.S. government obligations (savings bonds, Treasury notes and bills) is deducted (Schedule S Line 18).",
+      "warn_when": "never"
+    }
+  ],
+  "approximations": [
+    {
+      "what": "The Bailey exclusion (Schedule S Line 20) is not applied (not_modelled): qualifying NC state, NC local and US government civilian retirement benefits (and the state's 401(k) and 457 plans) are taxed. Military retired pay is not taxed: it is deducted under Line 21 (see the maintainer assumption).",
+      "direction": "overstates_tax",
+      "size": "4.25% of the qualifying benefits; for a 30,000 pension, 1,275 a year."
+    },
+    {
+      "what": "Maintainer assumption (decision 2026-11-07), not a booklet rule: every military pension is assumed to meet the Schedule S Line 21 test (at least 20 years of service in the Uniformed Services, or a medical retirement) and is deducted in full, per person; Survivor Benefit Plan payments are deducted when held as a military pension. The booklet allows the deduction only when the test is met (PDF page 19). A retiree with under 20 years and no medical retirement, not vested for Bailey by 1989-08-12, owes 4.25% of the pension more than shown (1,275 a year on 30,000). A military retiree with five or more years of creditable service on 1989-08-12 qualifies under Bailey (Line 20) whatever the length of service, and the same income may not be deducted on both lines, so for that retiree the result is the same either way.",
+      "direction": "understates_tax",
+      "size": "For a military retiree with under 20 years of service and no medical retirement (and not vested for Bailey): 4.25% of the pension; on a 30,000 pension, 1,275 a year. None for a retiree who meets the test or is vested for Bailey."
+    },
+    {
+      "what": "The NC standard deduction is always taken; NC itemized deductions (Schedule A) are not modelled.",
+      "direction": "overstates_tax",
+      "size": "4.25% of the amount by which NC itemized deductions exceed the standard deduction, for an itemizer."
+    },
+    {
+      "what": "The standard deduction is applied even where the booklet makes it zero: married filing separately when the spouse itemizes, or a filer not eligible for the federal standard deduction.",
+      "direction": "understates_tax",
+      "size": "4.25% of 12,750 = 541.88 a year for a separate filer whose spouse itemizes."
+    },
+    {
+      "what": "The child deduction is not applied (dependents not modelled).",
+      "direction": "overstates_tax",
+      "size": "4.25% of up to 3,000 = up to 127.50 a year per qualifying child."
+    },
+    {
+      "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
+      "direction": "overstates_tax",
+      "size": "4.25% of the Treasury interest."
+    },
+    {
+      "what": "A projection that cannot tell NC bonds from other states' bonds treats all tax-exempt interest as other-state and adds it back.",
+      "direction": "overstates_tax",
+      "size": "4.25% of the interest from NC obligations (and the NC part of exempt-interest fund dividends)."
+    },
+    {
+      "what": "NC starts from federal AGI as of January 1, 2023 (Internal Revenue Code changes after that date, including OBBBA, do not apply unless NC conforms); the projection uses the household's current federal AGI.",
+      "direction": "either",
+      "size": "Usually none for retirement income; can matter for business items (bonus depreciation, section 179) the projection does not model."
+    }
+  ],
+  "recapture": [],
+  "derived_figures": []
+}

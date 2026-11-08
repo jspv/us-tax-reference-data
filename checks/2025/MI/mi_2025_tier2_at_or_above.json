@@ -1,0 +1,73 @@
+{
+  "id": "mi_2025_tier2_at_or_above",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "tier2_standard_deduction"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 25 (PDF page 17: older of you or your spouse born 1946-1952 and reached 67; 40,000 joint); Worksheet 2 lines 1-7a (PDF page 18); PDF pages 22-23 questions 1-6; Worksheet 3.3 (PDF page 25); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 77,
+        "born": "1948-09-01"
+      },
+      {
+        "age": 70,
+        "born": "1955-03-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "30000.00",
+          "person": 1
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "8000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        },
+        {
+          "amount": "16000.00",
+          "person": 1
+        }
+      ],
+      "taxable_social_security": "34000.00",
+      "interest": "20000.00",
+      "dividends": "10000.00"
+    },
+    "federal_agi": "102000.00",
+    "federal_taxable_income": "67300.00"
+  },
+  "expected": {
+    "state_agi": "28000.00",
+    "state_taxable_income": "16400.00",
+    "state_tax_before_credits": "697.00",
+    "credits": "0.00",
+    "state_income_tax": "697.00",
+    "relief_amounts": {
+      "tier2_standard_deduction": "40000.00"
+    }
+  },
+  "worked": "Federal AGI = spouse 2 wages 30,000.00 + interest 20,000.00 + dividends 10,000.00 + spouse 1 IRA 8,000.00 + taxable Social Security 34,000.00 = 102,000.00. Federal taxable income = 102,000.00 - federal standard deduction (31,500 + 2 x 1,600 age 65 or older = 34,700.00) = 67,300.00; given, not tested; the federal senior deduction is ignored. Michigan: older spouse born 1948 (past 67), so the return takes Tier 2 (the younger spouse, born 1955, would alone be Tier 3, reduced by taxable Social Security to 40,000 - 34,000 - exemptions = 0). Line 14 Social Security 34,000.00. Worksheet 2: line 1 40,000.00; lines 2, 4, 5 0.00; line 7 40,000.00, less than the 68,000.00 of wages, interest, dividends and IRA, so Tier 2 = 40,000.00 on line 25. Worksheet 3.3 would give only the IRA, 8,000.00, so Tier 2 is more beneficial. Subtractions 74,000.00. Line 14 = 102,000.00 - 74,000.00 = 28,000.00; exemptions 11,600.00; line 16 = 16,400.00. MI-1040 line 17 tax = 16,400.00 x 0.0425 = 697.00. No credits; state income tax 697.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

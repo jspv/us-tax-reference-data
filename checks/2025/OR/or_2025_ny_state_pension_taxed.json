@@ -1,0 +1,62 @@
+{
+  "id": "or_2025_ny_state_pension_taxed",
+  "state": "OR",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_additional"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Publication OR-17, Oregon Individual Income Tax Guide",
+    "section": "Pub OR-17 PDF p.52 'Most retirement income is subject to Oregon tax'; the Department's Personal Income Tax page; Form OR-40 lines 7-19, 20, 24-25, 27-29 (PDF p.3-4); instructions PDF p.16 line 17 and Table 5, PDF p.16-17 line 20 and tax tables, PDF p.32 Chart S and Chart J, PDF p.17-18 line 25 and Exemption credit worksheet; Pub OR-17 PDF p.143 marginal rates",
+    "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 66,
+        "born": "1959-06-15"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "36000.00",
+          "person": 0,
+          "source": "public",
+          "paying_government": "NY",
+          "contributory": true
+        }
+      ],
+      "interest": "1000.00"
+    },
+    "federal_agi": "37000.00",
+    "federal_taxable_income": "19250.00"
+  },
+  "expected": {
+    "state_agi": "37000.00",
+    "state_taxable_income": "32965.00",
+    "state_tax_before_credits": "2574.44",
+    "credits": "256.00",
+    "state_income_tax": "2318.44"
+  },
+  "worked": "Federal (given, not tested): federal AGI = NY state government pension (person 0) 36,000.00 + taxable interest 1,000.00 = 37,000.00. Federal taxable income = 37,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 19,250.00 (the federal senior deduction is ignored). Form OR-40 (filing status single): line 7 federal AGI 37,000.00. Line 8 additions (Schedule OR-ASC line A5): other-state bond interest, code 158, 0.00. Line 9 = 37,000.00 + 0.00 = 37,000.00. Line 10 federal tax liability subtraction: the projection leaves it out (not_modelled), 0.00 here; the return subtracts the smaller of the federal tax and the Table 4 maximum, up to 8,500 (4,250 separate). Line 11 Social Security in federal AGI 0.00. Line 12 Oregon refund 0.00. Line 13 Schedule OR-ASC line B7: railroad retirement, code 330, 0.00. Line 14 = 0.00 + 0.00 + 0.00 + 0.00 = 0.00. Line 15 = 37,000.00 - 0.00 = 37,000.00. Line 16 itemized 0.00. Line 17 standard deduction 2,835.00 + 1 age 65 box(es) x 1,200.00 = 4,035.00. Line 18 = 4,035.00. Line 19 = 37,000.00 - 4,035.00 = 32,965.00. Line 20: 4,400.00 x 4.75% = 209 + 6,700.00 x 6.75% = 452.25 + 21,865.00 x 8.75% = 1913.1875; total 2574.4375, to the cent 2,574.44 (the tax table's S column, row 32,900 to 33,000, gives 2,573; expected keeps the formula). Lines 21-23 0.00. Line 24 = 2,574.44. Line 25 exemption credit: federal AGI 37,000.00 is not more than 100,000.00; 1 x 256.00 = 256.00. Line 27 retirement income credit (code 811) worksheet: line 3 retirement income of the eligible individual(s) 36,000.00; line 4 7,500.00; line 5 Social Security and railroad 0.00; line 6 7,500.00; line 7 household income = 37,000.00 - 0.00 + 0.00 = 37,000.00; line 8 15,000.00; line 9 22,000.00; line 10 = 0.00; line 11 0.00; credit 0.00. Line 28 credits = 256.00 + 0.00 = 256.00. Line 29 and line 31 state income tax = 2,574.44 - 256.00 = 2,318.44. Code 351 medical subtraction: no medical expenses in the inputs, not modelled. Line 32 kicker comes after this figure and is not applied (not_modelled). Another state's government pension is taxed like any other pension: no exclusion, and no paying-state rule. Household income 37,000.00 is over 22,500.00, so no credit. Code 327 applies only if the other state taxed the contributions; not modelled, nothing subtracted.",
+  "accepted_approximations": [
+    "The federal tax liability subtraction is not applied (not_modelled). This is the largest gap for most Oregon households.",
+    "Tax is figured on the exact income; under 50,000 of taxable income the booklet taxes each table row at its middle and rounds, and the Department rounds at each bracket edge."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:federal_pension_subtraction",
+    "state_rule_not_modelled:federal_tax_liability_subtraction",
+    "state_rule_not_modelled:or_surplus_kicker_credit",
+    "state_rule_not_modelled:previously_taxed_retirement_contributions",
+    "state_rule_not_modelled:special_oregon_medical_subtraction"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-07",
+    "result": "agrees"
+  }
+}

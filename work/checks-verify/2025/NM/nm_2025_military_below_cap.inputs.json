@@ -1,0 +1,51 @@
+{
+  "id": "nm_2025_military_below_cap",
+  "state": "NM",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "armed_forces_retirement_pay"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "Instructions for 2025 PIT-ADJ; 2025 PIT-1 Personal Income Tax Return Instructions; 2025 Tax Rate Table (Tax Look Up Table)",
+    "section": "PIT-ADJ instructions PDF page 7, line 24; Form PIT-1 lines 9 to 18 and 22; instructions PDF page 25, line 12; Tax Rate Table PDF pages 1 to 6, rows; PDF page 7 (T-7), over 100,000",
+    "url": "https://realfile.tax.newmexico.gov/2025pit-adj-ins.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 50,
+        "born": "1975-05-15"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "24000.00",
+          "person": 0,
+          "source": "military",
+          "military_years_20_or_medical": true
+        }
+      ]
+    },
+    "federal_agi": "64000.00",
+    "federal_taxable_income": "48250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.armed_forces_retirement_pay"
+  ]
+}

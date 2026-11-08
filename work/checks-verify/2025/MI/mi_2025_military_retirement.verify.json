@@ -1,0 +1,13 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "state_agi": "40000.00",
+    "state_income_tax": "1453.50",
+    "state_tax_before_credits": "1453.50",
+    "state_taxable_income": "34200.00",
+    "relief_amounts": {
+      "military_retirement": "30000.00"
+    }
+  },
+  "worked": "Single born 1970. Schedule 1 line 11 military retirement 30,000 exempt. state_agi 70,000 - 30,000 = 40,000.00. Exemption 5,800. Taxable 34,200.00. Tax 1,453.50. [check: state_agi 40000.00, taxable 34200.00, tax 1453.50; federal senior deduction ignored; Social Security exempt via Schedule 1 line 14.]"
+}

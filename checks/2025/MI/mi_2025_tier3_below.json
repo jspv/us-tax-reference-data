@@ -1,0 +1,54 @@
+{
+  "id": "mi_2025_tier3_below",
+  "state": "MI",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "tier3_standard_deduction"
+  ],
+  "boundary": "below",
+  "source": {
+    "publication": "2025 MI-1040 Forms and Instructions (includes Form 4884 instructions)",
+    "section": "Schedule 1 line 26 (PDF page 17: born January 1, 1953 through January 1, 1959, reached 67 by December 31, 2025; up to 20,000 single); Worksheet 2 lines 1-11 (PDF page 18); PDF pages 22-23 questions 1-6; Worksheet 3.3 (PDF page 25); MI-1040 lines 9a, 10, 13-17 (PDF page 10 Line 9a, Line 10, Line 17; PDF page 11 example: line 14 income subject to tax less line 15 exemptions = line 16 taxable income)",
+    "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/MI-1040-Book.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 67,
+        "born": "1958-10-01"
+      }
+    ],
+    "income": {
+      "ira_distribution": [
+        {
+          "amount": "3000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "18000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "0.00",
+      "interest": "6000.00"
+    },
+    "federal_agi": "9000.00",
+    "federal_taxable_income": "0.00"
+  },
+  "expected": {
+    "state_taxable_income": "0.00",
+    "state_tax_before_credits": "0.00",
+    "credits": "0.00",
+    "state_income_tax": "0.00"
+  },
+  "worked": "Federal AGI = interest 6,000.00 + IRA distribution 3,000.00 + taxable Social Security 0.00 (gross 18,000.00; provisional income 18,000.00 is under 25,000) = 9,000.00. Federal taxable income = 9,000.00 - federal standard deduction (15,750 + 1 x 2,000 age 65 or older = 17,750.00) = 0.00 (floored at 0); given, not tested; the federal senior deduction is ignored. Michigan (born October 1, 1958; turned 67 in 2025): Worksheet 2 line 1 20,000.00; lines 2-6 0.00; line 7 20,000.00; line 7c continue; line 8 taxable Social Security 0.00; line 9 exemption 5,800.00; line 11 Tier 3 = 20,000.00 - 5,800.00 = 14,200.00. Income other than Social Security is 9,000.00 (interest 6,000.00 + IRA 3,000.00), below both 14,200.00 and 20,000.00, so the deduction takes all of it: line 14 = 9,000.00 - 9,000.00 used = 0.00 (the form enters the whole 14,200.00 on line 26, which would make line 14 9,000.00 - 14,200.00 = -5,200.00; taxable income is floored at 0 either way); exemption 5,800.00; line 16 0.00. (The projection's Tier 3, which does not subtract exemptions, also covers the whole 9,000.00, so the approximation does not change this result.) The other option, Worksheet 3.3, subtracts only the IRA 3,000.00: 9,000.00 - 3,000.00 - 5,800.00 = 200.00, tax 8.50; Tier 3 is more beneficial. Tax 0.00; state income tax 0.00.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

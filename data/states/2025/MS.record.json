@@ -1,0 +1,329 @@
+{
+  "layer": "record",
+  "state": "MS",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Rate: 0% on the first 10,000 of taxable income and 4.4% on the excess (PDF p.22 Tax Rates; p.27 Schedule of Tax Computation). One schedule for every filing status: the booklet prints no separate schedule for married separate or head of family, and Line 17 (p.7) sends every status other than joint, combined or spouse-died to Column A.",
+    "Joint and combined returns: the married_joint list is the schedule as printed, and it runs per column. Schedule line 1 (p.27): 'Enter the first $10,000 of taxable income or part ($0 - $10,000) in Column A and Column B if applicable.' FAQ 'At what rate does Mississippi tax my income?': 'If married filing joint, the first $10,000 of each taxpayer's taxable income is exempt; and each taxpayer's remaining taxable income is taxed at 4.4%.' So a combined return with both columns positive has 10,000 at 0% in each column, 20,000 in all; a joint return with all income in Column A has one 10,000 band.",
+    "Booklet terms: a joint return is 'usually completed when only one spouse has income' and goes in Column A; a combined return is 'completed when both spouses have income', one spouse's income in each column; 'If only one spouse has income, this income may not be split between husband and wife' (p.5). The FAQ's 'married filing joint' with 'each taxpayer's' income is the booklet's combined return. If one column of line 16 is negative the two are netted and the tax is figured on the net in Column A, so one band (Line 17, p.7). The booklet does not say how interest, dividends or gains on jointly held assets divide between the columns.",
+    "Future rates printed in 'What's New' (p.3, House Bill 1): the rate on income over 10,000 is 3.75% for tax year 2027, 3.5% for 2028, 3.25% for 2029 and 3% for 2030 and later, with possible further cuts from 2031 by a revenue test. No 2026 rate is printed. These are not 2025 figures and are not recorded as brackets.",
+    "Filing status 'Married - Spouse Died 2025' has the same exemption (12,000) and standard deduction (4,600) as joint; recorded under married_joint. 'Head of Family' is recorded as head_of_household. The booklet prints no status for a surviving spouse in later years.",
+    "Married filing separately: the form's line prints 12,000, but each spouse takes one-half (6,000): table p.5, Line 15 p.7, Form 80-105 line 15. Unused exemption or standard deduction cannot pass to the other spouse. Recorded as 6,000 and 2,300 per return filed.",
+    "Head of Family: 8,000 filing status exemption plus 1,500 for the required dependent, 9,500 in all (p.6 Line 4; table note p.5). The 1,500 is a dependent exemption on line 10, not part of the 8,000.",
+    "Second check of the deduction figures: the filing thresholds on p.4 (single 8,300; married 16,600) equal the exemption plus the standard deduction in the p.5 table.",
+    "A person is 65 on the day before his or her 65th birthday (p.6 Line 8). Age and blindness exemptions are for the taxpayer and spouse only, never dependents; the status on the last day of the tax year decides, except on the death of a spouse or dependent (p.6). The booklet prints no phase-out of the exemptions or standard deduction by income.",
+    "Standard or itemized: the filer takes whichever is greater; if one spouse filing separately itemizes both must (p.5, p.7). The booklet prints no condition tied to the federal standard deduction. On a combined return the 4,600 and the 12,000 may be divided between the spouses in any manner (p.5).",
+    "Social Security: exempt. Line 46 (p.11): 'Social Security benefits, Railroad Retirement benefits, and retirement income from federal, state, and private retirement systems are exempt in total.' Second document, FAQ 'Is Social Security taxable in Mississippi?': 'Mississippi does not tax benefits received from U.S. Social Security ... Any portion of such income, which may be taxed under federal law, is not subject to Mississippi's income tax.' Form 80-105 prints no Social Security line: the benefit is simply not reported (lines 38-49).",
+    "Retirement income: the only rule is Line 46 (p.11) and the FAQ 'Is retirement income taxable?': 'Generally, retirement income, pensions and annuities are not subject to Mississippi Income tax if the recipient has met the retirement plan requirements. Early distributions are not considered retirement income and may be subject to tax.' No age, dollar cap or income test is printed, and neither source defines 'retirement plan requirements', 'retirement age' or 'retirement system'. The Department's regulation (Title 35 Part III, PDF p.18) settles which plans count; see the regulation notes below.",
+    "Another state's government pension: Line 46 says 'federal, state, and private retirement systems' with no limit to Mississippi, and the FAQ names no payer. Where this booklet means Mississippi only it says so: Line 43 (p.11) exempts interest on obligations of 'the State of Mississippi and subdivisions thereof' and taxes those of other 'states ... outside of Mississippi'. So public_pension_other_state is in covers. No sentence names New York or any other state, and no reciprocity rule or paying-state list is printed.",
+    "Not named anywhere in the booklet, the form or the FAQ, as exempt or as taxed: IRA distributions; 401(k), 403(b) or other employer plan distributions; Roth conversions; military retirement pay. All four are in covers_unclear. The booklet mentions IRAs only as a deduction for payments into them (Line 50, p.12). 'Deferred compensation plan distributions' are named only as taxable before retirement age or service requirements; what happens after is not said. The FAQ's military questions cover pay, not retirement. The regulation (Title 35 Part III Subpart 02 Chapter 07, PDF p.18) later settled the first three: see the 2026-11-07 regulation notes. Military retirement pay stays in covers_unclear.",
+    "Annuities are named by the FAQ ('retirement income, pensions and annuities') and by Line 46 ('Pensions and annuities' that are early or excess distributions 'do not qualify'), so annuity is in covers, under the same 'retirement plan requirements' condition. Neither source says how an annuity bought outside a retirement plan is treated.",
+    "Line 46 opens 'Enter the total amount of taxable pensions and annuities' and the form's line 46 is 'Taxable pensions and annuities': taxable amounts only, with the exempt retirement income left off the return ('Do not report ... retirement income on this line').",
+    "The FAQ also lists Public Welfare assistance, Veterans' Administration payments and workers' compensation as not taxed; those are not income kinds in the schema.",
+    "National Guard and Reserve pay: FAQ 'Does Mississippi exempt any portion of military pay?' says compensation for the exclusion includes inactive duty training, active duty training and state active duty.",
+    "IRA contributions are deductible to the extent they are deductible federally (Line 50, p.12). Not a distribution relief; noted only.",
+    "Interest on obligations of the U.S. Government, Mississippi and its subdivisions is exempt; interest on obligations of other countries, states, cities or political subdivisions outside Mississippi is taxable (p.11 Line 43; p.16 Schedule B).",
+    "Capital gains: Mississippi 'does not have different tax rates for capital gains. All income is taxed at the same rate.' (p.11 Line 40). The only special treatment is the FAQ's narrow exemption, recorded as one 'other' entry; it is not an exemption of long-term gains generally ('Long-term capital gains are considered taxable income').",
+    "Indexing: the booklet says nothing about inflation adjustment of the brackets, exemptions or standard deductions. No surtax or recapture rule is printed.",
+    "Mississippi AGI is built on the return's own lines 38-48 less adjustments 50-64 (Form 80-105 p.2; booklet pp.10-14), so starts_from is state_own.",
+    "Form 80-105 was read (rule 0): lines 38-48 income, line 46 taxable pensions and annuities, lines 50-64 adjustments. It prints no subtraction for Social Security or pensions.",
+    "Settlement 2026-11-07: reliefs (retirement income shape): A said one entry covering public_pension, private_pension and annuity; B said two entries, government and private; p.11 Line 46 is one sentence with one rule and no difference in cap or condition, so one entry, ms_retirement_income_exempt.",
+    "Settlement 2026-11-07: reliefs covers (annuity): A said covers; B said covers_unclear; the FAQ 'Is retirement income taxable?' names 'retirement income, pensions and annuities', so covers.",
+    "Settlement 2026-11-07: reliefs covers (public_pension_other_state): A and B said covers_unclear; p.11 Line 46 says 'federal, state, and private retirement systems' with no limit to Mississippi, unlike Line 43, so covers.",
+    "Settlement 2026-11-07: reliefs covers_unclear (ira_distribution, employer_plan_distribution, roth_conversion, military_pension): A and B agree; p.11 Line 46, Form 80-105 and the FAQ name none of them, so they stay in covers_unclear. Superseded for ira_distribution, employer_plan_distribution and roth_conversion by the maintainer decision of 2026-11-07 and the regulation (notes below); military_pension stays.",
+    "Settlement 2026-11-07: reliefs ms_national_guard_reserve_pay: A said a subtraction of wages capped at 15,000 a person; B said notes only; p.12 Line 55, Form 80-105 line 55 and the FAQ print it, so kept as a relief.",
+    "Settlement 2026-11-07: reliefs ms_combat_zone_pay_exempt: A said notes only; B did not mention it; the FAQ 'Does Mississippi exempt any portion of military pay?' prints it, so added as a relief.",
+    "Settlement 2026-11-07: capital_gains ms_ownership_interest_gain_exempt: A said long_term, exempt, 0; B said none; the FAQ prints the exemption but only for named shares and interests, so kept with applies_to other.",
+    "Regulation: Mississippi Administrative Code Title 35 Part III Income and Franchise, Subpart 02 Chapter 07 (sos.ms.gov ACCode 00000158c.pdf, PDF p.18; https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, accessed 2026-11-07), rules 100-105 ('Income from Retirement Allowances, Pensions, Annuities or Optional Retirement Allowances'). Rule 100: 'Amounts received as retirement allowances, pensions, annuities or optional retirement allowances from any Federal, State, and Private retirement system or plan are exempt from State Income Tax.' Rule 101: 'Optional retirement allowances include all income from Keogh Plans, Individual Retirement Accounts (IRA'S), and other similar tax deferred plans.' (The page header on p.18 reads '35.III.2.06 revised effective January 1, 2021', which belongs to the chapter before; Chapter 07 prints no date of its own.)",
+    "Regulation rule 102 (PDF p.18): 'Optional retirement allowances also include income from deferred compensation plans to the extent these plans are tax deferred under federal income tax law and the recipient is qualified to receive other retirement income based on minimum age, years of service, or other criteria at the time of receipt of the deferred compensation.' So 401(k), 403(b) and 457 payouts are exempt under that condition; this matches the booklet's Line 46 (p.11), which taxes deferred compensation distributions received before retirement age or service requirements.",
+    "Regulation rule 103 (PDF p.18): 'Amounts received as a distribution under a Roth Individual Retirement Account shall be treated in the same manner as provided under the Internal Revenue Code of 1986, as amended.' This is about payouts from a Roth IRA, not conversions into one.",
+    "Regulation rule 104 (PDF p.18): 'Early distributions from retirement plans do not qualify for this exemption. Although these amounts are subject to state income tax, there is no early withdrawal penalty for state purposes.' The terms 'do not include income from investments in stocks, bonds, intangible securities, real properties, or tangible properties.' The regulation does not define 'early'; the booklet's Line 46 (p.11) points to distributions 'taxable as early or excess distributions under the Federal Internal Revenue Code (see Federal Form 5329)'. Neither source prints an age.",
+    "Regulation rule 105 (PDF p.18): 'The above exemption from income tax extends to the spouse or other beneficiary upon the death of the primary retiree.'",
+    "Roth conversions: no Mississippi source names them. A conversion moves money out of a traditional IRA, and the taxable amount is income from that IRA; rule 101 says optional retirement allowances 'include all income from ... Individual Retirement Accounts', and rule 100 exempts optional retirement allowances. Rule 103 (Roth IRA distributions follow the Internal Revenue Code) is about payouts from the Roth and does not take conversions out. So roth_conversion is in covers, on rule 101's 'all income from'. Whether a conversion before the federal early-distribution age is an 'early distribution' under rule 104 is not said.",
+    "Military retirement pay: the regulation does not name it. Subpart 03 Chapter 08 'Exclusion Military Pensions and Disability Payments for Certain Injuries and Sicknesses' (PDF p.25) says only that the Commissioner follows federal rules on the classification of amounts excluded under it. It stays in covers_unclear.",
+    "Settlement 2026-11-07 (maintainer decision, docs/decisions.md): reliefs covers (ira_distribution, employer_plan_distribution, roth_conversion): were covers_unclear (booklet, form and FAQ silent); Title 35 Part III Subpart 02 Chapter 07 (PDF p.18) rules 100 and 101 (IRAs, Keogh and similar tax deferred plans), rule 102 (deferred compensation plans, on the age or service condition) settle them; roth_conversion on rule 101 'all income from' IRAs. Early distributions (rule 104) are in not_covered."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.044",
+        "start": "10000"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0",
+        "start": "0"
+      },
+      {
+        "rate": "0.044",
+        "start": "10000"
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+      "section": "PDF p.22 Tax Rates ('0% on the first $10,000.00 of taxable income and 4.4% on taxable income in excess of $10,000.00'); p.27 Schedule of Tax Computation lines 1 and 2; p.7 Line 17",
+      "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "state_own",
+    "deductions": [
+      {
+        "id": "ms_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "2300",
+          "married_joint": "4600",
+          "married_separate": "2300",
+          "head_of_household": "3400"
+        },
+        "per": "return",
+        "condition": "In lieu of itemized deductions from Schedule A, whichever gives the greater benefit. Combined return: may be divided between the spouses in any manner. Married filing separate: each spouse claims 2,300, and if one itemizes both must.",
+        "cite": {
+          "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+          "section": "PDF p.5 Filing Status and Exemptions table (Standard Deduction column); p.7 Standard Deduction, Line 14",
+          "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ms_personal_exemption",
+        "what": "personal_exemption",
+        "amount": {
+          "single": "6000",
+          "married_joint": "12000",
+          "married_separate": "6000",
+          "head_of_household": "8000"
+        },
+        "per": "return",
+        "condition": "Filing status exemption (line 11). Joint or combined return: may be divided between the spouses in any manner. Married filing separate: each spouse takes one-half of the 12,000. Head of Family: 8,000 plus 1,500 for the required dependent.",
+        "cite": {
+          "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+          "section": "PDF p.5 Filing Status and Exemptions table; p.5-6 Lines 1 through 5, Line 11; p.7 Line 15; Form 80-105 page 1 filing status boxes",
+          "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ms_dependent_exemption",
+        "what": "dependent_exemption",
+        "amount": {
+          "all": "1500"
+        },
+        "per": "dependent",
+        "condition": "Each dependent other than yourself or spouse; a dependent must qualify as a dependent for federal income tax purposes.",
+        "cite": {
+          "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+          "section": "PDF p.6 Additional Exemptions chart ('Each dependent, other than yourself or spouse ... $1,500'); Lines 6, 9, 10",
+          "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ms_age_65_exemption",
+        "what": "age_65_exemption",
+        "amount": {
+          "all": "1500"
+        },
+        "per": "person",
+        "condition": "Taxpayer or spouse only, age 65 or over on the last day of the tax year (a person is 65 the day before the 65th birthday); not for dependents.",
+        "cite": {
+          "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+          "section": "PDF p.6 Additional Exemptions chart ('Age 65 or over, taxpayer or spouse only ... $1,500'); Line 8",
+          "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "ms_blind_exemption",
+        "what": "blind_exemption",
+        "amount": {
+          "all": "1500"
+        },
+        "per": "person",
+        "condition": "Taxpayer or spouse only, blind on the last day of the tax year; not for dependents.",
+        "cite": {
+          "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+          "section": "PDF p.6 Additional Exemptions chart ('Blind, taxpayer or spouse only ... $1,500'); Line 8",
+          "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 Form 80-105 Resident Return (Rev. 09/25)",
+      "section": "PDF p.1 lines 13 through 16 (Mississippi AGI minus line 14 deductions and line 15 exemptions = Mississippi taxable income); p.2 lines 38 through 66",
+      "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80105258%201.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+      "section": "PDF p.11 Line 46 ('Social Security benefits, Railroad Retirement benefits, and retirement income from federal, state, and private retirement systems are exempt in total'); FAQ 'Is Social Security taxable in Mississippi?'",
+      "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "ms_social_security_exempt",
+      "label": "Social Security benefits exempt in total",
+      "form": "exempt_in_full",
+      "covers": [
+        "social_security"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+        "section": "PDF p.11 Line 46 ('Do not report Social Security benefits ... on this line'; 'exempt in total'); FAQ 'Is Social Security taxable in Mississippi?'",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ms_railroad_retirement_exempt",
+      "label": "Railroad Retirement benefits exempt in total",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person"
+      },
+      "cite": {
+        "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+        "section": "PDF p.11 Line 46 ('annuity benefits received under the Federal Railroad Retirement Act'; 'exempt in total'); FAQ 'Is Social Security taxable in Mississippi?'",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ms_retirement_income_exempt",
+      "label": "Retirement income from federal, state, and private retirement systems exempt in total",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "public_pension_other_state",
+        "private_pension",
+        "annuity",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "roth_conversion"
+      ],
+      "covers_unclear": [
+        "military_pension"
+      ],
+      "not_covered": [
+        "Pensions and annuities that are taxable as early or excess distributions under the Federal Internal Revenue Code (see Federal Form 5329)",
+        "Separation pay is not retirement income and does not qualify for exemption",
+        "Deferred compensation plan distributions received prior to attainment of retirement age and/or service requirements",
+        "Early distributions are not considered retirement income and may be subject to tax",
+        "Early distributions from retirement plans do not qualify for this exemption (regulation Title 35 Part III Subpart 02 Chapter 07 rule 104)",
+        "Income from investments in stocks, bonds, intangible securities, real properties, or tangible properties (rule 104)"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Recipient has met the retirement plan requirements; early distributions are not retirement income",
+          "Deferred compensation plans (401(k), 403(b), 457): only to the extent tax deferred under federal income tax law and when the recipient is qualified to receive other retirement income based on minimum age, years of service, or other criteria at the time of receipt (rule 102)",
+          "Extends to the spouse or other beneficiary upon the death of the primary retiree (rule 105)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+        "section": "PDF p.11 Line 46 Total Pensions and Annuities ('retirement income from federal, state, and private retirement systems are exempt in total'); FAQ 'Is retirement income taxable?'; coverage of IRAs, Keogh and other tax deferred plans, deferred compensation plans, Roth IRAs, early distributions and beneficiaries: Miss. Admin. Code Title 35 Part III Subpart 02 Chapter 07 rules 100-105 (https://www.sos.ms.gov/adminsearch/ACCode/00000158c.pdf, PDF p.18; full cite in notes)",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ms_national_guard_reserve_pay",
+      "label": "National Guard and Reserve Pay",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Serving in the National Guard or reserve forces; the pay is for that service"
+        ]
+      },
+      "cap": {
+        "all": "15000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Enter the lesser of the National Guard or Reserve pay or the $15,000 statutory exclusion per taxpayer",
+      "cite": {
+        "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+        "section": "PDF p.12 Line 55 National Guard and Reserve Pay; Form 80-105 p.2 line 55; FAQ 'Does Mississippi exempt any portion of military pay?'",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "ms_combat_zone_pay_exempt",
+      "label": "Hazardous duty pay in a combat zone",
+      "form": "exempt_in_full",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Member of the armed forces; additional compensation for hazardous duty pay in a combat zone designated by the President"
+        ]
+      },
+      "cite": {
+        "publication": "Individual Income Tax Frequently Asked Questions (retirement income, Social Security)",
+        "section": "FAQ 'Does Mississippi exempt any portion of military pay?'",
+        "url": "https://www.dor.ms.gov/individual/individual-income-tax-frequently-asked-questions",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest from obligations of the U.S. Government, the State of Mississippi and subdivisions thereof is exempt; interest on obligations of other countries, states, cities or political subdivisions outside Mississippi is taxable.",
+    "cite": {
+      "publication": "2025 Form 80-100 Resident, Non-Resident and Part-Year Resident Individual Income Tax Instructions (Rev. 12/25)",
+      "section": "PDF p.11 Line 43 Interest Income; p.16 Schedule B",
+      "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "ms_ownership_interest_gain_exempt",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "Only the gain from the sale of authorized shares in financial institutions domiciled in Mississippi, and gains on domestic corporations or partnership interests (domestic limited partnerships and domestic limited liability companies) held for more than one year. Any such gain is first reduced by losses in the year of the gain or within two years before or after it. Other long-term gains are taxable.",
+      "cite": {
+        "publication": "Individual Income Tax Frequently Asked Questions (retirement income, Social Security)",
+        "section": "FAQ 'What is the Mississippi tax treatment of long-term capital gains?'; booklet PDF p.11 Line 40 (gains from the sales of ownership interests first reduced by losses, Miss. Code Ann. Section 27-7-9(f)(10))",
+        "url": "https://www.dor.ms.gov/individual/individual-income-tax-frequently-asked-questions",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

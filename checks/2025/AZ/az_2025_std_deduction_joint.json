@@ -1,0 +1,54 @@
+{
+  "id": "az_2025_std_deduction_joint",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "deduction",
+  "tests": [
+    "standard_deduction"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 58,
+        "born": "1967-03-02"
+      },
+      {
+        "age": 55,
+        "born": "1970-08-19"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "70000.00",
+          "person": 0
+        },
+        {
+          "amount": "40000.00",
+          "person": 1
+        }
+      ]
+    },
+    "federal_agi": "110000.00",
+    "federal_taxable_income": "78500.00"
+  },
+  "expected": {
+    "state_taxable_income": "78500.00",
+    "state_tax_before_credits": "1962.50",
+    "credits": "0.00",
+    "state_income_tax": "1962.50"
+  },
+  "worked": "Federal AGI = wages (person 0) 70,000.00 + wages (person 1) 40,000.00 = 110,000.00. Federal taxable income = 110,000.00 - 31,500.00 federal standard deduction = 78,500.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 110,000.00; line 13 small business income 0.00; line 14 = 110,000.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 110,000.00 + 0.00 = 110,000.00. Subtractions lines 24-34: none. Line 35 = 110,000.00 - 0.00 = 110,000.00; line 36 other subtractions 0.00; line 37 = 110,000.00. Line 38 age 65 or over: box 8 = 0 x 2,100.00 = 0.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 110,000.00 - 0.00 = 110,000.00. Line 43 standard deduction (married filing joint) 31,500.00; line 44 0.00. Line 45 Arizona taxable income = 110,000.00 - 31,500.00 = 78,500.00. Line 46 tax = 78,500.00 x 2.5% = 1,962.50. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 110,000.00, over the maximum for the status). Line 52 balance of tax 1,962.50.",
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}

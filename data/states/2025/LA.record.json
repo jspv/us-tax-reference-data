@@ -1,0 +1,327 @@
+{
+  "layer": "record",
+  "state": "LA",
+  "tax_year": 2025,
+  "has_income_tax": true,
+  "notes": [
+    "Flat 3% for 2025: What's New (PDF page 1) says Act 11 of the 2024 Third Extraordinary Legislative Session 'changed the income tax rate to a flat tax rate of 3%'; Line 11 multiplies Line 10 by .03 and rounds to the nearest dollar. No bracket schedule or tax table is printed; the same rate applies to every filing status, so only the single and married_joint lists are given.",
+    "No personal, dependent, age-65 or blind exemption amount is printed for 2025. What's New says Act 11 'repealed the exemption for an additional $1,000 deduction for persons 65 and older, blind, and dependents' and 'These lines were removed from the tax form.' Line 6A (age box) and Line 6B (dependents) carry no dollar amount.",
+    "Standard deduction: Line 8 gives 12,500 for filing status 1 or 3 and 25,000 for 2, 4 or 5 (instructions PDF page 3; Form IT-540 PDF page 3 Line 8; What's New). No phase-out and no federal-standard-deduction condition is printed; Line 10 subtracts both Line 8 and Line 9D.",
+    "Lines 9A to 9D: despite the form's name 'Excess federal itemized deductions', Line 9D is Line 9B (federal medical and dental deduction, Schedule A Line 4) minus Line 9C, not below zero. The amounts recorded on la_excess_federal_itemized are the Line 9C figures, which are subtracted from Line 9B; they are not amounts of deduction. No field holds such a threshold, so 'amount' and 'condition' carry it.",
+    "Social Security: exempt. Code 07E (instructions PDF page 7): 'Social security benefits that are taxed on your federal return are exempt from Louisiana tax.' The form lists 'Taxable Amount of Social Security 07E' on Schedule E, and the FAQ page says the same under 'Social Security Benefits Exclusion'.",
+    "New York State pension and other states' government pensions: no sentence in the sources names them, and no reciprocity rule or paying-state list is found. They are not exempt under 05E, which is limited to systems 'specifically exempted by law from Louisiana income tax', and every system on the FAQ list is a Louisiana system. Code 49E says 'Residents of Louisiana are taxed on all income, regardless of where the income was earned.' They fall in code 06E, which takes 'any distributions from a pension, an annuity, or an individual retirement arrangement (IRA)' reported on Form 1040 Lines 4b and 5b other than codes 02E to 05E, so public_pension_other_state is in that entry's covers. A resident under 65 therefore has no relief on such a pension.",
+    "Louisiana's own government pensions: 02E, 03E and 05E exempt the benefits without a printed cap, age test, income test or contributory-plan test. The FAQ page adds that benefits under Chapter 1 Title 11 of the Louisiana Revised Statutes, including DROP disbursements, are exempt, and lists the eligible systems with their citations.",
+    "Federal pensions: 04E exempts benefits from 'a Federal Retirement System, including benefits received from a military survivor benefit plan', uncapped. The instructions do not name military retired pay; military_pension is listed from the FAQ page ('both military and nonmilitary').",
+    "Private pensions, IRA and employer-plan distributions, annuities: no relief under 65; from 65 they fall in code 06E, up to 12,000 a person. Employer plans such as 401(k) are not named; employer_plan_distribution is listed because 06E and Worksheet Line 1 take everything reported on Form 1040 Lines 4b and 5b.",
+    "Required minimum distributions are not named in the sources; they are recorded under the IRA and employer-plan kinds, as the schema defines those kinds.",
+    "Roth conversions are not named in the sources, so roth_conversion is in covers_unclear on code 06E. The worksheet takes amounts reported on Lines 4b and 5b, but the booklet does not say a conversion counts.",
+    "Code 06E has no income test. The worksheet's Line 2 removes amounts coded 02E to 05E from that person's income before the 12,000 limit; it does not lower the 12,000 limit.",
+    "Settlement 2026-11-07: code 06E joint-return wording: A and B both noted that the paragraph says 'both you and your spouse are age 65 years or older' while the worksheet says 'For each taxpayer 65 or older'; both recorded each_person. Worksheet Lines 4 to 6 (instructions PDF page 7) settle it: the 12,000 is tested person by person. Each spouse aged 65 or older enters the lesser of that spouse's own Line 3 and 12,000 on Line 5, a spouse under 65 enters nothing, and Line 6 adds Lines 5(a) and 5(b). So on a joint return with one spouse 65 or older, that spouse claims up to 12,000 of his or her own retirement income and the younger spouse claims none. The paragraph's 'both' describes the case where two amounts are claimed. The FAQ page agrees: 'Persons 65 years or older may exclude up to $12,000', and 'If only one spouse has retirement income, the exclusion is limited to $12,000.'",
+    "Settlement 2026-11-07: reliefs, Railroad Retirement: A gave it its own entry (exempt, railroad_retirement), B folded it into the 04E entry; the FAQ page says 'Railroad Retirement System Benefits received by federal retirees may be excluded from Louisiana taxable income' and instructions PDF page 7 code 04E does not name it. Own entry kept, because it has its own condition and its source is the FAQ page, not the 04E text.",
+    "Settlement 2026-11-07: reliefs, code 49E disability income: A recorded it (cap 6,000), B did not; instructions PDF pages 9 and 10 say 'Persons receiving disability income (La. R.S. 47:44.1(B)) for a permanent, total disability may exclude up to $6,000 of annual disability income from their taxable income.' Kept.",
+    "Settlement 2026-11-07: reliefs, code 10E cap_per: A left it out, B said person; instructions PDF page 8 tests each resident's own active duty and exempts that person's compensation 'up to $50,000', and the example is written to 'you'. Recorded as person; the booklet does not say 'per person' outright, and the same reading is used for the 6,000 on code 49E.",
+    "Settlement 2026-11-07: capital_gains: A recorded code 20E as deduction_share of 1, B left it as a note; instructions PDF page 8 prints the deduction, limited to 'installment and perfected sales prior to January 1, 2025', so it can still apply on a 2025 return. Kept, but as treatment exempt with value 0: the booklet prints no share, and the code sits under 'EXEMPT INCOME LINES 4A THROUGH 4G'.",
+    "Settlement 2026-11-07: indexing: A wrote not_stated entries for la_standard_deduction, la_retirement_income_exemption_65 and brackets as well as all_other, B wrote all_other only; the sources say nothing about adjusting any of these for inflation, and the extraction brief asks for an entry only for a figure the booklet speaks about, so only all_other is kept. The only CPI wording found is for the School Readiness credit (What's New, code 66F), which is not recorded here.",
+    "Capital gains other than code 20E get no separate rate or deduction in the sources. No surtax and no recapture rule is found.",
+    "Not recorded, as outside the record's scope: other Schedule E codes (START contributions, school expense deductions, adoption, volunteer exclusions and similar), the Louisiana Earned Income Credit (Line 16, 5 percent of the federal credit), child care and school readiness credits, and the credit for taxes paid to other states (Schedule C Line 1)."
+  ],
+  "brackets": {
+    "single": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ],
+    "married_joint": [
+      {
+        "rate": "0.03",
+        "start": "0"
+      }
+    ],
+    "cite": {
+      "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+      "section": "PDF page 3, Line 11 ('Multiply Line 10 by .03. Round to the nearest dollar.'); PDF page 1, What's New, Your Louisiana Income Tax - Line 11 (flat tax rate of 3%); Form IT-540 PDF page 3 Line 11",
+      "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "surtaxes": [],
+  "base": {
+    "starts_from": "federal_agi",
+    "deductions": [
+      {
+        "id": "la_standard_deduction",
+        "what": "standard_deduction",
+        "amount": {
+          "single": "12500",
+          "married_separate": "12500",
+          "married_joint": "25000",
+          "head_of_household": "25000",
+          "qualifying_surviving_spouse": "25000"
+        },
+        "per": "return",
+        "cite": {
+          "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+          "section": "PDF page 3, Line 8 (filing status 1 or 3, 12,500; 2, 4 or 5, 25,000); PDF page 1, What's New, Louisiana Standard Deduction - Line 8; Form IT-540 PDF page 3 Line 8",
+          "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+          "accessed": "2026-11-07"
+        }
+      },
+      {
+        "id": "la_excess_federal_itemized",
+        "what": "other",
+        "amount": {
+          "single": "15750",
+          "married_separate": "15750",
+          "married_joint": "31500",
+          "qualifying_surviving_spouse": "31500",
+          "head_of_household": "23625"
+        },
+        "per": "return",
+        "condition": "Only if itemized on the federal return: Line 9D = Line 9B (federal itemized deduction for medical and dental expenses, Schedule A Line 4) minus Line 9C (the amount shown here by filing status), not below zero; Line 10 subtracts Line 9D as well as Line 8. The amount shown is the Line 9C figure, not the deduction.",
+        "cite": {
+          "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+          "section": "PDF page 3, Lines 9A to 9D and Line 10",
+          "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+          "accessed": "2026-11-07"
+        }
+      }
+    ],
+    "cite": {
+      "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+      "section": "PDF page 3, Line 7 (Federal AGI, Form 1040 or 1040-SR Line 11b; Schedule E Line 5 when Schedule E is used) and Line 10",
+      "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "social_security": {
+    "treatment": "exempt",
+    "cite": {
+      "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+      "section": "PDF page 7, Schedule E code 07E ('Social security benefits that are taxed on your federal return are exempt from Louisiana tax.'; Form 1040 Line 6b); Form IT-540 PDF page 8 Schedule E code 07E",
+      "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "reliefs": [
+    {
+      "id": "la_lasers_trsl_benefits",
+      "label": "Louisiana State Employees' Retirement Benefits (02E) and Louisiana State Teachers' Retirement Benefits (03E)",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "benefits from the Louisiana State Employees' Retirement System or the Louisiana State Teachers' Retirement System"
+        ]
+      },
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 7, Schedule E codes 02E and 03E",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_other_exempt_retirement_systems",
+      "label": "Other Retirement Benefits (05E)",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension"
+      ],
+      "not_covered": [
+        "retirement systems whose benefits are not 'specifically exempted by law from Louisiana income tax'"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "benefits from a retirement system specifically exempted by law from Louisiana income tax: retirement systems for school employees, State Police, municipal employees and police, parochial employees, firefighters, Assessors, Clerks of Court, District Attorneys, Registrars of Voters, Sheriffs, and certain local retirement systems (the FAQ page lists each with its citation)",
+          "benefits paid under Chapter 1 Title 11 of the Louisiana Revised Statutes, including disbursements from DROP accounts (FAQ page)"
+        ]
+      },
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 7, Schedule E code 05E; FAQ page 1, State Employees, Teachers, and Other Retirement Benefits Exclusion",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_federal_retirement",
+      "label": "Federal Retirement Benefits (04E)",
+      "form": "exempt_in_full",
+      "covers": [
+        "public_pension",
+        "military_pension"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "benefits from a Federal Retirement System, including a military survivor benefit plan; FAQ page: federal retirees, both military and nonmilitary"
+        ]
+      },
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 7, Schedule E code 04E; FAQ page 1, Federal Retirement Benefits Exclusion (R.S. 47:44.2)",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_railroad_retirement",
+      "label": "Railroad Retirement System Benefits (Federal Retirement Benefits Exclusion)",
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Railroad Retirement System Benefits 'received by federal retirees' (FAQ wording; the sources do not say more about who qualifies)"
+        ]
+      },
+      "cite": {
+        "publication": "FAQ: list of retirement system benefits that may be excluded from Louisiana income tax",
+        "section": "page 1, Federal Retirement Benefits Exclusion (R.S. 47:44.2)",
+        "url": "https://revenue.louisiana.gov/tax-education-and-faqs/faqs/individual-income-tax/is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax/",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_retirement_income_exemption_65",
+      "label": "Annual Retirement Income Exemption for Taxpayers 65 Years of Age or Older (06E)",
+      "form": "subtraction",
+      "covers": [
+        "private_pension",
+        "public_pension_other_state",
+        "ira_distribution",
+        "employer_plan_distribution",
+        "annuity"
+      ],
+      "covers_unclear": [
+        "roth_conversion"
+      ],
+      "not_covered": [
+        "retirement benefits that are coded as 02E, 03E, 04E, or 05E"
+      ],
+      "who": {
+        "basis": "each_person",
+        "min_age": 65
+      },
+      "cap": {
+        "all": "12000"
+      },
+      "cap_per": "person",
+      "cap_rule": "Worksheet: for each taxpayer 65 or older, the lesser of that person's own retirement income on Form 1040 Lines 4b and 5b (less that person's amounts coded 02E to 05E) or 12,000. A joint return adds the two persons' amounts. A spouse under 65 has no amount, and one spouse cannot use the other's unused 12,000.",
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 7, Schedule E code 06E and Worksheet for Code 06E, Lines 1 to 6; PDF page 1, What's New (raised from 6,000 to 12,000); FAQ page 1, Annual Retirement Income Exclusion (R.S. 47:44.1(A))",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_us_obligation_interest",
+      "label": "Interest and Dividends on U.S. Government Obligations (01E)",
+      "form": "exempt_in_full",
+      "covers": [
+        "interest",
+        "dividends"
+      ],
+      "not_covered": [
+        "mutual fund amounts not identified specifically as income from U.S. government obligations: 'it is taxable and cannot be excluded'"
+      ],
+      "who": {
+        "basis": "return"
+      },
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 7, Schedule E code 01E",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_military_pay_exclusion",
+      "label": "Military Pay Exclusion (10E)",
+      "form": "subtraction",
+      "covers": [
+        "wages"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "Louisiana resident on active duty in the U.S. armed forces for 120 or more consecutive days; the exempt part is compensation earned outside Louisiana during and after the 120 days"
+        ]
+      },
+      "cap": {
+        "all": "50000"
+      },
+      "cap_per": "person",
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 8, Schedule E code 10E; PDF page 2, Who Must File item 4 (military)",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    },
+    {
+      "id": "la_permanent_total_disability_income",
+      "label": "Disability income exclusion, La. R.S. 47:44.1(B) (code 49E)",
+      "form": "subtraction",
+      "covers": [
+        "other_income"
+      ],
+      "who": {
+        "basis": "each_person",
+        "other_conditions": [
+          "permanent, total disability"
+        ]
+      },
+      "cap": {
+        "all": "6000"
+      },
+      "cap_per": "person",
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF pages 9 and 10, Schedule E code 49E",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "muni_interest": {
+    "treatment": "other_states_taxed_own_exempt",
+    "note": "Interest and dividends from obligations of a state or political subdivision other than Louisiana, purchased on or after January 1, 1980, are taxable to a resident (Schedule E Line 2A). Obligations of Louisiana, its political subdivisions and public corporations are exempt.",
+    "cite": {
+      "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+      "section": "PDF page 6, Schedule E Line 2A",
+      "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+      "accessed": "2026-11-07"
+    }
+  },
+  "capital_gains": [
+    {
+      "id": "la_business_sale_gain",
+      "applies_to": "other",
+      "treatment": "exempt",
+      "value": "0",
+      "condition": "Code 20E: net capital gains from the sale or exchange of an equity interest in, or substantially all the assets of, a nonpublicly traded business commercially domiciled in Louisiana, held at least five years immediately before the sale; limited to installment and perfected sales prior to January 1, 2025.",
+      "cite": {
+        "publication": "2025 IT-540 Louisiana Resident Income Tax Return Instructions (Revised 7-26)",
+        "section": "PDF page 8, Schedule E code 20E",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i-WEB-2025-Revised-7-26.pdf",
+        "accessed": "2026-11-07"
+      }
+    }
+  ],
+  "indexing": [
+    {
+      "figure": "all_other",
+      "indexed": "not_stated"
+    }
+  ],
+  "recapture": []
+}

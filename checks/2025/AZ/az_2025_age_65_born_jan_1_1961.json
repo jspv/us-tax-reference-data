@@ -1,0 +1,56 @@
+{
+  "id": "az_2025_age_65_born_jan_1_1961",
+  "state": "AZ",
+  "tax_year": 2025,
+  "kind": "edge",
+  "tests": [
+    "age_65_exemption"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
+    "section": "PDF page 11 Box 8 NOTE ('born 1/1/1961 ... considered to be age 65 at the end of 2025'); Form 140 (PDF pages 39-40) lines 12, 14, 19, 35, 37, 38, 42, 43, 45, 46; instructions PDF page 13 Line 12 (federal AGI is Arizona gross income), PDF page 25 Line 38, PDF page 26 Lines 42, 43 (standard deduction table), 45, 46 ('Multiply line 45 by 2.5% (.025)')",
+    "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 65,
+        "born": "1961-01-01"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "40000.00",
+          "person": 0
+        }
+      ],
+      "pensions": [
+        {
+          "amount": "10000.00",
+          "person": 0,
+          "source": "private"
+        }
+      ]
+    },
+    "federal_agi": "50000.00",
+    "federal_taxable_income": "32250.00"
+  },
+  "expected": {
+    "state_taxable_income": "32150.00",
+    "state_tax_before_credits": "803.75",
+    "credits": "0.00",
+    "state_income_tax": "803.75"
+  },
+  "worked": "Federal AGI = wages (person 0) 40,000.00 + private pension (person 0) 10,000.00 = 50,000.00. Federal taxable income = 50,000.00 - 15,750.00 federal standard deduction - 1 x 2,000.00 age 65 additional = 32,250.00 (given, not tested; the federal senior deduction is ignored). Form 140 line 12 federal AGI 50,000.00; line 13 small business income 0.00; line 14 = 50,000.00. Line 15 non-Arizona municipal interest 0.00; lines 16-18 0.00; line 19 = 50,000.00 + 0.00 = 50,000.00. Subtractions lines 24-34: none. Line 35 = 50,000.00 - 0.00 = 50,000.00; line 36 other subtractions 0.00; line 37 = 50,000.00. Line 38 age 65 or over: box 8 = 1 x 2,100.00 = 2,100.00; lines 39-41 0.00. Line 42 Arizona adjusted gross income = 50,000.00 - 2,100.00 = 47,900.00. Line 43 standard deduction (single) 15,750.00; line 44 0.00. Line 45 Arizona taxable income = 47,900.00 - 15,750.00 = 32,150.00. Line 46 tax = 32,150.00 x 2.5% = 803.75. Lines 47-51 0.00 (no recapture, no dependents; family income credit: Worksheet I line 8 = 50,000.00, over the maximum for the status). Line 52 balance of tax 803.75. Born January 1, 1961: the booklet counts the person as 65 at the end of 2025 (Box 8 note, the federal rule), so age is given as 65 and box 8 is 1.",
+  "accepted_warnings": [
+    "state_rule_not_modelled:other_exemption"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-06",
+    "result": "agrees"
+  }
+}
