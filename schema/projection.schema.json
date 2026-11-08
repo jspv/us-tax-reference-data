@@ -571,7 +571,7 @@
               "type": "string",
               "pattern": "^(brackets|surtaxes|capital_gains|recapture|deductions|reliefs)(:[a-z0-9_]+)?(\\.(amount|phase_out|phase_out_thresholds|phase_out_amounts|cap|income_test|credit_amount|applies_over|earned_income_limit))?$"
             },
-            "description": "The figures this entry grows, as selectors: 'brackets' (every band start) or 'brackets:<n>' (the start of band n, counting the band starting at 0 as band 0, so the top band of a seven-band schedule is brackets:6), 'surtaxes', 'capital_gains' (an entry's applies_over threshold), 'recapture' (its thresholds); 'deductions' or 'deductions:<id>' (a base deduction's amount and phase-out figures; '.amount' or '.phase_out' for one part); 'reliefs.cap', 'reliefs.income_test', 'reliefs.credit_amount', 'reliefs.applies_over', 'reliefs.earned_income_limit' (that figure of every relief), or 'reliefs:<id>' / 'reliefs:<id>.cap' for one relief. A selector naming an id beats a general one. Every amount a projection would grow is covered by exactly one entry once the most specific selector is taken (tools/validate.py)."
+            "description": "The figures this entry grows, as selectors: 'brackets' (every band start) or 'brackets:<n>' (the start of band n, counting the band starting at 0 as band 0, so the top band of a seven-band schedule is brackets:6), 'surtaxes', 'capital_gains' (an entry's applies_over threshold), 'recapture' (its thresholds); 'deductions' or 'deductions:<id>' (a base deduction's amount and phase-out figures; '.amount' or '.phase_out' for one part, '.phase_out_thresholds' or '.phase_out_amounts' for one side of a phase-out); 'reliefs.cap', 'reliefs.income_test', 'reliefs.credit_amount', 'reliefs.applies_over', 'reliefs.earned_income_limit' (that figure of every relief), or 'reliefs:<id>' / 'reliefs:<id>.cap' for one relief. '.income_test' grows the income amounts the measure is compared with (the threshold, and band edges where the test has bands); a share_phase_out width, a rate and a share never grow (Maine's pension phase-out: the thresholds are indexed, the 100,000 / 50,000 width is not, 36 M.R.S. 5122(2)(M-3)). A selector naming an id beats a general one. Every amount a projection would grow is covered by exactly one entry once the most specific selector is taken (tools/validate.py)."
           },
           "indexed_from": {
             "type": "integer",
@@ -743,7 +743,7 @@
         "by_ownership",
         "not_stated"
       ],
-      "description": "How a married couple's income from accounts or property held jointly (interest, dividends, capital gains, rents) is divided between the spouses for rules figured per person (an age test or a cap per spouse). half_each: each spouse counts half (Delaware, Georgia, New Jersey). by_ownership: it follows who owns or contributed. not_stated: the sources say neither. Income in one spouse's name (an IRA, a pension, an individual account) stays with that spouse. In the hand-worked checks, interest, dividends and gains are given for the return and are treated as jointly held. Required when a per-person relief covers investment income (tools/validate.py)."
+      "description": "How a married couple's income from accounts or property held jointly (interest, dividends, capital gains, rents) is divided between the spouses for rules figured per person (an age test or a cap per spouse). half_each: each spouse counts half (Delaware, Georgia, New Jersey). by_ownership: it follows who owns or contributed. not_stated: the sources say neither. Income in one spouse's name (an IRA, a pension, an individual account) stays with that spouse. The field speaks only to rules figured per person on a return; it does not say which return carries the income when spouses file separately. Delaware's booklet also says that: each spouse's separate return (filing status 3 or 4) carries half of jointly titled income (the record's cite). Georgia's and New Jersey's sources say nothing about separate returns. In the hand-worked checks, interest, dividends and gains are given for the return and are treated as jointly held. Required when a per-person relief covers investment income (tools/validate.py)."
     }
   },
   "$defs": {
@@ -939,7 +939,7 @@
         },
         "width": {
           "$ref": "#/$defs/by_status",
-          "description": "For effect share_phase_out: the income band over which the relief falls in a straight line to nothing. The share kept is 1 - (measure - threshold) / width, not below 0 (Maine's pension deduction: 100,000, 50,000 married filing separately)."
+          "description": "For effect share_phase_out: the income band over which the relief falls in a straight line to nothing. The share kept is 1 - (measure - threshold) / width, not below 0 (Maine's pension deduction: 100,000, 50,000 married filing separately). Not indexed: when the income test is indexed, its threshold grows and the width stays as recorded."
         },
         "share_decimals": {
           "type": "integer",

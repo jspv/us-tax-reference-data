@@ -197,3 +197,27 @@ says so in the projection; the record carries the cite. It changes tax: in Georg
 with 40,000 of joint interest owes 1,608.90 with the split, 2,646.90 if all is given to the older spouse.
 The validator requires the field wherever a per-person relief covers investment income. Findings:
 `work/settlement/2025/findings-2026-11-08-*.md`.
+
+## 2026-11-08: two checks corrected; income test width; joint income on separate returns
+
+A consumer's evaluator, built from the schema, matched 1,411 of the 1,413 checks. Both misses were errors in
+the checks: they had been worked before the schema added the rule that settles them, and kept the old
+approximation.
+
+- `va_2025_age_income_joint_both_reduced`: the excess of income over 75,000 comes off the couple's combined
+  24,000 once (`reduce_each_person` defaults to false), giving an age deduction of 14,000, the form's
+  figure. The check had taken it off each spouse's 12,000 (4,000). Tax 2,619.80, was 3,194.80.
+- `mn_2025_age_sub_taxable_ss_differs`: the age-65 cap is reduced by nontaxable benefits only
+  (`social_security_basis: nontaxable`), 3,000 rather than the 4,000 received, leaving a subtraction of 850,
+  the form's figure. Tax 385.20, was 430.68.
+
+Both were worked again blind before they shipped.
+
+Two questions from the same consumer are answered in the schema:
+
+- When an income test is indexed, its threshold grows and a `share_phase_out` width does not. Maine is
+  the only indexed test with a width, and its statute indexes the applicable amounts but not the 100,000 /
+  50,000 denominators (36 M.R.S. 5122(2)(M-3)).
+- `joint_income` speaks only to rules figured per person. Which return carries joint income when spouses
+  file separately is outside it. Delaware's booklet says each separate return carries half. Georgia's and
+  New Jersey's sources do not say.

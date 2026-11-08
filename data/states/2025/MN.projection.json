@@ -670,11 +670,6 @@
    "size": "One year's amount, in the rare case of a January 1 birthday."
   },
   {
-   "what": "cap_reduced_by social_security must mean benefits received: Schedule M1R line 5 takes off nontaxable benefits only, and benefits received are the nearest measure a projection holds. Line 4 (Schedule R pensions) is not taken off.",
-   "direction": "overstates_tax",
-   "size": "Each dollar of taxable benefits wrongly lowers the subtraction by a dollar, up to the cap: at most 12,000 of subtraction, about 642 of tax at the 5.35% rate. A consumer that reduces by the taxable part instead errs the other way, and gives a household with mostly nontaxable benefits up to 12,000 it does not get."
-  },
-  {
    "what": "The age 65 subtraction uses the 18,000 line 10 amount on every joint return; when only one spouse qualifies the amount is 14,500, and no projection field tests both spouses.",
    "direction": "understates_tax",
    "size": "Only in years when one spouse qualifies: at most 1,750 of subtraction, about 94 of tax at the 5.35% rate."

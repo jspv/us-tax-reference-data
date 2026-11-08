@@ -283,7 +283,8 @@
       "indexed": true,
       "covers": [
         "reliefs:pension_income_deduction.income_test"
-      ]
+      ],
+      "note": "the applicable amounts (125,000, 187,500, 250,000) are adjusted for inflation under 36 M.R.S. 5403(11), for tax years beginning after 2025; the denominators (100,000; 50,000 married filing separately) are not (36 M.R.S. 5122(2)(M-3)), so the width stays as recorded"
     }
   ],
   "not_modelled": [

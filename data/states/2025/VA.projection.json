@@ -287,11 +287,6 @@
   ],
   "approximations": [
     {
-      "what": "The income-based age deduction for a married couple where both spouses qualify: Virginia takes the excess of joint AFAGI over 75,000 once from the couple's combined maximum (2 x 12,000) and splits the rest; a per-person evaluation takes the excess from each spouse's 12,000, so twice.",
-      "direction": "overstates_tax",
-      "size": "Up to 5.75% of 12,000 = 690 a year, for a couple with joint AFAGI between 75,000 and 99,000 who both qualify."
-    },
-    {
       "what": "A married couple filing separately: Virginia tests the income-based age deduction on the joint AFAGI of both spouses; the projection uses the filer's own federal AGI.",
       "direction": "understates_tax",
       "size": "Only married-separate returns; up to 690 a year per spouse."
@@ -300,11 +295,6 @@
       "what": "AFAGI is taken as federal AGI less taxable Social Security; Virginia also adjusts it for conformity additions and subtractions and takes out taxable Tier 1 Railroad benefits.",
       "direction": "either",
       "size": "Nil for most retirees; conformity adjustments are mainly business depreciation items."
-    },
-    {
-      "what": "The standard deduction is held at its 2025 amounts. The booklet says the 2025-2026 increase is scheduled to sunset after 2026 and revert to 3,000 single and 6,000 joint; scheduled changes are a pending feature (tax-reference-data issue #2).",
-      "direction": "understates_tax",
-      "size": "From 2027, if the sunset holds: 5.75% of 11,500 = 661 a year for a couple, 5.75% of 5,750 = 331 for a single filer."
     },
     {
       "what": "The standard deduction is always applied; Virginia requires a filer who itemized federally to itemize on Virginia Schedule A.",

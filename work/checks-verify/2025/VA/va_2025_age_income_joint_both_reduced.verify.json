@@ -1,13 +1,13 @@
 {
   "expected": {
+    "state_agi": "71000.00",
+    "state_taxable_income": "50040.00",
+    "state_tax_before_credits": "2619.80",
     "credits": "0.00",
+    "state_income_tax": "2619.80",
     "relief_amounts": {
-      "age_deduction_income_based": "4000.00"
-    },
-    "state_agi": "81000.00",
-    "state_income_tax": "3194.80",
-    "state_tax_before_credits": "3194.80",
-    "state_taxable_income": "60040.00"
+      "age_deduction_income_based": "14000.00"
+    }
   },
-  "worked": "Line 1 federal AGI 127500.00; Line 2 additions 0.00; Line 3 127500.00. Line 5 Social Security subtraction (taxable on federal return) 42500.00. Line 4 age deduction person 0 (born 1956-04-04, income-based): AFAGI = FAGI 127500.00 - taxable SS 42500.00 = 85000.00; excess over 75000.00 = 10000.00; 12,000.00 - 10000.00 = 2000.00 (floored at 0), limited to remaining state income: 2000.00. Line 4 age deduction person 1 (born 1958-10-10, income-based): AFAGI = FAGI 127500.00 - taxable SS 42500.00 = 85000.00; excess over 75000.00 = 10000.00; 12,000.00 - 10000.00 = 2000.00 (floored at 0), limited to remaining state income: 2000.00. Line 8 total subtractions 46500.00; Line 9 VAGI = 127500.00 - 46500.00 = 81000.00. Line 11 standard deduction 17500.00; Line 12 exemptions 2 x 930 + 2 x 800 (age 65 or older by 2026-01-01) = 3460.00. Line 14 taxable income = 81000.00 - 17500.00 - 3460.00 = 60040.00. Line 15 tax by the rate schedule as numbers: 0.02 x (3000.00 - 0.00) = 60.00; 0.03 x (5000.00 - 3000.00) = 60.00; 0.05 x (17000.00 - 5000.00) = 600.00; 0.0575 x (60040.00 - 17000.00) = 2474.80; total 3194.80. Credits 0.00 (Spouse Tax Adjustment not applied by the projection); Line 16 tax 3194.80. Federal figures given; federal senior deduction ignored (not tested). Booklet worksheet (both spouses income-based): Line 12 = 2 x 12,000 = 24,000.00; Line 11 excess 10,000.00; Line 14 = 14,000.00; Line 15 = 7,000.00 each, so the form's VAGI would be 71,000.00. Expected follows the projection's per-person approximation (excess taken from each spouse's 12,000: 2,000.00 each, 4,000.00 total)."
+  "worked": "Form 760 Line 1 FAGI 127,500.00; Line 2 additions 0; Line 3 127,500.00. Age 65 and Older Deduction Worksheet (both born 1956-04-04 and 1958-10-10, inside 1939-01-02..1961-01-01, so income-based): ws line 1 = 2; line 2 combined FAGI 127,500; lines 3-6 no conformity items, 127,500; line 7 combined taxable SS 42,500; line 8 AFAGI 85,000; line 9 limit 75,000 (married); line 11 excess 10,000; line 12 2 x 12,000 = 24,000; line 14 24,000 - 10,000 = 14,000; line 15 7,000 each. Projection: income_test measure federal_agi minus taxable SS = 85,000 > 75,000, dollar_for_dollar, reduce_each_person absent (default false) so the 10,000 excess comes off the couple's combined 2 x 12,000 once = 14,000; projection and form agree. Line 4 age deduction 14,000.00. Line 5 Social Security (taxable, exempt) 42,500.00. Lines 6-7 0. Line 8 total subtractions 56,500.00. Line 9 VAGI 127,500 - 56,500 = 71,000.00. Line 11 standard deduction (married joint) 17,500.00. Line 12 exemptions: 2 x 930 = 1,860 + 2 x 800 (both 65+) = 1,600 -> 3,460.00. Line 13 0. Line 14 20,960.00. Line 15 VA taxable income 71,000 - 20,960 = 50,040.00. Line 16 tax by rate schedule: 720 + 5.75% x (50,040 - 17,000) = 720 + 1,899.80 = 2,619.80. Line 17 Spouse Tax Adjustment not applied by the projection; no credits modelled -> credits 0.00; Line 18 net tax 2,619.80."
 }

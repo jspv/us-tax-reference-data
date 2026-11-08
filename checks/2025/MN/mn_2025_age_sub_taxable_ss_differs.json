@@ -39,19 +39,18 @@
     "federal_taxable_income": "8250.00"
   },
   "expected": {
-    "state_agi": "25000.00",
-    "state_taxable_income": "8050.00",
-    "state_tax_before_credits": "430.68",
+    "state_agi": "24150.00",
+    "state_taxable_income": "7200.00",
+    "state_tax_before_credits": "385.20",
     "credits": "0.00",
-    "state_income_tax": "430.68",
+    "state_income_tax": "385.20",
     "relief_amounts": {
-      "mn_age_65_subtraction": "0.00",
+      "mn_age_65_subtraction": "850.00",
       "mn_social_security_simplified": "1000.00"
     }
   },
-  "worked": "Some benefits taxable: the form takes off only the nontaxable 3,000, the projection takes off all 4,000 received, and the difference decides whether anything is left. Federal (given, not tested): federal AGI = IRA distribution 25,000.00 + taxable Social Security 1,000.00 = 26,000.00. Social Security benefits (Form 1040 line 6a) 4,000.00; line 6b taxable 1,000.00 (federal worksheet: benefits taxable up to 85%; given, not tested). Federal taxable income = 26,000.00 - 17,750.00 federal standard deduction (15,750 plus 1 x 2,000) = 8,250.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 26,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 26,000.00. Schedule M1M line 12: AGI 26,000.00 is not over 84,490.00, so worksheet steps 3-5 give 0 and the simplified amount is all of line 6b, 1,000.00. Alternative method, projection: measure = federal AGI + tax-exempt interest = 26,000.00 + 0.00 = 26,000.00; cap first: lesser of 1,000.00 and 4,560.00 = 1,000.00; less 20% x (excess over 69,250.00, 0.00) = 0.00; alternative = 1,000.00. Worksheet steps 9-24 as printed: steps 9-11 26,000.00 - 1,000.00 = 25,000.00; steps 12-13 50% x 4,000.00 = 2,000.00; step 14 0.00; step 15 27,000.00; steps 16-18 0.00; step 19 27,000.00; step 20 69,250.00; step 21 0.00; step 22 0.00; step 23 4,560.00; step 24 4,560.00; step 25-27 1,000.00; step 28 1,000.00; step 30 greater of 1,000.00 and 1,000.00 = 1,000.00. Line 12 = the better of the two, 1,000.00. Both methods give the same amount, applied once. Schedule M1R: line 1 9,600.00; line 2 0.00 (65 or older); line 3 9,600.00; line 4 0.00; line 5 nontaxable Social Security 4,000.00 - 1,000.00 = 3,000.00; line 6 Railroad Retirement Board benefits 0.00; line 7 3,000.00; line 8 = 6,600.00. Line 9 26,000.00; line 10 14,500.00; line 11 11,500.00; line 12 5,750.00; line 13 = 850.00. Projection: cap 9,600.00 less benefits received 4,000.00 and railroad benefits 0.00 = 5,600.00; less 50% x (AGI over 14,500.00) 5,750.00 = 0.00, which expected follows; the form gives 850.00. Schedule M1M line 40 = Form M1 line 7 subtractions = 1,000.00 + 0.00 + 0.00 + 0.00 = 1,000.00 (lines 12, 16, 17, 25). State income before deduction = 26,000.00 - 1,000.00 = 25,000.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00 plus 1 x 2,000 age box(es) = 16,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 16,950.00. Form M1 line 8 total = 16,950.00 + 1,000.00 = 17,950.00; line 9 Minnesota taxable income = 26,000.00 - 17,950.00 = 8,050.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (8,050.00 - 0.00) = 430.675 = 430.675. The tax table (PDF pp.32-38) gives 431; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 430.68. Form's own result for comparison: line 9 7,200.00, schedule tax 385.20.",
+  "worked": "Some benefits taxable: the cap is reduced by the nontaxable 3,000 only (social_security_basis nontaxable), not the 4,000 received, so 850 is left. Federal (given, not tested): federal AGI = IRA distribution 25,000.00 + taxable Social Security 1,000.00 = 26,000.00. Social Security benefits (Form 1040 line 6a) 4,000.00; line 6b taxable 1,000.00 (federal worksheet: benefits taxable up to 85%; given, not tested). Federal taxable income = 26,000.00 - 17,750.00 federal standard deduction (15,750 plus 1 x 2,000) = 8,250.00 (federal senior deduction ignored). Form M1, single: line 1 federal AGI 26,000.00. Schedule M1M line 1 other-state municipal interest 0.00; line 10 additions 0.00; Form M1 line 2 0.00; line 3 = 26,000.00. Schedule M1M line 12: AGI 26,000.00 is not over 84,490.00, so worksheet steps 3-5 give 0 and the simplified amount is all of line 6b, 1,000.00. Alternative method, projection: measure = federal AGI + tax-exempt interest = 26,000.00 + 0.00 = 26,000.00; cap first: lesser of 1,000.00 and 4,560.00 = 1,000.00; less 20% x (excess over 69,250.00, 0.00) = 0.00; alternative = 1,000.00. Worksheet steps 9-24 as printed: steps 9-11 26,000.00 - 1,000.00 = 25,000.00; steps 12-13 50% x 4,000.00 = 2,000.00; step 14 0.00; step 15 27,000.00; steps 16-18 0.00; step 19 27,000.00; step 20 69,250.00; step 21 0.00; step 22 0.00; step 23 4,560.00; step 24 4,560.00; step 25-27 1,000.00; step 28 1,000.00; step 30 greater of 1,000.00 and 1,000.00 = 1,000.00. Line 12 = the better of the two, 1,000.00. Both methods give the same amount, applied once. Schedule M1R: line 1 9,600.00; line 2 0.00 (65 or older); line 3 9,600.00; line 4 0.00; line 5 nontaxable Social Security 4,000.00 - 1,000.00 = 3,000.00; line 6 Railroad Retirement Board benefits 0.00; line 7 3,000.00; line 8 = 6,600.00. Line 9 26,000.00; line 10 14,500.00; line 11 11,500.00; line 12 5,750.00; line 13 = 850.00. Projection: cap 9,600.00 less nontaxable benefits 3,000.00 (social_security_basis nontaxable: gross 4,000.00 less taxable 1,000.00) and railroad benefits 0.00 = 6,600.00; less 50% x (AGI over 14,500.00) 5,750.00 = 850.00, as on the form. Schedule M1M line 40 = Form M1 line 7 subtractions = 1,000.00 + 850.00 + 0.00 + 0.00 = 1,850.00 (lines 12, 16, 17, 25). State income before deduction = 26,000.00 - 1,850.00 = 24,150.00. Standard Deduction Table for Line 4 (PDF p.13): base 14,950.00 plus 1 x 2,000 age box(es) = 16,950.00; AGI is not over 238,950.00, so no Worksheet A. Line 4 = 16,950.00. Form M1 line 8 total = 16,950.00 + 1,850.00 = 18,800.00; line 9 Minnesota taxable income = 26,000.00 - 18,800.00 = 7,200.00. Line 10 tax from the rate schedule (PDF p.39): 5.35% x (7,200.00 - 0.00) = 385.20. The tax table (PDF pp.32-38) gives its 100-wide band figure; expected keeps the schedule formula. Line 16 credits 0.00; state income tax 385.20.",
   "accepted_approximations": [
-    "cap_reduced_by social_security must mean benefits received: Schedule M1R line 5 takes off nontaxable benefits only, and benefits received are the nearest measure a projection holds. Line 4 (Schedule R pensions) is not taken off.",
     "Tax comes from the rate schedules at every income; below 86,800 of taxable income the booklet requires its 100-wide tax table."
   ],
   "accepted_warnings": [
@@ -59,7 +58,7 @@
   ],
   "verified": {
     "by": "independent second working (tools/checks_compare.py)",
-    "on": "2026-11-07",
+    "on": "2026-11-08",
     "result": "agrees"
   }
 }

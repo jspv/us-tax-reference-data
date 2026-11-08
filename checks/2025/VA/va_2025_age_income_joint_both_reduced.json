@@ -54,18 +54,17 @@
     "federal_taxable_income": "92800.00"
   },
   "expected": {
-    "state_agi": "81000.00",
-    "state_taxable_income": "60040.00",
-    "state_tax_before_credits": "3194.80",
+    "state_agi": "71000.00",
+    "state_taxable_income": "50040.00",
+    "state_tax_before_credits": "2619.80",
     "credits": "0.00",
-    "state_income_tax": "3194.80",
+    "state_income_tax": "2619.80",
     "relief_amounts": {
-      "age_deduction_income_based": "4000.00"
+      "age_deduction_income_based": "14000.00"
     }
   },
-  "worked": "Federal (given, not tested): Taxable Social Security (federal worksheet): gross benefits 50,000.00; provisional income = 85,000.00 + half of benefits 25,000.00 = 110,000.00; taxable = 42,500.00. Federal AGI = private pension (you) 50,000.00 + private pension (spouse) 35,000.00 + taxable Social Security 42,500.00 = 127,500.00. Federal taxable income = 127,500.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 92,800.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 127,500.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 127,500.00. Income-based age deduction (you born 1956-04-04, spouse born 1958-10-10); Age 65 and Older Deduction Worksheet: line 1 = 2; line 2 FAGI 127,500.00; lines 3-6 no conformity adjustments; line 7 taxable Social Security 42,500.00; line 8 AFAGI = 127,500.00 - 42,500.00 = 85,000.00; line 9 limit 75,000.00; line 11 excess = 85,000.00 - 75,000.00 = 10,000.00; line 12 = 2 x 12,000.00 = 24,000.00; on the form, line 14 = 24,000.00 - 10,000.00 = 14,000.00 and line 15 halves it, 7,000.00 each. The projection evaluates each person: 12,000.00 - 10,000.00 = 2,000.00 each, total 4,000.00 (approximation: the excess is taken twice; the form's total is 14,000.00). Line 4 age deduction = 4,000.00. Line 5 taxable Social Security subtracted = 42,500.00. Line 6 state refund 0.00. Line 7 Schedule ADJ subtractions 0.00. Line 8 = 4,000.00 + 42,500.00 + 0.00 + 0.00 = 46,500.00. Line 9 VAGI = 127,500.00 - 46,500.00 = 81,000.00. Line 11 standard deduction (Filing Status 2) = 17,500.00. Line 12 exemptions: Section A 2 x 930.00 = 1,860.00; Section B 2 x 800.00 (65 or older) = 1,600.00; total 3,460.00. Line 14 = 20,960.00. Line 15 Virginia taxable income = 81,000.00 - 20,960.00 = 60,040.00. Line 16 tax, rate schedule (PDF p41) as numbers: 720.00 + 5.75% x (60,040.00 - 17,000.00 = 43,040.00) = 720.00 + 2,474.80 = 3,194.80 (the form rounds to the whole dollar: 3,195.00). Line 17 Spouse Tax Adjustment 0.00 under the projection (see the note below). Credits none modelled or claimed, 0.00. Virginia income tax = 3,194.80. Form figure for comparison: age deduction 14,000.00 (7,000.00 each); VAGI = 127,500.00 - 14,000.00 - 42,500.00 = 71,000.00; taxable income = 71,000.00 - 20,960.00 = 50,040.00; tax = 720.00 + 5.75% x 33,040.00 = 720.00 + 1,899.80 = 2,619.80, before a Spouse Tax Adjustment of 259.00 (separate VAGI less exemptions 41,270.00 and 26,270.00, the smaller over 17,000, taxable income over 34,000), so 2,360.80. The projection's 3,194.80 is 575.00 higher from the joint age-deduction approximation (5.75% x 10,000.00) and 259.00 from the Spouse Tax Adjustment.",
+  "worked": "Federal (given, not tested): Taxable Social Security (federal worksheet): gross benefits 50,000.00; provisional income = 85,000.00 + half of benefits 25,000.00 = 110,000.00; taxable = 42,500.00. Federal AGI = private pension (you) 50,000.00 + private pension (spouse) 35,000.00 + taxable Social Security 42,500.00 = 127,500.00. Federal taxable income = 127,500.00 - standard deduction 31,500.00 - 2 x 1,600.00 additional for age 65 or older = 92,800.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 127,500.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 127,500.00. Income-based age deduction (you born 1956-04-04, spouse born 1958-10-10); Age 65 and Older Deduction Worksheet: line 1 = 2; line 2 FAGI 127,500.00; lines 3-6 no conformity adjustments; line 7 taxable Social Security 42,500.00; line 8 AFAGI = 127,500.00 - 42,500.00 = 85,000.00; line 9 limit 75,000.00; line 11 excess = 85,000.00 - 75,000.00 = 10,000.00; line 12 = 2 x 12,000.00 = 24,000.00; line 14 = 24,000.00 - 10,000.00 = 14,000.00 and line 15 halves it, 7,000.00 each. The projection's income test has reduce_each_person false (the default), so the 10,000.00 excess comes off the couple's combined 24,000.00 once, as on the form. Line 4 age deduction = 14,000.00. Line 5 taxable Social Security subtracted = 42,500.00. Line 6 state refund 0.00. Line 7 Schedule ADJ subtractions 0.00. Line 8 = 14,000.00 + 42,500.00 + 0.00 + 0.00 = 56,500.00. Line 9 VAGI = 127,500.00 - 56,500.00 = 71,000.00. Line 11 standard deduction (Filing Status 2) = 17,500.00. Line 12 exemptions: Section A 2 x 930.00 = 1,860.00; Section B 2 x 800.00 (65 or older) = 1,600.00; total 3,460.00. Line 14 = 20,960.00. Line 15 Virginia taxable income = 71,000.00 - 20,960.00 = 50,040.00. Line 16 tax, rate schedule (PDF p41) as numbers: 720.00 + 5.75% x (50,040.00 - 17,000.00 = 33,040.00) = 720.00 + 1,899.80 = 2,619.80 (the form rounds to the whole dollar: 2,620.00). Line 17 Spouse Tax Adjustment 0.00 under the projection (see the note below). Credits none modelled or claimed, 0.00. Virginia income tax = 2,619.80. Form figure for comparison: the Spouse Tax Adjustment of 259.00 (separate VAGI less exemptions 41,270.00 and 26,270.00, the smaller over 17,000, taxable income over 34,000) gives 2,360.80; the projection's 2,619.80 is 259.00 higher because it does not apply that adjustment.",
   "accepted_approximations": [
-    "The income-based age deduction for a married couple where both spouses qualify: Virginia takes the excess of joint AFAGI over 75,000 once from the couple's combined maximum (2 x 12,000) and splits the rest; a per-person evaluation takes the excess from each spouse's 12,000, so twice.",
     "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied."
   ],
   "accepted_warnings": [
@@ -74,7 +73,7 @@
   ],
   "verified": {
     "by": "independent second working (tools/checks_compare.py)",
-    "on": "2026-11-06",
+    "on": "2026-11-08",
     "result": "agrees"
   }
 }
