@@ -73,6 +73,21 @@ def inline_pdf_bytes(page) -> bytes:
     return base64.b64decode(page.evaluate(_READ_INLINE))
 
 
+VISIBLE_TEXT = ("() => document.body.innerText.length > 0 && document.body.textContent.length > 2 * document.body.innerText.length"
+                " ? document.body.textContent : document.body.innerText")  # collapsed panels hide text from innerText
+
+
+def read_page(page, url: str) -> tuple[int | None, str, str | None, str | None]:
+    """Open an agency web page: (HTTP status, final address, HTML, page-marked visible text).
+    HTML and text are None when the page did not load."""
+    response = page.goto(url, wait_until="domcontentloaded", timeout=90000)
+    page.wait_for_timeout(4000)  # let scripts fill the page; waiting for an idle network timed out on some agencies
+    status = response.status if response else None
+    if response is None or not response.ok:
+        return status, page.url, None, None
+    return status, page.url, page.content(), "\n=====PAGE 1=====\n" + page.evaluate(VISIBLE_TEXT)
+
+
 def fetch_page(page, state: str, source: dict, out_dir: Path) -> dict:
     """Save an agency web page (kind "html"): its HTML and its visible text, page-marked like a PDF's."""
     url = source["url"]
@@ -80,17 +95,12 @@ def fetch_page(page, state: str, source: dict, out_dir: Path) -> dict:
               "retrieved": datetime.now(timezone.utc).isoformat(), "ok": False}
     out_dir.mkdir(parents=True, exist_ok=True)
     try:
-        response = page.goto(url, wait_until="domcontentloaded", timeout=90000)
-        page.wait_for_timeout(4000)  # let scripts fill the page; waiting for an idle network timed out on some agencies
-        record["status"] = response.status if response else None
-        record["final_url"] = page.url
-        if response is None or not response.ok:
-            record["error"] = f"HTTP {record['status']}"
-            return record
-        html = page.content()
-        text = page.evaluate("() => document.body.innerText.length > 0 && document.body.textContent.length > 2 * document.body.innerText.length ? document.body.textContent : document.body.innerText")  # collapsed panels hide text from innerText
+        record["status"], record["final_url"], html, text = read_page(page, url)
     except Exception as error:  # noqa: BLE001
         record["error"] = str(error).splitlines()[0][:300]
+        return record
+    if html is None:
+        record["error"] = f"HTTP {record['status']}"
         return record
     address = Path(url.split("?")[0].rstrip("/"))
     stem = safe_name(address.stem or "page")
@@ -98,11 +108,13 @@ def fetch_page(page, state: str, source: dict, out_dir: Path) -> dict:
         stem = safe_name(f"{address.parent.name}-{stem}")
     target = out_dir / f"{stem}.html"
     target.write_text(html)
-    (out_dir / f"{stem}.page.txt").write_text("\n=====PAGE 1=====\n" + text)
-    if len(text.strip()) < 200:
+    text_path = out_dir / f"{stem}.page.txt"
+    text_path.write_text(text)
+    if len(text.replace("=====PAGE 1=====", "").strip()) < 200:
         record["error"] = "page has almost no text (blocked, or built by a script that did not run)"
         return record
-    record.update(file=target.name, bytes=len(html.encode()), sha256=sha256(target), text_file=f"{stem}.page.txt", ok=True)
+    record.update(file=target.name, bytes=len(html.encode()), sha256=sha256(target), text_file=text_path.name,
+                  text_sha256=sha256(text_path), ok=True)
     return record
 
 

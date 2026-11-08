@@ -59,7 +59,8 @@
     "file": "deductions.html",
     "bytes": 374173,
     "sha256": "0289077e6e45844091ff4293916daf6af7c8af7a96fb69ec270cd61aef44c0a2",
-    "text_file": "deductions.page.txt"
+    "text_file": "deductions.page.txt",
+    "text_sha256": "3c2c2292fe9721273d8f92468d27d299af6903f6ed7f8cbc3ce8d9ad584fdecc"
   },
   {
     "state": "IN",

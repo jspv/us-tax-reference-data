@@ -24,7 +24,8 @@
     "file": "idaho-retirement-benefits-deduction.html",
     "bytes": 240699,
     "sha256": "b9193a41e2b7892c3dff7274a5ee58b6703e8d422c8bdb6cfb1d1805b138a948",
-    "text_file": "idaho-retirement-benefits-deduction.page.txt"
+    "text_file": "idaho-retirement-benefits-deduction.page.txt",
+    "text_sha256": "81a651e20b72d1bca464262dd0e7bd4870241422302773508b17a493bf6518f0"
   },
   {
     "state": "ID",
@@ -38,6 +39,7 @@
     "file": "specific-guidance-for-individuals-seniors-and-retirees.html",
     "bytes": 264042,
     "sha256": "87b04f67a47c9b5357eb2d2dc8b7a0ac2085042048ac21e5015a58f9c520f1a4",
-    "text_file": "specific-guidance-for-individuals-seniors-and-retirees.page.txt"
+    "text_file": "specific-guidance-for-individuals-seniors-and-retirees.page.txt",
+    "text_sha256": "e62f8c689bf17ede851d23d5590d188e80e76ddc867eeb6a0f96835870a4e5f0"
   }
 ]

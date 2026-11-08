@@ -51,7 +51,8 @@
     "file": "tc-40a.html",
     "bytes": 271761,
     "sha256": "637a8762fcde34ea86465f978552b286640fd64a6d56f66d5dae73acec05636e",
-    "text_file": "tc-40a.page.txt"
+    "text_file": "tc-40a.page.txt",
+    "text_sha256": "0fb8f66e371f7885401efc986e927c0d7254cc843b92b275e324d17750b196a0"
   },
   {
     "state": "UT",
@@ -65,6 +66,7 @@
     "file": "credits.html",
     "bytes": 166421,
     "sha256": "84459eaa1f64e2cc843df79e719257ec9307d38826c038d2764f68254cbf7d58",
-    "text_file": "credits.page.txt"
+    "text_file": "credits.page.txt",
+    "text_sha256": "8100929aa869b7d4fd429b8072677d43e772a13a017a9e8520d97298acde8367"
   }
 ]

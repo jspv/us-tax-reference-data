@@ -36,7 +36,8 @@
     "file": "differences-between-ma-and-federal-tax-law-for-personal-income.html",
     "bytes": 227087,
     "sha256": "adaab504f53ded4e1f755fc3f2411ec24005ff07fca4c11906e5fcc49deb9164",
-    "text_file": "differences-between-ma-and-federal-tax-law-for-personal-income.page.txt"
+    "text_file": "differences-between-ma-and-federal-tax-law-for-personal-income.page.txt",
+    "text_sha256": "0c2897a32e3c42b2f0cfc3b184124aca3af855644b3701249ca370c35bea3b6a"
   },
   {
     "state": "MA",
@@ -50,7 +51,8 @@
     "file": "tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states.html",
     "bytes": 195607,
     "sha256": "a6962ca616c03ac590b7807ef68da626d66c6384ca6b0686373238ae46845574",
-    "text_file": "tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states.page.txt"
+    "text_file": "tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states.page.txt",
+    "text_sha256": "2f6695e3c55fc6b347ceb1676284093a7fa328afc8f4fe749705010ac5574836"
   },
   {
     "state": "MA",
@@ -64,7 +66,8 @@
     "file": "tax-treatment-of-out-of-state-government-pensions-for-ma-residents.html",
     "bytes": 230469,
     "sha256": "ce73392fb904bdcd69416a8f41f951e3d696599d662fd40d670836f053122f27",
-    "text_file": "tax-treatment-of-out-of-state-government-pensions-for-ma-residents.page.txt"
+    "text_file": "tax-treatment-of-out-of-state-government-pensions-for-ma-residents.page.txt",
+    "text_sha256": "d2d7e021df5eda9ecd59513123a8870ae8de2641c7983031d510f65a2153ad0f"
   },
   {
     "state": "MA",
@@ -78,6 +81,7 @@
     "file": "letter-ruling-81-91-new-york-state-contributory-pension.html",
     "bytes": 195521,
     "sha256": "643414e9df969f9a5759b592ca2d8cc71427d38ff98f4e226388e94361c74b78",
-    "text_file": "letter-ruling-81-91-new-york-state-contributory-pension.page.txt"
+    "text_file": "letter-ruling-81-91-new-york-state-contributory-pension.page.txt",
+    "text_sha256": "392559f26236ccf3fd76e0ae1673718530253d03bef12b048928205293480a3a"
   }
 ]

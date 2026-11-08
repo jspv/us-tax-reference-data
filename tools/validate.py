@@ -68,7 +68,7 @@ def spellings(path: str, text: str) -> set[str]:
 
 
 def sources_missing(state: str, year: int) -> list[str]:
-    """PDFs recorded in fetch.json whose converted text is not here (a checkout without pulled sources)."""
+    """Sources recorded in fetch.json whose converted text is not here (a checkout without pulled sources)."""
     directory = ROOT / "sources" / "archive" / str(year) / state
     fetched = directory / "fetch.json"
     missing = []
@@ -76,6 +76,8 @@ def sources_missing(state: str, year: int) -> list[str]:
         name = record.get("file") or ""
         stem = Path(name).stem
         if record.get("ok") and name.endswith(".pdf") and not any((directory / f"{stem}{suffix}").exists() for suffix in (".docling.md", ".pypdf.txt")):
+            missing.append(name)
+        elif record.get("ok") and record.get("text_file") and not (directory / record["text_file"]).exists():
             missing.append(name)
     return missing
 

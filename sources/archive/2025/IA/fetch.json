@@ -37,7 +37,8 @@
     "file": "ia-1040-schedule-1.html",
     "bytes": 248870,
     "sha256": "bdff333856f3179cc6415ad9850b2a3a787473ad89f1d418295e77e2c91b717b",
-    "text_file": "ia-1040-schedule-1.page.txt"
+    "text_file": "ia-1040-schedule-1.page.txt",
+    "text_sha256": "4cff02fe98d09c2bebb8283d51de9bb0bd4315dbb9d636b0112e9b7d4d8438e3"
   },
   {
     "state": "IA",
@@ -51,6 +52,7 @@
     "file": "retirement-income-tax-guidance.html",
     "bytes": 210785,
     "sha256": "cd9d3d0d45ce18f65e918524e95f5916e9d152bd40d3636f5d7c02b9ff1f85b0",
-    "text_file": "retirement-income-tax-guidance.page.txt"
+    "text_file": "retirement-income-tax-guidance.page.txt",
+    "text_sha256": "4c50aa8b14d2da9ca1e42af96df8051266efe62975845c17a3c7067ed15f6901"
   }
 ]

@@ -37,7 +37,8 @@
     "file": "njit7.html",
     "bytes": 87131,
     "sha256": "5d86b309da750bef576ed9b1e84147e2ad7fb984ef79e659041f4b53285ff954",
-    "text_file": "njit7.page.txt"
+    "text_file": "njit7.page.txt",
+    "text_sha256": "9a8a1e9e6c24b7839aa8ddaea755799599c4f5ed4f5d54810bee40f8c34a549e"
   },
   {
     "state": "NJ",
@@ -64,6 +65,7 @@
     "file": "njit6.html",
     "bytes": 84741,
     "sha256": "db0dda027214555894e7669451b53f92e1d34d149edc6c300e0ab239f9196c60",
-    "text_file": "njit6.page.txt"
+    "text_file": "njit6.page.txt",
+    "text_sha256": "1d65d3b513e7ac35c7562b3fbd3fa5b09b0d26952c217d9e63a284b7fa02ca21"
   }
 ]

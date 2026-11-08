@@ -75,7 +75,8 @@
     "file": "retirement-income.html",
     "bytes": 101943,
     "sha256": "3029a8b019b7540a395ebeae295dc59eaa71dea1c14151ff3c45de6dac5facf2",
-    "text_file": "retirement-income.page.txt"
+    "text_file": "retirement-income.page.txt",
+    "text_sha256": "2ee46d8e3c2f04b70810c000cdab278ddc26e6df85e689d3772b23885ce6bfb1"
   },
   {
     "state": "IL",

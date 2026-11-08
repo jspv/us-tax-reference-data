@@ -95,7 +95,8 @@
     "file": "pcs-retired.html",
     "bytes": 61179,
     "sha256": "4705ac5e41236d1594b55c5727bf7e5897673edcf9299cf13eb9d945fabbcfe2",
-    "text_file": "pcs-retired.page.txt"
+    "text_file": "pcs-retired.page.txt",
+    "text_sha256": "0192faac3390325820ac20135cbc95683d744aaed7b0cb0145344c2aade688f5"
   },
   {
     "state": "WI",

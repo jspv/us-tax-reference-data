@@ -44,7 +44,9 @@ Status: **{status}**. {status_note}
 person has checked it line by line, and it will contain errors. Use it for testing software only.
 Do not rely on it for any financial, tax, investment or retirement decision, or for preparing a
 return. It is not tax, legal, investment or financial advice. Where these files say "hand-worked" or
-"second working", the working was done step by step by a language model.
+"second working", the working was done step by step by a language model. It is not connected to or
+endorsed by any government agency, it comes with no warranty of any kind, and there is no promise of
+updates or support.
 
 ## What is here
 
@@ -70,6 +72,7 @@ return. It is not tax, legal, investment or financial advice. Where these files 
 - `reports/pensions.md`: how each state taxes its own, New York's, New Jersey's and federal government
   pensions, private pensions and IRAs.
 - `manifest.json`: the version, the git commit it was built from, and the sha256 of every file.
+- `LICENSE` (code, MIT) and `LICENSE-DATA` (data, CC BY 4.0), when built from the public repository.
 
 States in this bundle ({count}): {states}.
 Settled but held back until their checks are verified ({held_count}): {held}.
@@ -195,6 +198,10 @@ def main(argv: list[str] | None = None) -> int:
     for name in ("projection.schema.json", "record.schema.json", "check.schema.json", "federal.schema.json", "federal-check.schema.json"):
         shutil.copyfile(ROOT / "schema" / name, bundle / "schema" / name)
         manifest["schemas"][name] = sha(bundle / "schema" / name)
+    for name in ("LICENSE", "LICENSE-DATA"):  # the public repository's licences travel with its releases
+        if (ROOT / name).exists():
+            shutil.copyfile(ROOT / name, bundle / name)
+            manifest.setdefault("licences", {})[name] = sha(bundle / name)
     buffer = io.StringIO()
     with redirect_stdout(buffer):
         report_pensions.main(["--year", str(args.year)])

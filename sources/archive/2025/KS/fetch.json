@@ -50,7 +50,8 @@
     "file": "incomebook25.html",
     "bytes": 277943,
     "sha256": "68eaf45b5a4765976949e7f0e3a1b7df9898490953735c45bef7bb437e7de94d",
-    "text_file": "incomebook25.page.txt"
+    "text_file": "incomebook25.page.txt",
+    "text_sha256": "3c335befa45bbbc8ef704e36b09a7e4629a00c8b556f2c41331de4267f33352a"
   },
   {
     "state": "KS",
@@ -64,7 +65,8 @@
     "file": "scheduleS_A.html",
     "bytes": 18757,
     "sha256": "e20168f92e36516ad40d951c3111564d0e21105666e379bc518da96d5facc93d",
-    "text_file": "scheduleS_A.page.txt"
+    "text_file": "scheduleS_A.page.txt",
+    "text_sha256": "11f31cde7b51f7a78de0ec4b569e3525192ba8be285fcd6607b5a3ae18820310"
   },
   {
     "state": "KS",
@@ -78,6 +80,7 @@
     "file": "faqs-taxii.html",
     "bytes": 72096,
     "sha256": "ec1ceb19909ea2c57c87885389e88eb0f58b20b5034bd19e06146c01d424f027",
-    "text_file": "faqs-taxii.page.txt"
+    "text_file": "faqs-taxii.page.txt",
+    "text_sha256": "8e762f9b3b080278311af53903cffc1e68d8f400541860c3db025a3c94e9257d"
   }
 ]

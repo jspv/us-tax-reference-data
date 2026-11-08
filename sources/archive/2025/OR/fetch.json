@@ -65,6 +65,7 @@
     "file": "pit.html",
     "bytes": 618447,
     "sha256": "cd669cc2190513b3e66103aa87f0755830bdf36414691aa6528353ba8de79489",
-    "text_file": "pit.page.txt"
+    "text_file": "pit.page.txt",
+    "text_sha256": "7c008df23e55aa22757c1b34d5589fc37fc90e20c7bdd97b2dafb4c9082c2bec"
   }
 ]

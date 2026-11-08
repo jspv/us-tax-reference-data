@@ -9,7 +9,10 @@ to use the data, so a checkout can leave them out and pull them when wanted.
         (`archived_url`) or, failing that, the agency address; keep it only if its sha256 matches the
         record. Then convert the PDFs (tools.convert) so tools.validate can check figure presence.
         A file that no longer matches (the agency replaced it, and no archived copy exists) is reported,
-        not kept.
+        not kept. A PDF the maintainer saved by hand (method "manual") can only be saved by hand again.
+        Web pages (kind "html") are opened in headless Chromium (tools.fetch) and their visible text
+        saved; when that text differs from the text that was read (`text_sha256`), the page has
+        changed since, it is kept and reported, and tools.validate may not find a figure cited to it.
 
     uv run python -m tools.sources archive --year 2025 [--state ST ...] [--save]
         For each local PDF, look up the Internet Archive's captures of its address and record
@@ -106,14 +109,49 @@ def archive(year: int, states: list[str], save: bool) -> int:
     return 0
 
 
+def pull_pages(pages: list[tuple[Path, dict]]) -> tuple[list[str], list[str]]:
+    """Open each web page in headless Chromium and save its HTML and visible text: (failed, changed)."""
+    from playwright.sync_api import sync_playwright  # imported late: pulling PDFs doesn't need it
+
+    from tools import fetch
+
+    failed, changed = [], []
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(executable_path=fetch.chromium_path(), headless=True)
+        page = browser.new_page()
+        for number, (folder, entry) in enumerate(pages):
+            if number:
+                time.sleep(fetch.PAUSE_SECONDS)
+            name = f"{folder.name}/{entry['text_file']}"
+            try:
+                _, _, html, text = fetch.read_page(page, entry["url"])
+            except Exception as error:  # noqa: BLE001
+                html, text = None, None
+                print(f"{name}: {str(error).splitlines()[0][:200]}")
+            if html is None:
+                failed.append(name)
+                continue
+            (folder / entry["file"]).write_text(html)
+            (folder / entry["text_file"]).write_text(text)
+            if hashlib.sha256(text.encode()).hexdigest() == entry.get("text_sha256"):
+                print(f"{name}: ok (the same text that was read)")
+            else:
+                changed.append(name)
+                print(f"{name}: kept, but the page has changed since it was read on {entry.get('retrieved', '?')[:10]}")
+        browser.close()
+    return failed, changed
+
+
 def pull(year: int, states: list[str]) -> int:
-    failed, converted = [], set()
+    failed, converted, pages, changed = [], set(), [], []
     for folder, _, entries in records(year, states):
         for entry in entries:
             if not entry.get("ok") or not entry.get("file") or not entry.get("sha256"):
                 continue
             if not entry["file"].endswith(".pdf"):
-                continue  # a web page: its converted text (.page.txt) is kept in the repository
+                if entry.get("text_file") and not (folder / entry["text_file"]).exists():
+                    pages.append((folder, entry))
+                continue
             local = folder / entry["file"]
             if local.exists() and hashlib.sha256(local.read_bytes()).hexdigest() == entry["sha256"]:
                 continue
@@ -131,13 +169,23 @@ def pull(year: int, states: list[str]) -> int:
                     break
                 print(f"{folder.name}: {entry['file']}: {address} serves a different file now")
             if got is None:
-                failed.append(f"{folder.name}/{entry['file']}")
+                saved_by_hand = " (saved by hand from a browser: save it again and record it with tools.import_manual)"
+                failed.append(f"{folder.name}/{entry['file']}" + (saved_by_hand if entry.get("method") == "manual" else ""))
                 continue
             local.write_bytes(got)
             converted.add(folder.name)
             print(f"{folder.name}: {entry['file']}: ok")
     for state in sorted(converted):
         subprocess.run([sys.executable, "-m", "tools.convert", "--year", str(year), "--state", state], cwd=ROOT, check=False)
+    if pages:
+        try:
+            page_failures, changed = pull_pages(pages)
+        except SystemExit as error:  # no Chromium
+            page_failures = [f"{folder.name}/{entry['text_file']}" for folder, entry in pages]
+            print(f"web pages not pulled: {error}", file=sys.stderr)
+        failed += page_failures
+    if changed:
+        print("changed since they were read (kept; tools.validate may not find figures cited to them): " + " ".join(changed), file=sys.stderr)
     if failed:
         print("not pulled (no matching copy; fetch by hand or run tools.fetch for a newer edition): " + " ".join(failed), file=sys.stderr)
         return 1

@@ -22,6 +22,18 @@ tax, investment, retirement and benefit decisions, preparing or filing a tax ret
 anyone else. Nothing here is tax, legal, investment or financial advice. For a real decision, use the
 official publication cited for the figure, or ask a qualified professional.
 
+**Not connected to any government agency.** It is not produced, reviewed or endorsed by the IRS, the
+Social Security Administration, the Centers for Medicare & Medicaid Services, the Railroad Retirement
+Board or any state tax agency. Agency names and addresses appear only to cite the publications the
+figures came from.
+
+**No warranty.** The code and data are provided "as is", with no warranty of any kind, and the authors
+are not liable for any loss from using them. See the licences: `LICENSE` (MIT) and `LICENSE-DATA`
+(CC BY 4.0, section 5).
+
+**No promise of updates or support.** The data may never be updated for later tax years, new laws or
+corrections, and nobody is obliged to answer questions or fix reported errors.
+
 ## What is here
 
 - **Federal** (tax years 2025 and 2026): rate schedules, standard deduction and the additional amount
@@ -55,8 +67,15 @@ uv run python -m tools.sources pull --year 2025 --state GA   # one state
 
 Each PDF is downloaded from an Internet Archive copy whose content is byte-for-byte the file that was
 read (or, failing that, the agency's own address), kept only if its sha256 matches the record in
-`sources/archive/<year>/<ST>/fetch.json`, and converted to page-marked text. Web-page sources, and
-the few PDFs with no exact archived copy, are kept in the repository as converted text.
+`sources/archive/<year>/<ST>/fetch.json`, and converted to page-marked text.
+
+Only federal source text is kept in the repository: the converted text of federal web pages and of
+the few federal PDFs with no exact archived copy (federal works are in the public domain). Nothing
+from the state publications is kept; pull them. A state web page is opened at the agency's address
+in headless Chromium (see Tools), and its text is compared with the text that was read. A page that
+has changed since is kept and reported, and `tools.validate` may then not find a figure cited to it.
+A few state files were saved by hand from a browser because the agency refuses automated downloads;
+`pull` lists them, and they have to be saved by hand again.
 
 ## Layout
 
@@ -104,10 +123,12 @@ uv run python -m tools.convert --year 2025 --state GA   # Docling + pypdf, page-
 ```
 
 Fetching from agencies needs a Chromium build (`TAXREF_CHROMIUM`, or the newest
-`~/.cache/ms-playwright/chromium-*`); pulling archived sources does not.
+`~/.cache/ms-playwright/chromium-*`). Pulling PDFs does not; pulling state web pages does.
 
 ## Licences
 
 Code: MIT (`LICENSE`). Data and documentation: Creative Commons Attribution 4.0 (`LICENSE-DATA`).
 The underlying publications belong to the agencies that issued them; this repository does not
-re-host the source PDFs.
+re-host the source PDFs or the text of state publications. Short quotations of the publications appear
+in the evidence notes (`work/settlement/`, `work/indexing/`) and the decision log, each cited to
+its source.

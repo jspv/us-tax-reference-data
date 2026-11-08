@@ -20,7 +20,8 @@
     "status": 200,
     "file": "4884-Instr.pdf",
     "bytes": 591055,
-    "sha256": "a0e826e052fc43adec7cecd499cffea41abb1a2bda89ec998cc42c24ec87dc20"
+    "sha256": "a0e826e052fc43adec7cecd499cffea41abb1a2bda89ec998cc42c24ec87dc20",
+    "archived_url": "https://web.archive.org/web/20261029183331id_/https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2025/4884-Instr.pdf"
   },
   {
     "state": "MI",
@@ -34,6 +35,7 @@
     "file": "revenue-administrative-bulletin-2026-1.html",
     "bytes": 428273,
     "sha256": "96a0dd838f07ecdda37e90c47c4a4bbcc0ec8975d6f8c8c3f052ca35bed8c3c0",
-    "text_file": "revenue-administrative-bulletin-2026-1.page.txt"
+    "text_file": "revenue-administrative-bulletin-2026-1.page.txt",
+    "text_sha256": "c00b1d0c68318990462e7b79b62e32eb064026126f27a91be7ef4aa37c7a228c"
   }
 ]

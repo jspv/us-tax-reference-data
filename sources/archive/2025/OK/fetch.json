@@ -25,6 +25,7 @@
     "file": "income-tax.html",
     "bytes": 416542,
     "sha256": "d856631609059b02d24094f520f4686048856ff87fb8caef3fe8409b41f02600",
-    "text_file": "income-tax.page.txt"
+    "text_file": "income-tax.page.txt",
+    "text_sha256": "cbd76664f3dde76dc26cf05a5a15932c84b272b111ea95eae92cb64b82f401fc"
   }
 ]

@@ -11,7 +11,8 @@
     "file": "income-tax.html",
     "bytes": 74403,
     "sha256": "336922b6d06706afe9c8ef606b31fc39e4939c8eabea421c8152af7d2b990cd3",
-    "text_file": "income-tax.page.txt"
+    "text_file": "income-tax.page.txt",
+    "text_sha256": "88a2aba14fbe0182346e9e987737b034eb2679cf25ca027ea53f8a0dc3c15213"
   },
   {
     "state": "WA",
@@ -25,7 +26,8 @@
     "file": "capital-gains-tax.html",
     "bytes": 89259,
     "sha256": "0e2bc84b1828d6d95d1a5d0f92852c84c6df079f319bc1391fc1c006ce408a2f",
-    "text_file": "capital-gains-tax.page.txt"
+    "text_file": "capital-gains-tax.page.txt",
+    "text_sha256": "6488f4d58e7a0d16ed28d2bcc7f86922c1e1d315fc6ec91c90cfaf31daa3bbfc"
   },
   {
     "state": "WA",
@@ -39,7 +41,8 @@
     "file": "new-tiered-rates-washingtons-capital-gains-tax.html",
     "bytes": 74255,
     "sha256": "16901002300ae14249db614fb536b59ea15d6e42c0a12de5337b886795cb861e",
-    "text_file": "new-tiered-rates-washingtons-capital-gains-tax.page.txt"
+    "text_file": "new-tiered-rates-washingtons-capital-gains-tax.page.txt",
+    "text_sha256": "32f4079b49bd4b2580d333a1c4493e4d8378f78f5a224d8afd8f348b27e63f86"
   },
   {
     "state": "WA",
@@ -53,6 +56,7 @@
     "file": "do-you-owe-capital-gains-tax.html",
     "bytes": 75540,
     "sha256": "664e77c3df1774f27679e308f7836350fc46a1287c809985543790fdc5e4bd47",
-    "text_file": "do-you-owe-capital-gains-tax.page.txt"
+    "text_file": "do-you-owe-capital-gains-tax.page.txt",
+    "text_sha256": "db0bd835eb1f86f222272c19a3f142ffffd870ae2117ad94e4719d63101df3c5"
   }
 ]

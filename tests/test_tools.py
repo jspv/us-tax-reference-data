@@ -415,3 +415,27 @@ def test_indexing_selectors_for_one_band_and_phase_out_parts(root):
     assert validate.indexing_problems(data) == []
     data["indexing"][1]["covers"] = ["brackets:9"]
     assert "indexing: 'top' covers brackets:9, but there is no brackets '9'" in validate.indexing_problems(data)
+
+
+def test_web_page_without_its_text_counts_as_not_pulled(root):
+    archive = root / "sources" / "archive" / "2025" / "ZZ"
+    (archive / "fetch.json").write_text(json.dumps([
+        {"url": "https://example.gov/p", "kind": "html", "file": "p.html", "text_file": "p.page.txt", "sha256": "x", "ok": True}]))
+    assert validate.sources_missing("ZZ", 2025) == ["p.html"]
+    (archive / "p.page.txt").write_text("\n=====PAGE 1=====\nrate is 5.19%")
+    assert validate.sources_missing("ZZ", 2025) == []
+
+
+def test_pull_opens_only_web_pages_whose_text_is_missing(tmp_path, monkeypatch):
+    from tools import sources
+    monkeypatch.setattr(sources, "ARCHIVE", tmp_path)
+    folder = tmp_path / "2025" / "ZZ"
+    folder.mkdir(parents=True)
+    (folder / "kept.page.txt").write_text("already here")
+    (folder / "fetch.json").write_text(json.dumps([
+        {"url": "https://example.gov/kept", "kind": "html", "file": "kept.html", "text_file": "kept.page.txt", "sha256": "x", "ok": True},
+        {"url": "https://example.gov/gone", "kind": "html", "file": "gone.html", "text_file": "gone.page.txt", "sha256": "y", "ok": True}]))
+    asked = []
+    monkeypatch.setattr(sources, "pull_pages", lambda pages: (asked.extend(e["url"] for _, e in pages), ([], ["ZZ/gone.page.txt"]))[1])
+    assert sources.pull(2025, ["ZZ"]) == 0
+    assert asked == ["https://example.gov/gone"]

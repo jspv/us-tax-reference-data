@@ -11,3 +11,5 @@ sources/archive/**/*.pdf
 sources/archive/**/*.html
 sources/archive/**/*.docling.md
 sources/archive/**/*.pypdf.txt
+sources/archive/**/*.page.txt
+!sources/archive/*/US/*.page.txt

@@ -37,7 +37,8 @@
     "file": "it-540-1-1-25.html",
     "bytes": 58932,
     "sha256": "28c2234e5f73b1be2a68ce4ebd31505819555e315634e7fe393cb0f412de59a9",
-    "text_file": "it-540-1-1-25.page.txt"
+    "text_file": "it-540-1-1-25.page.txt",
+    "text_sha256": "28117bbc63cad0a59d6e1027911ecddb145daa104cbfb3c6c8d3da31e865ade7"
   },
   {
     "state": "LA",
@@ -51,6 +52,7 @@
     "file": "is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax.html",
     "bytes": 93906,
     "sha256": "e04191710b426afd7bf06cb9ca90f3ea5e350b82b7aa336eed3fd80e9a2e779d",
-    "text_file": "is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax.page.txt"
+    "text_file": "is-there-a-list-of-retirement-system-benefits-that-may-be-excluded-from-louisiana-income-tax.page.txt",
+    "text_sha256": "64dc8d735f5c9cb5f173fb5792f402c8430decd67ec8d3660323d3ea631c2b50"
   }
 ]

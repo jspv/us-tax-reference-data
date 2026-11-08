@@ -38,7 +38,8 @@
     "file": "social-security-income-tax-exemption.html",
     "bytes": 539843,
     "sha256": "e17ede076ddc8965c577203d6175f361ec861ea6c408cc27067f232886a43c33",
-    "text_file": "social-security-income-tax-exemption.page.txt"
+    "text_file": "social-security-income-tax-exemption.page.txt",
+    "text_sha256": "d57d84f28b49332e8ea592288aabd8f1c84d8bb65e6b4a890cc951c684d0880f"
   },
   {
     "state": "NM",

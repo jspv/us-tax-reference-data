@@ -53,7 +53,8 @@
     "file": "2026-medicare-parts-b-premiums-deductibles.html",
     "bytes": 75042,
     "sha256": "606325d0466d774e7c8603cb431d0638b34dcb7f464b756e59740f465b7a5735",
-    "text_file": "2026-medicare-parts-b-premiums-deductibles.page.txt"
+    "text_file": "2026-medicare-parts-b-premiums-deductibles.page.txt",
+    "text_sha256": "0030431568418e8c01e602708cdf61abaee700fd8bc2cfaa978ba141a2f45cff"
   },
   {
     "state": "US",
@@ -67,7 +68,8 @@
     "file": "2026.html",
     "bytes": 39127,
     "sha256": "09f5da8046afd2b449aac9416b42fcf88b82756e62be87e312983a530e05adc1",
-    "text_file": "2026.page.txt"
+    "text_file": "2026.page.txt",
+    "text_sha256": "271cd5868ee11a57fa6a0f1d530ec6967041c3d14ab09244fe32bf5117916e73"
   },
   {
     "state": "US",
@@ -81,7 +83,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.html",
     "bytes": 263158,
     "sha256": "3ea2ace06445577dc9aac438419fc105111cc5b0b8593555594440bd5f7c2d69",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapA-partI-sec1.page.txt",
+    "text_sha256": "29c821c2725efda9fcec9c20efcd3560f834dfc69fca44cd1ad267674604a9e1"
   },
   {
     "state": "US",
@@ -95,7 +98,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.html",
     "bytes": 39672,
     "sha256": "081b30e840722e75b0d970718efd010ba12b047c644d6bad179ed887df98167e",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partI-sec63.page.txt",
+    "text_sha256": "5b308b9857502845030d09c1bf1647c72640579d0e2f51a1e7a8e53123a21fa0"
   },
   {
     "state": "US",
@@ -109,7 +113,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partV-sec151.html",
     "bytes": 26436,
     "sha256": "d75671cd87a0da96979f6c9d27ecb9fa288eff87fef3352fda2379085d7fd9a5",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partV-sec151.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partV-sec151.page.txt",
+    "text_sha256": "2323d88288dece01b7621ffe6277a156dca580a94f966ca1d64a57ebdbeae4eb"
   },
   {
     "state": "US",
@@ -123,7 +128,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.html",
     "bytes": 26139,
     "sha256": "dfe55bd0a0177d7947b72b4d9d6a3abf541ddd712019418d8bf80eb1da8bf235",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partII-sec86.page.txt",
+    "text_sha256": "ef83272cc34b5303357368ca26c98379cb3ffa22079f319fae2a7eef8e66617b"
   },
   {
     "state": "US",
@@ -137,7 +143,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap2A-sec1411.html",
     "bytes": 7968,
     "sha256": "6a3309b971a4a744fb39f8625be92a1ed8cc71cfd2f36b9a869479a3b925a6ba",
-    "text_file": "USCODE-2024-title26-subtitleA-chap2A-sec1411.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap2A-sec1411.page.txt",
+    "text_sha256": "4bc6d0271fba61f5a46ddeee9afb38aa87f43cac928fa0ba41476b761c312124"
   },
   {
     "state": "US",
@@ -151,7 +158,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVI-sec164.html",
     "bytes": 39229,
     "sha256": "6e30c756bf59f2714beb493a7c128658c056ea935d233cf64c4b53dfa030553b",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVI-sec164.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVI-sec164.page.txt",
+    "text_sha256": "f2d824a6ddd788d32f7c17caa1e4271af97599125bee2f30fc124bf07c424d74"
   },
   {
     "state": "US",
@@ -165,7 +173,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.html",
     "bytes": 81898,
     "sha256": "7ce53cbab04fdfae754912ae29ae121bbca9429a4759133978b8495fce73016c",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec219.page.txt",
+    "text_sha256": "59ea3a9feb29db2ef55465841254654acc33365265a76aa517377da34cecc4c9"
   },
   {
     "state": "US",
@@ -179,7 +188,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.html",
     "bytes": 172165,
     "sha256": "2b0c5656a9c5d84b87cac6d18a3715cb7305f635b449e255a06ed14e04d6dcb0",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.page.txt",
+    "text_sha256": "27f29f72f0d6141e8588600686f5a8dc8b1715491d629116b740f7801b4df3f7"
   },
   {
     "state": "US",
@@ -193,7 +203,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.html",
     "bytes": 231322,
     "sha256": "0ee4c5e82b6a3c9a92cb7fd6495657cd76ee5387ff05d705a8fd9da4254f31a3",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.page.txt",
+    "text_sha256": "23d06b36040d56ae2ec502f62d396e28911f89bdb20e690a983ac2a2325b16de"
   },
   {
     "state": "US",
@@ -207,7 +218,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.html",
     "bytes": 192312,
     "sha256": "04a57ad6d999afe6bd5e11753b998ddd01eb56742fff76074b4e585c4d4eff51",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408.page.txt",
+    "text_sha256": "5e7550b018b29391aa9c82720682c53f3b9e019ff80360bb5cb47c9f9b7eadf3"
   },
   {
     "state": "US",
@@ -221,7 +233,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.html",
     "bytes": 52920,
     "sha256": "6f9729a0cb98a9f4ae7d4f914ccabf43fcf652c8cf104c2166df040f9e3e4428",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec408A.page.txt",
+    "text_sha256": "37c11b25e5663fc1d47b15452f54d3dcf36acbfc1778933b04aa1a2d141719d8"
   },
   {
     "state": "US",
@@ -235,7 +248,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.html",
     "bytes": 483891,
     "sha256": "1bc21f04ab61e4df20d25af8a54281f3890531ed5bd864dd88ed101b7103c947",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec401.page.txt",
+    "text_sha256": "ea8b45039a1949d60112914a78e02ac46916a8d7fe0acb7dc1341ce372b26836"
   },
   {
     "state": "US",
@@ -249,7 +263,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.html",
     "bytes": 48753,
     "sha256": "c08ccbc6fab3f2ee843bb646a2cc9fbfb8294ca53b997dd4756a4f7e2f516226",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.page.txt",
+    "text_sha256": "5dc70ff09d0160fa24061a858f650e9f3be915bd49ded115ddb368524e7d3ff5"
   },
   {
     "state": "US",
@@ -263,7 +278,8 @@
     "file": "USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.html",
     "bytes": 27923,
     "sha256": "b03cce8ba577265ad75ae3c29e59e8ac80fa867a73ae56e4c37da7c08b7df205",
-    "text_file": "USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleC-chap21-subchapA-sec3101.page.txt",
+    "text_sha256": "4521e2a6e2cd0ae2c98a372964e8b3a2e04b68aa010c322b7441ff329912e75f"
   },
   {
     "state": "US",
@@ -277,7 +293,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap2-sec1401.html",
     "bytes": 75593,
     "sha256": "926c70f0a883615521932a6fa887bd7d3df98efea445754181fc98af96bf3df0",
-    "text_file": "USCODE-2024-title26-subtitleA-chap2-sec1401.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap2-sec1401.page.txt",
+    "text_sha256": "e763d123eebc718a388eaa616289d6cbebb79af8e3f467f5760da8898d7485fc"
   },
   {
     "state": "US",
@@ -291,7 +308,8 @@
     "file": "USCODE-2024-title42-chap7-subchapII-sec430.html",
     "bytes": 41249,
     "sha256": "6394f283261fd409aec375cebe928580189fc118820230321b2729d0ba9856ca",
-    "text_file": "USCODE-2024-title42-chap7-subchapII-sec430.page.txt"
+    "text_file": "USCODE-2024-title42-chap7-subchapII-sec430.page.txt",
+    "text_sha256": "cd1921dcfa06f0687897a3f4dd444c856863689af9cd910f5e619d06b6e4c92e"
   },
   {
     "state": "US",
@@ -305,7 +323,8 @@
     "file": "USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.html",
     "bytes": 83492,
     "sha256": "c3b0abe1432bb0f973f23c4324d80455c822beea0af0fc6bd8eef1af28f9d792",
-    "text_file": "USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.page.txt"
+    "text_file": "USCODE-2024-title42-chap7-subchapXVIII-partB-sec1395r.page.txt",
+    "text_sha256": "a8553009d819121669fb947bcf03da132514682cc9f5347af691f6f11ca5c780"
   },
   {
     "state": "US",
@@ -319,7 +338,8 @@
     "file": "USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.html",
     "bytes": 34229,
     "sha256": "303696ec395b2419db156cb8baeea52af30fc99c07f5cc5b0ab7155ef5ee80ed",
-    "text_file": "USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.page.txt"
+    "text_file": "USCODE-2024-title42-chap7-subchapXVIII-partD-subpart2-sec1395w-113.page.txt",
+    "text_sha256": "35b22d1ab489dc92324a16ec1330e759b0c371b19aaf3a9a4cecfe5321a4cb7a"
   },
   {
     "state": "US",
@@ -333,7 +353,8 @@
     "file": "title-42.html",
     "bytes": 1623,
     "sha256": "a196a8d5e800ba745e3693a2e9cd4bb7bbdb02ed7043499e457aa193655ff7f4",
-    "text_file": "title-42.page.txt"
+    "text_file": "title-42.page.txt",
+    "text_sha256": "ad95595fdc22fa67faf87088694a4bb39b0c8bdf5c82a6e8cf62aa1a614656ca"
   },
   {
     "state": "US",
@@ -347,7 +368,8 @@
     "file": "title-26.html",
     "bytes": 1290574,
     "sha256": "1202ee2def783f3d781cd4b88f95892fd736c3a1cc508d7a73aeaa4679bef0e7",
-    "text_file": "title-26.page.txt"
+    "text_file": "title-26.page.txt",
+    "text_sha256": "28669e06d89bf38e0e6973ca5b1f7e4e64af63fb7d5a905029f5c18dad949eaa"
   },
   {
     "state": "US",
@@ -389,7 +411,8 @@
     "file": "USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.html",
     "bytes": 91470,
     "sha256": "65b3673c164a898d40c24c618f66f5c4dbf25baf0734e90ce619c526443cf0d8",
-    "text_file": "USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.page.txt",
+    "text_sha256": "865af13d6d34fbb9ed1cbd2f47afabecee6323f7ff1abc52081c1e71eca8a542"
   },
   {
     "state": "US",
@@ -403,7 +426,8 @@
     "file": "USCODE-2024-title42-chap7-subchapII-sec403.html",
     "bytes": 179611,
     "sha256": "e6ca2430a33645e62c7aaef92a80d32a1faec8349ca68a7ccb492fbe0f36acdd",
-    "text_file": "USCODE-2024-title42-chap7-subchapII-sec403.page.txt"
+    "text_file": "USCODE-2024-title42-chap7-subchapII-sec403.page.txt",
+    "text_sha256": "e41856f027d5cc1bf9e337921d4adb2aab2b3c25cb2687abaf761b4e6538b060"
   },
   {
     "state": "US",
@@ -417,7 +441,8 @@
     "file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.html",
     "bytes": 145769,
     "sha256": "1912ac6d7ed01879595e51098b4f5f5a5357582dce14ea88c24343637278d43a",
-    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.page.txt"
+    "text_file": "USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.page.txt",
+    "text_sha256": "a1e570a15ae8c469602fea175f647fd3a39de55e54c3b508bcc881b0d982448a"
   },
   {
     "state": "US",
@@ -431,6 +456,7 @@
     "file": "USCODE-2024-title42-chap7-subchapII-sec415.html",
     "bytes": 248528,
     "sha256": "c94c0b385a4c95ea4d9d3f1cb28c45ebcb00c71a448aeb208944ac1f8d32a4a4",
-    "text_file": "USCODE-2024-title42-chap7-subchapII-sec415.page.txt"
+    "text_file": "USCODE-2024-title42-chap7-subchapII-sec415.page.txt",
+    "text_sha256": "3a06be14e06cf4cd8f56837eec001ec9d6ad78091c569d1089bc18462bec7ed2"
   }
 ]

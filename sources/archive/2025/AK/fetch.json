@@ -11,6 +11,7 @@
     "file": "index.html",
     "bytes": 18684,
     "sha256": "dd33171965ca776313c8253ba67a51db011cd374d22191a7d24810539b4bff3f",
-    "text_file": "index.page.txt"
+    "text_file": "index.page.txt",
+    "text_sha256": "d509214ce769646b78f7cfabd7068cc52a5e68f7a414bdebaee35cc5d7855c7c"
   }
 ]
