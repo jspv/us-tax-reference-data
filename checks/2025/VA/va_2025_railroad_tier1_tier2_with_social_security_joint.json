@@ -1,0 +1,83 @@
+{
+  "id": "va_2025_railroad_tier1_tier2_with_social_security_joint",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement",
+    "age_deduction_income_based"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 7-9, 11, 12, 14-16; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15 (line 7 'Social Security and Tier 1 Railroad Benefits'); PDF p17 (printed Page 11) Line 5 Social Security Act and Equivalent Tier 1 Railroad Retirement Act Benefits; PDF p26 (printed Page 20) Schedule ADJ code 22 Tier 2 and Other Railroad Retirement benefits; PDF p41 Tax Rate Schedule; Spouse Tax Adjustment Worksheet (PDF p18, printed Page 12), not applied by the projection",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-14"
+      },
+      {
+        "age": 68,
+        "born": "1957-09-03"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "14000.00",
+          "person": 1
+        }
+      ],
+      "railroad_tier1_sseb": [
+        {
+          "amount": "21000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "29750.00"
+    },
+    "federal_agi": "101750.00",
+    "federal_taxable_income": "67050.00"
+  },
+  "expected": {
+    "state_agi": "36000.00",
+    "state_taxable_income": "15040.00",
+    "state_tax_before_credits": "622.00",
+    "credits": "0.00",
+    "state_income_tax": "622.00",
+    "relief_amounts": {
+      "railroad_retirement": "29850.00",
+      "age_deduction_income_based": "24000.00"
+    }
+  },
+  "worked": "Federal (given, not tested): Social Security Benefits Worksheet line 1 = Social Security (spouse) 14,000.00 + Tier 1 social security equivalent benefits (you, Form RRB-1099 box 5) 21,000.00 = 35,000.00; line 2 = 50% = 17,500.00; line 3 other income = Tier 2 railroad annuity (you, Form RRB-1099-R) 12,000.00 + IRA distribution (spouse) 60,000.00 = 72,000.00; lines 4-5 0.00; line 6 = 89,500.00; line 7 0.00; line 8 = 89,500.00; line 9 32,000.00; line 10 = 57,500.00; line 11 12,000.00; line 12 = 45,500.00; line 13 = smaller of lines 10 and 11 = 12,000.00; line 14 = 6,000.00; line 15 = smaller of line 2 and line 14 = 6,000.00; line 16 = 85% x 45,500.00 = 38,675.00; line 17 = 44,675.00; line 18 = 85% x 35,000.00 = 29,750.00; line 19 taxable benefits = 29,750.00. Federal AGI = 72,000.00 + 29,750.00 = 101,750.00. Federal taxable income = 101,750.00 - 31,500.00 standard deduction - 2 x 1,600.00 additional for age 65 or older = 67,050.00 (federal senior deduction ignored). Split of the taxable benefits (projection schema, income_type): Tier 1 = 29,750.00 x 21,000.00 / 35,000.00 = 17,850.00 (railroad_retirement); Social Security = 29,750.00 x 14,000.00 / 35,000.00 = 11,900.00. Form 760 Line 1 federal AGI 101,750.00. Line 2 additions 0.00. Line 3 = 101,750.00. Age 65 and Older Deduction Worksheet (you born 1955-02-14, spouse born 1957-09-03, both income-based): line 1 = 2; line 2 FAGI 101,750.00; lines 3-6 no conformity adjustments; line 7 taxable Social Security and Tier 1 Railroad benefits 29,750.00 (the projection's minus_taxable_social_security takes off Form 1040 line 6b); line 8 AFAGI = 72,000.00; line 9 limit 75,000.00; line 11 excess 0.00; line 12 = 2 x 12,000.00 = 24,000.00; line 14 = 24,000.00; line 15 = 12,000.00 each. Line 4 age deduction = 24,000.00. Line 5 taxable Social Security and Tier 1 = 29,750.00 (the projection: Social Security exempt 11,900.00 + railroad relief Tier 1 part 17,850.00). Line 6 0.00. Line 7 Schedule ADJ subtractions: code 22 Tier 2 railroad 12,000.00. Railroad relief total = 17,850.00 + 12,000.00 = 29,850.00. Line 8 = 24,000.00 + 29,750.00 + 0.00 + 12,000.00 = 65,750.00. Line 9 VAGI = 101,750.00 - 65,750.00 = 36,000.00. Line 11 standard deduction (Filing Status 2) 17,500.00. Line 12 exemptions: 2 x 930.00 + 2 x 800.00 (65 or older) = 3,460.00. Line 14 = 20,960.00. Line 15 Virginia taxable income = 36,000.00 - 20,960.00 = 15,040.00. Line 16 tax, rate schedule (PDF p41): 120.00 + 5% x (15,040.00 - 5,000.00 = 10,040.00) = 120.00 + 502.00 = 622.00. Line 17 Spouse Tax Adjustment 0.00 under the projection (both spouses have income; the form may reduce tax). Credits 0.00. Virginia income tax 622.00.",
+  "accepted_approximations": [
+    "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied."
+  ],
+  "accepted_warnings": [
+    "state_rule_not_modelled:retirement_prev_taxed_other_state"
+  ],
+  "verified": {
+    "by": "independent second working (tools/checks_compare.py)",
+    "on": "2026-11-08",
+    "result": "agrees"
+  }
+}

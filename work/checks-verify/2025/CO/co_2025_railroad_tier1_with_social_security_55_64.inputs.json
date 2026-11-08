@@ -1,0 +1,58 @@
+{
+  "id": "co_2025_railroad_tier1_with_social_security_55_64",
+  "state": "CO",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "co_railroad_benefit",
+    "co_ss_55_64_limited"
+  ],
+  "boundary": "at_or_above",
+  "source": {
+    "publication": "2025 DR 0104 Booklet (Colorado Individual Income Tax), DR 0104 and DR 0104AD; Income Tax Topics: Social Security, Pensions, and Annuities (January 2025)",
+    "section": "DR 0104AD line 3 Social Security Benefits (PDF p.18), federal AGI over 75,000; DR 0104AD line 15 Railroad Benefit; Income Tax Topics p.6 Railroad retirement benefits subtraction ('Tier I benefits (both Social Security Equivalent Benefits (SSEB) and Non-Social Security Equivalent Benefits (NSSEB))', 'not subject to the same $20,000 and $24,000 limits'); DR 0104 lines 1, 10-13",
+    "url": "https://tax.colorado.gov/sites/default/files/documents/Book104_2025.pdf"
+  },
+  "inputs": {
+    "filing_status": "single",
+    "persons": [
+      {
+        "age": 63,
+        "born": "1962-03-10"
+      }
+    ],
+    "income": {
+      "wages": [
+        {
+          "amount": "60000.00",
+          "person": 0
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "24000.00",
+          "person": 0
+        }
+      ],
+      "railroad_tier1_sseb": [
+        {
+          "amount": "16000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "34000.00"
+    },
+    "federal_agi": "94000.00",
+    "federal_taxable_income": "78250.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.co_railroad_benefit",
+    "relief_amounts.co_ss_55_64_full",
+    "relief_amounts.co_ss_55_64_limited"
+  ]
+}

@@ -52,8 +52,7 @@
   "worked": "Federal (given, not tested): Federal AGI = wages (you) 30,000.00 + military retired pay (you) 55,000.00 = 85,000.00. Federal taxable income = 85,000.00 - standard deduction 15,750.00 = 69,250.00 (federal senior deduction ignored). Form 760 Line 1 federal AGI 85,000.00. Line 2 additions 0.00 (no other-state municipal interest). Line 3 = 85,000.00. Line 4 age deduction = 0.00. Line 5 taxable Social Security subtracted = 0.00. Line 6 state refund 0.00. Schedule ADJ Line 6 code 60 military benefits subtraction, each person's own maximum: you: smaller of 55,000.00 and 40,000.00 = 40,000.00; Schedule ADJ Line 7 total = 40,000.00; Form 760 Line 7 = 40,000.00. Line 8 = 0.00 + 0.00 + 0.00 + 40,000.00 = 40,000.00. Line 9 VAGI = 85,000.00 - 40,000.00 = 45,000.00. Line 11 standard deduction (Filing Status 1) = 8,750.00. Line 12 exemptions: Section A 1 x 930.00 = 930.00; Section B 0 x 800.00 (65 or older) = 0.00; total 930.00. Line 14 = 9,680.00. Line 15 Virginia taxable income = 45,000.00 - 9,680.00 = 35,320.00. Line 16 tax, rate schedule (PDF p41) as numbers: 720.00 + 5.75% x (35,320.00 - 17,000.00 = 18,320.00) = 720.00 + 1,053.40 = 1,773.40 (the form rounds to the whole dollar: 1,773.00). Line 17 Spouse Tax Adjustment: not a joint return, 0.00. Credits none modelled or claimed, 0.00. Virginia income tax = 1,773.40. No age deduction (born after January 1, 1961). The 15,000.00 of retired pay over the cap stays taxable.",
   "accepted_warnings": [
     "state_rule_not_modelled:medal_of_honor",
-    "state_rule_not_modelled:retirement_prev_taxed_other_state",
-    "state_rule_not_modelled:ss_tier1_railroad"
+    "state_rule_not_modelled:retirement_prev_taxed_other_state"
   ],
   "verified": {
     "by": "independent second working (tools/checks_compare.py)",

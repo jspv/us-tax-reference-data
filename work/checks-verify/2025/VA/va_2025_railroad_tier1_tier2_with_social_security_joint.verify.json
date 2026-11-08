@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "railroad_retirement": "29850.00",
+      "age_deduction_income_based": "24000.00"
+    },
+    "state_agi": "36000.00",
+    "state_income_tax": "622.00",
+    "state_tax_before_credits": "622.00",
+    "state_taxable_income": "15040.00"
+  },
+  "worked": "Federal check (Form 1040 Social Security Benefits Worksheet, MFJ): L1 SSA-1099 box 5 14,000 + RRB-1099 box 5 21,000 = 35,000.00; L2 50% = 17,500.00; L3 lines 4b+5b = IRA 60,000 + Tier 2 pension 12,000 = 72,000.00; L4 0; L5 89,500.00; L6 0; L7 89,500.00; L8 32,000; L9 57,500.00; L10 12,000; L11 45,500.00; L12 12,000.00; L13 6,000.00; L14 min(17,500, 6,000) = 6,000.00; L15 45,500 x 0.85 = 38,675.00; L16 44,675.00; L17 35,000 x 0.85 = 29,750.00; L18 = 29,750.00 = Form 1040 line 6b (input agrees). Federal AGI = 72,000 + 29,750 = 101,750.00 (input agrees). Federal taxable income: standard deduction 31,500 + 2 x 1,600 = 34,700 gives 67,050.00, but both spouses were born before 1961-01-02 and MAGI 101,750 <= 150,000, so the Schedule 1-A enhanced senior deduction of 12,000 (line 13b) also applies: 101,750 - 34,700 - 12,000 = 55,050.00. The input 67,050.00 omits it; Virginia starts from federal AGI so no Virginia line changes. Split of line 6b (projection schema income_type): Tier 1 part = 29,750 x 21,000 / 35,000 = 17,850.00 (railroad_retirement); Social Security part = 29,750 x 14,000 / 35,000 = 11,900.00 (social_security.treatment exempt). Age 65 and Older Deduction Worksheet: L1 2 (born 1955-02-14 and 1957-09-03, both within 1939-01-02..1961-01-01); L2 FAGI 101,750.00; L3-L5 0; L6 101,750.00; L7 taxable SS and Tier 1 29,750.00; L8 AFAGI 72,000.00 (projection: federal_agi minus_taxable_social_security); L9 75,000; L10 AFAGI below threshold: 12,000 each = 24,000.00 (L11 0, no dollar_for_dollar reduction). relief age_deduction_income_based = 24,000.00. Form 760: L1 FAGI 101,750.00; L2 additions 0; L3 101,750.00; L4 age deduction 24,000.00; L5 taxable Social Security and Tier 1 RR benefits 11,900 + 17,850 = 29,750.00; L6 0; L7 Schedule ADJ code 22 Tier 2 12,000.00; L8 = 24,000 + 29,750 + 0 + 12,000 = 65,750.00; L9 VAGI = 101,750 - 65,750 = 36,000.00 (above the 23,900 joint filing threshold). relief railroad_retirement (exempt_in_full, return) = Tier 2 12,000 + Tier 1 taxable part 17,850 = 29,850.00. L11 standard deduction 17,500.00; L12 exemptions: personal 2 x 930 = 1,860 + age 65 2 x 800 = 1,600 = 3,460.00; L13 0; L14 20,960.00; L15 Virginia taxable income = 36,000 - 20,960 = 15,040.00. L16 tax (rate schedule, 5,000-17,000 band): 120 + 5% x (15,040 - 5,000) = 120 + 502.00 = 622.00. L17 Spouse Tax Adjustment not applied by the projection (approximation). Credits 0.00. State income tax 622.00."
+}

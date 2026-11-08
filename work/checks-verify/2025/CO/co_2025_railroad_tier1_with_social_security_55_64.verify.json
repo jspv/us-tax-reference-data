@@ -1,0 +1,14 @@
+{
+  "expected": {
+    "credits": "0.00",
+    "relief_amounts": {
+      "co_railroad_benefit": "13600.00",
+      "co_ss_55_64_full": "0.00",
+      "co_ss_55_64_limited": "20000.00"
+    },
+    "state_income_tax": "1964.60",
+    "state_tax_before_credits": "1964.60",
+    "state_taxable_income": "44650.00"
+  },
+  "worked": "Federal check (Form 1040 Social Security Benefits Worksheet, single): L1 SSA-1099 box 5 24,000 + RRB-1099 box 5 16,000 = 40,000.00; L2 50% = 20,000.00; L3 wages 60,000.00; L4 0; L5 80,000.00; L6 0; L7 80,000.00; L8 25,000; L9 55,000.00; L10 9,000; L11 46,000.00; L12 9,000.00; L13 4,500.00; L14 min(20,000, 4,500) = 4,500.00; L15 46,000 x 0.85 = 39,100.00; L16 43,600.00; L17 40,000 x 0.85 = 34,000.00; L18 = 34,000.00 = line 6b (input agrees). Federal AGI = 60,000 + 34,000 = 94,000.00 (input agrees). Federal taxable income = 94,000 - 15,750 (single under 65; no senior deduction at 63) = 78,250.00 (input agrees). Split of line 6b (projection schema income_type): Tier 1 part = 34,000 x 16,000 / 40,000 = 13,600.00 (railroad_retirement); Social Security part = 34,000 x 24,000 / 40,000 = 20,400.00. DR 0104AD: L3 Social Security (age 63, 55-64): co_ss_55_64_full income test federal AGI 94,000 > 75,000 single, effect removes -> 0.00; co_ss_55_64_limited = min(20,400, 20,000 cap per person) = 20,000.00; best_of_group co_ss_55_64 keeps the limited 20,000.00. L4 pension: none (no pension income). L15 Railroad Benefit (co_railroad_benefit, exempt_in_full, not subject to the 20,000 limit per Income Tax Topics p.6) = Tier 1 SSEB taxable part 13,600.00 (no Tier 2). L22 total subtractions = 20,000 + 13,600 = 33,600.00. DR 0104: L1 federal taxable income 78,250.00; L2-L9 additions 0; L10 subtotal 78,250.00; L11 subtractions 33,600.00; L12 Colorado taxable income = 78,250 - 33,600 = 44,650.00; L13 tax = 4.4% x 44,650 = 1,964.60 (the booklet table below 50,000 would give 1,965 (row 44,600-44,700, midpoint 44,650, rounded to the dollar); projection uses the exact formula). Credits 0.00. State income tax 1,964.60."
+}

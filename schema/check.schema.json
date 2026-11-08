@@ -201,11 +201,16 @@
               "$ref": "#/$defs/by_person"
             },
             "social_security_gross": {
-              "$ref": "#/$defs/by_person"
+              "$ref": "#/$defs/by_person",
+              "description": "Social Security benefits received (Form SSA-1099 box 5), without railroad Tier 1."
+            },
+            "railroad_tier1_sseb": {
+              "$ref": "#/$defs/by_person",
+              "description": "The social security equivalent part of railroad Tier 1 benefits received (Form RRB-1099 box 5). Federally it goes on the Social Security Benefits Worksheet with social_security_gross, so taxable_social_security is the taxable amount of the two together. For a state it is railroad_retirement income: its taxable part is taxable_social_security x this amount / (social_security_gross + this amount), the split stated in the projection schema's income_type. Tier 2, vested dual benefits and the rest of Tier 1 (Form RRB-1099-R) go in pensions with kind railroad_retirement."
             },
             "taxable_social_security": {
               "$ref": "#/$defs/amount",
-              "description": "The federal taxable amount for the return."
+              "description": "The federal taxable amount for the return, of Social Security and the social security equivalent part of railroad Tier 1 together (Form 1040 line 6b)."
             },
             "interest": {
               "$ref": "#/$defs/amount",

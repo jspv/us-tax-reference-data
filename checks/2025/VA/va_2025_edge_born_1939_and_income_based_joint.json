@@ -71,8 +71,7 @@
     "The Spouse Tax Adjustment (Form 760 Line 17), a reduction of up to 259 for a joint return where both spouses have income, is not applied."
   ],
   "accepted_warnings": [
-    "state_rule_not_modelled:retirement_prev_taxed_other_state",
-    "state_rule_not_modelled:ss_tier1_railroad"
+    "state_rule_not_modelled:retirement_prev_taxed_other_state"
   ],
   "verified": {
     "by": "independent second working (tools/checks_compare.py)",

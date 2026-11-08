@@ -192,7 +192,7 @@
         "brackets"
       ],
       "indexed_from": 2027,
-      "note": "GDP deflator, nearest $50 (R.C. 5747.02(A)(5)); no adjustment in 2025 or 2026 (HB 96 s. 757.120); the 100,000 start ends after 2025"
+      "note": "GDP deflator, nearest $50 (R.C. 5747.02(A)(5)); no adjustment in 2025 or 2026 (HB 96 s. 757.120); the 100,000 start ends after 2025; the band base is recomputed with the start: 1.27448% x the indexed start from 2026 on (R.C. 5747.02(A)(5) and (A)(2); 332.00 at 26,050), so it grows in proportion to the start"
     },
     {
       "figure": "deductions",
@@ -361,6 +361,11 @@
       "what": "School district income tax (SD 100) is local and out of scope (issue #1). Retirement income is taxed only in traditional tax base districts; Social Security is in neither base.",
       "direction": "understates_tax",
       "size": "Depends on the district."
+    },
+    {
+      "what": "Later years (Am. Sub. H.B. 96, 136th General Assembly): from 2026 the schedule is 332.00 plus 2.75% of taxable income over 26,050, with no 3.125% band (R.C. 5747.02(A)(3)(c)). The projection keeps the 2025 schedule: base 342.00 at 26,050 and 3.125% from 100,000 (base 2,394.32).",
+      "direction": "overstates_tax",
+      "size": "From 2026: 10.00 a year between 26,050 and 100,000; about 28.70 at 100,000 (2,394.32 against 2,365.63), plus 0.375% of taxable income over 100,000 (about 403.70 at 200,000)."
     }
   ],
   "recapture": [],

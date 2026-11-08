@@ -773,7 +773,7 @@
           },
           "base": {
             "$ref": "#/$defs/amount",
-            "description": "Printed tax on income up to this band's start. When present it replaces the sum of the lower bands: tax on income above start is base + rate x (income - start). Income exactly at start stays in the band below. Used where a state's table steps up at a threshold (Ohio)."
+            "description": "Printed tax on income up to this band's start. When present it replaces the sum of the lower bands: tax on income above start is base + rate x (income - start). Income exactly at start stays in the band below. Used where a state's table steps up at a threshold (Ohio). When the band starts are indexed, a printed base is recomputed as the statute says, and the indexing entry's note gives the rule (Ohio: the base is 1.27448% x the band's indexed start, R.C. 5747.02(A)(2) and (A)(5), so it grows in proportion to the start)."
           }
         }
       }
@@ -824,7 +824,7 @@
         "other_income",
         "all_income"
       ],
-      "description": "ira_distribution and employer_plan_distribution include required minimum distributions. public_pension is a government pension of this state or the federal government; public_pension_other_state is another state's or its localities'. all_income: the relief applies against any income (an age deduction), not to one kind."
+      "description": "ira_distribution and employer_plan_distribution include required minimum distributions. public_pension is a government pension of this state or the federal government; public_pension_other_state is another state's or its localities'. all_income: the relief applies against any income (an age deduction), not to one kind. railroad_retirement is every Railroad Retirement Act benefit: Tier 1 (its social security equivalent part, Form RRB-1099, and the rest, Form RRB-1099-R), Tier 2, vested dual benefits and supplemental annuities. 45 U.S.C. 231m bars state tax on all of it, and every projection with an income tax exempts it in full. Federally the social security equivalent part of Tier 1 goes on the Social Security Benefits Worksheet with Social Security and yields one taxable amount; for a state that part is railroad_retirement, never social_security. When a return has both, the federal taxable amount is split in proportion to the benefits received: Tier 1's part is taxable benefits x Tier 1 equivalent benefits / (Social Security + Tier 1 equivalent benefits). No booklet prints a split (Colorado points to IRS Publication 915, which has none); the split matters only where a state taxes part of Social Security. A cap reduced by social_security counts Tier 1 only where cap_reduced_by also lists railroad_retirement."
     },
     "measure": {
       "type": "object",
@@ -848,7 +848,8 @@
           "type": "boolean"
         },
         "minus_taxable_social_security": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Take off the federal taxable benefits, Form 1040 line 6b: Social Security and the social security equivalent part of railroad Tier 1 together (Virginia's AFAGI: 'reduced by any taxable Social Security and Tier 1 Railroad Benefits'). When minus_reliefs also lists a relief covering railroad_retirement, that relief's amount counts only railroad income outside line 6b (Tier 2 and the rest of Tier 1), so Tier 1 comes off once."
         },
         "minus_reliefs": {
           "type": "array",

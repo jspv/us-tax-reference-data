@@ -65,8 +65,7 @@
   ],
   "accepted_warnings": [
     "state_rule_not_modelled:medal_of_honor",
-    "state_rule_not_modelled:retirement_prev_taxed_other_state",
-    "state_rule_not_modelled:ss_tier1_railroad"
+    "state_rule_not_modelled:retirement_prev_taxed_other_state"
   ],
   "verified": {
     "by": "independent second working (tools/checks_compare.py)",

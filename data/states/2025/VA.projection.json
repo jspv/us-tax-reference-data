@@ -148,6 +148,20 @@
         "all": "40000"
       },
       "cap_per": "person"
+    },
+    {
+      "id": "railroad_retirement",
+      "from_record": [
+        "railroad_tier2_other",
+        "ss_tier1_railroad"
+      ],
+      "form": "exempt_in_full",
+      "covers": [
+        "railroad_retirement"
+      ],
+      "who": {
+        "basis": "return"
+      }
     }
   ],
   "muni_interest": {
@@ -231,15 +245,6 @@
       "warn_when": "has_military_pension"
     },
     {
-      "id": "ss_tier1_railroad",
-      "from_record": [
-        "ss_tier1_railroad",
-        "railroad_tier2_other"
-      ],
-      "what": "Railroad Retirement benefits: taxable Tier 1 is subtracted with Social Security (Line 5), and Tier 2 and other Railroad Retirement benefits reported as a taxable pension or annuity are subtracted in full (code 22).",
-      "warn_when": "has_pension"
-    },
-    {
       "id": "retirement_prev_taxed_other_state",
       "from_record": [
         "retirement_prev_taxed_other_state"
@@ -292,7 +297,7 @@
       "size": "Only married-separate returns; up to 690 a year per spouse."
     },
     {
-      "what": "AFAGI is taken as federal AGI less taxable Social Security; Virginia also adjusts it for conformity additions and subtractions and takes out taxable Tier 1 Railroad benefits.",
+      "what": "AFAGI is taken as federal AGI less taxable Social Security and Tier 1 Railroad benefits; Virginia also adjusts it for conformity additions and subtractions.",
       "direction": "either",
       "size": "Nil for most retirees; conformity adjustments are mainly business depreciation items."
     },

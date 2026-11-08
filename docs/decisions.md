@@ -221,3 +221,32 @@ Two questions from the same consumer are answered in the schema:
 - `joint_income` speaks only to rules figured per person. Which return carries joint income when spouses
   file separately is outside it. Delaware's booklet says each separate return carries half. Georgia's and
   New Jersey's sources do not say.
+
+## 2026-11-08: railroad Tier 1, Virginia's railroad exemption, Ohio's band base
+
+**Railroad Tier 1.** The format did not say where Tier 1 benefits go. Federally, the social security
+equivalent part of Tier 1 (Form RRB-1099) goes on the Social Security Benefits Worksheet, so Form 1040 line
+6b is one taxable amount for both. 45 U.S.C. 231m bars state tax on every Railroad Retirement Act benefit.
+The schema now says:
+- For a state, Tier 1 is `railroad_retirement` income, never `social_security`.
+- When a return has both, the federal taxable amount is split in proportion to the benefits received. No
+  booklet prints a split: Colorado points to IRS Publication 915, which has none. The split matters only
+  where a state taxes part of Social Security (CO for ages 55-64, CT, MN, MT, NM, RI, UT, VT, WV).
+- `measure.minus_taxable_social_security` takes off all of line 6b. Virginia's AFAGI says "taxable Social
+  Security and Tier 1 Railroad Benefits", and Oregon and New Jersey group Tier 1 with Social Security in
+  their income tests. A relief in `minus_reliefs` that covers railroad income (Missouri) then counts only
+  the railroad income outside line 6b, so Tier 1 comes off once.
+
+Checks gain an optional input `railroad_tier1_sseb`. Two new cases combine Tier 1 with Social Security:
+- Virginia: Tier 1, Tier 2 and Social Security on a joint return.
+- Colorado, age 63: there the split decides the answer, because Tier 1's part is exempt in full while
+  Social Security's part is held to 20,000.
+
+**Virginia** had no railroad exemption in its projection, only a warning. It now exempts railroad
+benefits in full, as every other state does (Schedule ADJ code 22 and Line 5).
+
+**Ohio's band base.** When Ohio resumes indexing in 2027, the printed base of the 2.75% band is recomputed
+as 1.27448% times the indexed start (R.C. 5747.02(A)(5) and (A)(2)). That is 332.00 at 26,050, so the base
+grows in proportion to the start. This is in the indexing note and in the schema's description of `base`.
+Ohio's 2026 schedule (332.00 base, no 3.125% band) had not been recorded as a later-year change. It is now
+an approximation.

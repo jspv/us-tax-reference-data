@@ -1,0 +1,70 @@
+{
+  "id": "va_2025_railroad_tier1_tier2_with_social_security_joint",
+  "state": "VA",
+  "tax_year": 2025,
+  "kind": "relief",
+  "tests": [
+    "railroad_retirement",
+    "age_deduction_income_based"
+  ],
+  "boundary": null,
+  "source": {
+    "publication": "2025 Form 760 Resident Individual Income Tax Instructions (with the 2025 Form 760)",
+    "section": "Form 760 Lines 1-5, 7-9, 11, 12, 14-16; PDF p16 (printed Page 10) Age 65 and Older Deduction Worksheet lines 1-15 (line 7 'Social Security and Tier 1 Railroad Benefits'); PDF p17 (printed Page 11) Line 5 Social Security Act and Equivalent Tier 1 Railroad Retirement Act Benefits; PDF p26 (printed Page 20) Schedule ADJ code 22 Tier 2 and Other Railroad Retirement benefits; PDF p41 Tax Rate Schedule; Spouse Tax Adjustment Worksheet (PDF p18, printed Page 12), not applied by the projection",
+    "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf"
+  },
+  "inputs": {
+    "filing_status": "married_joint",
+    "persons": [
+      {
+        "age": 70,
+        "born": "1955-02-14"
+      },
+      {
+        "age": 68,
+        "born": "1957-09-03"
+      }
+    ],
+    "income": {
+      "pensions": [
+        {
+          "amount": "12000.00",
+          "person": 0,
+          "source": "private",
+          "kind": "railroad_retirement"
+        }
+      ],
+      "ira_distribution": [
+        {
+          "amount": "60000.00",
+          "person": 1
+        }
+      ],
+      "social_security_gross": [
+        {
+          "amount": "14000.00",
+          "person": 1
+        }
+      ],
+      "railroad_tier1_sseb": [
+        {
+          "amount": "21000.00",
+          "person": 0
+        }
+      ],
+      "taxable_social_security": "29750.00"
+    },
+    "federal_agi": "101750.00",
+    "federal_taxable_income": "67050.00"
+  },
+  "asked": [
+    "credits",
+    "relief_amounts",
+    "state_agi",
+    "state_income_tax",
+    "state_tax_before_credits",
+    "state_taxable_income",
+    "relief_amounts.railroad_retirement",
+    "relief_amounts.age_deduction_income_based"
+  ]
+}
