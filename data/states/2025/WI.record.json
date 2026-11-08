@@ -5665,6 +5665,72 @@
  ],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "yes",
+   "index": "CPI-U, U.S. city average, all urban consumers; base: August 2024 (compared with August of the previous year); applies to taxable years beginning after December 31, 2025; rounding: nearest multiple of $10; a multiple of $5 is increased to the next higher multiple of $10",
+   "cite": {
+    "publication": "Wis. Stat. 71.06(2e)(bm), rounding 71.06(2e)(c)",
+    "section": "Wis. Stat. 71.06(2e)(bm), rounding 71.06(2e)(c): \"For taxable years beginning after December 31, 2025, the maximum dollar amount in each tax bracket, and the corresponding minimum dollar amount in the next bracket, under subs. (1r) and (2) (k) and (L), shall be increased each year by a percentage equal to the percentage change between the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August of the previous year and the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August 2024\"",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/06",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "wi_standard_deduction",
+   "indexed": "yes",
+   "index": "CPI-U, U.S. city average, all urban consumers (standard deduction and its AGI phase-out thresholds); base: August 1999 (for the (dp)2. amounts, base year 2015); adjustments only if result exceeds prior year's amount (after 2011); rounding: nearest multiple of $10; a multiple of $5 is increased to the next higher multiple of $10",
+   "cite": {
+    "publication": "Wis. Stat. 71.05(22)(dt)",
+    "section": "Wis. Stat. 71.05(22)(dt): \"the dollar amounts of the standard deduction that is allowable under par. (dp) and all of the dollar amounts of Wisconsin adjusted gross income under par. (dp) shall be increased each year by a percentage equal to the percentage change between the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August of the previous year and ... August 1999\"",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/22",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "wi_personal_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Wis. Stat. 71.05(23)(b)1.-2.",
+    "section": "Wis. Stat. 71.05(23)(b)1.-2.: \"A personal exemption of $700 if the taxpayer is required to file a return ... An exemption of $700 for each dependent\"",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/23",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "wi_age_65_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Wis. Stat. 71.05(23)(b)3.",
+    "section": "Wis. Stat. 71.05(23)(b)3.: \"An additional exemption of $250 if the taxpayer has reached the age of 65 before the close of the taxable year\"",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/23",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "wi_retirement_67",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Wis. Stat. 71.05(6)(b)54. and 54m.c.",
+    "section": "Wis. Stat. 71.05(6)(b)54. and 54m.c.: \"up to $5,000 of payments or distributions received each year ... may claim the subtraction under this subdivision in an amount not to exceed $24,000 for the taxable year, except that if ... both spouses are at least 67 ... may not exceed $48,000\"",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/6/b/54m",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "wi_retirement_5000",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Wis. Stat. 71.05(6)(b)54. and 54m.c.; Wis. Stat. 71.05(6)(b)54.b.-d.",
+    "section": "Wis. Stat. 71.05(6)(b)54. and 54m.c.: \"up to $5,000 of payments or distributions received each year ... may claim the subtraction under this subdivision in an amount not to exceed $24,000 for the taxable year, except that if ... both spouses are at least 67 ... may not exceed $48,000\" | Wis. Stat. 71.05(6)(b)54.b.-d.: \"If the individual is single or files as head of household, his or her federal adjusted gross income in the year to which the exemption claim relates is less than $15,000. ... couple's federal adjusted gross income ... is less than $30,000.\" (also https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/6/b/54)",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/6/b/54m",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated"
   }

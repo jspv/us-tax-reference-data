@@ -498,20 +498,58 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "A single flat rate on net income from 0 (4% for 2024-2025, 3.5% from 2026), so there is no band start to adjust; (g) lets the rate fall from 2027 by a budget-triggered process, not by inflation (statute PDF from the official Legislature page)",
+      "cite": {
+        "publication": "Kentucky Revised Statutes, section 141.020",
+        "section": "141.020(2)(f): \"For taxable years beginning on or after January 1, 2026, the tax shall be three and one-half percent (3.5%) of net income.\"",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56339",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "ky_standard_deduction",
-      "indexed": "not_stated"
+      "indexed": "yes",
+      "index": "CPI-U (US city average, all items, not seasonally adjusted): the prior year amount times the greater of 1 and the ratio of the average CPI-U for the 12 months ending the July 6 months before the tax year to the 12 months ending 18 months before; never falls; no rounding stated (the Department of Revenue publishes the amount) (statute PDF from the official Legislature page)",
+      "cite": {
+        "publication": "Kentucky Revised Statutes, section 141.081",
+        "section": "141.081(2)(a): \"For taxable years beginning after December 31, 2000, and each taxable year thereafter, the standard deduction for the current taxable year shall be equal to the standard deduction for the prior taxable year multiplied by the greater of: 1. The average of the monthly CPI-U figures for the twelve (12) consecutive months ending in and including the July six (6) months prior to the January beginning the current tax year, divided by the average of the monthly CPI-U figures for the twelve (12) months ending in and including the July eighteen (18) months prior to the January beginning the current tax year; or 2. One (1).\"",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=29067",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "ky_pension_exclusion",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute: 31,110, no adjustment language in 141.019 (statute PDF from the official Legislature page)",
+      "cite": {
+        "publication": "Kentucky Revised Statutes, section 141.019",
+        "section": "141.019(1)(g)1.b.: \"For taxable years beginning on or after January 1, 2018, exclude up to thirty-one thousand one hundred ten dollars ($31,110) of total distributions from pension plans, annuity contracts, profit-sharing plans, retirement plans, or employee savings plans.\"",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57914",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "ky_family_size_tax_credit",
-      "indexed": "not_stated",
-      "index": "described as 'based on the federal poverty level' (packet PDF p.3); yearly adjustment not stated"
+      "indexed": "yes",
+      "index": "The income thresholds are the HHS federal poverty guidelines (42 U.S.C. 9902(2)) available on June 30 of the tax year, so they move each year with the guideline; no rounding beyond the published figure (statute PDF from the official Legislature page)",
+      "cite": {
+        "publication": "Kentucky Revised Statutes, section 141.066",
+        "section": "141.066(1)(a): \"'Federal poverty level' means the Health and Human Services poverty guidelines updated periodically in the Federal Register by the United States Department of Health and Human Services under the authority of 42 U.S.C. sec. 9902(2) and available on June 30 of the taxable year\"; (1)(e): \"'Threshold amount' means: 1. For a qualifying individual with no qualifying dependent children, the federal poverty level established for a family unit size of one (1) ...\"",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=49188",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ky_personal_tax_credit_age_65",
+      "indexed": "no",
+      "index": "fixed by statute: 40, no adjustment language for the personal tax credits in 141.020 (subsection number inferred from the printed layout; item 4. exact) (statute PDF from the official Legislature page)",
+      "cite": {
+        "publication": "Kentucky Revised Statutes, section 141.020",
+        "section": "141.020(3)(a)4.: \"An additional forty dollars ($40) credit if the taxpayer has attained the age of sixty-five (65) before the close of the taxable year;\"",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56339",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "all_other",

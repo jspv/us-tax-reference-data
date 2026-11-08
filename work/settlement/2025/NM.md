@@ -118,3 +118,14 @@ Still open:
 - Marker ids: all 14 markers have an `id`. Descriptive ids (no from_record id of their own): `nm_medical_care_credit_property_tax_rebate`, `nm_other_pit_adj_lines`, `nm_lump_sum_averaging`, `nm_other_state_credit_part_year`, `nm_rebates_and_credits`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`, `deductions` (amounts and phase-outs); `relief_caps` covers reliefs.cap (armed forces retirement pay, net capital gains cap). Added `relief_income_tests` (indexed false, assumed) for reliefs.income_test (the Social Security exemption's income limit), which no entry covered.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, N.M. Stat. Ann. 7-2-7 as amended by Laws 2024, ch. 67 (HB 252), section 5
+- `deductions` (deductions): not indexed, N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8
+- `relief_caps` (reliefs.cap): not indexed, N.M. Stat. Ann. 7-2-5.13(A) and 7-2-34(A)(1), (B), as amended by Laws 2024, ch. 67 (HB 252), sections 32 and 8
+- `relief_income_tests` (reliefs.income_test): not indexed, N.M. Stat. Ann. 7-2-5.14 (Laws 2022, ch. 47, s. 7)
+- Record `indexing`: added brackets -> no; added age_65_exemption -> no; added low_middle_income_exemption_single -> no; added low_middle_income_exemption_joint_hoh -> no; added low_middle_income_exemption_separate -> no; added social_security_exemption -> no; added armed_forces_retirement_pay -> no; added net_capital_gains_cap -> no.
+- Flagged figure: the 2025 PIT-1 instructions (PDF p.26, Low- and Middle-Income Tax Exemption Worksheet, line 2) print 20,000 single, 30,000 joint, surviving spouse and head of household, 15,000 married separate, with rates 0.15 / 0.10 / 0.20. The data matches the booklet; no change.

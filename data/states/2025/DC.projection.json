@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/DC.record.json",
-    "sha256": "3ccbc34236d6067e90e772be808387a86d397301a0658efaed66c0f2af6e458d"
+    "sha256": "90062ac679a685bd8cf958b00fcced17492afab88b848abcfe1d0c9f783d89da"
   },
   "has_income_tax": true,
   "brackets": {
@@ -123,18 +123,18 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed by statute (D.C. Code 47-1806.03(a)(11) table, no inflation clause)"
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "follows the federal standard deduction of IRC 63(c) (D.C. Code 47-1801.04(44)), so the federal chained CPI-U adjustment, rounded down to a multiple of 50; DC can decouple by a budget act"
     }
   ],
   "not_modelled": [
@@ -216,6 +216,11 @@
       "what": "Additions to federal AGI other than out-of-state bond interest (qualified small business stock gain excluded under IRC 1202, business items) are not modelled.",
       "direction": "understates_tax",
       "size": "The bracket rate times the excluded gain, for a household that sells qualified small business stock."
+    },
+    {
+      "what": "The 2025 standard deduction (15,000 single, 30,000 joint) is what DC's 2025 forms use, under D.C. Act 26-217, which kept DC on the pre-P.L. 119-21 amount; Congress disapproved that act in P.L. 119-78 (February 18, 2026), and DC's Attorney General's position is that 2025 liabilities do not change. For 2026 DC's estimated-tax booklet uses the federal amounts (16,100 / 32,200), as the projection's indexing (follows the federal deduction) gives.",
+      "direction": "either",
+      "size": "If 2025 were settled at the federal 15,750 single / 31,500 joint instead, DC tax would be 750 x 6% = 45 lower for a single filer in the 6% band (1,500 x 6% = 90 joint)."
     }
   ],
   "recapture": [],

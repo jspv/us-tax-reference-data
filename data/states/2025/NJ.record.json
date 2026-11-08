@@ -886,6 +886,61 @@
  ],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.J.S.A. 54A:2-1(b)(7), as amended by P.L.2020, c.94",
+    "section": "N.J.S.A. 54A:2-1(b)(7), as amended by P.L.2020, c.94: \"(7) for taxable years beginning on or after January 1, 2020: ... Over $20,000.00 but not over $35,000.00 ... Over $75,000.00 but not over $500,000.00 ... Over $500,000.00 but not over $1,000,000.00\"",
+    "url": "https://pub.njleg.gov/bills/2020/PL20/94_.HTM",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "nj_regular_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.J.S.A. 54A:3-1(a),(b)3",
+    "section": "N.J.S.A. 54A:3-1(a),(b)3: \"Each taxpayer shall be allowed a personal exemption of $1,000.00 ... 3. Taxpayer 65 years of age or over at the close of the taxable year - $1,000.00.\"",
+    "url": "https://pub.njleg.gov/Bills/2018/S4000/3960_I1.HTM",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "nj_senior_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.J.S.A. 54A:3-1(a),(b)3",
+    "section": "N.J.S.A. 54A:3-1(a),(b)3: \"Each taxpayer shall be allowed a personal exemption of $1,000.00 ... 3. Taxpayer 65 years of age or over at the close of the taxable year - $1,000.00.\"",
+    "url": "https://pub.njleg.gov/Bills/2018/S4000/3960_I1.HTM",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "nj_pension_exclusion_age62",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.J.S.54A:6-10, as amended by P.L.2021, c.129 (A5539)",
+    "section": "N.J.S.54A:6-10, as amended by P.L.2021, c.129 (A5539): \"for taxable years beginning on or after January 1, 2020, gross income shall not include income of up to $100,000 for a married couple filing jointly, $50,000 for a married person filing separately, or $75,000 for an individual filing as a single taxpayer ... for taxable years beginning on or after January 1, 2021, for a taxpayer with gross income in excess of $100,000, but not more than $125,000, 50 percent of income ... in excess of $125,000, but not more than $150,000, 25 percent\"",
+    "url": "https://pub.njleg.gov/bills/2020/PL21/129_.HTM",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "nj_unclaimed_pension_exclusion",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.J.S.54A:6-10 (the $3,000 earned-income limit; amended by P.L.2021, c.129, s.1) and P.L.1977, c.273 (N.J.S.54A:6-15 other-retirement exclusion)",
+    "section": "N.J.S.54A:6-10 (the $3,000 earned-income limit; amended by P.L.2021, c.129, s.1) and P.L.1977, c.273 (N.J.S.54A:6-15 other-retirement exclusion): \"when received in any tax year by a person aged 62 years or older who received no income in excess of $3,000 from one or more of the sources enumerated in subsections a., b., k. and p. of N.J.S.54A:5-1\"",
+    "url": "https://pub.njleg.gov/bills/2020/PL21/129_.HTM",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated"
   }

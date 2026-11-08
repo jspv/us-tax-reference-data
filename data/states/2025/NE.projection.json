@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/NE.record.json",
-    "sha256": "f0892f0545396dfae972bf4a48037a3844165e5e383edc5de8e3cfc054ae1876"
+    "sha256": "68a482a1cb59545e90a93cb0f5071367582a4267a24ca70b9d54be3405c076f9"
   },
   "has_income_tax": true,
   "brackets": {
@@ -180,19 +180,19 @@
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "CPI-U, 12 months ending Aug 31 vs 2017; rounded down to $50; includes the age 65 additional amount (Neb. Rev. Stat. 77-2716.01(3)(b))"
     },
     {
       "figure": "ne_personal_exemption_credit",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "reliefs:ne_personal_exemption_credit"
-      ]
+      ],
+      "note": "CPI-U vs 2017 (2018 credit 134); nearest dollar; the cap moves with the credit (77-2716.01(1)(b))"
     }
   ],
   "not_modelled": [

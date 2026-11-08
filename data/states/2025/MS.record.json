@@ -321,6 +321,50 @@
   ],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Miss. Code 27-7-5(1)(a)-(b) as amended by 2025 HB 1 (as sent to Governor)",
+        "section": "Miss. Code 27-7-5(1)(a)-(b) as amended by 2025 HB 1 (as sent to Governor): \"(ii) On taxable income in excess of Five Thousand Dollars ($5,000.00) up to and including Ten Thousand Dollars ($10,000.00), or any part thereof, the rate shall be four percent (4%); ... (b)(ii) For calendar year 2024 and all calendar years thereafter, the tax imposed under subparagraph (iii) of paragraph (a) of this subsection upon all taxable income of individuals in excess of Ten Thousand Dollars ($10,000.00), shall be at the following rates: 1. For calendar year 2024 ... 4.7%; 2. For calendar year 2025 ... 4.4%; ... 3. For calendar year 2026 ... and all calendar years thereafter ... four percent (4%)\"",
+        "url": "https://billstatus.ls.state.ms.us/documents/2025/html/HB/0001-0099/HB0001SG.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ms_standard_deduction",
+      "indexed": "no",
+      "index": "fixed by statute. Text read from unicourt.github.io (cic-code-ms release 74, a public copy of the Mississippi Code; the official code is published only by LexisNexis); 27-7-21 also read as existing law in 2022 HB 531 on billstatus.ls.state.ms.us",
+      "cite": {
+        "publication": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions)",
+        "section": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions): \"Standard deduction (27-7-17): 'an optional standard deduction of: Three Thousand Four Hundred Dollars ($3,400.00) through calendar year 1997, Four Thousand Two Hundred Dollars ($4,200.00) for the calendar year 1998 and Four Thousand Six Hundred Dollars ($4,600.00) for each calendar year thereafter in the case of married individuals filing a joint or combined return; ... Three Thousand Four Hundred Dollars ($3,400.00) in the case of a head of family; or Two Thousand Three Hundred Dollars ($2,300.00) in the case of an individual who is not married.' Exemptions (27-7-21): 'a personal exemption of ... Six Thousand Dollars ($6,000.00) for each calendar year thereafter'; 'Twelve Thousand Dollars ($12,000.00) for each calendar year thereafter'; 'an additional exemption of One Thousand Five Hundred Dollars ($1,500.00)' for age 65.\"",
+        "url": "https://billstatus.ls.state.ms.us/documents/2022/html/HB/0500-0599/HB0531IN.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ms_personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute. Text read from unicourt.github.io (cic-code-ms release 74, a public copy of the Mississippi Code; the official code is published only by LexisNexis); 27-7-21 also read as existing law in 2022 HB 531 on billstatus.ls.state.ms.us",
+      "cite": {
+        "publication": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions)",
+        "section": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions): \"Standard deduction (27-7-17): 'an optional standard deduction of: Three Thousand Four Hundred Dollars ($3,400.00) through calendar year 1997, Four Thousand Two Hundred Dollars ($4,200.00) for the calendar year 1998 and Four Thousand Six Hundred Dollars ($4,600.00) for each calendar year thereafter in the case of married individuals filing a joint or combined return; ... Three Thousand Four Hundred Dollars ($3,400.00) in the case of a head of family; or Two Thousand Three Hundred Dollars ($2,300.00) in the case of an individual who is not married.' Exemptions (27-7-21): 'a personal exemption of ... Six Thousand Dollars ($6,000.00) for each calendar year thereafter'; 'Twelve Thousand Dollars ($12,000.00) for each calendar year thereafter'; 'an additional exemption of One Thousand Five Hundred Dollars ($1,500.00)' for age 65.\"",
+        "url": "https://billstatus.ls.state.ms.us/documents/2022/html/HB/0500-0599/HB0531IN.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ms_age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute. Text read from unicourt.github.io (cic-code-ms release 74, a public copy of the Mississippi Code; the official code is published only by LexisNexis); 27-7-21 also read as existing law in 2022 HB 531 on billstatus.ls.state.ms.us",
+      "cite": {
+        "publication": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions)",
+        "section": "Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions): \"Standard deduction (27-7-17): 'an optional standard deduction of: Three Thousand Four Hundred Dollars ($3,400.00) through calendar year 1997, Four Thousand Two Hundred Dollars ($4,200.00) for the calendar year 1998 and Four Thousand Six Hundred Dollars ($4,600.00) for each calendar year thereafter in the case of married individuals filing a joint or combined return; ... Three Thousand Four Hundred Dollars ($3,400.00) in the case of a head of family; or Two Thousand Three Hundred Dollars ($2,300.00) in the case of an individual who is not married.' Exemptions (27-7-21): 'a personal exemption of ... Six Thousand Dollars ($6,000.00) for each calendar year thereafter'; 'Twelve Thousand Dollars ($12,000.00) for each calendar year thereafter'; 'an additional exemption of One Thousand Five Hundred Dollars ($1,500.00)' for age 65.\"",
+        "url": "https://billstatus.ls.state.ms.us/documents/2022/html/HB/0500-0599/HB0531IN.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

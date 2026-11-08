@@ -152,3 +152,13 @@ data/states/2025/NJ.projection.json: ok
 - Marker ids: all 7 markers have an `id`. Each takes its first from_record id, so warning codes are unchanged.
 - Indexing covers: `brackets`, `deductions`; `nj_pension_exclusion` and `nj_unclaimed_exclusion` cover their own reliefs (cap, income test, and the unclaimed exclusion's earned income limit). No split needed.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, N.J.S.A. 54A:2-1(b)(7), as amended by P.L.2020, c.94
+- `deductions` (deductions): not indexed, N.J.S.A. 54A:3-1(a),(b)3
+- `nj_pension_exclusion` (reliefs:nj_pension_exclusion): not indexed, N.J.S.54A:6-10, as amended by P.L.2021, c.129 (A5539)
+- `nj_unclaimed_exclusion` (reliefs:nj_unclaimed_exclusion): not indexed, N.J.S.54A:6-10 (the $3,000 earned-income limit; amended by P.L.2021, c.129, s.1) and P.L.1977, c.273 (N.J.S.54A:6-15 other-retirement exclusion)
+- Record `indexing`: added brackets -> no; added nj_regular_exemption -> no; added nj_senior_exemption -> no; added nj_pension_exclusion_age62 -> no; added nj_unclaimed_pension_exclusion -> no.

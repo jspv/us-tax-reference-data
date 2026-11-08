@@ -151,3 +151,9 @@ taxes paid to other states (Schedule C Line 1). The projection lists them in one
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`. The only inflation sentence (CPI-U, booklet PDF page 1) is about the child care director and staff credits, which are not in the projection.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, La. R.S. 47:32(A): flat 3%. Record `brackets` added as no.
+- `deductions` (projection `deductions`): indexed from 2026, La. R.S. 47:294: CPI-U. Projection `indexed: true, indexed_from: 2026`. Record `la_standard_deduction` added as yes.
+- `relief_caps` (projection `reliefs.cap`): indexed from 2026, La. R.S. 47:44.1(A): CPI-U. Projection `indexed: true, indexed_from: 2026`. Record `la_retirement_income_exemption_65` added as yes. (The 6,000 disability exemption of 47:44.1(B) is not adjusted; it is not in the projection.)

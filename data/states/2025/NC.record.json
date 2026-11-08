@@ -433,11 +433,25 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.C. Gen. Stat. 105-153.7(a)",
+        "section": "N.C. Gen. Stat. 105-153.7(a): \"Except as otherwise provided in subsection (a1) ..., the tax is a percentage of the taxpayer's North Carolina taxable income computed as follows: Taxable Years Beginning Tax: In 2022 4.99%; In 2023 4.75%; In 2024 4.5%; In 2025 4.25%; After 2025 3.99%.\"",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.7.html",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "nc_standard_deduction",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.C. Gen. Stat. 105-153.5(a)(1)",
+        "section": "N.C. Gen. Stat. 105-153.5(a)(1): \"(1) Standard deduction amount. ... the standard deduction amount is equal to the amount listed in the table below based on the taxpayer's filing status: Married, filing jointly/surviving spouse $25,500; Head of Household 19,125; Single 12,750; Married, filing separately 12,750.\"",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.5.html",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "nc_child_deduction",

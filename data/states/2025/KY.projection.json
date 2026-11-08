@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/KY.record.json",
-    "sha256": "7e16835b3024c902189393f85c48f77647ff91d6c010d039a9465824aa93cd35"
+    "sha256": "b5543a816b5522e3d9173f9d4e29197773612809c452073b09f61c4fae3830a6"
   },
   "has_income_tax": true,
   "brackets": {
@@ -405,42 +405,42 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "one flat-rate band from 0 (4% for 2025, 3.5% from 2026, KRS 141.020(2)); later cuts are budget-triggered, not inflation"
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "CPI-U, 12 months ending July, chained from the prior year, never falls (floor of 1); no rounding stated (KRS 141.081(2)(a))"
     },
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed by statute: 31,110 (KRS 141.019(1)(g)1.b.)"
     },
     {
       "figure": "credits",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.credit_amount"
-      ]
+      ],
+      "note": "fixed by statute: 40 (KRS 141.020(3)(a)4.)"
     },
     {
       "figure": "family_size_tax_credit_thresholds",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "reliefs:ky_family_size_tax_credit.income_test"
-      ]
+      ],
+      "note": "the HHS federal poverty guideline available on June 30 of the tax year (KRS 141.066(1)(a), (e)), not a CPI formula"
     }
   ],
   "not_modelled": [

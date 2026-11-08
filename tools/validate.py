@@ -289,7 +289,8 @@ def growable_figures(data: dict) -> list[tuple[str, str | None, str | None]]:
     """(section, id, field) for every amount a projection grows each year."""
     out = []
     if data.get("has_income_tax"):
-        out.append(("brackets", None, None))
+        bands = max((len(v) for v in data.get("brackets", {}).values() if isinstance(v, list)), default=0)
+        out += [("brackets", str(i), None) for i in range(1, bands)] or [("brackets", None, None)]
     if data.get("surtaxes"):
         out.append(("surtaxes", None, None))
     if any("applies_over" in c for c in data.get("capital_gains", [])):
@@ -297,7 +298,12 @@ def growable_figures(data: dict) -> list[tuple[str, str | None, str | None]]:
     if data.get("recapture"):
         out.append(("recapture", None, None))
     for deduction in data.get("base", {}).get("deductions", []):
-        out += [("deductions", deduction["id"], f) for f in ("amount", "phase_out") if f in deduction]
+        if "amount" in deduction:
+            out.append(("deductions", deduction["id"], "amount"))
+        if "phase_out" in deduction:
+            out.append(("deductions", deduction["id"], "phase_out_thresholds"))
+            if any("amount" in step for step in deduction["phase_out"].get("steps", [])):
+                out.append(("deductions", deduction["id"], "phase_out_amounts"))
     for relief in data.get("reliefs", []):
         out += [("reliefs", relief["id"], f) for f in ("cap", "income_test", "credit_amount", "applies_over", "earned_income_limit") if f in relief]
     return out
@@ -317,7 +323,9 @@ def indexing_problems(data: dict) -> list[str]:
     if not any("covers" in e for e in entries):
         return ["indexing: no entry says which figures it covers (covers)"]
     problems = []
-    ids = {"deductions": {d["id"] for d in data.get("base", {}).get("deductions", [])}, "reliefs": {r["id"] for r in data.get("reliefs", [])}}
+    bands = max((len(v) for v in data.get("brackets", {}).values() if isinstance(v, list)), default=0)
+    ids = {"deductions": {d["id"] for d in data.get("base", {}).get("deductions", [])}, "reliefs": {r["id"] for r in data.get("reliefs", [])},
+           "brackets": {str(i) for i in range(1, bands)}}
     selectors = []
     for entry in entries:
         if "covers" not in entry:
@@ -329,8 +337,10 @@ def indexing_problems(data: dict) -> list[str]:
                 problems.append(f"indexing: '{entry['figure']}' covers {text}, but there is no {section} '{ident}'")
             selectors.append((entry["figure"], section, ident, field))
     for section, ident, field in growable_figures(data):
-        matches = [(fig, (s_id is not None) * 2 + (s_field is not None)) for fig, s, s_id, s_field in selectors
-                   if s == section and s_id in (None, ident) and s_field in (None, field)]
+        def level(s_id, s_field):  # an id beats no id; a longer field ('phase_out_thresholds') beats its prefix ('phase_out')
+            return (s_id is not None) * 4 + (len(s_field.split("_")) if s_field else 0)
+        matches = [(fig, level(s_id, s_field)) for fig, s, s_id, s_field in selectors
+                   if s == section and s_id in (None, ident) and (s_field is None or field == s_field or (field or "").startswith(s_field + "_"))]
         name = section + (f":{ident}" if ident else "") + (f".{field}" if field else "")
         if not matches:
             problems.append(f"indexing: no entry covers {name}")

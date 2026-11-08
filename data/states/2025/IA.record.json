@@ -465,6 +465,39 @@
  "capital_gains": [],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "A single flat rate of 3.8% from 0, so there is no threshold to adjust",
+   "cite": {
+    "publication": "Iowa Code, section 422.5",
+    "section": "422.5(1)(a): \"A tax is imposed upon every resident and nonresident of the state ... at a rate of three and eight-tenths percent.\"",
+    "url": "https://www.legis.iowa.gov/docs/code/422.5.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ia_personal_credit",
+   "indexed": "no",
+   "index": "fixed by statute: 40 per person; no inflation, index or adjusted-for language in 422.12 or 422.5",
+   "cite": {
+    "publication": "Iowa Code, section 422.12",
+    "section": "422.12(2)(a): \"A personal exemption credit in the following amounts: (1) For an estate or trust, a single individual, or a married person filing a separate return, forty dollars. ... (4) For a single individual, husband, wife, or head of household, an additional exemption of twenty dollars for each of said individuals who has attained the age of sixty-five years\"",
+    "url": "https://www.legis.iowa.gov/docs/code/422.12.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ia_age_65_credit",
+   "indexed": "no",
+   "index": "fixed by statute: 20 more per person 65 or over; no inflation, index or adjusted-for language in 422.12 or 422.5",
+   "cite": {
+    "publication": "Iowa Code, section 422.12",
+    "section": "422.12(2)(a): \"A personal exemption credit in the following amounts: (1) For an estate or trust, a single individual, or a married person filing a separate return, forty dollars. ... (4) For a single individual, husband, wife, or head of household, an additional exemption of twenty dollars for each of said individuals who has attained the age of sixty-five years\"",
+    "url": "https://www.legis.iowa.gov/docs/code/422.12.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

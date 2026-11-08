@@ -1,0 +1,182 @@
+[
+ {
+  "state": "AL",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 500, 3000"
+  ]
+ },
+ {
+  "state": "AL",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"3000\", \"married_joint\": \"8500\", \"married_separate\": \"4250\", \"head_of_household\": \"5200\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"25999\", \"married_joint\": \"25999\", \"married_separate\": \"12999",
+   "deduction personal_exemption: {\"single\": \"1500\", \"married_joint\": \"3000\", \"married_separate\": \"1500\", \"head_of_household\": \"3000\"}"
+  ]
+ },
+ {
+  "state": "DC",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 10000, 40000, 60000, 250000, 500000"
+  ]
+ },
+ {
+  "state": "DC",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"15000\", \"married_separate\": \"15000\", \"head_of_household\": \"22500\", \"married_joint\": \"30000\", \"qualifying_surviving_spouse\": \"30000\"}",
+   "deduction additional_standard_age65: {\"single\": \"2000\", \"head_of_household\": \"2000\", \"married_joint\": \"1600\", \"married_separate\": \"1600\", \"qualifying_surviving_spouse\": \"1600\"}"
+  ]
+ },
+ {
+  "state": "IL",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "IL",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction il_personal_exemption: {\"single\": \"2850\", \"married_joint\": \"5700\", \"married_separate\": \"2850\", \"head_of_household\": \"2850\", \"qualifying_surviving_spouse\": \"2850\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"250000\", \"married_joint\": \"500000\", \"married_separate\": \"2",
+   "deduction il_age_65_exemption: {\"all\": \"1000\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"250000\", \"married_joint\": \"500000\", \"married_separate\": \"2"
+  ]
+ },
+ {
+  "state": "MD",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 1000, 2000, 3000, 100000, 125000"
+  ]
+ },
+ {
+  "state": "MD",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"3350\", \"married_separate\": \"3350\", \"married_joint\": \"6700\", \"head_of_household\": \"6700\", \"qualifying_surviving_spouse\": \"6700\"}",
+   "deduction personal_exemption: {\"all\": \"3200\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"100000\", \"married_separate\": \"100000\", \"married_joint\": \"1",
+   "deduction age_65_exemption: {\"all\": \"1000\"}"
+  ]
+ },
+ {
+  "state": "MD",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief pension_exclusion cap: {\"all\": \"41200\"}",
+   "relief military_retirement_55_plus cap: {\"all\": \"20000\"}",
+   "relief military_retirement_under_55 cap: {\"all\": \"12500\"}",
+   "relief age_100_income cap: {\"all\": \"100000\"}"
+  ]
+ },
+ {
+  "state": "MD",
+  "figure": "capital_gains_threshold",
+  "covers": [
+   "capital_gains"
+  ],
+  "figures": [
+   "capital_gains"
+  ]
+ },
+ {
+  "state": "MT",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 21100"
+  ]
+ },
+ {
+  "state": "NY",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 8500, 11700, 13900, 80650, 215400"
+  ]
+ },
+ {
+  "state": "NY",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"8000\", \"married_joint\": \"16050\", \"married_separate\": \"8000\", \"head_of_household\": \"11200\", \"qualifying_surviving_spouse\": \"16050\"}"
+  ]
+ },
+ {
+  "state": "NY",
+  "figure": "pension_annuity_exclusion",
+  "covers": [
+   "reliefs:pension_annuity_exclusion"
+  ],
+  "figures": [
+   "relief pension_annuity_exclusion cap: {\"all\": \"20000\"}"
+  ]
+ },
+ {
+  "state": "NY",
+  "figure": "recapture",
+  "covers": [
+   "recapture"
+  ],
+  "figures": [
+   "recapture"
+  ]
+ },
+ {
+  "state": "SC",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 3560, 17840"
+  ]
+ },
+ {
+  "state": "SC",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief sc_retirement_under_65 cap: {\"all\": \"3000\"}",
+   "relief sc_retirement_65_or_older cap: {\"all\": \"10000\"}",
+   "relief sc_age_65_deduction cap: {\"all\": \"15000\"}"
+  ]
+ }
+]

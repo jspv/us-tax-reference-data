@@ -398,3 +398,20 @@ def test_indexing_covers_markers_ids_senior_deduction_and_other_rule(root):
     data["indexing"].append({"figure": "caps2", "indexed": False, "covers": ["reliefs.cap"]})
     data["indexing"][2]["covers"] = ["reliefs:ret_65.income_test"]
     assert "indexing: reliefs:ret_65.cap is covered by more than one entry at the same level: caps, caps2" in validate.projection_shape_problems(data)
+
+
+def test_indexing_selectors_for_one_band_and_phase_out_parts(root):
+    rec = write(root, "ZZ.json", record())
+    data = projection(rec, rec.read_bytes())
+    data["brackets"]["single"] = [{"rate": "0.01", "start": "0"}, {"rate": "0.02", "start": "10000"}, {"rate": "0.03", "start": "125000"}]
+    data["base"]["deductions"] = [{"id": "pe", "amount": {"all": "2400"}, "per": "person",
+                                   "phase_out": {"measure": {"base": "state_agi"}, "threshold": {"all": "40000"}, "effect": "stepped",
+                                                 "steps": [{"status": "all", "over": "40000", "amount": "2150"}]}}]
+    data["indexing"] = [{"figure": "brackets", "indexed": True, "covers": ["brackets"]},
+                        {"figure": "top", "indexed": False, "covers": ["brackets:2"]},
+                        {"figure": "pe", "indexed": True, "covers": ["deductions"]},
+                        {"figure": "tiers", "indexed": False, "covers": ["deductions:pe.phase_out_thresholds"]},
+                        {"figure": "rest", "indexed": False, "covers": ["reliefs.cap"]}]
+    assert validate.indexing_problems(data) == []
+    data["indexing"][1]["covers"] = ["brackets:9"]
+    assert "indexing: 'top' covers brackets:9, but there is no brackets '9'" in validate.indexing_problems(data)

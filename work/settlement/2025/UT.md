@@ -98,3 +98,17 @@ The 120 and 96 use the 2025 federal extras in `docs/checks-brief.md`, not Utah's
 - Marker ids: all 9 markers have an `id`. Descriptive ids (no from_record id of their own): `ut_dependent_credits`, `ut_other_credits`, `ut_part_year_nonresident`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`; `deductions` (Utah has no base deduction) now covers the two relief figures that are the federal standard deduction: reliefs:taxpayer_tax_credit.cap and reliefs:qualified_exempt_taxpayer.income_test; `relief_caps` covers reliefs.cap. Added `relief_income_tests` (reliefs.income_test) and `relief_credit_amounts` (reliefs.credit_amount), indexed false, assumed, which no entry covered.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, Utah Code 59-10-104(2)
+- `deductions` (reliefs:taxpayer_tax_credit.cap, reliefs:qualified_exempt_taxpayer.income_test): indexed, Utah Code 59-10-1018(2)(a); 59-10-104.1(1)(b), (2)
+- `retirement_credit_cap` (reliefs:retirement_credit.cap): not indexed, Utah Code 59-10-1019(2)
+- `taxpayer_tax_credit_income_test` (reliefs:taxpayer_tax_credit.income_test): indexed, Utah Code 59-10-1018(4)-(5)
+- `retirement_credit_income_test` (reliefs:retirement_credit.income_test): not indexed, Utah Code 59-10-1019(4)
+- `social_security_credit_income_test` (reliefs:social_security_credit.income_test): not indexed, Utah Code 59-10-1042(4)
+- `relief_credit_amounts` (reliefs.credit_amount): not indexed, Utah Code 59-10-1019(2)
+- Record `indexing`: added brackets -> no; added utah_taxpayer_tax_credit -> yes; added utah_federal_standard_deduction -> yes; added utah_qualified_exempt_taxpayer -> yes; added utah_retirement_credit -> no; added utah_social_security_credit -> no.
+- `deductions` already covered reliefs:taxpayer_tax_credit.cap and reliefs:qualified_exempt_taxpayer.income_test, so those split parts of `relief_caps` and `relief_income_tests` stay with it.

@@ -517,6 +517,50 @@
   ],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "scheduled: fixed tables by year, no inflation index in 235-51. The 2025-2026 table has its first band to 9,600 (single and separate) and 19,200 (joint); the 2027-2028 table 14,400 and 28,800; the table for years after 2028 (no end date) 19,200 and 38,400; rates 1.40% to 11.00% unchanged (Act 46, SLH 2024, HB2404 CD1). Read on data.capitol.hawaii.gov (www.capitol.hawaii.gov refused the fetch)",
+      "cite": {
+        "publication": "Hawaii Revised Statutes, section 235-51",
+        "section": "235-51(a)-(c): \"In the case of any taxable year beginning after December 31, 2024: ... Not over $9,600 1.40% of taxable income Over $9,600 but not over $14,400 $134.00 plus 3.20% of excess over $9,600 ...\" and further tables \"In the case of any taxable year beginning after December 31, 2026\" and \"after December 31, 2028\"",
+        "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0051.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "no",
+      "index": "scheduled: single and separate 4,400, joint 8,800, head of household 6,424 for 2024-2025; 8,000 / 16,000 / 12,000 for 2026-2027; 9,000 / 18,000 / 13,500 for 2028-2029; 10,000 / 20,000 / 15,000 for 2030; 12,000 / 24,000 / 18,000 from 2031 (separate as single); 235-2.4(a)(1) makes the federal inflation adjustment of IRC 63(c)(4) not operative",
+      "cite": {
+        "publication": "Hawaii Revised Statutes, section 235-2.4",
+        "section": "235-2.4(a)(2)(E)-(I): \"(E) For taxable years beginning after December 31, 2023: (i) $8,800 ... (iii) $4,400 ...; (F) For taxable years beginning after December 31, 2025: (i) $16,000 ... (iii) $8,000 ...; (G) ... after December 31, 2027: $18,000 ...; (H) ... after December 31, 2029: $20,000 ...; (I) ... after December 31, 2030: $24,000 ...\"",
+        "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0002_0004.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 1,144 per exemption since 1985",
+      "cite": {
+        "publication": "Hawaii Revised Statutes, section 235-54",
+        "section": "235-54(a): \"add an additional exemption for the taxpayer or the taxpayer's spouse who is sixty-five years of age or older within the taxable year, and multiply that number by $1,144, for taxable years beginning after December 31, 1984.\"",
+        "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0054.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: one more exemption of 1,144 at age 65",
+      "cite": {
+        "publication": "Hawaii Revised Statutes, section 235-54",
+        "section": "235-54(a): \"add an additional exemption for the taxpayer or the taxpayer's spouse who is sixty-five years of age or older within the taxable year, and multiply that number by $1,144, for taxable years beginning after December 31, 1984.\"",
+        "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0054.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated",
       "cite": {

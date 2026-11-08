@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/OK.record.json",
-  "sha256": "6ebb90e6a5b10d4176d780ae4f3c2ead89b0d751b5736ad9ce34b6b29889f65e"
+  "sha256": "9c5216b1ba7cf0e0ddfae8ccfcf55275ff98a7627dd8d4e7e856bd99e62695bc"
  },
  "has_income_tax": true,
  "brackets": {
@@ -244,26 +244,26 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "fixed bands (68 O.S. 2355(C))"
   },
   {
    "figure": "deductions",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "fixed amounts (68 O.S. 2358)"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed 10,000 (68 O.S. 2358)"
   }
  ],
  "not_modelled": [

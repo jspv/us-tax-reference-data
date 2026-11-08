@@ -1,0 +1,266 @@
+[
+ {
+  "state": "CO",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(1.7)(c) ... with respect to taxable years commencing on or after January 1, 2022, a tax of four and forty one-hundredths percent is imposed on the federal taxable income",
+  "section": "C.R.S. 39-22-104(1.7)(c)",
+  "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+  "confidence": "high",
+  "notes": "Colorado has a single flat rate (4.40% for 2022 onward, subject to the separate TABOR temporary-reduction mechanism in 39-22-627); there are no bracket thresholds, so the only band start (0) cannot be indexed. Source is the 2024 Colorado Revised Statutes printout (Title 39 PDF)."
+ },
+ {
+  "state": "CO",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "Amounts subtracted under this subsection (4)(f) are capped at twenty thousand dollars per tax year for any individual who is fifty-five years of age or older but less than sixty-five... capped at twenty-four thousand dollars per tax year for any individual who is sixty-five years of age or older",
+  "section": "C.R.S. 39-22-104(4)(f)(III)(A),(B); military: 39-22-104(4)(y)(I)(D) 'Fifteen thousand dollars for income tax years commencing on or after January 1, 2022, but before January 1, 2029'",
+  "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+  "confidence": "medium",
+  "notes": "Fixed dollar amounts, no inflation language in (4)(f) or (4)(y) of the 2024 C.R.S. A 2024 interim-committee draft (Bill 7, LLS 25-0221) and SB25-136 proposed changes (the draft would index caps to the Denver-Aurora-Lakewood CPI) but those are bills; I did not confirm enactment of anything touching (4)(f) after 2024 (SB25-136 as introduced removed the caps from 2026). Re-check the current-year statute if the dataset covers years after 2025. The military cap also sunsets (tax years before 2029) - fixed, not indexed. The SS-related increase of the cap to the amount of SS benefits is a floor tied to actual benefits, not an indexation."
+ },
+ {
+  "state": "CO",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "quote": "the taxpayer's adjusted gross income for the applicable tax year is less than or equal to seventy-five thousand dollars if filing individually or ninety-five thousand dollars if filing jointly",
+  "section": "C.R.S. 39-22-104(4)(f)(III)(A)",
+  "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+  "confidence": "medium",
+  "notes": "Fixed dollar thresholds in the 2024 statute printout; no adjustment language. Same caveat as relief_caps about later bills."
+ },
+ {
+  "state": "IA",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "A tax is imposed upon every resident and nonresident of the state ... at a rate of three and eight-tenths percent.",
+  "section": "Iowa Code 422.5(1)(a)",
+  "url": "https://www.legis.iowa.gov/docs/code/422.5.pdf",
+  "confidence": "high",
+  "notes": "Flat 3.8% rate; no brackets so nothing to index (band start 0 only)."
+ },
+ {
+  "state": "IA",
+  "figure": "credits",
+  "answer": "not_indexed",
+  "quote": "A personal exemption credit in the following amounts: (1) For an estate or trust, a single individual, or a married person filing a separate return, forty dollars. ... (4) For a single individual, husband, wife, or head of household, an additional exemption of twenty dollars for each of said individuals who has attained the age of sixty-five years",
+  "section": "Iowa Code 422.12(2)(a)",
+  "url": "https://www.legis.iowa.gov/docs/code/422.12.pdf",
+  "confidence": "high",
+  "notes": "Fixed dollar amounts; I searched the full text of 422.12 and 422.5 for inflation/index/adjusted-for and found no indexing language."
+ },
+ {
+  "state": "LA",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "shall be computed at the rate of three percent on net income.",
+  "section": "La. R.S. 47:32(A)",
+  "url": "https://legis.la.gov/Legis/Law.aspx?d=101946",
+  "confidence": "high",
+  "notes": "Flat 3% since 2025 (47:32(B) repealed by Acts 2024, 3rd Ex. Sess., No. 11); no brackets to index."
+ },
+ {
+  "state": "LA",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "CPI-U, United States city average, all urban consumers (BLS), or successor",
+  "base_year": "prior year's standard deduction multiplied by the percentage increase for the previous calendar year; first adjustment January 1, 2026",
+  "rounding": "none stated",
+  "quote": "Beginning January 1, 2026, and thereafter, the amount of the standard deduction provided in Subsection A of this Section shall be adjusted annually by an amount calculated by multiplying the amount of the prior year's standard deduction by the percentage increase in the Consumer Price Index United States city average for all urban consumers (CPI-U) as reported by the United States Department of Labor, Bureau of Labor Statistics, or its successor, for the previous calendar year.",
+  "section": "La. R.S. 47:294",
+  "url": "https://legis.la.gov/legis/LawPrint.aspx?d=101761",
+  "confidence": "high",
+  "notes": "$12,500 single/married separate; joint, qualified surviving spouse, head of household are 200% of the single amount. The $12,500/$25,000 are the 2025 values; indexing starts with 2026."
+ },
+ {
+  "state": "LA",
+  "figure": "relief_caps",
+  "answer": "indexed",
+  "index": "CPI-U, United States city average, all urban consumers (BLS), or successor",
+  "base_year": "prior year's exemption multiplied by the percentage increase for the previous calendar year; first adjustment January 1, 2026",
+  "rounding": "none stated",
+  "quote": "The amount of the exemption provided for in this Subsection shall be adjusted annually beginning January 1, 2026, by an amount calculated by multiplying the amount of the prior year's exemption by the percentage increase in the Consumer Price Index United States city average for all urban consumers (CPI-U), as reported by the United States Department of Labor, Bureau of Labor Statistics, or its successor, for the previous calendar year.",
+  "section": "La. R.S. 47:44.1(A)",
+  "url": "https://legis.la.gov/Legis/Law.aspx?d=102133",
+  "confidence": "high",
+  "notes": "Twelve thousand dollars of annual retirement income, age 65+. Acts 2024, 3rd Ex. Sess., No. 11. The $6,000 disability exemption in 47:44.1(B) has no adjustment (not in this item). A LDR notice reported $12,324 for 2026 (secondary mention, not verified on ldr site)."
+ },
+ {
+  "state": "MO",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "CPI-U, All Urban Consumers, U.S., BLS",
+  "base_year": "average CPI for the 12 months ending August 31 of the preceding calendar year compared with the average for September 1, 2014 through August 31, 2015",
+  "rounding": "not stated in the text I read",
+  "quote": "Beginning with the 2017 calendar year, the brackets of Missouri taxable income identified in subsection 1 of this section shall be adjusted annually by the percent increase in inflation.",
+  "section": "RSMo 143.011.5 (definitions in 143.011.6)",
+  "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.011",
+  "confidence": "high",
+  "notes": "Statutory base table runs $1,000 to $9,000; the listed band starts (1,313 ... 6,565) are the adjusted values. Director of Revenue publishes the brackets annually."
+ },
+ {
+  "state": "MO",
+  "figure": "head_of_household_additional_exemption",
+  "answer": "not_indexed",
+  "quote": "a resident who qualifies as an unmarried head of household or as a surviving spouse for federal income tax purposes may deduct an additional one thousand four hundred dollars.",
+  "section": "RSMo 143.161.2",
+  "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.161",
+  "confidence": "high",
+  "notes": "Fixed $1,400, no inflation language in the section."
+ },
+ {
+  "state": "MO",
+  "figure": "relief_caps",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:public_pension_subtraction.cap",
+    "answer": "indexed",
+    "quote": "the term \"maximum Social Security benefit available\" shall mean thirty-two thousand five hundred dollars ... and for each subsequent tax year such amount shall be increased by the percentage increase in the Consumer Price Index for All Urban Consumers, or its successor index",
+    "section": "RSMo 143.124.5",
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.124"
+   },
+   {
+    "covers": "reliefs:private_pension_subtraction.cap",
+    "answer": "not_indexed",
+    "quote": "a maximum of the first six thousand dollars of any retirement allowance received from any privately funded sources",
+    "section": "RSMo 143.124.3",
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.124"
+   }
+  ],
+  "quote": "see split",
+  "section": "RSMo 143.124",
+  "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.124",
+  "confidence": "medium",
+  "notes": "Public pension cap equals the 'maximum Social Security benefit available' ($32,500 base, increased by CPI-U percentage increase each subsequent year); the exact year-by-year compounding and rounding are not spelled out in the part I read, and 47,633 is the dataset's 2025 value. Private pension $6,000 is fixed."
+ },
+ {
+  "state": "MO",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "quote": "If the taxpayer's filing status is single, head of household or qualifying widow(er) and the taxpayer's Missouri adjusted gross income is less than twenty-five thousand dollars ... married filing combined ... less than thirty-two thousand dollars ... married filing separately ... less than sixteen thousand dollars.",
+  "section": "RSMo 143.124.3",
+  "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.124",
+  "confidence": "medium",
+  "notes": "Fixed thresholds; subsection 9 only adjusts the 25,000/32,000 levels if federal Social Security taxability exemption levels change (not inflation). I did not see the full measure definition (tax-exempt interest etc.), which is not relevant to indexing. Public-pension test (143.124.5) is not in this item and was repealed for 2024+."
+ },
+ {
+  "state": "NJ",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(7) for taxable years beginning on or after January 1, 2020: ... Over $20,000.00 but not over $35,000.00 ... Over $75,000.00 but not over $500,000.00 ... Over $500,000.00 but not over $1,000,000.00",
+  "section": "N.J.S.A. 54A:2-1(b)(7), as amended by P.L.2020, c.94",
+  "url": "https://pub.njleg.gov/bills/2020/PL20/94_.HTM",
+  "confidence": "medium",
+  "notes": "Fixed schedule of dollar amounts; I found no inflation or index language in the amending chapter. The official NJ statute database (lis.njleg.state.nj.us) did not load, so I read the amending session law, not the codified section."
+ },
+ {
+  "state": "NJ",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "Each taxpayer shall be allowed a personal exemption of $1,000.00 ... 3. Taxpayer 65 years of age or over at the close of the taxable year - $1,000.00.",
+  "section": "N.J.S.A. 54A:3-1(a),(b)3",
+  "url": "https://pub.njleg.gov/Bills/2018/S4000/3960_I1.HTM",
+  "confidence": "medium",
+  "notes": "Fixed $1,000 amounts. Text is current section 54A:3-1 as reproduced (unamended parts) in introduced S3960 (2018-19) on the NJ Legislature site; the codified-statute site was unreachable. No inflation language in the section."
+ },
+ {
+  "state": "NJ",
+  "figure": "nj_pension_exclusion",
+  "answer": "not_indexed",
+  "quote": "for taxable years beginning on or after January 1, 2020, gross income shall not include income of up to $100,000 for a married couple filing jointly, $50,000 for a married person filing separately, or $75,000 for an individual filing as a single taxpayer ... for taxable years beginning on or after January 1, 2021, for a taxpayer with gross income in excess of $100,000, but not more than $125,000, 50 percent of income ... in excess of $125,000, but not more than $150,000, 25 percent",
+  "section": "N.J.S.54A:6-10, as amended by P.L.2021, c.129 (A5539)",
+  "url": "https://pub.njleg.gov/bills/2020/PL21/129_.HTM",
+  "confidence": "medium",
+  "notes": "Amounts and income steps are fixed in the statute (scheduled changes ended with the 2021 steps); I searched the chapter text for inflation/adjust and found none. Codified-statute site was unreachable so this is the amending session law."
+ },
+ {
+  "state": "NJ",
+  "figure": "nj_unclaimed_exclusion",
+  "answer": "not_indexed",
+  "quote": "when received in any tax year by a person aged 62 years or older who received no income in excess of $3,000 from one or more of the sources enumerated in subsections a., b., k. and p. of N.J.S.54A:5-1",
+  "section": "N.J.S.54A:6-10 (the $3,000 earned-income limit; amended by P.L.2021, c.129, s.1) and P.L.1977, c.273 (N.J.S.54A:6-15 other-retirement exclusion)",
+  "url": "https://pub.njleg.gov/bills/2020/PL21/129_.HTM",
+  "confidence": "medium",
+  "notes": "Cap and income-test amounts are the same fixed amounts as nj_pension_exclusion; the $3,000 limit is fixed. No inflation language in the chapter."
+ },
+ {
+  "state": "PA",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "a tax upon each dollar of income received by that resident during that resident's taxable year at the rate of three and seven hundredths per cent.",
+  "section": "Tax Reform Code of 1971, Art. III, Section 302(a) (72 P.S. 7302)",
+  "url": "https://www.palegis.us/statutes/unconsolidated/law-information/view-statute?txtType=PDF&SessYr=1971&ActNum=0002.&SessInd=0",
+  "confidence": "high",
+  "notes": "Flat 3.07%; no brackets to index."
+ },
+ {
+  "state": "WI",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "CPI-U, U.S. city average, all urban consumers",
+  "base_year": "August 2024 (compared with August of the previous year); applies to taxable years beginning after December 31, 2025",
+  "rounding": "nearest multiple of $10; a multiple of $5 is increased to the next higher multiple of $10",
+  "quote": "For taxable years beginning after December 31, 2025, the maximum dollar amount in each tax bracket, and the corresponding minimum dollar amount in the next bracket, under subs. (1r) and (2) (k) and (L), shall be increased each year by a percentage equal to the percentage change between the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August of the previous year and the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August 2024",
+  "section": "Wis. Stat. 71.06(2e)(bm), rounding 71.06(2e)(c)",
+  "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/06",
+  "confidence": "high",
+  "notes": "Increase happens only if the result is greater than the prior year's amount. Dataset's 14,680/50,480/323,290 are the 2025 values (71.06(1r))."
+ },
+ {
+  "state": "WI",
+  "figure": "deductions",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "deductions:wi_standard_deduction",
+    "answer": "indexed",
+    "quote": "the dollar amounts of the standard deduction that is allowable under par. (dp) and all of the dollar amounts of Wisconsin adjusted gross income under par. (dp) shall be increased each year by a percentage equal to the percentage change between the U.S. consumer price index for all urban consumers, U.S. city average, for the month of August of the previous year and ... August 1999",
+    "section": "Wis. Stat. 71.05(22)(dt)",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/22"
+   },
+   {
+    "covers": "deductions:wi_personal_exemption",
+    "answer": "not_indexed",
+    "quote": "A personal exemption of $700 if the taxpayer is required to file a return ... An exemption of $700 for each dependent",
+    "section": "Wis. Stat. 71.05(23)(b)1.-2.",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/23"
+   },
+   {
+    "covers": "deductions:wi_age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "An additional exemption of $250 if the taxpayer has reached the age of 65 before the close of the taxable year",
+    "section": "Wis. Stat. 71.05(23)(b)3.",
+    "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/23"
+   }
+  ],
+  "index": "CPI-U, U.S. city average, all urban consumers (standard deduction and its AGI phase-out thresholds)",
+  "base_year": "August 1999 (for the (dp)2. amounts, base year 2015); adjustments only if result exceeds prior year's amount (after 2011)",
+  "rounding": "nearest multiple of $10; a multiple of $5 is increased to the next higher multiple of $10",
+  "quote": "see split",
+  "section": "Wis. Stat. 71.05(22)(dt); 71.05(23)(b)",
+  "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/22",
+  "confidence": "high",
+  "notes": "The (dt) indexing covers both the standard-deduction amounts and the Wisconsin AGI phase-out thresholds in (dp). Exemptions ($700/$250) have no adjustment language in 71.05(23). The 71.05(22)(dt) dependent-filer figures are separate and not in this item."
+ },
+ {
+  "state": "WI",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "up to $5,000 of payments or distributions received each year ... may claim the subtraction under this subdivision in an amount not to exceed $24,000 for the taxable year, except that if ... both spouses are at least 67 ... may not exceed $48,000",
+  "section": "Wis. Stat. 71.05(6)(b)54. and 54m.c.",
+  "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/6/b/54m",
+  "confidence": "high",
+  "notes": "Fixed amounts; I read the full text of subds. 54 and 54m and found no inflation or index wording."
+ },
+ {
+  "state": "WI",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "quote": "If the individual is single or files as head of household, his or her federal adjusted gross income in the year to which the exemption claim relates is less than $15,000. ... couple's federal adjusted gross income ... is less than $30,000.",
+  "section": "Wis. Stat. 71.05(6)(b)54.b.-d.",
+  "url": "https://docs.legis.wisconsin.gov/statutes/statutes/71/i/05/6/b/54",
+  "confidence": "high",
+  "notes": "Fixed thresholds; no adjustment wording in subd. 54."
+ }
+]

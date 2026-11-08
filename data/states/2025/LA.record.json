@@ -319,6 +319,39 @@
   ],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "A single flat rate of 3% from 2025 (47:32(B) repealed by Acts 2024, 3rd Ex. Sess., No. 11), so there are no brackets to adjust",
+      "cite": {
+        "publication": "Louisiana Revised Statutes, R.S. 47:32",
+        "section": "47:32(A): \"shall be computed at the rate of three percent on net income.\"",
+        "url": "https://legis.la.gov/Legis/Law.aspx?d=101946",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "la_standard_deduction",
+      "indexed": "yes",
+      "index": "CPI-U (US city average, all urban consumers, BLS): each year the prior year amount times the percentage increase in the CPI-U of the previous calendar year, beginning January 1, 2026 (12,500 and 25,000 are the 2025 amounts); no rounding stated",
+      "cite": {
+        "publication": "Louisiana Revised Statutes, R.S. 47:294",
+        "section": "47:294: \"Beginning January 1, 2026, and thereafter, the amount of the standard deduction provided in Subsection A of this Section shall be adjusted annually by an amount calculated by multiplying the amount of the prior year's standard deduction by the percentage increase in the Consumer Price Index United States city average for all urban consumers (CPI-U) as reported by the United States Department of Labor, Bureau of Labor Statistics, or its successor, for the previous calendar year.\"",
+        "url": "https://legis.la.gov/legis/LawPrint.aspx?d=101761",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "la_retirement_income_exemption_65",
+      "indexed": "yes",
+      "index": "CPI-U (US city average, all urban consumers, BLS): each year the prior year exemption times the percentage increase in the CPI-U of the previous calendar year, beginning January 1, 2026 (12,000 for 2025); no rounding stated",
+      "cite": {
+        "publication": "Louisiana Revised Statutes, R.S. 47:44.1",
+        "section": "47:44.1(A): \"The amount of the exemption provided for in this Subsection shall be adjusted annually beginning January 1, 2026, by an amount calculated by multiplying the amount of the prior year's exemption by the percentage increase in the Consumer Price Index United States city average for all urban consumers (CPI-U), as reported by the United States Department of Labor, Bureau of Labor Statistics, or its successor, for the previous calendar year.\"",
+        "url": "https://legis.la.gov/Legis/Law.aspx?d=102133",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

@@ -492,7 +492,69 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": "not_stated"
+   "indexed": "no",
+   "index": "A single flat rate (4.40% from 2022) from 0, so there is no threshold to adjust (the TABOR temporary rate reduction of 39-22-627 is separate)",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(1.7)(c): \"with respect to taxable years commencing on or after January 1, 2022, a tax of four and forty one-hundredths percent is imposed on the federal taxable income\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "co_pension_65_plus",
+   "indexed": "no",
+   "index": "fixed by statute: 24,000, no inflation language; later bills (SB25-136, 2024 interim draft) proposed changes, enactment not confirmed",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(4)(f)(III)(A),(B): \"Amounts subtracted under this subsection (4)(f) are capped at twenty thousand dollars per tax year for any individual who is fifty-five years of age or older but less than sixty-five... capped at twenty-four thousand dollars per tax year for any individual who is sixty-five years of age or older\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "co_pension_55_64",
+   "indexed": "no",
+   "index": "fixed by statute: 20,000, no inflation language; later bills (SB25-136, 2024 interim draft) proposed changes, enactment not confirmed",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(4)(f)(III)(A),(B): \"Amounts subtracted under this subsection (4)(f) are capped at twenty thousand dollars per tax year for any individual who is fifty-five years of age or older but less than sixty-five... capped at twenty-four thousand dollars per tax year for any individual who is sixty-five years of age or older\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "co_ss_55_64_limited",
+   "indexed": "no",
+   "index": "fixed by statute: 20,000 (the subsection (4)(f) cap), no inflation language; later bills (SB25-136, 2024 interim draft) proposed changes, enactment not confirmed",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(4)(f)(III)(A),(B): \"Amounts subtracted under this subsection (4)(f) are capped at twenty thousand dollars per tax year for any individual who is fifty-five years of age or older but less than sixty-five... capped at twenty-four thousand dollars per tax year for any individual who is sixty-five years of age or older\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "co_ss_55_64_full",
+   "indexed": "no",
+   "index": "fixed by statute: federal AGI 75,000 single, 95,000 joint, no adjustment language; later bills (SB25-136, 2024 interim draft) proposed changes, enactment not confirmed",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(4)(f)(III)(A): \"the taxpayer's adjusted gross income for the applicable tax year is less than or equal to seventy-five thousand dollars if filing individually or ninety-five thousand dollars if filing jointly\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "co_military_retirement_under_55",
+   "indexed": "no",
+   "index": "fixed by statute: 15,000 for tax years 2022 through 2028 (the amount sunsets), no inflation language",
+   "cite": {
+    "publication": "Colorado Revised Statutes 2024, section 39-22-104",
+    "section": "39-22-104(4)(y)(I)(D): \"Fifteen thousand dollars for income tax years commencing on or after January 1, 2022, but before January 1, 2029\"",
+    "url": "https://content.leg.colorado.gov/sites/default/files/images/olls/crs2024-title-39.pdf",
+    "accessed": "2026-11-08"
+   }
   },
   {
    "figure": "all_other",

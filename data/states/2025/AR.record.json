@@ -638,11 +638,102 @@
   },
   {
    "figure": "ar_standard_deduction",
-   "indexed": "not_stated"
+   "indexed": "yes",
+   "index": "CPI-U cost-of-living adjustment for the current calendar year (CPI of a year: average of the 12 months ending August 31), increase capped at 3%, rounded to the nearest $10, no change when CPI does not rise. Text of 26-51-430(c) read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site); the official 2025 bill HB1065 shows (c) in amended form",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-430",
+    "section": "26-51-430(c)(1)-(2): \"The Secretary of the Department of Finance and Administration shall increase annually the standard deduction ... by the cost-of-living adjustment for the current calendar year, rounding the amount to the nearest ten dollars ($10.00). ... not to exceed three percent (3%).\"",
+    "url": "https://arkleg.state.ar.us/assembly/2025/2025R/Bills/HB1065.pdf",
+    "accessed": "2026-11-08"
+   }
   },
   {
    "figure": "ar_employer_plan_exclusion",
-   "indexed": "not_stated"
+   "indexed": "no",
+   "index": "fixed by statute: 6,000 per taxpayer, no inflation or cost-of-living provision. Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-307",
+    "section": "26-51-307(a)(1), (a)(2), (b)(1)(B): a taxpayer \"shall not receive an exemption greater than six thousand dollars ($6,000) during any tax year\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_traditional_ira_exclusion_59_5",
+   "indexed": "no",
+   "index": "fixed by statute: the same 6,000 limit of 26-51-307(a)(2), no inflation or cost-of-living provision. Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-307",
+    "section": "26-51-307(a)(2), (b)(1)(B): a taxpayer \"shall not receive an exemption greater than six thousand dollars ($6,000) during any tax year\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_traditional_ira_exclusion_death_disability",
+   "indexed": "no",
+   "index": "fixed by statute: the same 6,000 limit of 26-51-307(a)(2), no inflation or cost-of-living provision. Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-307",
+    "section": "26-51-307(a)(2), (b)(1)(B): a taxpayer \"shall not receive an exemption greater than six thousand dollars ($6,000) during any tax year\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_personal_credit",
+   "indexed": "yes",
+   "index": "CPI: the 20-dollar statutory credit grown by the change in the CPI of the year before the tax year over the 2001 CPI, rounded to the nearest dollar, and only in a year the revenue test of 26-51-501(f) is met (forecast growth of at least 4.2% and revenue above forecast by at least 0.5%). Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-501",
+    "section": "26-51-501(d), (e), (f): \"(d) 'Adjusted individual credit' shall be twenty dollars ($20.00) ... (e)(1)(A) Not later than July 15 of each calendar year [the Secretary shall increase the credits by the cost-of-living adjustment] ... rounding each amount to the nearest dollar.\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/503-TaxCredits.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_age_65_credit",
+   "indexed": "yes",
+   "index": "CPI: the 20-dollar statutory credit grown by the change in the CPI of the year before the tax year over the 2001 CPI, rounded to the nearest dollar, and only in a year the revenue test of 26-51-501(f) is met (forecast growth of at least 4.2% and revenue above forecast by at least 0.5%). Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-501",
+    "section": "26-51-501(d), (e), (f): \"(d) 'Adjusted individual credit' shall be twenty dollars ($20.00) ... (e)(1)(A) Not later than July 15 of each calendar year [the Secretary shall increase the credits by the cost-of-living adjustment] ... rounding each amount to the nearest dollar.\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/503-TaxCredits.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_blind_credit",
+   "indexed": "yes",
+   "index": "CPI: the 20-dollar statutory credit grown by the change in the CPI of the year before the tax year over the 2001 CPI, rounded to the nearest dollar, and only in a year the revenue test of 26-51-501(f) is met (forecast growth of at least 4.2% and revenue above forecast by at least 0.5%). Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-501",
+    "section": "26-51-501(d), (e), (f): \"(d) 'Adjusted individual credit' shall be twenty dollars ($20.00) ... (e)(1)(A) Not later than July 15 of each calendar year [the Secretary shall increase the credits by the cost-of-living adjustment] ... rounding each amount to the nearest dollar.\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/503-TaxCredits.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ar_deaf_credit",
+   "indexed": "yes",
+   "index": "CPI: the 20-dollar statutory credit grown by the change in the CPI of the year before the tax year over the 2001 CPI, rounded to the nearest dollar, and only in a year the revenue test of 26-51-501(f) is met (forecast growth of at least 4.2% and revenue above forecast by at least 0.5%). Text read from codes.findlaw.com (the official Code is only on the LexisNexis-hosted site)",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-501",
+    "section": "26-51-501(d), (e), (f): \"(d) 'Adjusted individual credit' shall be twenty dollars ($20.00) ... (e)(1)(A) Not later than July 15 of each calendar year [the Secretary shall increase the credits by the cost-of-living adjustment] ... rounding each amount to the nearest dollar.\"",
+    "url": "https://dfa.arkansas.gov/wp-content/uploads/503-TaxCredits.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "recapture",
+   "indexed": "yes",
+   "index": "With the rate tables: 26-51-201(a)(4) adjusts the tables of (a)(1)-(3), which hold the bracket adjustment, by the method of (d) (CPI cost-of-living, capped at 3%, bracket amounts rounded to the nearest $100); (d)(1) names only the minimum and maximum of each bracket, so it is not explicit for the adjustment range (low confidence). Text read from codes.findlaw.com; the finding names no official address, so the address read is cited",
+   "cite": {
+    "publication": "Arkansas Code Annotated, section 26-51-201",
+    "section": "26-51-201(a)(4): \"The tables set forth in subdivisions (a)(1)-(3) of this section shall be adjusted annually in accordance with the method set forth in subsection (d) of this section.\"",
+    "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-51-201/",
+    "accessed": "2026-11-08"
+   }
   },
   {
    "figure": "all_other",

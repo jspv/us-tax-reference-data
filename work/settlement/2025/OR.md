@@ -192,3 +192,16 @@ story without it.
 - Marker ids: all 11 markers have an `id`. Descriptive ids (no from_record id of their own): `or_surplus_kicker_credit`, `or_other_rates_subtractions_credits`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`, `deductions`, `relief_caps` (reliefs.cap). `credits` (indexed, from the record's personal_exemption_credit cite, OR-17 PDF p.98 'The exemption amount is indexed for inflation') now covers only reliefs:personal_exemption_credit.credit_amount, since the cite speaks of the exemption amount, not the 100,000/200,000 AGI limits. Added `relief_income_tests` (indexed false, assumed) for reliefs.income_test: the exemption credit's AGI limits and the retirement income credit's income test.
 - Assumed entries: the only indexing statements are the exemption credit (already in the record) and the 529-type subtraction limit (not in the projection); nothing says for brackets, the standard deduction or the retirement income credit, so they stay assumed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): split (kept as one entry), ORS 316.037(1)(b)-(e)
+- `standard_deduction` (deductions:standard_deduction): indexed, ORS 316.695(1)(c)(B)-(C)
+- `age_65_additional` (deductions:age_65_additional): not indexed, ORS 316.695(7)
+- `relief_caps` (reliefs.cap): not indexed, ORS 316.157(2)(d)
+- `relief_income_tests` (reliefs.income_test): not indexed, ORS 316.157(2)(d); ORS 316.085(5)
+- Record `indexing`: added brackets -> yes; added standard_deduction -> yes; added age_65_additional -> no; added retirement_income_credit -> no; kept existing personal_exemption_credit (yes, booklet cite, about another figure of it); the statute says its income_test is not indexed.
+- `brackets` is one entry, indexed true: the statute indexes every band limit except the 125,000 (250,000 joint) start of the 9.9% band (ORS 316.037(1)(b)(D)), and a covers selector cannot name one band, so a projection grows that start too (it understates tax above it in later years). Its note says so.
+- Later the same day: the format gained `brackets:<n>` selectors, so the top band's start now has its own entry, `brackets_top_band` (covers `brackets:3`, not indexed, ORS 316.037(1)(b)(D)); the projection no longer grows it.

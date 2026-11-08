@@ -206,3 +206,10 @@ data/states/2025/AR.projection.json: ok
 - Added `recapture_threshold` (indexed false, assumed): the 94,701 start of the partial recapture is read from the Regular Income Tax Table, whose page says 'Current year indexed tax brackets are available on our website' (PDF page 30); that sentence speaks of the brackets, not of where the table departs from them, so the threshold is not taken as indexed.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `deductions` (projection `deductions`): indexed, Ark. Code 26-51-430(c)(1)-(2): CPI-U, capped at 3%, nearest 10. Projection `indexed: true` with note; record `ar_standard_deduction` -> yes. Text read on FindLaw (secondary); cite url is the official 2025 bill HB1065 the finding names.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, Ark. Code 26-51-307(a)(1), (a)(2), (b)(1)(B): fixed 6,000. Record `ar_employer_plan_exclusion` -> no; `ar_traditional_ira_exclusion_59_5` and `ar_traditional_ira_exclusion_death_disability` added as no (same 6,000 of (a)(2)). FindLaw read; cite url is the DFA page the finding names (not opened by the researcher).
+- `credits` (projection `reliefs.credit_amount`): indexed (conditional on the revenue test of (f)), Ark. Code 26-51-501(d), (e), (f). Record `ar_personal_credit`, `ar_age_65_credit`, `ar_blind_credit`, `ar_deaf_credit` added as yes. The finding does not name the 65 Special credit; the projection entry still covers `ar_65_special_credit` (indexed: true) because it prints the same 29 dollars. FindLaw read; cite url is the DFA page the finding names.
+- `recapture_threshold` (projection `recapture`): indexed (low confidence), Ark. Code 26-51-201(a)(4), (d)(1)-(2). Record entry added with figure `recapture` (the record recapture rule has no id). FindLaw read; no official address named, so the FindLaw address is cited.

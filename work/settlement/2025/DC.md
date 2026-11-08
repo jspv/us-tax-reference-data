@@ -140,3 +140,9 @@ data/states/2025/DC.projection.json: ok
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, D.C. Code 47-1806.03(a)(11). Record `brackets` added as no.
+- `deductions` (projection `deductions`): indexed, D.C. Code 47-1801.04(44)(A)(iv), (B)(iv), (C)(iv) and (28): the federal 63(c) standard deduction (rolling conformity). Record `standard_deduction` and `additional_standard_age65` added as yes. The existing `all_other` entry (booklet cite) is left.
+- Researcher note, not changed: the record 15,000 single is the federal 2025 amount before the 2025 federal law raised it; whether DC conformed to that change was not checked (DC decouples by budget acts). The booklet is the source for 2025.

@@ -845,7 +845,36 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute: dollar band limits with no inflation clause (existing-law text of 40-18-5 read in the official 2023 bill HB115 as introduced; the Code page itself could not be read)",
+      "cite": {
+        "publication": "Code of Alabama 1975, section 40-18-5",
+        "section": "40-18-5(a): \"Two percent of taxable income not in excess of five hundred dollars ($500). Four percent of taxable income in excess of five hundred dollars ($500) and not in excess of three thousand dollars ($3,000).\" (joint: $1,000 / $6,000)",
+        "url": "https://www.legislature.state.al.us/pdf/SearchableInstruments/2023RS/HB115-int.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "no",
+      "index": "fixed by statute: dollar amounts and a fixed AGI step schedule, no inflation clause (read in the enrolled act SB19 of 2022)",
+      "cite": {
+        "publication": "Code of Alabama 1975, section 40-18-15 (as amended by Act 2022, SB19)",
+        "section": "40-18-15(b)(4)d: \"The standard deduction for single taxpayers with adjusted gross income of less than twenty-five thousand five hundred dollars ($25,500) shall be three thousand dollars ($3,000).\"",
+        "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2022RS/PrintFiles/SB19-Enr.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: dollar amounts, no inflation clause (read in the enrolled act HB162 of 2022)",
+      "cite": {
+        "publication": "Code of Alabama 1975, section 40-18-19",
+        "section": "40-18-19(a)(8): \"a personal exemption of one thousand five hundred dollars ($1,500) or, in the case of a head of a family or a married person living with husband or wife, a personal exemption of three thousand dollars ($3,000)\"",
+        "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2022RS/PrintFiles/HB162-Enr.pdf",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "all_other",

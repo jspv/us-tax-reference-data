@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/NC.record.json",
-    "sha256": "4b8fd98ecf5ef5a613e78b5c2d26aac28eea825fe34934013234fc37ee79e466"
+    "sha256": "32b18f54b0d8c3b87cbf8cb9222bc619907fce49279d71e42379690ed265c38a"
   },
   "has_income_tax": true,
   "brackets": {
@@ -83,18 +83,18 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "flat rate, no bands; rate 4.25% for 2025, 3.99% after 2025 (N.C. Gen. Stat. 105-153.7(a))"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "fixed table (N.C. Gen. Stat. 105-153.5(a)(1))"
     }
   ],
   "not_modelled": [

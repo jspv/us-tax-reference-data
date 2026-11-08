@@ -464,6 +464,39 @@
       }
     },
     {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "Not indexed to a price index: it rises by a fixed 275 (single, separate), 425 (head of household) or 550 (joint) only in a year a revenue-growth trigger is met, up to statutory caps of 4,400, 6,800 and 8,800, which it has reached, so it stays flat",
+      "cite": {
+        "publication": "Massachusetts General Laws, chapter 62, section 3",
+        "section": "c. 62 s. 3(B)(b)(1)(A): \"the personal exemption shall be: (i) the exemption in the previous year plus $275 if the inflation-adjusted growth in baseline taxes in the fiscal year ending the June 30 of the previous year exceeds 2.5 per cent and ...; or (ii) the personal exemption in effect for the prior year. ... The personal exemption shall not exceed $4,400.\" (1A head of household and joint parallel)",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section3",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 700, no adjustment clause",
+      "cite": {
+        "publication": "Massachusetts General Laws, chapter 62, section 3",
+        "section": "c. 62 s. 3(B)(b)(1)(C): \"an additional exemption of seven hundred dollars if the taxpayer had attained the age of sixty-five before the close of his taxable year.\"",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section3",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "other_state_contributory_pension_ny",
+      "indexed": "no",
+      "index": "fixed: the 20,000 is New York's cap, which Massachusetts allows through c. 62 s. 2(a)(2)(E) as applied in DOR TIR 95-9 (https://www.mass.gov/technical-information-release/tir-95-9-income-taxation-of-contributory-public-employee-pensions-of-other-states); New York's (c)(3-a) has no inflation clause (only the first part of the long section 612 was read)",
+      "cite": {
+        "publication": "New York Tax Law, section 612(c)(3-a), as applied by Massachusetts General Laws c. 62 s. 2(a)(2)(E) and DOR TIR 95-9",
+        "section": "612(c)(3-a): pensions and annuities of an individual who has attained 59 1/2, \"but not in excess of twenty thousand dollars\"",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/612",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

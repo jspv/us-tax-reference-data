@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/MI.record.json",
-    "sha256": "bd3530dfcdd3560a74b6196c8c43a5cf7fbd051b924e75a2cd44bb7bd567d380"
+    "sha256": "cd1333c760bfe0b2878bbb9363a2e382fecb177ab7ffa4eed2dd587ad0bafb80"
   },
   "has_income_tax": true,
   "brackets": {
@@ -267,26 +267,42 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "one flat 4.25% band from 0, no threshold to grow (MCL 206.51(1)(b))"
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "the 2012 exemption times US CPI of the state fiscal year ending in the prior tax year over the 2010-2011 fiscal year, plus 600 from 2022, rounded to the nearest 100 (MCL 206.30(7))"
     },
     {
-      "figure": "relief_caps",
+      "figure": "tier2_standard_deduction_cap",
       "indexed": false,
-      "assumed": true,
       "covers": [
-        "reliefs.cap"
-      ]
+        "reliefs:tier2_standard_deduction.cap"
+      ],
+      "note": "fixed by statute: 20,000 single, 40,000 joint (MCL 206.30(9)(b))"
+    },
+    {
+      "figure": "tier3_standard_deduction_cap",
+      "indexed": false,
+      "covers": [
+        "reliefs:tier3_standard_deduction.cap"
+      ],
+      "note": "fixed by statute: 20,000 single, 40,000 joint at age 67 (MCL 206.30(9)(e))"
+    },
+    {
+      "figure": "senior_investment_deduction_cap",
+      "indexed": true,
+      "covers": [
+        "reliefs:senior_investment_deduction.cap"
+      ],
+      "note": "percentage increase in the US CPI of the preceding calendar year, from the 9,420 / 18,840 base; no rounding stated (MCL 206.30(1)(p))"
     },
     {
       "figure": "private_retirement_maximum",
@@ -380,6 +396,11 @@
       "what": "Michigan counts a person as 67 on the day before the 67th birthday; the Tier 2 and Tier 3 entries are therefore bounded by birth date only (for 2025, born on or before 1959-01-01), not by calendar age.",
       "direction": "either",
       "size": "Only a person born on January 1 of the boundary year; exact for 2025."
+    },
+    {
+      "what": "Later years: the deduction for those born 1946-1966 (born_1946_1966) is 75% of the private retirement maximum in 2025 and the full maximum from 2026 (MCL 206.30(10); 2025 booklet). The projection keeps 75%.",
+      "direction": "overstates_tax",
+      "size": "From 2026, about 16,474 x 4.25% = 700 a year for a single filer with enough retirement income (double for joint)."
     }
   ],
   "recapture": [],

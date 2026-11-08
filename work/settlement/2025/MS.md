@@ -292,3 +292,12 @@ data/states/2025/MS.projection.json: ok
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, Miss. Code 27-7-5(1)(a)-(b) as amended by 2025 HB 1 (as sent to Governor)
+- `deductions` (deductions): not indexed, Miss. Code 27-7-17 (standard deduction) and 27-7-21(b)-(d),(f) (personal and age-65 exemptions)
+- Record `indexing`: added brackets -> no; added ms_standard_deduction -> no; added ms_personal_exemption -> no; added ms_age_65_exemption -> no.
+- Flagged figure: the 2025 Form 80-100 instructions (80100251_202, PDF p.5 filing status table and PDF p.6 Line 4) print the head of family exemption as 8,000, plus 1,500 for the required dependent on line 6, 'which totals $9,500'. The statute's 9,500 is that total. The data's 8,000 matches the booklet (dependents are not modelled); no change.

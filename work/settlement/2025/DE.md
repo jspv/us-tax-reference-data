@@ -164,3 +164,11 @@ judgement calls that the booklet's wording supports but doesn't state.
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`; `credits` -> `reliefs.credit_amount`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, 30 Del. C. 1102(a)(14). Record `brackets` added as no.
+- `deductions` (projection `deductions`): not_indexed, 30 Del. C. 1108(a)(3), (b). Record `de_standard_deduction`, `de_additional_standard_65` added as no.
+- `relief_caps` (projection `reliefs.cap`): split, replaced by `pension_cap_under60_nonmilitary` (`reliefs:de_pension_excl_under60_nonmilitary.cap`, not_indexed, 1106(b)(3)b.1.A), `pension_cap_under60_military` (`reliefs:de_pension_excl_under60_military.cap`, scheduled 12,500 through 2026, 15,000 2027, 20,000 2028, 25,000 from 2029, 1106(b)(3)b.-e.; indexed false with the schedule in the note) and `pension_cap_60_plus` (`reliefs:de_pension_excl_60_plus.cap`, not_indexed, 1106(b)(3)b.2). Record entries added for all three.
+- `credits` (projection `reliefs.credit_amount`): not_indexed, 30 Del. C. 1110(b). Record `de_personal_credit`, `de_additional_personal_credit_60` added as no.
+- Unsure: `de_pension_excl_60_plus` covers military pensions too; from 2027 the statute gives a military pension the greater of 12,500 and the military schedule. The projection has one 12,500 cap and grows nothing; the note says so.

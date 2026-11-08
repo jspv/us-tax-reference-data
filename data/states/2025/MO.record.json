@@ -534,12 +534,35 @@
     },
     {
       "figure": "brackets",
-      "indexed": "not_stated",
+      "indexed": "yes",
+      "index": "CPI-U, All Urban Consumers, U.S., BLS; base: average CPI for the 12 months ending August 31 of the preceding calendar year compared with the average for September 1, 2014 through August 31, 2015; rounding: not stated in the text I read",
       "cite": {
-        "publication": "2025 Form MO-1040 Instructions",
-        "section": "PDF page 21, 2025 Tax Chart, Section A Tax Rate Chart",
-        "url": "https://dor.mo.gov/forms/MO-1040%20Instructions_2025.pdf",
-        "accessed": "2026-11-07"
+        "publication": "RSMo 143.011.5 (definitions in 143.011.6)",
+        "section": "RSMo 143.011.5 (definitions in 143.011.6): \"Beginning with the 2017 calendar year, the brackets of Missouri taxable income identified in subsection 1 of this section shall be adjusted annually by the percent increase in inflation.\"",
+        "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.011",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "head_of_household_additional_exemption",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "RSMo 143.161.2",
+        "section": "RSMo 143.161.2: \"a resident who qualifies as an unmarried head of household or as a surviving spouse for federal income tax purposes may deduct an additional one thousand four hundred dollars.\"",
+        "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.161",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "private_pension_subtraction",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "RSMo 143.124.3",
+        "section": "RSMo 143.124.3: \"a maximum of the first six thousand dollars of any retirement allowance received from any privately funded sources\" | RSMo 143.124.3: \"If the taxpayer's filing status is single, head of household or qualifying widow(er) and the taxpayer's Missouri adjusted gross income is less than twenty-five thousand dollars ... married filing combined ... less than thirty-two thousand dollars ... married filing separately ... less than sixteen thousand dollars.\"",
+        "url": "https://revisor.mo.gov/main/OneSection.aspx?section=143.124",
+        "accessed": "2026-11-08"
       }
     },
     {

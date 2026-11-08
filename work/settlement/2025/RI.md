@@ -194,3 +194,11 @@ The final 2025 Tax Rate and Worksheets (address folder 2026-01) is archived. Its
 - Marker ids: all 5 markers have an `id`. Descriptive ids (no from_record id of their own): `ri_hr1_addbacks`, `ri_other_schedule_m_lines`, `ri_credits`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets` and `deductions` (indexed, booklet What's New); `relief_thresholds` (indexed) covers reliefs.income_test; `relief_caps` (assumed) covers reliefs.cap. The deductions' phase-out is covered whole by `deductions` (indexed), although the record says the 7,250 band width and 29,000 are not said to be adjusted; a selector cannot separate the phase-out's threshold from its width.
 - Assumed entries: `relief_caps` stays assumed. The Retirement Income Guide reproduces R.I. Gen. Laws 44-30-12(c)(9): the inflation adjustment applies to 'the dollar amount contained by reference', which (vi) ties to the Social Security AGI limits; the 50,000 cap is written per tax year and no sentence says it is fixed or indexed, as the record already notes.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `relief_caps` (reliefs.cap): not indexed, R.I. Gen. Laws 44-30-12(c)(9)(i)-(vi)
+- Record `indexing`: kept existing ri_pension_annuity_modification (yes, booklet cite, about another figure of it); the statute says its cap is not indexed.
+- The record's existing `ri_pension_annuity_modification` entry (yes, for the AGI limits; it already says the 50,000 cap is fixed) is kept unchanged, so the record and its sha256 did not change. The finding's url is http only (webserver.rilegislature.gov), which the cite schema would not accept anyway.

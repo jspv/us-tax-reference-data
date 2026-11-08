@@ -626,6 +626,72 @@
  ],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2355(C)",
+    "section": "68 O.S. 2355(C): \"(a) 0.25% tax on first $1,000.00 or part thereof, (b) 0.75% tax on next $1,500.00 ... (c) 1.75% tax on next $1,250.00 ... (d) 2.75% tax on next $1,150.00 ... (e) 3.75% tax on next $2,300.00 ... (f) 4.75% tax on the remainder.\"",
+    "url": "https://oklegislature.gov/cf_pdf/2025-26%20ENGR/hB/HB1539%20ENGR.PDF",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "standard_deduction",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2358(E)(1)-(2)",
+    "section": "68 O.S. 2358(E)(1)-(2): \"g. For taxable years beginning on or after January 1, 2017 ... (1) Six Thousand Three Hundred Fifty Dollars ($6,350.00) for single or married filing separately, (2) Twelve Thousand Seven Hundred Dollars ($12,700.00) for married filing jointly or qualifying widower with dependent child, and (3) Nine Thousand Three Hundred Fifty Dollars ($9,350.00) for head of household.\"",
+    "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "personal_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2358(E)(1)-(2)",
+    "section": "68 O.S. 2358(E)(1)-(2): \"g. For taxable years beginning on or after January 1, 2017 ... (1) Six Thousand Three Hundred Fifty Dollars ($6,350.00) for single or married filing separately, (2) Twelve Thousand Seven Hundred Dollars ($12,700.00) for married filing jointly or qualifying widower with dependent child, and (3) Nine Thousand Three Hundred Fifty Dollars ($9,350.00) for head of household.\"",
+    "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "age_65_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2358(E)(1)-(2)",
+    "section": "68 O.S. 2358(E)(1)-(2): \"g. For taxable years beginning on or after January 1, 2017 ... (1) Six Thousand Three Hundred Fifty Dollars ($6,350.00) for single or married filing separately, (2) Twelve Thousand Seven Hundred Dollars ($12,700.00) for married filing jointly or qualifying widower with dependent child, and (3) Nine Thousand Three Hundred Fifty Dollars ($9,350.00) for head of household.\"",
+    "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ok_government_retirement",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years')",
+    "section": "68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years'): \"Retirement benefits not to exceed Five Thousand Five Hundred Dollars ($5,500.00) for the 2004 tax year, Seven Thousand Five Hundred Dollars ($7,500.00) for the 2005 tax year and Ten Thousand Dollars ($10,000.00) for the 2006 tax year and all subsequent tax years\"",
+    "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "other_retirement_income",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years')",
+    "section": "68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years'): \"Retirement benefits not to exceed Five Thousand Five Hundred Dollars ($5,500.00) for the 2004 tax year, Seven Thousand Five Hundred Dollars ($7,500.00) for the 2005 tax year and Ten Thousand Dollars ($10,000.00) for the 2006 tax year and all subsequent tax years\"",
+    "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated"
   }

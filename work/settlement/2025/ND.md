@@ -70,3 +70,10 @@ The other top-row bases also check: 3,828.83 single, 2,116.73 separate, 4,026.75
 - Marker ids: all 9 markers have an `id`. Descriptive ids (no from_record id of their own): `nd_lump_sum_distribution_addback`, `nd_other_state_tax_credit`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets` covers brackets (no deductions or relief figures are grown). No split needed.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, N.D.C.C. 57-38-30.3(1)(g)
+- Record `indexing`: updated brackets -> yes.

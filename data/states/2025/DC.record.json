@@ -289,6 +289,39 @@
   "capital_gains": [],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "fixed by statute: the table in 47-1806.03(a)(11), no inflation clause in the section; DC changes brackets only by amending the statute",
+      "cite": {
+        "publication": "Code of the District of Columbia, section 47-1806.03",
+        "section": "47-1806.03(a)(11): \"In the case of taxable years beginning after December 31, 2021, ... Not over $10,000 4% ... Over $10,000 but not over $40,000 $400, plus 6% ... Over $1,000,000\"",
+        "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1806.03",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "yes",
+      "index": "The federal standard deduction of IRC 63(c), with rolling conformity, so it follows the federal inflation adjustment of 63(c)(4) (chained CPI-U, rounded down to a multiple of $50) and any federal change, unless DC decouples; DC adds no index of its own (its own Washington-Baltimore CPI-U adjustment applied only before 2018)",
+      "cite": {
+        "publication": "Code of the District of Columbia, section 47-1801.04",
+        "section": "47-1801.04(44)(A)(iv), (B)(iv), (C)(iv): \"For taxable years beginning after December 31, 2017, the standard deduction as prescribed in section 63(c) of the Internal Revenue Code of 1986.\"; 47-1801.04(28): the Internal Revenue Code provisions \"shall apply on the same dates that they are effective for federal tax purposes\"",
+        "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "additional_standard_age65",
+      "indexed": "yes",
+      "index": "Part of the federal standard deduction of IRC 63(c) (63(c)(1)(B), 63(f)), so it follows the federal adjustment the same way; the DC text does not name it separately",
+      "cite": {
+        "publication": "Code of the District of Columbia, section 47-1801.04",
+        "section": "47-1801.04(44)(A)(iv), (B)(iv), (C)(iv): \"For taxable years beginning after December 31, 2017, the standard deduction as prescribed in section 63(c) of the Internal Revenue Code of 1986.\"",
+        "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated",
       "cite": {

@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/AZ.record.json",
-    "sha256": "68458103f7046879148ff4db5dd1a8e5ffbf801a7ef8f3475af78858b93326f0"
+    "sha256": "fbc08e8b582319f5610259abc62b9a27d61c8755fac0f1c151ff83ac542ce358"
   },
   "has_income_tax": true,
   "brackets": {
@@ -114,26 +114,34 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "one 2.5% band from 0, no threshold to grow; A.R.S. 43-1011(D) indexes graduated bracket amounts to the Phoenix CPI if a graduated schedule returns"
     },
     {
-      "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "figure": "standard_deduction",
+      "indexed": true,
       "covers": [
-        "deductions"
-      ]
+        "deductions:standard_deduction"
+      ],
+      "note": "as the federal basic standard deduction is adjusted under IRC 63 (A.R.S. 43-1041(H)), rounded as the federal amount"
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": false,
+      "covers": [
+        "deductions:age_65_exemption"
+      ],
+      "note": "fixed by statute: 2,100 (A.R.S. 43-1023(E))"
     },
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed by statute: 2,500 (A.R.S. 43-1022(2))"
     }
   ],
   "not_modelled": [

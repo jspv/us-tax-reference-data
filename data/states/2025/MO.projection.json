@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/MO.record.json",
-    "sha256": "ae1e0a6168cda12a77db76fb5b8a956c4fa87a32f5205ac7aab9c8ad547dc639"
+    "sha256": "ca2bc6a4d1858f11b7497cca8d14b4c07207cea569b489e383c0049c71fac98f"
   },
   "has_income_tax": true,
   "brackets": {
@@ -265,11 +265,11 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "CPI-U, 12 months ending Aug 31 vs Sep 2014-Aug 2015; rounding not stated (RSMo 143.011.5-.6)"
     },
     {
       "figure": "standard_deduction",
@@ -288,10 +288,10 @@
     {
       "figure": "head_of_household_additional_exemption",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions:head_of_household_additional_exemption"
-      ]
+      ],
+      "note": "fixed by statute: 1,400 (RSMo 143.161.2)"
     },
     {
       "figure": "public_pension_subtraction",
@@ -301,20 +301,20 @@
       ]
     },
     {
-      "figure": "relief_caps",
+      "figure": "private_pension_subtraction_cap",
       "indexed": false,
-      "assumed": true,
       "covers": [
-        "reliefs.cap"
-      ]
+        "reliefs:private_pension_subtraction.cap"
+      ],
+      "note": "fixed by statute: 6,000 (RSMo 143.124.3)"
     },
     {
       "figure": "relief_income_tests",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.income_test"
-      ]
+      ],
+      "note": "fixed by statute: 25,000 / 32,000 / 16,000 (RSMo 143.124.3)"
     }
   ],
   "not_modelled": [

@@ -52,3 +52,11 @@ Comparison: 16 structured differences, 52 wording differences.
 - Marker ids: all 6 markers have an `id`. Descriptive ids (no from_record id of their own): `mt_elderly_homeowner_renter_credit`, `mt_earned_income_credit_tribal_income`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets` covers brackets; `deductions` covers deductions (the age 65 subtraction, indexed per the record). No split needed.
 - Assumed entries: the only indexing statements found are the age 65 subtraction (already indexed in the record) and figures outside the projection (529 subtraction, volunteer firefighter subtraction); HB 337's 2026 bracket change is a law change, not indexing. `brackets` stays assumed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, indexed from 2028, Mont. Code Ann. 15-30-2103(3) (as it stood for tax year 2025, struck by HB 337 Sec. 1 for 2026); 15-30-2101(12) 'inflation factor'; HB 337 (2025), Secs. 1, 2, 4-6
+- Record `indexing`: updated brackets -> yes.
+- `brackets` is indexed true with indexed_from 2028. HB 337 (2025) sets fixed bands for 2026 (47,500 single / 71,250 head of household / 95,000 joint) and from 2027 (65,000 / 97,500 / 130,000), so the 2026-2027 bands are new fixed amounts, not the 2025 bands held flat; a projection that holds the 2025 bands until 2028 is wrong for those years. The note and the record's index say so.

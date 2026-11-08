@@ -92,7 +92,10 @@ def fetch_page(page, state: str, source: dict, out_dir: Path) -> dict:
     except Exception as error:  # noqa: BLE001
         record["error"] = str(error).splitlines()[0][:300]
         return record
-    stem = safe_name(Path(url.split("?")[0].rstrip("/")).stem or "page")
+    address = Path(url.split("?")[0].rstrip("/"))
+    stem = safe_name(address.stem or "page")
+    if stem.lower() in {"index", "default", "page", "home"}:  # a generic name would collide with the jurisdiction's other pages
+        stem = safe_name(f"{address.parent.name}-{stem}")
     target = out_dir / f"{stem}.html"
     target.write_text(html)
     (out_dir / f"{stem}.page.txt").write_text("\n=====PAGE 1=====\n" + text)

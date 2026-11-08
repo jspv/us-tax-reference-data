@@ -143,3 +143,10 @@ The readers' own cites agree with the pypdf pages except the two corrected above
 - Added `relief_income_tests` (indexed false, assumed) for the 55-64 Social Security AGI test (75,000 / 95,000).
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, C.R.S. 39-22-104(1.7)(c): one flat rate from 0. Record `brackets` -> no.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, C.R.S. 39-22-104(4)(f)(III)(A),(B) and (4)(y)(I)(D). Record `co_pension_65_plus`, `co_pension_55_64`, `co_ss_55_64_limited`, `co_military_retirement_under_55` added as no. The military 15,000 applies to tax years before 2029; the projection keeps growing nothing, it does not model the sunset.
+- `relief_income_tests` (projection `reliefs.income_test`): not_indexed, C.R.S. 39-22-104(4)(f)(III)(A). Record `co_ss_55_64_full` added as no.
+- Source: the 2024 C.R.S. Title 39 printout. The researcher saw bills (SB25-136, 2024 interim draft) that would change or index the (4)(f) caps; enactment not confirmed. Re-check for years after 2025.

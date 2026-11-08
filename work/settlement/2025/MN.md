@@ -221,3 +221,15 @@ Example, joint, both 65, AGI 30,000, nontaxable Social Security 5,000: 12,000 - 
 - Added `relief_income_tests` (indexed false, assumed) for the age 65 subtraction and both Social Security subtraction income tests.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, Minn. Stat. 290.06, subd. 2d; 270C.22, subd. 1
+- `deductions` (deductions): indexed, Minn. Stat. 290.0123, subd. 6
+- `relief_caps` (reliefs.cap): not indexed, Minn. Stat. 290.0802 subd. 2; 290.0132 subd. 26(f),(g),(j)
+- `mn_age_65_subtraction_income_test` (reliefs:mn_age_65_subtraction.income_test): not indexed, Minn. Stat. 290.0802, subd. 2(b)(2)
+- `mn_social_security_simplified_income_test` (reliefs:mn_social_security_simplified.income_test): indexed, Minn. Stat. 290.0132, subd. 26(c), (j)
+- `mn_social_security_alternative_income_test` (reliefs:mn_social_security_alternative.income_test): not indexed, Minn. Stat. 290.0132, subd. 26(f), (g)
+- Record `indexing`: added brackets -> yes; added mn_standard_deduction -> yes; added mn_age_65_standard_addition -> yes; added mn_age_65_subtraction -> no; added mn_social_security_simplified -> yes; added mn_social_security_alternative -> no.

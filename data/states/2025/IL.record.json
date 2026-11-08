@@ -419,6 +419,39 @@
  "capital_gains": [],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "A single flat rate of 4.95% from 0, so there is no threshold to adjust",
+   "cite": {
+    "publication": "Illinois Compiled Statutes, 35 ILCS 5/201",
+    "section": "35 ILCS 5/201(b)(14): \"for taxable years beginning on or after July 1, 2017, an amount equal to 4.95% of the taxpayer's net income for the taxable year.\"",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K201.htm",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "il_personal_exemption",
+   "indexed": "yes",
+   "index": "The amount: 2,050 plus a cost-of-living adjustment, 2,050 times the percentage by which the CPI-U of the preceding calendar year (average of the 12 months ending August 31) exceeds the 2011 CPI, rounded down to a multiple of $25; written for tax years ending on or before December 31, 2028, silent after. The AGI limit of 204(g) (500,000 joint, 250,000 others) is fixed. Dependent exemptions equal the basic amount",
+   "cite": {
+    "publication": "Illinois Compiled Statutes, 35 ILCS 5/204",
+    "section": "35 ILCS 5/204(b)(7): \"for taxable years ending on or after December 31, 2024 and on or before December 31, 2028, $2,050 plus the cost-of-living adjustment under subsection (d-5).\"; (d-5): \"equal to $2,050 times the percentage (if any) by which: (1) the Consumer Price Index for the preceding calendar year, exceeds (2) the Consumer Price Index for the calendar year 2011. ... If any cost-of-living adjustment is not a multiple of $25, that adjustment shall be rounded to the next lowest multiple of $25.\"; (g): no exemption if adjusted gross income \"exceeds (i) $500,000, in the case of spouses filing a joint federal tax return or (ii) $250,000, in the case of all other taxpayers.\"",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "il_age_65_exemption",
+   "indexed": "no",
+   "index": "fixed by statute: 1,000; the AGI limit of 204(g) is fixed too",
+   "cite": {
+    "publication": "Illinois Compiled Statutes, 35 ILCS 5/204",
+    "section": "35 ILCS 5/204(d)(1)(A): \"An additional exemption of $1,000 for the taxpayer if he or she has attained the age of 65 before the end of the taxable year.\"",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

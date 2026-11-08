@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/NY.record.json",
-    "sha256": "9f4e902aec28b0f90f83a9258e74596d37bf6594978d384e7fbae014b9e76560"
+    "sha256": "bbc4071874948b4d8d171ce57561b2ffb08b58019dee5ab3102e66f72e02e5ac"
   },
   "has_income_tax": true,
   "brackets": {
@@ -246,34 +246,34 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed tables by year range (Tax Law 601); 601-a indexing ran 2013-2017 only"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "frozen at the 2017-adjusted amounts (Tax Law 614(f), 601-a)"
     },
     {
       "figure": "pension_annuity_exclusion",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs:pension_annuity_exclusion"
-      ]
+      ],
+      "note": "fixed 20,000 (Tax Law 612(c)(3-a))"
     },
     {
       "figure": "recapture",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "recapture"
-      ]
+      ],
+      "note": "fixed thresholds (Tax Law 601(d-4))"
     }
   ],
   "not_modelled": [

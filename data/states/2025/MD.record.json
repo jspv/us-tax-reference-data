@@ -1006,6 +1006,116 @@
   ],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "fixed by statute: bracket dollar limits, no cost-of-living clause in 10-105",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-105",
+        "section": "10-105(a)(1)(iv): \"4.75% of Maryland taxable income of $3,001 through $100,000\" (joint and head of household: $3,001 through $150,000)",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "yes",
+      "index": "From tax years beginning after December 31, 2025: increased by the IRC 1(f)(3) cost-of-living adjustment for the calendar year the tax year begins, determined by the Comptroller with calendar year 2024 in place of 2016 (federal chained CPI-U method), the increase rounded down to a multiple of $50; the 2025 amounts (3,350 / 6,700) are fixed",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-217",
+        "section": "10-217(c): \"For each taxable year beginning after December 31, 2025, the standard deduction amount specified in subsection (b) of this section shall be increased by an amount equal to the product of multiplying the standard deduction amount by the cost-of-living adjustment specified in this subsection. (2) ... the cost-of-living adjustment within the meaning of 1(f)(3) of the Internal Revenue Code ... by substituting 'calendar year 2024' for 'calendar year 2016' ... (3) If any increase ... is not a multiple of $50, the increase shall be rounded down to the next lowest multiple of $50.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-217&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 3,200 per exemption, and the phase-out of 10-211(c) at fixed AGI levels (100,000 / 150,000); no inflation clause",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-211",
+        "section": "10-211(b)(1): \"$3,200 for each exemption that the individual may deduct under subsection (a) of this section;\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-211&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 1,000, no inflation clause",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-211",
+        "section": "10-211(b)(3): \"an additional $1,000 if the individual, on the last day of the taxable year, is at least 65 years old;\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-211&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "pension_exclusion_age_65",
+      "indexed": "yes",
+      "index": "The cap is the maximum annual Social Security benefit for an individual who retired at age 65, for the prior calendar year (set under the Social Security Act), which the Comptroller determines each year and may round to the nearest $100; there is no dollar figure in the statute",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-209",
+        "section": "10-209(b)(2), (c): the Comptroller \"(1) shall determine the maximum annual benefit under the Social Security Act allowed for an individual who retired at age 65 for the prior calendar year; and (2) may allow the subtraction to the nearest $100.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-209&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "pension_exclusion_disabled",
+      "indexed": "yes",
+      "index": "The cap is the maximum annual Social Security benefit for an individual who retired at age 65, for the prior calendar year (set under the Social Security Act), which the Comptroller determines each year and may round to the nearest $100; there is no dollar figure in the statute",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-209",
+        "section": "10-209(b)(2), (c): the Comptroller \"(1) shall determine the maximum annual benefit under the Social Security Act allowed for an individual who retired at age 65 for the prior calendar year; and (2) may allow the subtraction to the nearest $100.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-209&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "military_retirement_55_plus",
+      "indexed": "no",
+      "index": "fixed by statute: 20,000",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-207",
+        "section": "10-207(q)(2)(ii): \"if, on the last day of the taxable year, the individual is at least 55 years old, the first $20,000 of military retirement income received by an individual during the taxable year.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "military_retirement_under_55",
+      "indexed": "no",
+      "index": "fixed by statute: 12,500",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-207",
+        "section": "10-207(q)(2)(i): \"the individual is under the age of 55 years, the first $12,500 of military retirement income received by an individual during the taxable year;\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_100_income",
+      "indexed": "no",
+      "index": "fixed by statute: 100,000",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-207",
+        "section": "10-207(nn): \"The subtraction under subsection (a) of this section includes the first $100,000 of income received by an individual during a taxable year if the individual is at least 100 years old on the last day of the taxable year.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "additional_cap_gain_tax",
+      "indexed": "no",
+      "index": "fixed by statute: federal AGI over 350,000 (and the 1,500,000 primary residence exclusion), no inflation clause",
+      "cite": {
+        "publication": "Annotated Code of Maryland, Tax-General Article, section 10-105",
+        "section": "10-105(a)(4): \"The provisions of paragraph (3) of this subsection shall apply for individuals described in paragraph (1) or (2) of this subsection with a federal adjusted gross income in excess of $350,000.\"",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated",
       "cite": {

@@ -74,3 +74,8 @@ Validator: both files `ok`.
 - Indexing covers: `brackets` -> `brackets`; `credits` -> `reliefs.credit_amount`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, Iowa Code 422.5(1)(a): flat 3.8% from 0. Record `brackets` added as no.
+- `credits` (projection `reliefs.credit_amount`): not_indexed, Iowa Code 422.12(2)(a). Record `ia_personal_credit`, `ia_age_65_credit` added as no. The existing `all_other` entry is left.

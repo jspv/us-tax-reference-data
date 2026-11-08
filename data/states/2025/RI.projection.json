@@ -329,10 +329,10 @@
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed 50,000 from 2025 (R.I. Gen. Laws 44-30-12(c)(9)(i)); the inflation clause moves the AGI limits only"
     }
   ],
   "not_modelled": [

@@ -101,3 +101,9 @@ Projection `all_taxed`, with an overstating approximation. I did not use `other_
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`. The instructions say 'The personal exemption amount for tax year 2025 is $2,850' (PDF page 1); that names the year's amount but does not say it is adjusted, so `deductions` stays assumed.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, 35 ILCS 5/201(b)(14): flat 4.95% from 0. Record `brackets` added as no.
+- `deductions` (projection `deductions`): split, replaced by `il_personal_exemption` (`deductions:il_personal_exemption.amount`, indexed, 35 ILCS 5/204(b)(7), (d-5): CPI-U over 2011, rounded down to 25, written through tax years ending 2028), `il_age_65_exemption` (`deductions:il_age_65_exemption.amount`, not_indexed, 204(d)(1)(A)) and `exemption_phase_outs` (both phase-outs, not_indexed, 204(g)). The figures are named by deduction id so the deductions-answer check holds. Record `il_personal_exemption` added as yes, `il_age_65_exemption` as no. The existing `all_other` entry is left.
+- Unsure: the indexed basic amount is defined only for tax years ending on or before December 31, 2028; the statute is silent after that. The projection grows it with no end year.

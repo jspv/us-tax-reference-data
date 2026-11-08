@@ -566,6 +566,50 @@
       }
     },
     {
+      "figure": "brackets",
+      "indexed": "yes",
+      "index": "Chained Consumer Price Index: 12 months ending June 30 of the preceding year over the 12 months ending June 30, 2015 (lowest dollar amounts, from 2016) or June 30, 2016 (the top amount of each table, from 2017); the increase rounded down to a multiple of $50; the adjustment never falls below the prior year",
+      "cite": {
+        "publication": "Maine Revised Statutes, Title 36, section 5403",
+        "section": "5403(1): \"Individual income tax rate tables. For the tax rate tables in section 5111: A. Beginning in 2016 and each year thereafter, by the lowest dollar amounts of the tax rate tables ... 'cost-of-living adjustment' is the Chained Consumer Price Index for the 12-month period ending June 30th of the preceding calendar year divided by the Chained Consumer Price Index for the 12-month period ending June 30, 2015 ... if the dollar amount ... is not a multiple of $50, any increase must be rounded to the next lowest multiple of $50.\"",
+        "url": "https://legislature.maine.gov/statutes/36/title36sec5403.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "yes",
+      "index": "Chained CPI over the 12 months ending June 30, 2017, rounded down to a multiple of $50 (5403(2); the phase-out amounts by 5403(4)); the statute sets 15,700 single for 2026, and from 2027 the Maine standard deduction equals the federal standard deduction (itself indexed)",
+      "cite": {
+        "publication": "Maine Revised Statutes, Title 36, sections 5403 and 5124-C",
+        "section": "5403(2): \"Standard deductions. In 2025 and each year thereafter, by the dollar amount contained in section 5124-C, subsection 1-B, paragraph A, subparagraph (1)\"; 5124-C(1-D): \"For tax years beginning on or after January 1, 2027, the standard deduction of a resident individual is equal to the federal standard deduction\"",
+        "url": "https://legislature.maine.gov/statutes/36/title36sec5124-C.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_additional_standard_deduction",
+      "indexed": "yes",
+      "index": "The federal additional standard deduction of IRC 63(c)(3), so it follows the federal adjustment rather than Maine's Chained CPI",
+      "cite": {
+        "publication": "Maine Revised Statutes, Title 36, section 5124-C",
+        "section": "5124-C(1-B)(B), (1-C)(B): \"The additional standard deduction is the amount allowed under the Code, Section 63(c)(3).\"",
+        "url": "https://legislature.maine.gov/statutes/36/title36sec5124-C.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "yes",
+      "index": "Chained CPI over the 12 months ending June 30, 2017, rounded down to a multiple of $50 (5403(7); the phase-out amounts by 5403(8)); the statute still prints 4,150, the 2025 adjusted amount is 5,150",
+      "cite": {
+        "publication": "Maine Revised Statutes, Title 36, section 5403",
+        "section": "5403(7): \"Personal exemptions. Beginning in 2018 and each year thereafter, by the dollar amounts contained in section 5126-A, subsection 1\"; \"'cost-of-living adjustment' is the Chained Consumer Price Index for the 12-month period ending June 30th of the preceding calendar year divided by the Chained Consumer Price Index for the 12-month period ending June 30, 2017\"",
+        "url": "https://legislature.maine.gov/statutes/36/title36sec5403.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated",
       "cite": {

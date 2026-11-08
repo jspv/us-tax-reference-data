@@ -1,0 +1,325 @@
+[
+ {
+  "state": "AZ",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "Statute text read on azleg.gov (43-1011(D)): \"the department shall adjust the income dollar amount for each rate bracket\" (Phoenix CPI) -- but that applies to the graduated schedule. The only figure covered is a single band starting at 0 (flat 2.5% since 2023, per the ADOR 2025 Form 140 booklet), so there is no threshold to adjust.",
+  "section": "A.R.S. 43-1011(A)(6), (D)",
+  "url": "https://www.azleg.gov/ars/43/01011.htm",
+  "notes": "The azleg.gov page fetched still showed the pre-flat-rate graduated table (2.59% to 4.5%) with subsection D indexing; I could not read the text that sets the flat 2.5% rate. With one band at 0 nothing grows either way. If a graduated schedule ever returns, 43-1011(D) indexes the bracket amounts to the metropolitan Phoenix CPI."
+ },
+ {
+  "state": "AZ",
+  "figure": "deductions",
+  "answer": "split",
+  "confidence": "high",
+  "index": "Same adjustment the federal basic standard deduction gets under IRC 63 (standard deduction only)",
+  "base_year": "Base amounts $15,750 / $23,625 / $31,500 in 43-1041(A); adjusted for each taxable year from and after December 31, 2019",
+  "rounding": "As the federal standard deduction is rounded (not separately stated)",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "indexed",
+    "quote": "For each taxable year beginning from and after December 31, 2019, the department shall adjust the dollar amounts prescribed by subsection A, paragraphs 1, 2 and 3 of this section for inflation in the same manner in which the federal basic standard deduction is adjusted for inflation pursuant to section 63 of the internal revenue code.",
+    "section": "A.R.S. 43-1041(H)",
+    "url": "https://www.azleg.gov/ars/43/01041.htm"
+   },
+   {
+    "covers": "deductions:age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "A taxpayer is allowed an exemption of $2,100:",
+    "section": "A.R.S. 43-1023(E)",
+    "url": "https://www.azleg.gov/ars/43/01023.htm"
+   }
+  ],
+  "quote": "Standard deduction indexed by 43-1041(H); the $2,100 age 65 exemption is a fixed amount with no adjustment language.",
+  "section": "A.R.S. 43-1041(H); 43-1023(E)",
+  "url": "https://www.azleg.gov/ars/43/01041.htm",
+  "notes": "43-1041(A) states $15,750 / $23,625 / $31,500 'subject to subsection H'. The age-65 section was read through a summarising fetch, so the quote of 43-1023(E) is partial; the section showed no inflation language."
+ },
+ {
+  "state": "AZ",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "Benefits, annuities and pensions in an amount totaling not more than $2,500 received from one or more of the following:",
+  "section": "A.R.S. 43-1022(2)",
+  "url": "https://www.azleg.gov/ars/43/01022.htm",
+  "notes": "Fixed dollar cap; no inflation language in the section."
+ },
+ {
+  "state": "GA",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "Georgia taxes at a single flat rate (5.19% for 2025): 'the tax imposed pursuant to subsection (a) of this Code section shall be 5.19 percent ... for taxable years beginning on or after January 1, 2025' (as shown, before amendment, in HB 463 (2026)).",
+  "section": "O.C.G.A. 48-7-20(a.1)",
+  "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+  "notes": "One band starting at 0, so no threshold exists to index. The rate itself steps down on a schedule (0.10 point a year, conditional on revenue tests), which is a rate schedule, not an inflation index. The official O.C.G.A. text itself is on a Lexis site not readable here; the wording was read in the bill text on legis.ga.gov that quotes the existing code."
+ },
+ {
+  "state": "GA",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "(B) A standard deduction in an amount as follows: (i) In the case of a married couple filing a joint return, $24,000.00 ...; (ii) In the case of a single taxpayer, head of household, or married taxpayer filing a separate return, $12,000.00 ...",
+  "section": "O.C.G.A. 48-7-27(a)(1)(B)",
+  "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+  "notes": "Fixed amounts in current law. HB 463 of 2026 ('As passed House and Senate'; signature status not checked) would raise them to $30,000/$15,000 for 2026 and then by $750/$375 a year to $36,000/$18,000, delayed in years the revenue tests fail. That would be a fixed schedule, not inflation indexing, and does not affect tax year 2025."
+ },
+ {
+  "state": "GA",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "split": [
+   {
+    "covers": "reliefs:ga_retirement_exclusion_62_64.cap",
+    "answer": "not_indexed",
+    "quote": "retirement income from any source not to exceed an exclusion amount of $35,000.00 for each taxpayer meeting the eligibility requirement set forth in division (i) or (ii) of subparagraph (D) of this paragraph",
+    "section": "O.C.G.A. 48-7-27(a)(5)(A)(xiii)",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080"
+   },
+   {
+    "covers": "reliefs:ga_retirement_exclusion_65_plus.cap",
+    "answer": "not_indexed",
+    "quote": "or an amount of $65,000.00 for each taxpayer meeting the eligibility requirement set forth in division (iii) of subparagraph (D) of this paragraph",
+    "section": "O.C.G.A. 48-7-27(a)(5)(A)(xiii)",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080"
+   },
+   {
+    "covers": "reliefs:ga_military_exclusion_base.cap",
+    "answer": "not_indexed",
+    "quote": "Up to $17,500.00 of income received by an individual who is less than 62 years of age paid to such individual as retirement benefits from military service in the armed forces of the United States",
+    "section": "O.C.G.A. 48-7-27(a)(5.1)(A) (added by HB 1064, 2022)",
+    "url": "https://gov.georgia.gov/document/2022-signed-legislation/hb-1064/download"
+   }
+  ],
+  "quote": "All three caps are fixed dollar amounts with no adjustment language.",
+  "section": "O.C.G.A. 48-7-27(a)(5)(A)(xiii), (5.1)(A)",
+  "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+  "notes": "HB 463 (2026) would add (xiv): from 2027 the 65+ amount becomes $70,000 and the 62-64 amount stays $35,000 -- a fixed one-time change, not an index. Military cap read from the 2022 signed HB 1064 text (governor's site), not the current code."
+ },
+ {
+  "state": "KS",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "Single/other individuals, tax year 2024 and thereafter: 'Not over $23,000 ... 5.2% of Kansas taxable income; Over $23,000 ... $1,196 plus 5.58% of excess over $23,000'",
+  "section": "K.S.A. 79-32,110(a)(2)(B); see 79-32,110c",
+  "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0110.html",
+  "notes": "Fixed dollar bands. K.S.A. 79-32,110c (https://ksrevisor.gov/statutes/chapters/ch79/079_032_0110c.html) only lets the rates fall when revenue triggers are met; its CPI ratio is used for the revenue test, not to move the bands."
+ },
+ {
+  "state": "KS",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "For tax year 2024, and all tax years thereafter, the standard deduction amount ... shall be as follows: Single individual filing status, $3,605; married filing status, $8,240; and head of household filing status, $6,180.",
+  "section": "K.S.A. 79-32,119(b), (c)(2); 79-32,121(a)",
+  "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0119.html",
+  "notes": "Additional standard deduction: 'Single individual and head of household filing status, $850; and married filing status, $700.' Personal exemption (K.S.A. 79-32,121(a), https://ksrevisor.gov/statutes/chapters/ch79/079_032_0121.html): 'For tax year 2025, and all tax years thereafter ... $18,320 ... $9,160' -- all fixed, none indexed. DATA FLAG: 79-32,121(a)(2) gives head of household the same $9,160 as single, but the figure list has head_of_household $11,480; and (c)(2) states no married-separate standard deduction amount (the list has $4,120). Check those two against the KS-40 instructions."
+ },
+ {
+  "state": "MI",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "Except as otherwise provided under subdivision (c), on and after October 1, 2012, 4.25%.",
+  "section": "MCL 206.51(1)(b)",
+  "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-51",
+  "notes": "Flat rate, one band at 0, so no threshold to index."
+ },
+ {
+  "state": "MI",
+  "figure": "deductions",
+  "answer": "indexed",
+  "confidence": "high",
+  "index": "U.S. Consumer Price Index for all urban consumers (BLS), state fiscal year basis",
+  "base_year": "2012 exemption times CPI(state fiscal year ending in the prior tax year) / CPI(2010-2011 state fiscal year); plus $600 from tax year 2022",
+  "rounding": "rounded to the nearest $100.00 increment",
+  "quote": "For each tax year beginning on and after January 1, 2013, the personal exemption allowed under subsection (2) shall be adjusted by multiplying the exemption for the tax year beginning in 2012 by a fraction, the numerator of which is the United States Consumer Price Index for the state fiscal year ending in the tax year prior to the tax year for which the adjustment is being made and the denominator of which is the United States Consumer Price Index for the 2010-2011 state fiscal year. For the 2022 tax year and each tax year after 2022, the adjusted amount determined under this subsection shall be increased by an additional $600.00. The resultant product shall be rounded to the nearest $100.00 increment.",
+  "section": "MCL 206.30(7), (12)(c)",
+  "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+ },
+ {
+  "state": "MI",
+  "figure": "relief_caps",
+  "answer": "split",
+  "confidence": "high",
+  "index": "U.S. Consumer Price Index for all urban consumers (BLS)",
+  "base_year": "Statutory base amounts $42,240 / $84,480 (f)(iv) and $9,420 / $18,840 (p); adjusted each tax year after 2008",
+  "rounding": "none stated; 'The department shall annualize the amounts'",
+  "split": [
+   {
+    "covers": "reliefs:pre1946_private.cap",
+    "answer": "indexed",
+    "quote": "For the 2008 tax year and each tax year after 2008, the maximum amounts allowed under this subparagraph shall be adjusted by the percentage increase in the United States Consumer Price Index for the immediately preceding calendar year.",
+    "section": "MCL 206.30(1)(f)(iv)",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+   },
+   {
+    "covers": "reliefs:born_1946_1966.cap",
+    "answer": "indexed",
+    "quote": "For the 2025 tax year, a taxpayer who was born after 1945 and before 1967 may deduct ... not to exceed 75% of the maximum amount ... under subsection (1)(f)(iv)",
+    "section": "MCL 206.30(10)(c), (d)",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+   },
+   {
+    "covers": "reliefs:tier2_standard_deduction.cap",
+    "answer": "not_indexed",
+    "quote": "that person is eligible for a deduction of $20,000.00 for a single return and $40,000.00 for a joint return",
+    "section": "MCL 206.30(9)(b)",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+   },
+   {
+    "covers": "reliefs:tier3_standard_deduction.cap",
+    "answer": "not_indexed",
+    "quote": "When that person reaches the age of 67, that person is eligible for a deduction of $20,000.00 for a single return and $40,000.00 for a joint return",
+    "section": "MCL 206.30(9)(e)",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+   },
+   {
+    "covers": "reliefs:senior_investment_deduction.cap",
+    "answer": "indexed",
+    "quote": "For the 2008 tax year and each tax year after 2008, the maximum amounts allowed under this subdivision shall be adjusted by the percentage increase in the United States Consumer Price Index for the immediately preceding calendar year.",
+    "section": "MCL 206.30(1)(p)",
+    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30"
+   }
+  ],
+  "quote": "Caps tied to (1)(f)(iv) and (1)(p) are CPI-indexed; the $20,000/$40,000 unrestricted deductions in (9)(b) and (9)(e) are fixed.",
+  "section": "MCL 206.30(1)(f)(iv), (1)(p), (9), (10)",
+  "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-206-30",
+  "notes": "I mapped relief ids to subsections from the figure amounts (65,897 = indexed (f)(iv) limit; 49,423 = 75% of it, the 2025 phase-in; 14,688 = indexed (p) limit; 20,000/40,000 = (9)(b)/(9)(e)). born_1946_1966 steps to 100% of the (f)(iv) figure from 2026 under (10)(d). The (9)(c)/(d) $35,000 / $55,000 / $15,000 amounts are also fixed."
+ },
+ {
+  "state": "ND",
+  "figure": "brackets",
+  "answer": "indexed",
+  "confidence": "high",
+  "index": "Cost-of-living adjustment determined by the U.S. Treasury secretary for IRC section 1(f)",
+  "base_year": "Statute lists the base schedule; the tax commissioner applies the adjustment to the schedule each taxable year (same method as the federal brackets)",
+  "rounding": "'the manner of applying the cost-of-living adjustment must be the same as that used for adjusting the income brackets for federal income tax purposes'",
+  "quote": "The tax commissioner shall prescribe new rate schedules that apply in lieu of the schedules set forth in subdivisions a through e. The new schedules must be determined by increasing the minimum and maximum dollar amounts for each income bracket for which a tax is imposed by the cost-of-living adjustment for the taxable year as determined by the secretary of the United States treasury for purposes of section 1(f) of the United States Internal Revenue Code of 1954, as amended. For this purpose, the rate applicable to each income bracket may not be changed",
+  "section": "N.D.C.C. 57-38-30.3(1)(g)",
+  "url": "https://ndlegis.gov/cencode/t57c38.pdf",
+  "notes": "The code PDF read is an older edition (its listed brackets differ from the 2025 figures), but subdivision g is the standing rule."
+ },
+ {
+  "state": "OK",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "medium",
+  "quote": "(a) 0.25% tax on first $1,000.00 or part thereof, (b) 0.75% tax on next $1,500.00 ... (c) 1.75% tax on next $1,250.00 ... (d) 2.75% tax on next $1,150.00 ... (e) 3.75% tax on next $2,300.00 ... (f) 4.75% tax on the remainder.",
+  "section": "68 O.S. 2355(C)",
+  "url": "https://oklegislature.gov/cf_pdf/2025-26%20ENGR/hB/HB1539%20ENGR.PDF",
+  "notes": "Fixed bands (0 / 1,000 / 2,500 / 3,750 / 4,900 / 7,200 cumulative) with no indexing language anywhere in 2355. OSCN page for 2355 was blocked by a bot check, so the text was read as reproduced in engrossed HB 1539 (2025) on oklegislature.gov, where subsection C is unchanged existing law. HB 1539 would only cut rates when revenue triggers are met."
+ },
+ {
+  "state": "OK",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "g. For taxable years beginning on or after January 1, 2017 ... (1) Six Thousand Three Hundred Fifty Dollars ($6,350.00) for single or married filing separately, (2) Twelve Thousand Seven Hundred Dollars ($12,700.00) for married filing jointly or qualifying widower with dependent child, and (3) Nine Thousand Three Hundred Fifty Dollars ($9,350.00) for head of household.",
+  "section": "68 O.S. 2358(E)(1)-(2)",
+  "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+  "notes": "Also fixed: personal exemption 'One Thousand Dollars ($1,000.00)' and the age 65 exemption 'One Thousand Dollars ($1,000.00)' with AGI limits 'Twenty-five Thousand Dollars ($25,000.00) if married and filing jointly ... Twelve Thousand Five Hundred ... Fifteen Thousand ... Nineteen Thousand'. No inflation language in 2358."
+ },
+ {
+  "state": "OK",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "Retirement benefits not to exceed Five Thousand Five Hundred Dollars ($5,500.00) for the 2004 tax year, Seven Thousand Five Hundred Dollars ($7,500.00) for the 2005 tax year and Ten Thousand Dollars ($10,000.00) for the 2006 tax year and all subsequent tax years",
+  "section": "68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years')",
+  "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92616",
+  "notes": "Both caps fixed at $10,000. The OSCN page also carries a later-effective version of the section; I did not see an indexing change in the current text, but bills (not law as far as found) propose $20,000 from 2027."
+ },
+ {
+  "state": "VA",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "Bands: not exceeding $3,000 (2%); over $3,000 to $5,000 (3%); over $5,000 to $17,000 (5%); in excess of $17,000 (5.75%) -- fixed dollar amounts, no adjustment provision in the section.",
+  "section": "Va. Code 58.1-320",
+  "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/"
+ },
+ {
+  "state": "VA",
+  "figure": "deductions",
+  "answer": "split",
+  "confidence": "high",
+  "schedule": "Standard deduction (single / married): 2019-2021 $4,500 / $9,000; 2022-2023 $8,000 / $16,000; 2024 $8,500 / $17,000; 2025-2026 $8,750 / $17,500; 2027 $9,200 / $18,400; 2028-2029 $9,300 / $18,600; 2030 and after (and before 2019) $3,000 / $6,000",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "scheduled",
+    "quote": "$ 8,750 for single individuals and $ 17,500 for married persons (taxable years 2025 and 2026); $9,200 / $18,400 (2027); $9,300 / $18,600 (2028-2029); $3,000 / $6,000 on and after January 1, 2030",
+    "section": "Va. Code 58.1-322.03(1)(b)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+   },
+   {
+    "covers": "deductions:personal_exemption",
+    "answer": "not_indexed",
+    "quote": "A deduction in the amount of $ 930 for each personal exemption allowable to the taxpayer for federal income tax purposes.",
+    "section": "Va. Code 58.1-322.03(2)(a)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+   },
+   {
+    "covers": "deductions:age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "Each blind or aged taxpayer as defined under \u00a7 63(f) of the Internal Revenue Code shall be entitled to an additional personal exemption in the amount of $ 800.",
+    "section": "Va. Code 58.1-322.03(2)(b)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+   }
+  ],
+  "quote": "Standard deduction is a year-by-year schedule of fixed amounts (reverting to $3,000 / $6,000 in 2030); exemptions are fixed.",
+  "section": "Va. Code 58.1-322.03(1)(b), (2)",
+  "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+  "notes": "The section contains no CPI or inflation language. The statute states only single and married amounts; the head-of-household and married-separate values in the figure list ($8,750) follow single."
+ },
+ {
+  "state": "VA",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "split": [
+   {
+    "covers": "reliefs:age_deduction_born_by_1939.cap",
+    "answer": "not_indexed",
+    "quote": "A deduction in the amount of $ 12,000 for individuals born on or before January 1, 1939.",
+    "section": "Va. Code 58.1-322.03(5)(a)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+   },
+   {
+    "covers": "reliefs:age_deduction_income_based.cap",
+    "answer": "not_indexed",
+    "quote": "A deduction in the amount of $ 12,000 for individuals born after January 1, 1939, who have attained the age of 65.",
+    "section": "Va. Code 58.1-322.03(5)(b)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/"
+   },
+   {
+    "covers": "reliefs:military_benefits.cap",
+    "answer": "not_indexed",
+    "quote": "for taxable years beginning on and after January 1, 2025, up to $40,000 of military benefits",
+    "section": "Va. Code 58.1-322.02(18)(c)",
+    "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.02/"
+   }
+  ],
+  "quote": "All three caps are fixed dollar amounts; the military cap was phased up by year to $40,000 for 2025 and after, with no further step.",
+  "section": "Va. Code 58.1-322.03(5); 58.1-322.02(18)",
+  "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+  "notes": "Military: $10,000 (2022), $20,000 (2023), $30,000 (2024), $40,000 (2025 and after). No inflation language."
+ },
+ {
+  "state": "VA",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "confidence": "high",
+  "quote": "This deduction shall be reduced by $ 1 for every $ 1 that the taxpayer's adjusted federal adjusted gross income exceeds $ 50,000 for single taxpayers or $ 75,000 for married taxpayers.",
+  "section": "Va. Code 58.1-322.03(5)(b)",
+  "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+  "notes": "Fixed thresholds. 'Adjusted federal adjusted gross income' means 'federal adjusted gross income minus any benefits received under Title II of the Social Security Act and other benefits subject to federal income taxation solely pursuant to \u00a7 86'. No inflation language."
+ }
+]

@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/PA.record.json",
-    "sha256": "0624f54a8f7ce9517728a8405d57c35b431c681b247323add8d7cb468b0704f2"
+    "sha256": "33e37d8e856a6400b0a1c1939af5ede32c55d3aacc977a5cca52b526768d1509"
   },
   "has_income_tax": true,
   "brackets": {
@@ -130,10 +130,10 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "flat 3.07%, no bands (72 P.S. 7302)"
     }
   ],
   "not_modelled": [

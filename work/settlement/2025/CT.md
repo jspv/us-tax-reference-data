@@ -203,3 +203,11 @@ within format 1"): Connecticut's partial Social Security subtraction is now mode
 - `relief_thresholds` covers the income tests and the partial Social Security subtraction's `applies_over`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, Conn. Gen. Stat. 12-700(a)(10). Record `brackets` added as no.
+- `deductions` (projection `deductions`): not_indexed, Conn. Gen. Stat. 12-702(a)(2)(I) and parallels. Record `personal_exemption` added as no.
+- `relief_thresholds` (projection `reliefs.income_test`, `reliefs.applies_over`): not_indexed, Conn. Gen. Stat. 12-701(a)(20)(B)(iii) and the parallel pension/annuity and IRA subtractions; 12-703(a)(2)(I). Record `ss_full_exempt`, `ss_partial_exempt`, `pension_annuity_subtraction`, `ira_subtraction`, `personal_tax_credit` added as no.
+- `recapture` (projection `recapture`): not_indexed, Conn. Gen. Stat. 12-700(a)(10)(A)(ii)-(v) and (B)-(E). Record entry added with figure `recapture` (the record recapture rules have no id).
+- The researcher searched all of chapter 229 for inflation, consumer price index, cost of living and indexed: none.

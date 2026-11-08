@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/NJ.record.json",
-  "sha256": "a85f942b72ad1d1993c5c01e395d2fbc55e7785cfba9b2eabe053c4acc8d193f"
+  "sha256": "7c10a882a0563fb2869beea0a7c6de81ce50aed6f9e1dd085dc8b5cde47c7eaf"
  },
  "has_income_tax": true,
  "brackets": {
@@ -500,34 +500,34 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "fixed schedule (N.J.S.A. 54A:2-1(b)(7))"
   },
   {
    "figure": "deductions",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "fixed 1,000 amounts (N.J.S.A. 54A:3-1)"
   },
   {
    "figure": "nj_pension_exclusion",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs:nj_pension_exclusion"
-   ]
+   ],
+   "note": "fixed amounts and income steps (N.J.S. 54A:6-10)"
   },
   {
    "figure": "nj_unclaimed_exclusion",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs:nj_unclaimed_exclusion"
-   ]
+   ],
+   "note": "fixed amounts and 3,000 earned income limit (N.J.S. 54A:6-10)"
   }
  ],
  "not_modelled": [

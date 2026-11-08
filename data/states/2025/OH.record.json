@@ -681,6 +681,50 @@
   "capital_gains": [],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "yes",
+      "index": "percentage increase in the gross domestic product deflator (computed under R.C. 5747.025); rounding: nearest multiple of $50. Adjustments suspended for 2025 and 2026 by HB 96 (136th GA) uncodified Section 757.120(A); indexing resumes for later years. From 2026 one 2.75% rate applies above 26,050 (5747.02(A)(3)(c))",
+      "cite": {
+        "publication": "Ohio R.C. 5747.02(A)(5)",
+        "section": "Ohio R.C. 5747.02(A)(5): \"in August of each year, the tax commissioner shall make a new adjustment to the income amounts prescribed in divisions (A)(2) and (3) of this section by multiplying the percentage increase in the gross domestic product deflator computed that year under section 5747.025 of the Revised Code by each of the income amounts resulting from the adjustment under this division in the preceding year, adding the resulting product ..., and rounding the resulting sum to the nearest multiple of fifty dollars.\"",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.02",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "yes",
+      "index": "percentage increase in the gross domestic product deflator, Jan 1 of the preceding year to Dec 31 of the preceding year (R.C. 5747.025(C)); rounding: rounded UP to the nearest multiple of $50. The exemption amounts only; the 40,000 / 80,000 income tiers and the 750,000 cutoff in 5747.025(A) are fixed. Adjustments suspended for 2025 and 2026 by HB 96 (136th GA) Section 757.120(A)",
+      "cite": {
+        "publication": "Ohio R.C. 5747.025(B)-(C)",
+        "section": "Ohio R.C. 5747.025(B)-(C): \"(B) For taxable years beginning in 2020 and thereafter, the personal exemption amounts prescribed in division (A) of this section shall be adjusted each year in the manner prescribed in division (C) ... (C) ... the tax commissioner shall determine the percentage increase in the gross domestic product deflator ... and make a new adjustment to the personal exemption amount ... rounding the resulting sum upward to the nearest multiple of fifty dollars.\"",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.025",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "retirement_income_credit",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Ohio R.C. 5747.055(B), (F)",
+        "section": "Ohio R.C. 5747.055(B), (F): \"Over $8,000 $200 [retirement income credit schedule] ... (F) A credit equal to fifty dollars for each return required to be filed under section 5747.08 of the Revised Code shall be allowed ... for taxpayers sixty-five years of age or older\" | Ohio R.C. 5747.055(B) and (F): \"whose modified adjusted gross income for the taxable year, less applicable exemptions under section 5747.025 of the Revised Code, as shown on an individual or joint annual return is less than one hundred thousand dollars\" | Ohio R.C. 5747.055(B), (F): \"(B) ... Over $8,000 $200 ... (F) A credit equal to fifty dollars ...\"",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.055",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "senior_citizen_credit",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Ohio R.C. 5747.055(B), (F)",
+        "section": "Ohio R.C. 5747.055(B), (F): \"Over $8,000 $200 [retirement income credit schedule] ... (F) A credit equal to fifty dollars for each return required to be filed under section 5747.08 of the Revised Code shall be allowed ... for taxpayers sixty-five years of age or older\" | Ohio R.C. 5747.055(B) and (F): \"whose modified adjusted gross income for the taxable year, less applicable exemptions under section 5747.025 of the Revised Code, as shown on an individual or joint annual return is less than one hundred thousand dollars\" | Ohio R.C. 5747.055(B), (F): \"(B) ... Over $8,000 $200 ... (F) A credit equal to fifty dollars ...\"",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.055",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated",
       "cite": {

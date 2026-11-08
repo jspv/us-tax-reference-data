@@ -244,3 +244,15 @@ municipal bonds as well as other states'. Record: `other`, with the note. Projec
 - Marker ids: all 12 markers have an `id`. Descriptive ids (no from_record id of their own): `wi_credits`, `wi_early_distribution_penalty`, `wi_lump_sum_distribution`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`, `deductions` (including the standard deduction phase-out), `relief_caps` (reliefs.cap). Added `relief_income_tests` (indexed false, assumed) for reliefs.income_test (the 5,000 subtraction's AGI test).
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, indexed from 2026, Wis. Stat. 71.06(2e)(bm), rounding 71.06(2e)(c)
+- `wi_standard_deduction` (deductions:wi_standard_deduction): indexed, Wis. Stat. 71.05(22)(dt)
+- `wi_personal_exemption` (deductions:wi_personal_exemption): not indexed, Wis. Stat. 71.05(23)(b)1.-2.
+- `wi_age_65_exemption` (deductions:wi_age_65_exemption): not indexed, Wis. Stat. 71.05(23)(b)3.
+- `relief_caps` (reliefs.cap): not indexed, Wis. Stat. 71.05(6)(b)54. and 54m.c.
+- `relief_income_tests` (reliefs.income_test): not indexed, Wis. Stat. 71.05(6)(b)54.b.-d.
+- Record `indexing`: added brackets -> yes; added wi_standard_deduction -> yes; added wi_personal_exemption -> no; added wi_age_65_exemption -> no; added wi_retirement_67 -> no; added wi_retirement_5000 -> no.

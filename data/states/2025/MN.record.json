@@ -722,6 +722,72 @@
  "capital_gains": [],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "yes",
+   "index": "Chained Consumer Price Index for All Urban Consumers (BLS), via Minn. Stat. 270C.22; base: statutory year 2019 (first adjusted year 2020); August-to-August change; rounding: nearest $10; an amount ending in $5 rounds up; married-separate bracket is one-half of married-joint",
+   "cite": {
+    "publication": "Minn. Stat. 290.06, subd. 2d; 270C.22, subd. 1",
+    "section": "Minn. Stat. 290.06, subd. 2d; 270C.22, subd. 1: \"Subd. 2d. Inflation adjustment of brackets. The commissioner shall annually adjust the minimum and maximum dollar amounts for each rate bracket for which a tax is imposed in subdivision 2c as provided in section 270C.22. The statutory year is taxable year 2019. ... The rate brackets as adjusted must be rounded to the nearest $10 amount. If the rate bracket ends in $5, it must be rounded up to the nearest $10 amount.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.06",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "mn_standard_deduction",
+   "indexed": "yes",
+   "index": "Chained CPI-U (BLS), via Minn. Stat. 270C.22; base: statutory year 2023 (adjusts tax years beginning after Dec 31, 2023); rounding: rounded down to the nearest $50; married-separate is one-half of the joint amount",
+   "cite": {
+    "publication": "Minn. Stat. 290.0123, subd. 6",
+    "section": "Minn. Stat. 290.0123, subd. 6: \"For taxable years beginning after December 31, 2023, the commissioner must adjust for inflation the standard deduction amounts in subdivision 1, the additional amounts in subdivision 2, the amounts in subdivision 3, and the adjusted gross income amounts in subdivision 5 as provided in section 270C.22. The statutory year is taxable year 2023. The amounts as adjusted must be rounded down to the nearest $50 amount.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0123",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "mn_age_65_standard_addition",
+   "indexed": "yes",
+   "index": "Chained CPI-U (BLS), via Minn. Stat. 270C.22; base: statutory year 2023 (adjusts tax years beginning after Dec 31, 2023); rounding: rounded down to the nearest $50; married-separate is one-half of the joint amount",
+   "cite": {
+    "publication": "Minn. Stat. 290.0123, subd. 6",
+    "section": "Minn. Stat. 290.0123, subd. 6: \"For taxable years beginning after December 31, 2023, the commissioner must adjust for inflation the standard deduction amounts in subdivision 1, the additional amounts in subdivision 2, the amounts in subdivision 3, and the adjusted gross income amounts in subdivision 5 as provided in section 270C.22. The statutory year is taxable year 2023. The amounts as adjusted must be rounded down to the nearest $50 amount.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0123",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "mn_age_65_subtraction",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Minn. Stat. 290.0802, subd. 2(b)(1) (allowed as a subtraction by 290.0132, subd. 5)",
+    "section": "Minn. Stat. 290.0802, subd. 2(b)(1) (allowed as a subtraction by 290.0132, subd. 5): \"(b)(1) The initial subtraction base amount equals (i) $12,000 for a married taxpayer filing a joint return if a spouse is a qualified individual, (ii) $9,600 for a single taxpayer, and (iii) $6,000 for a married taxpayer filing a separate federal return.\" | Minn. Stat. 290.0802, subd. 2(b)(2): \"(i) $18,000 for a married taxpayer filing a joint return if both spouses are qualified individuals, (ii) $14,500 for a single taxpayer or for a married couple filing a joint return if only one spouse is a qualified individual, and (iii) $9,000 for a married taxpayer filing a separate federal return.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0802",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "mn_social_security_simplified",
+   "indexed": "yes",
+   "index": "Chained CPI-U (BLS) via Minn. Stat. 270C.22 (simplified Social Security thresholds only); base: statutory year 2023; rounding: nearest $10; $5 rounds up (simplified Social Security thresholds)",
+   "cite": {
+    "publication": "Minn. Stat. 290.0132, subd. 26(c), (j)",
+    "section": "Minn. Stat. 290.0132, subd. 26(c), (j): \"(c) ... The phaseout threshold equals: (1) $100,000 for a married taxpayer filing a joint return or surviving spouse; (2) $78,000 for a single or head of household taxpayer ... (j) The commissioner shall adjust the phaseout threshold amounts in paragraph (c), clauses (1) and (2), as provided in section 270C.22. The statutory year is taxable year 2023. The maximum subtraction and threshold amounts as adjusted must be rounded to the nearest $10 amount. If the amount ends in $5, the amount is rounded up to the nearest $10 amount.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0132",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "mn_social_security_alternative",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "Minn. Stat. 290.0132, subd. 26(f), (g), (j)",
+    "section": "Minn. Stat. 290.0132, subd. 26(f), (g), (j): \"(f) For married taxpayers filing a joint return and surviving spouses, the maximum subtraction under paragraph (e) equals $5,840. ... (g) For single or head-of-household taxpayers, the maximum subtraction under paragraph (e) equals $4,560. ... (j) The commissioner shall adjust the phaseout threshold amounts in paragraph (c), clauses (1) and (2), as provided in section 270C.22.\" | Minn. Stat. 290.0132, subd. 26(f), (g): \"(f) ... The maximum subtraction is reduced by 20 percent of provisional income over $88,630. ... (g) ... reduced by 20 percent of provisional income over $69,250.\"",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0132",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated"
   }

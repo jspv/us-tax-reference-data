@@ -1,0 +1,224 @@
+[
+ {
+  "state": "CO",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "CO",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief co_ss_55_64_limited cap: {\"all\": \"20000\"}",
+   "relief co_pension_65_plus cap: {\"all\": \"24000\"}",
+   "relief co_pension_55_64 cap: {\"all\": \"20000\"}",
+   "relief co_military_retirement_under_55 cap: {\"all\": \"15000\"}"
+  ]
+ },
+ {
+  "state": "CO",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief co_ss_55_64_full income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"75000\", \"married_joint\": \"95000\"}, \"effect\": \"removes\"}"
+  ]
+ },
+ {
+  "state": "IA",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "IA",
+  "figure": "credits",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief ia_personal_credit credit_amount: \"40\"",
+   "relief ia_age_65_credit credit_amount: \"20\""
+  ]
+ },
+ {
+  "state": "LA",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "LA",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction la_standard_deduction: {\"single\": \"12500\", \"married_separate\": \"12500\", \"married_joint\": \"25000\", \"head_of_household\": \"25000\", \"qualifying_surviving_spouse\": \"25000\"}"
+  ]
+ },
+ {
+  "state": "LA",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief la_retirement_income_exemption_65 cap: {\"all\": \"12000\"}"
+  ]
+ },
+ {
+  "state": "MO",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 1313, 2626, 3939, 5252, 6565"
+  ]
+ },
+ {
+  "state": "MO",
+  "figure": "head_of_household_additional_exemption",
+  "covers": [
+   "deductions:head_of_household_additional_exemption"
+  ],
+  "figures": [
+   "deduction head_of_household_additional_exemption: {\"head_of_household\": \"1400\", \"qualifying_surviving_spouse\": \"1400\"}"
+  ]
+ },
+ {
+  "state": "MO",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief public_pension_subtraction cap: {\"all\": \"47633\"}",
+   "relief private_pension_subtraction cap: {\"all\": \"6000\"}"
+  ]
+ },
+ {
+  "state": "MO",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief private_pension_subtraction income_test: {\"measure\": {\"base\": \"federal_agi\", \"plus_tax_exempt_interest\": true, \"minus_own_state_muni_interest\": true, \"minus_taxable_social_security\": true, \"minus_relie"
+  ]
+ },
+ {
+  "state": "NJ",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 20000, 35000, 40000, 75000, 500000"
+  ]
+ },
+ {
+  "state": "NJ",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction nj_regular_exemption: {\"all\": \"1000\"}",
+   "deduction nj_senior_exemption: {\"all\": \"1000\"}"
+  ]
+ },
+ {
+  "state": "NJ",
+  "figure": "nj_pension_exclusion",
+  "covers": [
+   "reliefs:nj_pension_exclusion"
+  ],
+  "figures": [
+   "relief nj_pension_exclusion cap: {\"married_joint\": \"100000\", \"single\": \"75000\", \"head_of_household\": \"75000\", \"qualifying_surviving_spouse\": \"75000\", \"married_separate\": \"50000\"}",
+   "relief nj_pension_exclusion income_test: {\"measure\": {\"base\": \"federal_agi\", \"plus_tax_exempt_interest\": true, \"minus_taxable_social_security\": true}, \"threshold\": {\"all\": \"100000\"}, \"effect\": \"stepped"
+  ]
+ },
+ {
+  "state": "NJ",
+  "figure": "nj_unclaimed_exclusion",
+  "covers": [
+   "reliefs:nj_unclaimed_exclusion"
+  ],
+  "figures": [
+   "relief nj_unclaimed_exclusion cap: {\"married_joint\": \"100000\", \"single\": \"75000\", \"head_of_household\": \"75000\", \"qualifying_surviving_spouse\": \"75000\", \"married_separate\": \"50000\"}",
+   "relief nj_unclaimed_exclusion income_test: {\"measure\": {\"base\": \"federal_agi\", \"plus_tax_exempt_interest\": true, \"minus_taxable_social_security\": true}, \"threshold\": {\"all\": \"100000\"}, \"effect\": \"stepped",
+   "relief nj_unclaimed_exclusion earned_income_limit: {\"amount\": {\"all\": \"3000\"}, \"per\": \"return\"}"
+  ]
+ },
+ {
+  "state": "PA",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "WI",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 14680, 50480, 323290"
+  ]
+ },
+ {
+  "state": "WI",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction wi_standard_deduction: {\"single\": \"13560\", \"married_joint\": \"25110\", \"married_separate\": \"11930\", \"head_of_household\": \"17520\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"19500\", \"married_joint\": \"28000\", \"married_separate\": \"13390",
+   "deduction wi_personal_exemption: {\"all\": \"700\"}",
+   "deduction wi_age_65_exemption: {\"all\": \"250\"}"
+  ]
+ },
+ {
+  "state": "WI",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief wi_retirement_67 cap: {\"all\": \"24000\", \"married_joint\": \"48000\"}",
+   "relief wi_retirement_5000 cap: {\"all\": \"5000\"}"
+  ]
+ },
+ {
+  "state": "WI",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief wi_retirement_5000 income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"15000\", \"head_of_household\": \"15000\", \"married_joint\": \"30000\", \"married_separate\": \"30000\"}, \"eff"
+  ]
+ }
+]

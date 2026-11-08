@@ -284,7 +284,14 @@
   },
   {
    "figure": "brackets",
-   "indexed": "not_stated"
+   "indexed": "yes",
+   "index": "CPI-U (Consumer Price Index for All Urban Consumers), 'inflation factor' = CPI for June of the previous tax year divided by CPI for June 2023; base: June 2023 (for the law in force in tax year 2025); the 2027+ version uses a 'modified inflation factor' with June 2026 as base; rounding: cumulative brackets rounded to the nearest $100. For tax year 2025. HB 337 (2025) struck the annual adjustment: fixed bands of 47,500 single / 71,250 head of household / 95,000 joint for 2026 and 65,000 / 97,500 / 130,000 from 2027; the modified inflation factor (June 2026 base) applies from tax year 2028. The 2025 text of 15-30-2103(3) was read as the struck text in enrolled HB 337 (archive.legmt.gov, CH0227.pdf)",
+   "cite": {
+    "publication": "Mont. Code Ann. 15-30-2103(3) (as it stood for tax year 2025, struck by HB 337 Sec. 1 for 2026); 15-30-2101(12) 'inflation factor'; HB 337 (2025), Secs. 1, 2, 4-6",
+    "section": "Mont. Code Ann. 15-30-2103(3) (as it stood for tax year 2025, struck by HB 337 Sec. 1 for 2026); 15-30-2101(12) 'inflation factor'; HB 337 (2025), Secs. 1, 2, 4-6: \"(3) By November 1 of each year, the department shall multiply the bracket amounts contained in subsections (1) and (2) by the inflation factor for the following tax year and round the cumulative brackets to the nearest $100. [HB 337 Sec. 4:] The modified inflation factor provided for in 15-30-2103(3) does not apply until tax year 2028.\"",
+    "url": "https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html",
+    "accessed": "2026-11-08"
+   }
   },
   {
    "figure": "all_other",

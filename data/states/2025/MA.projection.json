@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/MA.record.json",
-    "sha256": "961c5a814ac89a516ee215dc091c0b68c56769e74514ac9395de03d52bff0f6d"
+    "sha256": "e271b9f8b0ec8a1dfcbb0da85a8d910a2ae19d12765b7f57e44f8b71101a55f1"
   },
   "has_income_tax": true,
   "brackets": {
@@ -150,18 +150,18 @@
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "not indexed: the personal exemption steps up by a fixed 275 / 425 / 550 only on a revenue trigger and is already at its statutory cap (4,400 / 6,800 / 8,800); age-65 700 fixed (M.G.L. c. 62 s. 3(B)(b)(1))"
     },
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed: 20,000, the New York cap (N.Y. Tax Law 612(c)(3-a)) that Massachusetts applies through TIR 95-9"
     }
   ],
   "not_modelled": [

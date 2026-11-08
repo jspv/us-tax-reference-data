@@ -193,3 +193,11 @@ No case's expected figures change: every case goes through single or married_joi
 - Added `family_size_tax_credit_thresholds` (indexed false, assumed) for the family size tax credit's income test. The packet says the credit is 'based on the federal poverty level' and prints 'The 2025 threshold amount' (PDF page 3), but not that it is adjusted each year; the record keeps not_stated, so this stays assumed.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, KRS 141.020(2)(f): one flat rate from 0. Record `brackets` -> no.
+- `deductions` (projection `deductions`): indexed, KRS 141.081(2)(a): CPI-U, July-ending 12-month averages, floor of 1. Record `ky_standard_deduction` -> yes.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, KRS 141.019(1)(g)1.b., 31,110. Record `ky_pension_exclusion` -> no.
+- `credits` (projection `reliefs.credit_amount`): not_indexed, KRS 141.020(3)(a)4., 40. Record `ky_personal_tax_credit_age_65` added as no.
+- `family_size_tax_credit_thresholds` (projection `reliefs:ky_family_size_tax_credit.income_test`): indexed, KRS 141.066(1)(a), (1)(e): the federal poverty guideline of the tax year. Record `ky_family_size_tax_credit` (was not_stated, booklet "based on the federal poverty level") -> yes with the statute cite.

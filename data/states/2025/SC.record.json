@@ -619,12 +619,13 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated",
+      "indexed": "yes",
+      "index": "Chained Consumer Price Index for All Urban Consumers (chained CPI-U) per Internal Revenue Code 1(f); adjustment capped at 4% a year; base: cumulative from December 15, 2018 adjustments (no stated base year); rounding: rounding amount is ten dollars (instead of the IRC 1(f)(7) amount)",
       "cite": {
-        "publication": "2025 SC1040 Individual Income Tax Form and Instructions (packet)",
-        "section": "PDF pp.48-51 tax tables and rate schedule; no mention of inflation adjustment",
-        "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
-        "accessed": "2026-11-06"
+        "publication": "S.C. Code 12-6-520; 12-6-510(B)(1) ('with the income brackets indexed in accordance with Section 12-6-520')",
+        "section": "S.C. Code 12-6-520; 12-6-510(B)(1) ('with the income brackets indexed in accordance with Section 12-6-520'): \"Beginning on December 15, 2018, and each December fifteenth thereafter, the department shall cumulatively adjust the brackets in Section 12-6-510 using the Chained Consumer Price Index for All Consumers, as published by the Bureau of Labor and Statistics of the Department of Labor, pursuant to Internal Revenue Code Section (1)(f). However, the adjustment may not exceed four percent a year, and notwithstanding the rounding amount provided in (1)(f)(7), the rounding amount is ten dollars.\"",
+        "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+        "accessed": "2026-11-08"
       }
     },
     {
@@ -635,6 +636,39 @@
         "section": "PDF p.5 'Increase In South Carolina Dependent Exemption'; the booklet does not say the 4,930 is adjusted for inflation",
         "url": "https://dor.sc.gov/sites/dor/files/forms/IITPacket_2025.pdf",
         "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "sc_retirement_under_65",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "S.C. Code 12-6-1170(A)(1)",
+        "section": "S.C. Code 12-6-1170(A)(1): \"allowed an annual deduction from South Carolina taxable income of not more than three thousand dollars of retirement income received.\"",
+        "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "sc_retirement_65_or_older",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "S.C. Code 12-6-1170(A)(1)",
+        "section": "S.C. Code 12-6-1170(A)(1): \"Beginning in the year in which the taxpayer reaches age sixty-five, the taxpayer may deduct not more than ten thousand dollars of retirement income\"",
+        "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "sc_age_65_deduction",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "S.C. Code 12-6-1170(B)",
+        "section": "S.C. Code 12-6-1170(B): \"in an amount not to exceed fifteen thousand dollars reduced by any amount the taxpayer deducts pursuant to subsection (A) ... thirty thousand dollars when both spouses have attained such age.\"",
+        "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+        "accessed": "2026-11-08"
       }
     },
     {

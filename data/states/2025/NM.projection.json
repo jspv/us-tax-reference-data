@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/NM.record.json",
-  "sha256": "9a96b783fc46941c97c8c6b593681e5cede7e74dd6399847cac9f0ffb747d01c"
+  "sha256": "aa9c263ac06a2b3c1c779153e49774ea024ba1a3b5bc45c121471c61e38f99d4"
  },
  "has_income_tax": true,
  "brackets": {
@@ -540,34 +540,34 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "fixed bands (N.M. Stat. 7-2-7, Laws 2024 ch. 67)"
   },
   {
    "figure": "deductions",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "fixed amounts and income steps (7-2-5.2, 7-2-5.8)"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed by statute: 30,000 armed forces (7-2-5.13), 2,500 capital gains (7-2-34)"
   },
   {
    "figure": "relief_income_tests",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.income_test"
-   ]
+   ],
+   "note": "fixed AGI limits (7-2-5.14)"
   }
  ],
  "not_modelled": [

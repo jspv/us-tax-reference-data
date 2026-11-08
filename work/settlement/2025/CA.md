@@ -164,3 +164,13 @@ the AGI limitation. `base.deductions` holds only the standard deduction.
 - Added `relief_income_tests` (indexed false, assumed) for the military retirement exclusion's AGI test; `exemption_credits` names the two exemption credits by id, so their AGI thresholds stay with it.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): indexed, R&TC 17041(h): California CPI June to June, nearest 1. Record `brackets` added as yes.
+- `behavioral_health_services_tax` (projection `surtaxes`): not_indexed, R&TC 17043(a), (c)(2). Record entry added as no.
+- `deductions` (projection `deductions`): indexed, R&TC 17073.5(d). Record `standard_deduction` added as yes.
+- `exemption_credits` (projection `reliefs:personal_exemption_credit`, `reliefs:senior_exemption_credit`): indexed (the finding lists two parts, credit amounts 17054(i) and AGI thresholds 17054.1(f), both indexed, so one entry stays). Record `personal_exemption_credit`, `senior_exemption_credit` added as yes; `blind_exemption_credit` and `dependent_exemption_credit` too, since 17054(i) recomputes every credit of the section.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, R&TC 17132.9(a), fixed 20,000 (tax years 2025-2029 only). Record `military_retirement_exclusion` added as no (cap and AGI limits).
+- `relief_income_tests` (projection `reliefs.income_test`): split. Its parts: military retirement AGI limits not_indexed (17132.9(b)(1)); personal and senior exemption credit thresholds indexed (17054.1(f)). The two credit parts were already covered by `exemption_credits` (id-level selectors beat the general one), so the entry is replaced by one, `military_retirement_income_test` covering `reliefs:military_retirement_exclusion.income_test`, indexed false.
+- All CA text was read on california.public.law (leginfo.legislature.ca.gov returned HTTP 403); the cites give the official leginfo addresses.

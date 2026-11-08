@@ -483,11 +483,25 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.Y. Tax Law 601(a)-(c); 601-a (cost of living adjustment for tax years 2013 through 2017 only)",
+        "section": "N.Y. Tax Law 601(a)-(c); 601-a (cost of living adjustment for tax years 2013 through 2017 only): \"Not over $8,500 4% of the New York taxable income; Over $8,500 but not over $11,700 $340 plus 4.5% of excess over ... [Tax Law 601(c)(1)(B)(vi), taxable years beginning in 2023 and before 2026]\"",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/601",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "standard_deduction",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.Y. Tax Law 614(f), 601-a(a)",
+        "section": "N.Y. Tax Law 614(f), 601-a(a): \"(f) Adjusted standard deduction. For taxable years beginning after two thousand seventeen, the standard deductions set forth in this section shall be the amounts set forth in this section adjusted by the cost of living adjustment prescribed in section six hundred one-a of this part for tax years two thousand thirteen through two thousand seventeen. [601-a: ...'For each succeeding tax year after tax year two thousand fourteen and before tax year two thousand eighteen' the commissioner shall multiply the amounts ... by one plus the cost of living adjustment]\"",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/614",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "dependent_exemption",
@@ -495,7 +509,25 @@
     },
     {
       "figure": "pension_annuity_exclusion",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.Y. Tax Law 612(c)(3-a)",
+        "section": "N.Y. Tax Law 612(c)(3-a): \"but not in excess of twenty thousand dollars, which are periodic payments attributable to personal services performed by such individual prior to his retirement from employment\"",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/612",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "recapture",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "N.Y. Tax Law 601(d)-(d-6); 601-a(a)",
+        "section": "N.Y. Tax Law 601(d)-(d-6); 601-a(a): \"(d-4) Alternative tax table benefit recapture. Notwithstanding the provisions of subsection (d), (d-1), (d-2) or (d-3) of this section, for taxable years beginning on or after two thousand twenty-three and before two thousand twenty-six, there is hereby imposed a supplemental tax ... [thresholds $107,650; $215,400; $1,077,550; $5,000,000; $25,000,000 fixed in text]\"",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/601",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "all_other",

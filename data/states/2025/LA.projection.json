@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/LA.record.json",
-    "sha256": "ea3cfb884ca14949a2adf7454996aa6f332b9a46d8a80ce05b443a653f8fb415"
+    "sha256": "0f16e206e91a25ac6703acf50a29fff01c11c694e5e7afb8aa67b8a9688a0450"
   },
   "has_income_tax": true,
   "brackets": {
@@ -107,26 +107,28 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "one flat 3% band from 0, no threshold to grow (La. R.S. 47:32(A))"
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "indexed_from": 2026,
+      "note": "CPI-U percentage increase of the previous calendar year times the prior year amount, from January 1, 2026; no rounding stated (La. R.S. 47:294)"
     },
     {
       "figure": "relief_caps",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "indexed_from": 2026,
+      "note": "CPI-U percentage increase of the previous calendar year times the prior year amount, from January 1, 2026; no rounding stated (La. R.S. 47:44.1(A))"
     }
   ],
   "not_modelled": [

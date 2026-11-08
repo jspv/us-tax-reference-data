@@ -367,6 +367,61 @@
  "capital_gains": [],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "A single flat rate (5.19% for 2025) from 0, so there is no threshold to adjust; the rate steps down 0.10 point a year subject to revenue tests, a rate schedule and not an index (the O.C.G.A. text is on a Lexis site that could not be read; the existing code wording was read in HB 463 of 2026 on legis.ga.gov, which quotes it before amendment)",
+   "cite": {
+    "publication": "Official Code of Georgia Annotated, section 48-7-20",
+    "section": "48-7-20(a.1): \"the tax imposed pursuant to subsection (a) of this Code section shall be 5.19 percent ... for taxable years beginning on or after January 1, 2025\"",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ga_standard_deduction",
+   "indexed": "no",
+   "index": "fixed by statute: 24,000 joint, 12,000 single, head of household or separate. HB 463 of 2026 (as passed; signature not checked) would set 30,000 / 15,000 for 2026 rising by 750 / 375 a year to 36,000 / 18,000, a schedule and not an index (the O.C.G.A. text is on a Lexis site that could not be read; the existing code wording was read in HB 463 of 2026 on legis.ga.gov, which quotes it before amendment)",
+   "cite": {
+    "publication": "Official Code of Georgia Annotated, section 48-7-27",
+    "section": "48-7-27(a)(1)(B): \"A standard deduction in an amount as follows: (i) In the case of a married couple filing a joint return, $24,000.00 ...; (ii) In the case of a single taxpayer, head of household, or married taxpayer filing a separate return, $12,000.00 ...\"",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ga_retirement_exclusion_62_64",
+   "indexed": "no",
+   "index": "fixed by statute: 35,000 per taxpayer, no adjustment language (the O.C.G.A. text is on a Lexis site that could not be read; the existing code wording was read in HB 463 of 2026 on legis.ga.gov, which quotes it before amendment)",
+   "cite": {
+    "publication": "Official Code of Georgia Annotated, section 48-7-27",
+    "section": "48-7-27(a)(5)(A)(xiii): \"retirement income from any source not to exceed an exclusion amount of $35,000.00 for each taxpayer meeting the eligibility requirement set forth in division (i) or (ii) of subparagraph (D) of this paragraph\"",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ga_retirement_exclusion_65_plus",
+   "indexed": "no",
+   "index": "fixed by statute: 65,000 per taxpayer, no adjustment language; HB 463 of 2026 would make it 70,000 from 2027 (a one-time change) (the O.C.G.A. text is on a Lexis site that could not be read; the existing code wording was read in HB 463 of 2026 on legis.ga.gov, which quotes it before amendment)",
+   "cite": {
+    "publication": "Official Code of Georgia Annotated, section 48-7-27",
+    "section": "48-7-27(a)(5)(A)(xiii): \"or an amount of $65,000.00 for each taxpayer meeting the eligibility requirement set forth in division (iii) of subparagraph (D) of this paragraph\"",
+    "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "ga_military_exclusion_base",
+   "indexed": "no",
+   "index": "fixed by statute: 17,500, no adjustment language (read in the 2022 signed HB 1064 text, not the current code)",
+   "cite": {
+    "publication": "Official Code of Georgia Annotated, section 48-7-27 (added by HB 1064, 2022)",
+    "section": "48-7-27(a)(5.1)(A): \"Up to $17,500.00 of income received by an individual who is less than 62 years of age paid to such individual as retirement benefits from military service in the armed forces of the United States\"",
+    "url": "https://gov.georgia.gov/document/2022-signed-legislation/hb-1064/download",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

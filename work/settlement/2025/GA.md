@@ -219,3 +219,10 @@ data/states/2025/GA.projection.json: ok
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, O.C.G.A. 48-7-20(a.1): one flat-rate band from 0. Record `brackets` added as no.
+- `deductions` (projection `deductions`): not_indexed, O.C.G.A. 48-7-27(a)(1)(B). Record `ga_standard_deduction` added as no. HB 463 of 2026 (scheduled increases from 2026) not confirmed enacted.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, O.C.G.A. 48-7-27(a)(5)(A)(xiii) and (a)(5.1)(A). Record `ga_retirement_exclusion_62_64`, `ga_retirement_exclusion_65_plus`, `ga_military_exclusion_base` added as no.
+- Code text read in bill text on legis.ga.gov (HB 463 of 2026 quoting existing law) and the 2022 signed HB 1064; the O.C.G.A. itself is on a Lexis site that could not be read. The existing `all_other` entry is left.

@@ -129,3 +129,9 @@ Retirement income" and cites Form 1040 line 20a; the booklet says "tier 1 and ti
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, IC 6-3-2-1: one flat rate from 0 (the section text itself was not read; medium confidence). Record `brackets` added as no.
+- `deductions` (projection `deductions`): not_indexed, IC 6-3-1-3.5(a)(3), (a)(4), (a)(5)(C) (enrolled SEA 243 of 2026). Record `personal_exemption`, `age_65_exemption`, `age_65_additional_exemption` added as no.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, IC 6-3-2-3.7 as stated in DOR Information Bulletin #6 (statute text not read; medium confidence). Record `civil_service_annuity_age_62` and `civil_service_annuity_surviving_spouse` (same 16,000) added as no.

@@ -611,12 +611,13 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated",
+      "indexed": "no",
+      "index": "fixed by statute",
       "cite": {
-        "publication": "2025 PA-40 Instructions (PA-40 IN 04-25)",
-        "section": "PDF page 1 'TAX RATE': the rate is printed for 2025 only",
-        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
-        "accessed": "2026-11-06"
+        "publication": "Tax Reform Code of 1971, Art. III, Section 302(a) (72 P.S. 7302)",
+        "section": "Tax Reform Code of 1971, Art. III, Section 302(a) (72 P.S. 7302): \"a tax upon each dollar of income received by that resident during that resident's taxable year at the rate of three and seven hundredths per cent.\"",
+        "url": "https://www.palegis.us/statutes/unconsolidated/law-information/view-statute?txtType=PDF&SessYr=1971&ActNum=0002.&SessInd=0",
+        "accessed": "2026-11-08"
       }
     },
     {

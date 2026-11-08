@@ -414,12 +414,13 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": "not_stated",
+   "indexed": "yes",
+   "index": "Cost-of-living adjustment determined by the U.S. Treasury secretary for IRC section 1(f); base: Statute lists the base schedule; the tax commissioner applies the adjustment to the schedule each taxable year (same method as the federal brackets); rounding: 'the manner of applying the cost-of-living adjustment must be the same as that used for adjusting the income brackets for federal income tax purposes'",
    "cite": {
-    "publication": "2025 Individual Income Tax Booklet (Form ND-1 instructions and tables)",
-    "section": "PDF p.29; no statement about inflation adjustment found",
-    "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf",
-    "accessed": "2026-11-07"
+    "publication": "N.D.C.C. 57-38-30.3(1)(g)",
+    "section": "N.D.C.C. 57-38-30.3(1)(g): \"The tax commissioner shall prescribe new rate schedules that apply in lieu of the schedules set forth in subdivisions a through e. The new schedules must be determined by increasing the minimum and maximum dollar amounts for each income bracket for which a tax is imposed by the cost-of-living adjustment for the taxable year as determined by the secretary of the United States treasury for purposes of section 1(f) of the United States Internal Revenue Code of 1954, as amended. For this purpose, the rate applicable to each income bracket may not be changed\"",
+    "url": "https://ndlegis.gov/cencode/t57c38.pdf",
+    "accessed": "2026-11-08"
    }
   },
   {

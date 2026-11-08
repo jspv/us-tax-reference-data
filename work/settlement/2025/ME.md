@@ -221,3 +221,9 @@ only on an exact half, also avoided.
 - Split the pension income deduction's figures: added `pension_income_deduction_phase_out` (indexed true) for its income test, from the record's existing `pension_income_deduction` entry (booklet PDF page 3: 'For tax years beginning after 2025, the phaseout threshold amounts are adjusted for inflation'); the 48,216 cap stays under `relief_caps` (assumed).
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): indexed, 36 M.R.S. 5403(1): Chained CPI, rounded down to 50, never falls. Record `brackets` added as yes.
+- `deductions` (projection `deductions`, amounts and phase-outs): indexed, 36 M.R.S. 5403(2), (4), (7), (8); 5124-C(1-B) to (1-D); 5126-A. The finding lists three parts (standard deduction, age-65 addition, personal exemption), all indexed, so one entry stays. Record `standard_deduction`, `age_65_additional_standard_deduction`, `personal_exemption` added as yes.
+- `relief_caps` (projection `reliefs.cap`): indexed, 36 M.R.S. 5122(2)(M-2)(2)(d)(iv): the Social Security maximum benefit at full retirement age. Record `pension_income_deduction` already says yes with the booklet cite and is kept; its index text says the 48,216 cap "is not stated to be indexed" (true of the booklet), while the statute makes the cap the yearly Social Security maximum. Not contradicting the yes, so not changed; reported.

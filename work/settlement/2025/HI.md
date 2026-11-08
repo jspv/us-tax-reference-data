@@ -301,3 +301,9 @@ unchanged. No coverage problems reported.
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`. The N-11 instructions say only that the student loan interest and adoption benefit ranges are not adjusted for inflation (PDF page 14); those figures are not in the projection.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): scheduled, HRS 235-51(a)-(c) (Act 46, SLH 2024): tables change for 2027 and 2029. Projection `indexed: false`, schedule in the note. Record `brackets` added as no with the schedule.
+- `deductions` (projection `deductions`): split, replaced by `standard_deduction` (`deductions:standard_deduction`, scheduled, HRS 235-2.4(a)(2)(E)-(I): 4,400 / 8,800 / 6,424 for 2025, rising in 2026, 2028, 2030 and 2031), `personal_exemption` (`deductions:personal_exemption`, not_indexed, HRS 235-54(a), 1,144) and `age_65_exemption` (`deductions:age_65_exemption`, not_indexed, HRS 235-54(a)). Record entries added for all three. The existing `all_other` entry is left.
+- Unsure: the researcher saw reports, in secondary search results only, of a 2026 act adding a 13% rate over 1,000,000 from 2027; the current HRS page did not show it. Not checked.

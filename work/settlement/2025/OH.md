@@ -129,3 +129,17 @@ The one-cent bands (rates 34200.0275 and 1869.53125) gave exact tax but are not 
 - Marker ids: all 10 markers have an `id`. Descriptive ids (no from_record id of their own): `oh_unreimbursed_medical_deduction`, `oh_other_credits`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`, `deductions` (personal exemption amount and MAGI bands); `relief_caps` covers reliefs.cap. Added `relief_income_tests` (reliefs.income_test) and `relief_credit_amounts` (reliefs.credit_amount), both indexed false, assumed, for the retirement income and senior citizen credits' income limits and credit amounts, which no entry covered.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, indexed from 2027, Ohio R.C. 5747.02(A)(5)
+- `deductions` (deductions): indexed, indexed from 2027, Ohio R.C. 5747.025(B)-(C)
+- `relief_caps` (reliefs.cap): not indexed, Ohio R.C. 5747.055(B), (F)
+- `relief_income_tests` (reliefs.income_test): not indexed, Ohio R.C. 5747.055(B) and (F)
+- `relief_credit_amounts` (reliefs.credit_amount): not indexed, Ohio R.C. 5747.055(B), (F)
+- Record `indexing`: added brackets -> yes; added personal_exemption -> yes; added retirement_income_credit -> no; added senior_citizen_credit -> no.
+- Both `brackets` and `deductions` are indexed from 2027: HB 96 Section 757.120(A) suspends the adjustments for 2025 and 2026. The 40,000 / 80,000 / 750,000 exemption tiers are fixed by statute, but they sit in the same deduction's phase_out as the indexed step amounts, so the `deductions` entry grows them too; the note says so.
+- Flagged figure: the statute prints the top exemption tier as 2,350; the 2025 IT 1040 booklet (it1040-booklet PDF p.17) prints 2,400 / 2,150 / 1,900 for MAGI of 40,000 or less / 40,001-80,000 / 80,001-749,999. The data (2,400 / 2,150 / 1,900) matches the booklet; no change.
+- Later the same day: the format gained '.phase_out_thresholds' / '.phase_out_amounts' selectors, so the fixed income tiers (40,000 / 80,000 / 750,000) have their own not-indexed entry, `personal_exemption_income_tiers`; only the exemption amounts grow.

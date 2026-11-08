@@ -1,0 +1,394 @@
+[
+ {
+  "state": "AR",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers published by the US Dept of Labor (statute words it as the most recent CPI-U)",
+  "base_year": "prior calendar year (year-over-year change); CPI of a year = average of the 12 months ending August 31",
+  "rounding": "nearest $10; annual increase capped at 3%; no change if CPI does not rise",
+  "quote": "The Secretary of the Department of Finance and Administration shall increase annually the standard deduction ... by the cost-of-living adjustment for the current calendar year, rounding the amount to the nearest ten dollars ($10.00). ... not to exceed three percent (3%).",
+  "section": "Ark. Code 26-51-430(c)(1)-(2)",
+  "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-51-430/",
+  "confidence": "medium",
+  "notes": "Official Arkansas Code text is only on the LexisNexis-hosted site (not readable here); text read on FindLaw (current as of 2024-03-28, secondary). Subsection (b) sets the base at $2,200 per taxpayer from 2015; the later 2,340 -> 2,410 -> 2,470 path reported for 2023-2025 is consistent with (c). The 2025 bill HB1065 (arkleg.state.ar.us/assembly/2025/2025R/Bills/HB1065.pdf, engrossed) shows (c) in amended form and heading 'concerning the indexing of the standard income tax deduction to inflation', confirming indexing exists in present law (it would only remove the 3% cap and switch to the West South Central CPI). Enactment of HB1065 not checked. Cap and rounding come from FindLaw text of (c)."
+ },
+ {
+  "state": "AR",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "a taxpayer 'shall not receive an exemption greater than six thousand dollars ($6,000) during any tax year' (the section has no inflation or cost-of-living provision)",
+  "section": "Ark. Code 26-51-307(a)(1), (a)(2), (b)(1)(B)",
+  "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-51-307/",
+  "confidence": "medium",
+  "notes": "Both ar_retirement_exclusion_59_5_plus and ar_retirement_exclusion_employer_plan cap come from the same fixed $6,000 in 26-51-307 (employer-plan benefits (a)(1); IRA benefits after 59 1/2 (a)(2)(A)). Official code not readable; FindLaw read. Quote is the paraphrased tool excerpt, wording may differ slightly; the DFA also publishes 'first $6,000' (dfa.arkansas.gov/wp-content/uploads/206-PensionsAnnuities.pdf, not opened)."
+ },
+ {
+  "state": "AR",
+  "figure": "credits",
+  "answer": "indexed",
+  "index": "Consumer Price Index (statute: CPI for the calendar year preceding the taxable year compared against the 2001 CPI)",
+  "base_year": "2001",
+  "rounding": "nearest dollar",
+  "quote": "(d) 'Adjusted individual credit' shall be twenty dollars ($20.00) ... (e)(1)(A) Not later than July 15 of each calendar year [the Secretary of Finance and Administration shall increase the credits by the cost-of-living adjustment] ... rounding each amount to the nearest dollar.",
+  "section": "Ark. Code 26-51-501(d), (e), (f)",
+  "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-51-501/",
+  "confidence": "medium",
+  "notes": "Indexing is CONDITIONAL under (f): the adjusted credit is not increased unless the May general-revenue forecast shows growth of at least 4.2% for the coming fiscal year and actual revenue beats forecast by at least 0.5% (or exceeds Revenue Stabilization Law distributions). Statute base is $20 individual / $40 joint (and the extra $20 age-65 / blind / deaf add-ons); the $29 now on the DFA form (dfa.arkansas.gov/wp-content/uploads/503-TaxCredits.pdf, 'Personal Tax Credits ($29 per box checked)') is the grown amount, which confirms the adjustment has run. (a)(6) sliding credit table is separately adjusted under 26-51-201(d). Official code not readable; FindLaw read. Quote partly reconstructed from short excerpts (tool limits)."
+ },
+ {
+  "state": "AR",
+  "figure": "recapture_threshold",
+  "answer": "indexed",
+  "index": "cost-of-living adjustment (CPI, capped at 3%) applied to the rate tables",
+  "rounding": "nearest $100 (for bracket minimums and maximums)",
+  "quote": "The tables set forth in subdivisions (a)(1)-(3) of this section shall be adjusted annually in accordance with the method set forth in subsection (d) of this section.",
+  "section": "Ark. Code 26-51-201(a)(4), (d)(1)-(2); the bracket adjustment ('recapture') is in (a)(1)(C), (a)(2)(C), (a)(3)(C)",
+  "url": "https://codes.findlaw.com/ar/title-26-taxation/ar-code-sect-26-51-201/",
+  "confidence": "low",
+  "notes": "The recapture (bracket adjustment) range is part of the tables in (a)(1)-(3), which (a)(4) says are adjusted annually. But (d)(1) only says the secretary 'shall increase the minimum and maximum dollar amounts for each rate bracket', so it is not explicit that the bracket-adjustment amounts or start point are indexed. Statute figures moved from 87,000 (2023) to 90,800 (2024 table), and the repo's 2025 start is 94,701, consistent with annual adjustment (the larger 2025 step also reflects the restructured 2024-25 tables). Official code not readable; FindLaw read. Confirm against the DFA's 2025 table if possible."
+ },
+ {
+  "state": "DE",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(14) For taxable years beginning after December 31, 2013, the amount of tax shall be determined as follows: 2.2% of taxable income in excess of $2,000 but not in excess of $5,000; 3.9% ... in excess of $5,000 but not in excess of $10,000; 4.8% ... $10,000 ... $20,000; 5.2% ... $20,000 ... $25,000; 5.55% ... $25,000 but not in excess of $60,000; and 6.6% of taxable income in excess of $60,000.",
+  "section": "30 Del. C. 1102(a)(14)",
+  "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html",
+  "confidence": "high",
+  "notes": "Fixed dollar bands, no inflation language anywhere in 1102. Same bands in force since 2000."
+ },
+ {
+  "state": "DE",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "(3) For taxable periods beginning after December 31, 1999, the standard deduction of a resident individual shall be $3,250, and the standard deduction of resident spouses shall be $6,500 if they file a joint return and $3,250 each if they file separate returns. ... (b) The sum of $2,500 shall be added to the standard deduction ... [taxpayer age 65]",
+  "section": "30 Del. C. 1108(a)(3), (b)",
+  "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+  "confidence": "high",
+  "notes": "Both de_standard_deduction and de_additional_standard_65 are fixed dollar amounts; no indexing clause in 1108."
+ },
+ {
+  "state": "DE",
+  "figure": "relief_caps",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:de_pension_excl_under60_nonmilitary.cap",
+    "answer": "not_indexed",
+    "quote": "Amounts received, not to exceed $2,000, as pensions from employers, the United States, this State, or any subdivision of this State",
+    "section": "30 Del. C. 1106(b)(3)b.1.A and c.1.A, d.1.A, e.1.A",
+    "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html"
+   },
+   {
+    "covers": "reliefs:de_pension_excl_under60_military.cap",
+    "answer": "scheduled",
+    "quote": "b. For taxable years beginning on January 1, 2022, and ending before January 1, 2027: ... not to exceed $12,500, as a United States military pension. c. [2027]: ... not to exceed $15,000 ... d. [2028]: ... $20,000 ... e. [2029 and after]: ... $25,000, as a United States military pension.",
+    "section": "30 Del. C. 1106(b)(3)b.-e.",
+    "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html"
+   },
+   {
+    "covers": "reliefs:de_pension_excl_60_plus.cap",
+    "answer": "not_indexed",
+    "quote": "For persons age 60 or older, amounts received, not to exceed $12,500, as pensions from employers, the United States, this State, or any subdivision of this State, or as eligible retirement income.",
+    "section": "30 Del. C. 1106(b)(3)b.2",
+    "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html"
+   }
+  ],
+  "schedule": "Military pension exclusion cap: $12,500 through tax year 2026; $15,000 for 2027; $20,000 for 2028; $25,000 for 2029 and later (under-60 and 60+ both use 'the greater of' the ordinary cap or the military cap). Nonmilitary caps are fixed at $2,000 (under 60) and $12,500 (60+).",
+  "section": "30 Del. C. 1106(b)(3)",
+  "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+  "confidence": "high",
+  "notes": "Verify that de_pension_excl_60_plus covers only the nonmilitary $12,500 cap; if a military-pension 60+ version is modelled with the same id, it follows the schedule too (from 2027 it is the greater of $12,500 or the military amount). No CPI/index anywhere; amounts are fixed or scheduled by year."
+ },
+ {
+  "state": "DE",
+  "figure": "credits",
+  "answer": "not_indexed",
+  "quote": "(b) For tax years beginning after December 31, 1995, resident individuals shall be allowed a personal credit ... in the amount of: (1) $110 for each personal exemption ... plus (2) An additional $110 in the case of each resident person age 60 or over.",
+  "section": "30 Del. C. 1110(b)",
+  "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+  "confidence": "high",
+  "notes": "Fixed $110; no adjustment clause."
+ },
+ {
+  "state": "IN",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(none: single flat adjusted gross income tax rate in IC 6-3-2-1, no dollar bands)",
+  "section": "IC 6-3-2-1",
+  "url": "https://iga.in.gov/laws/2025/ic/titles/6#6-3-2-1",
+  "confidence": "medium",
+  "notes": "Indiana taxes AGI at one flat rate (3.0% for 2025; lowered by statute in later years), so the only band start is 0 and there is nothing to index. I did not read the text of IC 6-3-2-1 itself (iga.in.gov is JavaScript-only and could not be fetched); the enrolled act SEA 243 (2026) cross-references the rate as 'the rate imposed by IC 6-3-2-1(a) (before July 1, 2025) or IC 6-3-2-1(b) (after June 30, 2025)'."
+ },
+ {
+  "state": "IN",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "(3) Subtract one thousand dollars ($1,000), or in the case of a joint return filed by a husband and wife, subtract for each spouse one thousand dollars ($1,000). (4) Subtract one thousand dollars ($1,000) for: ... (B) each additional amount allowable under Section 63(f) of the Internal Revenue Code ... (5) ... (C) Five hundred dollars ($500) for each additional amount allowable under Section 63(f)(1) of the Internal Revenue Code if the federal adjusted gross income of the taxpayer, or the taxpayer and the taxpayer's spouse in the case of a joint return, is less than forty thousand dollars ($40,000). In the case of a married individual filing a separate return, the qualifying income amount in this clause is equal to twenty thousand dollars ($20,000).",
+  "section": "IC 6-3-1-3.5(a)(3), (a)(4), (a)(5)(C) (text as amended by P.L.214-2025 and SEA 243-2026)",
+  "url": "https://iga.in.gov/pdf-documents/124/2026/senate/bills/SB0243/SB0243.05.ENRH.pdf",
+  "confidence": "high",
+  "notes": "personal_exemption = (a)(3); age_65_exemption = (a)(4)(B); age_65_additional_exemption and its $40,000 AGI test = (a)(5)(C). All fixed dollar amounts, no indexing language in 3.5. Read from the enrolled bill amending the section (official iga.in.gov PDF) because the codified page is not fetchable."
+ },
+ {
+  "state": "IN",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "The allowable adjustment is equal to the federal civil service annuity received up to a maximum of $8,000 for 2015 and $16,000 for 2016 and thereafter, minus the total amount of Social Security and tier 1 and tier 2 railroad retirement benefits received.",
+  "section": "IC 6-3-2-3.7 (as applied in Indiana DOR Income Tax Information Bulletin #6, June 2025, effective 1 Jan 2025)",
+  "url": "https://www.in.gov/dor/files/ib06.pdf",
+  "confidence": "medium",
+  "notes": "I could not read the text of IC 6-3-2-3.7 itself (iga.in.gov unreadable; Justia/FindLaw blocked). The quoted words are the Indiana Department of Revenue's own statement of the statute, which names a fixed maximum of $16,000 'for 2016 and thereafter' and mentions no adjustment. Treated as fixed. Verify the statutory wording if possible."
+ },
+ {
+  "state": "ME",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "Chained Consumer Price Index",
+  "base_year": "Chained CPI for the 12 months ending June 30, 2015 for the lowest dollar amounts (starts from 2016); ending June 30, 2016 for the highest taxable income amount of each table (starts from 2017); numerator is the 12 months ending June 30 of the preceding calendar year",
+  "rounding": "next lowest multiple of $50 (increase rounded down); factor never falls below the prior year's",
+  "quote": "1. Individual income tax rate tables. For the tax rate tables in section 5111: A. Beginning in 2016 and each year thereafter, by the lowest dollar amounts of the tax rate tables ... \"cost-of-living adjustment\" is the Chained Consumer Price Index for the 12-month period ending June 30th of the preceding calendar year divided by the Chained Consumer Price Index for the 12-month period ending June 30, 2015 ... if the dollar amount ... is not a multiple of $50, any increase must be rounded to the next lowest multiple of $50.",
+  "section": "36 M.R.S. 5403(1) and closing paragraph",
+  "url": "https://legislature.maine.gov/statutes/36/title36sec5403.html",
+  "confidence": "high",
+  "notes": "Closing paragraph also says: if the cost-of-living adjustment would be less than the prior year's, it stays the same as the prior year."
+ },
+ {
+  "state": "ME",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "Chained Consumer Price Index (basic standard deduction, personal exemption, phase-out amounts); the age-65 addition is the federal Section 63(c)(3) amount, itself indexed federally",
+  "base_year": "Chained CPI for the 12 months ending June 30, 2017 (standard deduction, personal exemption, phase-outs)",
+  "rounding": "next lowest multiple of $50",
+  "quote": "2. Standard deductions. In 2025 and each year thereafter, by the dollar amount contained in section 5124-C, subsection 1-B, paragraph A, subparagraph (1) ... [and] 7. Personal exemptions. Beginning in 2018 and each year thereafter, by the dollar amounts contained in section 5126-A, subsection 1 ... \"cost-of-living adjustment\" is the Chained Consumer Price Index for the 12-month period ending June 30th of the preceding calendar year divided by the Chained Consumer Price Index for the 12-month period ending June 30, 2017",
+  "section": "36 M.R.S. 5403(2), (4), (7), (8); 5124-C(1-B) to (1-D), (2); 5126-A(1)-(2)",
+  "url": "https://legislature.maine.gov/statutes/36/title36sec5403.html",
+  "confidence": "high",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "indexed",
+    "quote": "1-C. ... For tax years beginning on or after January 1, 2026 and before January 1, 2027 ... (1) For single individuals and married persons filing separate returns, $15,700 ... 1-D. ... For tax years beginning on or after January 1, 2027, the standard deduction of a resident individual is equal to the federal standard deduction",
+    "section": "36 M.R.S. 5124-C(1-B), (1-C), (1-D); 5403(2)",
+    "url": "https://legislature.maine.gov/statutes/36/title36sec5124-C.html"
+   },
+   {
+    "covers": "deductions:age_65_additional_standard_deduction",
+    "answer": "indexed",
+    "quote": "B. The additional standard deduction is the amount allowed under the Code, Section 63(c)(3).",
+    "section": "36 M.R.S. 5124-C(1-B)(B), (1-C)(B)",
+    "url": "https://legislature.maine.gov/statutes/36/title36sec5124-C.html"
+   },
+   {
+    "covers": "deductions:personal_exemption",
+    "answer": "indexed",
+    "quote": "7. Personal exemptions. Beginning in 2018 and each year thereafter, by the dollar amounts contained in section 5126-A, subsection 1",
+    "section": "36 M.R.S. 5403(7); 5126-A(1)",
+    "url": "https://legislature.maine.gov/statutes/36/title36sec5403.html"
+   }
+  ],
+  "notes": "All three deduction figures grow. Standard deduction: basic amount $15,000 for 2025 indexed by 5403(2) ($15,700 in statute for 2026), then from 2027 it simply equals the federal standard deduction (which is itself inflation-indexed). Age-65 addition equals the federal 63(c)(3) amount (federally indexed, so it follows federal changes, not Maine's chained CPI). Personal exemption: statute text of 5126-A still prints $4,150 and 5403(7) indexes it (the repo's $5,150 is the adjusted 2025 value). The phase-out thresholds are also indexed (5403(4) standard deduction phase-out; 5403(8) exemption phase-out; each rounded to $50)."
+ },
+ {
+  "state": "ME",
+  "figure": "relief_caps",
+  "answer": "indexed",
+  "index": "Maximum annual Social Security benefit at retirement age (42 U.S.C. 416(l)), as moved by Social Security law as of June 28, 2023",
+  "rounding": "not stated in the cap definition",
+  "quote": "(d) \"Pension deduction amount\" means: ... (iv) For tax years beginning on or after January 1, 2024, the maximum annual benefit that an individual eligible to retire at the retirement age, as defined in 42 United States Code, Section 416(l), as of January 1st of the tax year may receive under the federal Social Security Act and amendments to that Act as of June 28, 2023.",
+  "section": "36 M.R.S. 5122(2)(M-2)(2)(d)(iv)",
+  "url": "https://legislature.maine.gov/statutes/36/title36sec5122.html",
+  "confidence": "high",
+  "notes": "The $48,216 cap is not set by a fixed dollar or by 5403; it is defined as the Social Security maximum benefit at full retirement age for that year, so it rises with the SSA's wage indexing. The deduction is also reduced (M-3) above a federal AGI of $125,000 / $187,500 / $250,000 (single/HoH/joint), and 5403(11) says those applicable amounts are indexed (Chained CPI, base June 30, 2024, rounded down to $50)."
+ },
+ {
+  "state": "NC",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "Except as otherwise provided in subsection (a1) ..., the tax is a percentage of the taxpayer's North Carolina taxable income computed as follows: Taxable Years Beginning Tax: In 2022 4.99%; In 2023 4.75%; In 2024 4.5%; In 2025 4.25%; After 2025 3.99%.",
+  "section": "N.C. Gen. Stat. 105-153.7(a)",
+  "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.7.html",
+  "confidence": "high",
+  "notes": "Flat rate, no dollar bands, so the only band start (0) cannot be indexed. Rates fall by schedule, with a revenue-trigger option under (a1) that can cut the rate further from 2027."
+ },
+ {
+  "state": "NC",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "(1) Standard deduction amount. ... the standard deduction amount is equal to the amount listed in the table below based on the taxpayer's filing status: Married, filing jointly/surviving spouse $25,500; Head of Household 19,125; Single 12,750; Married, filing separately 12,750.",
+  "section": "N.C. Gen. Stat. 105-153.5(a)(1)",
+  "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-153.5.html",
+  "confidence": "high",
+  "notes": "Fixed table amounts; I found no adjustment, inflation or CPI language in 105-153.5 (searched the page text). Amounts unchanged by statute since 2021."
+ },
+ {
+  "state": "OH",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "percentage increase in the gross domestic product deflator (computed under R.C. 5747.025)",
+  "rounding": "nearest multiple of $50",
+  "quote": "in August of each year, the tax commissioner shall make a new adjustment to the income amounts prescribed in divisions (A)(2) and (3) of this section by multiplying the percentage increase in the gross domestic product deflator computed that year under section 5747.025 of the Revised Code by each of the income amounts resulting from the adjustment under this division in the preceding year, adding the resulting product ..., and rounding the resulting sum to the nearest multiple of fifty dollars.",
+  "section": "Ohio R.C. 5747.02(A)(5)",
+  "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.02",
+  "confidence": "high",
+  "notes": "SUSPENDED for 2025 and 2026: HB 96 (136th GA) uncodified Section 757.120(A): 'The Tax Commissioner shall not make adjustments in 2025 or 2026 to the income amounts in divisions (A)(2) and (3) of section 5747.02 of the Revised Code, as otherwise required by division (A)(5) of that section, or make adjustments in 2025 or 2026 to the personal exemption amounts prescribed in division (A) of section 5747.025 ...' (read at https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb96/07_EN/html). So the $26,050 and $100,000 starts hold flat through 2026 and the statute's indexing resumes for tax years from 2027 unless the legislature acts again. Note (A)(3)(c) for 2026 on has a single 2.75% rate above $26,050, so the $100,000 start ends after 2025. Earlier suspension for 2023-2024 also exists (secondary sources; not checked). The commissioner also never adjusts down."
+ },
+ {
+  "state": "OH",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "percentage increase in the gross domestic product deflator, Jan 1 of the preceding year to Dec 31 of the preceding year (R.C. 5747.025(C))",
+  "rounding": "rounded UP to the nearest multiple of $50",
+  "quote": "(B) For taxable years beginning in 2020 and thereafter, the personal exemption amounts prescribed in division (A) of this section shall be adjusted each year in the manner prescribed in division (C) ... (C) ... the tax commissioner shall determine the percentage increase in the gross domestic product deflator ... and make a new adjustment to the personal exemption amount ... rounding the resulting sum upward to the nearest multiple of fifty dollars.",
+  "section": "Ohio R.C. 5747.025(B)-(C)",
+  "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.025",
+  "confidence": "high",
+  "notes": "Adjustment SUSPENDED for 2025 and 2026 by HB 96 Section 757.120(A) (quoted under brackets), resumes later. Only the exemption amounts are adjusted; the modified-AGI tiers that select the amount ($40,000 / $80,000) and the $750,000 / $500,000 cutoff in 5747.025(A) are fixed dollar figures that the adjustment clause does not touch. The statute text still prints $2,350 / $2,100 / $1,850 (the 2024 amounts as last written into the statute); the repo shows 2,400, so check that figure."
+ },
+ {
+  "state": "OH",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "Over $8,000 $200 [retirement income credit schedule] ... (F) A credit equal to fifty dollars for each return required to be filed under section 5747.08 of the Revised Code shall be allowed ... for taxpayers sixty-five years of age or older",
+  "section": "Ohio R.C. 5747.055(B), (F)",
+  "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.055",
+  "confidence": "high",
+  "notes": "Fixed dollars; the page has no adjustment, deflator or inflation language. Retirement credit schedule tops out at $200; senior citizen credit is $50."
+ },
+ {
+  "state": "OH",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "quote": "whose modified adjusted gross income for the taxable year, less applicable exemptions under section 5747.025 of the Revised Code, as shown on an individual or joint annual return is less than one hundred thousand dollars",
+  "section": "Ohio R.C. 5747.055(B) and (F)",
+  "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.055",
+  "confidence": "high",
+  "notes": "The $100,000 test is fixed in both credits; no adjustment language. (The statute measures MAGI less exemptions; the repo records it as state_taxable_income.)"
+ },
+ {
+  "state": "OH",
+  "figure": "relief_credit_amounts",
+  "answer": "not_indexed",
+  "quote": "(B) ... Over $8,000 $200 ... (F) A credit equal to fifty dollars ...",
+  "section": "Ohio R.C. 5747.055(B), (F)",
+  "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.055",
+  "confidence": "high",
+  "notes": "Fixed credit amounts, no adjustment language."
+ },
+ {
+  "state": "UT",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(2) For purposes of Subsection (1), for a taxable year, the tax is an amount equal to the product of: (a) the resident individual's state taxable income for that taxable year; and (b) 4.45%.",
+  "section": "Utah Code 59-10-104(2)",
+  "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S104_2026050620260506.html",
+  "confidence": "high",
+  "notes": "Flat rate with no dollar bands. The 4.45% shown is the 2026 text (Chapter 250, 2026 General Session); the 2025 rate was 4.5%. The only band start is 0, so there is nothing to index."
+ },
+ {
+  "state": "UT",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "the credit cap and the exempt-taxpayer test both track the federal standard deduction (Internal Revenue Code Section 63, itself inflation-indexed by Section 63(c)(4))",
+  "quote": "(2) ... a claimant may claim a nonrefundable tax credit ... equal to the sum of: (a)(i) for a claimant that deducts the standard deduction on the claimant's federal individual income tax return for the taxable year, 6% of the amount the claimant deducts as allowed as the standard deduction ... [and] 59-10-104.1(2): an individual is exempt from a tax imposed by Section 59-10-104 or 59-10-116 if the individual's adjusted gross income on the individual's federal individual income tax return for the taxable year is less than or equal to the sum of the individual's: (a) personal exemptions for that taxable year; and (b) standard deduction for that taxable year.",
+  "section": "Utah Code 59-10-1018(2)(a); 59-10-104.1(1)(b), (2)",
+  "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html",
+  "confidence": "medium",
+  "split": [
+   {
+    "covers": "reliefs:taxpayer_tax_credit.cap",
+    "answer": "indexed",
+    "quote": "6% of the amount the claimant deducts as allowed as the standard deduction on the claimant's federal individual income tax return for that taxable year",
+    "section": "Utah Code 59-10-1018(2)(a)(i)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html"
+   },
+   {
+    "covers": "reliefs:qualified_exempt_taxpayer.income_test",
+    "answer": "indexed",
+    "quote": "an individual is exempt ... if the individual's adjusted gross income on the individual's federal individual income tax return for the taxable year is less than or equal to the sum of the individual's: (a) personal exemptions for that taxable year; and (b) standard deduction for that taxable year",
+    "section": "Utah Code 59-10-104.1(2) (version superseded 1/1/2026, applies to tax year 2025)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S104.1_1800010118000101.html"
+   }
+  ],
+  "notes": "These two figures are not dollar amounts in Utah's own statute at all; each is the federal standard deduction for the year (15,750 single for 2025 under federal law, 31,500 joint, 23,625 HoH), so they rise whenever the federal figure is indexed (and also change with federal legislation, e.g. the 2025 federal increase). 59-10-104.1 defines 'standard deduction' as the one allowed under IRC Section 63 excluding the 63(f) add-on for age 65/blind; personal exemptions are Section 151 (zero federally now). The 2026 bill HB0210 changes the test from AGI to modified AGI (not checked for enactment; not relevant to 2025). Utah's own state-law indexing is in 59-10-1018(4)-(6) (see relief_income_tests)."
+ },
+ {
+  "state": "UT",
+  "figure": "relief_caps",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:taxpayer_tax_credit.cap",
+    "answer": "indexed",
+    "quote": "6% of the amount the claimant deducts as allowed as the standard deduction on the claimant's federal individual income tax return for that taxable year",
+    "section": "Utah Code 59-10-1018(2)(a)(i)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html"
+   },
+   {
+    "covers": "reliefs:retirement_credit.cap",
+    "answer": "not_indexed",
+    "quote": "(2) ... each eligible claimant may claim a nonrefundable tax credit of $450 against taxes otherwise due under this part.",
+    "section": "Utah Code 59-10-1019(2)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1019_2022032320220323.html"
+   }
+  ],
+  "quote": "see split",
+  "section": "Utah Code 59-10-1018(2)(a)(i); 59-10-1019(2)",
+  "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html",
+  "confidence": "medium",
+  "notes": "taxpayer_tax_credit cap = the claimant's federal standard deduction (moves with federal indexing). retirement_credit cap is the fixed $450; 59-10-1019 (last amended 2022) has no adjustment language."
+ },
+ {
+  "state": "UT",
+  "figure": "relief_income_tests",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:taxpayer_tax_credit.income_test",
+    "answer": "indexed",
+    "quote": "(4) The tax credit allowed by Subsection (2) shall be reduced by $.013 for each dollar by which a claimant's state taxable income exceeds: (a) for a claimant who has a single filing status, $15,095; (b) ... head of household filing status, $22,643; or (c) ... joint filing status, $30,190. (5)(a) For a taxable year beginning on or after January 1, 2022, the commission shall increase or decrease annually the following dollar amounts by a percentage equal to the percentage difference between the consumer price index for the preceding calendar year and the consumer price index for calendar year 2020 ...",
+    "section": "Utah Code 59-10-1018(4)-(5)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html"
+   },
+   {
+    "covers": "reliefs:qualified_exempt_taxpayer.income_test",
+    "answer": "indexed",
+    "quote": "adjusted gross income ... less than or equal to the sum of the individual's: (a) personal exemptions for that taxable year; and (b) standard deduction for that taxable year",
+    "section": "Utah Code 59-10-104.1(2)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S104.1_1800010118000101.html"
+   },
+   {
+    "covers": "reliefs:retirement_credit.income_test",
+    "answer": "not_indexed",
+    "quote": "(4) The tax credit ... shall be reduced by $.025 for each dollar by which modified adjusted gross income ... exceeds: (a) ... married filing separately status, $16,000; (b) ... single filing status, $25,000; (c) ... head of household filing status, $32,000; or (d) ... joint filing status, $32,000.",
+    "section": "Utah Code 59-10-1019(4)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1019_2022032320220323.html"
+   },
+   {
+    "covers": "reliefs:social_security_credit.income_test",
+    "answer": "not_indexed",
+    "quote": "(4) ... reduced by $.025 for each dollar by which modified adjusted gross income ... exceeds: (a) ... married filing separately status, $45,000; (b) ... single filing status, $54,000; (c) ... head of household filing status, $90,000; or (d) ... joint filing status, $90,000.",
+    "section": "Utah Code 59-10-1042(4)",
+    "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1042_2026010120250507.html"
+   }
+  ],
+  "index": "consumer price index as calculated under IRC Sections 1(f)(4) and 1(f)(5), for the taxpayer-tax-credit phase-out start only",
+  "base_year": "calendar year 2020",
+  "rounding": "nearest whole dollar; joint amount reset to exactly twice the single amount",
+  "quote": "see split",
+  "section": "Utah Code 59-10-1018(4)-(5); 59-10-104.1(2); 59-10-1019(4); 59-10-1042(4)",
+  "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1018_2026050620260506.html",
+  "confidence": "high",
+  "notes": "Statute prints $15,095 / $22,643 / $30,190 and the commission indexes them from 2022 (CPI of the preceding calendar year vs 2020); the repo's 18,213 / 27,320 / 36,426 are the adjusted 2025 values. Section 1018 (c) after rounding sets the joint amount to the single amount times two. The retirement credit and Social Security credit thresholds are fixed dollars with no adjustment clause. Section 59-10-1018 text read is the version effective 1/1/2026 (amended 2026 GS ch. 299); the (4)-(6) indexing language was already in place for 2022 onward."
+ },
+ {
+  "state": "UT",
+  "figure": "relief_credit_amounts",
+  "answer": "not_indexed",
+  "quote": "(2) Except as provided in Section 59-10-1002.2 and Subsections (3) and (4), each eligible claimant may claim a nonrefundable tax credit of $450 against taxes otherwise due under this part.",
+  "section": "Utah Code 59-10-1019(2)",
+  "url": "https://le.utah.gov/xcode/Title59/Chapter10/C59-10-S1019_2022032320220323.html",
+  "confidence": "high",
+  "notes": "Fixed $450, no adjustment clause (section last amended by Chapter 258, 2022 General Session)."
+ }
+]

@@ -168,3 +168,16 @@ the page's own amount is stale. Its elderly credit (24%) agrees with IN-119.
 - Marker ids: all 10 markers have an `id`. Descriptive ids (no from_record id of their own): `vt_early_distribution_additional_tax`, `vt_medical_expenses_deduction`, `vt_record_notes_lines`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: each existing per-figure entry covers its own id: `vt_standard_deduction`, `vt_personal_exemption`, `vt_age_65_additional` (deductions:<id>); `vt_social_security_exemption`, `vt_military_retirement_exemption`, `vt_capital_gains_flat` (reliefs:<id>); plus `brackets` and `recapture`. No split needed.
 - Assumed entries: none resolved; the only indexing statement (vt-seniors-and-retirees page, 'The amount will be adjusted annually for inflation') was already the record's `vt_age_65_additional` yes. Recapture: added `other_rule: minimum_tax_on_measure` after checking booklet PDF page 11 Line 8 and the PDF page 46 note: when federal AGI is over 150,000, Line 8 is the higher of 3% of federal AGI (less interest from U.S. obligations) and the rate-schedule tax. The 'less U.S. obligation interest' detail is the same Treasury-interest simplification as the projection's other U.S. obligation approximation.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, 32 V.S.A. 5822(b)(2)
+- `vt_standard_deduction` (deductions:vt_standard_deduction): indexed, 32 V.S.A. 5811(21)(D)
+- `vt_personal_exemption` (deductions:vt_personal_exemption): indexed, 32 V.S.A. 5811(21)(D); face amount in (21)(C)(i)
+- `vt_social_security_exemption` (reliefs:vt_social_security_exemption): not indexed, 32 V.S.A. 5830e(a)
+- `vt_military_retirement_exemption` (reliefs:vt_military_retirement_exemption): not indexed, 32 V.S.A. 5830e(d)
+- `vt_capital_gains_flat` (reliefs:vt_capital_gains_flat): not indexed, 32 V.S.A. 5811(21)(B)(ii)
+- `recapture` (recapture): not indexed, 32 V.S.A. 5822(a)(6); compare (b)(2)
+- Record `indexing`: added brackets -> yes; added recapture -> no; added vt_standard_deduction -> yes; added vt_personal_exemption -> yes; added vt_social_security_exemption -> no; added vt_military_retirement_exemption -> no; added vt_capital_gains_flat_cap -> no; added vt_capital_gains_flat_exclusion -> no.

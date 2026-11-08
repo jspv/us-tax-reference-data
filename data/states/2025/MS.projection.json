@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/MS.record.json",
-    "sha256": "b44d5f28ef2530edd49ae6f2af14aac0cf02e016e3233f422719aae7cfa9997b"
+    "sha256": "eea89369f0bf1bc49e508e8dfdc19b8b0368d39e00c74b2d50a37c7f90f00441"
   },
   "has_income_tax": true,
   "brackets": {
@@ -113,18 +113,18 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed bands (Miss. Code 27-7-5); only the rate over 10,000 steps down by year (2025 HB 1)"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "fixed by statute (Miss. Code 27-7-17, 27-7-21)"
     }
   ],
   "not_modelled": [

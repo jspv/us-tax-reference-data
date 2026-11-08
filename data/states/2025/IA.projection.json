@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/IA.record.json",
-  "sha256": "59db9bee72c43c05d1f58d67a8864a346caeb64f3c50334177d4ca8c3b81ad51"
+  "sha256": "38e32a775773595a3c6754f25621850bbb2cdab8a1dec1cbd83ec5d0e2dc3d06"
  },
  "has_income_tax": true,
  "brackets": {
@@ -124,18 +124,18 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "one flat 3.8% band from 0, no threshold to grow (Iowa Code 422.5(1)(a))"
   },
   {
    "figure": "credits",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.credit_amount"
-   ]
+   ],
+   "note": "fixed by statute: 40 per person, 20 more at age 65 (Iowa Code 422.12(2)(a))"
   }
  ],
  "not_modelled": [

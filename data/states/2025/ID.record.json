@@ -527,22 +527,24 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": "not_stated",
+   "indexed": "yes",
+   "index": "Consumer price index for all urban consumers: the statutory threshold (2,500 single, 5,000 joint, surviving spouse or head of household) times the CPI of the calendar year before the tax year over the 1998 CPI, applied by the state tax commission; no rounding stated",
    "cite": {
-    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
-    "section": "PDF p.4 and p.11: the rate and the worksheet amounts; nothing on indexing",
-    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
-    "accessed": "2026-11-07"
+    "publication": "Idaho Code, section 63-3024",
+    "section": "63-3024(2)-(3): \"The Idaho tax thresholds shall be adjusted as follows: multiply the last threshold amount by the percentage (the consumer price index for the calendar year immediately preceding the calendar year to which the adjusted threshold amount will apply divided by the consumer price index for calendar year 1998).\"",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3024/",
+    "accessed": "2026-11-08"
    }
   },
   {
    "figure": "standard_deduction",
-   "indexed": "not_stated",
+   "indexed": "yes",
+   "index": "The federal amount of IRC 63, taken by reference (conformity to the Internal Revenue Code in effect on January 1, 2026, 63-3004), so it follows the federal cost-of-living adjustment of IRC 63(c)(4) and 1(f)(3)",
    "cite": {
-    "publication": "2025 Individual Income Tax Instructions (Forms 40, 43, 39R, 39NR), EIN00046",
-    "section": "PDF p.10, Standard Deduction Worksheet: nothing on indexing",
-    "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_03-02-2026.pdf",
-    "accessed": "2026-11-07"
+    "publication": "Idaho Code, section 63-3022",
+    "section": "63-3022(j)(1): \"In the case of an individual, there shall be allowed as a deduction from gross income either paragraph (1) or (2) of this subsection at the option of the taxpayer: (1) The standard deduction as defined in section 63 of the Internal Revenue Code;\"",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3022/",
+    "accessed": "2026-11-08"
    }
   },
   {
@@ -609,6 +611,28 @@
     "section": "Introductory paragraph: 'Each year the state recalculates the maximum allowed'; PDF p.45 'The maximum amounts you can deduct for 2025 are'",
     "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/popular-credits-and-deductions/idaho-retirement-benefits-deduction/",
     "accessed": "2026-11-07"
+   }
+  },
+  {
+   "figure": "age_65_addition",
+   "indexed": "yes",
+   "index": "The federal amount of IRC 63, taken by reference (conformity to the Internal Revenue Code in effect on January 1, 2026, 63-3004), so it follows the federal cost-of-living adjustment of IRC 63(c)(4) and 1(f)(3)",
+   "cite": {
+    "publication": "Idaho Code, section 63-3022",
+    "section": "63-3022(j)(1): \"In the case of an individual, there shall be allowed as a deduction from gross income either paragraph (1) or (2) of this subsection at the option of the taxpayer: (1) The standard deduction as defined in section 63 of the Internal Revenue Code;\"",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3022/",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "food_tax_credit",
+   "indexed": "no",
+   "index": "fixed by statute: 155 for 2025 and each year after, no adjustment language",
+   "cite": {
+    "publication": "Idaho Code, section 63-3024A",
+    "section": "63-3024A(1): \"For tax year 2025 and each year thereafter, the credit is one hundred fifty-five dollars ($155).\"",
+    "url": "https://legislature.idaho.gov/statutesrules/idstat/Title63/T63CH30/SECT63-3024A/",
+    "accessed": "2026-11-08"
    }
   },
   {

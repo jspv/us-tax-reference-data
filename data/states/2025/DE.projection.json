@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/DE.record.json",
-    "sha256": "61b110cee25525e69caec185ef1de5cd9fbe82304f5bdc82b12f398236aab8e7"
+    "sha256": "65677ca5ed13ba8536fadda0c5157dc71b4f524e4d040b9b9afbcbe57c959b93"
   },
   "has_income_tax": true,
   "brackets": {
@@ -231,34 +231,50 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed by statute (30 Del. C. 1102(a)(14) bands, same since 2000)"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "fixed by statute: 3,250 / 6,500 and the 2,500 age-65 addition (30 Del. C. 1108(a)(3), (b))"
     },
     {
-      "figure": "relief_caps",
+      "figure": "pension_cap_under60_nonmilitary",
       "indexed": false,
-      "assumed": true,
       "covers": [
-        "reliefs.cap"
-      ]
+        "reliefs:de_pension_excl_under60_nonmilitary.cap"
+      ],
+      "note": "fixed by statute: 2,000 (30 Del. C. 1106(b)(3))"
+    },
+    {
+      "figure": "pension_cap_under60_military",
+      "indexed": false,
+      "covers": [
+        "reliefs:de_pension_excl_under60_military.cap"
+      ],
+      "note": "scheduled: military pension cap 12,500 through 2026, 15,000 for 2027, 20,000 for 2028, 25,000 from 2029 (30 Del. C. 1106(b)(3)b.-e.)"
+    },
+    {
+      "figure": "pension_cap_60_plus",
+      "indexed": false,
+      "covers": [
+        "reliefs:de_pension_excl_60_plus.cap"
+      ],
+      "note": "fixed by statute: 12,500 (30 Del. C. 1106(b)(3)b.2); from 2027 a military pension gets the greater of 12,500 and the military schedule, which is not grown here"
     },
     {
       "figure": "credits",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.credit_amount"
-      ]
+      ],
+      "note": "fixed by statute: 110 per exemption and 110 at age 60 (30 Del. C. 1110(b))"
     }
   ],
   "not_modelled": [
@@ -354,6 +370,11 @@
       "what": "Tax is computed from the statute's rate schedule; returns with Line 23 under 60,000 use the Division's tax table, which is built on the same rates but in income rows.",
       "direction": "either",
       "size": "A few dollars at most (rounding within a table row)."
+    },
+    {
+      "what": "Later years: the United States military pension exclusion rises to 15,000 (2027), 20,000 (2028) and 25,000 (2029 on), for those under 60 and, as the greater of it and the 12,500 exclusion, for those 60 and older (30 Del. C. 1106(b)(3)c.-e., SB 219). The projection keeps 12,500.",
+      "direction": "overstates_tax",
+      "size": "From 2029, up to 12,500 x 6.6% = 825 a year per military retiree."
     }
   ],
   "recapture": [],

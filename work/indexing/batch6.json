@@ -1,0 +1,217 @@
+[
+ {
+  "state": "CT",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 10000, 50000, 100000, 200000, 250000"
+  ]
+ },
+ {
+  "state": "CT",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction personal_exemption: {\"single\": \"15000\", \"married_joint\": \"24000\", \"qualifying_surviving_spouse\": \"24000\", \"married_separate\": \"12000\", \"head_of_household\": \"19000\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"30000\", \"married_joint\": \"48000\", \"qualifying_surviving_spou"
+  ]
+ },
+ {
+  "state": "CT",
+  "figure": "relief_thresholds",
+  "covers": [
+   "reliefs.income_test",
+   "reliefs.applies_over"
+  ],
+  "figures": [
+   "relief ss_full_exempt income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"75000\", \"married_separate\": \"75000\", \"married_joint\": \"100000\", \"qualifying_surviving_spouse\": \"10",
+   "relief pension_annuity_subtraction income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"75000\", \"married_separate\": \"75000\", \"head_of_household\": \"75000\", \"married_joint\": \"100000\"}, \"ef",
+   "relief ira_subtraction income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"75000\", \"married_separate\": \"75000\", \"head_of_household\": \"75000\", \"married_joint\": \"100000\"}, \"ef",
+   "relief personal_tax_credit income_test: {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"18800\", \"married_joint\": \"30000\", \"qualifying_surviving_spouse\": \"30000\", \"married_separate\": \"15000",
+   "relief ss_partial_exempt applies_over: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"75000\", \"married_separate\": \"75000\", \"married_joint\": \"100000\", \"qualifying_surviving_spouse\": \"10"
+  ]
+ },
+ {
+  "state": "CT",
+  "figure": "recapture",
+  "covers": [
+   "recapture"
+  ],
+  "figures": [
+   "recapture"
+  ]
+ },
+ {
+  "state": "ID",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 4811"
+  ]
+ },
+ {
+  "state": "ID",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"15750\", \"married_separate\": \"15750\", \"head_of_household\": \"23625\", \"married_joint\": \"31500\", \"qualifying_surviving_spouse\": \"31500\"}",
+   "deduction age_65_addition: {\"single\": \"2000\", \"head_of_household\": \"2000\", \"married_joint\": \"1600\", \"married_separate\": \"1600\", \"qualifying_surviving_spouse\": \"1600\"}"
+  ]
+ },
+ {
+  "state": "ID",
+  "figure": "credits",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief food_tax_credit credit_amount: \"155\""
+  ]
+ },
+ {
+  "state": "MA",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction personal_exemption: {\"single\": \"4400\", \"married_separate\": \"4400\", \"head_of_household\": \"6800\", \"married_joint\": \"8800\"}",
+   "deduction age_65_exemption: {\"all\": \"700\"}"
+  ]
+ },
+ {
+  "state": "MA",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief other_state_contributory_pension_ny cap: {\"all\": \"20000\"}"
+  ]
+ },
+ {
+  "state": "MS",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 10000"
+  ]
+ },
+ {
+  "state": "MS",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction ms_standard_deduction: {\"single\": \"2300\", \"married_joint\": \"4600\", \"married_separate\": \"2300\", \"head_of_household\": \"3400\"}",
+   "deduction ms_personal_exemption: {\"single\": \"6000\", \"married_joint\": \"12000\", \"married_separate\": \"6000\", \"head_of_household\": \"8000\"}",
+   "deduction ms_age_65_exemption: {\"single\": \"1500\", \"married_joint\": \"1500\", \"married_separate\": \"750\", \"head_of_household\": \"1500\"}"
+  ]
+ },
+ {
+  "state": "NM",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 5500, 16500, 33500, 66500, 210000"
+  ]
+ },
+ {
+  "state": "NM",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction age_65_exemption: {\"all\": \"8000\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"married_joint\": \"30000\", \"head_of_household\": \"30000\", \"qualifying_s",
+   "deduction low_middle_income_exemption_single: {\"single\": \"2500\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"20000\"}, \"effect\": \"phase_out_rate\", \"rate\": \"0.15\"}",
+   "deduction low_middle_income_exemption_joint_hoh: {\"married_joint\": \"2500\", \"qualifying_surviving_spouse\": \"2500\", \"head_of_household\": \"2500\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"married_joint\": \"30000\", \"qualifying_surviving_spouse\": \"30000\", \"he",
+   "deduction low_middle_income_exemption_separate: {\"married_separate\": \"2500\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"married_separate\": \"15000\"}, \"effect\": \"phase_out_rate\", \"rate\": \"0."
+  ]
+ },
+ {
+  "state": "NM",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief armed_forces_retirement_pay cap: {\"all\": \"30000\"}",
+   "relief net_capital_gains_cap cap: {\"single\": \"2500\", \"married_joint\": \"2500\", \"head_of_household\": \"2500\", \"qualifying_surviving_spouse\": \"2500\", \"married_separate\": \"1250\"}"
+  ]
+ },
+ {
+  "state": "NM",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief social_security_exemption income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"100000\", \"married_separate\": \"75000\", \"married_joint\": \"150000\", \"head_of_household\": \"150000\", \"q"
+  ]
+ },
+ {
+  "state": "RI",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief ri_pension_annuity_modification cap: {\"all\": \"50000\"}",
+   "relief ri_pension_annuity_modification_later_births cap: {\"all\": \"50000\"}"
+  ]
+ },
+ {
+  "state": "WV",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 10000, 25000, 40000, 60000"
+  ]
+ },
+ {
+  "state": "WV",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction wv_personal_exemption: {\"all\": \"2000\"}"
+  ]
+ },
+ {
+  "state": "WV",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief wv_other_retirement cap: {\"all\": \"2000\"}",
+   "relief wv_senior_citizen_deduction cap: {\"all\": \"8000\"}"
+  ]
+ },
+ {
+  "state": "WV",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief wv_social_security income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"50000\", \"married_separate\": \"50000\", \"head_of_household\": \"50000\", \"qualifying_surviving_spouse\": "
+  ]
+ }
+]

@@ -970,6 +970,50 @@
    }
   },
   {
+   "figure": "brackets",
+   "indexed": "yes",
+   "index": "U.S. City Average CPI for All Urban Consumers (All Items), BLS; base: cumulative change vs the second quarter of 1992 (12-month average ending Aug 31 of prior year); rounding: the increase is rounded to the next lower multiple of $50. Every band limit except the start of the top band; the 125,000 start (250,000 joint) 'may not be adjusted' (ORS 316.037(1)(b)(D))",
+   "cite": {
+    "publication": "ORS 316.037(1)(b)-(e)",
+    "section": "ORS 316.037(1)(b)-(e): \"(c) ... the cost-of-living adjustment for any calendar year is the percentage (if any) by which the monthly averaged U.S. City Average Consumer Price Index for the 12 consecutive months ending August 31 of the prior calendar year exceeds the monthly averaged index for the second quarter of the calendar year 1992. ... (e) If any increase determined under paragraph (b) of this subsection is not a multiple of $50, the increase shall be rounded to the next lower multiple of $50.\"",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "standard_deduction",
+   "indexed": "yes",
+   "index": "U.S. City Average CPI-U (All Items), BLS (standard deduction); base: second quarter of 2002 (base amounts $3,280 joint / $1,640 single or separate / $2,640 head of household); rounding: not stated for the amounts themselves (the $5 rounding sentence in (C)(ii) refers to a maximum household income that is not in this subsection)",
+   "cite": {
+    "publication": "ORS 316.695(1)(c)(B)-(C)",
+    "section": "ORS 316.695(1)(c)(B)-(C): \"(C)(i) ... the Department of Revenue shall annually recompute the basic standard deduction for each category of return filer listed under subparagraph (B) of this paragraph. The basic standard deduction shall be computed by dividing the monthly averaged U.S. City Average Consumer Price Index for the 12 consecutive months ending August 31 of the prior calendar year by the average U.S. City Average Consumer Price Index for the second quarter of 2002, then multiplying that quotient by the amount listed under subparagraph (B) of this paragraph for each category of return filer.\"",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "age_65_additional",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "ORS 316.695(7)",
+    "section": "ORS 316.695(7): \"(7)(a) The taxpayer shall be entitled to an additional amount, as referred to in subsection (1)(c)(A) and (D) of this section, of $1,000: (A) For the taxpayer if the taxpayer has attained age 65 before the close of the taxpayer's tax year ... (c) In the case of an individual who is not married and is not a surviving spouse, paragraphs (a) and (b) of this subsection shall be applied by substituting $1,200 for $1,000.\"",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "retirement_income_credit",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "ORS 316.157(2)(d)",
+    "section": "ORS 316.157(2)(d): \"(B) For an eligible individual filing a return other than a joint return, the lesser of the pension income of the eligible individual received during the taxable year or the excess, if any, of $7,500 over the sum of the following amounts ... (A) For eligible individuals filing a joint return, the lesser of the pension income ... or the excess, if any, of $15,000 over the sum of ...\" | ORS 316.157(2)(d): \"(ii) The excess, if any, of household income over $30,000. [joint] ... (ii) The excess, if any, of household income over $15,000. [other than joint]\"",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

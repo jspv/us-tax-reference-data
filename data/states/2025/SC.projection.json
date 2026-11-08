@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/SC.record.json",
-    "sha256": "27e9ac6832f500dbf4c503935d1f150b5a6c0e5bfa6d17ede5fa37deeb9ba853"
+    "sha256": "b48dbf69df39ad3168a89a636c765a9dc7a5818d6d94cf21125bd9c53f5c0617"
   },
   "has_income_tax": true,
   "brackets": {
@@ -177,19 +177,19 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "chained CPI-U per IRC 1(f), at most 4% a year, rounded to $10 (S.C. Code 12-6-520)"
     },
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed 3,000 / 10,000 / 15,000 (S.C. Code 12-6-1170)"
     }
   ],
   "not_modelled": [

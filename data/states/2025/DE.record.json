@@ -39,7 +39,8 @@
     "Settlement 2026-11-07: reliefs pension exclusion (all branches), public_pension_other_state: A said covers_unclear, B said covers_unclear; PDF p.6 'Amounts received as pensions from employers' with no limit to Delaware or federal employers; moved to covers (same entries as Delaware and federal government pensions, brief rule 15a).",
     "Settlement 2026-11-07: reliefs pension exclusion 60 or over, military_pension: A said covers_unclear, B said covers_unclear; PDF p.6 worksheet line 1 'Amount of pension' has no military exception and the under-60 text calls military retirement 'your pension'; moved to covers.",
     "Settlement 2026-11-07: reliefs pension exclusion 60 or over, other_conditions: A said 'Exclusion available only if the person receives pension income', B said nothing; the PDF p.6 example gives the secondary taxpayer, who 'received no pension income', an exclusion of $4,500; A's condition dropped.",
-    "Settlement 2026-11-07: reliefs pension exclusion, cannot_combine_with: B listed the other two pension branches on each, A did not; PDF p.6 'Each taxpayer may receive ONLY ONE pension exclusion'; kept (B)."
+    "Settlement 2026-11-07: reliefs pension exclusion, cannot_combine_with: B listed the other two pension branches on each, A did not; PDF p.6 'Each taxpayer may receive ONLY ONE pension exclusion'; kept (B).",
+    "Scheduled changes, not in force for 2025 (30 Del. C. 1106(b)(3)c.-e. and f.4 as amended by SB 219, 85 Del. Laws c. 426, signed August 17, 2026; Delaware Code page https://delcode.delaware.gov/title30/c011/sc02/index.html, archived 2026-11-08): the United States military pension exclusion rises to 15,000 (2027), 20,000 (2028) and 25,000 (2029 on), as the greater of it and the 12,500 (or 2,000 under 60) exclusion; and a person 60 or older qualifies for the exclusion only after being domiciled in Delaware at least 3 years (if domiciled before January 1, 2027) or 5 years (if domiciled on or after it). The 2025 booklet mentions neither."
   ],
   "brackets": {
     "single": [
@@ -507,6 +508,94 @@
   },
   "capital_gains": [],
   "indexing": [
+    {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "fixed by statute: dollar bands (the same since 2000), no inflation language in 1102",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1102",
+        "section": "1102(a)(14): \"For taxable years beginning after December 31, 2013, the amount of tax shall be determined as follows: 2.2% of taxable income in excess of $2,000 but not in excess of $5,000; ... and 6.6% of taxable income in excess of $60,000.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_standard_deduction",
+      "indexed": "no",
+      "index": "fixed by statute: 3,250 single or separate, 6,500 joint, no indexing clause in 1108",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1108",
+        "section": "1108(a)(3): \"For taxable periods beginning after December 31, 1999, the standard deduction of a resident individual shall be $3,250, and the standard deduction of resident spouses shall be $6,500 if they file a joint return and $3,250 each if they file separate returns.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_additional_standard_65",
+      "indexed": "no",
+      "index": "fixed by statute: 2,500, no indexing clause in 1108",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1108",
+        "section": "1108(b): \"The sum of $2,500 shall be added to the standard deduction\" (taxpayer age 65 or over)",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_pension_excl_under60_nonmilitary",
+      "indexed": "no",
+      "index": "fixed by statute: 2,000, no index",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1106",
+        "section": "1106(b)(3)b.1.A (and c.1.A, d.1.A, e.1.A): \"Amounts received, not to exceed $2,000, as pensions from employers, the United States, this State, or any subdivision of this State\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_pension_excl_under60_military",
+      "indexed": "no",
+      "index": "scheduled: military pension cap 12,500 through 2026, 15,000 for 2027, 20,000 for 2028, 25,000 from 2029 (no index)",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1106",
+        "section": "1106(b)(3)b.-e.: \"b. For taxable years beginning on January 1, 2022, and ending before January 1, 2027: ... not to exceed $12,500, as a United States military pension. c. [2027]: ... not to exceed $15,000 ... d. [2028]: ... $20,000 ... e. [2029 and after]: ... $25,000, as a United States military pension.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_pension_excl_60_plus",
+      "indexed": "no",
+      "index": "fixed by statute: 12,500, no index; from 2027 a military pension at 60 or over gets the greater of 12,500 and the military amount of the schedule (15,000 for 2027, 20,000 for 2028, 25,000 from 2029)",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1106",
+        "section": "1106(b)(3)b.2: \"For persons age 60 or older, amounts received, not to exceed $12,500, as pensions from employers, the United States, this State, or any subdivision of this State, or as eligible retirement income.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_personal_credit",
+      "indexed": "no",
+      "index": "fixed by statute: 110, no adjustment clause",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1110",
+        "section": "1110(b): \"For tax years beginning after December 31, 1995, resident individuals shall be allowed a personal credit ... in the amount of: (1) $110 for each personal exemption ... plus (2) An additional $110 in the case of each resident person age 60 or over.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "de_additional_personal_credit_60",
+      "indexed": "no",
+      "index": "fixed by statute: 110, no adjustment clause",
+      "cite": {
+        "publication": "Delaware Code, Title 30, section 1110",
+        "section": "1110(b): \"For tax years beginning after December 31, 1995, resident individuals shall be allowed a personal credit ... in the amount of: (1) $110 for each personal exemption ... plus (2) An additional $110 in the case of each resident person age 60 or over.\"",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "accessed": "2026-11-08"
+      }
+    },
     {
       "figure": "all_other",
       "indexed": "not_stated"

@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/VT.record.json",
-  "sha256": "f417cfdef8c747c374057da1f819b1efb32198d924ad155fef74679b7b6ed73f"
+  "sha256": "16fa678d88de49583fd5516a53874bd8adb2c7e75c829069f37b8a548a256f7f"
  },
  "has_income_tax": true,
  "brackets": {
@@ -216,27 +216,27 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "CPI-U (last published), federal 1(f) method, since 2003 (32 V.S.A. 5822(b)(2)); rounding as for federal tables"
   },
   {
    "figure": "vt_standard_deduction",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "deductions:vt_standard_deduction"
-   ]
+   ],
+   "note": "CPI-U, 26 U.S.C. 1(f)(3) method, since 2018 (32 V.S.A. 5811(21)(D)); rounding not stated"
   },
   {
    "figure": "vt_personal_exemption",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "deductions:vt_personal_exemption"
-   ]
+   ],
+   "note": "CPI-U, 26 U.S.C. 1(f)(3) method, since 2018 (32 V.S.A. 5811(21)(D)); rounding not stated"
   },
   {
    "figure": "vt_age_65_additional",
@@ -248,34 +248,34 @@
   {
    "figure": "vt_social_security_exemption",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs:vt_social_security_exemption"
-   ]
+   ],
+   "note": "fixed thresholds (32 V.S.A. 5830e(a))"
   },
   {
    "figure": "vt_military_retirement_exemption",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs:vt_military_retirement_exemption"
-   ]
+   ],
+   "note": "fixed 125,000 / 175,000 (32 V.S.A. 5830e(d))"
   },
   {
    "figure": "vt_capital_gains_flat",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs:vt_capital_gains_flat"
-   ]
+   ],
+   "note": "fixed 5,000 (32 V.S.A. 5811(21)(B)(ii))"
   },
   {
    "figure": "recapture",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "recapture"
-   ]
+   ],
+   "note": "fixed 150,000 AGI trigger (32 V.S.A. 5822(a)(6))"
   }
  ],
  "not_modelled": [

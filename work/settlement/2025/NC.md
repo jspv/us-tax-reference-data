@@ -186,3 +186,11 @@ are taxed, overstating tax by 4.25% of them, and the marker does not fire).
 - Marker ids: all 3 markers have an `id`. Each takes its first from_record id, so warning codes are unchanged.
 - Indexing covers: `brackets` covers brackets; `deductions` covers deductions. No split needed.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, N.C. Gen. Stat. 105-153.7(a)
+- `deductions` (deductions): not indexed, N.C. Gen. Stat. 105-153.5(a)(1)
+- Record `indexing`: updated brackets -> no; updated nc_standard_deduction -> no.

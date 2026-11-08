@@ -192,3 +192,8 @@ data/states/2025/MA.projection.json: ok
 - Added `relief_caps` (indexed false, assumed) for the 20,000 New York contributory pension cap; the letter ruling and TIR 95-9 print New York's 20,000 without saying whether it changes.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `deductions` (projection `deductions`): not_indexed, M.G.L. c. 62 s. 3(B)(b)(1)(A), (1A), (C): revenue-triggered fixed steps already at their caps; age 65 fixed 700. Record `personal_exemption` and `age_65_exemption` added as no.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, N.Y. Tax Law 612(c)(3-a) as applied by M.G.L. c. 62 s. 2(a)(2)(E) and DOR TIR 95-9 (medium confidence: only part of section 612 was read). Record `other_state_contributory_pension_ny` added as no.

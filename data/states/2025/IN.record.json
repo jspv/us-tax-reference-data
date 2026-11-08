@@ -473,6 +473,72 @@
   "capital_gains": [],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "A single flat rate (3.0% for 2025, lowered by statute in later years) from 0, so there is no threshold to adjust. The text of IC 6-3-2-1 itself was not read (iga.in.gov is JavaScript-only); SEA 243 of 2026 cross-references the rate of IC 6-3-2-1",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-2-1",
+        "section": "IC 6-3-2-1: one flat adjusted gross income tax rate, no dollar bands",
+        "url": "https://iga.in.gov/laws/2025/ic/titles/6#6-3-2-1",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 1,000 per filer and spouse, no indexing language in 3.5 (read in the enrolled SEA 243 of 2026 amending the section, an official iga.in.gov PDF; the codified page could not be fetched)",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-1-3.5",
+        "section": "IC 6-3-1-3.5(a)(3): \"Subtract one thousand dollars ($1,000), or in the case of a joint return filed by a husband and wife, subtract for each spouse one thousand dollars ($1,000).\"",
+        "url": "https://iga.in.gov/pdf-documents/124/2026/senate/bills/SB0243/SB0243.05.ENRH.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 1,000 for each IRC 63(f) additional amount, no indexing language in 3.5 (read in the enrolled SEA 243 of 2026 amending the section, an official iga.in.gov PDF; the codified page could not be fetched)",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-1-3.5",
+        "section": "IC 6-3-1-3.5(a)(4): \"Subtract one thousand dollars ($1,000) for: ... (B) each additional amount allowable under Section 63(f) of the Internal Revenue Code\"",
+        "url": "https://iga.in.gov/pdf-documents/124/2026/senate/bills/SB0243/SB0243.05.ENRH.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_additional_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 500, and the federal AGI test of 40,000 (20,000 married filing separately), no indexing language in 3.5 (read in the enrolled SEA 243 of 2026 amending the section, an official iga.in.gov PDF; the codified page could not be fetched)",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-1-3.5",
+        "section": "IC 6-3-1-3.5(a)(5)(C): \"Five hundred dollars ($500) for each additional amount allowable under Section 63(f)(1) of the Internal Revenue Code if the federal adjusted gross income of the taxpayer, or the taxpayer and the taxpayer's spouse in the case of a joint return, is less than forty thousand dollars ($40,000). In the case of a married individual filing a separate return, the qualifying income amount in this clause is equal to twenty thousand dollars ($20,000).\"",
+        "url": "https://iga.in.gov/pdf-documents/124/2026/senate/bills/SB0243/SB0243.05.ENRH.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "civil_service_annuity_age_62",
+      "indexed": "no",
+      "index": "fixed: 16,000 \"for 2016 and thereafter\", less Social Security and railroad retirement benefits, no adjustment mentioned. Read in the Department of Revenue statement of the statute (Information Bulletin #6, June 2025); the text of IC 6-3-2-3.7 itself could not be read",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-2-3.7 (as stated in Indiana DOR Income Tax Information Bulletin #6, June 2025)",
+        "section": "IC 6-3-2-3.7: \"The allowable adjustment is equal to the federal civil service annuity received up to a maximum of $8,000 for 2015 and $16,000 for 2016 and thereafter, minus the total amount of Social Security and tier 1 and tier 2 railroad retirement benefits received.\"",
+        "url": "https://www.in.gov/dor/files/ib06.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "civil_service_annuity_surviving_spouse",
+      "indexed": "no",
+      "index": "fixed: 16,000 \"for 2016 and thereafter\", less Social Security and railroad retirement benefits, no adjustment mentioned. Read in the Department of Revenue statement of the statute (Information Bulletin #6, June 2025); the text of IC 6-3-2-3.7 itself could not be read",
+      "cite": {
+        "publication": "Indiana Code, IC 6-3-2-3.7 (as stated in Indiana DOR Income Tax Information Bulletin #6, June 2025)",
+        "section": "IC 6-3-2-3.7: \"The allowable adjustment is equal to the federal civil service annuity received up to a maximum of $8,000 for 2015 and $16,000 for 2016 and thereafter, minus the total amount of Social Security and tier 1 and tier 2 railroad retirement benefits received.\"",
+        "url": "https://www.in.gov/dor/files/ib06.pdf",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

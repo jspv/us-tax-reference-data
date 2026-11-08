@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/MN.record.json",
-  "sha256": "89b3ce7bf8c7e01175c4a1647514209daa3e53d7a8cffb8249821df8959ba93b"
+  "sha256": "3169a99e45b7a3ba1df4ab976688ece686b192c2658072cdded45af0a745f87e"
  },
  "has_income_tax": true,
  "brackets": {
@@ -524,35 +524,51 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "Chained CPI-U (Minn. Stat. 270C.22), statutory year 2019; nearest $10, $5 rounds up (290.06 subd. 2d)"
   },
   {
    "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "Chained CPI-U (270C.22), statutory year 2023; rounded down to $50; standard deduction, age 65 addition and phase-out thresholds (290.0123 subd. 6)"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed by statute: age 65 subtraction base (290.0802 subd. 2(b)(1)); Social Security alternative maximums (290.0132 subd. 26(f),(g))"
   },
   {
-   "figure": "relief_income_tests",
+   "figure": "mn_age_65_subtraction_income_test",
    "indexed": false,
-   "assumed": true,
    "covers": [
-    "reliefs.income_test"
-   ]
+    "reliefs:mn_age_65_subtraction.income_test"
+   ],
+   "note": "fixed by statute (290.0802 subd. 2(b)(2))"
+  },
+  {
+   "figure": "mn_social_security_simplified_income_test",
+   "indexed": true,
+   "covers": [
+    "reliefs:mn_social_security_simplified.income_test"
+   ],
+   "note": "Chained CPI-U (270C.22), statutory year 2023; nearest $10, $5 rounds up (290.0132 subd. 26(j))"
+  },
+  {
+   "figure": "mn_social_security_alternative_income_test",
+   "indexed": false,
+   "covers": [
+    "reliefs:mn_social_security_alternative.income_test"
+   ],
+   "note": "fixed by statute (290.0132 subd. 26(f),(g))"
   }
  ],
  "not_modelled": [

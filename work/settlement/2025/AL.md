@@ -135,3 +135,9 @@ data/states/2025/AL.projection.json: ok
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, Ala. Code 40-18-5(a) (fixed band limits; text read in the official 2023 bill HB115, the Code page is JavaScript-only). Projection `indexed: false`, assumed removed; record `brackets` -> no with cite.
+- `deductions` (projection `deductions`): not_indexed, Ala. Code 40-18-15(b)(4) (standard deduction, SB19 of 2022) and 40-18-19(a)(8) (personal exemption, HB162 of 2022). Projection `indexed: false`, assumed removed; record `standard_deduction` and `personal_exemption` added as no with cites.
+- Flagged figure checked against the booklet: the statute text read (SB19 of 2022) says the full standard deduction applies below AGI $25,500 ($12,750 separate), but the 2025 booklet chart (25f40bk, PDF page 9) prints the full amount for "$ 0 - $25,999" AL AGI ("$ 0 - $12,999" married filing separate), first step at $26,000 - $26,499 ($13,000 - $13,249). The data (threshold 25999 / 12999, steps from there) matches the booklet; no change. (The joint column second row prints "$25,500 - $26,999", evidently a typo for $26,500 - $26,999, which the steps follow.)

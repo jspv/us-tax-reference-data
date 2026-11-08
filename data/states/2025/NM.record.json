@@ -1248,6 +1248,94 @@
  ],
  "indexing": [
   {
+   "figure": "brackets",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-7 as amended by Laws 2024, ch. 67 (HB 252), section 5",
+    "section": "N.M. Stat. Ann. 7-2-7 as amended by Laws 2024, ch. 67 (HB 252), section 5: \"7-2-7. INDIVIDUAL INCOME TAX RATES.--The tax imposed by Section 7-2-3 NMSA 1978 shall be at the following rates for any taxable year beginning on or after January 1, 2025: ... B. For single individuals and for estates and trusts: For taxable income: The tax shall be: Not over $5,500 1.5% of taxable income Over $5,500 but not over $16,500 $82.50 plus 3.2% of excess over $5,500 Over $16,500 but not over $33,500 $434.50 plus 4.3% ... Over $33,500 but not over $66,500 ... Over $66,500 but not over $210,000 ... Over $210,000 $9,748 plus 5.9% of excess over $210,000.\"",
+    "url": "https://www.nmlegis.gov/Sessions/24%20Regular/final/HB0252.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "age_65_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8",
+    "section": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8: \"7-2-5.2 (age 65 or blind): 'not to exceed eight thousand dollars ($8,000) of income ... Not over $30,000 $8,000 Over $30,000 but not over $33,000 $7,000 ... Over $51,000 0' (joint/head of household); single 'Not over $18,000 $8,000 ... Over $28,500 0'; separate 'Not over $15,000 $8,000 ... Over $25,500 0'. 7-2-5.8: 'not to exceed an amount equal to the number of federal exemptions multiplied by two thousand five hundred dollars ($2,500)'.\"",
+    "url": "https://nmlegis.gov/Sessions/19%20Regular/bills/house/HB0538.HTML",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "low_middle_income_exemption_single",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8",
+    "section": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8: \"7-2-5.2 (age 65 or blind): 'not to exceed eight thousand dollars ($8,000) of income ... Not over $30,000 $8,000 Over $30,000 but not over $33,000 $7,000 ... Over $51,000 0' (joint/head of household); single 'Not over $18,000 $8,000 ... Over $28,500 0'; separate 'Not over $15,000 $8,000 ... Over $25,500 0'. 7-2-5.8: 'not to exceed an amount equal to the number of federal exemptions multiplied by two thousand five hundred dollars ($2,500)'.\"",
+    "url": "https://nmlegis.gov/Sessions/19%20Regular/bills/house/HB0538.HTML",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "low_middle_income_exemption_joint_hoh",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8",
+    "section": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8: \"7-2-5.2 (age 65 or blind): 'not to exceed eight thousand dollars ($8,000) of income ... Not over $30,000 $8,000 Over $30,000 but not over $33,000 $7,000 ... Over $51,000 0' (joint/head of household); single 'Not over $18,000 $8,000 ... Over $28,500 0'; separate 'Not over $15,000 $8,000 ... Over $25,500 0'. 7-2-5.8: 'not to exceed an amount equal to the number of federal exemptions multiplied by two thousand five hundred dollars ($2,500)'.\"",
+    "url": "https://nmlegis.gov/Sessions/19%20Regular/bills/house/HB0538.HTML",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "low_middle_income_exemption_separate",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8",
+    "section": "N.M. Stat. Ann. 7-2-5.2 and 7-2-5.8: \"7-2-5.2 (age 65 or blind): 'not to exceed eight thousand dollars ($8,000) of income ... Not over $30,000 $8,000 Over $30,000 but not over $33,000 $7,000 ... Over $51,000 0' (joint/head of household); single 'Not over $18,000 $8,000 ... Over $28,500 0'; separate 'Not over $15,000 $8,000 ... Over $25,500 0'. 7-2-5.8: 'not to exceed an amount equal to the number of federal exemptions multiplied by two thousand five hundred dollars ($2,500)'.\"",
+    "url": "https://nmlegis.gov/Sessions/19%20Regular/bills/house/HB0538.HTML",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "social_security_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.14 (Laws 2022, ch. 47, s. 7)",
+    "section": "N.M. Stat. Ann. 7-2-5.14 (Laws 2022, ch. 47, s. 7): \"7-2-5.14. EXEMPTION--SOCIAL SECURITY INCOME.--An individual may claim an exemption in an amount equal to the amount of income included in adjusted gross income pursuant to Section 86 of the Internal Revenue Code ... provided that the individual's adjusted gross income shall not exceed: A. seventy-five thousand dollars ($75,000) for married individuals filing separate returns; B. one hundred fifty thousand dollars ($150,000) for heads of household, surviving spouses and married individuals filing joint returns; and C. one hundred thousand dollars ($100,000) for single individuals\"",
+    "url": "https://www.nmlegis.gov/Sessions/26%20Regular/bills/house/HB0092.html",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "armed_forces_retirement_pay",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.13(A) and 7-2-34(A)(1), (B), as amended by Laws 2024, ch. 67 (HB 252), sections 32 and 8",
+    "section": "N.M. Stat. Ann. 7-2-5.13(A) and 7-2-34(A)(1), (B), as amended by Laws 2024, ch. 67 (HB 252), sections 32 and 8: \"7-2-5.13: 'An individual who is an armed forces retiree or the surviving spouse of an armed forces retiree may claim an exemption in an amount equal to thirty thousand dollars ($30,000) of armed forces retirement pay'. 7-2-34: 'the taxpayer's net capital gain income for the taxable year for which the deduction is being claimed, but not to exceed two thousand five hundred dollars ($2,500)'; 'Married individuals who file separate returns ... may each claim only one-half of the deduction'.\"",
+    "url": "https://www.nmlegis.gov/Sessions/24%20Regular/final/HB0252.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "net_capital_gains_cap",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "N.M. Stat. Ann. 7-2-5.13(A) and 7-2-34(A)(1), (B), as amended by Laws 2024, ch. 67 (HB 252), sections 32 and 8",
+    "section": "N.M. Stat. Ann. 7-2-5.13(A) and 7-2-34(A)(1), (B), as amended by Laws 2024, ch. 67 (HB 252), sections 32 and 8: \"7-2-5.13: 'An individual who is an armed forces retiree or the surviving spouse of an armed forces retiree may claim an exemption in an amount equal to thirty thousand dollars ($30,000) of armed forces retirement pay'. 7-2-34: 'the taxpayer's net capital gain income for the taxable year for which the deduction is being claimed, but not to exceed two thousand five hundred dollars ($2,500)'; 'Married individuals who file separate returns ... may each claim only one-half of the deduction'.\"",
+    "url": "https://www.nmlegis.gov/Sessions/24%20Regular/final/HB0252.pdf",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

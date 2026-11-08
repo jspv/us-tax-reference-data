@@ -654,6 +654,94 @@
    }
   },
   {
+   "figure": "brackets",
+   "indexed": "yes",
+   "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same method as federal tax tables; base: beginning with taxable year 2003; rounding: not stated in 5822(b)(2); 'in the manner prescribed for inflation adjustment of federal income tax tables'",
+   "cite": {
+    "publication": "32 V.S.A. 5822(b)(2)",
+    "section": "32 V.S.A. 5822(b)(2): \"(2) The amounts of taxable income shown in the tables in this section shall be adjusted annually for inflation by the Commissioner of Taxes using the Consumer Price Index adjustment percentage, in the manner prescribed for inflation adjustment of federal income tax tables for the taxable year by the Commissioner of Internal Revenue, beginning with taxable year 2003; provided, however, notwithstanding 26 U.S.C. 1(f)(3), that as used in this subdivision, \"consumer price index\" means the last Consumer Price Index for All Urban Consumers published by the U.S. Department of Labor.\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05822",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "recapture",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "32 V.S.A. 5822(a)(6); compare (b)(2)",
+    "section": "32 V.S.A. 5822(a)(6); compare (b)(2): \"(6) If the federal adjusted gross income of the taxpayer exceeds $150,000.00, then the tax calculated under this subsection shall be the greater of the tax calculated under subdivisions (1)-(5) of this subsection or three percent of the taxpayer's federal adjusted gross income.\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05822",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_standard_deduction",
+   "indexed": "yes",
+   "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same methodology as 26 U.S.C. 1(f)(3); base: beginning with taxable year 2018 (statute face amounts $6,000 / $9,000 / $12,000); rounding: not stated",
+   "cite": {
+    "publication": "32 V.S.A. 5811(21)(D)",
+    "section": "32 V.S.A. 5811(21)(D): \"(D) The dollar amounts of the personal exemption allowed under subdivision (C)(i) of this subdivision (21), the standard deduction allowed under subdivision (C)(ii) of this subdivision (21), and the additional deduction allowed under subdivision (C)(iii) of this subdivision (21) shall be adjusted annually for inflation by the Commissioner of Taxes beginning with taxable year 2018 by using the Consumer Price Index and the same methodology as used for adjustments under 26 U.S.C. 1(f)(3)\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_personal_exemption",
+   "indexed": "yes",
+   "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same methodology as 26 U.S.C. 1(f)(3); base: beginning with taxable year 2018; rounding: not stated",
+   "cite": {
+    "publication": "32 V.S.A. 5811(21)(D); face amount in (21)(C)(i)",
+    "section": "32 V.S.A. 5811(21)(D); face amount in (21)(C)(i): \"(D) The dollar amounts of the personal exemption allowed under subdivision (C)(i) ... shall be adjusted annually for inflation by the Commissioner of Taxes beginning with taxable year 2018 by using the Consumer Price Index and the same methodology as used for adjustments under 26 U.S.C. 1(f)(3)\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_social_security_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "32 V.S.A. 5830e(a)",
+    "section": "32 V.S.A. 5830e(a): \"(1) For taxpayers whose filing status is single, married filing separately, head of household, or surviving spouse: (A) If the federal adjusted gross income of the taxpayer is less than or equal to $55,000.00, all federally taxable benefits received under the federal Social Security Act shall be excluded. (B) If the federal adjusted gross income of the taxpayer is greater than $55,000.00 but less than $65,000.00, ...\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05830e",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_military_retirement_exemption",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "32 V.S.A. 5830e(d)",
+    "section": "32 V.S.A. 5830e(d): \"(1) If the federal adjusted gross income of the taxpayer is less than or equal to $125,000.00, all federally taxable U.S. military retirement income and survivor benefit income shall be excluded. (2) If the federal adjusted gross income of the taxpayer is greater than $125,000.00 but less than $175,000.00, the percentage ... shall be proportional ... (B) dividing the value under subdivision (A) of this subdivision (2) by $50,000.00 ...\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05830e",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_capital_gains_flat_cap",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "32 V.S.A. 5811(21)(B)(ii)",
+    "section": "32 V.S.A. 5811(21)(B)(ii): \"(ii) with respect to adjusted net capital gain income as defined in 26 U.S.C. 1(h) reduced by the total amount of any qualified dividend income: either the first $5,000.00 of such adjusted net capital gain income or 40 percent of adjusted net capital gain income from the sale of assets held by the taxpayer for more than three years, except ...\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
+   "figure": "vt_capital_gains_flat_exclusion",
+   "indexed": "no",
+   "index": "fixed by statute",
+   "cite": {
+    "publication": "32 V.S.A. 5811(21)(B)(ii)",
+    "section": "32 V.S.A. 5811(21)(B)(ii): \"(ii) with respect to adjusted net capital gain income as defined in 26 U.S.C. 1(h) reduced by the total amount of any qualified dividend income: either the first $5,000.00 of such adjusted net capital gain income or 40 percent of adjusted net capital gain income from the sale of assets held by the taxpayer for more than three years, except ...\"",
+    "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+    "accessed": "2026-11-08"
+   }
+  },
+  {
    "figure": "all_other",
    "indexed": "not_stated",
    "cite": {

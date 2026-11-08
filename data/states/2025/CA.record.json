@@ -527,6 +527,94 @@
   "capital_gains": [],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "yes",
+      "index": "California Consumer Price Index for all items, June of the prior year to June of the current year (Department of Industrial Relations); the preceding year brackets times the factor, rounded to the nearest $1 (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, section 17041",
+        "section": "17041(h): \"For each taxable year beginning on or after January 1, 1988, the Franchise Tax Board shall recompute the income tax brackets ... (B) Multiply the preceding taxable year income tax brackets by the inflation adjustment factor ... and round off the resulting products to the nearest one dollar ($1).\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17041",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "behavioral_health_services_tax",
+      "indexed": "no",
+      "index": "fixed by statute: 1% on taxable income over $1,000,000; 17043(c)(2) says the 17041 bracket recomputation does not apply (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, section 17043",
+        "section": "17043(a), (c)(2): \"an additional tax shall be imposed at the rate of 1 percent on that portion of a taxpayer's taxable income in excess of one million dollars ($1,000,000). ... (c) The following shall not apply to the tax imposed by this section: ... (2) The provisions of Section 17041, relating to filing status and recomputation of the income tax brackets.\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "standard_deduction",
+      "indexed": "yes",
+      "index": "California Consumer Price Index for all items, June to June; the preceding year amounts times the factor, rounded to the nearest $1 (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, section 17073.5",
+        "section": "17073.5(d): \"the Franchise Tax Board shall recompute the standard deduction amounts prescribed in subdivision (a). ... (3) The Franchise Tax Board shall multiply the standard deduction amounts in the preceding taxable year by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17073.5",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption_credit",
+      "indexed": "yes",
+      "index": "The credit: California CPI June to June, the preceding year credit times the factor, rounded to the nearest $1 (17054(i)); the federal AGI phase-out thresholds (17054.1(b)): recomputed each year as the brackets under 17041(h) (17054.1(f)) (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, sections 17054 and 17054.1",
+        "section": "17054(i): \"For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).\"; 17054.1(f): \"the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17054",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "senior_exemption_credit",
+      "indexed": "yes",
+      "index": "The credit: California CPI June to June, the preceding year credit times the factor, rounded to the nearest $1 (17054(i)); the federal AGI phase-out thresholds (17054.1(b)): recomputed each year as the brackets under 17041(h) (17054.1(f)) (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, sections 17054 and 17054.1",
+        "section": "17054(i): \"For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).\"; 17054.1(f): \"the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17054",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "blind_exemption_credit",
+      "indexed": "yes",
+      "index": "The credit: California CPI June to June, the preceding year credit times the factor, rounded to the nearest $1 (17054(i)); the federal AGI phase-out thresholds (17054.1(b)): recomputed each year as the brackets under 17041(h) (17054.1(f)) (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, sections 17054 and 17054.1",
+        "section": "17054(i): \"For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).\"; 17054.1(f): \"the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17054",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "dependent_exemption_credit",
+      "indexed": "yes",
+      "index": "The credit: California CPI June to June, the preceding year credit times the factor, rounded to the nearest $1 (17054(i)); the federal AGI phase-out thresholds (17054.1(b)): recomputed each year as the brackets under 17041(h) (17054.1(f)) (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, sections 17054 and 17054.1",
+        "section": "17054(i): \"For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).\"; 17054.1(f): \"the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.\"",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17054",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "military_retirement_exclusion",
+      "indexed": "no",
+      "index": "fixed by statute: the 20,000 cap and the federal AGI limits (250,000 joint or surviving spouse, 125,000 others), no adjustment clause; the section applies to tax years 2025 through 2029 and is repealed December 1, 2030 (text read from california.public.law; leginfo.legislature.ca.gov refused the fetch)",
+      "cite": {
+        "publication": "California Revenue and Taxation Code, section 17132.9",
+        "section": "17132.9(a): \"gross income shall not include retirement pay ... not to exceed twenty thousand dollars ($20,000)\"; (b)(1): adjusted gross income \"does not exceed two hundred fifty thousand dollars ($250,000)\" (joint or surviving spouse) or \"one hundred twenty-five thousand dollars ($125,000)\" (others)",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17132.9",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

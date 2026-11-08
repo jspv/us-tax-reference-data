@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/WI.record.json",
-  "sha256": "a4894cbf8826d2d7356cea76635c73b89cd9896f96d167718818886516f50863"
+  "sha256": "47d9648dfe01522f63674397dc210542de2881629fda653bdbfbcc3bfd5b82dd"
  },
  "has_income_tax": true,
  "brackets": {
@@ -5239,35 +5239,52 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "indexed_from": 2026,
+   "note": "CPI-U August vs August 2024; nearest $10, $5 up; increases only (Wis. Stat. 71.06(2e)(bm),(c))"
   },
   {
-   "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "figure": "wi_standard_deduction",
+   "indexed": true,
    "covers": [
-    "deductions"
-   ]
+    "deductions:wi_standard_deduction"
+   ],
+   "note": "CPI-U August vs August 1999; nearest $10, $5 up; amounts and phase-out thresholds (Wis. Stat. 71.05(22)(dt))"
+  },
+  {
+   "figure": "wi_personal_exemption",
+   "indexed": false,
+   "covers": [
+    "deductions:wi_personal_exemption"
+   ],
+   "note": "fixed 700 (Wis. Stat. 71.05(23)(b))"
+  },
+  {
+   "figure": "wi_age_65_exemption",
+   "indexed": false,
+   "covers": [
+    "deductions:wi_age_65_exemption"
+   ],
+   "note": "fixed 250 (Wis. Stat. 71.05(23)(b)3.)"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed 5,000 / 24,000 (Wis. Stat. 71.05(6)(b)54., 54m.)"
   },
   {
    "figure": "relief_income_tests",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.income_test"
-   ]
+   ],
+   "note": "fixed 15,000 / 30,000 (Wis. Stat. 71.05(6)(b)54.)"
   }
  ],
  "not_modelled": [

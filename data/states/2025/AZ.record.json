@@ -289,17 +289,47 @@
   "indexing": [
     {
       "figure": "standard_deduction",
-      "indexed": "not_stated",
+      "indexed": "yes",
+      "index": "In the same manner as the federal basic standard deduction under IRC 63, each taxable year from and after December 31, 2019 (base amounts in 43-1041(A)); rounding as the federal amount",
       "cite": {
-        "publication": "2025 Arizona Form 140 Resident Personal Income Tax Booklet",
-        "section": "PDF page 5 heading '2025 Arizona Standard Deduction Amounts Adjusted' (does not say inflation)",
-        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140Booklet.pdf",
-        "accessed": "2026-11-07"
+        "publication": "Arizona Revised Statutes, section 43-1041",
+        "section": "43-1041(H): \"For each taxable year beginning from and after December 31, 2019, the department shall adjust the dollar amounts prescribed by subsection A, paragraphs 1, 2 and 3 of this section for inflation in the same manner in which the federal basic standard deduction is adjusted for inflation pursuant to section 63 of the internal revenue code.\"",
+        "url": "https://www.azleg.gov/ars/43/01041.htm",
+        "accessed": "2026-11-08"
       }
     },
     {
       "figure": "brackets",
-      "indexed": "not_stated"
+      "indexed": "no",
+      "index": "A single 2.5% band from 0, so there is no bracket amount to adjust. 43-1011(D) indexes the income dollar amount of each rate bracket to the metropolitan Phoenix CPI, but the azleg.gov page read still shows the earlier graduated table; that would apply only if a graduated schedule returned",
+      "cite": {
+        "publication": "Arizona Revised Statutes, section 43-1011",
+        "section": "43-1011(A)(6), (D): \"the department shall adjust the income dollar amount for each rate bracket\" (graduated schedule); the 2025 schedule is one band from 0",
+        "url": "https://www.azleg.gov/ars/43/01011.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute: 2,100, no adjustment language",
+      "cite": {
+        "publication": "Arizona Revised Statutes, section 43-1023",
+        "section": "43-1023(E): \"A taxpayer is allowed an exemption of $2,100:\" (age 65 or over; no inflation language in the section)",
+        "url": "https://www.azleg.gov/ars/43/01023.htm",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "az_gov_pension_exclusion",
+      "indexed": "no",
+      "index": "fixed by statute: 2,500, no inflation language",
+      "cite": {
+        "publication": "Arizona Revised Statutes, section 43-1022",
+        "section": "43-1022(2): \"Benefits, annuities and pensions in an amount totaling not more than $2,500 received from one or more of the following:\"",
+        "url": "https://www.azleg.gov/ars/43/01022.htm",
+        "accessed": "2026-11-08"
+      }
     },
     {
       "figure": "all_other",

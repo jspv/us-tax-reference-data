@@ -1,0 +1,496 @@
+[
+ {
+  "state": "CA",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "California Consumer Price Index for all items, June to June (Dept. of Industrial Relations), applied to the prior year's brackets",
+  "base_year": "chained: each year's brackets = prior year's brackets x factor, from 1988",
+  "rounding": "nearest $1",
+  "quote": "(h) For each taxable year beginning on or after January 1, 1988, the Franchise Tax Board shall recompute the income tax brackets prescribed in subdivisions (a) and (c). ... (1) The California Department of Industrial Relations shall transmit annually to the Franchise Tax Board the percentage change in the California Consumer Price Index for all items from June of the prior calendar year to June of the current calendar year ... (A) Compute an inflation adjustment factor by adding 100 percent to the percentage change figure ... and dividing the result by 100. (B) Multiply the preceding taxable year income tax brackets by the inflation adjustment factor ... and round off the resulting products to the nearest one dollar ($1).",
+  "section": "Cal. Rev. & Tax. Code 17041(h)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17041",
+  "confidence": "high",
+  "notes": "The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17041)."
+ },
+ {
+  "state": "CA",
+  "figure": "behavioral_health_services_tax",
+  "answer": "not_indexed",
+  "quote": "(a) For taxable years beginning on or after January 1, 2005, in addition to any other taxes imposed by this part, an additional tax shall be imposed at the rate of 1 percent on that portion of a taxpayer's taxable income in excess of one million dollars ($1,000,000). ... (c) The following shall not apply to the tax imposed by this section: ... (2) The provisions of Section 17041, relating to filing status and recomputation of the income tax brackets.",
+  "section": "Cal. Rev. & Tax. Code 17043(a), (c)(2)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17043",
+  "confidence": "high",
+  "notes": "The 1% rate and the $1,000,000 threshold are fixed in the statute; (c)(2) expressly switches off the 17041(h) bracket recomputation for this tax. The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043)."
+ },
+ {
+  "state": "CA",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "California Consumer Price Index for all items, June to June (Dept. of Industrial Relations)",
+  "base_year": "chained from prior year's amount, from 1988",
+  "rounding": "nearest $1",
+  "quote": "(d) For each taxable year beginning on or after January 1, 1988, the Franchise Tax Board shall recompute the standard deduction amounts prescribed in subdivision (a). ... (2) The Franchise Tax Board shall compute an inflation adjustment factor by adding 100 percent to that portion of the percentage change figure which is furnished pursuant to paragraph (1) and dividing the result by 100. (3) The Franchise Tax Board shall multiply the standard deduction amounts in the preceding taxable year by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).",
+  "section": "Cal. Rev. & Tax. Code 17073.5(d)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17073.5",
+  "confidence": "high",
+  "notes": "The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17073.5)."
+ },
+ {
+  "state": "CA",
+  "figure": "exemption_credits",
+  "answer": "indexed",
+  "index": "California Consumer Price Index for all items, June to June",
+  "base_year": "chained from prior year, from 1989 (credits) / 1992 (AGI thresholds)",
+  "rounding": "nearest $1",
+  "split": [
+   {
+    "covers": "reliefs:personal_exemption_credit.credit_amount and reliefs:senior_exemption_credit.credit_amount",
+    "answer": "indexed",
+    "quote": "(i) For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (1) The Department of Industrial Relations shall transmit annually to the Franchise Tax Board the percentage change in the California Consumer Price Index for all items from June of the prior calendar year to June of the current calendar year ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).",
+    "section": "Cal. Rev. & Tax. Code 17054(i)",
+    "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17054"
+   },
+   {
+    "covers": "reliefs:personal_exemption_credit.income_test and reliefs:senior_exemption_credit.income_test (federal AGI thresholds)",
+    "answer": "indexed",
+    "quote": "(f) For taxable years beginning on or after January 1, 1992, the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.",
+    "section": "Cal. Rev. & Tax. Code 17054.1(f)",
+    "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17054.1"
+   }
+  ],
+  "quote": "(i) For each taxable year beginning on or after January 1, 1989, the Franchise Tax Board shall compute the credits prescribed in this section. ... (1) The Department of Industrial Relations shall transmit annually to the Franchise Tax Board the percentage change in the California Consumer Price Index for all items from June of the prior calendar year to June of the current calendar year ... (3) The Franchise Tax Board shall multiply the immediately preceding taxable year credits by the inflation adjustment factor determined in paragraph (2), and round off the resulting products to the nearest one dollar ($1).",
+  "section": "Cal. Rev. & Tax. Code 17054(i); 17054.1(f)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17054",
+  "confidence": "high",
+  "notes": "Both the credit dollar amounts and the federal-AGI phase-out thresholds are recomputed every year. 17054.1(f) points to the 17041(h) method (CA CPI, and 17041(h) rounds to $1). The base thresholds in 17054.1(b) are $200,000 joint/surviving spouse, $150,000 head of household, $100,000 single/separate. The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17054 and 17054.1)."
+ },
+ {
+  "state": "CA",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "(a) For taxable years beginning on or after January 1, 2025, and before January 1, 2030, gross income shall not include retirement pay received by a qualified taxpayer during the taxable year, not to exceed twenty thousand dollars ($20,000), from the federal government for service in the uniformed services.",
+  "section": "Cal. Rev. & Tax. Code 17132.9(a)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17132.9",
+  "confidence": "high",
+  "notes": "Fixed $20,000. No indexing language anywhere in the section. The section is also temporary: (c) 'This section shall remain in effect only until December 1, 2030, and as of that date is repealed' (tax years 2025-2029 only). FTB page https://www.ftb.ca.gov/file/personal/filing-situations/military.html says the same ($20,000, years 2025 to before 2030). The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17132.9)."
+ },
+ {
+  "state": "CA",
+  "figure": "relief_income_tests",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:military_retirement_exclusion.income_test",
+    "answer": "not_indexed",
+    "quote": "(A) In the case of a surviving spouse or spouses filing a joint return, adjusted gross income, as required to be shown on the federal tax return for the same taxable year, does not exceed two hundred fifty thousand dollars ($250,000). (B) In the case of any other individual, adjusted gross income ... does not exceed one hundred twenty-five thousand dollars ($125,000).",
+    "section": "Cal. Rev. & Tax. Code 17132.9(b)(1)",
+    "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17132.9"
+   },
+   {
+    "covers": "reliefs:personal_exemption_credit.income_test",
+    "answer": "indexed",
+    "quote": "(f) For taxable years beginning on or after January 1, 1992, the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.",
+    "section": "Cal. Rev. & Tax. Code 17054.1(f)",
+    "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17054.1"
+   },
+   {
+    "covers": "reliefs:senior_exemption_credit.income_test",
+    "answer": "indexed",
+    "quote": "(f) For taxable years beginning on or after January 1, 1992, the threshold amounts specified in subdivision (b) shall be recomputed annually in the same manner as the recomputation of income tax brackets under subdivision (h) of Section 17041.",
+    "section": "Cal. Rev. & Tax. Code 17054.1(f)",
+    "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17054.1"
+   }
+  ],
+  "quote": "Military retirement exclusion thresholds are stated as fixed dollars ($250,000 / $125,000) with no adjustment clause; exemption credit thresholds are recomputed annually under 17054.1(f).",
+  "section": "Cal. Rev. & Tax. Code 17132.9(b)(1); 17054.1(f)",
+  "url": "https://california.public.law/codes/revenue_and_taxation_code_section_17132.9",
+  "confidence": "high",
+  "notes": "The official leginfo.legislature.ca.gov site returned HTTP 403 (bot block) to every fetch, so the text was read on california.public.law, a secondary site that reproduces the code and cites the official address (official: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17132.9 and 17054.1)."
+ },
+ {
+  "state": "HI",
+  "figure": "brackets",
+  "answer": "scheduled",
+  "schedule": "Single/separate filers (subsection (c) tables), band starts after 0: tax years 2025-2026: 9,600 / 14,400 / 19,200 / 24,000 / 36,000 / (then higher bands as printed); tax years 2027-2028 table starts: 14,400 / 19,200 / 24,000 / ... ; tax years 2029 onward table starts: 19,200 / 24,000 / 36,000 / ... Joint filers (subsection (a)): 2025-26 first break 19,200; 2027-28 first break 28,800; 2029+ first break 38,400. Rates fixed at 1.40/3.20/5.50/6.40/6.80/7.20/7.60/7.90/8.25/9.00/10.00/11.00%. The last table (after December 31, 2028) has no end date, so it applies to all later years.",
+  "quote": "In the case of any taxable year beginning after December 31, 2024: If the taxable income is: The tax shall be: Not over $9,600 1.40% of taxable income Over $9,600 but not over $14,400 $134.00 plus 3.20% of excess over $9,600 ...  [also] In the case of any taxable year beginning after December 31, 2026: ... In the case of any taxable year beginning after December 31, 2028: ...",
+  "section": "HRS 235-51(a)-(c) (Act 46, SLH 2024)",
+  "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0051.htm",
+  "confidence": "high",
+  "notes": "Fixed schedule of tables by year; no inflation index anywhere in 235-51. Bracket tables change only at tax years 2025, 2027, 2029 (Act 46 of 2024, enacted HB2404 CD1: https://data.capitol.hawaii.gov/sessions/session2024/Bills/HB2404_CD1_.HTM). So 2025-2026 use one table, 2027-2028 the next, 2029 onward the last. Reports of a 2026 act adding a 13% rate on income over $1 million from 2027 were seen in secondary search results only and the hrscurrent page did not show it; not checked at the official session-law page. www.capitol.hawaii.gov returned HTTP 403 (Cloudflare); data.capitol.hawaii.gov serves the same current HRS and was readable."
+ },
+ {
+  "state": "HI",
+  "figure": "deductions",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "scheduled",
+    "quote": "(E) For taxable years beginning after December 31, 2023: (i) $8,800 [joint/surviving spouse] ... (ii) $6,424 [head of household] ... (iii) $4,400 [single] ... (iv) $4,400 [separate]; (F) For taxable years beginning after December 31, 2025: (i) $16,000 ... (ii) $12,000 ... (iii) $8,000 ... (iv) $8,000; (G) ... after December 31, 2027: $18,000 / $13,500 / $9,000 / $9,000; (H) ... after December 31, 2029: $20,000 / $15,000 / $10,000 / $10,000; (I) ... after December 31, 2030: $24,000 / $18,000 / $12,000 / $12,000",
+    "section": "HRS 235-2.4(a)(2)(E)-(I)",
+    "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0002_0004.htm"
+   },
+   {
+    "covers": "deductions:personal_exemption",
+    "answer": "not_indexed",
+    "quote": "add an additional exemption for the taxpayer or the taxpayer's spouse who is sixty-five years of age or older within the taxable year, and multiply that number by $1,144, for taxable years beginning after December 31, 1984.",
+    "section": "HRS 235-54(a)",
+    "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0054.htm"
+   },
+   {
+    "covers": "deductions:age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "add an additional exemption for the taxpayer or the taxpayer's spouse who is sixty-five years of age or older within the taxable year, and multiply that number by $1,144, for taxable years beginning after December 31, 1984.",
+    "section": "HRS 235-54(a)",
+    "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0054.htm"
+   }
+  ],
+  "schedule": "Standard deduction (single / joint+surviving spouse / head of household): TY2024-2025: 4,400 / 8,800 / 6,424; TY2026-2027: 8,000 / 16,000 / 12,000; TY2028-2029: 9,000 / 18,000 / 13,500; TY2030: 10,000 / 20,000 / 15,000; TY2031 and after: 12,000 / 24,000 / 18,000 (separate = single amount). Personal and age-65 exemption: $1,144 each, fixed.",
+  "quote": "Standard deduction: fixed dollar schedule by year in 235-2.4(a)(2). Exemption: 'multiply that number by $1,144, for taxable years beginning after December 31, 1984.'",
+  "section": "HRS 235-2.4(a)(2); HRS 235-54(a)",
+  "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0002_0004.htm",
+  "confidence": "high",
+  "notes": "Standard deduction steps up on a fixed schedule (flat in 2025, so the 2025 figures are unchanged). The 2.4(a)(1) text also makes the federal inflation adjustment 63(c)(4) 'not operative'. The exemption is one multiplier ($1,144) with the age-65 extra exemption counted as one more exemption, so both ids are fixed. Read on data.capitol.hawaii.gov (official Legislature host); www.capitol.hawaii.gov returned 403."
+ },
+ {
+  "state": "KY",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(f) For taxable years beginning on or after January 1, 2026, the tax shall be three and one-half percent (3.5%) of net income.",
+  "section": "KRS 141.020(2)(f)",
+  "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56339",
+  "confidence": "high",
+  "notes": "Kentucky now has a single flat rate on net income from 0 (4% for 2024-2025 under (e), 3.5% from 2026 under (f)); there is no second band whose start could be indexed. (g) allows the rate to fall from 2027 by a budget-triggered process, not by inflation. KRS 141.020 was fetched as a PDF from the official Legislature statute page and read with a PDF text extractor."
+ },
+ {
+  "state": "KY",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "CPI-U (nonseasonally adjusted US city average, all urban consumers, all items, BLS)",
+  "base_year": "chained: prior year's amount x ratio; first step for tax years after Dec 31, 2000",
+  "rounding": "not stated in the statute (KRS 141.081 has no rounding sentence); the Dept. of Revenue publishes the result each year",
+  "quote": "(2) (a) For taxable years beginning after December 31, 2000, and each taxable year thereafter, the standard deduction for the current taxable year shall be equal to the standard deduction for the prior taxable year multiplied by the greater of: 1. The average of the monthly CPI-U figures for the twelve (12) consecutive months ending in and including the July six (6) months prior to the January beginning the current tax year, divided by the average of the monthly CPI-U figures for the twelve (12) months ending in and including the July eighteen (18) months prior to the January beginning the current tax year; or 2. One (1).",
+  "section": "KRS 141.081(2)(a)",
+  "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=29067",
+  "confidence": "high",
+  "notes": "Never falls (floor of 1). Fetched as a PDF from the official Legislature statute page."
+ },
+ {
+  "state": "KY",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "b. For taxable years beginning on or after January 1, 2018, exclude up to thirty-one thousand one hundred ten dollars ($31,110) of total distributions from pension plans, annuity contracts, profit-sharing plans, retirement plans, or employee savings plans.",
+  "section": "KRS 141.019(1)(g)1.b.",
+  "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57914",
+  "confidence": "high",
+  "notes": "Fixed dollar amount; no adjustment language in 141.019. Fetched as PDF from official Legislature page."
+ },
+ {
+  "state": "KY",
+  "figure": "credits",
+  "answer": "not_indexed",
+  "quote": "4. An additional forty dollars ($40) credit if the taxpayer has attained the age of sixty-five (65) before the close of the taxable year;",
+  "section": "KRS 141.020(3)(a)4.",
+  "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56339",
+  "confidence": "high",
+  "notes": "Fixed $40; no adjustment language for the personal tax credits in 141.020. (Subsection number inferred from the printed layout: credit list within the 'tax credits' subsection; the item number '4.' is exact.)"
+ },
+ {
+  "state": "KY",
+  "figure": "family_size_tax_credit_thresholds",
+  "answer": "indexed",
+  "index": "Federal poverty guidelines (US Dept. of Health and Human Services, 42 U.S.C. 9902(2)), the version available on June 30 of the taxable year",
+  "base_year": "n/a (tied to the current-year guideline, not a base year)",
+  "rounding": "none stated; uses the published guideline figure",
+  "quote": "(a) \"Federal poverty level\" means the Health and Human Services poverty guidelines updated periodically in the Federal Register by the United States Department of Health and Human Services under the authority of 42 U.S.C. sec. 9902(2) and available on June 30 of the taxable year; ... (e) \"Threshold amount\" means: 1. For a qualifying individual with no qualifying dependent children, the federal poverty level established for a family unit size of one (1) ...",
+  "section": "KRS 141.066(1)(a), (1)(e)",
+  "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=49188",
+  "confidence": "high",
+  "notes": "Thresholds move every year with the federal poverty guideline (which HHS updates for price changes); not a fixed-dollar figure and not literally a CPI index. The figure 15,650 is the 2025 guideline for a family of one. Fetched as PDF from official page."
+ },
+ {
+  "state": "MN",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "Chained Consumer Price Index for All Urban Consumers (BLS), via Minn. Stat. 270C.22",
+  "base_year": "statutory year 2019 (first adjusted year 2020); August-to-August change",
+  "rounding": "nearest $10; an amount ending in $5 rounds up; married-separate bracket is one-half of married-joint",
+  "quote": "Subd. 2d. Inflation adjustment of brackets. The commissioner shall annually adjust the minimum and maximum dollar amounts for each rate bracket for which a tax is imposed in subdivision 2c as provided in section 270C.22. The statutory year is taxable year 2019. ... The rate brackets as adjusted must be rounded to the nearest $10 amount. If the rate bracket ends in $5, it must be rounded up to the nearest $10 amount.",
+  "section": "Minn. Stat. 290.06, subd. 2d; 270C.22, subd. 1",
+  "url": "https://www.revisor.mn.gov/statutes/cite/290.06",
+  "confidence": "high",
+  "notes": "270C.22 subd. 1(a): 'index' means the Chained Consumer Price Index for All Urban Consumers; read at https://www.revisor.mn.gov/statutes/cite/270C.22."
+ },
+ {
+  "state": "MN",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "Chained CPI-U (BLS), via Minn. Stat. 270C.22",
+  "base_year": "statutory year 2023 (adjusts tax years beginning after Dec 31, 2023)",
+  "rounding": "rounded down to the nearest $50; married-separate is one-half of the joint amount",
+  "quote": "For taxable years beginning after December 31, 2023, the commissioner must adjust for inflation the standard deduction amounts in subdivision 1, the additional amounts in subdivision 2, the amounts in subdivision 3, and the adjusted gross income amounts in subdivision 5 as provided in section 270C.22. The statutory year is taxable year 2023. The amounts as adjusted must be rounded down to the nearest $50 amount.",
+  "section": "Minn. Stat. 290.0123, subd. 6",
+  "url": "https://www.revisor.mn.gov/statutes/cite/290.0123",
+  "confidence": "high",
+  "notes": "Covers the standard deduction, the age-65/blind additional amount (subd. 2) and the AGI phase-out thresholds (subd. 5), so mn_standard_deduction, its phase_out, and mn_age_65_standard_addition are all indexed."
+ },
+ {
+  "state": "MN",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "split": [
+   {
+    "covers": "reliefs:mn_age_65_subtraction.cap",
+    "answer": "not_indexed",
+    "quote": "(b)(1) The initial subtraction base amount equals (i) $12,000 for a married taxpayer filing a joint return if a spouse is a qualified individual, (ii) $9,600 for a single taxpayer, and (iii) $6,000 for a married taxpayer filing a separate federal return.",
+    "section": "Minn. Stat. 290.0802, subd. 2(b)(1) (allowed as a subtraction by 290.0132, subd. 5)",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0802"
+   },
+   {
+    "covers": "reliefs:mn_social_security_alternative.cap",
+    "answer": "not_indexed",
+    "quote": "(f) For married taxpayers filing a joint return and surviving spouses, the maximum subtraction under paragraph (e) equals $5,840. ... (g) For single or head-of-household taxpayers, the maximum subtraction under paragraph (e) equals $4,560. ... (j) The commissioner shall adjust the phaseout threshold amounts in paragraph (c), clauses (1) and (2), as provided in section 270C.22.",
+    "section": "Minn. Stat. 290.0132, subd. 26(f), (g), (j)",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0132"
+   }
+  ],
+  "quote": "290.0802: fixed $12,000 / $9,600 / $6,000, no adjustment clause. 290.0132 subd. 26(j) names only the paragraph (c) clause (1) and (2) phaseout thresholds for adjustment; the (f)/(g) maximums are not named.",
+  "section": "Minn. Stat. 290.0802 subd. 2; 290.0132 subd. 26(f),(g),(j)",
+  "url": "https://www.revisor.mn.gov/statutes/cite/290.0132",
+  "confidence": "medium",
+  "notes": "Age-65 subtraction: high confidence fixed. Social Security alternative maximums: the only adjustment clause (j) lists the (c)(1)-(2) thresholds, but its last sentence says 'The maximum subtraction and threshold amounts as adjusted must be rounded...' which loosely mentions a maximum; since the 2025 figures in the dataset equal the statute's face values (4,560 / 5,840), the figures have not been moved, consistent with not indexed. Worth one look at the Minnesota Dept. of Revenue 2025 inflation-adjusted amounts page if certainty is needed."
+ },
+ {
+  "state": "MN",
+  "figure": "relief_income_tests",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:mn_age_65_subtraction.income_test",
+    "answer": "not_indexed",
+    "quote": "(i) $18,000 for a married taxpayer filing a joint return if both spouses are qualified individuals, (ii) $14,500 for a single taxpayer or for a married couple filing a joint return if only one spouse is a qualified individual, and (iii) $9,000 for a married taxpayer filing a separate federal return.",
+    "section": "Minn. Stat. 290.0802, subd. 2(b)(2)",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0802"
+   },
+   {
+    "covers": "reliefs:mn_social_security_simplified.income_test",
+    "answer": "indexed",
+    "quote": "(c) ... The phaseout threshold equals: (1) $100,000 for a married taxpayer filing a joint return or surviving spouse; (2) $78,000 for a single or head of household taxpayer ... (j) The commissioner shall adjust the phaseout threshold amounts in paragraph (c), clauses (1) and (2), as provided in section 270C.22. The statutory year is taxable year 2023. The maximum subtraction and threshold amounts as adjusted must be rounded to the nearest $10 amount. If the amount ends in $5, the amount is rounded up to the nearest $10 amount.",
+    "section": "Minn. Stat. 290.0132, subd. 26(c), (j)",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0132"
+   },
+   {
+    "covers": "reliefs:mn_social_security_alternative.income_test",
+    "answer": "not_indexed",
+    "quote": "(f) ... The maximum subtraction is reduced by 20 percent of provisional income over $88,630. ... (g) ... reduced by 20 percent of provisional income over $69,250.",
+    "section": "Minn. Stat. 290.0132, subd. 26(f), (g)",
+    "url": "https://www.revisor.mn.gov/statutes/cite/290.0132"
+   }
+  ],
+  "index": "Chained CPI-U (BLS) via Minn. Stat. 270C.22 (simplified Social Security thresholds only)",
+  "base_year": "statutory year 2023",
+  "rounding": "nearest $10; $5 rounds up (simplified Social Security thresholds)",
+  "quote": "See split.",
+  "section": "Minn. Stat. 290.0132 subd. 26; 290.0802 subd. 2",
+  "url": "https://www.revisor.mn.gov/statutes/cite/290.0132",
+  "confidence": "medium",
+  "notes": "Simplified Social Security phaseout thresholds (dataset 84,490 / 108,320, which are the indexed values of $78,000 / $100,000) are indexed. The provisional-income thresholds ($69,250 / $88,630) for the alternate subtraction and the age-65 subtraction thresholds are not named in any adjustment clause (same caveat as relief_caps for the alternate subtraction)."
+ },
+ {
+  "state": "NE",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers (BLS)",
+  "base_year": "12 months ending Aug 31, 2017, compared to 12 months ending Aug 31 of the year preceding the tax year",
+  "rounding": "rounded down to the next lowest multiple of $50",
+  "quote": "(b) For tax years beginning or deemed to begin on or after January 1, 2019, the standard deduction amounts, including the additional standard deduction amounts, in this subsection shall be adjusted for inflation based on the percentage change in the Consumer Price Index for All Urban Consumers published by the federal Bureau of Labor Statistics from the twelve months ending on August 31, 2017, to the twelve months ending on August 31 of the year preceding the taxable year. If any amount is not a multiple of fifty dollars, the amount shall be rounded to the next lowest multiple of fifty dollars.",
+  "section": "Neb. Rev. Stat. 77-2716.01(3)(b)",
+  "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2716.01",
+  "confidence": "high",
+  "notes": "'including the additional standard deduction amounts' covers ne_age_65_additional (statute base $1,300 married / $1,600 single or head of household)."
+ },
+ {
+  "state": "NE",
+  "figure": "ne_personal_exemption_credit",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers (BLS)",
+  "base_year": "12 months ending Aug 31, 2017 to 12 months ending Aug 31 of the year preceding the tax year; tax year 2018 credit $134",
+  "rounding": "nearest dollar",
+  "quote": "For tax year 2018, the credit amount shall be one hundred thirty-four dollars. For tax year 2019 and each tax year thereafter, the credit amount shall be adjusted for inflation based on the percentage change in the Consumer Price Index for All Urban Consumers published by the federal Bureau of Labor Statistics from the twelve months ending on August 31, 2017, to the twelve months ending on August 31 of the year preceding the taxable year. If any credit amount is not an even dollar amount, the amount shall be rounded to the nearest dollar.",
+  "section": "Neb. Rev. Stat. 77-2716.01(1)(b)",
+  "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2716.01",
+  "confidence": "high",
+  "notes": "The credit amount (171) and the cap (171 single / 342 joint = credit x number of exemptions) move together."
+ },
+ {
+  "state": "OR",
+  "figure": "brackets",
+  "answer": "split",
+  "index": "U.S. City Average CPI for All Urban Consumers (All Items), BLS",
+  "base_year": "cumulative change vs the second quarter of 1992 (12-month average ending Aug 31 of prior year)",
+  "rounding": "the increase is rounded to the next lower multiple of $50",
+  "split": [
+   {
+    "covers": "brackets: band starts 4,400 and 11,100 (the $2,000 and $5,000 statutory breaks)",
+    "answer": "indexed",
+    "quote": "(A) Except as provided in subparagraph (D) of this paragraph, the minimum and maximum dollar amounts for each bracket for which a tax is imposed shall be increased by the cost-of-living adjustment for the calendar year.",
+    "section": "ORS 316.037(1)(b)(A)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   },
+   {
+    "covers": "brackets: band start 125,000 (top bracket)",
+    "answer": "not_indexed",
+    "quote": "(D) The rate brackets applicable to taxable income in excess of $125,000 may not be adjusted.",
+    "section": "ORS 316.037(1)(b)(D)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   }
+  ],
+  "quote": "(c) ... the cost-of-living adjustment for any calendar year is the percentage (if any) by which the monthly averaged U.S. City Average Consumer Price Index for the 12 consecutive months ending August 31 of the prior calendar year exceeds the monthly averaged index for the second quarter of the calendar year 1992. ... (e) If any increase determined under paragraph (b) of this subsection is not a multiple of $50, the increase shall be rounded to the next lower multiple of $50.",
+  "section": "ORS 316.037(1)(b)-(e)",
+  "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+  "confidence": "high",
+  "notes": "The $125,000 start of the 9.9% bracket stays fixed; lower breaks rise each year. 2025 edition of ORS chapter 316 (page also notes 2026 session laws, none read as affecting this section). Tax year 2025 breaks: 4,400 and 11,100 are the indexed values of 2,000 and 5,000."
+ },
+ {
+  "state": "OR",
+  "figure": "deductions",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "indexed",
+    "quote": "(C)(i) ... the Department of Revenue shall annually recompute the basic standard deduction for each category of return filer listed under subparagraph (B) of this paragraph. The basic standard deduction shall be computed by dividing the monthly averaged U.S. City Average Consumer Price Index for the 12 consecutive months ending August 31 of the prior calendar year by the average U.S. City Average Consumer Price Index for the second quarter of 2002, then multiplying that quotient by the amount listed under subparagraph (B) of this paragraph for each category of return filer.",
+    "section": "ORS 316.695(1)(c)(B)-(C)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   },
+   {
+    "covers": "deductions:age_65_additional",
+    "answer": "not_indexed",
+    "quote": "(7)(a) The taxpayer shall be entitled to an additional amount, as referred to in subsection (1)(c)(A) and (D) of this section, of $1,000: (A) For the taxpayer if the taxpayer has attained age 65 before the close of the taxpayer's tax year ... (c) In the case of an individual who is not married and is not a surviving spouse, paragraphs (a) and (b) of this subsection shall be applied by substituting $1,200 for $1,000.",
+    "section": "ORS 316.695(7)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   }
+  ],
+  "index": "U.S. City Average CPI-U (All Items), BLS (standard deduction)",
+  "base_year": "second quarter of 2002 (base amounts $3,280 joint / $1,640 single or separate / $2,640 head of household)",
+  "rounding": "not stated for the amounts themselves (the $5 rounding sentence in (C)(ii) refers to a maximum household income that is not in this subsection)",
+  "quote": "See split.",
+  "section": "ORS 316.695(1)(c), (7)",
+  "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+  "confidence": "high",
+  "notes": "Basic standard deduction is indexed; the additional $1,000/$1,200 for age 65 (and blindness) is fixed and no adjustment clause covers subsection (7)."
+ },
+ {
+  "state": "OR",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "quote": "(B) For an eligible individual filing a return other than a joint return, the lesser of the pension income of the eligible individual received during the taxable year or the excess, if any, of $7,500 over the sum of the following amounts ... (A) For eligible individuals filing a joint return, the lesser of the pension income ... or the excess, if any, of $15,000 over the sum of ...",
+  "section": "ORS 316.157(2)(d)",
+  "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+  "confidence": "high",
+  "notes": "Fixed dollar amounts; no cost-of-living clause in 316.157."
+ },
+ {
+  "state": "OR",
+  "figure": "relief_income_tests",
+  "answer": "not_indexed",
+  "split": [
+   {
+    "covers": "reliefs:retirement_income_credit.income_test",
+    "answer": "not_indexed",
+    "quote": "(ii) The excess, if any, of household income over $30,000. [joint] ... (ii) The excess, if any, of household income over $15,000. [other than joint]",
+    "section": "ORS 316.157(2)(d)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   },
+   {
+    "covers": "reliefs:personal_exemption_credit.income_test",
+    "answer": "not_indexed",
+    "quote": "(5) Notwithstanding subsections (1) to (3) of this section, a taxpayer may not claim the personal exemption credit otherwise allowed under this section if the taxpayer's federal adjusted gross income for the tax year exceeds $200,000 for joint return filers, a surviving spouse or a head of household, or $100,000 for an individual who is not a married individual and is not a surviving spouse, or is a married individual who files a separate return.",
+    "section": "ORS 316.085(5)",
+    "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+   }
+  ],
+  "quote": "See split.",
+  "section": "ORS 316.157(2)(d); ORS 316.085(5)",
+  "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html",
+  "confidence": "high",
+  "notes": "Both thresholds are fixed dollar amounts. (The personal exemption credit amount itself, $90 base in 316.085(1)/(3), IS indexed to CPI, but that figure is not in this batch item; only the AGI cutoff is.)"
+ },
+ {
+  "state": "VT",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same method as federal tax tables",
+  "base_year": "beginning with taxable year 2003",
+  "rounding": "not stated in 5822(b)(2); 'in the manner prescribed for inflation adjustment of federal income tax tables'",
+  "quote": "(2) The amounts of taxable income shown in the tables in this section shall be adjusted annually for inflation by the Commissioner of Taxes using the Consumer Price Index adjustment percentage, in the manner prescribed for inflation adjustment of federal income tax tables for the taxable year by the Commissioner of Internal Revenue, beginning with taxable year 2003; provided, however, notwithstanding 26 U.S.C. 1(f)(3), that as used in this subdivision, \"consumer price index\" means the last Consumer Price Index for All Urban Consumers published by the U.S. Department of Labor.",
+  "section": "32 V.S.A. 5822(b)(2)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05822",
+  "confidence": "high"
+ },
+ {
+  "state": "VT",
+  "figure": "vt_standard_deduction",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same methodology as 26 U.S.C. 1(f)(3)",
+  "base_year": "beginning with taxable year 2018 (statute face amounts $6,000 / $9,000 / $12,000)",
+  "rounding": "not stated",
+  "quote": "(D) The dollar amounts of the personal exemption allowed under subdivision (C)(i) of this subdivision (21), the standard deduction allowed under subdivision (C)(ii) of this subdivision (21), and the additional deduction allowed under subdivision (C)(iii) of this subdivision (21) shall be adjusted annually for inflation by the Commissioner of Taxes beginning with taxable year 2018 by using the Consumer Price Index and the same methodology as used for adjustments under 26 U.S.C. 1(f)(3)",
+  "section": "32 V.S.A. 5811(21)(D)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+  "confidence": "high"
+ },
+ {
+  "state": "VT",
+  "figure": "vt_personal_exemption",
+  "answer": "indexed",
+  "index": "Consumer Price Index for All Urban Consumers (last published, U.S. Dept. of Labor), same methodology as 26 U.S.C. 1(f)(3)",
+  "base_year": "beginning with taxable year 2018",
+  "rounding": "not stated",
+  "quote": "(D) The dollar amounts of the personal exemption allowed under subdivision (C)(i) ... shall be adjusted annually for inflation by the Commissioner of Taxes beginning with taxable year 2018 by using the Consumer Price Index and the same methodology as used for adjustments under 26 U.S.C. 1(f)(3)",
+  "section": "32 V.S.A. 5811(21)(D); face amount in (21)(C)(i)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+  "confidence": "high",
+  "notes": "The statute shows $4,150 as the printed (stale) amount; the dataset's 5,300 is the indexed figure."
+ },
+ {
+  "state": "VT",
+  "figure": "vt_social_security_exemption",
+  "answer": "not_indexed",
+  "quote": "(1) For taxpayers whose filing status is single, married filing separately, head of household, or surviving spouse: (A) If the federal adjusted gross income of the taxpayer is less than or equal to $55,000.00, all federally taxable benefits received under the federal Social Security Act shall be excluded. (B) If the federal adjusted gross income of the taxpayer is greater than $55,000.00 but less than $65,000.00, ...",
+  "section": "32 V.S.A. 5830e(a)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05830e",
+  "confidence": "high",
+  "notes": "Fixed dollar thresholds ($55,000/$65,000 single and similar; $70,000/$80,000 joint). No adjustment language in 5830e; the only inflation clauses in chapter 151 sections read (5822(b)(2), 5811(21)(D)) name other figures."
+ },
+ {
+  "state": "VT",
+  "figure": "vt_military_retirement_exemption",
+  "answer": "not_indexed",
+  "quote": "(1) If the federal adjusted gross income of the taxpayer is less than or equal to $125,000.00, all federally taxable U.S. military retirement income and survivor benefit income shall be excluded. (2) If the federal adjusted gross income of the taxpayer is greater than $125,000.00 but less than $175,000.00, the percentage ... shall be proportional ... (B) dividing the value under subdivision (A) of this subdivision (2) by $50,000.00 ...",
+  "section": "32 V.S.A. 5830e(d)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05830e",
+  "confidence": "high",
+  "notes": "Fixed $125,000 / $175,000 / $50,000 width; no adjustment clause."
+ },
+ {
+  "state": "VT",
+  "figure": "vt_capital_gains_flat",
+  "answer": "not_indexed",
+  "quote": "(ii) with respect to adjusted net capital gain income as defined in 26 U.S.C. 1(h) reduced by the total amount of any qualified dividend income: either the first $5,000.00 of such adjusted net capital gain income or 40 percent of adjusted net capital gain income from the sale of assets held by the taxpayer for more than three years, except ...",
+  "section": "32 V.S.A. 5811(21)(B)(ii)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05811",
+  "confidence": "high",
+  "notes": "The inflation clause in (21)(D) names only the personal exemption, standard deduction and the (C)(iii) additional deduction, not the $5,000 flat exclusion (or the $350,000 cap on the 40% alternative). Note the page labels (21)(B)(ii) 'applicable to taxable years beginning before January 1, 2026' with a separate later version for 2026 on; the 2025 text is the one quoted."
+ },
+ {
+  "state": "VT",
+  "figure": "recapture",
+  "answer": "not_indexed",
+  "quote": "(6) If the federal adjusted gross income of the taxpayer exceeds $150,000.00, then the tax calculated under this subsection shall be the greater of the tax calculated under subdivisions (1)-(5) of this subsection or three percent of the taxpayer's federal adjusted gross income.",
+  "section": "32 V.S.A. 5822(a)(6); compare (b)(2)",
+  "url": "https://legislature.vermont.gov/statutes/section/32/151/05822",
+  "confidence": "medium",
+  "notes": "(b)(2) adjusts only 'the amounts of taxable income shown in the tables in this section'; the $150,000 AGI trigger is in subdivision (a)(6), not in a table, so it is not named. Medium rather than high because (b)(2) could be argued to reach 'this section' broadly, but the wording says tables."
+ }
+]

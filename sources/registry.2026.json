@@ -132,6 +132,31 @@
         "title": "Public Law 119-21 (One Big Beautiful Bill Act), enrolled text (govinfo)",
         "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/pdf/PLAW-119publ21.pdf",
         "kind": "pdf"
+      },
+      {
+        "title": "Rev. Proc. 2025-19 (2026 HSA inflation adjusted amounts)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "26 U.S.C. 3111 (U.S. Code, 2024 edition, govinfo): Rate of tax (FICA employer)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 403 (U.S. Code, 2024 edition, govinfo): Reduction of insurance benefits (403(f)(8) earnings test exempt amounts)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec403.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 415 (U.S. Code, 2024 edition, govinfo): Limitations on benefits and contributions (415(d) cost-of-living adjustments)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 415 (U.S. Code, 2024 edition, govinfo): Computation of primary insurance amount (415(i) cost-of-living increases, CPI)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec415.htm",
+        "kind": "html"
       }
     ],
     "finder_notes": "Federal sources for tax year 2026. Form 1040-ES address is the current edition (2026) at irs.gov/pub/irs-pdf. The CMS fact sheet carries the Part D IRMAA table too (no separate 2026 document)."

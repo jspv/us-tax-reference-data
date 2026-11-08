@@ -5,9 +5,8 @@
   "notes": [
     "Reader A extraction from the archived sources only (sources/archive/2026/US/). The U.S. Code pages are the 2024 edition (govinfo), which predates P.L. 119-21; for provisions P.L. 119-21 changed (1(j) rates and their inflation adjustment, 63(c)(7) standard deduction, 151(d)(5)(C) senior deduction, 164(b)(6)-(7) SALT cap) the public law text is cited for the amended wording.",
     "Medicare figures are for premium year 2026; the IRMAA tiers use the 2024 tax return (lookback 2).",
-    "Left out: retirement_accounts.hsa (no archived source prints the HSA contribution limits: they are in Rev. Proc. 2024-25 / 2025-19, not archived); payroll employer rates (26 U.S.C. 3111 not archived).",
     "SALT cap: the 2026 Form 1040-ES prints the 2025 amounts ($40,000 cap, $500,000 threshold); the statute sets $40,400 and $505,000 for 2026, which are recorded. The married-separate halves for 2026 ($20,200, $252,500) are not printed in any archived source; they are recorded as derivations, proved by re-doing the rule.",
-    "Earnings test indexing method is not confirmed from an archived source (42 U.S.C. 403(f)(8) not archived)."
+    "Added 2026-11-08: HSA limits (Rev. Proc. 2024-25 / 2025-19, 26 U.S.C. 223), employer payroll rates (26 U.S.C. 3111), and the earnings-test indexing rule (42 U.S.C. 403(f)(8)), all from archived sources."
   ],
   "income_tax": {
     "brackets": {
@@ -1129,6 +1128,10 @@
           {
             "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
             "section": "26 U.S.C. 1401(a): '12.4 percent of the amount of the self-employment income'"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.htm",
+            "section": "26 U.S.C. 3111(a): 'equal to 6.2 percent of the wages' (employer tax)"
           }
         ]
       },
@@ -1169,7 +1172,8 @@
           }
         }
       ],
-      "notes": "employer_rate is left out: the employer tax (26 U.S.C. 3111) is not among the archived sources, and the SSA sheet prints only the employee and self-employed rates."
+      "notes": "employer_rate from 26 U.S.C. 3111 (archived 2026-11-08).",
+      "employer_rate": "0.062"
     },
     "medicare": {
       "employee_rate": "0.0145",
@@ -1187,6 +1191,10 @@
           {
             "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap2-sec1401.htm",
             "section": "26 U.S.C. 1401(b)(1): '2.9 percent of the amount of the self-employment income'"
+          },
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.htm",
+            "section": "26 U.S.C. 3111(b): 'equal to 1.45 percent of the wages' (employer tax)"
           }
         ]
       },
@@ -1205,12 +1213,13 @@
           ]
         }
       },
-      "notes": "No wage base. employer_rate left out (26 U.S.C. 3111 not archived). The 0.9% additional tax is in income_tax.additional_medicare_tax."
+      "notes": "No wage base. The 0.9% additional tax is in income_tax.additional_medicare_tax. employer_rate from 26 U.S.C. 3111 (archived 2026-11-08).",
+      "employer_rate": "0.0145"
     },
     "earnings_test": {
       "under_full_retirement_age": "24480",
       "year_reaching_full_retirement_age": "65160",
-      "notes": "Annual exempt amounts. Under full retirement age, $1 of benefits is withheld for every $2 of earnings above the limit; in the year full retirement age is reached, $1 for every $3 above the limit, counting only earnings before the month full retirement age is attained; none from that month (SSA fact sheet notes).",
+      "notes": "Annual exempt amounts (12 x the monthly amounts the statute indexes).",
       "cite": {
         "publication": "SSA 2026 Cost-of-Living Adjustment (COLA) Fact Sheet, 2026 Social Security Changes",
         "section": "web page, Retirement Earnings Test Exempt Amounts, 2026 column: 'Under full retirement age $24,480/yr. ($2,040/mo.)'; 'The year an individual reaches full retirement age $65,160/yr. ($5,430/mo.)'",
@@ -1220,13 +1229,19 @@
       "indexing": {
         "method": "wage_index",
         "index": "average_wage_index",
-        "cite": {
-          "publication": "SSA 2026 Cost-of-Living Adjustment (COLA) Fact Sheet, 2026 Social Security Changes",
-          "section": "web page, Retirement Earnings Test Exempt Amounts, 2026 column: 'Under full retirement age $24,480/yr. ($2,040/mo.)'; 'The year an individual reaches full retirement age $65,160/yr. ($5,430/mo.)' (prints only the amounts, not the method)",
-          "url": "https://www.ssa.gov/news/en/cola/factsheets/2026.html",
-          "accessed": "2026-11-07"
+        "base_period": "the monthly exempt amount in effect for 1994 (under full retirement age) or 2002 (the year reaching it), times the national average wage index for the year before the determination over the index for 1992 or 2000 (42 U.S.C. 403(f)(8)(B)(ii))",
+        "rounding": {
+          "multiple": "10",
+          "direction": "nearest",
+          "notes": "The monthly amount is rounded to the nearest multiple of $10, a multiple of $5 rounding up (403(f)(8)(B)); the annual amount is 12 times the monthly."
         },
-        "notes": "NOT CONFIRMED FROM AN ARCHIVED SOURCE: the statute that sets the exempt amounts (42 U.S.C. 403(f)(8)) is not among the archived sources, so this indexing cites the SSA fact sheet, which prints the amounts but not how they change. wage_index is the reader's understanding of 403(f)(8), not read from a source; base period and rounding are left out for the same reason."
+        "never_decreases": true,
+        "cite": {
+          "publication": "42 U.S.C. 403, United States Code, 2024 Edition (govinfo)",
+          "section": "42 U.S.C. 403(f)(8)(B): the exempt amount is the larger of the amount in effect and the wage-indexed product, 'rounded to the next higher multiple of $10 where such product is a multiple of $5 but not of $10 and to the nearest multiple of $10 in any other case'",
+          "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec403.htm",
+          "accessed": "2026-11-08"
+        }
       }
     }
   },
@@ -1251,9 +1266,15 @@
           "publication": "26 U.S.C. 402, United States Code, 2024 Edition (govinfo)",
           "section": "26 U.S.C. 402(g)(4): the $15,000 amount adjusted 'at the same time and in the same manner as under section 415(d), except that the base period shall be the calendar quarter beginning July 1, 2005', increases rounded to the next lowest multiple of $500",
           "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartA-sec402.htm",
-          "accessed": "2026-11-08"
+          "accessed": "2026-11-08",
+          "also": [
+            {
+              "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+              "section": "26 U.S.C. 415(d)(2)(A): adjustment method"
+            }
+          ]
         },
-        "notes": "index left out: section 415(d) adjusts by procedures similar to Social Security Act 215(i)(2)(A) (Notice cover text), a CPI-W measure, which the schema's index list does not offer; 26 U.S.C. 415 itself is not archived."
+        "notes": "26 U.S.C. 415(d)(2)(A) (archived 2026-11-08) adjusts 'based on the increase in the applicable index for the calendar quarter ending September 30 of the preceding calendar year over such index for the base period', and leaves the index to Treasury regulations, so `index` is left out."
       },
       "notes": "Applies to 401(k), 403(b) and the Thrift Savings Plan (402(g)(3)); the governmental 457(b) limit under 457(e)(15) is the same amount in the Notice."
     },
@@ -1280,9 +1301,15 @@
             "publication": "26 U.S.C. 414, United States Code, 2024 Edition (govinfo)",
             "section": "26 U.S.C. 414(v)(2)(B)(i) $5,000; (v)(2)(C)(i) adjusted annually in the same manner as under section 415(d), base period the calendar quarter beginning July 1, 2005, rounded to the next lower multiple of $500",
             "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
-            "accessed": "2026-11-08"
+            "accessed": "2026-11-08",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+                "section": "26 U.S.C. 415(d)(2)(A): adjustment method"
+              }
+            ]
           },
-          "notes": "index left out: 415(d) procedures (CPI-W based), not in the schema's index list."
+          "notes": "26 U.S.C. 415(d)(2)(A) (archived 2026-11-08) adjusts 'based on the increase in the applicable index for the calendar quarter ending September 30 of the preceding calendar year over such index for the base period', and leaves the index to Treasury regulations, so `index` is left out."
         },
         {
           "method": "inflation",
@@ -1298,9 +1325,15 @@
             "publication": "26 U.S.C. 414, United States Code, 2024 Edition (govinfo)",
             "section": "26 U.S.C. 414(v)(2)(E)(i): the adjusted dollar amount for an eligible participant who attains age 60 but not 64 before the close of the year is the greater of $10,000 or 150 percent of the (B)(i) amount in effect for 2024; (v)(2)(C)(i): for years beginning after December 31, 2025, adjusted annually, base period the calendar quarter beginning July 1, 2024",
             "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec414.htm",
-            "accessed": "2026-11-08"
+            "accessed": "2026-11-08",
+            "also": [
+              {
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+                "section": "26 U.S.C. 415(d)(2)(A): adjustment method"
+              }
+            ]
           },
-          "notes": "The 2025 amount is set from the 2024 age-50 amount (150% x $7,500 = $11,250, more than $10,000), not from a same-year figure, so it is not a derivation; indexing starts in 2026. index left out: 415(d) procedures (CPI-W based)."
+          "notes": "The 2025 amount is set from the 2024 age-50 amount (150% x $7,500 = $11,250, more than $10,000), not from a same-year figure, so it is not a derivation; indexing starts in 2026. 26 U.S.C. 415(d)(2)(A) (archived 2026-11-08) adjusts 'based on the increase in the applicable index for the calendar quarter ending September 30 of the preceding calendar year over such index for the base period', and leaves the index to Treasury regulations, so `index` is left out."
         }
       ],
       "notes": "Plans other than SIMPLE plans (401(k)(11), 408(p)), which have their own amounts (414(v)(2)(B)(ii)-(iii)). age_60_to_63 applies to a participant who attains age 60, 61, 62 or 63 by the end of the year."
@@ -1481,6 +1514,53 @@
         }
       },
       "notes": "Per IRA owner; distributions made on or after age 70 1/2 (408(d)(8)(B)(ii))."
+    },
+    "hsa": {
+      "self_only": "4400",
+      "family": "8750",
+      "catch_up_age_55": "1000",
+      "cite": {
+        "publication": "Rev. Proc. 2025-19 (2026 HSA inflation adjusted amounts)",
+        "section": "PDF page 2, section 2.01 Annual contribution limitation: 'For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,400' and for family coverage '$8,750'",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+        "accessed": "2026-11-08",
+        "also": [
+          {
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+            "section": "26 U.S.C. 223(b)(3)(B): additional contribution amount for an individual 55 or older, '2009 and thereafter $1,000'"
+          }
+        ]
+      },
+      "indexing": [
+        {
+          "method": "inflation",
+          "index": "C-CPI-U",
+          "base_period": "calendar year 1997 (substituted for 2016 in 26 U.S.C. 1(f)(3)(A)(ii)), with the 12 months ending March 31 instead of August 31 (223(g)(1))",
+          "applies_to": "self_only, family",
+          "rounding": {
+            "multiple": "50",
+            "direction": "nearest",
+            "notes": "223(g)(2): an increase not a multiple of $50 is 'rounded to the nearest multiple of $50'"
+          },
+          "cite": {
+            "publication": "26 U.S.C. 223, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 223(g)(1) and (2): each dollar amount in (b)(2) increased by the cost-of-living adjustment under 1(f)(3) with 'calendar year 1997'; 'rounded to the nearest multiple of $50'",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+            "accessed": "2026-11-08"
+          }
+        },
+        {
+          "method": "fixed",
+          "applies_to": "catch_up_age_55",
+          "cite": {
+            "publication": "26 U.S.C. 223, United States Code, 2024 Edition (govinfo)",
+            "section": "26 U.S.C. 223(b)(3)(B): the additional contribution amount is $1,000 for '2009 and thereafter'; 223(g) adjusts only (b)(2) and (c)(2)(A)",
+            "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+            "accessed": "2026-11-08"
+          }
+        }
+      ],
+      "notes": "Limits for an individual covered by a high deductible health plan (26 U.S.C. 223(b)(2)); the 55-or-older amount is added per eligible individual."
     }
   },
   "rmd": {

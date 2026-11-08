@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/KS.record.json",
-    "sha256": "f59c04adc3bdeb5e23063ac90f17708f274e739e2158ea7758b330885492e2eb"
+    "sha256": "dbbdaeded48626c78fe51031ef8a02c65b0dc137ffd72020b1c4b49b9e765787"
   },
   "has_income_tax": true,
   "brackets": {
@@ -147,18 +147,18 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed by statute (K.S.A. 79-32,110(a)(2)(B) bands); 79-32,110c lets rates fall on revenue triggers, its CPI ratio does not move the bands"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "fixed by statute \"for tax year 2024 (2025), and all tax years thereafter\" (K.S.A. 79-32,119(b), (c)(2); 79-32,121(a))"
     }
   ],
   "not_modelled": [

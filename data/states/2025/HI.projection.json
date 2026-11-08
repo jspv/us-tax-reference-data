@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/HI.record.json",
-    "sha256": "606b2e7a809e6aec0acf453ddde04f83c1c81c969b68b7f9a8a73630d4e0ce60"
+    "sha256": "f0808295c5afed99a396081374140f8ed1d86a8163934031a66e2fa7a6e65759"
   },
   "has_income_tax": true,
   "brackets": {
@@ -300,18 +300,34 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "scheduled (Act 46, SLH 2024): new tables for 2025-2026, 2027-2028 and from 2029; the first band ends at 9,600 / 14,400 / 19,200 single and separate, 19,200 / 28,800 / 38,400 joint; rates unchanged (HRS 235-51)"
     },
     {
-      "figure": "deductions",
+      "figure": "standard_deduction",
       "indexed": false,
-      "assumed": true,
       "covers": [
-        "deductions"
-      ]
+        "deductions:standard_deduction"
+      ],
+      "note": "scheduled: single and separate 4,400, joint 8,800, head of household 6,424 for 2024-2025; 8,000 / 16,000 / 12,000 for 2026-2027; 9,000 / 18,000 / 13,500 for 2028-2029; 10,000 / 20,000 / 15,000 for 2030; 12,000 / 24,000 / 18,000 from 2031 (HRS 235-2.4(a)(2)(E)-(I))"
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": false,
+      "covers": [
+        "deductions:personal_exemption"
+      ],
+      "note": "fixed by statute: 1,144 (HRS 235-54(a))"
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": false,
+      "covers": [
+        "deductions:age_65_exemption"
+      ],
+      "note": "fixed by statute: one more exemption of 1,144 (HRS 235-54(a))"
     }
   ],
   "not_modelled": [
@@ -445,6 +461,11 @@
       "what": "The age-65 exemption uses the projection's age test (65 or older in the year); the booklet's test is age 65 or over as of January 1 of the following year.",
       "direction": "either",
       "size": "At most one 1,144 exemption in the year a person turns 65, about 126."
+    },
+    {
+      "what": "Later years (Act 24, 2026): from tax year 2027 a new 13% rate applies above 500,000 single, 750,000 head of household and 1,000,000 joint, and some lower-bracket rates change for 2027-2028 and 2029 on. The projection carries the 2025 schedule (top rate 11%).",
+      "direction": "either",
+      "size": "Above the new thresholds, 2 points more tax (2,000 per 100,000 of income above 500,000 single); the lower-bracket changes move tax either way by smaller amounts."
     }
   ],
   "recapture": [],

@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/ND.record.json",
-  "sha256": "26960d87e9a4a6f9ba71f503d40c950b3faa3379d5da3cd21f614d8fd97f6874"
+  "sha256": "871c5b469c1bae02a7264c57bd7754ef5c1dde571fe75208e0f80e6f39ae8c90"
  },
  "has_income_tax": true,
  "brackets": {
@@ -132,11 +132,11 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "IRC 1(f) cost-of-living adjustment, applied as for the federal brackets (N.D.C.C. 57-38-30.3(1)(g))"
   }
  ],
  "not_modelled": [

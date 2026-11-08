@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/MD.record.json",
-    "sha256": "0a29b548ec5c382202ccb201b6c3c6042885ba87c1713e9b00aa04eafb9758b8"
+    "sha256": "7501c2766a7342183eb4af18a752ad06b3846936bf1a8ac9c31f580135ff8e10"
   },
   "has_income_tax": true,
   "brackets": {
@@ -431,34 +431,75 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed by statute (Md. Code, Tax-General 10-105(a)(1) bracket limits)"
     },
     {
-      "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "figure": "standard_deduction",
+      "indexed": true,
       "covers": [
-        "deductions"
-      ]
+        "deductions:standard_deduction"
+      ],
+      "indexed_from": 2026,
+      "note": "IRC 1(f)(3) cost-of-living adjustment with 2024 as the base year, increase rounded down to a multiple of 50, for tax years after 2025 (Tax-General 10-217(c)); 2025 amounts fixed"
     },
     {
-      "figure": "relief_caps",
+      "figure": "personal_exemption",
       "indexed": false,
-      "assumed": true,
       "covers": [
-        "reliefs.cap"
-      ]
+        "deductions:personal_exemption"
+      ],
+      "note": "fixed by statute: 3,200 and the 100,000 / 150,000 AGI phase-out (Tax-General 10-211(b)(1), (c))"
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": false,
+      "covers": [
+        "deductions:age_65_exemption"
+      ],
+      "note": "fixed by statute: 1,000 (Tax-General 10-211(b)(3))"
+    },
+    {
+      "figure": "pension_exclusion_cap",
+      "indexed": true,
+      "covers": [
+        "reliefs:pension_exclusion.cap"
+      ],
+      "note": "the Social Security maximum annual benefit at age 65 for the prior calendar year, to the nearest 100 (Tax-General 10-209(b)(2), (c))"
+    },
+    {
+      "figure": "military_retirement_55_plus_cap",
+      "indexed": false,
+      "covers": [
+        "reliefs:military_retirement_55_plus.cap"
+      ],
+      "note": "fixed by statute: 20,000 (Tax-General 10-207(q)(2)(ii))"
+    },
+    {
+      "figure": "military_retirement_under_55_cap",
+      "indexed": false,
+      "covers": [
+        "reliefs:military_retirement_under_55.cap"
+      ],
+      "note": "fixed by statute: 12,500 (Tax-General 10-207(q)(2)(i))"
+    },
+    {
+      "figure": "age_100_income_cap",
+      "indexed": false,
+      "covers": [
+        "reliefs:age_100_income.cap"
+      ],
+      "note": "fixed by statute: 100,000 (Tax-General 10-207(nn))"
     },
     {
       "figure": "capital_gains_threshold",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "capital_gains"
-      ]
+      ],
+      "note": "fixed by statute: federal AGI over 350,000 (Tax-General 10-105(a)(4))"
     }
   ],
   "not_modelled": [

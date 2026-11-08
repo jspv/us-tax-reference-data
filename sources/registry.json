@@ -173,6 +173,11 @@
         "title": "Delaware Code Title 30, Chapter 11, Subchapter I (§1102 rates of tax)",
         "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html",
         "kind": "html"
+      },
+      {
+        "title": "30 Del. C. ch. 11 subch. II (Delaware Code, official): 1106 modifications including the pension exclusion",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html",
+        "kind": "html"
       }
     ],
     "finder_notes": "Both PDFs opened via WebFetch as binary PDF (curl is blocked by a WAF); text unreadable so titles come from the agency forms page listing. The form PDF reported as 1 page, which looks short for PIT-RES, so confirm. No pension-specific agency page or PDF found; the FAQ is the only retirement source and is undated."
@@ -1254,6 +1259,31 @@
       {
         "title": "42 CFR 408.27 Rounding of monthly premium (eCFR)",
         "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2026-11-01/title-42?part=408&section=408.27",
+        "kind": "html"
+      },
+      {
+        "title": "Rev. Proc. 2024-25 (2025 HSA inflation adjusted amounts)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-24-25.pdf",
+        "kind": "pdf"
+      },
+      {
+        "title": "26 U.S.C. 3111 (U.S. Code, 2024 edition, govinfo): Rate of tax (FICA employer)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleC-chap21-subchapB-sec3111.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 403 (U.S. Code, 2024 edition, govinfo): Reduction of insurance benefits (403(f)(8) earnings test exempt amounts)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec403.htm",
+        "kind": "html"
+      },
+      {
+        "title": "26 U.S.C. 415 (U.S. Code, 2024 edition, govinfo): Limitations on benefits and contributions (415(d) cost-of-living adjustments)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+        "kind": "html"
+      },
+      {
+        "title": "42 U.S.C. 415 (U.S. Code, 2024 edition, govinfo): Computation of primary insurance amount (415(i) cost-of-living increases, CPI)",
+        "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title42/html/USCODE-2024-title42-chap7-subchapII-sec415.htm",
         "kind": "html"
       }
     ],

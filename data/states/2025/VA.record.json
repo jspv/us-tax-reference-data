@@ -640,12 +640,13 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": "not_stated",
+      "indexed": "no",
+      "index": "fixed by statute",
       "cite": {
-        "publication": "2025 Form 760 Resident Individual Income Tax Instructions",
-        "section": "PDF p41 (printed Page 35), Tax Rate Schedule",
-        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
-        "accessed": "2026-11-06"
+        "publication": "Va. Code 58.1-320",
+        "section": "Va. Code 58.1-320: \"Bands: not exceeding $3,000 (2%); over $3,000 to $5,000 (3%); over $5,000 to $17,000 (5%); in excess of $17,000 (5.75%) -- fixed dollar amounts, no adjustment provision in the section.\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+        "accessed": "2026-11-08"
       }
     },
     {
@@ -656,6 +657,61 @@
         "section": "PDF p7 (printed Page 1), What's New, Increase in Standard Deduction: legislation set 8,750 single and 17,500 joint 'for Taxable Years 2025 and 2026'; the increase 'is scheduled to sunset after Taxable Year 2026 and revert to the standard deduction amounts that applied prior to Taxable Year 2019: $3,000 for single filers and $6,000 for married couples filing jointly.' Amounts set by law for named years; no inflation adjustment",
         "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf",
         "accessed": "2026-11-06"
+      }
+    },
+    {
+      "figure": "personal_exemption",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Va. Code 58.1-322.03(2)(a)",
+        "section": "Va. Code 58.1-322.03(2)(a): \"A deduction in the amount of $ 930 for each personal exemption allowable to the taxpayer for federal income tax purposes.\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_exemption",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Va. Code 58.1-322.03(2)(b)",
+        "section": "Va. Code 58.1-322.03(2)(b): \"Each blind or aged taxpayer as defined under § 63(f) of the Internal Revenue Code shall be entitled to an additional personal exemption in the amount of $ 800.\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_deduction_born_by_1939",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Va. Code 58.1-322.03(5)(a)",
+        "section": "Va. Code 58.1-322.03(5)(a): \"A deduction in the amount of $ 12,000 for individuals born on or before January 1, 1939.\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_deduction_income_based",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Va. Code 58.1-322.03(5)(b)",
+        "section": "Va. Code 58.1-322.03(5)(b): \"A deduction in the amount of $ 12,000 for individuals born after January 1, 1939, who have attained the age of 65.\" | Va. Code 58.1-322.03(5)(b): \"This deduction shall be reduced by $ 1 for every $ 1 that the taxpayer's adjusted federal adjusted gross income exceeds $ 50,000 for single taxpayers or $ 75,000 for married taxpayers.\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "military_benefits",
+      "indexed": "no",
+      "index": "fixed by statute",
+      "cite": {
+        "publication": "Va. Code 58.1-322.02(18)(c)",
+        "section": "Va. Code 58.1-322.02(18)(c): \"for taxable years beginning on and after January 1, 2025, up to $40,000 of military benefits\"",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.02/",
+        "accessed": "2026-11-08"
       }
     },
     {

@@ -239,3 +239,14 @@ Unsure: a consumer must floor an `exempt_in_full` relief at 0 when gains net to 
 - Added `relief_income_tests` (indexed false, assumed) for the private pension subtraction's income test.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - `tools.checks --fix-warnings` updated the cases' accepted_warnings where a code changed; nothing else in the cases changed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, RSMo 143.011.5 (definitions in 143.011.6)
+- `head_of_household_additional_exemption` (deductions:head_of_household_additional_exemption): not indexed, RSMo 143.161.2
+- `private_pension_subtraction_cap` (reliefs:private_pension_subtraction.cap): not indexed, RSMo 143.124.3
+- `relief_income_tests` (reliefs.income_test): not indexed, RSMo 143.124.3
+- Record `indexing`: updated brackets -> yes; added head_of_household_additional_exemption -> no; added private_pension_subtraction -> no.
+- The public pension cap (indexed, RSMo 143.124.5) stays with the existing `public_pension_subtraction` entry and its record cite; only the private pension cap got its own entry.

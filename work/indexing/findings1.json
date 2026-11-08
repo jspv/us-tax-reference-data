@@ -1,0 +1,305 @@
+[
+ {
+  "state": "AL",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "Two percent of taxable income not in excess of five hundred dollars ($500). Four percent of taxable income in excess of five hundred dollars ($500) and not in excess of three thousand dollars ($3,000). [single; joint: $1,000 / $6,000]",
+  "section": "Ala. Code 40-18-5(a)",
+  "url": "https://www.legislature.state.al.us/pdf/SearchableInstruments/2023RS/HB115-int.pdf",
+  "confidence": "medium",
+  "notes": "Official Code of Alabama page (alison.legislature.state.al.us/code-of-alabama) is JavaScript-only and could not be read; the existing-law text of 40-18-5 was read in the official 2023 bill HB115 (introduced), which shows fixed dollar band limits and no inflation clause. Code of Alabama contains no CPI/indexing language for these bands. Top-rate schedule in that bill is a proposal only."
+ },
+ {
+  "state": "AL",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "For tax years beginning after December 31, 2021, the optional standard deduction shall be determined as follows: a. ... eight thousand five hundred dollars ($8,500) ... d. ... three thousand dollars ($3,000). [and] a personal exemption of one thousand five hundred dollars ($1,500) or ... three thousand dollars ($3,000)",
+  "section": "Ala. Code 40-18-15(b)(4) (as amended by Act of 2022, SB19) and 40-18-19(a)(8)",
+  "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2022RS/PrintFiles/SB19-Enr.pdf",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "not_indexed",
+    "quote": "The standard deduction for single taxpayers with adjusted gross income of less than twenty-five thousand five hundred dollars ($25,500) shall be three thousand dollars ($3,000).",
+    "section": "Ala. Code 40-18-15(b)(4)d",
+    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2022RS/PrintFiles/SB19-Enr.pdf"
+   },
+   {
+    "covers": "deductions:personal_exemption",
+    "answer": "not_indexed",
+    "quote": "a personal exemption of one thousand five hundred dollars ($1,500) or, in the case of a head of a family or a married person living with husband or wife, a personal exemption of three thousand dollars ($3,000)",
+    "section": "Ala. Code 40-18-19(a)(8)",
+    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2022RS/PrintFiles/HB162-Enr.pdf"
+   }
+  ],
+  "confidence": "medium",
+  "notes": "Both are fixed dollar amounts, with the standard deduction reduced by a fixed step schedule as AGI rises. Read in the official enrolled acts (SB19 and HB162 of 2022), not the live Code page (JS-only). Note the enacted AGI threshold is $25,500 (joint/HoH/single) and $12,750 (separate) while the dataset phase_out threshold reads 25999/12999 - possibly a modelling convention; worth a check. A 2025 bill (HB389) to raise the deduction was seen only as introduced; I did not confirm it failed."
+ },
+ {
+  "state": "DC",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(11) In the case of taxable years beginning after December 31, 2021, ... Not over $10,000 4% ... Over $10,000 but not over $40,000 $400, plus 6% ... Over $40,000 but not over $60,000 $2,200, plus 6.5% ... Over $60,000 but not over $250,000 ... Over $250,000 but not over $500,000 ... Over $500,000 but not over $1,000,000 ... Over $1,000,000",
+  "section": "D.C. Code 47-1806.03(a)(11)",
+  "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1806.03",
+  "confidence": "high",
+  "notes": "Fixed table in statute; no inflation clause anywhere in 47-1806.03. DC changes brackets only by amending the statute."
+ },
+ {
+  "state": "DC",
+  "figure": "deductions",
+  "answer": "indexed",
+  "index": "Follows the federal standard deduction, i.e. whatever IRC 63(c) prescribes (itself inflation-adjusted federally under IRC 63(c)(4) by the IRC 1(f)(3) chained CPI-U method); DC adds no index of its own",
+  "base_year": "n/a (federal; DC's older own COLA used the Washington-Baltimore CPI-U vs 2007 but applies only to tax years before 2018)",
+  "rounding": "federal rule (IRC 63(c)(4)): round down to next lowest multiple of $50 (IRC rule, not DC wording)",
+  "quote": "(iv) For taxable years beginning after December 31, 2017, the standard deduction as prescribed in section 63(c) of the Internal Revenue Code of 1986. [and] 'Internal Revenue Code of 1986' ... which provisions shall apply on the same dates that they are effective for federal tax purposes.",
+  "section": "D.C. Code 47-1801.04(44)(A)(iv), (B)(iv), (C)(iv); 47-1801.04(28)",
+  "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04",
+  "confidence": "medium",
+  "notes": "Rolling conformity: DC standard deduction = federal 63(c) amount, so it moves with federal inflation indexing (and with any federal legislative change, e.g. 2025 federal increase). The additional 65+ amount is part of 63(c) (63(c)(1)(B), 63(f)), so it should follow the same way; DC text does not mention it separately. Dataset 15,000 single appears to be the pre-2025-federal-law figure; check whether DC conformed to the 2025 federal change (DC annually decouples via budget acts - not checked)."
+ },
+ {
+  "state": "IL",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "for taxable years beginning on or after July 1, 2017, an amount equal to 4.95% of the taxpayer's net income for the taxable year.",
+  "section": "35 ILCS 5/201(b)(14) (flat rate)",
+  "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K201.htm",
+  "confidence": "high",
+  "notes": "Single flat rate; the one band start (0) has nothing to index."
+ },
+ {
+  "state": "IL",
+  "figure": "deductions",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "deductions:il_personal_exemption",
+    "answer": "indexed",
+    "quote": "(7) for taxable years ending on or after December 31, 2024 and on or before December 31, 2028, $2,050 plus the cost-of-living adjustment under subsection (d-5).",
+    "section": "35 ILCS 5/204(b)(7), (d-5)",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm"
+   },
+   {
+    "covers": "deductions:il_age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "An additional exemption of $1,000 for the taxpayer if he or she has attained the age of 65 before the end of the taxable year.",
+    "section": "35 ILCS 5/204(d)(1)(A)",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm"
+   },
+   {
+    "covers": "deductions:il_personal_exemption.phase_out and deductions:il_age_65_exemption.phase_out",
+    "answer": "not_indexed",
+    "quote": "no taxpayer may claim an exemption under this Section if the taxpayer's adjusted gross income for the taxable year exceeds (i) $500,000, in the case of spouses filing a joint federal tax return or (ii) $250,000, in the case of all other taxpayers.",
+    "section": "35 ILCS 5/204(g)",
+    "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm"
+   }
+  ],
+  "index": "CPI-U (Consumer Price Index for All Urban Consumers, US Dept of Labor)",
+  "base_year": "calendar year 2011 (adjustment = $2,050 x percentage by which prior calendar year's CPI exceeds 2011 CPI)",
+  "rounding": "rounded to the next lowest multiple of $25",
+  "schedule": "Indexed basic amount defined only for taxable years ending on or before December 31, 2028; the statute is silent after that (not stated).",
+  "quote": "(d-5) ... the cost-of-living adjustment for any calendar year and for taxable years ending prior to the end of the subsequent calendar year is equal to $2,050 times the percentage (if any) by which: (1) the Consumer Price Index for the preceding calendar year, exceeds (2) the Consumer Price Index for the calendar year 2011. ... If any cost-of-living adjustment is not a multiple of $25, that adjustment shall be rounded to the next lowest multiple of $25.",
+  "section": "35 ILCS 5/204(b), (d-5)",
+  "url": "https://www.ilga.gov/Documents/legislation/ilcs/documents/003500050K204.htm",
+  "confidence": "high",
+  "notes": "Dependent/extra exemptions (204(c)) equal the basic amount so they follow the personal exemption. CPI is the average of the 12 months ending Aug 31. The IL Dept of Revenue lists $2,850 for 2025 and $2,925 for 2026 (https://tax.illinois.gov/questionsandanswers/851.html). Item (6) set a fixed $2,425 for TY ending 2023 (a one-off), so indexing was not continuous. After 2028 indexing is unstated in the current text."
+ },
+ {
+  "state": "MD",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "(iv) 4.75% of Maryland taxable income of $3,001 through $100,000; [joint/HoH: $3,001 through $150,000]",
+  "section": "Md. Code, Tax-General 10-105(a)(1)",
+  "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+  "confidence": "high",
+  "notes": "Fixed bracket dollar limits; no cost-of-living clause in 10-105."
+ },
+ {
+  "state": "MD",
+  "figure": "deductions",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "deductions:standard_deduction",
+    "answer": "indexed",
+    "quote": "For each taxable year beginning after December 31, 2025, the standard deduction amount specified in subsection (b) of this section shall be increased by an amount equal to the product of multiplying the standard deduction amount by the cost-of-living adjustment specified in this subsection.",
+    "section": "Md. Code, Tax-General 10-217(c)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-217&enactments=false"
+   },
+   {
+    "covers": "deductions:personal_exemption",
+    "answer": "not_indexed",
+    "quote": "(1) $3,200 for each exemption that the individual may deduct under subsection (a) of this section;",
+    "section": "Md. Code, Tax-General 10-211(b)(1); phase-out in 10-211(c) fixed at $100,000/$150,000 AGI",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-211&enactments=false"
+   },
+   {
+    "covers": "deductions:age_65_exemption",
+    "answer": "not_indexed",
+    "quote": "(3) an additional $1,000 if the individual, on the last day of the taxable year, is at least 65 years old;",
+    "section": "Md. Code, Tax-General 10-211(b)(3)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-211&enactments=false"
+   }
+  ],
+  "index": "Cost-of-living adjustment within the meaning of IRC 1(f)(3) for the calendar year in which the taxable year begins, determined by the Comptroller (federal chained CPI-U method)",
+  "base_year": "calendar year 2024 (substituted for 'calendar year 2016' in IRC 1(f)(3)(A))",
+  "rounding": "the increase is rounded down to the next lowest multiple of $50",
+  "schedule": "First indexed year is the taxable year beginning after Dec 31, 2025 (i.e. 2026); 2025 amounts are the fixed $3,350 / $6,700.",
+  "quote": "(2) For purposes of this subsection, the cost-of-living adjustment is the cost-of-living adjustment within the meaning of 1(f)(3) of the Internal Revenue Code for the calendar year in which a taxable year begins, as determined by the Comptroller, by substituting 'calendar year 2024' for 'calendar year 2016' in 1(f)(3)(A) ... (3) If any increase determined under paragraph (1) of this subsection is not a multiple of $50, the increase shall be rounded down to the next lowest multiple of $50.",
+  "section": "Md. Code, Tax-General 10-217(c)",
+  "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-217&enactments=false",
+  "confidence": "high",
+  "notes": "Standard deduction becomes indexed from tax year 2026. Personal exemption ($3,200) and the 65+ and blind $1,000 add-ons carry no inflation clause."
+ },
+ {
+  "state": "MD",
+  "figure": "relief_caps",
+  "answer": "split",
+  "split": [
+   {
+    "covers": "reliefs:pension_exclusion.cap",
+    "answer": "indexed",
+    "quote": "(1) shall determine the maximum annual benefit under the Social Security Act allowed for an individual who retired at age 65 for the prior calendar year; and (2) may allow the subtraction to the nearest $100.",
+    "section": "Md. Code, Tax-General 10-209(b)(2), (c)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-209&enactments=false"
+   },
+   {
+    "covers": "reliefs:military_retirement_55_plus.cap",
+    "answer": "not_indexed",
+    "quote": "(ii) if, on the last day of the taxable year, the individual is at least 55 years old, the first $20,000 of military retirement income received by an individual during the taxable year.",
+    "section": "Md. Code, Tax-General 10-207(q)(2)(ii)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false"
+   },
+   {
+    "covers": "reliefs:military_retirement_under_55.cap",
+    "answer": "not_indexed",
+    "quote": "(i) ... the individual is under the age of 55 years, the first $12,500 of military retirement income received by an individual during the taxable year;",
+    "section": "Md. Code, Tax-General 10-207(q)(2)(i)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false"
+   },
+   {
+    "covers": "reliefs:age_100_income.cap",
+    "answer": "not_indexed",
+    "quote": "(nn) The subtraction under subsection (a) of this section includes the first $100,000 of income received by an individual during a taxable year if the individual is at least 100 years old on the last day of the taxable year.",
+    "section": "Md. Code, Tax-General 10-207(nn)",
+    "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-207&enactments=false"
+   }
+  ],
+  "quote": "The pension exclusion is the lesser of the person's pension income or 'the maximum annual benefit under the Social Security Act computed under subsection (c)', less Social Security/RRB benefits received.",
+  "section": "Md. Code, Tax-General 10-209(b)(2), (c)",
+  "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-209&enactments=false",
+  "confidence": "high",
+  "notes": "The pension exclusion cap has no dollar figure in statute; it equals the Social Security maximum annual benefit at age 65 for the prior calendar year (the Social Security Act sets that amount with its wage-index/COLA rules), so it moves every year (nearest $100 allowed). The three other caps are fixed dollar amounts. The retired-ranger cap ($15,000, 10-209(e)) is also fixed but is not in this batch."
+ },
+ {
+  "state": "MD",
+  "figure": "capital_gains_threshold",
+  "answer": "not_indexed",
+  "quote": "(4) The provisions of paragraph (3) of this subsection shall apply for individuals described in paragraph (1) or (2) of this subsection with a federal adjusted gross income in excess of $350,000.",
+  "section": "Md. Code, Tax-General 10-105(a)(4) (additional 2% on net capital gain, (a)(3)(i)2)",
+  "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+  "confidence": "high",
+  "notes": "Fixed $350,000 federal AGI threshold; also the $1,500,000 primary-residence exclusion is fixed. No inflation clause."
+ },
+ {
+  "state": "MT",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "CPI-U (Consumer Price Index for All Urban Consumers), 'inflation factor' = CPI for June of the previous tax year divided by CPI for June 2023",
+  "base_year": "June 2023 (for the law in force in tax year 2025); the 2027+ version uses a 'modified inflation factor' with June 2026 as base",
+  "rounding": "cumulative brackets rounded to the nearest $100",
+  "schedule": "HB 337 (2025) removes the annual indexing for tax year 2026 (fixed $47,500 single / $71,250 HoH / $95,000 joint) and re-sets to fixed $65,000 / $97,500 / $130,000 for tax years after Dec 31, 2026; the modified inflation factor 'does not apply until tax year 2028'. So: indexed in 2025, flat 2026-2027, indexed again from 2028.",
+  "quote": "(3) By November 1 of each year, the department shall multiply the bracket amounts contained in subsections (1) and (2) by the inflation factor for the following tax year and round the cumulative brackets to the nearest $100. [HB 337 Sec. 4:] The modified inflation factor provided for in 15-30-2103(3) does not apply until tax year 2028.",
+  "section": "Mont. Code Ann. 15-30-2103(3) (as it stood for tax year 2025, struck by HB 337 Sec. 1 for 2026); 15-30-2101(12) 'inflation factor'; HB 337 (2025), Secs. 1, 2, 4-6",
+  "url": "https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html",
+  "confidence": "medium",
+  "notes": "The 2025 base figure 20,500 -> 21,100 in the data fits the old indexed text. The pre-amendment text of (3) was read as the struck text in enrolled HB 337 (https://archive.legmt.gov/content/Sessions/69th/Contractor_index/CH0227.pdf), not as a live page, since mca.legmt.gov now shows only the 2026 temporary and 2027 versions. 'Inflation factor' defined at https://mca.legmt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0010/0150-0300-0210-0010.html (CPI-U, June of previous tax year over June 2023). Data bands for tax years 2026+ would be wrong under HB 337 (47,500 / 65,000 etc.)."
+ },
+ {
+  "state": "NY",
+  "figure": "brackets",
+  "answer": "not_indexed",
+  "quote": "Not over $8,500 4% of the New York taxable income; Over $8,500 but not over $11,700 $340 plus 4.5% of excess over ... [Tax Law 601(c)(1)(B)(vi), taxable years beginning in 2023 and before 2026]",
+  "section": "N.Y. Tax Law 601(a)-(c); 601-a (cost of living adjustment for tax years 2013 through 2017 only)",
+  "url": "https://www.nysenate.gov/legislation/laws/TAX/601",
+  "confidence": "medium",
+  "notes": "Tax Law 601 lists dollar tables by year range; the only inflation provision, 601-a, runs 'after tax year two thousand fourteen and before tax year two thousand eighteen' (https://www.nysenate.gov/legislation/laws/TAX/601-A). The 2025 table covers years before 2026; amounts for 2026+ are not stated in the text I read (601(c) tables beyond 2025 not confirmed), and nothing indexes them. Page was served from the openleg consolidated-law database."
+ },
+ {
+  "state": "NY",
+  "figure": "deductions",
+  "answer": "not_indexed",
+  "quote": "(f) Adjusted standard deduction. For taxable years beginning after two thousand seventeen, the standard deductions set forth in this section shall be the amounts set forth in this section adjusted by the cost of living adjustment prescribed in section six hundred one-a of this part for tax years two thousand thirteen through two thousand seventeen. [601-a: ...'For each succeeding tax year after tax year two thousand fourteen and before tax year two thousand eighteen' the commissioner shall multiply the amounts ... by one plus the cost of living adjustment]",
+  "section": "N.Y. Tax Law 614(f), 601-a(a)",
+  "url": "https://www.nysenate.gov/legislation/laws/TAX/614",
+  "confidence": "medium",
+  "notes": "Scheduled 2013-2017 indexing happened once; from tax year 2018 on the amounts are frozen at the 2017-adjusted level (today's $8,000 single / $16,050 joint / $11,200 HoH fit that). No later-year indexing. Section 614 text printed '7,500' etc. as base amounts, which 601-a lifted. Index in 601-a was the CPI-U US Dept of Labor, 12-month average ending June 30, rounded down to $50 (per summary of the page; not independently quoted)."
+ },
+ {
+  "state": "NY",
+  "figure": "pension_annuity_exclusion",
+  "answer": "not_indexed",
+  "quote": "but not in excess of twenty thousand dollars, which are periodic payments attributable to personal services performed by such individual prior to his retirement from employment",
+  "section": "N.Y. Tax Law 612(c)(3-a)",
+  "url": "https://www.nysenate.gov/legislation/laws/TAX/612",
+  "confidence": "high",
+  "notes": "Fixed $20,000; no cost-of-living language in 612 (page checked for 'cost of living', none found in the first 100k characters read)."
+ },
+ {
+  "state": "NY",
+  "figure": "recapture",
+  "answer": "not_indexed",
+  "quote": "(d-4) Alternative tax table benefit recapture. Notwithstanding the provisions of subsection (d), (d-1), (d-2) or (d-3) of this section, for taxable years beginning on or after two thousand twenty-three and before two thousand twenty-six, there is hereby imposed a supplemental tax ... [thresholds $107,650; $215,400; $1,077,550; $5,000,000; $25,000,000 fixed in text]",
+  "section": "N.Y. Tax Law 601(d)-(d-6); 601-a(a)",
+  "url": "https://www.nysenate.gov/legislation/laws/TAX/601",
+  "confidence": "medium",
+  "notes": "Recapture thresholds are fixed numbers in the statute and apply to named year ranges (the current one ends with tax year 2025). 601-a adjusted the (d) numerators only for 2013-2017. The last 15k characters of the 601 page were not read."
+ },
+ {
+  "state": "SC",
+  "figure": "brackets",
+  "answer": "indexed",
+  "index": "Chained Consumer Price Index for All Urban Consumers (chained CPI-U) per Internal Revenue Code 1(f); adjustment capped at 4% a year",
+  "base_year": "cumulative from December 15, 2018 adjustments (no stated base year)",
+  "rounding": "rounding amount is ten dollars (instead of the IRC 1(f)(7) amount)",
+  "quote": "Beginning on December 15, 2018, and each December fifteenth thereafter, the department shall cumulatively adjust the brackets in Section 12-6-510 using the Chained Consumer Price Index for All Consumers, as published by the Bureau of Labor and Statistics of the Department of Labor, pursuant to Internal Revenue Code Section (1)(f). However, the adjustment may not exceed four percent a year, and notwithstanding the rounding amount provided in (1)(f)(7), the rounding amount is ten dollars.",
+  "section": "S.C. Code 12-6-520; 12-6-510(B)(1) ('with the income brackets indexed in accordance with Section 12-6-520')",
+  "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+  "confidence": "high",
+  "notes": "Statute text read on the official scstatehouse.gov Title 12 Chapter 6 page. Adjusted brackets apply to the taxable years beginning in the succeeding calendar year."
+ },
+ {
+  "state": "SC",
+  "figure": "relief_caps",
+  "answer": "not_indexed",
+  "split": [
+   {
+    "covers": "reliefs:sc_retirement_under_65.cap",
+    "answer": "not_indexed",
+    "quote": "allowed an annual deduction from South Carolina taxable income of not more than three thousand dollars of retirement income received.",
+    "section": "S.C. Code 12-6-1170(A)(1)",
+    "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6"
+   },
+   {
+    "covers": "reliefs:sc_retirement_65_or_older.cap",
+    "answer": "not_indexed",
+    "quote": "Beginning in the year in which the taxpayer reaches age sixty-five, the taxpayer may deduct not more than ten thousand dollars of retirement income",
+    "section": "S.C. Code 12-6-1170(A)(1)",
+    "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6"
+   },
+   {
+    "covers": "reliefs:sc_age_65_deduction.cap",
+    "answer": "not_indexed",
+    "quote": "in an amount not to exceed fifteen thousand dollars reduced by any amount the taxpayer deducts pursuant to subsection (A) ... thirty thousand dollars when both spouses have attained such age.",
+    "section": "S.C. Code 12-6-1170(B)",
+    "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6"
+   }
+  ],
+  "quote": "not more than three thousand dollars ... not more than ten thousand dollars ... not to exceed fifteen thousand dollars",
+  "section": "S.C. Code 12-6-1170(A), (B)",
+  "url": "https://www.scstatehouse.gov/code/statmast.php?title=12&chapter=6",
+  "confidence": "high",
+  "notes": "Fixed dollar amounts; the only SC indexing clause is 12-6-520, which covers the 12-6-510 brackets only. History line shows last amendment 2016 Act 272."
+ }
+]

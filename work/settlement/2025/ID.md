@@ -182,3 +182,9 @@ the named plans in full, warns any household with a pension, and says so in `app
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`; `credits` -> `reliefs.credit_amount`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): indexed, Idaho Code 63-3024(2)-(3): CPI-U over 1998. Record `brackets` (was not_stated with the booklet cite) -> yes with the statute cite.
+- `deductions` (projection `deductions`): indexed, Idaho Code 63-3022(j)(1) and 63-3004 (federal standard deduction by reference). Record `standard_deduction` (was not_stated) -> yes; `age_65_addition` added as yes.
+- `credits` (projection `reliefs.credit_amount`): not_indexed, Idaho Code 63-3024A(1). Record `food_tax_credit` added as no.

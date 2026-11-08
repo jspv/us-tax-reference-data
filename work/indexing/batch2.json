@@ -1,0 +1,282 @@
+[
+ {
+  "state": "AR",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction ar_standard_deduction: {\"single\": \"2470\", \"married_joint\": \"4940\", \"married_separate\": \"2470\", \"head_of_household\": \"2470\", \"qualifying_surviving_spouse\": \"2470\"}"
+  ]
+ },
+ {
+  "state": "AR",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief ar_retirement_exclusion_59_5_plus cap: {\"all\": \"6000\"}",
+   "relief ar_retirement_exclusion_employer_plan cap: {\"all\": \"6000\"}"
+  ]
+ },
+ {
+  "state": "AR",
+  "figure": "credits",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief ar_65_special_credit credit_amount: \"29\"",
+   "relief ar_personal_credit credit_amount: \"29\"",
+   "relief ar_age_65_credit credit_amount: \"29\""
+  ]
+ },
+ {
+  "state": "AR",
+  "figure": "recapture_threshold",
+  "covers": [
+   "recapture"
+  ],
+  "figures": [
+   "recapture"
+  ]
+ },
+ {
+  "state": "DE",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 2000, 5000, 10000, 20000, 25000"
+  ]
+ },
+ {
+  "state": "DE",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction de_standard_deduction: {\"single\": \"3250\", \"married_joint\": \"6500\", \"married_separate\": \"3250\", \"head_of_household\": \"3250\", \"qualifying_surviving_spouse\": \"3250\"}",
+   "deduction de_additional_standard_65: {\"all\": \"2500\"}"
+  ]
+ },
+ {
+  "state": "DE",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief de_pension_excl_under60_nonmilitary cap: {\"all\": \"2000\"}",
+   "relief de_pension_excl_under60_military cap: {\"all\": \"12500\"}",
+   "relief de_pension_excl_60_plus cap: {\"all\": \"12500\"}"
+  ]
+ },
+ {
+  "state": "DE",
+  "figure": "credits",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief de_personal_credit credit_amount: \"110\"",
+   "relief de_additional_personal_credit_60 credit_amount: \"110\""
+  ]
+ },
+ {
+  "state": "IN",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "IN",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction personal_exemption: {\"all\": \"1000\"}",
+   "deduction age_65_exemption: {\"all\": \"1000\"}",
+   "deduction age_65_additional_exemption: {\"all\": \"500\"} phase_out {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"40000\", \"married_joint\": \"40000\", \"head_of_household\": \"40"
+  ]
+ },
+ {
+  "state": "IN",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief civil_service_annuity cap: {\"all\": \"16000\"}"
+  ]
+ },
+ {
+  "state": "ME",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 26800, 63450"
+  ]
+ },
+ {
+  "state": "ME",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction standard_deduction: {\"single\": \"15000\", \"married_joint\": \"30000\", \"married_separate\": \"15000\", \"head_of_household\": \"22500\", \"qualifying_surviving_spouse\": \"30000\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"100000\", \"married_separate\": \"100000\", \"head_of_household\": ",
+   "deduction age_65_additional_standard_deduction: {\"single\": \"2000\", \"married_joint\": \"1600\", \"married_separate\": \"1600\", \"head_of_household\": \"2000\", \"qualifying_surviving_spouse\": \"1600\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"100000\", \"married_separate\": \"100000\", \"head_of_household\": ",
+   "deduction personal_exemption: {\"all\": \"5150\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"single\": \"333450\", \"head_of_household\": \"366750\", \"married_joint\": \"40"
+  ]
+ },
+ {
+  "state": "ME",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief pension_income_deduction cap: {\"all\": \"48216\"}"
+  ]
+ },
+ {
+  "state": "NC",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "NC",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction nc_standard_deduction: {\"single\": \"12750\", \"married_joint\": \"25500\", \"qualifying_surviving_spouse\": \"25500\", \"married_separate\": \"12750\", \"head_of_household\": \"19125\"}"
+  ]
+ },
+ {
+  "state": "OH",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0, 26050, 100000"
+  ]
+ },
+ {
+  "state": "OH",
+  "figure": "deductions",
+  "covers": [
+   "deductions"
+  ],
+  "figures": [
+   "deduction personal_exemption: {\"all\": \"2400\"} phase_out {\"measure\": {\"base\": \"state_agi\"}, \"threshold\": {\"all\": \"40000\"}, \"effect\": \"stepped\", \"steps\": [{\"status\": \"all\", \"over"
+  ]
+ },
+ {
+  "state": "OH",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief retirement_income_credit cap: {\"all\": \"200\"}",
+   "relief senior_citizen_credit cap: {\"all\": \"50\"}"
+  ]
+ },
+ {
+  "state": "OH",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief retirement_income_credit income_test: {\"measure\": {\"base\": \"state_taxable_income\"}, \"threshold\": {\"all\": \"100000\"}, \"effect\": \"removes\", \"applies_when\": \"at_or_over\"}",
+   "relief senior_citizen_credit income_test: {\"measure\": {\"base\": \"state_taxable_income\"}, \"threshold\": {\"all\": \"100000\"}, \"effect\": \"removes\", \"applies_when\": \"at_or_over\"}"
+  ]
+ },
+ {
+  "state": "OH",
+  "figure": "relief_credit_amounts",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief retirement_income_credit credit_amount: \"200\"",
+   "relief senior_citizen_credit credit_amount: \"50\""
+  ]
+ },
+ {
+  "state": "UT",
+  "figure": "brackets",
+  "covers": [
+   "brackets"
+  ],
+  "figures": [
+   "bracket band starts: 0"
+  ]
+ },
+ {
+  "state": "UT",
+  "figure": "deductions",
+  "covers": [
+   "reliefs:taxpayer_tax_credit.cap",
+   "reliefs:qualified_exempt_taxpayer.income_test"
+  ],
+  "figures": [
+   "relief taxpayer_tax_credit cap: {\"single\": \"15750\", \"married_separate\": \"15750\", \"head_of_household\": \"23625\", \"married_joint\": \"31500\", \"qualifying_surviving_spouse\": \"31500\"}",
+   "relief qualified_exempt_taxpayer income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"15750\", \"married_separate\": \"15750\", \"head_of_household\": \"23625\", \"married_joint\": \"31500\", \"qual"
+  ]
+ },
+ {
+  "state": "UT",
+  "figure": "relief_caps",
+  "covers": [
+   "reliefs.cap"
+  ],
+  "figures": [
+   "relief taxpayer_tax_credit cap: {\"single\": \"15750\", \"married_separate\": \"15750\", \"head_of_household\": \"23625\", \"married_joint\": \"31500\", \"qualifying_surviving_spouse\": \"31500\"}",
+   "relief retirement_credit cap: {\"all\": \"450\"}"
+  ]
+ },
+ {
+  "state": "UT",
+  "figure": "relief_income_tests",
+  "covers": [
+   "reliefs.income_test"
+  ],
+  "figures": [
+   "relief taxpayer_tax_credit income_test: {\"measure\": {\"base\": \"state_taxable_income\"}, \"threshold\": {\"single\": \"18213\", \"married_separate\": \"18213\", \"head_of_household\": \"27320\", \"married_joint\": \"3642",
+   "relief qualified_exempt_taxpayer income_test: {\"measure\": {\"base\": \"federal_agi\"}, \"threshold\": {\"single\": \"15750\", \"married_separate\": \"15750\", \"head_of_household\": \"23625\", \"married_joint\": \"31500\", \"qual",
+   "relief retirement_credit income_test: {\"measure\": {\"base\": \"federal_agi\", \"plus_tax_exempt_interest\": true}, \"threshold\": {\"married_separate\": \"16000\", \"married_joint\": \"32000\", \"single\": \"25000\", \"",
+   "relief social_security_credit income_test: {\"measure\": {\"base\": \"federal_agi\", \"plus_tax_exempt_interest\": true}, \"threshold\": {\"married_separate\": \"45000\", \"married_joint\": \"90000\", \"single\": \"54000\", \""
+  ]
+ },
+ {
+  "state": "UT",
+  "figure": "relief_credit_amounts",
+  "covers": [
+   "reliefs.credit_amount"
+  ],
+  "figures": [
+   "relief retirement_credit credit_amount: \"450\""
+  ]
+ }
+]

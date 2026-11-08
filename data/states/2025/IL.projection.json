@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/IL.record.json",
-  "sha256": "53ae08d45e085bb3d0fc4f98823af46a7975815894ca329e96bd05dd266314b8"
+  "sha256": "baef5f969a625338f35a02ff2de4b2f85b9803793d2e54410b0676ab398f8558"
  },
  "has_income_tax": true,
  "brackets": {
@@ -143,18 +143,35 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "one flat 4.95% band from 0, no threshold to grow (35 ILCS 5/201(b)(14))"
   },
   {
-   "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "figure": "il_personal_exemption",
+   "indexed": true,
    "covers": [
-    "deductions"
-   ]
+    "deductions:il_personal_exemption.amount"
+   ],
+   "note": "2,050 plus CPI-U change of the prior calendar year over 2011 (CPI year ends August 31), adjustment rounded down to a multiple of 25 (35 ILCS 5/204(b)(7), (d-5)); the text runs through tax years ending on or before December 31, 2028 and is silent after"
+  },
+  {
+   "figure": "il_age_65_exemption",
+   "indexed": false,
+   "covers": [
+    "deductions:il_age_65_exemption.amount"
+   ],
+   "note": "fixed by statute: 1,000 (35 ILCS 5/204(d)(1)(A))"
+  },
+  {
+   "figure": "exemption_phase_outs",
+   "indexed": false,
+   "covers": [
+    "deductions:il_personal_exemption.phase_out",
+    "deductions:il_age_65_exemption.phase_out"
+   ],
+   "note": "fixed by statute: no exemption over AGI 500,000 joint, 250,000 others (35 ILCS 5/204(g))"
   }
  ],
  "not_modelled": [
@@ -264,6 +281,11 @@
   {
    "what": "Credits are not applied: tax paid to another state (Line 15), property tax and K-12 education (Line 16), and Schedule 1299-C (Line 17). Other Schedule M subtractions, such as college savings contributions, are not applied either.",
    "direction": "overstates_tax"
+  },
+  {
+   "what": "Later years: the personal exemption's inflation adjustment is written only through tax year 2028 (35 ILCS 5/204(b)(7) and (d-5)); after that the statute is silent, and the projection keeps growing it.",
+   "direction": "understates_tax",
+   "size": "Small: a few dollars a year per person after 2028 (2,850 x the yearly inflation rate x 4.95%), growing slowly."
   }
  ],
  "recapture": [],

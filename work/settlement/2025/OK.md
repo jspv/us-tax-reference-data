@@ -171,3 +171,12 @@ gives 3,680.69. pypdf is right. My parse of Docling's tables found only 494 of t
 - Marker ids: all 9 markers have an `id`. Descriptive ids (no from_record id of their own): `ok_out_of_state_income_proration`, `ok_credits`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets`, `deductions` (including the age 65 exemption's phase-out), `relief_caps` (reliefs.cap). No split needed.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, 68 O.S. 2355(C)
+- `deductions` (deductions): not indexed, 68 O.S. 2358(E)(1)-(2)
+- `relief_caps` (reliefs.cap): not indexed, 68 O.S. 2358(A)(8) and the 'other retirement' exemption in the same section (limit 'Ten Thousand Dollars ($10,000.00) for the tax year 2006 and for all subsequent tax years')
+- Record `indexing`: added brackets -> no; added standard_deduction -> no; added personal_exemption -> no; added age_65_exemption -> no; added ok_government_retirement -> no; added other_retirement_income -> no.

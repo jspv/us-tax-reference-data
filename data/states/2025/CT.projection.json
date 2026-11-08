@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/CT.record.json",
-    "sha256": "125b00cab03c47d87d38aacf9ca24d38012433e5cce586ba6a2f1a318e8f6ebe"
+    "sha256": "b1b566da5dc02756fd65df1d3135f5ab91a99447a961f629bf6e140a72619b18"
   },
   "has_income_tax": true,
   "brackets": {
@@ -1932,35 +1932,35 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "fixed by statute (Conn. Gen. Stat. 12-700(a)(10) dollar bands)"
     },
     {
       "figure": "deductions",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "fixed by statute: exemption amounts and phase-out start held since 2016 (Conn. Gen. Stat. 12-702(a)(2))"
     },
     {
       "figure": "relief_thresholds",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.income_test",
         "reliefs.applies_over"
-      ]
+      ],
+      "note": "fixed by statute: AGI tests held \"each taxable year thereafter\" (12-701(a)(20)(B)), personal credit table fixed since 2016 (12-703(a)(2))"
     },
     {
       "figure": "recapture",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "recapture"
-      ]
+      ],
+      "note": "fixed by statute: phase-out and recapture thresholds and caps in dollars (12-700(a)(10)(A)(ii)-(v) and parallels)"
     }
   ],
   "not_modelled": [

@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/ME.record.json",
-    "sha256": "523410b3e56bd187bb33cb12ac88e2875ff3973523d6970d2075579e6baa52dd"
+    "sha256": "6469f060d67212260b8940d0ccf241275d51592b284b8c046cc7839707b6ee2c"
   },
   "has_income_tax": true,
   "brackets": {
@@ -256,27 +256,27 @@
   "indexing": [
     {
       "figure": "brackets",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "Chained CPI, 12 months ending June 30 of the prior year over 2015 (lowest amounts) or 2016 (top amount), increase rounded down to a multiple of 50, never below the prior year (36 M.R.S. 5403(1))"
     },
     {
       "figure": "deductions",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "deductions"
-      ]
+      ],
+      "note": "standard deduction, personal exemption and their phase-outs: Chained CPI over June 2017, rounded down to 50 (36 M.R.S. 5403(2), (4), (7), (8)); 15,700 single set for 2026, then equal to the federal standard deduction from 2027 (5124-C(1-C), (1-D)); age-65 addition is the federal 63(c)(3) amount"
     },
     {
       "figure": "relief_caps",
-      "indexed": false,
-      "assumed": true,
+      "indexed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "the Social Security maximum annual benefit at full retirement age as of January 1 of the tax year (36 M.R.S. 5122(2)(M-2)(2)(d)(iv)); no rounding stated"
     },
     {
       "figure": "pension_income_deduction_phase_out",

@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/AR.record.json",
-  "sha256": "2103deefe41a4d854cbb49d5a59f5c66f759a7c39cb95408f7d26096f0790b74"
+  "sha256": "7a0883fc4acf28dc1b19ea24077452ff816c6dba81336ddc3da28acf4162d7af"
  },
  "has_income_tax": true,
  "brackets": {
@@ -219,35 +219,35 @@
   },
   {
    "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "CPI-U cost-of-living adjustment each year (CPI year ends August 31), increase capped at 3%, rounded to the nearest 10; no change if CPI does not rise (Ark. Code 26-51-430(c))"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed by statute: 6,000 (Ark. Code 26-51-307)"
   },
   {
    "figure": "credits",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "reliefs.credit_amount"
-   ]
+   ],
+   "note": "CPI change since 2001, rounded to the nearest dollar, only in years the revenue test of Ark. Code 26-51-501(f) is met (conditional)"
   },
   {
    "figure": "recapture_threshold",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "recapture"
-   ]
+   ],
+   "note": "with the rate tables (Ark. Code 26-51-201(a)(4), (d)): CPI cost-of-living, capped at 3%, nearest 100; the statute does not say explicitly that the bracket-adjustment range is indexed (low confidence)"
   }
  ],
  "not_modelled": [

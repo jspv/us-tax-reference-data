@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/ID.record.json",
-  "sha256": "1ae8bd539d5dd670e30a0e7d17221a18788c21de2e4efe2317dc45c5ec1cc52b"
+  "sha256": "ab6fa6b3e98ac859fdbaf893dac2b485eff7818daf7d6c8e96c46879049b1a3a"
  },
  "has_income_tax": true,
  "brackets": {
@@ -144,19 +144,19 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "CPI-U of the calendar year before the tax year over the 1998 CPI, applied to the statutory threshold by the tax commission (Idaho Code 63-3024(2)-(3)); no rounding stated"
   },
   {
    "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "the federal standard deduction and aged amount of IRC 63 (Idaho Code 63-3022(j)(1), conformity under 63-3004), so the federal IRC 1(f)(3) adjustment"
   },
   {
    "figure": "relief_caps",
@@ -168,10 +168,10 @@
   {
    "figure": "credits",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.credit_amount"
-   ]
+   ],
+   "note": "fixed by statute: 155 for 2025 and each year after (Idaho Code 63-3024A(1))"
   }
  ],
  "not_modelled": [

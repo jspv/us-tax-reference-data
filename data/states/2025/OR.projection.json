@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/OR.record.json",
-  "sha256": "7cfd43be5153790cd755bd7d047abd53a8e612f98e1c1ce108745306a08dc4c3"
+  "sha256": "43dd8ab05d14d7d75b071f59e2252972bfa7a25984aac80a86b8d70cb549c8e3"
  },
  "has_income_tax": true,
  "brackets": {
@@ -211,27 +211,43 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "ORS 316.037: band limits indexed to CPI each year, except the start of the top band (125,000; 250,000 joint), which is fixed (entry brackets_top_band)."
   },
   {
-   "figure": "deductions",
+   "figure": "brackets_top_band",
    "indexed": false,
-   "assumed": true,
    "covers": [
-    "deductions"
-   ]
+    "brackets:3"
+   ],
+   "note": "ORS 316.037: the 125,000 (250,000 joint) start of the 9.9% band is not indexed."
+  },
+  {
+   "figure": "standard_deduction",
+   "indexed": true,
+   "covers": [
+    "deductions:standard_deduction"
+   ],
+   "note": "CPI-U vs Q2 2002 (ORS 316.695(1)(c)(C)); rounding not stated"
+  },
+  {
+   "figure": "age_65_additional",
+   "indexed": false,
+   "covers": [
+    "deductions:age_65_additional"
+   ],
+   "note": "fixed 1,000 / 1,200 (ORS 316.695(7))"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed 7,500 / 15,000 (ORS 316.157(2)(d))"
   },
   {
    "figure": "credits",
@@ -243,10 +259,10 @@
   {
    "figure": "relief_income_tests",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.income_test"
-   ]
+   ],
+   "note": "fixed: 15,000 / 30,000 household income (ORS 316.157(2)(d)); 100,000 / 200,000 AGI (ORS 316.085(5))"
   }
  ],
  "not_modelled": [

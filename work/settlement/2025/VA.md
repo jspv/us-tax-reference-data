@@ -118,3 +118,16 @@ rule; the schema's definition settled them.
 - Marker ids: all 9 markers have an `id`. Each takes its first from_record id, so warning codes are unchanged.
 - Indexing covers: `brackets`, `deductions`, `relief_caps` (reliefs.cap). Split `standard_deduction` (indexed false, not assumed) out of `deductions` for deductions:standard_deduction. Added `relief_income_tests` (indexed false, assumed) for reliefs.income_test (the income-based age deduction).
 - Assumed resolved: the standard deduction is indexed false, no longer assumed (new entry `standard_deduction`). Instructions PDF p7 (printed Page 1), What's New, Increase in Standard Deduction: legislation set 8,750 / 17,500 'for Taxable Years 2025 and 2026', and the increase 'is scheduled to sunset after Taxable Year 2026 and revert to the standard deduction amounts that applied prior to Taxable Year 2019: $3,000 ... $6,000'. Amounts set by law for named years are not adjusted for inflation. The record's `indexing.standard_deduction` goes from not_stated to no with that cite, and the Indexing note says so; the projection's record sha256 is updated. This reverses the 2026-11-07 reading that the booklet states nothing; the sunset itself is still not modelled (tax-reference-data issue #2). The other VA entries stay assumed.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, Va. Code 58.1-320
+- `personal_exemption` (deductions:personal_exemption): not indexed, Va. Code 58.1-322.03(2)(a)
+- `age_65_exemption` (deductions:age_65_exemption): not indexed, Va. Code 58.1-322.03(2)(b)
+- `relief_caps` (reliefs.cap): not indexed, Va. Code 58.1-322.03(5); 58.1-322.02(18)
+- `relief_income_tests` (reliefs.income_test): not indexed, Va. Code 58.1-322.03(5)(b)
+- `standard_deduction` (existing entry, indexed false): note added with the statute's schedule, Va. Code 58.1-322.03(1)(b)
+- Record `indexing`: updated brackets -> no; added personal_exemption -> no; added age_65_exemption -> no; added age_deduction_born_by_1939 -> no; added age_deduction_income_based -> no; added military_benefits -> no.
+- The record's existing `standard_deduction` entry (no, booklet cite) is kept. The booklet says the 8,750 / 17,500 amounts revert to 3,000 / 6,000 after 2026; the statute read now schedules 9,200 / 18,400 for 2027 and 9,300 / 18,600 for 2028-2029 before 3,000 / 6,000 from 2030 (a later amendment). The projection note gives the statute's schedule; the 2025 figures are unaffected.

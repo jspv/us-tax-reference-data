@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/GA.record.json",
-  "sha256": "351000eed5476f21ccd89b9463b3f8d5ee2af5fca0a4c23429010ddfd19840f1"
+  "sha256": "21290056a7c84e08e56366a9896939583c9896b5d49a323e4784bd2557a5f11c"
  },
  "has_income_tax": true,
  "brackets": {
@@ -181,26 +181,26 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "one flat-rate band from 0, no threshold to grow (O.C.G.A. 48-7-20(a.1)); the rate steps down on a revenue-conditioned schedule, which is not an index"
   },
   {
    "figure": "deductions",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "deductions"
-   ]
+   ],
+   "note": "fixed by statute: 24,000 joint, 12,000 others (O.C.G.A. 48-7-27(a)(1)(B)); HB 463 of 2026 would schedule increases from 2026, enactment not checked"
   },
   {
    "figure": "relief_caps",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.cap"
-   ]
+   ],
+   "note": "fixed by statute: 35,000 (62-64), 65,000 (65 and over), 17,500 military under 62 (O.C.G.A. 48-7-27(a)(5)(A)(xiii), (a)(5.1)(A))"
   }
  ],
  "not_modelled": [
@@ -272,6 +272,11 @@
    "what": "The Low Income Credit (federal AGI less than 20,000) is out of the record's scope and not applied.",
    "direction": "overstates_tax",
    "size": "Small, for a household with federal AGI under 20,000."
+  },
+  {
+   "what": "Later years (HB 463, signed May 11, 2026): the flat rate falls to 4.99% for 2026 and then 0.125 point a year to 3.99% (each cut delayed a year if a revenue test fails); the standard deduction becomes 15,000 single / 30,000 joint for 2026 and rises 375 / 750 a year to 18,000 / 36,000 (same test); the 65-and-over retirement exclusion cap becomes 70,000 from 2027. The projection keeps the 2025 rate (5.19%), deduction (12,000 / 24,000) and cap (65,000).",
+   "direction": "overstates_tax",
+   "size": "2026: 0.2 point on taxable income (200 on 100,000) plus 3,000 x 4.99% = 149.70 single (299.40 joint) from the deduction; from 2027 also up to 5,000 x the rate (about 250) per person 65 or older with enough retirement income, growing as the rate cuts continue."
   }
  ],
  "recapture": [],

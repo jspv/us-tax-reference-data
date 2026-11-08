@@ -258,3 +258,11 @@ new `always` marker; `--fix-warnings` is the check writer's step.
 - Marker ids: all 11 markers have an `id`. Descriptive ids (no from_record id of their own): `ne_other_tax_lump_sum_early_distribution`, `ne_record_notes_lines`; the rest take their first from_record id, so their warning codes are unchanged. `tools.checks --fix-warnings` rewrote the cases' accepted_warnings (the old shared code state_rule_not_modelled:unnamed becomes the new ids); nothing else in the cases changed.
 - Indexing covers: `brackets` covers brackets; `deductions` covers deductions; `ne_personal_exemption_credit` covers reliefs:ne_personal_exemption_credit (its cap and credit amount). No split needed.
 - Assumed resolved: `brackets` is now indexed true, no longer assumed. Booklet (8-307-2025) PDF page 5, Employee Nebraska Wage Exclusion: 'For tax years beginning on or after January 1, 2026, the annual wage thresholds will be adjusted each tax year by the same percentage used to adjust the individual income tax brackets.' The record gains `indexing` brackets yes with that cite, and its Indexing note says so; the projection's record sha256 is updated. The sentence is indirect (it is about the wage exclusion), but it says the brackets are adjusted each year. The other NE entries stay assumed: nothing else says.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `deductions` (deductions): indexed, Neb. Rev. Stat. 77-2716.01(3)(b)
+- `ne_personal_exemption_credit` (reliefs:ne_personal_exemption_credit): indexed, Neb. Rev. Stat. 77-2716.01(1)(b)
+- Record `indexing`: added ne_standard_deduction -> yes; added ne_age_65_additional -> yes; added ne_personal_exemption_credit -> yes.

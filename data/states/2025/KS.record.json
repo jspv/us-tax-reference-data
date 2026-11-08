@@ -627,6 +627,50 @@
   "capital_gains": [],
   "indexing": [
     {
+      "figure": "brackets",
+      "indexed": "no",
+      "index": "fixed by statute: dollar bands for tax year 2024 and after. K.S.A. 79-32,110c lets the rates fall when revenue triggers are met; its CPI ratio is part of the revenue test and does not move the bands",
+      "cite": {
+        "publication": "Kansas Statutes Annotated, section 79-32,110",
+        "section": "79-32,110(a)(2)(B): single and other individuals, tax year 2024 and thereafter: \"Not over $23,000 ... 5.2% of Kansas taxable income; Over $23,000 ... $1,196 plus 5.58% of excess over $23,000\"",
+        "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0110.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "kansas_standard_deduction",
+      "indexed": "no",
+      "index": "fixed by statute: 3,605 single, 8,240 married, 6,180 head of household \"for tax year 2024, and all tax years thereafter\" (the statute states no separate married-filing-separately amount; the booklet prints 4,120)",
+      "cite": {
+        "publication": "Kansas Statutes Annotated, section 79-32,119",
+        "section": "79-32,119(b): \"For tax year 2024, and all tax years thereafter, the standard deduction amount ... shall be as follows: Single individual filing status, $3,605; married filing status, $8,240; and head of household filing status, $6,180.\"",
+        "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0119.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "age_65_additional_standard_deduction",
+      "indexed": "no",
+      "index": "fixed by statute: 850 single and head of household, 700 married",
+      "cite": {
+        "publication": "Kansas Statutes Annotated, section 79-32,119",
+        "section": "79-32,119(c)(2): additional standard deduction \"Single individual and head of household filing status, $850; and married filing status, $700.\"",
+        "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0119.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "personal_exemption_allowance",
+      "indexed": "no",
+      "index": "fixed by statute: 18,320 married filing joint, 9,160 the others, \"for tax year 2025, and all tax years thereafter\"",
+      "cite": {
+        "publication": "Kansas Statutes Annotated, section 79-32,121",
+        "section": "79-32,121(a): \"For tax year 2025, and all tax years thereafter ... $18,320 ... $9,160\"",
+        "url": "https://ksrevisor.gov/statutes/chapters/ch79/079_032_0121.html",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

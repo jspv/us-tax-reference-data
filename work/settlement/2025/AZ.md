@@ -116,3 +116,9 @@ data/states/2025/AZ.projection.json: ok
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`; `relief_caps` -> `reliefs.cap`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`. The booklet's only inflation sentences (PDF page 5) are about the private school tuition organization credits, which are not in the projection.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, A.R.S. 43-1011(A)(6), (D): one 2.5% band from 0, nothing to grow (43-1011(D) Phoenix CPI indexing is for a graduated schedule). Record `brackets` -> no.
+- `deductions` (projection `deductions`): split, replaced by `standard_deduction` (covers `deductions:standard_deduction`, indexed, A.R.S. 43-1041(H), federal IRC 63 method) and `age_65_exemption` (covers `deductions:age_65_exemption`, not_indexed, A.R.S. 43-1023(E), fixed 2,100). Record `standard_deduction` (was not_stated with the booklet cite) -> yes with the statute cite; `age_65_exemption` added as no.
+- `relief_caps` (projection `reliefs.cap`): not_indexed, A.R.S. 43-1022(2), fixed 2,500. Record `az_gov_pension_exclusion` added as no.

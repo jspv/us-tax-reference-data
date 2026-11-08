@@ -175,3 +175,11 @@ data/states/2025/MD.projection.json: ok
 - Added `capital_gains_threshold` (indexed false, assumed) for the 350,000 federal AGI over which the 2% capital gains tax applies.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`. The booklet's 'have been adjusted for taxable year 2025' note is about the refundable child and dependent care credit's FAGI limits, which are not in the projection. The ranger worksheet calls the 41,200 'the maximum Social Security benefit' (the same figure as the pension exclusion's cap), but nothing says the exclusion is adjusted each year, so `relief_caps` stays assumed.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, Tax-General 10-105(a)(1). Record `brackets` added as no.
+- `deductions` (projection `deductions`): split, replaced by `standard_deduction` (`deductions:standard_deduction`, indexed from 2026, Tax-General 10-217(c): IRC 1(f)(3) with 2024 base, rounded down to 50; `indexed_from: 2026`), `personal_exemption` (`deductions:personal_exemption`, not_indexed, 10-211(b)(1), (c)) and `age_65_exemption` (`deductions:age_65_exemption`, not_indexed, 10-211(b)(3)). Record entries added for all three.
+- `relief_caps` (projection `reliefs.cap`): split, replaced by `pension_exclusion_cap` (`reliefs:pension_exclusion.cap`, indexed: the Social Security maximum benefit at 65 for the prior year, Tax-General 10-209(b)(2), (c)), `military_retirement_55_plus_cap` (not_indexed, 10-207(q)(2)(ii)), `military_retirement_under_55_cap` (not_indexed, 10-207(q)(2)(i)) and `age_100_income_cap` (not_indexed, 10-207(nn)). Record `pension_exclusion_age_65` and `pension_exclusion_disabled` (same 10-209 cap) added as yes; the three fixed caps added as no.
+- `capital_gains_threshold` (projection `capital_gains`): not_indexed, Tax-General 10-105(a)(4), 350,000. Record `additional_cap_gain_tax` added as no.
+- The existing `all_other` entry (booklet searched, nothing said) is left.

@@ -149,3 +149,13 @@ The surviving spouse deduction (line 48) shares the same 8,000 (its `cap_rule`).
 - Marker ids: all 12 markers have an `id`. Each takes its first from_record id, so warning codes are unchanged.
 - Indexing covers: `brackets`, `deductions`, `relief_caps` (reliefs.cap). Added `relief_income_tests` (indexed false, assumed) for reliefs.income_test (the Social Security modification's AGI limit).
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): not indexed, W. Va. Code 11-21-4i (tax year 2025); 11-21-4j (2026, same bands, lower rates)
+- `deductions` (deductions): not indexed, W. Va. Code 11-21-16(a)
+- `relief_caps` (reliefs.cap): not indexed, W. Va. Code 11-21-12(c)(5) (also the ceiling in (c)(6)) and 11-21-12(c)(9)
+- `relief_income_tests` (reliefs.income_test): not indexed, W. Va. Code 11-21-12(c)(8)(B) and (F)
+- Record `indexing`: added brackets -> no; added wv_personal_exemption -> no; added wv_other_retirement -> no; added wv_social_security -> no; added wv_senior_citizen_deduction -> no.

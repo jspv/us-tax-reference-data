@@ -569,9 +569,17 @@
             "minItems": 1,
             "items": {
               "type": "string",
-              "pattern": "^(brackets|surtaxes|capital_gains|recapture|deductions|reliefs)(:[a-z0-9_]+)?(\\.(amount|phase_out|cap|income_test|credit_amount|applies_over|earned_income_limit))?$"
+              "pattern": "^(brackets|surtaxes|capital_gains|recapture|deductions|reliefs)(:[a-z0-9_]+)?(\\.(amount|phase_out|phase_out_thresholds|phase_out_amounts|cap|income_test|credit_amount|applies_over|earned_income_limit))?$"
             },
-            "description": "The figures this entry grows, as selectors: 'brackets' (every band start), 'surtaxes', 'capital_gains' (an entry's applies_over threshold), 'recapture' (its thresholds); 'deductions' or 'deductions:<id>' (a base deduction's amount and phase-out figures; '.amount' or '.phase_out' for one part); 'reliefs.cap', 'reliefs.income_test', 'reliefs.credit_amount', 'reliefs.applies_over', 'reliefs.earned_income_limit' (that figure of every relief), or 'reliefs:<id>' / 'reliefs:<id>.cap' for one relief. A selector naming an id beats a general one. Every amount a projection would grow is covered by exactly one entry once the most specific selector is taken (tools/validate.py)."
+            "description": "The figures this entry grows, as selectors: 'brackets' (every band start) or 'brackets:<n>' (the start of band n, counting the band starting at 0 as band 0, so the top band of a seven-band schedule is brackets:6), 'surtaxes', 'capital_gains' (an entry's applies_over threshold), 'recapture' (its thresholds); 'deductions' or 'deductions:<id>' (a base deduction's amount and phase-out figures; '.amount' or '.phase_out' for one part); 'reliefs.cap', 'reliefs.income_test', 'reliefs.credit_amount', 'reliefs.applies_over', 'reliefs.earned_income_limit' (that figure of every relief), or 'reliefs:<id>' / 'reliefs:<id>.cap' for one relief. A selector naming an id beats a general one. Every amount a projection would grow is covered by exactly one entry once the most specific selector is taken (tools/validate.py)."
+          },
+          "indexed_from": {
+            "type": "integer",
+            "description": "First tax year the figures grow, when indexing starts or resumes after the data's year (Wisconsin brackets from 2026; Ohio after its 2025-2026 suspension). Before it they stay as printed."
+          },
+          "note": {
+            "type": "string",
+            "description": "Timing or method in a few words (index, rounding, a suspension or scheduled amounts); the record's indexing entry holds the cite."
           }
         }
       }

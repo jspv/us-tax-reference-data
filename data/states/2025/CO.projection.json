@@ -4,7 +4,7 @@
   "tax_year": 2025,
   "record": {
     "path": "data/states/2025/CO.record.json",
-    "sha256": "e8228d4090007574b211018d7e2c9c1101dc73c63ffbacc7b334b9e7b3310fd1"
+    "sha256": "8a3c9d416aea35b37b36b26551be169d209baf97e868ebecfda52f2d87d0e2ca"
   },
   "has_income_tax": true,
   "brackets": {
@@ -194,26 +194,26 @@
     {
       "figure": "brackets",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "brackets"
-      ]
+      ],
+      "note": "one flat 4.40% band from 0, no threshold to grow (C.R.S. 39-22-104(1.7)(c))"
     },
     {
       "figure": "relief_caps",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.cap"
-      ]
+      ],
+      "note": "fixed by statute: 20,000 / 24,000 (C.R.S. 39-22-104(4)(f)(III)); military 15,000 for tax years 2022-2028 (4)(y)(I)(D)"
     },
     {
       "figure": "relief_income_tests",
       "indexed": false,
-      "assumed": true,
       "covers": [
         "reliefs.income_test"
-      ]
+      ],
+      "note": "fixed by statute: federal AGI 75,000 single, 95,000 joint (C.R.S. 39-22-104(4)(f)(III)(A))"
     }
   ],
   "not_modelled": [
@@ -307,6 +307,11 @@
       "what": "Interest on U.S. Treasury obligations is taxed (the projection cannot tell it from other interest).",
       "direction": "overstates_tax",
       "size": "4.4% of the Treasury interest."
+    },
+    {
+      "what": "Later years: the military retirement subtraction for those under 55 (co_military_retirement_under_55) ends after tax year 2028 (C.R.S. 39-22-104(4)(y)). The projection keeps it.",
+      "direction": "understates_tax",
+      "size": "From 2029, up to 15,000 x 4.4% = 660 a year per military retiree under 55."
     }
   ],
   "recapture": [],

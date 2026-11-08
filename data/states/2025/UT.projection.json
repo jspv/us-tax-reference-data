@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/UT.record.json",
-  "sha256": "d6b8f6fdb68201b3164446c83ed047ddcf7a1c3d2a1391c76c445a2b4e6c2cfc"
+  "sha256": "f386ce1b8079abf5548befb90f075784607b79534092a6c3e4cfb8ac80d76967"
  },
  "has_income_tax": true,
  "brackets": {
@@ -210,43 +210,59 @@
   {
    "figure": "brackets",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "note": "flat rate, no bands (Utah Code 59-10-104(2))"
   },
   {
    "figure": "deductions",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "reliefs:taxpayer_tax_credit.cap",
     "reliefs:qualified_exempt_taxpayer.income_test"
-   ]
+   ],
+   "note": "tracks the federal standard deduction (IRC 63, indexed under 63(c)(4)): credit base 6% of it, exemption test equal to it (59-10-1018(2)(a), 59-10-104.1(2))"
   },
   {
-   "figure": "relief_caps",
+   "figure": "retirement_credit_cap",
    "indexed": false,
-   "assumed": true,
    "covers": [
-    "reliefs.cap"
-   ]
+    "reliefs:retirement_credit.cap"
+   ],
+   "note": "fixed 450 (Utah Code 59-10-1019(2))"
   },
   {
-   "figure": "relief_income_tests",
-   "indexed": false,
-   "assumed": true,
+   "figure": "taxpayer_tax_credit_income_test",
+   "indexed": true,
    "covers": [
-    "reliefs.income_test"
-   ]
+    "reliefs:taxpayer_tax_credit.income_test"
+   ],
+   "note": "CPI (IRC 1(f)(4)-(5)) vs calendar 2020; nearest dollar, joint twice single (59-10-1018(4)-(5))"
+  },
+  {
+   "figure": "retirement_credit_income_test",
+   "indexed": false,
+   "covers": [
+    "reliefs:retirement_credit.income_test"
+   ],
+   "note": "fixed by statute (59-10-1019(4))"
+  },
+  {
+   "figure": "social_security_credit_income_test",
+   "indexed": false,
+   "covers": [
+    "reliefs:social_security_credit.income_test"
+   ],
+   "note": "fixed by statute (59-10-1042(4))"
   },
   {
    "figure": "relief_credit_amounts",
    "indexed": false,
-   "assumed": true,
    "covers": [
     "reliefs.credit_amount"
-   ]
+   ],
+   "note": "fixed 450 (Utah Code 59-10-1019(2))"
   }
  ],
  "not_modelled": [

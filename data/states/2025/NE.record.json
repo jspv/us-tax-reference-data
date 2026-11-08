@@ -3598,6 +3598,39 @@
       }
     },
     {
+      "figure": "ne_standard_deduction",
+      "indexed": "yes",
+      "index": "Consumer Price Index for All Urban Consumers (BLS); base: 12 months ending Aug 31, 2017, compared to 12 months ending Aug 31 of the year preceding the tax year; rounding: rounded down to the next lowest multiple of $50",
+      "cite": {
+        "publication": "Neb. Rev. Stat. 77-2716.01(3)(b)",
+        "section": "Neb. Rev. Stat. 77-2716.01(3)(b): \"(b) For tax years beginning or deemed to begin on or after January 1, 2019, the standard deduction amounts, including the additional standard deduction amounts, in this subsection shall be adjusted for inflation based on the percentage change in the Consumer Price Index for All Urban Consumers published by the federal Bureau of Labor Statistics from the twelve months ending on August 31, 2017, to the twelve months ending on August 31 of the year preceding the taxable year. If any amount is not a multiple of fifty dollars, the amount shall be rounded to the next lowest multiple of fifty dollars.\"",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2716.01",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ne_age_65_additional",
+      "indexed": "yes",
+      "index": "Consumer Price Index for All Urban Consumers (BLS); base: 12 months ending Aug 31, 2017, compared to 12 months ending Aug 31 of the year preceding the tax year; rounding: rounded down to the next lowest multiple of $50",
+      "cite": {
+        "publication": "Neb. Rev. Stat. 77-2716.01(3)(b)",
+        "section": "Neb. Rev. Stat. 77-2716.01(3)(b): \"(b) For tax years beginning or deemed to begin on or after January 1, 2019, the standard deduction amounts, including the additional standard deduction amounts, in this subsection shall be adjusted for inflation based on the percentage change in the Consumer Price Index for All Urban Consumers published by the federal Bureau of Labor Statistics from the twelve months ending on August 31, 2017, to the twelve months ending on August 31 of the year preceding the taxable year. If any amount is not a multiple of fifty dollars, the amount shall be rounded to the next lowest multiple of fifty dollars.\"",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2716.01",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
+      "figure": "ne_personal_exemption_credit",
+      "indexed": "yes",
+      "index": "Consumer Price Index for All Urban Consumers (BLS); base: 12 months ending Aug 31, 2017 to 12 months ending Aug 31 of the year preceding the tax year; tax year 2018 credit $134; rounding: nearest dollar",
+      "cite": {
+        "publication": "Neb. Rev. Stat. 77-2716.01(1)(b)",
+        "section": "Neb. Rev. Stat. 77-2716.01(1)(b): \"For tax year 2018, the credit amount shall be one hundred thirty-four dollars. For tax year 2019 and each tax year thereafter, the credit amount shall be adjusted for inflation based on the percentage change in the Consumer Price Index for All Urban Consumers published by the federal Bureau of Labor Statistics from the twelve months ending on August 31, 2017, to the twelve months ending on August 31 of the year preceding the taxable year. If any credit amount is not an even dollar amount, the amount shall be rounded to the nearest dollar.\"",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=77-2716.01",
+        "accessed": "2026-11-08"
+      }
+    },
+    {
       "figure": "all_other",
       "indexed": "not_stated"
     }

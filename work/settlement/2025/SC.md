@@ -93,3 +93,11 @@ Total: 13 + 1 + 26 + 3 + 5 = 48 decided from the booklet; 6 + 5 + 3 + 3 + 5 = 22
 - Marker ids: all 8 markers have an `id`. Each takes its first from_record id, so warning codes are unchanged.
 - Indexing covers: `brackets`, `relief_caps` (reliefs.cap: both retirement deductions and the age 65 deduction). No split needed.
 - Assumed entries: searched the archived sources (docling, pypdf and page text) for indexed, inflation, cost of living, adjusted annually and consumer price index, and for statements that figures are fixed; nothing says, so every `assumed: true` stays.
+
+## 2026-11-08: indexing settled from statutes
+
+Statute research (work/indexing/findings*.json) settled every projection indexing entry that was `assumed: true`:
+
+- `brackets` (brackets): indexed, S.C. Code 12-6-520; 12-6-510(B)(1) ('with the income brackets indexed in accordance with Section 12-6-520')
+- `relief_caps` (reliefs.cap): not indexed, S.C. Code 12-6-1170(A), (B)
+- Record `indexing`: updated brackets -> yes; added sc_retirement_under_65 -> no; added sc_retirement_65_or_older -> no; added sc_age_65_deduction -> no.

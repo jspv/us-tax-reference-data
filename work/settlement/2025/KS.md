@@ -167,3 +167,9 @@ The booklet prints only totals by boxes checked (PDF page 6), and each step is t
 - Indexing covers: `brackets` -> `brackets`; `deductions` -> `deductions`.
 - Every `assumed` answer was checked again against the archived sources (searched for indexed, inflation, cost-of-living, adjusted annually, each year, CPI, fixed): none says, so all stay `assumed: true`.
 - Warning codes unchanged (every id is the marker's first from_record id).
+
+## 2026-11-08: indexing settled from statutes
+
+- `brackets` (projection `brackets`): not_indexed, K.S.A. 79-32,110(a)(2)(B) (79-32,110c moves rates, not bands). Record `brackets` added as no.
+- `deductions` (projection `deductions`): not_indexed, K.S.A. 79-32,119(b), (c)(2) and 79-32,121(a). Record `kansas_standard_deduction`, `age_65_additional_standard_deduction`, `personal_exemption_allowance` added as no. The head-of-household additional exemption (2,320, folded into the projection 11,480) is not quoted by the finding and gets no record entry; the projection `deductions` entry covers it.
+- Flagged figures checked against the booklet (ip25): (1) head of household exemption: the statute gives head of household the single 9,160; the booklet prints the same 9,160 (PDF page 2, "single, head of household, or married filing separate, the exemption allowance is $9,160") plus "an additional exemption of $2,320" for head of household (PDF page 6). The record has 9,160 and the separate 2,320; the projection folds them into 11,480 (derived_figures sum 9,160 + 2,320). Matches the booklet; no change. (2) married filing separate standard deduction: the booklet prints "Married Filing Separate ... $4,120" (PDF page 2 and page 6); the data has 4,120. Matches; no change (the statute names no separate amount; 4,120 is half of 8,240).

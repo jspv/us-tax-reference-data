@@ -4,7 +4,7 @@
  "tax_year": 2025,
  "record": {
   "path": "data/states/2025/MT.record.json",
-  "sha256": "c5b6ec0f4363c833fdfe28f89e25e6083d23b51e6dfb619979541ef1dea7589c"
+  "sha256": "452c08873df8fec8ce898e8761542a98fc1b4424c47b165242de989cd641e74f"
  },
  "has_income_tax": true,
  "brackets": {
@@ -95,11 +95,12 @@
  "indexing": [
   {
    "figure": "brackets",
-   "indexed": false,
-   "assumed": true,
+   "indexed": true,
    "covers": [
     "brackets"
-   ]
+   ],
+   "indexed_from": 2028,
+   "note": "CPI-U inflation factor (June over June 2023), nearest $100, for 2025; HB 337 (2025) sets fixed bands for 2026 (47,500 single / 71,250 HoH / 95,000 joint) and from 2027 (65,000 / 97,500 / 130,000); indexing resumes 2028 (June 2026 base)"
   },
   {
    "figure": "deductions",
@@ -199,6 +200,11 @@
    "what": "The booklet prints lower schedules for tax years 2026 and 2027 (House Bill 337): top rate 5.65% then 5.4%, starting at much higher incomes. Growing the 2025 schedule forward does not reproduce them, and the -0.018 extra rate is tied to the 2025 top rate.",
    "direction": "overstates_tax",
    "size": "For 2026, single: up to 0.25% of income above 47,500 and 1.2% of income between 21,100 and 47,500."
+  },
+  {
+   "what": "Later years: HB 337 (2025) sets fixed band starts for 2026 (47,500 single, 71,250 head of household, 95,000 joint) and from 2027 (65,000 / 97,500 / 130,000), and indexing resumes in 2028 (indexing entry brackets, indexed_from 2028). A projection that holds the 2025 band (21,100 single) through 2027 puts more income in the higher band.",
+   "direction": "overstates_tax",
+   "size": "Up to 26,400 x 1.2% = 316.80 a year for a single filer in 2026 and 43,900 x 1.2% = 526.80 in 2027 (double for joint), from the band start alone; HB 337's other scheduled changes are in the record notes."
   }
  ],
  "recapture": [],
