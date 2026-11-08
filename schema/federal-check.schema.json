@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "tax-reference-data/schema/federal-check.schema.json",
   "title": "A hand-worked federal check",
-  "description": "One household worked by hand from the federal publications (Form 1040 instructions and worksheets, Publication 915, Forms 8960 and 8959, CMS and SSA tables, the RMD tables), to prove the figures in data/federal/<year>/US.federal.json. A second person works the same inputs blind (tools/checks_compare.py) and `verified` records the agreement.",
+  "description": "One household worked by hand from the federal publications (Form 1040 instructions and worksheets, Publication 915, Forms 8960 and 8959, CMS and SSA tables, the RMD tables), to prove the figures in data/federal/<year>/US.federal.json. A second working of the same inputs is made without seeing the first (tools/checks_compare.py; in this dataset both workings are by language models), and `verified` records the agreement.",
   "type": "object",
   "additionalProperties": false,
   "required": [

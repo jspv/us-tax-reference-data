@@ -1,7 +1,28 @@
 # us-tax-reference-data
 
-Cited, machine-readable U.S. federal and state individual income tax figures for long-range
-retirement planning, with the tools that produced and check them.
+Cited, machine-readable U.S. federal and state individual income tax figures, with the tools that
+produced and check them, for testing and developing retirement-planning software.
+
+## Read this first: made by AI, for testing only
+
+**This dataset was produced by large language models (AI).** Language models read the government
+publications, extracted the figures, wrote the rules, worked the example cases and checked each
+other's work. A person directed the work and made some judgement calls, but no person has checked the
+figures line by line. Where these files say a case was "hand-worked", "worked by hand" or worked by a
+"second person", that working was done step by step by a language model, and the second working by a
+separate model session.
+
+**It will contain errors.** Expect misread figures, missed or misunderstood rules, rules applied to
+the wrong people or years, and mistakes in the worked cases. The checks described below compare one AI
+working against another. They catch many mistakes, but not the ones both workings make, and two
+workings agreeing does not show that either is right. Tax law also changes after a release is made.
+
+**Use it for testing software only. Do not rely on it for any financial decision.** That includes
+tax, investment, retirement and benefit decisions, preparing or filing a tax return, and advising
+anyone else. Nothing here is tax, legal, investment or financial advice. For a real decision, use the
+official publication cited for the figure, or ask a qualified professional.
+
+## What is here
 
 - **Federal** (tax years 2025 and 2026): rate schedules, standard deduction and the additional amount
   at 65, the 2025-2028 senior deduction, capital gains bands, net investment income tax, additional
@@ -17,14 +38,10 @@ Every figure cites the government publication it comes from (agency booklet, rev
 or SSA notice, statute or regulation), with the PDF page and line, and the sha256 of the exact file
 read. Nothing is copied from a third-party tax dataset or another project's parameters.
 
-**Not tax advice.** This is reference data for planning software. It has been checked carefully (see
-"How the figures are checked"), but it can contain errors, and tax law changes. Check anything that
-matters against the cited publication.
-
 ## Getting the data
 
 Most users want a release: each tagged release has a small archive (about 1 MB) with the data,
-schemas, hand-worked checks and a `manifest.json` holding the sha256 of every file. Releases never
+schemas, worked checks and a `manifest.json` holding the sha256 of every file. Releases never
 change once tagged; pin a version and check the hashes.
 
 Cloning the repository gives the same data plus the tools, the decision log and the evidence behind
@@ -47,7 +64,7 @@ the few PDFs with no exact archived copy, are kept in the repository as converte
 data/federal/<year>/US.federal.json        federal figures             schema/federal.schema.json
 data/states/<year>/<ST>.record.json        what the state publication says (layer 1)   schema/record.schema.json
 data/states/<year>/<ST>.projection.json    what a planner computes each year (layer 2)  schema/projection.schema.json
-checks/<year>/<ST>/, checks/<year>/US/     hand-worked cases           schema/check.schema.json, federal-check.schema.json
+checks/<year>/<ST>/, checks/<year>/US/     worked cases                schema/check.schema.json, federal-check.schema.json
 sources/                                   registry of sources; per year and jurisdiction, fetch.json (address, sha256, archived copy)
 docs/                                      design, decisions with evidence, briefs for each step, pension report
 tools/                                     fetch, convert, compare, validate, checks, sources, export
@@ -61,15 +78,17 @@ of the publication.
 
 ## How the figures are checked
 
-1. **Two independent readings.** Two readers extract each jurisdiction from the converted sources
+Every step below is carried out by language models (see "Read this first").
+
+1. **Two independent readings.** Two separate model sessions extract each jurisdiction from the converted sources
    into the record format; `tools/compare.py` diffs them field by field, and every difference is
    settled against the publication (`work/settlement/`).
 2. **Every figure is printed.** `tools/validate.py` checks that every amount and rate in a record is
    printed in that jurisdiction's sources (federal: in the very document its citation names), and that
    a projection adds no figure of its own.
-3. **Hand-worked checks, worked twice.** Each relief, deduction and threshold has cases worked by hand
-   from the publication's own worksheets (below and at each limit). A second person works the same
-   inputs blind; `tools/checks_compare.py` compares every line to the cent, and only agreeing cases
+3. **Worked checks, worked twice.** Each relief, deduction and threshold has cases worked step by
+   step from the publication's own worksheets (below and at each limit). A separate model session works
+   the same inputs without seeing the first working; `tools/checks_compare.py` compares every line to the cent, and only agreeing cases
    ship. Releases include only verified jurisdictions.
 
 ## Tools

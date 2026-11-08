@@ -40,6 +40,12 @@ README = """# {name} {version}
 Cited state income tax data for tax year {year}, for long-range retirement projections.
 Status: **{status}**. {status_note}
 
+**Made by AI, for testing only.** This data was produced and checked by large language models; no
+person has checked it line by line, and it will contain errors. Use it for testing software only.
+Do not rely on it for any financial, tax, investment or retirement decision, or for preparing a
+return. It is not tax, legal, investment or financial advice. Where these files say "hand-worked" or
+"second working", the working was done step by step by a language model.
+
 ## What is here
 
 - `states/<ST>.projection.json`: **layer 2**, the projection model. Start here. Rules a planner computes

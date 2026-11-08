@@ -26,5 +26,5 @@ Each case is one household worked by hand from the federal publications, to prov
    "more than").
 6. **Expected lines:** give every expected line the case can show; at least the lines that prove the groups
    in `tests`. `total_tax` = `regular_tax` + `net_investment_income_tax` + `additional_medicare_tax`.
-7. A second person works the same inputs blind (`uv run python -m tools.checks_compare prepare|compare
+7. A separate model session works the same inputs blind (`uv run python -m tools.checks_compare prepare|compare
    --year <year> --state US`); only agreeing cases ship.
