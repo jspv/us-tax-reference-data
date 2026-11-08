@@ -112,6 +112,8 @@ def pull(year: int, states: list[str]) -> int:
         for entry in entries:
             if not entry.get("ok") or not entry.get("file") or not entry.get("sha256"):
                 continue
+            if not entry["file"].endswith(".pdf"):
+                continue  # a web page: its converted text (.page.txt) is kept in the repository
             local = folder / entry["file"]
             if local.exists() and hashlib.sha256(local.read_bytes()).hexdigest() == entry["sha256"]:
                 continue
